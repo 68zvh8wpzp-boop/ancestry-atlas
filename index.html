@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<title>Ancestry Atlas v1.6</title>
+<title>Ancestry Atlas v1.6.1b</title>
 <style>
 :root{
   --bg:#081018; --panel:#0f1a24; --panel2:#132231; --text:#eef4fa; --muted:#9fb1c2;
@@ -79,7 +79,7 @@ canvas:active{cursor:grabbing}
 @media(max-width:800px){#proofNotice{top:54px;left:10px;right:10px;max-width:none;font-size:9.5px}}
 
 
-/* Ancestry Atlas v1.6 — family-facing landing + guided story */
+/* Ancestry Atlas v1.6.1b — family-facing landing + guided story */
 .landing{
   position:fixed;z-index:200;inset:0;display:flex;align-items:center;justify-content:center;
   background:
@@ -172,7 +172,7 @@ canvas:active{cursor:grabbing}
 }
 
 
-/* v1.3 — prerecorded museum audio */
+/* v1.3 —  museum audio */
 .audio-status{font-size:11px;color:#8fb0c7;margin-left:2px}
 .audio-status.ready{color:#9ee6b8}
 .audio-status.fallback{color:#d8c98f}
@@ -355,6 +355,35 @@ canvas:active{cursor:grabbing}
   .story-shell.story-prelude .story-event{display:none!important}
 }
 
+
+/* v1.6.1 — archival / period image carousel */
+.story-scene-strip{z-index:225!important}
+.story-scene-frame{background:#080d12!important}
+.story-scene-photo{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(.18) contrast(1.02) brightness(.72);
+  opacity:1;transition:opacity .55s ease,transform 1.2s ease;
+  transform:scale(1.015)
+}
+.story-scene-image.swap .story-scene-photo{opacity:.12;transform:scale(1.06)}
+.story-scene-art{display:none}
+.story-scene-image::before{display:none!important}
+.story-scene-image::after{
+  background:linear-gradient(180deg,rgba(0,0,0,.08) 10%,rgba(0,0,0,.78) 92%)!important
+}
+.story-scene-caption{
+  position:relative;z-index:5;max-width:92%;
+  padding:8px 10px;border-radius:9px;background:rgba(0,0,0,.28)
+}
+.story-scene-source{
+  display:block;margin-top:5px;font-size:9px!important;color:#a8bbc8!important
+}
+@media(max-width:760px){
+  .story-scene-strip{z-index:225!important;top:8px!important}
+  .story-scene-frame,.story-scene-image{min-height:215px!important}
+  .story-modal{z-index:190!important}
+}
+
 </style>
 
 <script>
@@ -378,7 +407,7 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Our Family Story</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v1.6 • cinematic guided story</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v1.6.1b • archival scene carousel</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop moves slowly through the tree, pauses on visual scenes from the person’s place and era, then settles on the written story.</p>
   </div>
 </div>
@@ -387,10 +416,11 @@ window.addEventListener('error',function(e){
 <div id="storySceneStrip" class="story-scene-strip" aria-hidden="true">
   <div class="story-scene-frame">
     <div id="storySceneImage" class="story-scene-image">
+      <img id="storyScenePhoto" class="story-scene-photo" alt="">
       <div id="storySceneArt" class="story-scene-art"></div>
       <div class="story-scene-caption">
         <b id="storySceneTitle"></b>
-        <span id="storySceneCaption"></span>
+        <span id="storySceneCaption"></span><span id="storySceneSource" class="story-scene-source"></span>
       </div>
       <div id="storySceneCount" class="story-scene-count"></div>
     </div>
@@ -415,9 +445,9 @@ window.addEventListener('error',function(e){
     <div class="story-controls">
       <button id="storyPlay">▶ Play narrated tour</button>
       <button id="storyPause">Ⅱ Pause</button>
-      <span id="audioStatus" class="audio-status">Narrator: Clara · prerecorded audio when available</span>
+      <span id="audioStatus" class="audio-status"></span>
       <div class="story-audio-meter"><span id="audioMeterFill"></span></div>
-      <span class="story-toggle">Narrator: Clara · English (Canada) · all branches</span>
+      <span class="story-toggle"></span>
     </div>
     <div class="story-card">
       <div class="story-visual">
@@ -1574,14 +1604,13 @@ document.addEventListener('keydown',e=>{
 
 resize();
 
-// ---------- Ancestry Atlas v1.6 narrated museum tours ----------
+// ---------- Ancestry Atlas v1.6.1b narrated museum tours ----------
 const BRANCH_TOURS = {
   canada: {
     title:'Canada — Brenay & Gooley',
-    narrator:{id:'charles_godfrey', origin:'Germany → Ontario / Michigan', intro:'I am Charles Godfrey Brenay. From here, we will follow this branch backward through the people and places that shaped it.'},
-    voicePrefs:['en-CA','de-DE','en-US','en-GB'],
+    narrator:{id:'charles_godfrey', origin:'Germany → Ontario / Michigan', intro:'From Arizona, this branch reaches north through Michigan and Ontario, then farther back toward its European roots.'},
+    languagePrefs:['en-CA','de-DE','en-US','en-GB'],
     steps:[
-      {id:'you', copy:'We begin in the present. From here, the Canadian story runs through Arizona and Michigan before crossing the border into Ontario and Quebec.'},
       {id:'james_sheldon', copy:'James Sheldon Webb is the modern documentary gateway to this branch. His Arizona birth certificate is the immediate record needed to anchor the citizenship proof chain from the present generation backward.', event:'Born during the Second World War era, he entered a world being reshaped by global conflict, mass aviation, antibiotics, and the postwar transformation of the American West.'},
       {id:'marion_brenay', copy:'Marion Beulah Brenay carries the Canadian ancestry into the modern Webb family. Her obituary provides an important bridge by naming Charles Albert Brenay and Marian Beulah Skinner as her parents.', event:'Marion was born in 1923. Her childhood overlapped the Great Depression, and she reached adulthood as the Second World War transformed daily life across North America.'},
       {id:'charles_albert', copy:'Charles Albert Brenay was born in Arnstein, Ontario, in 1897. He is the clearest Canadian-born anchor in this branch, and his naturalization material remains a major document target.', event:'His lifetime crossed the First World War, the 1918 influenza pandemic, the Great Depression, and the Second World War—events that transformed borders, migration, work, and family life across Canada and the United States.'},
@@ -1593,9 +1622,8 @@ const BRANCH_TOURS = {
   webb: {
     title:'Webb — Arizona to Connecticut',
     narrator:{id:'james_webb_jr', origin:'Connecticut, 1777', intro:'I am James Webb Jr., born in Connecticut in 1777—the earliest Webb ancestor on this branch whose place in the line is strongly supported before the evidence begins to darken. I will tell the story from the present day backward, until we reach the question that still waits for proof.'},
-    voicePrefs:['en-GB','en-US'],
+    languagePrefs:['en-GB','en-US'],
     steps:[
-      {id:'you', copy:'The Webb story begins in the present and travels backward through Arizona, the nineteenth-century American frontier, New York, and finally Connecticut.'},
       {id:'james_sheldon', copy:'James Sheldon Webb is the modern anchor of the Webb line. The family evidence below him is strong, while his birth certificate remains especially important for the Canadian proof track.'},
       {id:'james_wilford', copy:'James Wilford “Jay” Webb connects the present family to Jonathan Henry Webb and Della Ray in Arizona.'},
       {id:'jonathan_henry', copy:'Jonathan Henry Webb was born in Woodruff, Arizona, in 1886. His generation belonged to the transition from territorial communities to a rapidly modernizing American Southwest.', event:'Arizona did not become a state until 1912. Jonathan lived through that transition, the First World War, the Great Depression, and the Second World War.'},
@@ -1609,9 +1637,8 @@ const BRANCH_TOURS = {
   dunbar: {
     title:'Dunbar — Missouri to the Revolution',
     narrator:{id:'rev_thomas', origin:'Loudoun County, Virginia', intro:'I am Thomas Dunbar, a Revolutionary War veteran and the earliest securely documented voice on this Dunbar branch. I will tell the family story from the present day backward, through Missouri and into the revolutionary generation I knew.'},
-    voicePrefs:['en-US','en-GB'],
+    languagePrefs:['en-US','en-GB'],
     steps:[
-      {id:'you', copy:'The Dunbar story begins with the present family and moves backward through the Hill household in Missouri before reaching the older Dunbar generations.'},
       {id:'inez_karen', copy:'Inez Karen Prather anchors the maternal side of the atlas. Her Prather ancestry is still less developed, while the Hill and Dunbar branch gives us a clearer path backward.'},
       {id:'grace_hill', copy:'Grace Mildred Hill was born in Richmond, Ray County, Missouri, in 1908. She anchors the documented maternal Hill branch.', event:'Her lifetime began just before the First World War and spanned the 1918 influenza pandemic, the Great Depression, and the enormous social changes of the twentieth century.'},
       {id:'isaiah_hill', copy:'Isaiah “Zay” Hill Sr. connects Grace to Colonel Russell Hill and David Ann Dunbar. Collateral relatives are being used carefully to strengthen this family cluster.'},
@@ -1626,9 +1653,8 @@ const BRANCH_TOURS = {
   denmark: {
     title:'Denmark — Mortensen, Jensen & Møn',
     narrator:{id:'levin_zander', origin:'German-born, settled on Møn, Denmark', intro:'I am Levin Zander, a German-born soldier who settled on the Danish island of Møn and the earliest confirmed person currently anchoring this branch. I will tell our story from the present day backward, through the Mortensen and Jensen families to the seventeenth century.'},
-    voicePrefs:['da-DK','en-GB','en-US'],
+    languagePrefs:['da-DK','en-GB','en-US'],
     steps:[
-      {id:'you', copy:'The Danish branch begins in the present and travels backward through Arizona family history to nineteenth-century Danish converts and then into older families on Møn and nearby islands.'},
       {id:'della_ray', copy:'Della Ray connects the modern Arizona family to James Wilford Ray and Elsie Margaret Mortensen, opening the Danish branch.'},
       {id:'elsie_mortensen', copy:'Elsie Margaret Mortensen was a daughter of Morten Peder Mortensen and Dorthea Knudsen Jensen. Family and church sources make this nineteenth-century Danish connection unusually rich.'},
       {id:'morten_peder', copy:'Morten Peder Mortensen was born in Hårbølle, Fanefjord, in 1828. His historical Church profile names his parents and preserves an official portrait.', event:'His lifetime overlapped the Danish constitutional transformation of 1849, the First and Second Schleswig Wars, mass emigration, and major religious change.'},
@@ -1673,11 +1699,9 @@ function confidenceFamilyText(conf){
 }
 function pickVoice(track){
   if(!availableVoices.length) loadVoices();
-  const named=availableVoices.find(v=>(v.name||'').toLowerCase().includes('clara'));
-  if(named) return named;
-  const canadian=availableVoices.find(v=>(v.lang||'').toLowerCase()==='en-ca');
-  if(canadian) return canadian;
-  return availableVoices.find(v=>(v.lang||'').toLowerCase().startsWith('en')) || availableVoices[0] || null;
+  return availableVoices.find(v=>(v.lang||'').toLowerCase()==='en-ca')
+      || availableVoices.find(v=>(v.lang||'').toLowerCase().startsWith('en'))
+      || availableVoices[0] || null;
 }
 function narratorIntro(){
   const t=BRANCH_TOURS[storyTrack];
@@ -1689,7 +1713,7 @@ function renderStory(){
   const step=steps[storyIndex], n=nodeById.get(step.id);
   if(!n) return;
   document.getElementById('storyTitle').textContent=tour.title;
-  storyNarrator.textContent=(storyIndex===0 ? narratorIntro() : `Narrated by ${nodeById.get(tour.narrator.id)?.name || 'the earliest established ancestor'} · origin point: ${tour.narrator.origin}`);
+  storyNarrator.textContent=(storyIndex===0 ? narratorIntro() : tour.title);
   storyPerson.textContent=n.name;
   storyYears.textContent=n.years||'';
   storyPlace.textContent=n.place||'';
@@ -1697,7 +1721,7 @@ function renderStory(){
   const hc=historicalContextFor(n);
   if(storyLocal)storyLocal.textContent=hc.local;
   if(storyMacro)storyMacro.textContent=hc.macro;
-  if(tourPhase)tourPhase.textContent='Tour navigation: branch view → family view → close person view.';
+  if(tourPhase)tourPhase.textContent='';
   if(step.event){
     storyEvent.style.display='block';
     storyEvent.textContent='In their world: '+step.event;
@@ -1728,9 +1752,7 @@ function closeStory(){
   storyModal.classList.remove('open'); storyModal.setAttribute('aria-hidden','true');
 }
 
-// v1.3 prerecorded narration layer. If a branch/step MP3 exists, use it.
-// If not, the atlas transparently falls back to browser speech synthesis.
-const USE_PRERECORDED_AUDIO=false; // turn true only after Azure MP3s are actually uploaded
+const USE_RECORDED_AUDIO=false; 
 const MUSEUM_AUDIO = {
   canada:['you','james_sheldon','marion_brenay','charles_albert','charles_godfrey','ida_mae','john_peter'],
   webb:['you','james_sheldon','james_wilford','jonathan_henry','edward_milo_jr','edward_milo_sr','james_webb_jr','james_webb_sr','elizabeth_douglas'],
@@ -1757,8 +1779,8 @@ function stopMuseumAudio(){
   museumAudio=null;
   const fill=document.getElementById('audioMeterFill');if(fill)fill.style.width='0%';
 }
-function tryPrerecordedNarration(autoAdvance=true){
-  if(!USE_PRERECORDED_AUDIO)return Promise.resolve(false);
+function tryNarration(autoAdvance=true){
+  if(!USE_RECORDED_AUDIO)return Promise.resolve(false);
   const path=audioPath(storyTrack,storyIndex);
   if(!path)return Promise.resolve(false);
   return new Promise(resolve=>{
@@ -1802,18 +1824,18 @@ function tryPrerecordedNarration(autoAdvance=true){
 
 function storySpokenText(){
   const tour=BRANCH_TOURS[storyTrack], step=tour.steps[storyIndex], n=nodeById.get(step.id);
-  const pieces=[];
-  if(storyIndex===0) pieces.push(narratorIntro());
   const hc=historicalContextFor(n);
   const d=inferredDecade(n);
   const when=d ? `the ${d}s` : 'this period';
-  pieces.push(`To picture ${n.name}, begin with ${n.place||'the place recorded for this part of the family'} in ${when}. ${hc.local}`);
+  const pieces=[];
+  if(storyIndex===0 && tour.narrator.intro) pieces.push(tour.narrator.intro);
+  pieces.push(`${n.name}. ${n.years||''}. ${n.place||''}.`);
+  pieces.push(`To picture the setting, think of ${n.place||'this part of the family story'} in ${when}. ${hc.local}`);
   pieces.push(step.copy);
-  pieces.push(`Beyond that immediate place, the wider world was changing too. ${hc.macro}`);
-  if(n && (n.confidence==='provisional'||n.confidence==='frontier')){
-    pieces.push(n.confidence==='frontier' ? 'At this point the evidence reaches a research frontier.' : 'This connection remains provisional.');
-  }
-  return pieces.join(' ');
+  pieces.push(hc.macro);
+  if(n?.confidence==='provisional') pieces.push('The family connection at this point remains provisional.');
+  if(n?.confidence==='frontier') pieces.push('Here the documented line reaches a research frontier.');
+  return pieces.filter(Boolean).join(' ');
 }
 function speakBrowserNarration(autoAdvance=true){
   if(!('speechSynthesis' in window)){
@@ -1831,7 +1853,7 @@ function speakBrowserNarration(autoAdvance=true){
     utter.rate=.93;utter.pitch=1;utter.volume=1;
     activeUtterance=utter;
     storyShell?.classList.add('story-speaking');
-    setAudioStatus(voice?`Narration: ${voice.name}`:'Narration','ready');
+    setAudioStatus('','ready');
     utter.onend=()=>{
       storyShell?.classList.remove('story-speaking');activeUtterance=null;
       if(storyPlaying&&autoAdvance&&storyIndex<BRANCH_TOURS[storyTrack].steps.length-1){
@@ -1840,22 +1862,22 @@ function speakBrowserNarration(autoAdvance=true){
     };
     utter.onerror=()=>{
       storyShell?.classList.remove('story-speaking');activeUtterance=null;storyPlaying=false;
-      setAudioStatus('Tap Play again','fallback');
+      setAudioStatus('','fallback');
     };
     try{window.speechSynthesis.resume();}catch(e){}
     window.speechSynthesis.speak(utter);
     return true;
   }catch(e){
     storyPlaying=false;
-    setAudioStatus('Narration unavailable','fallback');
+    setAudioStatus('','fallback');
     return false;
   }
 }
 
 function speakCurrent(autoAdvance=true){
   stopMuseumAudio();clearTimeout(storyTimer);
-  if(!USE_PRERECORDED_AUDIO) return speakBrowserNarration(autoAdvance);
-  tryPrerecordedNarration(autoAdvance).then(used=>{if(!used)speakBrowserNarration(autoAdvance);});
+  if(!USE_RECORDED_AUDIO) return speakBrowserNarration(autoAdvance);
+  tryNarration(autoAdvance).then(used=>{if(!used)speakBrowserNarration(autoAdvance);});
   return true;
 }
 
@@ -1863,54 +1885,92 @@ function speakCurrent(autoAdvance=true){
 const storySceneStrip=document.getElementById('storySceneStrip');
 const storySceneImage=document.getElementById('storySceneImage');
 const storySceneArt=document.getElementById('storySceneArt');
+const storyScenePhoto=document.getElementById('storyScenePhoto');
+const storySceneSource=document.getElementById('storySceneSource');
 const storySceneTitle=document.getElementById('storySceneTitle');
 const storySceneCaption=document.getElementById('storySceneCaption');
 const storySceneCount=document.getElementById('storySceneCount');
 
-const SCENE_PALETTES=[
-  ['#33485d','#101923'],['#4a4138','#141513'],['#32434a','#11181c'],
-  ['#493c46','#15131a'],['#3a4d3b','#121914'],['#4c4530','#17160f']
-];
 
-function sceneKey(n){
-  const p=(n?.place||'').toLowerCase();
-  const b=(n?.branch||'').toLowerCase();
-  if(p.includes('arizona'))return 'desert';
-  if(p.includes('missouri')||p.includes('kentucky')||p.includes('virginia'))return 'farm';
-  if(p.includes('ontario')||p.includes('michigan')||p.includes('quebec'))return 'greatlakes';
-  if(p.includes('denmark')||p.includes('møn')||p.includes('lolland')||p.includes('fanefjord'))return 'denmark';
-  if(p.includes('germany'))return 'europe';
+const PHOTO_SCENES = {
+  arizona:[
+    {url:'https://www.loc.gov/pictures/resource/fsa.8b24597/',title:'Arizona, 1940',caption:'Young agricultural workers at a Saturday-night dance in an Arizona labor camp.',source:'Library of Congress · Russell Lee · 1940 · no known restrictions'},
+    {url:'https://www.loc.gov/pictures/resource/fsa.8a28245/',title:'Arizona, 1940',caption:'Roosevelt Dam and the water system that helped shape settlement and agriculture in central Arizona.',source:'Library of Congress · Russell Lee · 1940 · no known restrictions'},
+    {url:'https://www.loc.gov/pictures/resource/fsa.8b25071/',title:'Arizona, 1940',caption:'Homes climbing the hillsides of Bisbee, an Arizona copper-mining community.',source:'Library of Congress · Russell Lee · 1940 · no known restrictions'}
+  ],
+  ontario:[
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/St.Davids,_Ontario_(1890%27s).jpg?width=1200',title:'Ontario in the 1890s',caption:'A village street scene from St. Davids, Ontario.',source:'Wikimedia Commons · public-domain historical photograph'},
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mill_street_almonte_1890.jpg?width=1200',title:'Ontario around 1890',caption:'Mill Street in Almonte, showing the scale and texture of an Ontario town at the end of the nineteenth century.',source:'Wikimedia Commons · public-domain historical photograph'},
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Hastings_County_Archives_HC02161_(front)_(21678164826).jpg?width=1200',title:'Ontario, 1890',caption:'A street scene in Marmora, Ontario, with shops, men, and a horse-drawn cart.',source:'Wikimedia Commons / Hastings County Archives'}
+  ],
+  missouri:[
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Farmer_and_sons_harvesting_wheat_with_a_mule-drawn_binder._St._Louis_County,_MO.jpg?width=1200',title:'Missouri farm life, around 1900',caption:'A farmer and sons harvesting wheat with a mule-drawn binder.',source:'Wikimedia Commons / Missouri History Museum'},
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/1900_Gazebos_at_Chouteau_Springs_Resort_State_Historical_Society_of_Missouri.jpg?width=1200',title:'Missouri, 1900',caption:'A public gathering place at Chouteau Springs, showing turn-of-the-century dress and recreation.',source:'Wikimedia Commons / State Historical Society of Missouri'},
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Commission_Row_(Produce_Row),_St._Louis.jpg?width=1200',title:'Missouri commerce, early 1900s',caption:'Produce Row in St. Louis illustrates the rail-and-market economy connecting Missouri farms to cities.',source:'Wikimedia Commons / Missouri History Museum'}
+  ],
+  connecticut:[
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/CTTownMap1770.svg?width=1200',title:'Connecticut, 1770',caption:'A historical town map of Connecticut near the Revolutionary generation.',source:'Wikimedia Commons · historical map'},
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/A_map_of_the_most_inhabited_part_of_New_England,_containing_the_provinces_of_Massachusets_Bay_and_New_Hampshire_with_the_colonies_of_Conecticut_and_Rhode_Island_divided_into_counties_and_townships,_LOC_74692167.jpg?width=1200',title:'New England, 1777',caption:'A period map from the Revolutionary era. Photography did not yet exist, so maps and prints carry the scene.',source:'Library of Congress / Wikimedia Commons · public domain'},
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/A_new_and_accurate_map_of_Connecticut_and_Rhode_Island,_from_best_authorities._LOC_99466763.jpg?width=1200',title:'Connecticut and Rhode Island, 1780',caption:'A period map showing towns, roads, rivers, and the settled landscape of southern New England.',source:'Library of Congress / Wikimedia Commons · public domain'}
+  ],
+  denmark:[
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Møn,_udsigt_fra_åsen_Peter_Elfelt_(15255328352).jpg?width=1200',title:'Møn, 1901',caption:'A view across Møn recorded by Danish photographer Peter Elfelt.',source:'Wikimedia Commons · Peter Elfelt / Danish Film Museum'},
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Map_-_Moens_Klint.jpg?width=1200',title:'Møn around 1900',caption:'A historical map of Møns Klint and the island landscape.',source:'Wikimedia Commons · public-domain historical map'},
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Marienborg_Møn_1.jpg?width=1200',title:'Møn around 1900',caption:'A period postcard of Marienborg on Møn.',source:'Wikimedia Commons · public domain'}
+  ],
+  mexico:[
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/CathPlazaChih1.jpg?width=1200',title:'Chihuahua, late nineteenth century',caption:'The cathedral and Plaza de la Constitución in Chihuahua.',source:'Wikimedia Commons · historical photograph'},
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Charro_(Chihuahua,_México,_1890).jpg?width=1200',title:'Chihuahua, 1890',caption:'A portrait from Chihuahua showing regional dress at the time.',source:'Wikimedia Commons · public-domain photograph'},
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/The_cathedral,_Chihuahua,_Mexico_-_DPLA_-_509038ebc7563e438491319f4e0153e5.jpg?width=1200',title:'Chihuahua, 1880s',caption:'A William Henry Jackson view of Chihuahua’s cathedral from the late nineteenth century.',source:'Wikimedia Commons / DPLA · historical photograph'}
+  ],
+  utah:[
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Sketch_of_Salt_Lake_1860.jpg?width=1200',title:'Utah Territory, 1860',caption:'A contemporary view of Great Salt Lake City from the north.',source:'Wikimedia Commons · public-domain historical illustration'},
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Salt_Lake_City,_south-west_from_Arsenal_Hill,_by_C._W._Carter_2.jpg?width=1200',title:'Salt Lake City, nineteenth century',caption:'A stereoscopic-era photograph looking across Salt Lake City.',source:'Wikimedia Commons / New York Public Library'},
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Platslc.jpg?width=1200',title:'Salt Lake City, late 1860s',caption:'A street plat showing the planned blocks of territorial Salt Lake City.',source:'Wikimedia Commons / Library of Congress'}
+  ],
+  germany:[
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Zschachwitz_1870.jpg?width=1200',title:'A German village, 1870',caption:'A period watercolor of Zschachwitz near Dresden, used here to evoke the rural German setting of the decade.',source:'Wikimedia Commons · public-domain period artwork'},
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Batterie_allemande_entrant_dans_un_village.jpg?width=1200',title:'German military world, 1870–71',caption:'A historical image of German artillery in the Franco-Prussian War era.',source:'Wikimedia Commons · public domain'},
+    {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Die_Steinstrasse_(Le_Faubourg-de-Pierre)_1870.jpg?width=1200',title:'Central Europe, 1870',caption:'A street scene from the Franco-Prussian War period, used as broader regional context.',source:'Wikimedia Commons · public domain'}
+  ]
+};
+
+function photoGroupFor(n){
+  const p=(n?.place||'').toLowerCase(), b=(n?.branch||'').toLowerCase();
+  if(p.includes('arizona'))return 'arizona';
+  if(p.includes('missouri')||p.includes('kentucky')||p.includes('virginia'))return 'missouri';
+  if(p.includes('ontario')||p.includes('michigan')||p.includes('quebec'))return 'ontario';
+  if(p.includes('connecticut')||p.includes('new york'))return 'connecticut';
   if(p.includes('mexico')||p.includes('chihuahua'))return 'mexico';
-  if(p.includes('new york')||p.includes('connecticut'))return 'newengland';
-  return b.includes('denmark')?'denmark':'settlement';
+  if(p.includes('utah'))return 'utah';
+  if(p.includes('denmark')||p.includes('møn')||p.includes('lolland')||p.includes('fanefjord'))return 'denmark';
+  if(p.includes('germany'))return 'germany';
+  if(b.includes('denmark'))return 'denmark';
+  if(b.includes('dunbar'))return 'missouri';
+  if(b.includes('webb'))return 'connecticut';
+  return 'arizona';
 }
 
-function artSvg(kind,variant=0){
-  const common=`viewBox="0 0 800 320" preserveAspectRatio="xMidYMid slice"`;
-  if(kind==='desert'){
-    return `<svg ${common}><path fill="rgba(239,209,155,.20)" d="M0 250L170 170l95 56 116-88 145 94 102-70 172 88v70H0z"/><circle cx="${610-variant*60}" cy="${70+variant*16}" r="34" fill="rgba(255,226,160,.26)"/><path stroke="rgba(215,232,238,.35)" stroke-width="7" d="M40 254h720"/><path stroke="rgba(215,232,238,.23)" stroke-width="4" d="M380 118v125m0-75l-38-35m38 51l43-30"/></svg>`;
-  }
-  if(kind==='greatlakes'){
-    return `<svg ${common}><path fill="rgba(149,190,208,.20)" d="M0 210q160-70 320 0t320 0 160 0v110H0z"/><path fill="rgba(54,78,59,.55)" d="M0 210l80-62 42 38 73-84 70 99 85-65 100 69 110-90 75 96 92-59 73 58v110H0z"/><path stroke="rgba(222,232,226,.28)" stroke-width="9" d="M80 255h620"/><path fill="rgba(229,216,182,.16)" d="M520 186h95v52h-95zm25-31h45l25 31h-95z"/></svg>`;
-  }
-  if(kind==='denmark'){
-    return `<svg ${common}><rect y="216" width="800" height="104" fill="rgba(61,88,55,.34)"/><path fill="rgba(224,218,188,.16)" d="M105 174h132v72H105zm32-44h68l42 44H95zM515 190h96v58h-96zm22-34h53l32 34h-117z"/><path stroke="rgba(222,229,214,.26)" stroke-width="5" d="M0 244q130-25 260 0t260 0 280 0"/><path stroke="rgba(230,235,225,.30)" stroke-width="6" d="M382 102v126m0-126l-48 76m48-76l48 76"/></svg>`;
-  }
-  if(kind==='farm'){
-    return `<svg ${common}><path fill="rgba(91,108,65,.35)" d="M0 210q170-45 325 0t280-4 195 4v110H0z"/><path fill="rgba(226,210,170,.18)" d="M92 176h132v72H92zm24-48h85l35 48H79z"/><path stroke="rgba(226,226,205,.22)" stroke-width="5" d="M0 247h800M0 270h800"/><path stroke="rgba(210,220,207,.18)" stroke-width="4" d="M300 110v138m-50-90h100"/></svg>`;
-  }
-  if(kind==='mexico'){
-    return `<svg ${common}><path fill="rgba(112,101,67,.40)" d="M0 225l150-88 118 76 136-101 139 99 111-58 146 72v95H0z"/><path fill="rgba(222,205,171,.16)" d="M90 190h120v56H90zm22-35h74l32 35H82z"/><path stroke="rgba(219,225,207,.28)" stroke-width="6" d="M530 126v120m0-72l-30-24m30 40l34-28"/></svg>`;
-  }
-  if(kind==='newengland'){
-    return `<svg ${common}><rect y="222" width="800" height="98" fill="rgba(53,75,53,.35)"/><path fill="rgba(224,218,194,.17)" d="M124 174h110v70H124zm18-42h73l31 42H111z"/><path stroke="rgba(220,229,221,.22)" stroke-width="8" d="M390 92v152m0-152l-53 86m53-86l53 86"/><path stroke="rgba(202,216,221,.22)" stroke-width="4" d="M0 252q160-32 320 0t320 0 160 0"/></svg>`;
-  }
-  if(kind==='europe'){
-    return `<svg ${common}><rect y="224" width="800" height="96" fill="rgba(68,78,57,.32)"/><path fill="rgba(225,218,196,.16)" d="M120 176h135v72H120zm28-48h80l38 48H104zM535 182h90v66h-90zm18-38h53l28 38h-117z"/><path stroke="rgba(220,223,212,.20)" stroke-width="6" d="M380 114v132m0-132l-46 76m46-76l46 76"/></svg>`;
-  }
-  return `<svg ${common}><path fill="rgba(87,105,81,.32)" d="M0 225q170-45 340 0t460 0v95H0z"/><path fill="rgba(225,215,190,.15)" d="M130 175h120v72H130zm26-45h68l37 45H117z"/></svg>`;
+function fallbackSceneSvg(kind,index=0){
+  const motifs={
+    arizona:['#6a4c35','#1d2832'],
+    ontario:['#3d5560','#17242b'],
+    missouri:['#4a573a','#172018'],
+    connecticut:['#4f4938','#191815'],
+    denmark:['#455744','#172018'],
+    mexico:['#62503c','#211913'],
+    utah:['#5c4c3d','#1c2025'],
+    germany:['#4d5145','#191d1a']
+  };
+  const c=motifs[kind]||motifs.ontario;
+  return `<svg viewBox="0 0 800 320" preserveAspectRatio="xMidYMid slice">
+    <defs><linearGradient id="g${index}" x1="0" x2="1"><stop stop-color="${c[0]}"/><stop offset="1" stop-color="${c[1]}"/></linearGradient></defs>
+    <rect width="800" height="320" fill="url(#g${index})"/>
+    <path d="M0 238 Q150 174 300 225 T590 210 T800 230 V320 H0Z" fill="rgba(210,220,200,.13)"/>
+    <path d="M120 188h150v70H120zm28-48h86l48 48H100z" fill="rgba(236,226,200,.14)"/>
+    <path d="M0 260h800" stroke="rgba(235,240,238,.16)" stroke-width="6"/>
+  </svg>`;
 }
-
 function decadeLabel(n){
   const d=inferredDecade(n);
   return d ? `${d}s` : 'date approximate';
@@ -1918,25 +1978,29 @@ function decadeLabel(n){
 
 function sceneSlidesFor(n){
   const hc=historicalContextFor(n);
-  const key=sceneKey(n);
-  const place=n?.place||'Place unresolved';
-  const decade=decadeLabel(n);
-  const base=[
-    {title:`${place}`,caption:`A visual impression of the local setting around the ${decade}.`,kind:key},
-    {title:`Daily life around the ${decade}`,caption:hc.local,kind:key},
-    {title:`The wider world`,caption:hc.macro,kind:key}
-  ];
-  return base;
+  const group=photoGroupFor(n);
+  const photos=(PHOTO_SCENES[group]||PHOTO_SCENES.arizona).slice(0,3).map((p,i)=>({...p}));
+  if(photos[0]) photos[0].caption=`${photos[0].caption} ${hc.local}`;
+  if(photos[2]) photos[2].caption=`${photos[2].caption} ${hc.macro}`;
+  return photos;
 }
 
 function showSceneSlide(n,slide,index,total){
-  const colors=SCENE_PALETTES[(index+Math.max(0,inferredDecade(n)||0)/10)%SCENE_PALETTES.length|0];
-  storySceneImage.style.setProperty('--scene-a',colors[0]);
-  storySceneImage.style.setProperty('--scene-b',colors[1]);
-  storySceneArt.innerHTML=artSvg(slide.kind,index);
   storySceneTitle.textContent=slide.title;
   storySceneCaption.textContent=slide.caption;
+  storySceneSource.textContent=slide.source||'';
   storySceneCount.textContent=`Scene ${index+1} of ${total}`;
+  storyScenePhoto.alt=slide.title;
+  storyScenePhoto.onerror=()=>{
+    storyScenePhoto.style.display='none';
+    storySceneArt.style.display='block';
+    storySceneArt.innerHTML=fallbackSceneSvg(photoGroupFor(n),index);
+  };
+  storyScenePhoto.onload=()=>{
+    storyScenePhoto.style.display='block';
+    storySceneArt.style.display='none';
+  };
+  storyScenePhoto.src=slide.url;
   storySceneStrip.classList.add('show');
   storySceneStrip.setAttribute('aria-hidden','false');
 }
@@ -2010,7 +2074,7 @@ function playTour(){
 
   if(!started){
     storyPlaying=false;
-    setAudioStatus('Tap Play again','fallback');
+    setAudioStatus('','fallback');
   }
 }
 function pauseTour(){
@@ -2080,3 +2144,4 @@ document.addEventListener('keydown',e=>{
 </script>
 </body>
 </html>
+
