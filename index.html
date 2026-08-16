@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<title>Ancestry Atlas v1.8.1</title>
+<title>Ancestry Atlas v1.8.2</title>
 <style>
 :root{
   --bg:#081018; --panel:#0f1a24; --panel2:#132231; --text:#eef4fa; --muted:#9fb1c2;
@@ -79,7 +79,7 @@ canvas:active{cursor:grabbing}
 @media(max-width:800px){#proofNotice{top:54px;left:10px;right:10px;max-width:none;font-size:9.5px}}
 
 
-/* Ancestry Atlas v1.8.1 — family-facing landing + guided story */
+/* Ancestry Atlas v1.8.2 — family-facing landing + guided story */
 .landing{
   position:fixed;z-index:200;inset:0;display:flex;align-items:center;justify-content:center;
   background:
@@ -492,6 +492,24 @@ canvas:active{cursor:grabbing}
   .landing-branch-buttons{display:grid;grid-template-columns:1fr 1fr}
 }
 
+
+/* v1.8.2 — single line-selection flow */
+.line-chooser{
+  display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.78);
+  padding:18px;align-items:center;justify-content:center
+}
+.line-chooser.open{display:flex}
+.line-chooser-card{
+  width:min(620px,94vw);position:relative;border:1px solid rgba(180,205,225,.24);
+  border-radius:18px;background:rgba(7,15,23,.98);box-shadow:0 24px 80px rgba(0,0,0,.58);padding:22px
+}
+.line-chooser-card h2{margin:2px 0 6px;font-size:24px}
+.line-chooser-card p{margin:0 0 16px;color:#b9cbd8;line-height:1.5}
+.line-chooser-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.line-chooser-buttons button{padding:14px 12px;font-size:14px}
+.line-chooser-card .story-close{position:absolute;right:12px;top:12px}
+@media(max-width:600px){.line-chooser-buttons{grid-template-columns:1fr}}
+
 </style>
 
 <script>
@@ -504,6 +522,22 @@ window.addEventListener('error',function(e){
 </head>
 <body>
 
+
+<div id="lineChooser" class="line-chooser" aria-hidden="true">
+  <div class="line-chooser-card">
+    <div class="landing-kicker">Explore our family</div>
+    <h2>Choose a family line</h2>
+    <p>Pick a branch and the guided story begins immediately.</p>
+    <div class="line-chooser-buttons">
+      <button type="button" data-launch-track="canada">Canada / Brenay</button>
+      <button type="button" data-launch-track="webb">Webb</button>
+      <button type="button" data-launch-track="dunbar">Dunbar</button>
+      <button type="button" data-launch-track="denmark">Denmark</button>
+    </div>
+    <button id="lineChooserClose" type="button" class="story-close" aria-label="Close">×</button>
+  </div>
+</div>
+
 <div id="landing" class="landing">
   <div class="landing-card">
     <div class="landing-kicker">A living family history</div>
@@ -511,21 +545,13 @@ window.addEventListener('error',function(e){
     <p>Explore the family across generations. The atlas is brightest where the evidence is strongest and falls into dusk and shadow where the story is still uncertain.</p>
     <div class="landing-note"><strong>How to read the light:</strong> bright areas are well established; dimmer areas are supported but still developing; the darkest regions mark open questions. The family story stays visible without pretending uncertainty is settled fact.</div>
     
-    <div class="landing-branch-picker" aria-label="Choose a family line for narration">
-      <div class="landing-kicker" style="margin:0 0 8px">Choose a line to narrate</div>
-      <div class="landing-branch-buttons">
-        <button type="button" data-launch-track="canada" class="active">Canada / Brenay</button>
-        <button type="button" data-launch-track="webb">Webb</button>
-        <button type="button" data-launch-track="dunbar">Dunbar</button>
-        <button type="button" data-launch-track="denmark">Denmark</button>
-      </div>
-    </div>
+    
 <div class="landing-actions">
       <button type="button" id="startExplore" class="primary-action" onclick="document.getElementById('landing').classList.add('hidden');return false;">Explore the Atlas</button>
       <button type="button" id="startStory" class="story-action">Our Family Story</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v1.8.1 • auto-story + birthplace context</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v1.8.2 • auto-story + birthplace context</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop moves slowly through the tree, pauses on visual scenes from the person’s place and era, then settles on the written story.</p>
   </div>
 </div>
@@ -1815,7 +1841,7 @@ document.addEventListener('keydown',e=>{
 
 resize();
 
-// ---------- Ancestry Atlas v1.8.1 narrated museum tours ----------
+// ---------- Ancestry Atlas v1.8.2 narrated museum tours ----------
 const BRANCH_TOURS = {
   canada: {
     title:'Canada — Brenay & Gooley',
@@ -2486,15 +2512,23 @@ async function previousStory(){
   await focusStoryPerson();
 }
 
-let landingStoryTrack='canada';
-document.querySelectorAll('[data-launch-track]').forEach(btn=>{
+
+const lineChooser=document.getElementById('lineChooser');
+document.querySelectorAll('#lineChooser [data-launch-track]').forEach(btn=>{
   btn.onclick=()=>{
-    landingStoryTrack=btn.dataset.launchTrack;
-    document.querySelectorAll('[data-launch-track]').forEach(b=>b.classList.toggle('active',b===btn));
+    const track=btn.dataset.launchTrack;
+    lineChooser.classList.remove('open');
+    lineChooser.setAttribute('aria-hidden','true');
+    landing.classList.add('hidden');
+    beginStory(track);
   };
 });
+document.getElementById('lineChooserClose').onclick=()=>{
+  lineChooser.classList.remove('open');
+  lineChooser.setAttribute('aria-hidden','true');
+};
 document.getElementById('startExplore').onclick=()=>landing.classList.add('hidden');
-document.getElementById('startStory').onclick=()=>{landing.classList.add('hidden');beginStory(landingStoryTrack);};
+document.getElementById('startStory').onclick=()=>{lineChooser.classList.add('open');lineChooser.setAttribute('aria-hidden','false');};
 document.getElementById('startAlbum').onclick=()=>{landing.classList.add('hidden');document.getElementById('albumModal').classList.add('open');document.getElementById('albumModal').setAttribute('aria-hidden','false'); if(typeof renderAlbum==='function')renderAlbum();};
 document.getElementById('homeLanding').onclick=()=>landing.classList.remove('hidden');
 document.getElementById('openStoryBtn').onclick=()=>beginStory(storyTrack);
@@ -2527,4 +2561,3 @@ document.addEventListener('keydown',e=>{
 </script>
 </body>
 </html>
-
