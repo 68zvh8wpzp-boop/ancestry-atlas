@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<title>Ancestry Atlas v1.5.1b</title>
+<title>Ancestry Atlas v1.6</title>
 <style>
 :root{
   --bg:#081018; --panel:#0f1a24; --panel2:#132231; --text:#eef4fa; --muted:#9fb1c2;
@@ -79,7 +79,7 @@ canvas:active{cursor:grabbing}
 @media(max-width:800px){#proofNotice{top:54px;left:10px;right:10px;max-width:none;font-size:9.5px}}
 
 
-/* Ancestry Atlas v1.5.1b — family-facing landing + guided story */
+/* Ancestry Atlas v1.6 — family-facing landing + guided story */
 .landing{
   position:fixed;z-index:200;inset:0;display:flex;align-items:center;justify-content:center;
   background:
@@ -253,6 +253,108 @@ canvas:active{cursor:grabbing}
   #stage{padding-bottom:46vh}
 }
 
+
+/* v1.6 — cinematic museum tour */
+.story-copy,
+.story-context-grid,
+.story-event,
+.story-confidence,
+.tour-phase{
+  transition:opacity .7s ease, transform .7s ease;
+}
+.story-shell.story-prelude .story-copy,
+.story-shell.story-prelude .story-context-grid,
+.story-shell.story-prelude .story-event,
+.story-shell.story-prelude .story-confidence,
+.story-shell.story-prelude .tour-phase{
+  opacity:0!important;
+  transform:translateY(10px);
+  pointer-events:none;
+}
+.story-shell.story-text-ready .story-copy,
+.story-shell.story-text-ready .story-context-grid,
+.story-shell.story-text-ready .story-event,
+.story-shell.story-text-ready .story-confidence,
+.story-shell.story-text-ready .tour-phase{
+  opacity:1;
+  transform:none;
+}
+.story-scene-strip{
+  position:absolute;
+  left:50%; top:8px; transform:translateX(-50%);
+  width:min(720px,calc(100vw - 18px));
+  z-index:130;
+  pointer-events:none;
+  display:none;
+}
+.story-scene-strip.show{display:block}
+.story-scene-frame{
+  min-height:205px;
+  border-radius:16px;
+  border:1px solid rgba(210,225,238,.22);
+  overflow:hidden;
+  box-shadow:0 18px 55px rgba(0,0,0,.45);
+  background:#101923;
+  position:relative;
+}
+.story-scene-image{
+  min-height:205px;
+  display:flex;
+  align-items:flex-end;
+  position:relative;
+  isolation:isolate;
+  padding:16px;
+  transition:opacity .65s ease, transform .8s ease;
+}
+.story-scene-image::before{
+  content:"";
+  position:absolute;inset:0;z-index:-2;
+  background:
+    radial-gradient(circle at 72% 24%,rgba(242,221,171,.20),transparent 28%),
+    linear-gradient(145deg,var(--scene-a,#253748),var(--scene-b,#0d1720) 58%,#060b10);
+}
+.story-scene-image::after{
+  content:"";
+  position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(180deg,transparent 28%,rgba(0,0,0,.70)),
+    repeating-linear-gradient(90deg,transparent 0 34px,rgba(255,255,255,.018) 34px 35px);
+}
+.story-scene-image.swap{opacity:.08;transform:scale(1.035)}
+.story-scene-art{
+  position:absolute;inset:0;
+  opacity:.78;
+}
+.story-scene-art svg{width:100%;height:100%;display:block}
+.story-scene-caption{
+  max-width:86%;
+  color:#f0f5f8;
+  text-shadow:0 2px 8px #000;
+}
+.story-scene-caption b{
+  display:block;font-size:18px;line-height:1.2;margin-bottom:4px
+}
+.story-scene-caption span{font-size:11px;line-height:1.4;color:#c4d4df}
+.story-scene-count{
+  position:absolute;right:12px;top:10px;
+  font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#b9cbd8;
+  background:rgba(4,10,15,.55);border:1px solid rgba(255,255,255,.12);
+  padding:5px 7px;border-radius:999px
+}
+@media(max-width:760px){
+  .story-scene-strip{
+    top:6px;
+    width:calc(100vw - 12px);
+  }
+  .story-scene-frame,.story-scene-image{min-height:180px}
+  .story-scene-caption b{font-size:16px}
+  .story-scene-caption span{font-size:10px}
+  /* During the image prelude, keep the text sheet minimized so the tree+scene dominate. */
+  .story-shell.story-prelude{max-height:26vh!important;min-height:118px!important}
+  .story-shell.story-prelude .story-context-grid,
+  .story-shell.story-prelude .story-event{display:none!important}
+}
+
 </style>
 
 <script>
@@ -276,8 +378,22 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Our Family Story</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v1.5.1b • iPhone tour + audio fix</div><div id="runtimeNotice"></div>
-    <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop pulls back to the branch, moves into the family, then zooms into the person while staging both the local birthplace and the wider world at the time.</p>
+    <div class="build-chip">BUILD v1.6 • cinematic guided story</div><div id="runtimeNotice"></div>
+    <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop moves slowly through the tree, pauses on visual scenes from the person’s place and era, then settles on the written story.</p>
+  </div>
+</div>
+
+
+<div id="storySceneStrip" class="story-scene-strip" aria-hidden="true">
+  <div class="story-scene-frame">
+    <div id="storySceneImage" class="story-scene-image">
+      <div id="storySceneArt" class="story-scene-art"></div>
+      <div class="story-scene-caption">
+        <b id="storySceneTitle"></b>
+        <span id="storySceneCaption"></span>
+      </div>
+      <div id="storySceneCount" class="story-scene-count"></div>
+    </div>
   </div>
 </div>
 
@@ -821,16 +937,26 @@ const HISTORICAL_CONTEXT = {
   }
 };
 
+function inferredDecade(n){
+  const y=firstYear(n);
+  if(y) return Math.floor(y/10)*10;
+  const s=(n?.years||'').match(/(1[5-9]\d{2}|20\d{2})/);
+  if(s) return Math.floor(Number(s[1])/10)*10;
+  const note=(n?.note||'').match(/(1[5-9]\d{2}|20\d{2})/);
+  if(note) return Math.floor(Number(note[1])/10)*10;
+  return null;
+}
 function historicalContextFor(n){
   const curated=HISTORICAL_CONTEXT[n?.id];
   if(curated) return curated;
   const c=macroContext(n);
   const place=n?.place||'Place unresolved';
-  const y=firstYear(n);
-  const local = y
-    ? `The atlas currently records ${place} around ${y}. More specific local-history notes have not yet been curated for this person.`
-    : `The birth year or birthplace is not yet precise enough to assign a detailed local scene safely.`;
-  return {local,macro:c.copy||'The wider historical setting has not yet been curated for this person.'};
+  const decade=inferredDecade(n);
+  const when=decade ? `the ${decade}s` : 'an uncertain period';
+  const local = decade
+    ? `The exact date is not secure, so the atlas treats ${when} as the working historical window for ${place}. The setting is intentionally approximate rather than presented as an exact birth-year reconstruction.`
+    : `The birth date is not yet precise enough to assign even a reliable decade. The atlas therefore keeps this scene broad rather than inventing a tighter date.`;
+  return {local,macro:c.copy||'The wider historical setting remains approximate for this person.'};
 }
 
 function macroContext(n){
@@ -1448,11 +1574,11 @@ document.addEventListener('keydown',e=>{
 
 resize();
 
-// ---------- Ancestry Atlas v1.5.1b narrated museum tours ----------
+// ---------- Ancestry Atlas v1.6 narrated museum tours ----------
 const BRANCH_TOURS = {
   canada: {
     title:'Canada — Brenay & Gooley',
-    narrator:{id:'charles_godfrey', origin:'Germany → Ontario / Michigan', intro:'I am Charles Godfrey Brenay, the earliest well-supported person currently anchoring this Canadian branch. I will tell our story from the present day backward, toward the places and people that came before me.'},
+    narrator:{id:'charles_godfrey', origin:'Germany → Ontario / Michigan', intro:'I am Charles Godfrey Brenay. From here, we will follow this branch backward through the people and places that shaped it.'},
     voicePrefs:['en-CA','de-DE','en-US','en-GB'],
     steps:[
       {id:'you', copy:'We begin in the present. From here, the Canadian story runs through Arizona and Michigan before crossing the border into Ontario and Quebec.'},
@@ -1555,7 +1681,7 @@ function pickVoice(track){
 }
 function narratorIntro(){
   const t=BRANCH_TOURS[storyTrack];
-  return t.narrator.intro + ' One consistent narrator is used across every branch. The site uses the device voice for now; the Azure Clara recording can replace it once the finished audio files are exported.';
+  return t.narrator.intro;
 }
 function renderStory(){
   const tour=BRANCH_TOURS[storyTrack], steps=tour.steps;
@@ -1591,7 +1717,11 @@ function openStory(track=storyTrack){
   storyModal.classList.add('open'); storyModal.setAttribute('aria-hidden','false');
   document.querySelectorAll('[data-story-track]').forEach(b=>b.classList.toggle('active',b.dataset.storyTrack===storyTrack));
   renderStory();
-  requestAnimationFrame(()=>{focusStoryPerson();});
+  storyShell?.classList.remove('story-text-ready');
+  storyShell?.classList.add('story-prelude');
+  /* Establish the first person visually, but wait for Play before beginning the full sequence. */
+  const step=BRANCH_TOURS[storyTrack].steps[storyIndex];
+  if(step){openNode(step.id,false,true);cinematicFocus(step.id,'family');}
 }
 function closeStory(){
   stopNarration();
@@ -1675,13 +1805,13 @@ function storySpokenText(){
   const pieces=[];
   if(storyIndex===0) pieces.push(narratorIntro());
   const hc=historicalContextFor(n);
-  const y=firstYear(n);
-  if(y) pieces.push(`Around ${y}, in ${n.place||'the recorded birthplace'}, this was the local setting. ${hc.local}`);
-  else pieces.push(`For ${n.name}, the exact birth date or place is not yet precise enough for a fully specific local scene. ${hc.local}`);
-  pieces.push(`Beyond that place, the wider world looked like this. ${hc.macro}`);
+  const d=inferredDecade(n);
+  const when=d ? `the ${d}s` : 'this period';
+  pieces.push(`To picture ${n.name}, begin with ${n.place||'the place recorded for this part of the family'} in ${when}. ${hc.local}`);
   pieces.push(step.copy);
+  pieces.push(`Beyond that immediate place, the wider world was changing too. ${hc.macro}`);
   if(n && (n.confidence==='provisional'||n.confidence==='frontier')){
-    pieces.push(n.confidence==='frontier' ? 'Here the evidence reaches a research frontier.' : 'This part of the line remains provisional.');
+    pieces.push(n.confidence==='frontier' ? 'At this point the evidence reaches a research frontier.' : 'This connection remains provisional.');
   }
   return pieces.join(' ');
 }
@@ -1701,7 +1831,7 @@ function speakBrowserNarration(autoAdvance=true){
     utter.rate=.93;utter.pitch=1;utter.volume=1;
     activeUtterance=utter;
     storyShell?.classList.add('story-speaking');
-    setAudioStatus(voice?`Narration: ${voice.name}`:'Narration: iPhone voice','ready');
+    setAudioStatus(voice?`Narration: ${voice.name}`:'Narration','ready');
     utter.onend=()=>{
       storyShell?.classList.remove('story-speaking');activeUtterance=null;
       if(storyPlaying&&autoAdvance&&storyIndex<BRANCH_TOURS[storyTrack].steps.length-1){
@@ -1710,14 +1840,14 @@ function speakBrowserNarration(autoAdvance=true){
     };
     utter.onerror=()=>{
       storyShell?.classList.remove('story-speaking');activeUtterance=null;storyPlaying=false;
-      setAudioStatus('Tap Play again — iPhone blocked the first voice start','fallback');
+      setAudioStatus('Tap Play again','fallback');
     };
     try{window.speechSynthesis.resume();}catch(e){}
     window.speechSynthesis.speak(utter);
     return true;
   }catch(e){
     storyPlaying=false;
-    setAudioStatus('Narration could not start on this device','fallback');
+    setAudioStatus('Narration unavailable','fallback');
     return false;
   }
 }
@@ -1729,36 +1859,160 @@ function speakCurrent(autoAdvance=true){
   return true;
 }
 
+
+const storySceneStrip=document.getElementById('storySceneStrip');
+const storySceneImage=document.getElementById('storySceneImage');
+const storySceneArt=document.getElementById('storySceneArt');
+const storySceneTitle=document.getElementById('storySceneTitle');
+const storySceneCaption=document.getElementById('storySceneCaption');
+const storySceneCount=document.getElementById('storySceneCount');
+
+const SCENE_PALETTES=[
+  ['#33485d','#101923'],['#4a4138','#141513'],['#32434a','#11181c'],
+  ['#493c46','#15131a'],['#3a4d3b','#121914'],['#4c4530','#17160f']
+];
+
+function sceneKey(n){
+  const p=(n?.place||'').toLowerCase();
+  const b=(n?.branch||'').toLowerCase();
+  if(p.includes('arizona'))return 'desert';
+  if(p.includes('missouri')||p.includes('kentucky')||p.includes('virginia'))return 'farm';
+  if(p.includes('ontario')||p.includes('michigan')||p.includes('quebec'))return 'greatlakes';
+  if(p.includes('denmark')||p.includes('møn')||p.includes('lolland')||p.includes('fanefjord'))return 'denmark';
+  if(p.includes('germany'))return 'europe';
+  if(p.includes('mexico')||p.includes('chihuahua'))return 'mexico';
+  if(p.includes('new york')||p.includes('connecticut'))return 'newengland';
+  return b.includes('denmark')?'denmark':'settlement';
+}
+
+function artSvg(kind,variant=0){
+  const common=`viewBox="0 0 800 320" preserveAspectRatio="xMidYMid slice"`;
+  if(kind==='desert'){
+    return `<svg ${common}><path fill="rgba(239,209,155,.20)" d="M0 250L170 170l95 56 116-88 145 94 102-70 172 88v70H0z"/><circle cx="${610-variant*60}" cy="${70+variant*16}" r="34" fill="rgba(255,226,160,.26)"/><path stroke="rgba(215,232,238,.35)" stroke-width="7" d="M40 254h720"/><path stroke="rgba(215,232,238,.23)" stroke-width="4" d="M380 118v125m0-75l-38-35m38 51l43-30"/></svg>`;
+  }
+  if(kind==='greatlakes'){
+    return `<svg ${common}><path fill="rgba(149,190,208,.20)" d="M0 210q160-70 320 0t320 0 160 0v110H0z"/><path fill="rgba(54,78,59,.55)" d="M0 210l80-62 42 38 73-84 70 99 85-65 100 69 110-90 75 96 92-59 73 58v110H0z"/><path stroke="rgba(222,232,226,.28)" stroke-width="9" d="M80 255h620"/><path fill="rgba(229,216,182,.16)" d="M520 186h95v52h-95zm25-31h45l25 31h-95z"/></svg>`;
+  }
+  if(kind==='denmark'){
+    return `<svg ${common}><rect y="216" width="800" height="104" fill="rgba(61,88,55,.34)"/><path fill="rgba(224,218,188,.16)" d="M105 174h132v72H105zm32-44h68l42 44H95zM515 190h96v58h-96zm22-34h53l32 34h-117z"/><path stroke="rgba(222,229,214,.26)" stroke-width="5" d="M0 244q130-25 260 0t260 0 280 0"/><path stroke="rgba(230,235,225,.30)" stroke-width="6" d="M382 102v126m0-126l-48 76m48-76l48 76"/></svg>`;
+  }
+  if(kind==='farm'){
+    return `<svg ${common}><path fill="rgba(91,108,65,.35)" d="M0 210q170-45 325 0t280-4 195 4v110H0z"/><path fill="rgba(226,210,170,.18)" d="M92 176h132v72H92zm24-48h85l35 48H79z"/><path stroke="rgba(226,226,205,.22)" stroke-width="5" d="M0 247h800M0 270h800"/><path stroke="rgba(210,220,207,.18)" stroke-width="4" d="M300 110v138m-50-90h100"/></svg>`;
+  }
+  if(kind==='mexico'){
+    return `<svg ${common}><path fill="rgba(112,101,67,.40)" d="M0 225l150-88 118 76 136-101 139 99 111-58 146 72v95H0z"/><path fill="rgba(222,205,171,.16)" d="M90 190h120v56H90zm22-35h74l32 35H82z"/><path stroke="rgba(219,225,207,.28)" stroke-width="6" d="M530 126v120m0-72l-30-24m30 40l34-28"/></svg>`;
+  }
+  if(kind==='newengland'){
+    return `<svg ${common}><rect y="222" width="800" height="98" fill="rgba(53,75,53,.35)"/><path fill="rgba(224,218,194,.17)" d="M124 174h110v70H124zm18-42h73l31 42H111z"/><path stroke="rgba(220,229,221,.22)" stroke-width="8" d="M390 92v152m0-152l-53 86m53-86l53 86"/><path stroke="rgba(202,216,221,.22)" stroke-width="4" d="M0 252q160-32 320 0t320 0 160 0"/></svg>`;
+  }
+  if(kind==='europe'){
+    return `<svg ${common}><rect y="224" width="800" height="96" fill="rgba(68,78,57,.32)"/><path fill="rgba(225,218,196,.16)" d="M120 176h135v72H120zm28-48h80l38 48H104zM535 182h90v66h-90zm18-38h53l28 38h-117z"/><path stroke="rgba(220,223,212,.20)" stroke-width="6" d="M380 114v132m0-132l-46 76m46-76l46 76"/></svg>`;
+  }
+  return `<svg ${common}><path fill="rgba(87,105,81,.32)" d="M0 225q170-45 340 0t460 0v95H0z"/><path fill="rgba(225,215,190,.15)" d="M130 175h120v72H130zm26-45h68l37 45H117z"/></svg>`;
+}
+
+function decadeLabel(n){
+  const d=inferredDecade(n);
+  return d ? `${d}s` : 'date approximate';
+}
+
+function sceneSlidesFor(n){
+  const hc=historicalContextFor(n);
+  const key=sceneKey(n);
+  const place=n?.place||'Place unresolved';
+  const decade=decadeLabel(n);
+  const base=[
+    {title:`${place}`,caption:`A visual impression of the local setting around the ${decade}.`,kind:key},
+    {title:`Daily life around the ${decade}`,caption:hc.local,kind:key},
+    {title:`The wider world`,caption:hc.macro,kind:key}
+  ];
+  return base;
+}
+
+function showSceneSlide(n,slide,index,total){
+  const colors=SCENE_PALETTES[(index+Math.max(0,inferredDecade(n)||0)/10)%SCENE_PALETTES.length|0];
+  storySceneImage.style.setProperty('--scene-a',colors[0]);
+  storySceneImage.style.setProperty('--scene-b',colors[1]);
+  storySceneArt.innerHTML=artSvg(slide.kind,index);
+  storySceneTitle.textContent=slide.title;
+  storySceneCaption.textContent=slide.caption;
+  storySceneCount.textContent=`Scene ${index+1} of ${total}`;
+  storySceneStrip.classList.add('show');
+  storySceneStrip.setAttribute('aria-hidden','false');
+}
+function hideSceneStrip(){
+  storySceneStrip.classList.remove('show');
+  storySceneStrip.setAttribute('aria-hidden','true');
+}
+async function playScenePrelude(n){
+  const slides=sceneSlidesFor(n).slice(0,3);
+  for(let i=0;i<slides.length;i++){
+    if(i>0){
+      storySceneImage.classList.add('swap');
+      await waitMs(500);
+    }
+    showSceneSlide(n,slides[i],i,slides.length);
+    storySceneImage.classList.remove('swap');
+    await waitMs(2000);
+  }
+}
+
 function waitMs(ms){return new Promise(resolve=>setTimeout(resolve,ms));}
-async function focusStoryPerson(){
+async function focusStoryPerson(opts={}){
   const step=BRANCH_TOURS[storyTrack].steps[storyIndex];
   if(!step)return;
+  const n=nodeById.get(step.id);
   const previous=selected;
+
+  storyShell?.classList.remove('story-text-ready');
+  storyShell?.classList.add('story-prelude');
+
+  /* Slow pull-back from the previous person before moving to the next. */
   if(previous && previous!==step.id){
-    if(tourPhase)tourPhase.textContent='Pulling back to see where this person sits in the branch…';
+    if(tourPhase)tourPhase.textContent='';
     cinematicFocus(previous,'branch');
-    await waitMs(520);
+    await waitMs(900);
   }
+
   openNode(step.id,false,true);
-  if(tourPhase)tourPhase.textContent='Arriving in the family neighborhood…';
+
+  /* Approach in three deliberate scales. */
+  cinematicFocus(step.id,'branch');
+  await waitMs(850);
   cinematicFocus(step.id,'family');
-  await waitMs(620);
-  showSceneFor(nodeById.get(step.id));
-  if(tourPhase)tourPhase.textContent='Moving into the person, their birthplace, and their moment in history…';
+  await waitMs(900);
   cinematicFocus(step.id,'person');
-  await waitMs(720);
-  if(tourPhase)tourPhase.textContent='Person view — use Previous/Next or Show in Atlas at any time.';
+  await waitMs(1050);
+
+  /* The scene images now take over while narration has already begun. */
+  await playScenePrelude(n);
+
+  /* Pull out slightly before landing on the written museum label. */
+  cinematicFocus(step.id,'family');
+  await waitMs(650);
+  hideSceneStrip();
+
+  storyShell?.classList.remove('story-prelude');
+  storyShell?.classList.add('story-text-ready');
+  if(tourPhase)tourPhase.textContent='';
 }
 function playTour(){
   storyPlaying=true;storyPaused=false;
   const p=document.getElementById('storyPause');if(p)p.textContent='Ⅱ Pause';
-  /* iOS requirement: start speech directly from the Play tap before any await. */
-  const started=speakCurrent(true);
-  /* Run the visual navigation in parallel. */
-  focusStoryPerson();
-  if(!started){storyPlaying=false;setAudioStatus('Tap Play again if iPhone did not start narration','fallback');}
-}
+  storyShell?.classList.remove('story-text-ready');
+  storyShell?.classList.add('story-prelude');
 
+  /* Start narration immediately from the user gesture on iPhone. */
+  const started=speakCurrent(true);
+
+  /* Then perform the slow cinematic approach and image sequence. */
+  focusStoryPerson();
+
+  if(!started){
+    storyPlaying=false;
+    setAudioStatus('Tap Play again','fallback');
+  }
+}
 function pauseTour(){
   if(museumAudio){
     if(!museumAudio.paused){museumAudio.pause();storyPaused=true;storyPlaying=false;document.getElementById('storyPause').textContent='▶ Resume';return;}
