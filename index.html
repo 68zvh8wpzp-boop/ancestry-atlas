@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<title>Ancestry Atlas v1.4.1</title>
+<title>Ancestry Atlas v1.4.2</title>
 <style>
 :root{
   --bg:#081018; --panel:#0f1a24; --panel2:#132231; --text:#eef4fa; --muted:#9fb1c2;
@@ -79,7 +79,7 @@ canvas:active{cursor:grabbing}
 @media(max-width:800px){#proofNotice{top:54px;left:10px;right:10px;max-width:none;font-size:9.5px}}
 
 
-/* Ancestry Atlas v1.4.1 — family-facing landing + guided story */
+/* Ancestry Atlas v1.4.2 — family-facing landing + guided story */
 .landing{
   position:fixed;z-index:200;inset:0;display:flex;align-items:center;justify-content:center;
   background:
@@ -188,7 +188,34 @@ canvas:active{cursor:grabbing}
 #navModeBadge strong{color:#f4f8fb}
 @media(max-width:760px){.node-zoom-controls{grid-template-columns:repeat(2,minmax(0,1fr))}#navModeBadge{bottom:70px;max-width:82vw;text-align:center}}
 
+
+/* v1.4.2 iOS fail-safe landing controls */
+.landing,.landing-card,.landing-actions,.landing-actions button{pointer-events:auto!important}
+.landing-actions button{
+  touch-action:manipulation!important;
+  -webkit-tap-highlight-color:rgba(255,255,255,.18);
+  position:relative;z-index:250
+}
+.build-chip{
+  display:inline-block;margin-top:12px;padding:5px 8px;border-radius:999px;
+  border:1px solid rgba(160,190,214,.20);font-size:10px;letter-spacing:.08em;
+  color:#8fa9bc;background:rgba(10,20,28,.55)
+}
+#runtimeNotice{
+  display:none;margin-top:12px;padding:10px 12px;border-radius:10px;
+  border:1px solid rgba(255,185,95,.45);background:rgba(255,185,95,.08);
+  color:#f0d7b1;font-size:11px;line-height:1.45
+}
+
 </style>
+
+<script>
+window.addEventListener('error',function(e){
+  var n=document.getElementById('runtimeNotice');
+  if(n){n.style.display='block';n.textContent='Atlas diagnostic: '+(e.message||'A browser script error occurred.')+' — reload once, and if this remains visible send a screenshot.';}
+});
+</script>
+
 </head>
 <body>
 
@@ -199,10 +226,11 @@ canvas:active{cursor:grabbing}
     <p>Explore the family across generations. The atlas is brightest where the evidence is strongest and falls into dusk and shadow where the story is still uncertain.</p>
     <div class="landing-note"><strong>How to read the light:</strong> bright areas are well established; dimmer areas are supported but still developing; the darkest regions mark open questions. The family story stays visible without pretending uncertainty is settled fact.</div>
     <div class="landing-actions">
-      <button id="startExplore" class="primary-action">Explore the Atlas</button>
-      <button id="startStory" class="story-action">Our Family Story</button>
-      <button id="startAlbum">Family Album</button>
+      <button type="button" id="startExplore" class="primary-action" onclick="document.getElementById('landing').classList.add('hidden');return false;">Explore the Atlas</button>
+      <button type="button" id="startStory" class="story-action">Our Family Story</button>
+      <button type="button" id="startAlbum">Family Album</button>
     </div>
+    <div class="build-chip">BUILD v1.4.2 • iOS tap-safe</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours can narrate the Canada, Webb, Dunbar, and Denmark branches. Each stop zooms into the person, stages their birthplace and era, and explains the larger world around them.</p>
   </div>
 </div>
@@ -256,7 +284,7 @@ canvas:active{cursor:grabbing}
 <div id="app">
 <aside id="controls" class="collapsed">
   <button id="controlsToggle">☰ Controls / legend</button>
-  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v1.4.1</span></h1>
+  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v1.4.2</span></h1>
   <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay bright; uncertain generations fall progressively into dusk and shadow. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
 
   <div class="section">
@@ -1207,7 +1235,7 @@ document.addEventListener('keydown',e=>{
 
 resize();
 
-// ---------- Ancestry Atlas v1.4.1 narrated museum tours ----------
+// ---------- Ancestry Atlas v1.4.2 narrated museum tours ----------
 const BRANCH_TOURS = {
   canada: {
     title:'Canada — Brenay & Gooley',
