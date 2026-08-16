@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<title>Ancestry Atlas v1.1</title>
+<title>Ancestry Atlas v1.4</title>
 <style>
 :root{
   --bg:#081018; --panel:#0f1a24; --panel2:#132231; --text:#eef4fa; --muted:#9fb1c2;
@@ -79,7 +79,7 @@ canvas:active{cursor:grabbing}
 @media(max-width:800px){#proofNotice{top:54px;left:10px;right:10px;max-width:none;font-size:9.5px}}
 
 
-/* Ancestry Atlas v1.1 — family-facing landing + guided story */
+/* Ancestry Atlas v1.4 — family-facing landing + guided story */
 .landing{
   position:fixed;z-index:200;inset:0;display:flex;align-items:center;justify-content:center;
   background:
@@ -147,6 +147,47 @@ canvas:active{cursor:grabbing}
 .story-origin{font-size:11px;color:#8fb0c7;margin-top:5px}
 @media(max-width:760px){.story-toggle{margin-left:0;width:100%}}
 
+
+/* v1.2 — cinematic node staging */
+.scene-context{
+  position:absolute;left:50%;top:18px;transform:translateX(-50%);z-index:20;
+  width:min(720px,calc(100vw - 32px));pointer-events:none;
+  background:linear-gradient(180deg,rgba(8,16,24,.90),rgba(8,16,24,.70));
+  border:1px solid rgba(188,208,225,.20);border-radius:15px;padding:12px 15px;
+  box-shadow:0 16px 45px rgba(0,0,0,.28);backdrop-filter:blur(7px);
+  opacity:0;transition:opacity .35s ease,transform .35s ease;transform-origin:center top;
+}
+.scene-context.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.scene-era{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:#93afc5;margin-bottom:5px}
+.scene-head{font-size:16px;font-weight:750;color:#f5f8fb;line-height:1.25}
+.scene-copy{font-size:12px;line-height:1.5;color:#c7d5e0;margin-top:5px}
+.node-zoom-controls{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.node-zoom-controls button{font-size:11px;padding:6px 9px}
+#zoomNodeBtn{background:#e9f3ff;color:#07131d;border-color:#e9f3ff;font-weight:700}
+#zoomOutNodeBtn{background:#182a3a}
+@media(max-width:760px){
+  .scene-context{top:8px;width:calc(100vw - 20px);padding:10px 12px}
+  .scene-head{font-size:14px}
+  .scene-copy{font-size:11px}
+}
+
+
+/* v1.3 — prerecorded museum audio */
+.audio-status{font-size:11px;color:#8fb0c7;margin-left:2px}
+.audio-status.ready{color:#9ee6b8}
+.audio-status.fallback{color:#d8c98f}
+.story-audio-meter{height:3px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden;flex:1;min-width:90px}
+.story-audio-meter>span{display:block;height:100%;width:0;background:#d9ecff;transition:width .15s linear}
+
+
+/* v1.4 node-centered navigation */
+.node-zoom-controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:10px}
+.node-zoom-controls button{margin:0;font-size:10px;white-space:nowrap;padding:7px 6px}
+.node-zoom-controls button.active{background:#e9f3ff;color:#07131d;border-color:#e9f3ff;font-weight:700}
+#navModeBadge{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:16;background:rgba(7,15,23,.84);border:1px solid rgba(165,195,218,.20);border-radius:999px;padding:7px 11px;font-size:10px;color:#b8cad8;pointer-events:none;backdrop-filter:blur(6px)}
+#navModeBadge strong{color:#f4f8fb}
+@media(max-width:760px){.node-zoom-controls{grid-template-columns:repeat(2,minmax(0,1fr))}#navModeBadge{bottom:70px;max-width:82vw;text-align:center}}
+
 </style>
 </head>
 <body>
@@ -162,7 +203,7 @@ canvas:active{cursor:grabbing}
       <button id="startStory" class="story-action">Our Family Story</button>
       <button id="startAlbum">Family Album</button>
     </div>
-    <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours can narrate the Canada, Webb, Dunbar, and Denmark branches, using voices available on the viewer’s device.</p>
+    <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours can narrate the Canada, Webb, Dunbar, and Denmark branches. Each stop zooms into the person, stages their birthplace and era, and explains the larger world around them.</p>
   </div>
 </div>
 
@@ -184,7 +225,9 @@ canvas:active{cursor:grabbing}
     <div class="story-controls">
       <button id="storyPlay">▶ Play narrated tour</button>
       <button id="storyPause">Ⅱ Pause</button>
-      <label class="story-toggle"><input id="originVoiceToggle" type="checkbox" checked> Match narrator voice to branch origin when available</label>
+      <span id="audioStatus" class="audio-status">Narrator: Clara · prerecorded audio when available</span>
+      <div class="story-audio-meter"><span id="audioMeterFill"></span></div>
+      <span class="story-toggle">Narrator: Clara · English (Canada) · all branches</span>
     </div>
     <div class="story-card">
       <div class="story-visual">
@@ -213,7 +256,7 @@ canvas:active{cursor:grabbing}
 <div id="app">
 <aside id="controls" class="collapsed">
   <button id="controlsToggle">☰ Controls / legend</button>
-  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v1.1</span></h1>
+  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v1.4</span></h1>
   <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay crisp; uncertain generations become progressively hazier. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
 
   <div class="section">
@@ -270,6 +313,14 @@ canvas:active{cursor:grabbing}
 
 <section id="stage">
   <canvas id="c"></canvas>
+
+<div id="navModeBadge"><strong>Family view</strong> · tap a person to re-center</div>
+<div id="sceneContext" class="scene-context" aria-live="polite">
+  <div id="sceneEra" class="scene-era"></div>
+  <div id="sceneHead" class="scene-head"></div>
+  <div id="sceneCopy" class="scene-copy"></div>
+</div>
+
   <div id="hud">Ancestry Atlas • evidence-weighted 3D • rotate around what is on screen • ⌘/Ctrl+F-style search below</div>
   <div id="proofNotice">Clarity is evidence: crisp = established; soft = supported; hazy = provisional; very hazy = frontier. The Webb proof frontier currently sits at James Webb Jr. → James Webb + Elizabeth Douglas.</div><div id="timeline">Present → 1900s → 1800s → 1700s → 1600s → 1500s</div>
   <div id="card"><button id="close">×</button><div id="personHeader"><div id="portraitWrap" class="portrait-wrap"><img id="portraitImg" class="portrait-img" alt="Historical portrait"><div id="portraitCaption" class="portrait-caption"></div></div><div class="person-headtext"><h3></h3><div class="meta"></div></div></div><div class="label">Research note</div><p></p><div class="label">Additional genealogical details</div><div id="extraInfo" class="extra"></div><div class="label">Images / documents</div><div id="evidenceWrap"></div><div id="trail">Trail: current node</div><div class="relation-title">Choose an ancestor to surf upward</div><div id="parentButtons" class="relation-buttons"></div><div class="relation-title">Return toward descendants</div><div id="childButtons" class="relation-buttons"></div><div class="button-row"><button id="centerNode">Center on node</button><button id="goParent">Next ancestor ↑</button><button id="goChild">Back ↓</button></div><div class="navhint" id="navhint">Choose a named parent above to follow a specific branch. Each selection recenters the map on that ancestor.</div><span class="badge"></span></div>
@@ -364,7 +415,38 @@ function relatedToSelected(id){
     (DATA.researchLinks||[]).some(e=>(e.a===selected&&e.b===id)||(e.b===selected&&e.a===id)) ||
     (DATA.unions||[]).some(e=>(e.a===selected&&e.b===id)||(e.b===selected&&e.a===id));
 }
-function evidenceDimFor(id){return evidenceMode && selected && !relatedToSelected(id) ? .16 : 1;}
+let nodeFocusMode=false, nodeViewLevel='atlas';
+let navigationNeighborhood=new Set();
+function buildNavigationNeighborhood(id,level='family'){
+  const s=new Set();
+  if(!id)return s;
+  s.add(id);
+  const parents=parentMap.get(id)||[], children=childMap.get(id)||[];
+  parents.forEach(x=>s.add(x)); children.forEach(x=>s.add(x));
+  coParentIds(id).forEach(x=>s.add(x));
+  // siblings share at least one parent
+  for(const p of parents){for(const sib of (childMap.get(p)||[]))s.add(sib);}
+  if(level==='branch'){
+    for(const p of [...parents]){
+      (parentMap.get(p)||[]).forEach(x=>s.add(x));
+      coParentIds(p).forEach(x=>s.add(x));
+    }
+    for(const ch of [...children]){(childMap.get(ch)||[]).forEach(x=>s.add(x));}
+  }
+  return s;
+}
+function refreshNavigationNeighborhood(){
+  navigationNeighborhood=buildNavigationNeighborhood(selected,nodeViewLevel);
+}
+function navigationDimFor(id){
+  if(!nodeFocusMode||!selected||nodeViewLevel==='atlas')return 1;
+  return navigationNeighborhood.has(id)?.95:.09;
+}
+function evidenceDimFor(id){
+  let d=(evidenceMode && selected && !relatedToSelected(id)) ? .16 : 1;
+  return d*navigationDimFor(id);
+}
+
 
 
 const branches=[...new Set(DATA.nodes.map(n=>n.branch))].sort();
@@ -502,6 +584,120 @@ function openEvidence(e){
 document.getElementById('docClose').onclick=()=>document.getElementById('docModal').classList.remove('open');
 document.getElementById('docModal').addEventListener('click',e=>{if(e.target.id==='docModal'){clearAlbumViewerExtras();e.currentTarget.classList.remove('open')}});
 
+
+// v1.2 — birth-place / birth-era scene setting and cinematic node navigation
+const sceneContext=document.getElementById('sceneContext');
+const sceneEra=document.getElementById('sceneEra');
+const sceneHead=document.getElementById('sceneHead');
+const sceneCopy=document.getElementById('sceneCopy');
+
+function firstYear(n){
+  const s=(n?.years||'')+' '+(n?.note||'');
+  const m=s.match(/\b(1[5-9]\d{2}|20\d{2})\b/);
+  return m ? Number(m[1]) : null;
+}
+function macroContext(n){
+  const y=firstYear(n);
+  const p=(n?.place||'').toLowerCase();
+  const b=(n?.branch||'').toLowerCase();
+  const lines=[];
+  if(!y) return {era:'Date uncertain',head:n?.place||'Place unresolved',copy:'The exact birth year is not yet secure, so the atlas avoids assigning a specific historical scene.'};
+
+  // broad global era
+  if(y<1650) lines.push('Europe was still living through the political and religious upheavals of the early modern period, with war, disease, and confessional rivalry shaping ordinary life.');
+  else if(y<1700) lines.push('This was the age of expanding state power, Atlantic trade, and frequent European warfare; most families still lived in intensely local agricultural communities.');
+  else if(y<1750) lines.push('The early eighteenth century brought expanding Atlantic trade and recurring European wars, while rural life remained governed by harvests, parish institutions, and local obligations.');
+  else if(y<1800) lines.push('Revolutionary politics and imperial war were reshaping the Atlantic world, while migration and frontier settlement accelerated in North America.');
+  else if(y<1850) lines.push('Industrialization, canals, steam transport, religious movements, and rapid migration were changing how families moved and worked.');
+  else if(y<1900) lines.push('Railroads, industrial growth, mass migration, civil conflict, and nation-building transformed everyday life across Europe and North America.');
+  else if(y<1950) lines.push('Two world wars, the 1918 influenza pandemic, the Great Depression, automobiles, radio, and mass electrification reshaped family life within a single generation.');
+  else lines.push('Postwar prosperity, civil-rights movements, television, aviation, computing, and suburban growth rapidly altered the social world.');
+
+  // geography-specific context
+  if(p.includes('arizona')){
+    if(y<1912) lines.push('Arizona was still a U.S. territory rather than a state, and communities were tied together by ranching, mining, rail lines, and long-distance family networks.');
+    else lines.push('Arizona was a young and fast-growing state, with water, agriculture, mining, and migration driving settlement patterns.');
+  }
+  if(p.includes('missouri')){
+    if(y>=1850 && y<=1875) lines.push('Missouri sat on a violent border during the Civil War era, where divided loyalties, guerrilla warfare, emancipation, and Reconstruction touched civilian life directly.');
+    else if(y<1860) lines.push('Missouri was part of the rapidly expanding western edge of the United States, drawing migrants along rivers, wagon roads, and new rail routes.');
+  }
+  if(p.includes('connecticut') || p.includes('new york')){
+    if(y>=1770 && y<=1790) lines.push('The American Revolution and the creation of a new national government were immediate realities, not distant textbook events.');
+    else if(y<1770) lines.push('New England communities were organized around towns, churches, farms, maritime trade, and the institutions of British colonial rule.');
+  }
+  if(p.includes('ontario') || p.includes('quebec') || p.includes('canada')){
+    if(y<1867) lines.push('This was British North America before Canadian Confederation, with French- and English-speaking communities developing under changing colonial institutions.');
+    else lines.push('Canada was consolidating after Confederation, while railroads and Great Lakes transport linked Ontario and Quebec ever more closely to the United States.');
+  }
+  if(p.includes('michigan')){
+    lines.push('The Great Lakes economy tied Michigan to Ontario through shipping, lumber, mining, industry, and constant cross-border movement.');
+  }
+  if(p.includes('denmark') || p.includes('fanefjord') || p.includes('hårbølle') || p.includes('toreby') || b.includes('denmark')){
+    if(y>=1840 && y<=1870) lines.push('Denmark was undergoing constitutional change and the Schleswig conflicts, while rural parish life remained central to identity and record keeping.');
+    else if(y<1800) lines.push('Denmark-Norway was an absolute monarchy, and rural island communities were shaped by estate agriculture, military obligations, parish life, and Baltic politics.');
+  }
+  if(p.includes('germany') || b.includes('germany')){
+    if(y>=1850 && y<1914) lines.push('German-speaking Europe was being transformed by industrialization, political unification, military reform, and large-scale emigration to North America.');
+    else if(y<1800) lines.push('The German lands were politically fragmented, with local rulers, military service, church jurisdictions, and regional identities often mattering more than a single national identity.');
+  }
+  if(p.includes('virginia')){
+    if(y>=1750 && y<=1800) lines.push('Virginia was central to the American Revolution and the creation of the early republic, while slavery and plantation agriculture profoundly shaped its society and economy.');
+  }
+
+  const place=n?.place||'Place unresolved';
+  return {era:`Around ${y}`,head:`Born into ${place}`,copy:lines.slice(0,3).join(' ')};
+}
+function showSceneFor(n){
+  const c=macroContext(n);
+  sceneEra.textContent=c.era;
+  sceneHead.textContent=c.head;
+  sceneCopy.textContent=c.copy;
+  sceneContext.classList.add('show');
+}
+function setViewButtons(level){
+  const ids={person:'zoomPersonBtn',family:'zoomFamilyBtn',branch:'zoomBranchBtn',atlas:'zoomAtlasBtn'};
+  Object.entries(ids).forEach(([k,id])=>document.getElementById(id)?.classList.toggle('active',k===level));
+  const badge=document.getElementById('navModeBadge');
+  if(badge){
+    const label={person:'Person view',family:'Family view',branch:'Branch view',atlas:'Full atlas'}[level];
+    badge.innerHTML=`<strong>${label}</strong>${selected&&level!=='atlas'?' · '+escapeHtml(nodeById.get(selected)?.name||''):''}`;
+  }
+}
+function cinematicFocus(id,mode='family'){
+  const n=nodeById.get(id); if(!n)return;
+  selected=id;
+  nodeViewLevel=mode;
+  nodeFocusMode=mode!=='atlas';
+  refreshNavigationNeighborhood();
+  setViewButtons(mode);
+  if(mode==='atlas'){
+    originNodeId='you'; pivotWorld={x:0,y:0,z:0};pivotCamera={x:0,y:0,z:0};panX=0;panY=isMobile?90:40;
+  }else{
+    centerOnNode(id);
+  }
+  const targets={person:isMobile?96:126,family:isMobile?60:82,branch:isMobile?40:56,atlas:isMobile?30:48};
+  const target=targets[mode]||targets.family;
+  const startScale=scale;
+  const start=performance.now(), dur=560;
+  function tick(t){
+    const q=Math.min(1,(t-start)/dur), ease=1-Math.pow(1-q,3);
+    scale=startScale+(target-startScale)*ease; draw();
+    if(q<1)requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  showSceneFor(n);
+}
+function setNodeView(level){
+  if(level==='atlas'){
+    nodeViewLevel='atlas';nodeFocusMode=false;navigationNeighborhood=new Set();setViewButtons('atlas');
+    const id=selected||'you'; cinematicFocus(id,'atlas'); return;
+  }
+  if(!selected)return;
+  cinematicFocus(selected,level);
+}
+
+
 function openNode(id, recenter=false, appendTrail=false){
   const n=nodeById.get(id); if(!n) return;
   selected=id;
@@ -522,7 +718,8 @@ function openNode(id, recenter=false, appendTrail=false){
   const downCount=(childMap.get(id)||[]).length;
   document.getElementById('navhint').textContent = `Ancestors: ${upCount} • Descendants: ${downCount}. Use “Up branch” to walk upward and “Back” to return.`;
   card.style.display='block';
-  if(recenter) centerOnNode(id); else draw();
+  showSceneFor(n);
+  if(recenter) cinematicFocus(id,'family'); else {refreshNavigationNeighborhood();draw();}
 }
 function stepRelation(dir){
   if(!selected) return;
@@ -693,7 +890,10 @@ function draw(){
     ctx.shadowBlur=0;
     ctx.filter='none';
 
-    // Always-visible node label: name + dates + location. This is deliberately
+    const showNavLabel=!nodeFocusMode || nodeViewLevel==='atlas' || navigationNeighborhood.has(n.id);
+    if(!showNavLabel){ctx.restore();return;}
+
+    // Node label: shown for the current navigation neighborhood, or for the full atlas. This is deliberately
     // drawn as a compact card so the genealogy remains legible on iPhone.
     const nameSize=Math.max(9.5,11.4*p.s);
     const metaSize=Math.max(8,9.4*p.s);
@@ -716,7 +916,6 @@ function draw(){
     if(by+boxH>h-4) by=h-boxH-4;
     const labelAlpha=Math.max(.28,Math.min(.94,(alphaByConfidence[n.confidence]||.7)*dim*(.93-p.z*.006)));
     ctx.globalAlpha=labelAlpha;
-    if(selected!==n.id && (n.confidence==='provisional'||n.confidence==='frontier')) ctx.filter=`blur(${n.confidence==='frontier'?.65:.28}px)`;
     ctx.fillStyle=cardBgFor(n.confidence);
     ctx.beginPath();
     if(ctx.roundRect) ctx.roundRect(bx,by,boxW,boxH,6); else ctx.rect(bx,by,boxW,boxH);
@@ -795,7 +994,7 @@ function selectAt(clientX, clientY){
     if(d<bd){bd=d;best=p;}
   }
   if(!best) return;
-  browseTrail=[]; openNode(best.node.id, isMobile, true);
+  browseTrail=[]; openNode(best.node.id, true, true);
 }
 function pointerDistance(){
   const pts=[...pointerMap.values()];
@@ -870,8 +1069,13 @@ canvas.addEventListener('wheel',e=>{
 },{passive:false});
 
 document.getElementById('close').onclick=()=>{card.style.display='none';selected=null;draw();};
+document.getElementById('zoomPersonBtn').onclick=()=>setNodeView('person');
+document.getElementById('zoomFamilyBtn').onclick=()=>setNodeView('family');
+document.getElementById('zoomBranchBtn').onclick=()=>setNodeView('branch');
+document.getElementById('zoomAtlasBtn').onclick=()=>setNodeView('atlas');
 
 function reset(){
+  nodeFocusMode=false;nodeViewLevel='atlas';navigationNeighborhood=new Set();setViewButtons('atlas');
   browseTrail=[];
   originNodeId='you';
   pivotWorld={x:0,y:0,z:0}; pivotCamera={x:0,y:0,z:0};
@@ -1003,7 +1207,7 @@ document.addEventListener('keydown',e=>{
 
 resize();
 
-// ---------- Ancestry Atlas v1.1 narrated museum tours ----------
+// ---------- Ancestry Atlas v1.4 narrated museum tours ----------
 const BRANCH_TOURS = {
   canada: {
     title:'Canada — Brenay & Gooley',
@@ -1099,21 +1303,15 @@ function confidenceFamilyText(conf){
 }
 function pickVoice(track){
   if(!availableVoices.length) loadVoices();
-  const tour=BRANCH_TOURS[track];
-  const originMode=document.getElementById('originVoiceToggle')?.checked;
-  const prefs=originMode ? tour.voicePrefs : ['en-US','en-GB','en-CA'];
-  for(const lang of prefs){
-    const exact=availableVoices.find(v=>(v.lang||'').toLowerCase()===lang.toLowerCase());
-    if(exact) return exact;
-    const prefix=lang.split('-')[0].toLowerCase();
-    const loose=availableVoices.find(v=>(v.lang||'').toLowerCase().startsWith(prefix));
-    if(loose) return loose;
-  }
+  const named=availableVoices.find(v=>(v.name||'').toLowerCase().includes('clara'));
+  if(named) return named;
+  const canadian=availableVoices.find(v=>(v.lang||'').toLowerCase()==='en-ca');
+  if(canadian) return canadian;
   return availableVoices.find(v=>(v.lang||'').toLowerCase().startsWith('en')) || availableVoices[0] || null;
 }
 function narratorIntro(){
   const t=BRANCH_TOURS[storyTrack];
-  return t.narrator.intro + ' The accent you hear is selected from voices already installed on this device, so it may vary from one phone or computer to another.';
+  return t.narrator.intro + ' Clara is the narrator for every branch in this version of the atlas.';
 }
 function renderStory(){
   const tour=BRANCH_TOURS[storyTrack], steps=tour.steps;
@@ -1150,25 +1348,104 @@ function closeStory(){
   stopNarration();
   storyModal.classList.remove('open'); storyModal.setAttribute('aria-hidden','true');
 }
+
+// v1.3 prerecorded narration layer. If a branch/step MP3 exists, use it.
+// If not, the atlas transparently falls back to browser speech synthesis.
+const MUSEUM_AUDIO = {
+  canada:['you','james_sheldon','marion_brenay','charles_albert','charles_godfrey','ida_mae','john_peter'],
+  webb:['you','james_sheldon','james_wilford','jonathan_henry','edward_milo_jr','edward_milo_sr','james_webb_jr','james_webb_sr','elizabeth_douglas'],
+  dunbar:['you','inez_karen','grace_hill','isaiah_hill','russell_hill','davia_dunbar','thomas_d','william_weedon','rev_thomas','dunbar_frontier'],
+  denmark:['you','della_ray','elsie_mortensen','morten_peder','dorthea_jensen','knud_jensen_brygger','levin_madsen','morten_nielsen','levin_zander']
+};
+let museumAudio=null, museumAudioTick=null;
+function audioPath(track,index){
+  const id=MUSEUM_AUDIO[track]?.[index];
+  return id ? `assets/audio/${track}/${String(index+1).padStart(2,'0')}_${id}.mp3` : null;
+}
+function setAudioStatus(msg,kind=''){
+  const el=document.getElementById('audioStatus'); if(!el)return;
+  el.textContent=msg; el.className='audio-status '+kind;
+}
+function updateAudioMeter(){
+  const fill=document.getElementById('audioMeterFill');
+  if(!fill||!museumAudio||!isFinite(museumAudio.duration)||museumAudio.duration<=0){if(fill)fill.style.width='0%';return;}
+  fill.style.width=Math.max(0,Math.min(100,museumAudio.currentTime/museumAudio.duration*100))+'%';
+}
+function stopMuseumAudio(){
+  clearInterval(museumAudioTick);museumAudioTick=null;
+  if(museumAudio){try{museumAudio.pause();museumAudio.currentTime=0;}catch(e){}}
+  museumAudio=null;
+  const fill=document.getElementById('audioMeterFill');if(fill)fill.style.width='0%';
+}
+function tryPrerecordedNarration(autoAdvance=true){
+  const path=audioPath(storyTrack,storyIndex);
+  if(!path)return Promise.resolve(false);
+  return new Promise(resolve=>{
+    stopMuseumAudio();
+    const a=new Audio();
+    museumAudio=a;
+    let settled=false;
+    const fallback=()=>{
+      if(settled)return;settled=true;
+      stopMuseumAudio();
+      setAudioStatus('Browser narration fallback','fallback');
+      resolve(false);
+    };
+    a.preload='auto';
+    a.src=path;
+    a.onerror=fallback;
+    a.oncanplay=()=>{
+      if(settled)return;settled=true;
+      setAudioStatus('Museum narration','ready');
+      a.play().then(()=>{
+        storyShell?.classList.add('story-speaking');
+        museumAudioTick=setInterval(updateAudioMeter,120);
+        resolve(true);
+      }).catch(()=>fallback());
+    };
+    a.onended=()=>{
+      clearInterval(museumAudioTick);museumAudioTick=null;updateAudioMeter();
+      storyShell?.classList.remove('story-speaking');
+      museumAudio=null;
+      if(storyPlaying && autoAdvance && storyIndex<BRANCH_TOURS[storyTrack].steps.length-1){
+        storyTimer=setTimeout(()=>advanceStory(true),850);
+      }else if(storyIndex>=BRANCH_TOURS[storyTrack].steps.length-1){
+        storyPlaying=false;
+      }
+    };
+    // Avoid hanging forever if a host returns odd responses.
+    setTimeout(()=>{if(!settled)fallback();},2200);
+    a.load();
+  });
+}
+
 function storySpokenText(){
   const tour=BRANCH_TOURS[storyTrack], step=tour.steps[storyIndex], n=nodeById.get(step.id);
   const pieces=[];
   if(storyIndex===0) pieces.push(narratorIntro());
+  const sc=macroContext(n);
+  if(sc && sc.copy) pieces.push(sc.era+'. '+sc.head+'. '+sc.copy);
   pieces.push(step.copy);
-  if(step.event) pieces.push('In their world. '+step.event);
+  if(step.event) pieces.push('One especially important event in their world: '+step.event);
   if(n && (n.confidence==='provisional'||n.confidence==='frontier')){
     pieces.push(n.confidence==='frontier' ? 'Here the evidence is at the research frontier.' : 'This part of the line remains provisional.');
   }
   return pieces.join(' ');
 }
-function speakCurrent(autoAdvance=true){
+async function speakCurrent(autoAdvance=true){
+  stopMuseumAudio();
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+  clearTimeout(storyTimer);
+
+  const usedRecording=await tryPrerecordedNarration(autoAdvance);
+  if(usedRecording) return;
+
   if(!('speechSynthesis' in window)){
     storyPlaying=false; storyPaused=false;
+    setAudioStatus('Narration unavailable','fallback');
     alert('Narration is not available in this browser, but the guided tour still works visually.');
     return;
   }
-  window.speechSynthesis.cancel();
-  clearTimeout(storyTimer);
   const text=storySpokenText();
   const utter=new SpeechSynthesisUtterance(text);
   const voice=pickVoice(storyTrack);
@@ -1191,7 +1468,7 @@ function speakCurrent(autoAdvance=true){
 }
 function focusStoryPerson(){
   const step=BRANCH_TOURS[storyTrack].steps[storyIndex];
-  if(step && typeof navigateTo==='function') navigateTo(step.id,true);
+  if(step){ openNode(step.id,false,true); cinematicFocus(step.id,'person'); }
 }
 function playTour(){
   storyPlaying=true; storyPaused=false;
@@ -1199,6 +1476,10 @@ function playTour(){
   speakCurrent(true);
 }
 function pauseTour(){
+  if(museumAudio){
+    if(!museumAudio.paused){museumAudio.pause();storyPaused=true;storyPlaying=false;document.getElementById('storyPause').textContent='▶ Resume';return;}
+    museumAudio.play();storyPaused=false;storyPlaying=true;document.getElementById('storyPause').textContent='Ⅱ Pause';return;
+  }
   if(!('speechSynthesis' in window)) return;
   if(window.speechSynthesis.speaking && !window.speechSynthesis.paused){
     window.speechSynthesis.pause(); storyPaused=true; storyPlaying=false;
@@ -1211,6 +1492,7 @@ function pauseTour(){
 function stopNarration(){
   storyPlaying=false;storyPaused=false;
   clearTimeout(storyTimer);
+  stopMuseumAudio();
   if('speechSynthesis' in window) window.speechSynthesis.cancel();
   storyShell?.classList.remove('story-speaking');
   const p=document.getElementById('storyPause'); if(p)p.textContent='Ⅱ Pause';
