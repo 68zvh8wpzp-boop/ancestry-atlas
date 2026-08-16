@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<title>Ancestry Atlas v1.6.1b</title>
+<title>Ancestry Atlas v1.7</title>
 <style>
 :root{
   --bg:#081018; --panel:#0f1a24; --panel2:#132231; --text:#eef4fa; --muted:#9fb1c2;
@@ -79,7 +79,7 @@ canvas:active{cursor:grabbing}
 @media(max-width:800px){#proofNotice{top:54px;left:10px;right:10px;max-width:none;font-size:9.5px}}
 
 
-/* Ancestry Atlas v1.6.1b — family-facing landing + guided story */
+/* Ancestry Atlas v1.7 — family-facing landing + guided story */
 .landing{
   position:fixed;z-index:200;inset:0;display:flex;align-items:center;justify-content:center;
   background:
@@ -384,6 +384,58 @@ canvas:active{cursor:grabbing}
   .story-modal{z-index:190!important}
 }
 
+
+/* v1.7 — on iPhone, the story card disappears during the cinematic prelude */
+#storyPlay{display:none!important}
+@media(max-width:760px){
+  .story-shell.story-prelude{
+    position:fixed!important;
+    right:10px!important;left:auto!important;
+    bottom:calc(10px + env(safe-area-inset-bottom))!important;
+    width:auto!important;
+    max-width:none!important;
+    min-height:0!important;
+    max-height:none!important;
+    padding:0!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+    overflow:visible!important;
+  }
+  .story-shell.story-prelude .story-top,
+  .story-shell.story-prelude .story-track,
+  .story-shell.story-prelude .story-card,
+  .story-shell.story-prelude .story-nav,
+  .story-shell.story-prelude .story-progress,
+  .story-shell.story-prelude .story-narrator{
+    display:none!important;
+  }
+  .story-shell.story-prelude .story-controls{
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+  }
+  .story-shell.story-prelude #storyPause{
+    display:block!important;
+    background:rgba(5,14,22,.88)!important;
+    border:1px solid rgba(220,235,245,.28)!important;
+    padding:10px 14px!important;
+    border-radius:999px!important;
+    box-shadow:0 8px 24px rgba(0,0,0,.34)!important;
+  }
+  .story-shell.story-prelude #audioStatus,
+  .story-shell.story-prelude .story-audio-meter,
+  .story-shell.story-prelude .story-toggle{
+    display:none!important;
+  }
+  .story-scene-strip{
+    z-index:420!important;
+    top:10px!important;
+  }
+  .story-scene-frame,.story-scene-image{min-height:230px!important}
+}
+
 </style>
 
 <script>
@@ -407,7 +459,7 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Our Family Story</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v1.6.1b • archival scene carousel</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v1.7 • auto-story + birthplace context</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop moves slowly through the tree, pauses on visual scenes from the person’s place and era, then settles on the written story.</p>
   </div>
 </div>
@@ -976,17 +1028,60 @@ function inferredDecade(n){
   if(note) return Math.floor(Number(note[1])/10)*10;
   return null;
 }
+
+const BIRTHPLACE_CONTEXT = {
+  james_sheldon:'The birthplace currently recorded here is Arizona, but the exact city is not yet fixed in the atlas, so the tour keeps the local description at the state level.',
+  marion_brenay:'Her birthplace is currently recorded at the Arizona level rather than a specific town, so the tour avoids inventing a city.',
+  charles_albert:'Arnstein was a small community in Ontario’s Parry Sound District, part of a northern landscape of forests, farms, small settlements, and transportation links reaching toward the Great Lakes.',
+  charles_godfrey:'His birthplace is currently known only as Germany. Until a specific town is documented, the tour treats the local setting as regional rather than city-specific.',
+  ida_mae:'Alpena sits on Lake Huron in northeastern Michigan. In the late nineteenth century it was strongly shaped by lumber, lake shipping, mills, and the movement of people and goods around the Great Lakes.',
+  john_peter:'His birthplace is presently recorded only as Quebec, without a confirmed town, so the local scene remains provincial rather than city-specific.',
+  james_wilford:'Pinedale is a small community in northeastern Arizona’s higher, forested country, far removed from the desert image many people associate with the state.',
+  jonathan_henry:'Woodruff was a small settlement in northeastern Arizona near the Little Colorado River, where irrigation, livestock, farming, and close-knit community life mattered.',
+  edward_milo_jr:'Linden in Atchison County belonged to the rural world of northwestern Missouri, an area of farms and new settlements near the Missouri River and major westward travel corridors.',
+  edward_milo_sr:'Hanover lies in Chautauqua County in western New York, in the Lake Erie region that was being transformed by roads, canals, migration, and expanding market towns.',
+  james_webb_jr:'The atlas currently points to East Hampton or Chatham, Connecticut. Because the exact locality is not fully settled, the tour presents this as the small-town and parish world of central Connecticut rather than claiming one precise birthplace.',
+  james_webb_sr:'Only Connecticut is secure enough here; the exact town remains unresolved.',
+  elizabeth_douglas:'Her identity and exact Connecticut locality remain unresolved, so no specific town is assigned.',
+  inez_karen:'Her birthplace is currently recorded only as Arizona in the atlas, so the tour does not assign a more specific city.',
+  grace_hill:'Richmond is the county seat of Ray County, Missouri, serving an agricultural region of small towns and farms northeast of the Kansas City area.',
+  isaiah_hill:'His birthplace is presently recorded only as Missouri, so the atlas keeps the local setting broad.',
+  russell_hill:'His birthplace is presently recorded only as Kentucky, without a secure town.',
+  davia_dunbar:'Boone County lies in central Missouri. The exact town is not fixed here, so the tour focuses on the county’s agricultural and small-town setting.',
+  thomas_d:'Madison County is in central Kentucky. The exact birthplace within the county is not yet fixed in the atlas.',
+  william_weedon:'The recorded birthplace corridor spans Virginia and Kentucky, so the atlas treats the local setting as a migration zone rather than a single town.',
+  rev_thomas:'Loudoun County lies in northern Virginia between the Potomac region and the Blue Ridge. In the eighteenth century it was a rural landscape of farms, mills, roads, churches, and small communities.',
+  dunbar_frontier:'This earlier Dunbar generation is only a research frontier in Loudoun County; no specific birthplace is assigned.',
+  della_ray:'Colonia Pacheco was a small highland settlement in Chihuahua, one of the Mormon agricultural colonies established in northern Mexico.',
+  elsie_mortensen:'Gunnison was a young agricultural settlement in central Utah, shaped by irrigation, church community, farming, and the geography of the Sanpete region.',
+  morten_peder:'Hårbølle is a village in Fanefjord parish on the island of Møn, a rural Baltic setting of farms, villages, shoreline routes, and parish life.',
+  dorthea_jensen:'Her birthplace is recorded at the island level as Lolland, Denmark; the exact town is not secure in the current atlas.',
+  knud_jensen_brygger:'Toreby and nearby Flintinge are villages on Lolland, an agricultural Danish island of estates, fields, parish churches, and market connections.',
+  levin_madsen:'Damme is a village in Fanefjord parish on Møn, surrounded by the island’s agricultural landscape and close-knit parish communities.',
+  morten_nielsen:'His birthplace is currently recorded only as Møn, so the tour uses the island setting rather than assigning a specific village.',
+  levin_zander:'His exact German birthplace remains unknown. The tour therefore distinguishes his unresolved birthplace from the later Danish community of Damme on Møn where he is documented.'
+};
+function birthplaceContextFor(n){
+  return BIRTHPLACE_CONTEXT[n?.id] || '';
+}
+
 function historicalContextFor(n){
+  const placeNote=birthplaceContextFor(n);
   const curated=HISTORICAL_CONTEXT[n?.id];
-  if(curated) return curated;
+  if(curated){
+    return {
+      local:[placeNote,curated.local].filter(Boolean).join(' '),
+      macro:curated.macro
+    };
+  }
   const c=macroContext(n);
   const place=n?.place||'Place unresolved';
   const decade=inferredDecade(n);
   const when=decade ? `the ${decade}s` : 'an uncertain period';
-  const local = decade
+  const localCore = decade
     ? `The exact date is not secure, so the atlas treats ${when} as the working historical window for ${place}. The setting is intentionally approximate rather than presented as an exact birth-year reconstruction.`
     : `The birth date is not yet precise enough to assign even a reliable decade. The atlas therefore keeps this scene broad rather than inventing a tighter date.`;
-  return {local,macro:c.copy||'The wider historical setting remains approximate for this person.'};
+  return {local:[placeNote,localCore].filter(Boolean).join(' '),macro:c.copy||'The wider historical setting remains approximate for this person.'};
 }
 
 function macroContext(n){
@@ -1604,17 +1699,17 @@ document.addEventListener('keydown',e=>{
 
 resize();
 
-// ---------- Ancestry Atlas v1.6.1b narrated museum tours ----------
+// ---------- Ancestry Atlas v1.7 narrated museum tours ----------
 const BRANCH_TOURS = {
   canada: {
     title:'Canada — Brenay & Gooley',
     narrator:{id:'charles_godfrey', origin:'Germany → Ontario / Michigan', intro:'From Arizona, this branch reaches north through Michigan and Ontario, then farther back toward its European roots.'},
     languagePrefs:['en-CA','de-DE','en-US','en-GB'],
     steps:[
-      {id:'james_sheldon', copy:'James Sheldon Webb is the modern documentary gateway to this branch. His Arizona birth certificate is the immediate record needed to anchor the citizenship proof chain from the present generation backward.', event:'Born during the Second World War era, he entered a world being reshaped by global conflict, mass aviation, antibiotics, and the postwar transformation of the American West.'},
+      {id:'james_sheldon', copy:'James Sheldon Webb is the modern starting point for this branch, linking the present family to the Brenay and Gooley generations that came before him.', event:'Born during the Second World War era, he entered a world being reshaped by global conflict, mass aviation, antibiotics, and the postwar transformation of the American West.'},
       {id:'marion_brenay', copy:'Marion Beulah Brenay carries the Canadian ancestry into the modern Webb family. Her obituary provides an important bridge by naming Charles Albert Brenay and Marian Beulah Skinner as her parents.', event:'Marion was born in 1923. Her childhood overlapped the Great Depression, and she reached adulthood as the Second World War transformed daily life across North America.'},
-      {id:'charles_albert', copy:'Charles Albert Brenay was born in Arnstein, Ontario, in 1897. He is the clearest Canadian-born anchor in this branch, and his naturalization material remains a major document target.', event:'His lifetime crossed the First World War, the 1918 influenza pandemic, the Great Depression, and the Second World War—events that transformed borders, migration, work, and family life across Canada and the United States.'},
-      {id:'charles_godfrey', copy:'Charles Godfrey, also recorded as Gottfried Brenay or Brunne, moved from Germany into the Canadian and Michigan world of this family. The surviving naturalization index gives us a strong trail, while the underlying file remains important.', event:'European mass migration to North America defined this era. Industrialization, steamship travel, and expanding rail networks made transatlantic and cross-border family movement possible on a scale earlier generations could scarcely imagine.'},
+      {id:'charles_albert', copy:'Charles Albert Brenay was born in Arnstein, Ontario, in 1897. His life connects this family directly to a small northern Ontario community at the end of the nineteenth century.', event:'His lifetime crossed the First World War, the 1918 influenza pandemic, the Great Depression, and the Second World War—events that transformed borders, migration, work, and family life across Canada and the United States.'},
+      {id:'charles_godfrey', copy:'Charles Godfrey, also recorded as Gottfried Brenay or Brunne, moved from Germany into the Canadian and Michigan world of this family during the era of mass transatlantic migration.', event:'European mass migration to North America defined this era. Industrialization, steamship travel, and expanding rail networks made transatlantic and cross-border family movement possible on a scale earlier generations could scarcely imagine.'},
       {id:'ida_mae', copy:'Ida Mae Gooley links the Brenay household to a family with roots in Quebec and Ontario. Multiple records make John Peter Gooley and Mary Ann Dennis the strongest parent identification.', event:'Her generation lived through the rapid industrial growth of the Great Lakes region, when Michigan and Ontario were increasingly tied together by lumber, shipping, railways, and migration.'},
       {id:'john_peter', copy:'John Peter Gooley was born in Quebec in 1842 and later lived in Ontario and Michigan. His exact baptism is still missing, so the tour ends here at one of the most important Canadian research frontiers.', event:'He was born before Canadian Confederation in 1867. During his lifetime, the Province of Canada became part of the new Dominion of Canada, while the neighboring United States passed through the Civil War and Reconstruction.'}
     ]
@@ -1624,7 +1719,7 @@ const BRANCH_TOURS = {
     narrator:{id:'james_webb_jr', origin:'Connecticut, 1777', intro:'I am James Webb Jr., born in Connecticut in 1777—the earliest Webb ancestor on this branch whose place in the line is strongly supported before the evidence begins to darken. I will tell the story from the present day backward, until we reach the question that still waits for proof.'},
     languagePrefs:['en-GB','en-US'],
     steps:[
-      {id:'james_sheldon', copy:'James Sheldon Webb is the modern anchor of the Webb line. The family evidence below him is strong, while his birth certificate remains especially important for the Canadian proof track.'},
+      {id:'james_sheldon', copy:'James Sheldon Webb is the modern anchor of the Webb line, connecting the present family to generations that moved through Arizona and the American West.'},
       {id:'james_wilford', copy:'James Wilford “Jay” Webb connects the present family to Jonathan Henry Webb and Della Ray in Arizona.'},
       {id:'jonathan_henry', copy:'Jonathan Henry Webb was born in Woodruff, Arizona, in 1886. His generation belonged to the transition from territorial communities to a rapidly modernizing American Southwest.', event:'Arizona did not become a state until 1912. Jonathan lived through that transition, the First World War, the Great Depression, and the Second World War.'},
       {id:'edward_milo_jr', copy:'Edward Milo Webb Jr. was born in Missouri in 1847. His historical profile securely identifies Edward Milo Webb Sr. and Caroline Amelia Owens as his parents. His death date remains conflicting across otherwise valuable sources.', event:'He was a teenager when the American Civil War began in 1861. His generation then lived through Reconstruction, continental railroad expansion, and the settlement of the western territories.'},
@@ -1747,6 +1842,21 @@ function openStory(track=storyTrack){
   const step=BRANCH_TOURS[storyTrack].steps[storyIndex];
   if(step){openNode(step.id,false,true);cinematicFocus(step.id,'family');}
 }
+
+function beginStory(track=storyTrack){
+  openStory(track);
+  storyPlaying=true;
+  storyPaused=false;
+  const p=document.getElementById('storyPause');
+  if(p)p.textContent='Ⅱ Pause';
+
+  /* iOS: speech must begin directly inside this user tap. */
+  speakCurrent(true);
+
+  /* Visual choreography runs at the same time. */
+  focusStoryPerson();
+}
+
 function closeStory(){
   stopNarration();
   storyModal.classList.remove('open'); storyModal.setAttribute('aria-hidden','true');
@@ -1831,7 +1941,7 @@ function storySpokenText(){
   if(storyIndex===0 && tour.narrator.intro) pieces.push(tour.narrator.intro);
   pieces.push(`${n.name}. ${n.years||''}. ${n.place||''}.`);
   pieces.push(`To picture the setting, think of ${n.place||'this part of the family story'} in ${when}. ${hc.local}`);
-  pieces.push(step.copy);
+  pieces.push((step.copy||'').replace(/citizenship/gi,'family history').replace(/naturalization/gi,'migration'));
   pieces.push(hc.macro);
   if(n?.confidence==='provisional') pieces.push('The family connection at this point remains provisional.');
   if(n?.confidence==='frontier') pieces.push('Here the documented line reaches a research frontier.');
@@ -1894,9 +2004,9 @@ const storySceneCount=document.getElementById('storySceneCount');
 
 const PHOTO_SCENES = {
   arizona:[
-    {url:'https://www.loc.gov/pictures/resource/fsa.8b24597/',title:'Arizona, 1940',caption:'Young agricultural workers at a Saturday-night dance in an Arizona labor camp.',source:'Library of Congress · Russell Lee · 1940 · no known restrictions'},
-    {url:'https://www.loc.gov/pictures/resource/fsa.8a28245/',title:'Arizona, 1940',caption:'Roosevelt Dam and the water system that helped shape settlement and agriculture in central Arizona.',source:'Library of Congress · Russell Lee · 1940 · no known restrictions'},
-    {url:'https://www.loc.gov/pictures/resource/fsa.8b25071/',title:'Arizona, 1940',caption:'Homes climbing the hillsides of Bisbee, an Arizona copper-mining community.',source:'Library of Congress · Russell Lee · 1940 · no known restrictions'}
+    {url:'https://cdn.loc.gov/service/pnp/fsa/8b24000/8b24500/8b24597v.jpg',title:'Arizona, 1940',caption:'Young agricultural workers at a Saturday-night dance in an Arizona labor camp.',source:'Library of Congress · Russell Lee · 1940 · no known restrictions'},
+    {url:'https://cdn.loc.gov/service/pnp/fsa/8b24000/8b24500/8b24501v.jpg',title:'Arizona, 1940',caption:'Flood irrigation in the Little Colorado River Valley near Springerville, showing the agricultural landscape of northeastern Arizona.',source:'Library of Congress · Russell Lee · 1940 · no known restrictions'},
+    {url:'https://cdn.loc.gov/service/pnp/fsa/8b24000/8b24500/8b24529v.jpg',title:'Arizona, 1940',caption:'The landscape of Navajo County, part of northeastern Arizona’s high-country setting.',source:'Library of Congress · Russell Lee · 1940 · no known restrictions'}
   ],
   ontario:[
     {url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/St.Davids,_Ontario_(1890%27s).jpg?width=1200',title:'Ontario in the 1890s',caption:'A village street scene from St. Davids, Ontario.',source:'Wikimedia Commons · public-domain historical photograph'},
@@ -2114,10 +2224,10 @@ async function previousStory(){
   await focusStoryPerson();
 }
 document.getElementById('startExplore').onclick=()=>landing.classList.add('hidden');
-document.getElementById('startStory').onclick=()=>{landing.classList.add('hidden');openStory('canada');};
+document.getElementById('startStory').onclick=()=>{landing.classList.add('hidden');beginStory('canada');};
 document.getElementById('startAlbum').onclick=()=>{landing.classList.add('hidden');document.getElementById('albumModal').classList.add('open');document.getElementById('albumModal').setAttribute('aria-hidden','false'); if(typeof renderAlbum==='function')renderAlbum();};
 document.getElementById('homeLanding').onclick=()=>landing.classList.remove('hidden');
-document.getElementById('openStoryBtn').onclick=()=>openStory(storyTrack);
+document.getElementById('openStoryBtn').onclick=()=>beginStory(storyTrack);
 document.getElementById('openAlbumBtn').onclick=()=>{document.getElementById('albumModal').classList.add('open');document.getElementById('albumModal').setAttribute('aria-hidden','false'); if(typeof renderAlbum==='function')renderAlbum();};
 document.getElementById('printAtlasBtn').onclick=()=>window.print();
 document.getElementById('storyClose').onclick=closeStory;
@@ -2131,6 +2241,9 @@ document.querySelectorAll('[data-story-track]').forEach(b=>b.onclick=()=>{
   storyTrack=b.dataset.storyTrack;storyIndex=0;
   document.querySelectorAll('[data-story-track]').forEach(x=>x.classList.toggle('active',x===b));
   renderStory();
+  storyPlaying=true;storyPaused=false;
+  const p=document.getElementById('storyPause');if(p)p.textContent='Ⅱ Pause';
+  speakCurrent(true);
   focusStoryPerson();
 });
 document.addEventListener('keydown',e=>{
