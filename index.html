@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<title>Ancestry Atlas v1.8</title>
+<title>Ancestry Atlas v1.8.1</title>
 <style>
 :root{
   --bg:#081018; --panel:#0f1a24; --panel2:#132231; --text:#eef4fa; --muted:#9fb1c2;
@@ -79,7 +79,7 @@ canvas:active{cursor:grabbing}
 @media(max-width:800px){#proofNotice{top:54px;left:10px;right:10px;max-width:none;font-size:9.5px}}
 
 
-/* Ancestry Atlas v1.8 — family-facing landing + guided story */
+/* Ancestry Atlas v1.8.1 — family-facing landing + guided story */
 .landing{
   position:fixed;z-index:200;inset:0;display:flex;align-items:center;justify-content:center;
   background:
@@ -475,6 +475,23 @@ canvas:active{cursor:grabbing}
   .story-shell.story-prelude .story-card{display:none!important}
   #storySceneStrip{top:10px!important}
 }
+
+/* v1.8.1 — choose branch before launch */
+.landing-branch-picker{
+  margin:18px 0 12px;
+  padding:12px;
+  border:1px solid rgba(170,195,215,.16);
+  border-radius:13px;
+  background:rgba(10,20,30,.42)
+}
+.landing-branch-buttons{display:flex;gap:7px;flex-wrap:wrap}
+.landing-branch-buttons button.active{
+  background:#385c7e;border-color:#6ea4ce;color:#fff
+}
+@media(max-width:760px){
+  .landing-branch-buttons{display:grid;grid-template-columns:1fr 1fr}
+}
+
 </style>
 
 <script>
@@ -493,12 +510,22 @@ window.addEventListener('error',function(e){
     <h1>Ancestry Atlas</h1>
     <p>Explore the family across generations. The atlas is brightest where the evidence is strongest and falls into dusk and shadow where the story is still uncertain.</p>
     <div class="landing-note"><strong>How to read the light:</strong> bright areas are well established; dimmer areas are supported but still developing; the darkest regions mark open questions. The family story stays visible without pretending uncertainty is settled fact.</div>
-    <div class="landing-actions">
+    
+    <div class="landing-branch-picker" aria-label="Choose a family line for narration">
+      <div class="landing-kicker" style="margin:0 0 8px">Choose a line to narrate</div>
+      <div class="landing-branch-buttons">
+        <button type="button" data-launch-track="canada" class="active">Canada / Brenay</button>
+        <button type="button" data-launch-track="webb">Webb</button>
+        <button type="button" data-launch-track="dunbar">Dunbar</button>
+        <button type="button" data-launch-track="denmark">Denmark</button>
+      </div>
+    </div>
+<div class="landing-actions">
       <button type="button" id="startExplore" class="primary-action" onclick="document.getElementById('landing').classList.add('hidden');return false;">Explore the Atlas</button>
       <button type="button" id="startStory" class="story-action">Our Family Story</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v1.8 • auto-story + birthplace context</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v1.8.1 • auto-story + birthplace context</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop moves slowly through the tree, pauses on visual scenes from the person’s place and era, then settles on the written story.</p>
   </div>
 </div>
@@ -1788,7 +1815,7 @@ document.addEventListener('keydown',e=>{
 
 resize();
 
-// ---------- Ancestry Atlas v1.8 narrated museum tours ----------
+// ---------- Ancestry Atlas v1.8.1 narrated museum tours ----------
 const BRANCH_TOURS = {
   canada: {
     title:'Canada — Brenay & Gooley',
@@ -2175,7 +2202,14 @@ const PHOTO_SCENES = {
 function cyclePool(pool,count,offset=0){
   const out=[];
   if(!pool || !pool.length) return out;
-  for(let i=0;i<count;i++) out.push(pool[(offset+i)%pool.length]);
+  const seen=new Set();
+  for(let i=0;i<pool.length && out.length<count;i++){
+    const item=pool[(offset+i)%pool.length];
+    if(item?.url && !seen.has(item.url)){
+      seen.add(item.url);
+      out.push(item);
+    }
+  }
   return out;
 }
 
@@ -2242,35 +2276,77 @@ function sceneSlidesFor(n){
   const pool=PHOTO_SCENES[group] || PHOTO_SCENES.arizona;
   const birthPlace=subjectPlace(n) || n.name;
   const events=guideEvents(n);
+  const used=new Set();
+  const slides=[];
 
-  const birthSlides = cyclePool(pool, 4, 0).map((p,i)=>({
-    url:p.url,
-    title:birthPlace,
-    caption:i===0 ? `${p.caption} ${hc.local}` : p.caption,
-    source:p.source||''
-  }));
+  function addFromPool(sourcePool,count,titleFn,captionFn){
+    for(const p of sourcePool){
+      if(slides.filter(s=>s.phase===titleFn.phase).length>=count) break;
+      if(!p?.url || used.has(p.url)) continue;
+      used.add(p.url);
+      const i=slides.length;
+      slides.push({
+        url:p.url,
+        title:typeof titleFn==='function' ? titleFn(p,i) : titleFn,
+        caption:typeof captionFn==='function' ? captionFn(p,i) : (captionFn || p.caption),
+        source:p.source||'',
+        phase:titleFn.phase||''
+      });
+    }
+  }
 
-  const contextSlides = cyclePool(pool, 5, 1).map((p,i)=>({
-    url:p.url,
-    title:i===4 ? 'The wider world' : 'Scene setting',
-    caption:i===4 ? hc.macro : p.caption,
-    source:p.source||''
-  }));
+  // Birthplace: use every unique image available up to 5, with no repeats.
+  const birthCount=Math.min(5,pool.length);
+  for(let i=0;i<pool.length && slides.length<birthCount;i++){
+    const p=pool[i];
+    if(!p?.url || used.has(p.url)) continue;
+    used.add(p.url);
+    slides.push({
+      url:p.url,
+      title:birthPlace,
+      caption:slides.length===0 ? `${p.caption} ${hc.local}` : p.caption,
+      source:p.source||'',
+      phase:'birth'
+    });
+  }
 
-  const eventSlides = [];
-  events.forEach(ev=>{
-    const epool = PHOTO_SCENES[ev.group] || pool;
-    cyclePool(epool, 3, 0).forEach((p,i)=>{
-      eventSlides.push({
+  // Wider setting: only unused images from the same pool.
+  let settingAdded=0;
+  for(let i=0;i<pool.length && settingAdded<7;i++){
+    const p=pool[i];
+    if(!p?.url || used.has(p.url)) continue;
+    used.add(p.url);
+    slides.push({
+      url:p.url,
+      title:settingAdded===6 ? 'The wider world' : 'Scene setting',
+      caption:settingAdded===6 ? hc.macro : p.caption,
+      source:p.source||'',
+      phase:'setting'
+    });
+    settingAdded++;
+  }
+
+  // Event refresh: switch to the event location's image pool, again without repeating anything already shown.
+  for(const ev of events){
+    const epool=PHOTO_SCENES[ev.group] || [];
+    let added=0;
+    for(const p of epool){
+      if(added>=5) break;
+      if(!p?.url || used.has(p.url)) continue;
+      used.add(p.url);
+      slides.push({
         url:p.url,
         title:ev.title,
-        caption:i===0 ? ev.summary : p.caption,
-        source:p.source||''
+        caption:added===0 ? ev.summary : p.caption,
+        source:p.source||'',
+        phase:'event'
       });
-    });
-  });
+      added++;
+    }
+  }
 
-  return [...birthSlides, ...contextSlides, ...eventSlides];
+  // If the current library doesn't have enough distinct images, show fewer images rather than repeating any.
+  return slides;
 }
 
 function showSceneSlide(n,slide,index,total){
@@ -2301,11 +2377,11 @@ async function playScenePrelude(n){
   for(let i=0;i<slides.length;i++){
     if(i>0){
       storySceneImage.classList.add('swap');
-      await waitMs(280);
+      await waitMs(350);
     }
     showSceneSlide(n,slides[i],i,slides.length);
     storySceneImage.classList.remove('swap');
-    await waitMs(1600);
+    await waitMs(5000);
   }
 }
 
@@ -2409,8 +2485,16 @@ async function previousStory(){
   renderStory();
   await focusStoryPerson();
 }
+
+let landingStoryTrack='canada';
+document.querySelectorAll('[data-launch-track]').forEach(btn=>{
+  btn.onclick=()=>{
+    landingStoryTrack=btn.dataset.launchTrack;
+    document.querySelectorAll('[data-launch-track]').forEach(b=>b.classList.toggle('active',b===btn));
+  };
+});
 document.getElementById('startExplore').onclick=()=>landing.classList.add('hidden');
-document.getElementById('startStory').onclick=()=>{landing.classList.add('hidden');beginStory('canada');};
+document.getElementById('startStory').onclick=()=>{landing.classList.add('hidden');beginStory(landingStoryTrack);};
 document.getElementById('startAlbum').onclick=()=>{landing.classList.add('hidden');document.getElementById('albumModal').classList.add('open');document.getElementById('albumModal').setAttribute('aria-hidden','false'); if(typeof renderAlbum==='function')renderAlbum();};
 document.getElementById('homeLanding').onclick=()=>landing.classList.remove('hidden');
 document.getElementById('openStoryBtn').onclick=()=>beginStory(storyTrack);
