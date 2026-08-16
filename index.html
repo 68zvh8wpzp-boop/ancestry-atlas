@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<title>Ancestry Atlas v1.5</title>
+<title>Ancestry Atlas v1.5.1b</title>
 <style>
 :root{
   --bg:#081018; --panel:#0f1a24; --panel2:#132231; --text:#eef4fa; --muted:#9fb1c2;
@@ -79,7 +79,7 @@ canvas:active{cursor:grabbing}
 @media(max-width:800px){#proofNotice{top:54px;left:10px;right:10px;max-width:none;font-size:9.5px}}
 
 
-/* Ancestry Atlas v1.5 — family-facing landing + guided story */
+/* Ancestry Atlas v1.5.1b — family-facing landing + guided story */
 .landing{
   position:fixed;z-index:200;inset:0;display:flex;align-items:center;justify-content:center;
   background:
@@ -229,6 +229,30 @@ canvas:active{cursor:grabbing}
   .scene-context{max-height:42vh;overflow:auto}
 }
 
+
+/* v1.5.1 — iPhone guided tour keeps the tree visible */
+@media(max-width:760px){
+  .story-modal{background:transparent!important;padding:0!important;align-items:flex-end!important;justify-content:center!important;pointer-events:none!important}
+  .story-modal.open{display:flex!important}
+  .story-shell{
+    pointer-events:auto!important;width:100vw!important;max-width:none!important;max-height:48vh!important;min-height:230px;
+    border-radius:18px 18px 0 0!important;border-left:0!important;border-right:0!important;border-bottom:0!important;
+    padding:12px 14px calc(12px + env(safe-area-inset-bottom))!important;background:rgba(7,15,23,.94)!important;
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 -16px 55px rgba(0,0,0,.45)!important
+  }
+  .story-top{margin-bottom:8px;padding-bottom:7px}.story-top h2{font-size:17px}
+  .story-track{gap:5px;margin-bottom:8px}.story-track button{font-size:10px;padding:6px 8px}
+  .story-controls{padding:7px 8px;margin-bottom:8px;gap:6px}
+  .story-card{display:block!important}.story-visual{display:none!important}
+  .story-copy{font-size:13px;line-height:1.45}
+  .story-context-grid{gap:6px;margin-top:8px}.story-context-box{padding:8px 9px}.story-context-text{font-size:11px;line-height:1.35}
+  .story-event{font-size:11px;line-height:1.35;margin-top:8px;padding:8px 9px}.story-narrator{font-size:10px;line-height:1.35;margin-bottom:8px;padding:7px 9px}
+  .story-nav{margin-top:8px;position:sticky;bottom:0;background:linear-gradient(180deg,rgba(7,15,23,0),rgba(7,15,23,.98) 28%);padding-top:9px}
+  .story-progress{margin-top:5px}
+  .scene-context{top:7px!important;width:calc(100vw - 16px)!important;max-height:31vh;overflow:auto;padding:8px 10px!important;z-index:120!important}
+  #stage{padding-bottom:46vh}
+}
+
 </style>
 
 <script>
@@ -252,7 +276,7 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Our Family Story</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v1.5 • guided navigation + historical scene</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v1.5.1b • iPhone tour + audio fix</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop pulls back to the branch, moves into the family, then zooms into the person while staging both the local birthplace and the wider world at the time.</p>
   </div>
 </div>
@@ -311,7 +335,7 @@ window.addEventListener('error',function(e){
 <div id="app">
 <aside id="controls" class="collapsed">
   <button id="controlsToggle">☰ Controls / legend</button>
-  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v1.5</span></h1>
+  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v1.5.1</span></h1>
   <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay bright; uncertain generations fall progressively into dusk and shadow. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
 
   <div class="section">
@@ -507,6 +531,16 @@ function evidenceDimFor(id){
 }
 
 
+
+
+function escapeHtml(value){
+  return String(value ?? '')
+    .replaceAll('&','&amp;')
+    .replaceAll('<','&lt;')
+    .replaceAll('>','&gt;')
+    .replaceAll('"','&quot;')
+    .replaceAll("'","&#039;");
+}
 
 const branches=[...new Set(DATA.nodes.map(n=>n.branch))].sort();
 const branchWrap=document.getElementById('branchFilters');
@@ -1414,7 +1448,7 @@ document.addEventListener('keydown',e=>{
 
 resize();
 
-// ---------- Ancestry Atlas v1.5 narrated museum tours ----------
+// ---------- Ancestry Atlas v1.5.1b narrated museum tours ----------
 const BRANCH_TOURS = {
   canada: {
     title:'Canada — Brenay & Gooley',
@@ -1557,6 +1591,7 @@ function openStory(track=storyTrack){
   storyModal.classList.add('open'); storyModal.setAttribute('aria-hidden','false');
   document.querySelectorAll('[data-story-track]').forEach(b=>b.classList.toggle('active',b.dataset.storyTrack===storyTrack));
   renderStory();
+  requestAnimationFrame(()=>{focusStoryPerson();});
 }
 function closeStory(){
   stopNarration();
@@ -1650,41 +1685,51 @@ function storySpokenText(){
   }
   return pieces.join(' ');
 }
-async function speakCurrent(autoAdvance=true){
-  stopMuseumAudio();
-  if('speechSynthesis' in window) window.speechSynthesis.cancel();
-  clearTimeout(storyTimer);
-
-  const usedRecording=await tryPrerecordedNarration(autoAdvance);
-  if(usedRecording) return;
-
+function speakBrowserNarration(autoAdvance=true){
   if(!('speechSynthesis' in window)){
-    storyPlaying=false; storyPaused=false;
-    setAudioStatus('Narration unavailable','fallback');
-    alert('Narration is not available in this browser, but the guided tour still works visually.');
-    return;
+    storyPlaying=false;storyPaused=false;
+    setAudioStatus('Narration unavailable in this browser','fallback');
+    return false;
   }
-  const text=storySpokenText();
-  const utter=new SpeechSynthesisUtterance(text);
-  const voice=pickVoice(storyTrack);
-  if(voice){utter.voice=voice; utter.lang=voice.lang;}
-  else utter.lang='en-US';
-  utter.rate=.93; utter.pitch=1.0; utter.volume=1.0;
-  activeUtterance=utter;
-  storyShell?.classList.add('story-speaking');
-  utter.onend=()=>{
-    storyShell?.classList.remove('story-speaking');
-    activeUtterance=null;
-    if(storyPlaying && autoAdvance && storyIndex<BRANCH_TOURS[storyTrack].steps.length-1){
-      storyTimer=setTimeout(()=>advanceStory(true),900);
-    }else if(storyIndex>=BRANCH_TOURS[storyTrack].steps.length-1){
-      storyPlaying=false;
-    }
-  };
-  utter.onerror=()=>{storyShell?.classList.remove('story-speaking');activeUtterance=null;};
-  window.speechSynthesis.speak(utter);
+  try{
+    window.speechSynthesis.cancel();
+    const spoken=storySpokenText();
+    const utter=new SpeechSynthesisUtterance(spoken);
+    const voice=pickVoice(storyTrack);
+    if(voice){utter.voice=voice;utter.lang=voice.lang||'en-CA';}
+    else utter.lang='en-CA';
+    utter.rate=.93;utter.pitch=1;utter.volume=1;
+    activeUtterance=utter;
+    storyShell?.classList.add('story-speaking');
+    setAudioStatus(voice?`Narration: ${voice.name}`:'Narration: iPhone voice','ready');
+    utter.onend=()=>{
+      storyShell?.classList.remove('story-speaking');activeUtterance=null;
+      if(storyPlaying&&autoAdvance&&storyIndex<BRANCH_TOURS[storyTrack].steps.length-1){
+        storyTimer=setTimeout(()=>advanceStory(true),700);
+      }else if(storyIndex>=BRANCH_TOURS[storyTrack].steps.length-1){storyPlaying=false;}
+    };
+    utter.onerror=()=>{
+      storyShell?.classList.remove('story-speaking');activeUtterance=null;storyPlaying=false;
+      setAudioStatus('Tap Play again — iPhone blocked the first voice start','fallback');
+    };
+    try{window.speechSynthesis.resume();}catch(e){}
+    window.speechSynthesis.speak(utter);
+    return true;
+  }catch(e){
+    storyPlaying=false;
+    setAudioStatus('Narration could not start on this device','fallback');
+    return false;
+  }
 }
-function waitMs(ms){return new Promise(r=>setTimeout(r,ms));}
+
+function speakCurrent(autoAdvance=true){
+  stopMuseumAudio();clearTimeout(storyTimer);
+  if(!USE_PRERECORDED_AUDIO) return speakBrowserNarration(autoAdvance);
+  tryPrerecordedNarration(autoAdvance).then(used=>{if(!used)speakBrowserNarration(autoAdvance);});
+  return true;
+}
+
+function waitMs(ms){return new Promise(resolve=>setTimeout(resolve,ms));}
 async function focusStoryPerson(){
   const step=BRANCH_TOURS[storyTrack].steps[storyIndex];
   if(!step)return;
@@ -1704,12 +1749,16 @@ async function focusStoryPerson(){
   await waitMs(720);
   if(tourPhase)tourPhase.textContent='Person view — use Previous/Next or Show in Atlas at any time.';
 }
-async function playTour(){
-  storyPlaying=true; storyPaused=false;
-  setAudioStatus('Narration on — single device voice','ready');
-  await focusStoryPerson();
-  if(storyPlaying)speakCurrent(true);
+function playTour(){
+  storyPlaying=true;storyPaused=false;
+  const p=document.getElementById('storyPause');if(p)p.textContent='Ⅱ Pause';
+  /* iOS requirement: start speech directly from the Play tap before any await. */
+  const started=speakCurrent(true);
+  /* Run the visual navigation in parallel. */
+  focusStoryPerson();
+  if(!started){storyPlaying=false;setAudioStatus('Tap Play again if iPhone did not start narration','fallback');}
 }
+
 function pauseTour(){
   if(museumAudio){
     if(!museumAudio.paused){museumAudio.pause();storyPaused=true;storyPlaying=false;document.getElementById('storyPause').textContent='▶ Resume';return;}
@@ -1764,6 +1813,7 @@ document.querySelectorAll('[data-story-track]').forEach(b=>b.onclick=()=>{
   storyTrack=b.dataset.storyTrack;storyIndex=0;
   document.querySelectorAll('[data-story-track]').forEach(x=>x.classList.toggle('active',x===b));
   renderStory();
+  focusStoryPerson();
 });
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){
