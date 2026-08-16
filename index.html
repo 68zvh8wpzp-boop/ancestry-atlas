@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<title>Ancestry Atlas v1.4.2</title>
+<title>Ancestry Atlas v1.5</title>
 <style>
 :root{
   --bg:#081018; --panel:#0f1a24; --panel2:#132231; --text:#eef4fa; --muted:#9fb1c2;
@@ -79,7 +79,7 @@ canvas:active{cursor:grabbing}
 @media(max-width:800px){#proofNotice{top:54px;left:10px;right:10px;max-width:none;font-size:9.5px}}
 
 
-/* Ancestry Atlas v1.4.2 — family-facing landing + guided story */
+/* Ancestry Atlas v1.5 — family-facing landing + guided story */
 .landing{
   position:fixed;z-index:200;inset:0;display:flex;align-items:center;justify-content:center;
   background:
@@ -207,6 +207,28 @@ canvas:active{cursor:grabbing}
   color:#f0d7b1;font-size:11px;line-height:1.45
 }
 
+
+/* v1.5 guided museum navigation + local/macro history */
+.story-context-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px
+}
+.story-context-box{
+  padding:11px 12px;border-radius:10px;border:1px solid rgba(160,190,214,.14);
+  background:rgba(14,25,36,.62)
+}
+.story-context-label{
+  font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#8faec3;margin-bottom:5px
+}
+.story-context-text{font-size:12px;line-height:1.5;color:#cad8e2}
+.scene-context-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:7px}
+.scene-context-cell{font-size:11px;line-height:1.45;color:#bdd0df}
+.scene-context-cell strong{display:block;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#8facbf;margin-bottom:2px}
+.tour-phase{font-size:10px;color:#91adc1;margin-top:7px}
+@media(max-width:760px){
+  .story-context-grid,.scene-context-grid{grid-template-columns:1fr}
+  .scene-context{max-height:42vh;overflow:auto}
+}
+
 </style>
 
 <script>
@@ -230,8 +252,8 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Our Family Story</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v1.4.2 • iOS tap-safe</div><div id="runtimeNotice"></div>
-    <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours can narrate the Canada, Webb, Dunbar, and Denmark branches. Each stop zooms into the person, stages their birthplace and era, and explains the larger world around them.</p>
+    <div class="build-chip">BUILD v1.5 • guided navigation + historical scene</div><div id="runtimeNotice"></div>
+    <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop pulls back to the branch, moves into the family, then zooms into the person while staging both the local birthplace and the wider world at the time.</p>
   </div>
 </div>
 
@@ -268,8 +290,13 @@ window.addEventListener('error',function(e){
       <div>
         <div id="storyNarrator" class="story-narrator"></div>
         <div id="storyCopy" class="story-copy"></div>
+        <div class="story-context-grid">
+          <div class="story-context-box"><div class="story-context-label">Right there — local setting</div><div id="storyLocal" class="story-context-text"></div></div>
+          <div class="story-context-box"><div class="story-context-label">Beyond the birthplace — wider world</div><div id="storyMacro" class="story-context-text"></div></div>
+        </div>
         <div id="storyEvent" class="story-event" style="display:none"></div>
         <div id="storyConfidence" class="story-confidence"></div>
+        <div id="tourPhase" class="tour-phase"></div>
         <div class="story-nav">
           <button id="storyPrev">← Previous</button>
           <button id="storyFocus">Show in Atlas</button>
@@ -284,7 +311,7 @@ window.addEventListener('error',function(e){
 <div id="app">
 <aside id="controls" class="collapsed">
   <button id="controlsToggle">☰ Controls / legend</button>
-  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v1.4.2</span></h1>
+  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v1.5</span></h1>
   <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay bright; uncertain generations fall progressively into dusk and shadow. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
 
   <div class="section">
@@ -346,6 +373,10 @@ window.addEventListener('error',function(e){
 <div id="sceneContext" class="scene-context" aria-live="polite">
   <div id="sceneEra" class="scene-era"></div>
   <div id="sceneHead" class="scene-head"></div>
+  <div class="scene-context-grid">
+    <div class="scene-context-cell"><strong>Local setting</strong><span id="sceneLocal"></span></div>
+    <div class="scene-context-cell"><strong>Wider world</strong><span id="sceneMacro"></span></div>
+  </div>
   <div id="sceneCopy" class="scene-copy"></div>
 </div>
 
@@ -537,6 +568,11 @@ function buildExtraInfo(id){
   parts.push(relationLine('Direct children / immediate descendants shown here', children));
   parts.push(`<div><strong>Research status meaning:</strong> ${confidenceText[n.confidence] || ''}</div>`);
   parts.push(`<div><strong>Branch context:</strong> ${n.branch}. This helps place the person within the broader family cluster being researched.</div>`);
+  const hc=historicalContextFor(n);
+  if(hc){
+    parts.push(`<div><strong>At the birthplace — local setting:</strong> ${hc.local}</div>`);
+    parts.push(`<div><strong>Wider world:</strong> ${hc.macro}</div>`);
+  }
   const html=parts.filter(Boolean).join('');
   return html || '<div>No additional linked genealogical details have been added for this node yet.</div>';
 }
@@ -624,6 +660,145 @@ function firstYear(n){
   const m=s.match(/\b(1[5-9]\d{2}|20\d{2})\b/);
   return m ? Number(m[1]) : null;
 }
+
+const HISTORICAL_CONTEXT = {
+  james_sheldon:{
+    local:'Arizona in 1943 was deeply shaped by wartime mobilization. Military airfields, copper production, agriculture, and an influx of workers connected even smaller communities to the national war effort.',
+    macro:'The Second World War was at its height. Allied forces were fighting across Europe, North Africa, the Atlantic, and the Pacific while rationing, war production, and rapid technological change transformed civilian life.'
+  },
+  marion_brenay:{
+    local:'Arizona had been a state for only eleven years. Much of daily life still revolved around small towns, ranching, farming, mining, rail links, and the growing reach of automobiles and electricity.',
+    macro:'The world was in the uneasy peace after the First World War. Radio, automobiles, mass entertainment, and new consumer technologies were spreading quickly, while political borders and economies were still adjusting to the war.'
+  },
+  charles_albert:{
+    local:'Arnstein lay in Ontario’s Parry Sound District, where timber, small farms, rail connections, and new settlement shaped rural life. Families could move back and forth through the Great Lakes world of Ontario and Michigan.',
+    macro:'Canada was still part of the British Empire under Queen Victoria. Industrialization and mass migration were accelerating, but the First World War, Canadian autonomy, and modern border controls were still in the future.'
+  },
+  charles_godfrey:{
+    local:'The recorded birthplace is Germany, but the exact town is still unresolved. If the reported 1873 birth year is correct, he was born just after German unification, during rapid industrial and political change.',
+    macro:'Steamship travel, railroads, factory growth, and transatlantic migration were reshaping Europe and North America. Millions of Europeans would leave for Canada and the United States during this era.'
+  },
+  ida_mae:{
+    local:'Alpena, Michigan was a Lake Huron lumber and shipping center. Sawmills, timber camps, lake traffic, and cross-border movement tied the town closely to Ontario and the wider Great Lakes economy.',
+    macro:'The United States was emerging from Reconstruction while industrial corporations, railroads, and cities expanded at extraordinary speed. Canada was only a few years past Confederation.'
+  },
+  john_peter:{
+    local:'Quebec in 1842 was part of the newly created Province of Canada. Parish life, farming, river transport, and growing canal and commercial networks shaped communities along the St. Lawrence and its hinterland.',
+    macro:'The British Empire was expanding, industrialization was accelerating, and transatlantic migration was increasing. Canadian Confederation was still twenty-five years away.'
+  },
+
+  james_wilford:{
+    local:'Pinedale was part of rural northeastern Arizona, where livestock, farming, timber, church communities, and long-distance family ties remained important even as automobiles and improved roads changed mobility.',
+    macro:'The First World War had ended only six years earlier. Radio and automobiles were spreading rapidly, the United States was in the 1920s economic boom, and the Great Depression was still five years away.'
+  },
+  jonathan_henry:{
+    local:'Woodruff was a small settlement in Arizona Territory along the Little Colorado region. Ranching, farming, irrigation, church organization, and difficult transportation shaped everyday life.',
+    macro:'The industrial age was transforming the United States. Railroads were knitting the West into national markets, immigration was high, and Arizona would remain a territory until 1912.'
+  },
+  edward_milo_jr:{
+    local:'Atchison County had only recently been organized in northwestern Missouri. The region sat near major overland migration routes and the Missouri River world, with farms and new settlements expanding quickly.',
+    macro:'The Mexican-American War was underway, the United States was expanding westward, and the political struggle over slavery in new territories was intensifying toward the crisis that would become the Civil War.'
+  },
+  edward_milo_sr:{
+    local:'Western New York was still a relatively young settlement region of farms, forests, small towns, and expanding roads. The transportation revolution that would culminate in the Erie Canal was beginning to transform the state.',
+    macro:'The War of 1812 had just ended. Europe was emerging from the Napoleonic Wars, and the United States was entering an era of rapid migration, canal building, religious revival, and market expansion.'
+  },
+  james_webb_jr:{
+    local:'Connecticut communities were directly involved in the Revolutionary War through militia service, provisioning, taxation, coastal defense, and the disruption of Atlantic commerce.',
+    macro:'The American Revolution was still underway. The Declaration of Independence was barely a year old, and the Constitution and the United States government as later generations knew them did not yet exist.'
+  },
+  james_webb_sr:{
+    local:'The exact birth year and specific Connecticut town for this James Webb remain unresolved, so the atlas does not assign him a more precise local historical scene.',
+    macro:'He belongs to the eighteenth-century Connecticut world of British colonial rule, town government, Congregational churches, farming, maritime trade, and—later in the century—revolutionary upheaval.'
+  },
+  elizabeth_douglas:{
+    local:'Her exact identity, dates, and Connecticut locality remain unresolved. That uncertainty is part of the evidence problem, so the atlas deliberately avoids attaching a specific town scene to her.',
+    macro:'The candidate women of this name belong to eighteenth-century colonial and Revolutionary-era New England, but the precise historical setting cannot be narrowed safely until her identity is settled.'
+  },
+
+  inez_karen:{
+    local:'Arizona at the end of the Second World War was moving from wartime mobilization toward rapid postwar growth, with expanding cities, highways, air travel, and new migration into the state.',
+    macro:'1945 marked the end of the Second World War, the beginning of the atomic age, the founding of the United Nations, and the opening phase of the postwar international order.'
+  },
+  grace_hill:{
+    local:'Richmond served an agricultural region in Ray County, Missouri. Railroads linked small towns to larger markets, while horses, wagons, and early automobiles overlapped in everyday transportation.',
+    macro:'The Progressive Era was reshaping American politics and cities. Mass production, electricity, telephones, immigration, and the automobile were changing daily life, while the First World War was still six years away.'
+  },
+  isaiah_hill:{
+    local:'Missouri combined farming communities with an increasingly dense railroad network. Families could remain rooted in rural counties while being connected to regional towns and national markets.',
+    macro:'The United States was in the Gilded Age, marked by industrial expansion, labor conflict, rapid urban growth, and technological change. The Civil War had ended only twenty years earlier.'
+  },
+  russell_hill:{
+    local:'Kentucky was a slave state with an economy built around farms, livestock, river commerce, and strong migration ties to Missouri and the expanding West. Sectional politics were becoming harder to avoid.',
+    macro:'The revolutions of 1848 were shaking Europe, the Mexican-American War had just ended, and the United States was moving toward a national crisis over slavery that would culminate in the Civil War.'
+  },
+  davia_dunbar:{
+    local:'Boone County, Missouri was a farming and university county in a slave state located beside the increasingly violent Kansas border region. Political arguments over slavery were becoming local realities.',
+    macro:'The Kansas-Nebraska Act had reopened the slavery question in western territories, “Bleeding Kansas” was underway, and the United States was only a few years from civil war.'
+  },
+  thomas_d:{
+    local:'Madison County lay in Kentucky’s central Bluegrass region, a society shaped by farms, livestock, roads, river markets, and migration westward into Missouri and beyond.',
+    macro:'The United States was in the early Market Revolution. Steamboats, roads, canals, and expanding settlement were changing migration and commerce while slavery remained embedded in much of the South and border states.'
+  },
+  william_weedon:{
+    local:'The family’s recorded birthplace corridor spans Virginia and Kentucky, part of a major migration route through which families moved from older eastern communities toward new lands west of the Appalachians.',
+    macro:'The United States Constitution had only recently been written and ratified. The new republic was still defining its government while Native nations, settlers, and empires contested control of the trans-Appalachian West.'
+  },
+  rev_thomas:{
+    local:'Loudoun County, Virginia was a British colonial county of farms, mills, roads, churches, enslaved labor, and commercial ties to the Potomac region. The Revolution had not yet begun.',
+    macro:'Britain had just emerged from the Seven Years’ War era, and disputes over imperial taxation and colonial political rights were beginning the chain of events that would lead to the American Revolution.'
+  },
+  dunbar_frontier:{
+    local:'The earlier Dunbar parentage in Loudoun County is not yet proven, so the atlas stops before assigning a specific household or birthplace.',
+    macro:'The possible generation would fall in colonial Virginia, but a more precise historical scene would risk making an unproved lineage look settled.'
+  },
+
+  della_ray:{
+    local:'Colonia Pacheco was one of the Mormon agricultural colonies established in Chihuahua’s high country. Families lived in a bilingual borderland of farming, ranching, church community, and movement between Mexico and the United States.',
+    macro:'Mexico was under Porfirio Díaz, railroads and foreign investment were expanding rapidly, and the social tensions that would erupt in the Mexican Revolution were building beneath the surface.'
+  },
+  elsie_mortensen:{
+    local:'Gunnison was a young settlement in Utah Territory. Agriculture, irrigation, church organization, and overland travel structured daily life in a region still far from the industrial centers of the East.',
+    macro:'The American Civil War was underway. The first transcontinental railroad had not yet been completed, and Utah would remain a territory until 1896.'
+  },
+  morten_peder:{
+    local:'Hårbølle in Fanefjord parish on Møn was a rural Danish island community shaped by farming, village obligations, parish records, and maritime connections across the Baltic.',
+    macro:'Denmark was still an absolute monarchy. Agricultural reforms were changing rural life, and the political movements that would produce the 1849 constitution and the Schleswig wars were beginning to gather force.'
+  },
+  dorthea_jensen:{
+    local:'Lolland was an agricultural island of estates, villages, market towns, and parish communities. Church registers were central records of birth, marriage, death, and social belonging.',
+    macro:'Denmark was still ruled by an absolute monarch, but national liberalism was growing. Within a decade the 1848 upheavals and the Constitution of 1849 would fundamentally change Danish government.'
+  },
+  knud_jensen_brygger:{
+    local:'Toreby and nearby Flintinge were rural communities on Lolland, where estate agriculture, parish life, craft work, and seasonal rhythms remained central.',
+    macro:'The early nineteenth century brought the Napoleonic Wars directly into Denmark’s world. Copenhagen was bombarded by Britain in 1807, and Denmark-Norway’s political and economic order was under severe strain.'
+  },
+  levin_madsen:{
+    local:'Damme in Fanefjord parish was part of Møn’s rural estate society. Farming households lived within systems of tenancy, village custom, church oversight, and obligations to landowners and the crown.',
+    macro:'Denmark-Norway was an absolute monarchy. The stavnsbånd system restricted the movement of many rural men, while European dynastic wars and expanding trade shaped the wider eighteenth-century world.'
+  },
+  morten_nielsen:{
+    local:'Møn’s villages were agricultural communities organized around farms, estates, parish churches, and the Baltic Sea. Travel was slow, and local institutions mattered intensely.',
+    macro:'Denmark-Norway was an absolute monarchy, and the Great Northern War would dominate Baltic politics from 1700 to 1721, drawing states and populations into prolonged military and economic pressure.'
+  },
+  levin_zander:{
+    local:'His exact German birthplace remains unresolved. By 1697 he was established at Dame on Møn, entering a Danish rural world after a life connected to military service.',
+    macro:'He was born in the aftermath of the Thirty Years’ War and around the moment Denmark adopted absolute monarchy in 1660. European states were rebuilding armies, taxation systems, and political authority after decades of conflict.'
+  }
+};
+
+function historicalContextFor(n){
+  const curated=HISTORICAL_CONTEXT[n?.id];
+  if(curated) return curated;
+  const c=macroContext(n);
+  const place=n?.place||'Place unresolved';
+  const y=firstYear(n);
+  const local = y
+    ? `The atlas currently records ${place} around ${y}. More specific local-history notes have not yet been curated for this person.`
+    : `The birth year or birthplace is not yet precise enough to assign a detailed local scene safely.`;
+  return {local,macro:c.copy||'The wider historical setting has not yet been curated for this person.'};
+}
+
 function macroContext(n){
   const y=firstYear(n);
   const p=(n?.place||'').toLowerCase();
@@ -678,9 +853,13 @@ function macroContext(n){
 }
 function showSceneFor(n){
   const c=macroContext(n);
+  const hc=historicalContextFor(n);
   sceneEra.textContent=c.era;
   sceneHead.textContent=c.head;
-  sceneCopy.textContent=c.copy;
+  const sl=document.getElementById('sceneLocal'), sm=document.getElementById('sceneMacro');
+  if(sl)sl.textContent=hc.local;
+  if(sm)sm.textContent=hc.macro;
+  sceneCopy.textContent='';
   sceneContext.classList.add('show');
 }
 function setViewButtons(level){
@@ -1235,7 +1414,7 @@ document.addEventListener('keydown',e=>{
 
 resize();
 
-// ---------- Ancestry Atlas v1.4.2 narrated museum tours ----------
+// ---------- Ancestry Atlas v1.5 narrated museum tours ----------
 const BRANCH_TOURS = {
   canada: {
     title:'Canada — Brenay & Gooley',
@@ -1312,6 +1491,9 @@ const storyCopy=document.getElementById('storyCopy');
 const storyNarrator=document.getElementById('storyNarrator');
 const storyEvent=document.getElementById('storyEvent');
 const storyConfidence=document.getElementById('storyConfidence');
+const storyLocal=document.getElementById('storyLocal');
+const storyMacro=document.getElementById('storyMacro');
+const tourPhase=document.getElementById('tourPhase');
 const storyProgress=document.getElementById('storyProgress');
 const storyShell=document.querySelector('.story-shell');
 let availableVoices=[];
@@ -1339,7 +1521,7 @@ function pickVoice(track){
 }
 function narratorIntro(){
   const t=BRANCH_TOURS[storyTrack];
-  return t.narrator.intro + ' Clara is the narrator for every branch in this version of the atlas.';
+  return t.narrator.intro + ' One consistent narrator is used across every branch. The site uses the device voice for now; the Azure Clara recording can replace it once the finished audio files are exported.';
 }
 function renderStory(){
   const tour=BRANCH_TOURS[storyTrack], steps=tour.steps;
@@ -1352,6 +1534,10 @@ function renderStory(){
   storyYears.textContent=n.years||'';
   storyPlace.textContent=n.place||'';
   storyCopy.textContent=step.copy;
+  const hc=historicalContextFor(n);
+  if(storyLocal)storyLocal.textContent=hc.local;
+  if(storyMacro)storyMacro.textContent=hc.macro;
+  if(tourPhase)tourPhase.textContent='Tour navigation: branch view → family view → close person view.';
   if(step.event){
     storyEvent.style.display='block';
     storyEvent.textContent='In their world: '+step.event;
@@ -1379,6 +1565,7 @@ function closeStory(){
 
 // v1.3 prerecorded narration layer. If a branch/step MP3 exists, use it.
 // If not, the atlas transparently falls back to browser speech synthesis.
+const USE_PRERECORDED_AUDIO=false; // turn true only after Azure MP3s are actually uploaded
 const MUSEUM_AUDIO = {
   canada:['you','james_sheldon','marion_brenay','charles_albert','charles_godfrey','ida_mae','john_peter'],
   webb:['you','james_sheldon','james_wilford','jonathan_henry','edward_milo_jr','edward_milo_sr','james_webb_jr','james_webb_sr','elizabeth_douglas'],
@@ -1406,6 +1593,7 @@ function stopMuseumAudio(){
   const fill=document.getElementById('audioMeterFill');if(fill)fill.style.width='0%';
 }
 function tryPrerecordedNarration(autoAdvance=true){
+  if(!USE_PRERECORDED_AUDIO)return Promise.resolve(false);
   const path=audioPath(storyTrack,storyIndex);
   if(!path)return Promise.resolve(false);
   return new Promise(resolve=>{
@@ -1451,12 +1639,14 @@ function storySpokenText(){
   const tour=BRANCH_TOURS[storyTrack], step=tour.steps[storyIndex], n=nodeById.get(step.id);
   const pieces=[];
   if(storyIndex===0) pieces.push(narratorIntro());
-  const sc=macroContext(n);
-  if(sc && sc.copy) pieces.push(sc.era+'. '+sc.head+'. '+sc.copy);
+  const hc=historicalContextFor(n);
+  const y=firstYear(n);
+  if(y) pieces.push(`Around ${y}, in ${n.place||'the recorded birthplace'}, this was the local setting. ${hc.local}`);
+  else pieces.push(`For ${n.name}, the exact birth date or place is not yet precise enough for a fully specific local scene. ${hc.local}`);
+  pieces.push(`Beyond that place, the wider world looked like this. ${hc.macro}`);
   pieces.push(step.copy);
-  if(step.event) pieces.push('One especially important event in their world: '+step.event);
   if(n && (n.confidence==='provisional'||n.confidence==='frontier')){
-    pieces.push(n.confidence==='frontier' ? 'Here the evidence is at the research frontier.' : 'This part of the line remains provisional.');
+    pieces.push(n.confidence==='frontier' ? 'Here the evidence reaches a research frontier.' : 'This part of the line remains provisional.');
   }
   return pieces.join(' ');
 }
@@ -1494,14 +1684,31 @@ async function speakCurrent(autoAdvance=true){
   utter.onerror=()=>{storyShell?.classList.remove('story-speaking');activeUtterance=null;};
   window.speechSynthesis.speak(utter);
 }
-function focusStoryPerson(){
+function waitMs(ms){return new Promise(r=>setTimeout(r,ms));}
+async function focusStoryPerson(){
   const step=BRANCH_TOURS[storyTrack].steps[storyIndex];
-  if(step){ openNode(step.id,false,true); cinematicFocus(step.id,'person'); }
+  if(!step)return;
+  const previous=selected;
+  if(previous && previous!==step.id){
+    if(tourPhase)tourPhase.textContent='Pulling back to see where this person sits in the branch…';
+    cinematicFocus(previous,'branch');
+    await waitMs(520);
+  }
+  openNode(step.id,false,true);
+  if(tourPhase)tourPhase.textContent='Arriving in the family neighborhood…';
+  cinematicFocus(step.id,'family');
+  await waitMs(620);
+  showSceneFor(nodeById.get(step.id));
+  if(tourPhase)tourPhase.textContent='Moving into the person, their birthplace, and their moment in history…';
+  cinematicFocus(step.id,'person');
+  await waitMs(720);
+  if(tourPhase)tourPhase.textContent='Person view — use Previous/Next or Show in Atlas at any time.';
 }
-function playTour(){
+async function playTour(){
   storyPlaying=true; storyPaused=false;
-  focusStoryPerson();
-  speakCurrent(true);
+  setAudioStatus('Narration on — single device voice','ready');
+  await focusStoryPerson();
+  if(storyPlaying)speakCurrent(true);
 }
 function pauseTour(){
   if(museumAudio){
@@ -1525,17 +1732,19 @@ function stopNarration(){
   storyShell?.classList.remove('story-speaking');
   const p=document.getElementById('storyPause'); if(p)p.textContent='Ⅱ Pause';
 }
-function advanceStory(fromAuto=false){
+async function advanceStory(fromAuto=false){
   if(storyIndex>=BRANCH_TOURS[storyTrack].steps.length-1){stopNarration();return;}
+  const continuePlaying=storyPlaying||fromAuto;
   storyIndex++;
   renderStory();
-  focusStoryPerson();
-  if(storyPlaying || fromAuto){storyPlaying=true;speakCurrent(true);}
+  await focusStoryPerson();
+  if(continuePlaying){storyPlaying=true;speakCurrent(true);}
 }
-function previousStory(){
+async function previousStory(){
   stopNarration();
   storyIndex=Math.max(0,storyIndex-1);
-  renderStory();focusStoryPerson();
+  renderStory();
+  await focusStoryPerson();
 }
 document.getElementById('startExplore').onclick=()=>landing.classList.add('hidden');
 document.getElementById('startStory').onclick=()=>{landing.classList.add('hidden');openStory('canada');};
@@ -1546,8 +1755,8 @@ document.getElementById('openAlbumBtn').onclick=()=>{document.getElementById('al
 document.getElementById('printAtlasBtn').onclick=()=>window.print();
 document.getElementById('storyClose').onclick=closeStory;
 document.getElementById('storyPrev').onclick=previousStory;
-document.getElementById('storyNext').onclick=()=>{stopNarration();advanceStory(false);};
-document.getElementById('storyFocus').onclick=()=>{focusStoryPerson();};
+document.getElementById('storyNext').onclick=async()=>{stopNarration();await advanceStory(false);};
+document.getElementById('storyFocus').onclick=async()=>{await focusStoryPerson();};
 document.getElementById('storyPlay').onclick=playTour;
 document.getElementById('storyPause').onclick=pauseTour;
 document.querySelectorAll('[data-story-track]').forEach(b=>b.onclick=()=>{
