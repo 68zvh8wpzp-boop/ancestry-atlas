@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<title>Ancestry Atlas v1.4</title>
+<title>Ancestry Atlas v1.4.1</title>
 <style>
 :root{
   --bg:#081018; --panel:#0f1a24; --panel2:#132231; --text:#eef4fa; --muted:#9fb1c2;
@@ -79,7 +79,7 @@ canvas:active{cursor:grabbing}
 @media(max-width:800px){#proofNotice{top:54px;left:10px;right:10px;max-width:none;font-size:9.5px}}
 
 
-/* Ancestry Atlas v1.4 — family-facing landing + guided story */
+/* Ancestry Atlas v1.4.1 — family-facing landing + guided story */
 .landing{
   position:fixed;z-index:200;inset:0;display:flex;align-items:center;justify-content:center;
   background:
@@ -256,8 +256,8 @@ canvas:active{cursor:grabbing}
 <div id="app">
 <aside id="controls" class="collapsed">
   <button id="controlsToggle">☰ Controls / legend</button>
-  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v1.4</span></h1>
-  <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay crisp; uncertain generations become progressively hazier. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
+  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v1.4.1</span></h1>
+  <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay bright; uncertain generations fall progressively into dusk and shadow. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
 
   <div class="section">
     <h2>Evidence</h2>
@@ -322,8 +322,8 @@ canvas:active{cursor:grabbing}
 </div>
 
   <div id="hud">Ancestry Atlas • evidence-weighted 3D • rotate around what is on screen • ⌘/Ctrl+F-style search below</div>
-  <div id="proofNotice">Clarity is evidence: crisp = established; soft = supported; hazy = provisional; very hazy = frontier. The Webb proof frontier currently sits at James Webb Jr. → James Webb + Elizabeth Douglas.</div><div id="timeline">Present → 1900s → 1800s → 1700s → 1600s → 1500s</div>
-  <div id="card"><button id="close">×</button><div id="personHeader"><div id="portraitWrap" class="portrait-wrap"><img id="portraitImg" class="portrait-img" alt="Historical portrait"><div id="portraitCaption" class="portrait-caption"></div></div><div class="person-headtext"><h3></h3><div class="meta"></div></div></div><div class="label">Research note</div><p></p><div class="label">Additional genealogical details</div><div id="extraInfo" class="extra"></div><div class="label">Images / documents</div><div id="evidenceWrap"></div><div id="trail">Trail: current node</div><div class="relation-title">Choose an ancestor to surf upward</div><div id="parentButtons" class="relation-buttons"></div><div class="relation-title">Return toward descendants</div><div id="childButtons" class="relation-buttons"></div><div class="button-row"><button id="centerNode">Center on node</button><button id="goParent">Next ancestor ↑</button><button id="goChild">Back ↓</button></div><div class="navhint" id="navhint">Choose a named parent above to follow a specific branch. Each selection recenters the map on that ancestor.</div><span class="badge"></span></div>
+  <div id="proofNotice">Light is evidence: bright = established; dimmer = supported; dusk = provisional; shadow = frontier. The Webb proof frontier currently sits at James Webb Jr. → James Webb + Elizabeth Douglas.</div><div id="timeline">Present → 1900s → 1800s → 1700s → 1600s → 1500s</div>
+  <div id="card"><button id="close">×</button><div id="personHeader"><div id="portraitWrap" class="portrait-wrap"><img id="portraitImg" class="portrait-img" alt="Historical portrait"><div id="portraitCaption" class="portrait-caption"></div></div><div class="person-headtext"><h3></h3><div class="meta"></div></div></div><div class="label">Research note</div><p></p><div class="label">Additional genealogical details</div><div id="extraInfo" class="extra"></div><div class="label">Images / documents</div><div id="evidenceWrap"></div><div id="trail">Trail: current node</div><div class="relation-title">Choose an ancestor to surf upward</div><div id="parentButtons" class="relation-buttons"></div><div class="relation-title">Return toward descendants</div><div id="childButtons" class="relation-buttons"></div><div class="button-row"><button id="centerNode">Center on node</button><button id="goParent">Next ancestor ↑</button><button id="goChild">Back ↓</button></div><div class="button-row"><button id="zoomPersonBtn">Person view</button><button id="zoomFamilyBtn">Family view</button><button id="zoomBranchBtn">Branch view</button><button id="zoomAtlasBtn">Full atlas</button></div><div class="navhint" id="navhint">Choose a named parent above to follow a specific branch. Each selection recenters the map on that ancestor.</div><span class="badge"></span></div>
 
 <div class="family-toolbar">
   <button id="homeLanding">Start screen</button>
@@ -1207,7 +1207,7 @@ document.addEventListener('keydown',e=>{
 
 resize();
 
-// ---------- Ancestry Atlas v1.4 narrated museum tours ----------
+// ---------- Ancestry Atlas v1.4.1 narrated museum tours ----------
 const BRANCH_TOURS = {
   canada: {
     title:'Canada — Brenay & Gooley',
