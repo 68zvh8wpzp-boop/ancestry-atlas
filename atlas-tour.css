@@ -1,4 +1,4 @@
-/* Ancestry Atlas v2.1.0 — cinematic family-line entrance + responsive A/V story stage. */
+/* Ancestry Atlas v2.2.0 — cinematic family-line entrance + responsive A/V story stage. */
 :root{
   --tour-safe-top:max(10px,env(safe-area-inset-top));
   --tour-safe-bottom:max(12px,env(safe-area-inset-bottom));
@@ -374,4 +374,130 @@ body.tour-story-open .story-modal.open{
     grid-template-rows:auto 2px 46px!important;
   }
   .story-controls .cd-button{height:46px!important}
+}
+
+
+/* v2.2 — mobile tree is a local family navigator, not a miniature desktop atlas. */
+.mobile-tree-dock,.mobile-tree-menu-sheet{display:none}
+@media(max-width:800px){
+  body:not(.tour-active) .family-toolbar{display:none!important}
+  body:not(.tour-active) #controlsToggle{display:none!important}
+  body:not(.tour-active) #controls{pointer-events:none!important}
+  body:not(.tour-active) #navModeBadge{
+    bottom:calc(84px + env(safe-area-inset-bottom))!important;
+    left:50%!important;
+    transform:translateX(-50%)!important;
+    max-width:calc(100vw - 28px)!important;
+    width:auto!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  body:not(.tour-active) #hud,
+  body:not(.tour-active) #proofNotice,
+  body:not(.tour-active) #timeline{display:none!important}
+
+  .mobile-tree-dock{
+    display:grid;
+    position:fixed;
+    z-index:560;
+    left:8px;right:8px;
+    bottom:max(8px,env(safe-area-inset-bottom));
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:6px;
+    padding:7px;
+    border:1px solid rgba(159,195,220,.28);
+    border-radius:18px;
+    background:rgba(5,12,18,.96);
+    box-shadow:0 -10px 34px rgba(0,0,0,.55);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+  }
+  body.tour-active .mobile-tree-dock{display:none!important}
+  .mobile-tree-dock button{
+    min-width:0;height:54px;padding:4px 2px!important;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    border-radius:12px!important;
+    font-size:20px!important;
+    line-height:1!important;
+  }
+  .mobile-tree-dock button small{
+    display:block;
+    max-width:100%;
+    font-size:9px;
+    line-height:1;
+    letter-spacing:.03em;
+    color:#c6d5df;
+    white-space:nowrap;
+  }
+
+  .mobile-tree-menu-sheet{
+    position:fixed;
+    z-index:700;
+    left:10px;right:10px;
+    bottom:calc(78px + env(safe-area-inset-bottom));
+    padding:12px;
+    border:1px solid rgba(159,195,220,.28);
+    border-radius:18px;
+    background:rgba(5,12,18,.985);
+    box-shadow:0 18px 55px rgba(0,0,0,.68);
+  }
+  .mobile-tree-menu-sheet.open{display:block}
+  .mobile-tree-sheet-head{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-bottom:9px;padding:2px 3px 8px;
+    border-bottom:1px solid rgba(159,195,220,.14);
+  }
+  .mobile-tree-sheet-head strong{font-size:15px}
+  .mobile-tree-sheet-head button{
+    width:38px;height:38px;border-radius:50%;padding:0!important;font-size:25px!important;
+  }
+  .mobile-tree-menu-sheet>button{
+    display:block;width:100%;margin:6px 0;padding:12px 13px!important;text-align:left!important;
+  }
+
+  /* Node detail is a deliberate bottom sheet, not a screen-covering desktop card. */
+  #card{
+    left:10px!important;right:10px!important;top:auto!important;
+    bottom:calc(82px + env(safe-area-inset-bottom))!important;
+    width:auto!important;max-width:none!important;
+    max-height:min(58dvh,520px)!important;
+    overflow:auto!important;
+    border-radius:18px!important;
+    z-index:545!important;
+    padding-bottom:16px!important;
+  }
+  #sceneContext{display:none!important}
+}
+
+/* Optional scene-photo stage. It is completely absent until a verified scene is supplied in TOUR_MEDIA. */
+.story-scene-strip{display:none}
+.story-scene-strip.show{display:block}
+.story-scene-frame{width:100%}
+.story-scene-image{
+  position:relative;overflow:hidden;background:#020406;
+  border:1px solid rgba(159,195,220,.18);border-radius:16px;
+}
+.story-scene-photo{
+  display:block;width:100%;height:auto;max-height:52vh;object-fit:contain;background:#000;
+}
+.story-scene-caption{
+  padding:10px 12px 12px;font-size:12px;line-height:1.4;color:#c8d6df;
+}
+.story-scene-caption b{display:block;margin-bottom:3px;color:#f0f5f8}
+.story-scene-source{color:#8fa9ba}
+.story-scene-count{
+  position:absolute;top:8px;right:8px;padding:5px 8px;border-radius:999px;
+  background:rgba(0,0,0,.68);font-size:10px;color:#d7e3ea;
+}
+@media(max-width:760px){
+  body.tour-story-open .story-scene-strip.show{
+    display:block!important;margin:0 0 12px!important;
+  }
+  body.tour-story-open .story-scene-image{
+    margin:0!important;border-radius:12px!important;
+  }
+  body.tour-story-open .story-scene-photo{
+    width:100%!important;max-height:48dvh!important;object-fit:contain!important;
+  }
 }

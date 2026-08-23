@@ -1,4 +1,4 @@
-/* Ancestry Atlas v2.1.0 — content contract.
+/* Ancestry Atlas v2.2.0 — content contract.
    Text associated with a recorded narration must be byte-for-byte maintained here alongside that audio mapping. */
 
 const BRANCH_TOURS = {

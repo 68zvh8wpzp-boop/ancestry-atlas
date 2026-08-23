@@ -561,7 +561,7 @@ window.addEventListener('error',function(e){
 }
 </style>
 
-  <link rel="stylesheet" href="atlas-tour.css?v=2.1.0">
+  <link rel="stylesheet" href="atlas-tour.css?v=2.2.0">
 </head>
 <body>
 
@@ -594,7 +594,7 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Guided Audio-Visual Family Tour</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v2.1.0 • cinematic branch entrance + responsive story stage</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v2.2.0 • mobile family-neighborhood tree + cinematic A/V tour</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop first orients you visibly in the tree, then opens the story. Recorded narration is used only when an approved audio file exists.</p>
   </div>
 </div>
@@ -670,7 +670,7 @@ window.addEventListener('error',function(e){
 <div id="app">
 <aside id="controls" class="collapsed">
   <button id="controlsToggle">☰ Controls / legend</button>
-  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v2.0.0</span></h1>
+  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v2.2.0</span></h1>
   <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay bright; uncertain generations fall progressively into dusk and shadow. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
 
   <div class="section">
@@ -749,6 +749,20 @@ window.addEventListener('error',function(e){
   <button id="openStoryBtn">Story mode</button>
   <button id="openAlbumBtn">Album</button>
   <button id="printAtlasBtn">Print / Save PDF</button>
+</div>
+<div id="mobileTreeDock" class="mobile-tree-dock" aria-label="Mobile tree controls">
+  <button id="mobileTreeHome" type="button" aria-label="Home person"><span>⌂</span><small>Home</small></button>
+  <button id="mobileTreeBack" type="button" aria-label="Previous person"><span>←</span><small>Back</small></button>
+  <button id="mobileTreeFocus" type="button" aria-label="Focus current family"><span>◎</span><small>Focus</small></button>
+  <button id="mobileTreeExpand" type="button" aria-label="Expand tree"><span>＋</span><small>Expand</small></button>
+  <button id="mobileTreeMenu" type="button" aria-label="More tree controls"><span>⋯</span><small>Menu</small></button>
+</div>
+<div id="mobileTreeMenuSheet" class="mobile-tree-menu-sheet" aria-hidden="true">
+  <div class="mobile-tree-sheet-head"><strong>Tree view</strong><button id="mobileTreeMenuClose" aria-label="Close tree menu">×</button></div>
+  <button id="mobileTreeStory">Guided Audio-Visual Family Tour</button>
+  <button id="mobileTreeAlbum">Family Album</button>
+  <button id="mobileTreeWholeAtlas">Whole Atlas overview</button>
+  <button id="mobileTreeStart">Start screen</button>
 </div>
 
 </section>
@@ -895,6 +909,9 @@ branches.forEach((b,i)=>{
 function confidenceVisible(c){ return document.getElementById('f-'+c).checked; }
 function visibleNode(n){
   if(window.__tourVisibleNodeIds instanceof Set && !window.__tourVisibleNodeIds.has(n.id)) return false;
+  if(isMobile && !document.body.classList.contains('tour-active')
+      && window.__mobileTreeVisibleNodeIds instanceof Set
+      && !window.__mobileTreeVisibleNodeIds.has(n.id)) return false;
   return confidenceVisible(n.confidence) && branchState[n.branch] && (showCollateral || !n.collateral);
 }
 
@@ -930,6 +947,50 @@ function coParentIds(id){
   }
   return unique(out);
 }
+function buildMobileTreeNeighborhood(id,maxNodes=10){
+  if(!id || !nodeById.has(id)) id='you';
+  const out=[];
+  const seen=new Set();
+  const push=(x)=>{
+    if(!x || seen.has(x) || !nodeById.has(x) || out.length>=maxNodes) return;
+    seen.add(x); out.push(x);
+  };
+
+  push(id);
+  const parents=parentMap.get(id)||[];
+  const children=childMap.get(id)||[];
+  const partners=coParentIds(id);
+  parents.forEach(push);
+  partners.forEach(push);
+  children.forEach(push);
+
+  // Siblings, then grandparents, then grandchildren: a readable local family neighborhood.
+  for(const p of parents){
+    for(const sib of (childMap.get(p)||[])) if(sib!==id) push(sib);
+  }
+  for(const p of parents){
+    for(const gp of (parentMap.get(p)||[])) push(gp);
+  }
+  for(const ch of children){
+    for(const gc of (childMap.get(ch)||[])) push(gc);
+  }
+  return new Set(out);
+}
+function setMobileTreeNeighborhood(id,maxNodes=10){
+  if(!isMobile) return;
+  const center=(id&&nodeById.has(id))?id:'you';
+  window.__mobileTreeVisibleNodeIds=buildMobileTreeNeighborhood(center,maxNodes);
+  selected=center;
+  nodeFocusMode=true;
+  nodeViewLevel='family';
+  navigationNeighborhood=new Set(window.__mobileTreeVisibleNodeIds);
+  setViewButtons('family');
+}
+window.AncestryMobileTreeInternal={
+  focusIds:(id,maxNodes=10)=>{setMobileTreeNeighborhood(id,maxNodes);},
+  clear:()=>{window.__mobileTreeVisibleNodeIds=null;},
+  neighborhood:buildMobileTreeNeighborhood
+};
 function buildExtraInfo(id){
   const n=nodeById.get(id);
   const parents=nameList(parentMap.get(id)||[]);
@@ -1378,6 +1439,7 @@ function cinematicFocus(id,mode='family'){
 }
 function setNodeView(level){
   if(level==='atlas'){
+    if(isMobile) window.__mobileTreeVisibleNodeIds=null;
     nodeViewLevel='atlas';nodeFocusMode=false;navigationNeighborhood=new Set();setViewButtons('atlas');
     const id=selected||'you'; cinematicFocus(id,'atlas'); return;
   }
@@ -1389,6 +1451,9 @@ function setNodeView(level){
 function openNode(id, recenter=false, appendTrail=false){
   const n=nodeById.get(id); if(!n) return;
   selected=id;
+  if(isMobile && !document.body.classList.contains('tour-active')){
+    setMobileTreeNeighborhood(id,10);
+  }
   card.querySelector('h3').textContent=n.name;
   card.querySelector('.meta').textContent=[n.years,n.place,n.branch].filter(Boolean).join(' • ');
   card.querySelectorAll('.dynamic-status').forEach(x=>x.remove());
@@ -1429,6 +1494,11 @@ function resize(){
   draw();
 }
 addEventListener('resize',resize);
+if(isMobile){
+  setMobileTreeNeighborhood('you',10);
+  scale=60;
+  setTimeout(()=>{try{centerOnNode('you');draw();}catch(e){}},80);
+}
 
 function rotateVector(p){
   let {x,y,z}=p;
@@ -1808,15 +1878,22 @@ document.getElementById('zoomBranchBtn').onclick=()=>setNodeView('branch');
 document.getElementById('zoomAtlasBtn').onclick=()=>setNodeView('atlas');
 
 function reset(){
-  nodeFocusMode=false;nodeViewLevel='atlas';navigationNeighborhood=new Set();setViewButtons('atlas');
   browseTrail=[];
   originNodeId='you';
   pivotWorld={x:0,y:0,z:0}; pivotCamera={x:0,y:0,z:0};
   rotX=-0.13; rotY=-0.25;
-  scale=isMobile?32:66;
-  panX=0;
-  panY=isMobile?90:40;
-  draw();
+  panX=0; panY=isMobile?86:40;
+  if(isMobile){
+    setMobileTreeNeighborhood('you',10);
+    scale=60;
+    centerOnNode('you');
+    draw();
+  }else{
+    window.__mobileTreeVisibleNodeIds=null;
+    nodeFocusMode=false;nodeViewLevel='atlas';navigationNeighborhood=new Set();setViewButtons('atlas');
+    scale=66;
+    draw();
+  }
 }
 document.getElementById('reset').onclick=reset;
 
@@ -1949,7 +2026,7 @@ resize();
 
 
 
-<script src="atlas-content.js?v=2.1.0"></script>
-<script src="atlas-tour.js?v=2.1.0"></script>
+<script src="atlas-content.js?v=2.2.0"></script>
+<script src="atlas-tour.js?v=2.2.0"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* Ancestry Atlas v2.1.0 — cinematic branch entrance + one responsive A/V tour controller. */
+/* Ancestry Atlas v2.2.0 — cinematic branch entrance + one responsive A/V tour controller. */
 (()=>{
 'use strict';
 
@@ -30,7 +30,16 @@ const els={
   status:$('audioStatus'),
   meter:$('audioMeterFill'),
   chooser:$('lineChooser'),
-  landing:$('landing')
+  landing:$('landing'),
+  sceneStrip:$('storySceneStrip'),
+  scenePhoto:$('storyScenePhoto'),
+  sceneArt:$('storySceneArt'),
+  sceneTitle:$('storySceneTitle'),
+  sceneCaption:$('storySceneCaption'),
+  sceneSource:$('storySceneSource'),
+  sceneCount:$('storySceneCount'),
+  treeDock:$('mobileTreeDock'),
+  treeSheet:$('mobileTreeMenuSheet')
 };
 
 let hud=$('tourOrientationHud');
@@ -254,6 +263,38 @@ async function cinematicBranchEntrance(track,focusId,mySession){
   hud.classList.remove('show');
 }
 
+
+function renderStoryMedia(step){
+  const media=TOUR_MEDIA[step?.id];
+  const scenes=Array.isArray(media?.scenes)?media.scenes:[];
+  if(!els.sceneStrip) return;
+  if(!scenes.length){
+    els.sceneStrip.classList.remove('show');
+    els.sceneStrip.setAttribute('aria-hidden','true');
+    if(els.scenePhoto) els.scenePhoto.removeAttribute('src');
+    return;
+  }
+  const scene=scenes[0];
+  // Move the media stage inside the story sheet exactly once.
+  const shell=els.shell;
+  const top=shell?.querySelector('.story-top');
+  if(shell && top && els.sceneStrip.parentElement!==shell){
+    top.insertAdjacentElement('afterend',els.sceneStrip);
+  }
+  els.sceneStrip.classList.add('show');
+  els.sceneStrip.setAttribute('aria-hidden','false');
+  if(els.scenePhoto){
+    els.scenePhoto.src=scene.src||'';
+    els.scenePhoto.alt=scene.alt||scene.title||'Historical photograph';
+    els.scenePhoto.style.display=scene.src?'block':'none';
+  }
+  if(els.sceneArt) els.sceneArt.style.display='none';
+  if(els.sceneTitle) els.sceneTitle.textContent=scene.title||'';
+  if(els.sceneCaption) els.sceneCaption.textContent=scene.caption||'';
+  if(els.sceneSource) els.sceneSource.textContent=scene.source?` • ${scene.source}`:'';
+  if(els.sceneCount) els.sceneCount.textContent=scenes.length>1?`1 / ${scenes.length}`:'';
+}
+
 function renderStep(){
   const step=currentStep();
   const node=currentNode();
@@ -266,6 +307,7 @@ function renderStep(){
   if(els.place) els.place.textContent=node.place||'';
 
   const media=TOUR_MEDIA[node.id];
+  renderStoryMedia(step);
   if(els.narrator){
     els.narrator.textContent=media?.audio
       ? `Recorded narration: ${media.narrator}`
@@ -353,6 +395,7 @@ function begin(track='canada',index=0){
 }
 
 function exitTour(){
+  const returnId=currentStep()?.id || selected || 'you';
   ++state.session;
   stopAudio();
   state.phase='idle';
@@ -360,10 +403,20 @@ function exitTour(){
   document.body.classList.remove('tour-active','tour-orienting','tour-distant','tour-story-open');
   els.modal?.classList.remove('open');
   els.modal?.setAttribute('aria-hidden','true');
+  els.sceneStrip?.classList.remove('show');
   clearCoreOverlays();
   clearBranchOnly();
   setStatus('');
   setMeter(0);
+
+  if(window.matchMedia('(max-width:800px)').matches){
+    try{
+      window.AncestryMobileTreeInternal?.focusIds(returnId,10);
+      selected=returnId;
+      cinematicFocus(returnId,'family');
+      setTimeout(()=>{try{card.style.display='none';sceneContext?.classList.remove('show');draw();}catch(e){}},80);
+    }catch(e){}
+  }
   setTransport();
 }
 
@@ -458,6 +511,71 @@ window.addEventListener('orientationchange',()=>{
       }
     }catch(e){}
   }
+});
+
+
+/* Mobile tree navigation: intentionally local, never the full genealogy by default. */
+const mobileTree={
+  history:[],
+  mode:'family'
+};
+function mobileFocus(id='you',pushHistory=true){
+  if(!window.matchMedia('(max-width:800px)').matches) return;
+  const target=nodeById.has(id)?id:'you';
+  if(pushHistory && selected && selected!==target) mobileTree.history.push(selected);
+  window.AncestryMobileTreeInternal?.focusIds(target,10);
+  selected=target;
+  try{card.style.display='none';sceneContext?.classList.remove('show');}catch(e){}
+  cinematicFocus(target,'family');
+  mobileTree.mode='family';
+}
+function mobileBack(){
+  const id=mobileTree.history.pop();
+  if(id) mobileFocus(id,false);
+}
+function mobileExpand(){
+  if(mobileTree.mode==='family'){
+    window.__mobileTreeVisibleNodeIds=buildNavigationNeighborhood(selected||'you','branch');
+    nodeViewLevel='branch';nodeFocusMode=true;navigationNeighborhood=new Set(window.__mobileTreeVisibleNodeIds);
+    setViewButtons('branch');
+    cinematicFocus(selected||'you','branch');
+    mobileTree.mode='branch';
+  }else{
+    window.__mobileTreeVisibleNodeIds=null;
+    setNodeView('atlas');
+    mobileTree.mode='atlas';
+  }
+}
+function openTreeSheet(){
+  els.treeSheet?.classList.add('open');
+  els.treeSheet?.setAttribute('aria-hidden','false');
+}
+function closeTreeSheet(){
+  els.treeSheet?.classList.remove('open');
+  els.treeSheet?.setAttribute('aria-hidden','true');
+}
+$('mobileTreeHome')?.addEventListener('click',()=>mobileFocus('you'));
+$('mobileTreeBack')?.addEventListener('click',mobileBack);
+$('mobileTreeFocus')?.addEventListener('click',()=>mobileFocus(selected||'you',false));
+$('mobileTreeExpand')?.addEventListener('click',mobileExpand);
+$('mobileTreeMenu')?.addEventListener('click',openTreeSheet);
+$('mobileTreeMenuClose')?.addEventListener('click',closeTreeSheet);
+$('mobileTreeStory')?.addEventListener('click',()=>{closeTreeSheet();openChooser();});
+$('mobileTreeAlbum')?.addEventListener('click',()=>{
+  closeTreeSheet();
+  $('albumModal')?.classList.add('open');
+  $('albumModal')?.setAttribute('aria-hidden','false');
+  if(typeof renderAlbum==='function') renderAlbum();
+});
+$('mobileTreeWholeAtlas')?.addEventListener('click',()=>{
+  closeTreeSheet();
+  window.__mobileTreeVisibleNodeIds=null;
+  setNodeView('atlas');
+  mobileTree.mode='atlas';
+});
+$('mobileTreeStart')?.addEventListener('click',()=>{
+  closeTreeSheet();
+  els.landing?.classList.remove('hidden');
 });
 
 window.AncestryTour={begin,exit:exitTour,state};
