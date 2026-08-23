@@ -1,0 +1,56 @@
+{
+  "family_photos": [
+    {
+      "file": "jay_marion_mesa_1941.png",
+      "source": "Marion Beulah Brenay Webb life story p.14",
+      "usage": "personal family archive"
+    },
+    {
+      "file": "webb_first_car_second_home_c1942.png",
+      "source": "Marion Beulah Brenay Webb life story p.15",
+      "usage": "personal family archive"
+    },
+    {
+      "file": "marion_webb_1945.png",
+      "source": "Marion Beulah Brenay Webb life story p.16",
+      "usage": "personal family archive"
+    },
+    {
+      "file": "webb_first_house_vernon_1945.png",
+      "source": "Marion Beulah Brenay Webb life story p.17",
+      "usage": "personal family archive"
+    },
+    {
+      "file": "james_sheldon_with_siblings_c1951.png",
+      "source": "Marion Beulah Brenay Webb life story p.18",
+      "usage": "personal family archive"
+    }
+  ],
+  "generated_charcoal_alternates": [
+    "charcoal_marriage_1965.png",
+    "charcoal_california_transition_1960.png",
+    "charcoal_postwar_arizona_1950s.png",
+    "charcoal_atomic_southwest_1945.png",
+    "charcoal_air_force_early_1960s.png",
+    "charcoal_later_family_legacy.png",
+    "charcoal_childhood_illness_1940s.png",
+    "charcoal_wartime_arizona_1943.png"
+  ],
+  "archival_targets": [
+    {
+      "story_beat": "wartime Arizona rail security",
+      "url": "https://www.loc.gov/item/2017849009/",
+      "rights": "Library of Congress FSA/OWI; public domain / free to use and reuse"
+    },
+    {
+      "story_beat": "wartime Arizona rail movement",
+      "url": "https://www.loc.gov/pictures/item/2017878137/",
+      "rights": "Library of Congress; no known restrictions on publication"
+    },
+    {
+      "story_beat": "Los Alamos / Manhattan Project",
+      "url": "https://www.nps.gov/articles/000/the-life-of-j-robert-oppenheimer-the-manhattan-project-years-1941-to-1946.htm",
+      "rights": "Use the specific US Department of Energy/NPS image only after preserving its stated credit/rights status"
+    }
+  ]
+}

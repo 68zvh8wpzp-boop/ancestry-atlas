@@ -1,4 +1,4 @@
-/* Ancestry Atlas v3.1.0 — cinematic branch entrance + one responsive A/V tour controller. */
+/* Ancestry Atlas v3.2.0 — cinematic branch entrance + one responsive A/V tour controller. */
 (()=>{
 'use strict';
 
