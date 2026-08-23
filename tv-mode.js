@@ -1,4 +1,4 @@
-/* Ancestry Atlas v3.4.0 — tour-first television presentation module. No AirPlay discovery. */
+/* Ancestry Atlas v3.4.1 — tour-first television presentation module. No AirPlay discovery. */
 (()=>{
   'use strict';
   const $=id=>document.getElementById(id);
@@ -13,7 +13,7 @@
   const branchChoice=$('tourBranchChoice');
   const viewingChoice=$('tourViewingChoice');
   const trackNames={canada:'Canada / Brenay',webb:'Webb',dunbar:'Dunbar',denmark:'Denmark'};
-  const state={active:false,awaitingLandscape:false,pendingTrack:null,lastFocus:null,hideTimer:null,audio:null,audioBound:new WeakSet(),selectedAtEntry:null,cameraAtEntry:null};
+  const state={active:false,awaitingLandscape:false,pendingTrack:null,lastFocus:null,hideTimer:null,audio:null,audioBound:new WeakSet(),selectedAtEntry:null,cameraAtEntry:null,storyOpen:false};
 
   function cameraSnapshot(){
     try{return {selected,originNodeId,pivotWorld:{...pivotWorld},pivotCamera:{...pivotCamera},rotX,rotY,scale,panX,panY,nodeViewLevel};}catch(e){return null;}
@@ -22,6 +22,8 @@
   function selectedHasStory(){try{return currentSelection()==='james_sheldon' && !!TOUR_MEDIA?.james_sheldon?.scenes?.length}catch(e){return false}}
   function updateStateLabel(){
     const story=body.classList.contains('tour-story-open');
+    if(story&&!state.storyOpen) revealControls();
+    state.storyOpen=story;
     if($('tvStateLabel')) $('tvStateLabel').textContent=story?'Story':'Explore';
     if($('tvReturnTree')) $('tvReturnTree').hidden=!story;
     if($('tvPlayStory')) $('tvPlayStory').hidden=story||!selectedHasStory();
@@ -68,7 +70,10 @@
   }
   function enter(){
     state.selectedAtEntry=currentSelection();state.cameraAtEntry=cameraSnapshot();state.active=true;closeDialog();
-    body.classList.add('tv-mode');body.classList.remove('tv-controls-hidden');
+    body.classList.add('tv-mode');body.classList.remove('tv-controls-hidden','tv-legend-open');
+    $('controls')?.classList.add('collapsed');
+    $('tvToggleLegend')?.setAttribute('aria-expanded','false');
+    if($('tvToggleLegend')) $('tvToggleLegend').textContent='Show legend';
     try{localStorage.setItem('ancestryAtlas.tvModeUsed','1')}catch(e){}
     requestFullscreen();revealControls();updateStateLabel();try{resize();draw()}catch(e){console.error('TV Mode resize failed.',e)}
     if(state.pendingTrack&&isPhonePortrait()){
@@ -78,7 +83,7 @@
     }
   }
   async function leave({keepFullscreen=false}={}){
-    if(!state.active)return;state.active=false;state.awaitingLandscape=false;state.pendingTrack=null;rotateNotice.hidden=true;resetTourChoice();clearTimeout(state.hideTimer);body.classList.remove('tv-mode','tv-controls-hidden','tv-legend-open');complete.classList.remove('open');complete.setAttribute('aria-hidden','true');
+    if(!state.active)return;state.active=false;state.storyOpen=false;state.awaitingLandscape=false;state.pendingTrack=null;rotateNotice.hidden=true;resetTourChoice();clearTimeout(state.hideTimer);body.classList.remove('tv-mode','tv-controls-hidden','tv-legend-open');complete.classList.remove('open');complete.setAttribute('aria-hidden','true');
     try{window.AncestryTour?.state?.audio?.pause?.()}catch(e){}
     if(!keepFullscreen&&(document.fullscreenElement||document.webkitFullscreenElement)){try{await (document.exitFullscreen?.()||document.webkitExitFullscreen?.())}catch(e){}}
     try{resize();draw()}catch(e){console.error('TV Mode exit resize failed.',e)}
@@ -103,7 +108,7 @@
   $('tvDialogClose')?.addEventListener('click',closeDialog);$('tvCancel')?.addEventListener('click',closeDialog);$('tvShowInstructions')?.addEventListener('click',showInstructions);$('tvInstructionsBack')?.addEventListener('click',showStart);$('tvStartMode')?.addEventListener('click',enter);$('tvInstructionsStart')?.addEventListener('click',enter);
   $('tvRotateCancel')?.addEventListener('click',()=>leave());
   dialog?.addEventListener('pointerdown',event=>{if(event.target===dialog)closeDialog()});
-  $('tvExitMode')?.addEventListener('click',()=>leave());$('tvToggleLegend')?.addEventListener('click',event=>{const open=body.classList.toggle('tv-legend-open');$('controls')?.classList.toggle('collapsed',!open);event.currentTarget.setAttribute('aria-expanded',String(open));revealControls()});
+  $('tvExitMode')?.addEventListener('click',()=>leave());$('tvToggleLegend')?.addEventListener('click',event=>{const open=body.classList.toggle('tv-legend-open');$('controls')?.classList.toggle('collapsed',!open);event.currentTarget.setAttribute('aria-expanded',String(open));event.currentTarget.textContent=open?'Hide legend':'Show legend';revealControls()});
   $('tvPlayStory')?.addEventListener('click',()=>{if(selectedHasStory())window.AncestryTour?.begin?.('webb',0)});$('tvReturnTree')?.addEventListener('click',returnToTree);$('tvCompleteReturn')?.addEventListener('click',returnToTree);$('tvReplay')?.addEventListener('click',replay);
   ['pointermove','pointerdown','touchstart','keydown','focusin'].forEach(type=>document.addEventListener(type,revealControls,{passive:type!=='keydown'}));
   document.addEventListener('keydown',event=>{

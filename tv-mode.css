@@ -1,4 +1,4 @@
-/* Ancestry Atlas v3.4.0 — optional AirPlay/screen-mirroring presentation layer. */
+/* Ancestry Atlas v3.4.1 — optional AirPlay/screen-mirroring presentation layer. */
 .tv-dialog,.tv-story-complete{display:none;position:fixed;inset:0;z-index:1700;align-items:center;justify-content:center;padding:24px;background:rgba(1,5,8,.90)}
 .tv-dialog.open,.tv-story-complete.open{display:flex}
 .tv-dialog-card,.tv-story-complete>div{position:relative;width:min(680px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;padding:28px;border:1px solid rgba(205,225,239,.28);border-radius:16px;background:#0a1721;color:#dce7ef;box-shadow:0 28px 80px rgba(0,0,0,.62)}
@@ -16,7 +16,8 @@ body.tv-mode{
 body.tv-mode #app,body.tv-mode #stage{width:100vw!important;height:100dvh!important;min-height:100dvh!important;overflow:hidden!important}
 body.tv-mode #stage{padding:0!important}body.tv-mode canvas{width:100%!important;height:100%!important;touch-action:none!important}
 body.tv-mode .family-toolbar,body.tv-mode #mobileTreeDock,body.tv-mode .mobile-tree-menu-sheet{display:none!important}
-body.tv-mode #controls{top:var(--tv-safe-y)!important;left:var(--tv-safe-x)!important;bottom:auto!important;width:min(400px,26vw)!important;max-height:calc(100dvh - var(--tv-safe-y) - var(--tv-safe-y))!important;font-size:17px!important;transition:opacity .25s ease!important}
+body.tv-mode #controls{display:none!important;top:var(--tv-safe-y)!important;left:var(--tv-safe-x)!important;bottom:auto!important;width:min(400px,calc(100vw - var(--tv-safe-x) - var(--tv-safe-x)))!important;max-height:calc(100dvh - var(--tv-safe-y) - var(--tv-safe-y))!important;font-size:17px!important;transition:opacity .25s ease!important}
+body.tv-mode.tv-legend-open #controls{display:block!important}
 body.tv-mode #controls.collapsed{width:auto!important}body.tv-mode #controlsToggle{display:block!important;min-height:50px!important;font-size:17px!important}body.tv-mode #controls h1{font-size:25px!important}body.tv-mode #controls h2{font-size:16px!important}body.tv-mode #controls button,body.tv-mode #controls input{min-height:45px!important;font-size:15px!important}
 body.tv-mode #card{right:var(--tv-safe-x)!important;top:var(--tv-safe-y)!important;bottom:auto!important;width:min(540px,35vw)!important;max-height:calc(100dvh - var(--tv-safe-y) - var(--tv-safe-y) - 76px)!important;font-size:18px!important;line-height:1.55!important;transition:opacity .25s ease!important}body.tv-mode #card h3{font-size:31px!important}body.tv-mode #card button{min-height:46px!important;font-size:15px!important}
 body.tv-mode #hud{left:var(--tv-safe-x)!important;right:var(--tv-safe-x)!important;bottom:calc(var(--tv-safe-y) + 58px)!important;font-size:17px!important}body.tv-mode #proofNotice{left:var(--tv-safe-x)!important;right:var(--tv-safe-x)!important;bottom:var(--tv-safe-y)!important;font-size:15px!important}
@@ -27,8 +28,8 @@ body.tv-mode .tv-presentation-bar button{min-height:46px;padding:0 16px;font-siz
 body.tv-mode.tour-story-open #app{visibility:hidden!important;pointer-events:none!important}
 body.tv-mode.tour-story-open #storyModal{display:block!important;background:#000!important}
 body.tv-mode.tour-story-open .story-shell{
-  left:50%!important;right:auto!important;top:50%!important;bottom:auto!important;inset:auto!important;
-  width:var(--tv-frame-w)!important;height:var(--tv-frame-h)!important;transform:translate(-50%,-50%)!important;
+  position:fixed!important;inset:0!important;
+  width:100vw!important;height:100dvh!important;transform:none!important;
   border:0!important;border-radius:0!important;background:#000!important;overflow:hidden!important
 }
 body.tv-mode.tour-story-open .story-scene-strip,body.tv-mode.tour-story-open .story-scene-frame,body.tv-mode.tour-story-open .story-scene-image{inset:0!important;width:100%!important;height:100%!important;background:#000!important}
@@ -37,12 +38,12 @@ body.tv-mode.tour-story-open .story-top{top:18px!important;left:28px!important;r
 body.tv-mode.tour-story-open .story-context-ribbon{top:76px!important;left:28px!important;right:120px!important}body.tv-mode.tour-story-open .story-az-flag{flex-basis:68px!important;width:68px!important;height:42px!important}body.tv-mode.tour-story-open .story-locator-card span{font-size:clamp(10px,.75vw,16px)!important}
 body.tv-mode.tour-story-open .story-scene-count{top:76px!important;right:28px!important;font-size:clamp(10px,.7vw,15px)!important}
 body.tv-mode.tour-story-open .story-scene-caption{padding:64px max(40px,5vw) 112px!important}body.tv-mode.tour-story-open .story-scene-caption b{font-size:clamp(24px,2vw,48px)!important}body.tv-mode.tour-story-open .story-scene-caption span{font-size:clamp(13px,1vw,24px)!important}
-body.tv-mode.tour-story-open .story-controls{bottom:calc((100dvh - var(--tv-frame-h))/2 + 20px)!important;width:min(760px,calc(var(--tv-frame-w) - 64px))!important;grid-template-rows:19px 3px 54px!important;background:rgba(3,9,14,.94)!important}body.tv-mode.tour-story-open .story-controls .cd-button{height:54px!important;font-size:26px!important}body.tv-mode.tour-story-open .story-controls .audio-status{font-size:13px!important}
-body.tv-mode.tour-story-open .story-slideshow-toggle{top:calc((100dvh - var(--tv-frame-h))/2 + 20px)!important;right:calc((100vw - var(--tv-frame-w))/2 + 28px)!important;left:auto!important;min-height:42px!important;font-size:13px!important}
+body.tv-mode.tour-story-open .story-controls{position:fixed!important;left:50vw!important;right:auto!important;bottom:max(14px,env(safe-area-inset-bottom))!important;transform:translateX(-50%)!important;width:min(760px,calc(100vw - 28px))!important;grid-template-rows:19px 3px 54px!important;background:rgba(3,9,14,.94)!important}body.tv-mode.tour-story-open .story-controls .cd-button{height:54px!important;font-size:26px!important}body.tv-mode.tour-story-open .story-controls .audio-status{font-size:13px!important}
+body.tv-mode.tour-story-open .story-slideshow-toggle{position:fixed!important;top:max(14px,env(safe-area-inset-top))!important;right:max(14px,env(safe-area-inset-right))!important;left:auto!important;min-height:42px!important;font-size:13px!important}
 body.tv-mode.tour-story-open.story-slideshow-hidden .story-card{inset:80px 36px 112px!important;border:0!important;border-radius:0!important;background:#071018!important}body.tv-mode.tour-story-open.story-slideshow-hidden .story-copy{font-size:clamp(22px,1.7vw,38px)!important;line-height:1.58!important}
 
 /* In Story the extra TV bar becomes two quiet escape routes, not a second transport. */
-body.tv-mode.tour-story-open .tv-presentation-bar{left:calc((100vw - var(--tv-frame-w))/2 + 28px)!important;right:auto!important;top:calc((100dvh - var(--tv-frame-h))/2 + 18px)!important;bottom:auto!important;transform:none!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important}
+body.tv-mode.tour-story-open .tv-presentation-bar{left:max(14px,env(safe-area-inset-left))!important;right:auto!important;top:max(14px,env(safe-area-inset-top))!important;bottom:auto!important;transform:none!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important}
 body.tv-mode.tour-story-open .tv-presentation-bar strong,body.tv-mode.tour-story-open #tvPlayStory,body.tv-mode.tour-story-open #tvToggleLegend{display:none!important}
 body.tv-mode.tour-story-open .tv-presentation-bar button{min-height:42px!important;padding:0 12px!important;border-color:rgba(190,215,231,.25)!important;background:rgba(3,9,14,.88)!important;font-size:13px!important}
 
@@ -58,8 +59,8 @@ body.tv-mode.tv-legend-open #controls{opacity:1!important}
   body.tv-mode.tour-story-open .story-top{top:8px!important;left:16px!important;height:30px!important}body.tv-mode.tour-story-open .story-top .landing-kicker{display:none!important}body.tv-mode.tour-story-open .story-top h2{font-size:10px!important}
   body.tv-mode.tour-story-open .story-context-ribbon{top:44px!important;left:16px!important}body.tv-mode.tour-story-open .story-az-flag{width:46px!important;height:29px!important;flex-basis:46px!important}body.tv-mode.tour-story-open .story-scene-count{top:44px!important;right:16px!important}
   body.tv-mode.tour-story-open .story-scene-caption{padding:26px 18px 67px!important}body.tv-mode.tour-story-open .story-scene-caption b{font-size:17px!important}body.tv-mode.tour-story-open .story-scene-caption span{font-size:9px!important}
-  body.tv-mode.tour-story-open .story-controls{bottom:calc((100dvh - var(--tv-frame-h))/2 + 5px)!important;width:min(620px,calc(var(--tv-frame-w) - 24px))!important;padding:4px 6px!important;grid-template-rows:12px 2px 34px!important;gap:2px 5px!important;border-radius:10px!important}body.tv-mode.tour-story-open .story-controls .cd-button{height:34px!important;font-size:18px!important}body.tv-mode.tour-story-open .story-controls .audio-status{font-size:8px!important;line-height:12px!important}
-  body.tv-mode.tour-story-open .story-slideshow-toggle{top:calc((100dvh - var(--tv-frame-h))/2 + 6px)!important;right:calc((100vw - var(--tv-frame-w))/2 + 10px)!important;min-height:30px!important;padding:4px 8px!important;font-size:8px!important}
-  body.tv-mode.tour-story-open .tv-presentation-bar{left:calc((100vw - var(--tv-frame-w))/2 + 10px)!important;top:calc((100dvh - var(--tv-frame-h))/2 + 5px)!important}body.tv-mode.tour-story-open .tv-presentation-bar button{min-height:30px!important;padding:0 7px!important;font-size:8px!important}
+  body.tv-mode.tour-story-open .story-controls{bottom:max(5px,env(safe-area-inset-bottom))!important;width:min(620px,calc(100vw - 20px))!important;padding:4px 6px!important;grid-template-rows:12px 2px 34px!important;gap:2px 5px!important;border-radius:10px!important}body.tv-mode.tour-story-open .story-controls .cd-button{height:34px!important;font-size:18px!important}body.tv-mode.tour-story-open .story-controls .audio-status{font-size:8px!important;line-height:12px!important}
+  body.tv-mode.tour-story-open .story-slideshow-toggle{top:max(5px,env(safe-area-inset-top))!important;right:max(8px,env(safe-area-inset-right))!important;min-height:30px!important;padding:4px 8px!important;font-size:8px!important}
+  body.tv-mode.tour-story-open .tv-presentation-bar{left:max(8px,env(safe-area-inset-left))!important;top:max(5px,env(safe-area-inset-top))!important}body.tv-mode.tour-story-open .tv-presentation-bar button{min-height:30px!important;padding:0 7px!important;font-size:8px!important}
 }
 @media(prefers-reduced-motion:reduce){.tv-dialog,.tv-story-complete,.tv-presentation-bar,body.tv-mode #controls,body.tv-mode #card,body.tv-mode .story-controls{transition:none!important}}
