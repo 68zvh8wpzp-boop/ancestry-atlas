@@ -1,4 +1,4 @@
-/* Ancestry Atlas v2.2.0 — cinematic branch entrance + one responsive A/V tour controller. */
+/* Ancestry Atlas v2.3.1 — cinematic branch entrance + one responsive A/V tour controller. */
 (()=>{
 'use strict';
 
@@ -57,7 +57,12 @@ const state={
   muted:false,
   audio:null,
   audioReady:false,
-  session:0
+  session:0,
+  activeParagraph:-1,
+  activeScene:-1,
+  followNarration:true,
+  followSuspendUntil:0,
+  audioCandidateIndex:0
 };
 
 function currentTour(){ return BRANCH_TOURS[state.track]; }
@@ -109,6 +114,56 @@ function stopAudio(){
   setTransport();
 }
 
+function candidateAudioUrls(media){
+  const names=[...(media?.audioCandidates||[]),media?.audio].filter(Boolean);
+  return [...new Set(names)].map(name=>new URL(name,window.location.href).href + (name.includes('?')?'&':'?') + 'atlas=2.3.0');
+}
+
+function attachAudioEvents(audio,media,candidates,index){
+  audio.preload='auto';
+  audio.muted=state.muted;
+  state.audio=audio;
+  state.audioCandidateIndex=index;
+
+  audio.addEventListener('loadedmetadata',()=>{
+    state.audioReady=true;
+    setStatus(`Alfie ready • ${Math.round(audio.duration||0)} sec • paused`,'ready');
+    setTransport();
+  });
+  audio.addEventListener('canplay',()=>{
+    state.audioReady=true;
+    setStatus('Alfie ready • paused','ready');
+    setTransport();
+  });
+  audio.addEventListener('timeupdate',()=>syncNarrationProgress(audio));
+  audio.addEventListener('play',()=>{
+    setStatus('Alfie playing','playing');
+    setTransport();
+  });
+  audio.addEventListener('pause',()=>{
+    if(!audio.ended) setStatus('Alfie paused','ready');
+    setTransport();
+  });
+  audio.addEventListener('ended',()=>{
+    setStatus('Alfie narration complete','ready');
+    setMeter(100);
+    setTransport();
+  });
+  audio.addEventListener('error',()=>{
+    const next=index+1;
+    if(next<candidates.length){
+      const replacement=new Audio(candidates[next]);
+      attachAudioEvents(replacement,media,candidates,next);
+      replacement.load();
+    }else{
+      state.audioReady=false;
+      state.audio=null;
+      setStatus('Alfie recording not found in the published site','error');
+      setTransport();
+    }
+  },{once:true});
+}
+
 function prepareAudio(step){
   stopAudio();
   const media=TOUR_MEDIA[step?.id];
@@ -118,41 +173,10 @@ function prepareAudio(step){
     return;
   }
 
-  const url=new URL(media.audio,window.location.href).href;
-  const audio=new Audio(url);
-  audio.preload='metadata';
-  audio.muted=state.muted;
-  state.audio=audio;
-
-  setStatus(`Recorded narration: ${media.narrator||'approved voice'} • paused`,'loading');
-
-  audio.addEventListener('loadedmetadata',()=>{
-    state.audioReady=true;
-    setStatus(`Recorded narration: ${media.narrator||'approved voice'} • paused`,'ready');
-    setTransport();
-  });
-  audio.addEventListener('canplay',()=>{state.audioReady=true;setTransport()},{once:true});
-  audio.addEventListener('timeupdate',()=>{
-    if(audio.duration) setMeter((audio.currentTime/audio.duration)*100);
-  });
-  audio.addEventListener('play',()=>{
-    setStatus(`Playing ${media.narrator||'recorded narration'}`,'playing');
-    setTransport();
-  });
-  audio.addEventListener('pause',()=>{
-    if(!audio.ended) setStatus('Recorded narration paused','ready');
-    setTransport();
-  });
-  audio.addEventListener('ended',()=>{
-    setStatus('Recorded narration complete','ready');
-    setMeter(100);
-    setTransport();
-  });
-  audio.addEventListener('error',()=>{
-    state.audioReady=false;
-    setStatus(`Narration unavailable — ${media.audio}`,'error');
-    setTransport();
-  });
+  const candidates=candidateAudioUrls(media);
+  setStatus('Loading Alfie recording…','loading');
+  const audio=new Audio(candidates[0]);
+  attachAudioEvents(audio,media,candidates,0);
   audio.load();
   setTransport();
 }
@@ -257,7 +281,7 @@ async function cinematicBranchEntrance(track,focusId,mySession){
   document.body.classList.remove('tour-distant');
   selected=focusId||ids[0];
   try{draw()}catch(e){}
-  await wait(900);
+  await wait(120);
 
   if(mySession!==state.session) return;
   hud.classList.remove('show');
@@ -295,6 +319,83 @@ function renderStoryMedia(step){
   if(els.sceneCount) els.sceneCount.textContent=scenes.length>1?`1 / ${scenes.length}`:'';
 }
 
+
+function renderTranscript(media,step){
+  if(!els.copy) return;
+  const text=media?.transcript||step?.copy||'';
+  const paragraphs=text.split(/\n\s*\n/).filter(Boolean);
+  els.copy.innerHTML='';
+  paragraphs.forEach((p,i)=>{
+    const el=document.createElement('p');
+    el.className='story-transcript-paragraph';
+    el.dataset.paragraphIndex=String(i);
+    el.textContent=p;
+    els.copy.appendChild(el);
+  });
+  state.activeParagraph=-1;
+  state.activeScene=-1;
+}
+
+function sceneForParagraph(media,pIndex){
+  const scenes=Array.isArray(media?.scenes)?media.scenes:[];
+  let result=-1;
+  scenes.forEach((scene,i)=>{
+    if((scene.triggerParagraph??0)<=pIndex) result=i;
+  });
+  return result<0 && scenes.length?0:result;
+}
+
+function showStoryScene(media,index){
+  const scenes=Array.isArray(media?.scenes)?media.scenes:[];
+  if(!scenes.length || !els.sceneStrip) return;
+  index=clamp(index,0,scenes.length-1);
+  if(index===state.activeScene) return;
+  const scene=scenes[index];
+  state.activeScene=index;
+  els.sceneStrip.classList.add('show');
+  els.sceneStrip.setAttribute('aria-hidden','false');
+  if(els.scenePhoto){
+    els.scenePhoto.style.opacity='0';
+    setTimeout(()=>{
+      els.scenePhoto.src=scene.src||'';
+      els.scenePhoto.alt=scene.alt||scene.title||'Family photograph';
+      els.scenePhoto.onload=()=>{els.scenePhoto.style.opacity='1'};
+    },120);
+  }
+  if(els.sceneTitle) els.sceneTitle.textContent=scene.title||'';
+  if(els.sceneCaption) els.sceneCaption.textContent=scene.caption||'';
+  if(els.sceneSource) els.sceneSource.textContent=scene.source?` • ${scene.source}`:'';
+  if(els.sceneCount) els.sceneCount.textContent=scenes.length>1?`${index+1} / ${scenes.length}`:'';
+}
+
+function syncNarrationProgress(audio){
+  if(audio.duration) setMeter((audio.currentTime/audio.duration)*100);
+  const paras=[...els.copy?.querySelectorAll('.story-transcript-paragraph')||[]];
+  if(!paras.length || !audio.duration) return;
+
+  const weights=paras.map(p=>Math.max(1,p.textContent.length));
+  const total=weights.reduce((a,b)=>a+b,0);
+  const target=(audio.currentTime/audio.duration)*total;
+  let running=0,idx=0;
+  for(let i=0;i<weights.length;i++){
+    running+=weights[i];
+    if(target<=running){idx=i;break;}
+    idx=i;
+  }
+  if(idx===state.activeParagraph) return;
+
+  paras.forEach((p,i)=>p.classList.toggle('active',i===idx));
+  state.activeParagraph=idx;
+
+  const media=TOUR_MEDIA[currentStep()?.id];
+  const sceneIndex=sceneForParagraph(media,idx);
+  if(sceneIndex>=0) showStoryScene(media,sceneIndex);
+
+  if(state.followNarration && Date.now()>state.followSuspendUntil){
+    paras[idx]?.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+}
+
 function renderStep(){
   const step=currentStep();
   const node=currentNode();
@@ -307,13 +408,13 @@ function renderStep(){
   if(els.place) els.place.textContent=node.place||'';
 
   const media=TOUR_MEDIA[node.id];
-  renderStoryMedia(step);
+  showStoryScene(media,0);
   if(els.narrator){
     els.narrator.textContent=media?.audio
       ? `Recorded narration: ${media.narrator}`
       : 'Recorded narration not yet produced';
   }
-  if(els.copy) els.copy.textContent=media?.transcript||step.copy||'';
+  renderTranscript(media,step);
 
   const profile=(typeof GUIDE_PROFILES!=='undefined')?GUIDE_PROFILES[node.id]:null;
   const hist=(typeof historicalContextFor==='function')?historicalContextFor(node):null;
@@ -421,6 +522,8 @@ function exitTour(){
 }
 
 function togglePlay(){
+  state.followNarration=true;
+  state.followSuspendUntil=0;
   const media=TOUR_MEDIA[currentStep()?.id];
   if(!media?.audio){
     setStatus('Recorded narration has not been produced for this stop.','');
@@ -452,6 +555,12 @@ async function move(delta){
   state.index=next;
   await orientAndOpenCurrent({fullEntrance:false});
 }
+
+els.shell?.addEventListener('touchstart',()=>{state.followSuspendUntil=Date.now()+7000},{passive:true});
+els.shell?.addEventListener('wheel',()=>{state.followSuspendUntil=Date.now()+7000},{passive:true});
+els.shell?.addEventListener('scroll',()=>{
+  if(state.audio && !state.audio.paused) state.followSuspendUntil=Math.max(state.followSuspendUntil,Date.now()+2500);
+},{passive:true});
 
 els.play?.addEventListener('click',togglePlay);
 els.mute?.addEventListener('click',toggleMute);

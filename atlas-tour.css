@@ -1,4 +1,4 @@
-/* Ancestry Atlas v2.2.0 — cinematic family-line entrance + responsive A/V story stage. */
+/* Ancestry Atlas v2.3.1 — cinematic family-line entrance + responsive A/V story stage. */
 :root{
   --tour-safe-top:max(10px,env(safe-area-inset-top));
   --tour-safe-bottom:max(12px,env(safe-area-inset-bottom));
@@ -499,5 +499,113 @@ body.tour-story-open .story-modal.open{
   }
   body.tour-story-open .story-scene-photo{
     width:100%!important;max-height:48dvh!important;object-fit:contain!important;
+  }
+}
+
+
+/* v2.3 — A/V story is photo-forward; transport remains pinned to the top. */
+@media(max-width:760px){
+  body.tour-story-open .story-shell{
+    padding:calc(102px + var(--tour-safe-top)) 0 calc(38px + var(--tour-safe-bottom))!important;
+    scroll-padding-top:calc(112px + var(--tour-safe-top))!important;
+  }
+
+  body.tour-story-open .story-controls{
+    position:fixed!important;
+    z-index:1400!important;
+    top:var(--tour-safe-top)!important;
+    left:8px!important;
+    right:8px!important;
+    bottom:auto!important;
+    width:auto!important;
+    transform:none!important;
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    grid-template-rows:20px 2px 50px!important;
+    padding:7px 9px 8px!important;
+    border-radius:17px!important;
+    background:rgba(4,10,15,.985)!important;
+    box-shadow:0 12px 36px rgba(0,0,0,.58)!important;
+  }
+  .story-controls .cd-button{height:50px!important}
+
+  .story-top,
+  .story-visual,
+  .story-narrator,
+  .story-copy{
+    margin-left:18px!important;
+    margin-right:18px!important;
+  }
+  .story-top{
+    position:relative!important;
+    top:auto!important;
+    padding:10px 0 12px!important;
+    background:none!important;
+  }
+  .story-close{display:none!important}
+
+  body.tour-story-open .story-scene-strip.show{
+    display:block!important;
+    width:100vw!important;
+    margin:0 0 14px!important;
+  }
+  body.tour-story-open .story-scene-frame{
+    width:100%!important;
+  }
+  body.tour-story-open .story-scene-image{
+    width:100%!important;
+    min-height:42vh!important;
+    border-left:0!important;border-right:0!important;
+    border-radius:0!important;
+    display:flex!important;align-items:center!important;justify-content:center!important;
+    background:#000!important;
+  }
+  body.tour-story-open .story-scene-photo{
+    width:100%!important;
+    max-height:56vh!important;
+    object-fit:contain!important;
+    opacity:1;
+    transition:opacity 360ms ease!important;
+  }
+  body.tour-story-open .story-scene-caption{
+    padding:9px 18px 12px!important;
+    background:#050b10!important;
+    font-size:11px!important;
+    line-height:1.45!important;
+  }
+
+  .story-visual{
+    padding-top:4px!important;
+    margin-top:0!important;
+  }
+  .story-copy{
+    padding-bottom:44px!important;
+  }
+  .story-transcript-paragraph{
+    margin:0 0 1.25em!important;
+    padding:2px 0!important;
+    opacity:.68;
+    transition:opacity 280ms ease,background 280ms ease,color 280ms ease!important;
+  }
+  .story-transcript-paragraph.active{
+    opacity:1;
+    color:#fff!important;
+    background:linear-gradient(90deg,rgba(87,156,201,.12),transparent 72%);
+  }
+}
+
+@media(max-width:920px) and (orientation:landscape){
+  body.tour-story-open .story-shell{
+    padding-top:calc(92px + var(--tour-safe-top))!important;
+  }
+  body.tour-story-open .story-scene-strip.show{
+    float:left!important;
+    width:48vw!important;
+    margin:0 18px 12px 0!important;
+  }
+  body.tour-story-open .story-scene-image{
+    min-height:48vh!important;
+  }
+  body.tour-story-open .story-scene-photo{
+    max-height:62vh!important;
   }
 }

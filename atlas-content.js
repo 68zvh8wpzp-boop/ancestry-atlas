@@ -1,4 +1,4 @@
-/* Ancestry Atlas v2.2.0 — content contract.
+/* Ancestry Atlas v2.3.1 — content contract.
    Text associated with a recorded narration must be byte-for-byte maintained here alongside that audio mapping. */
 
 const BRANCH_TOURS = {
@@ -69,7 +69,35 @@ const TOUR_MEDIA = {
     narrator: 'Alfie',
     transcript: "James Sheldon Webb was born on April 11, 1943, in Arizona, while the United States was deep in the Second World War.\n\nHis parents were James Wilford “Jay” Webb and Marion Beulah Brenay Webb. When Sheldon was born, they were living near the mill in a small one-room shack with a lean-to kitchen. Marion remembered bitter cold, heavy snowstorms, and having to walk about a quarter mile just to reach their car.\n\nBeyond their small community, wartime America was transforming the Southwest. Troops and military equipment moved across Arizona, while scientists at Los Alamos, just across the state line in New Mexico, secretly developed the first atomic weapons. In July 1945, when Sheldon was two, the Trinity test ushered in the atomic age.\n\nThe war touched Sheldon much more personally when Jay entered the Army. Marion was left with young Sheldon, little money, and no car, and temporarily moved to stay with Jay’s parents.\n\nThen Sheldon became seriously ill with measles. Marion remembered him covered with red spots. His condition caused enough concern that Jay was allowed to come home briefly. Sheldon recovered.\n\nWhen Jay eventually returned from the war, Marion remembered Sheldon running down the road to meet his father.\n\nThe postwar years were not immediately easy. Jay struggled to find steady work, and the family moved into an old house they repaired themselves. As Sheldon’s brothers and sisters arrived, the household grew around him. Family photographs preserve this period, including Sheldon together with his siblings.\n\nMeanwhile, Arizona was changing rapidly. Highways, automobiles, television, military installations, and Cold War technology were transforming the Southwest. Sheldon grew up between the older world of small-town Arizona and the increasingly modern America emerging after the war.\n\nHe graduated from high school in 1960. Soon afterward, Sheldon and his friend Kenny MacClaron went to California looking for work. Marion recalled that the two young men began considering the Air Force.\n\nSheldon joined and served for about two years before receiving a hardship discharge that allowed him to return home and help his father. He then continued his education and attended college.\n\nIn 1965, Sheldon married Inez Karen Prather, opening the next chapter of the Webb family story.\n\nSheldon’s early life stretched from wartime Arizona through the beginning of the atomic age and the transformation of the postwar Southwest. Behind those enormous events was a more intimate story: a boy growing up amid separation, illness, hard work, family, and extraordinary change.\n\nThat is where Sheldon’s story begins.",
     contract: 'audio-locked',
-    visualStatus: 'archival-first'
+    visualStatus: 'archival-first',
+    audioCandidates: [
+      'James_sheldon_webb.mp3',
+      'James_sheldon_webb',
+      'james_sheldon_webb.mp3'
+    ],
+    scenes: [
+      {
+        src:'webb_first_car_second_home_c1942.png',
+        title:'The family world just before Sheldon’s birth',
+        caption:'Jay and Marion’s first car and second home, photographed in the family life-story volume. This is family context immediately before Sheldon was born.',
+        source:'Marion Beulah Brenay Webb life story, p. 15',
+        triggerParagraph:0
+      },
+      {
+        src:'webb_first_house_vernon_1945.png',
+        title:'The Webb family’s first house in Vernon, 1945',
+        caption:'A family photograph of the Vernon home during Sheldon’s early childhood.',
+        source:'Marion Beulah Brenay Webb life story, p. 17',
+        triggerParagraph:5
+      },
+      {
+        src:'james_sheldon_with_siblings_c1951.png',
+        title:'Sheldon with his brothers and sisters',
+        caption:'The family photograph is captioned “Drinette, Daphne, Darwin, Diane and Sheldon.” Sheldon is pictured with his siblings during the family’s postwar years.',
+        source:'Marion Beulah Brenay Webb life story, p. 18',
+        triggerParagraph:7
+      }
+    ]
   }
 };
 
