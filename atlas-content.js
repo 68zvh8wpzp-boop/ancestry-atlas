@@ -1,4 +1,4 @@
-/* Ancestry Atlas v3.2.0 — content contract.
+/* Ancestry Atlas v3.4.0 — content contract.
    Text associated with a recorded narration must be byte-for-byte maintained here alongside that audio mapping. */
 
 const BRANCH_TOURS = {
@@ -95,14 +95,13 @@ const TOUR_MEDIA = {
         visualType:'family-photo'
       },
       {
-        src:'charcoal_atomic_southwest_1945.png',
-        title:'The Southwest enters the atomic age',
-        caption:'Charcoal alternate for the wartime Arizona / Los Alamos / Trinity context. Replace with rights-cleared archival material when the final archival file is imported.',
-        source:'Generated alternate • archival targets: Library of Congress FSA/OWI; U.S. Department of Energy / NPS',
+        src:'trinity_test_fireball_16ms.jpg',
+        title:'The atomic age begins',
+        caption:'The Trinity test in New Mexico, 16 July 1945.',
+        source:'Berlyn Brixner • U.S. Government • public domain',
         triggerParagraph:2,
         locator:'Arizona / New Mexico • 1943–45',
-        visualType:'charcoal-alternate',
-        archivalCandidate:'https://www.loc.gov/item/2017849009/'
+        visualType:'archival-photo'
       },
       {
         src:'marion_webb_1945.png',
@@ -114,10 +113,10 @@ const TOUR_MEDIA = {
         visualType:'family-photo'
       },
       {
-        src:'charcoal_childhood_illness_1940s.png',
+        src:'charcoal_childhood_illness_wide.png',
         title:'A child’s wartime illness',
         caption:'Evidence-safe charcoal scene representing illness and uncertainty without inventing Sheldon’s likeness.',
-        source:'Generated charcoal alternate • no invented portrait',
+        source:'Approved wide charcoal scene • distant, non-likeness figures',
         triggerParagraph:4,
         locator:'American Southwest • 1940s',
         visualType:'charcoal-alternate'
@@ -141,59 +140,50 @@ const TOUR_MEDIA = {
         visualType:'family-photo'
       },
       {
-        src:'charcoal_postwar_arizona_1950s.png',
+        src:'postwar_arizona_road_1950.jpg',
         title:'Arizona changes after the war',
-        caption:'Charcoal alternate showing highways, automobiles, utility lines, and expanding communities in the postwar Southwest.',
-        source:'Generated charcoal alternate • archival replacement still preferred',
+        caption:'Road and public-works construction in postwar Arizona.',
+        source:'U.S. Forest Service archival photograph • public domain',
         triggerParagraph:7,
         locator:'Arizona • 1950s',
-        visualType:'charcoal-alternate'
+        visualType:'archival-photo'
       },
       {
-        src:'charcoal_california_transition_1960.png',
+        src:'san_diego_highway_1960_65.jpg',
         title:'High school, then California',
-        caption:'A non-likeness charcoal transition image: road, suitcase, and western horizon for Sheldon’s move toward work in California.',
-        source:'Generated charcoal alternate • personal photograph preferred if located',
+        caption:'Southern California highway traffic in the early 1960s.',
+        source:'Library of Congress • Bernard Gotfryd collection • no known restrictions',
         triggerParagraph:8,
         locator:'Arizona → California • 1960',
-        visualType:'charcoal-alternate'
+        visualType:'archival-photo'
       },
       {
-        src:'charcoal_air_force_early_1960s.png',
+        src:'usaf_flightline_airmen_1962.jpg',
         title:'United States Air Force',
-        caption:'Charcoal aviation context for Sheldon’s approximately two years of Air Force service. No invented portrait is used.',
-        source:'Generated charcoal alternate • authentic service photograph preferred if located',
+        caption:'Airmen and vehicles on a United States Air Force flight line in 1962.',
+        source:'United States Air Force archival photograph • public domain',
         triggerParagraph:9,
         locator:'United States • early 1960s',
-        visualType:'charcoal-alternate'
+        visualType:'archival-photo'
       },
       {
-        src:'charcoal_marriage_1965.png',
+        src:'asc_students_sweethearts_ball_1964.jpg',
+        title:'Arizona State College at Flagstaff',
+        caption:'Students at Arizona State College at Flagstaff in 1964, showing campus life and contemporary dress.',
+        source:'La Cuesta, 1964 • no copyright—United States',
+        triggerParagraph:9,
+        triggerFraction:.72,
+        locator:'Flagstaff, Arizona • 1964',
+        visualType:'archival-photo'
+      },
+      {
+        src:'sheldon_inez_wedding_1965.jpeg',
         title:'Marriage and the next generation',
-        caption:'A restrained charcoal still life marks Sheldon’s 1965 marriage to Inez Karen Prather without inventing their appearance.',
-        source:'Generated charcoal alternate • family wedding photograph preferred if located',
+        caption:'Sheldon Webb and Inez Karen Prather at their wedding in 1965.',
+        source:'Family archive',
         triggerParagraph:10,
         locator:'Arizona • 1965',
-        visualType:'charcoal-alternate'
-      },
-      {
-        src:'charcoal_later_family_legacy.png',
-        title:'A life shaped by a changing Southwest',
-        caption:'A hand-rendered album-and-desert closing image. Replace with an authentic later family photograph when one is selected.',
-        source:'Generated charcoal alternate • personal archive replacement preferred',
-        triggerParagraph:11,
-        locator:'Arizona • later years',
-        visualType:'charcoal-alternate'
-      },
-      {
-        src:'charcoal_wartime_arizona_1943.png',
-        title:'Where Sheldon’s story begins',
-        caption:'Closing visual echo: the high-desert rail landscape of wartime Arizona, rendered in charcoal.',
-        source:'Generated charcoal alternate • Library of Congress wartime Arizona archival material is the preferred final source',
-        triggerParagraph:12,
-        locator:'Arizona • 1943',
-        visualType:'charcoal-alternate',
-        archivalCandidate:'https://www.loc.gov/item/2017849009/'
+        visualType:'family-photo'
       }
     ]
   }

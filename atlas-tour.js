@@ -1,4 +1,4 @@
-/* Ancestry Atlas v3.2.0 — cinematic branch entrance + one responsive A/V tour controller. */
+/* Ancestry Atlas v3.4.0 — cinematic branch entrance + responsive A/V tour controller. */
 (()=>{
 'use strict';
 
@@ -69,13 +69,16 @@ const state={
   muted:false,
   audio:null,
   audioReady:false,
+  audioUnavailable:false,
   session:0,
   activeParagraph:-1,
   activeScene:-1,
   followNarration:true,
   followSuspendUntil:0,
   audioCandidateIndex:0,
-  slideshowExpanded:true
+  slideshowExpanded:true,
+  audioLoadTimer:null,
+  returnContext:null
 };
 
 function currentTour(){ return BRANCH_TOURS[state.track]; }
@@ -104,7 +107,7 @@ function setTransport(){
     els.play.textContent=playing?'❚❚':'▶';
     els.play.setAttribute('aria-label',playing?'Pause narration':'Play narration');
     const hasAudio=!!TOUR_MEDIA[currentStep()?.id]?.audio;
-    els.play.disabled=state.phase==='orienting' || !hasAudio;
+    els.play.disabled=state.phase==='orienting' || !hasAudio || state.audioUnavailable;
   }
 }
 
@@ -116,6 +119,10 @@ function clearCoreOverlays(){
 }
 
 function stopAudio(){
+  if(state.audioLoadTimer){
+    clearTimeout(state.audioLoadTimer);
+    state.audioLoadTimer=null;
+  }
   if(state.audio){
     try{state.audio.pause()}catch(e){}
     state.audio.removeAttribute('src');
@@ -123,6 +130,7 @@ function stopAudio(){
     state.audio=null;
   }
   state.audioReady=false;
+  state.audioUnavailable=false;
   setMeter(0);
   setTransport();
 }
@@ -139,11 +147,13 @@ function attachAudioEvents(audio,media,candidates,index){
   state.audioCandidateIndex=index;
 
   audio.addEventListener('loadedmetadata',()=>{
+    if(state.audioLoadTimer){clearTimeout(state.audioLoadTimer);state.audioLoadTimer=null;}
     state.audioReady=true;
     setStatus(`Alfie ready • ${Math.round(audio.duration||0)} sec • paused`,'ready');
     setTransport();
   });
   audio.addEventListener('canplay',()=>{
+    if(state.audioLoadTimer){clearTimeout(state.audioLoadTimer);state.audioLoadTimer=null;}
     state.audioReady=true;
     setStatus('Alfie ready • paused','ready');
     setTransport();
@@ -163,6 +173,7 @@ function attachAudioEvents(audio,media,candidates,index){
     setTransport();
   });
   audio.addEventListener('error',()=>{
+    if(state.audioLoadTimer){clearTimeout(state.audioLoadTimer);state.audioLoadTimer=null;}
     const next=index+1;
     if(next<candidates.length){
       const replacement=new Audio(candidates[next]);
@@ -170,6 +181,7 @@ function attachAudioEvents(audio,media,candidates,index){
       replacement.load();
     }else{
       state.audioReady=false;
+      state.audioUnavailable=true;
       state.audio=null;
       setStatus('Alfie recording not found in the published site','error');
       setTransport();
@@ -191,7 +203,25 @@ function prepareAudio(step){
   const audio=new Audio(candidates[0]);
   attachAudioEvents(audio,media,candidates,0);
   audio.load();
+  state.audioLoadTimer=setTimeout(()=>{
+    if(state.audio===audio && !state.audioReady){
+      try{audio.pause();audio.removeAttribute('src');audio.load();}catch(e){}
+      state.audioUnavailable=true;
+      state.audio=null;
+      setStatus('The approved Alfie recording is unavailable. You can return to the tree or exit TV Mode.','error');
+      setTransport();
+    }
+  },8000);
   setTransport();
+}
+
+function preloadApprovedScenes(media){
+  (media?.scenes||[]).forEach(scene=>{
+    if(!scene?.src) return;
+    const img=new Image();
+    img.decoding='async';
+    img.src=new URL(scene.src,window.location.href).href;
+  });
 }
 
 function setBranchOnly(track){
@@ -318,11 +348,13 @@ function renderTranscript(media,step){
   state.activeScene=-1;
 }
 
-function sceneForParagraph(media,pIndex){
+function sceneForParagraph(media,pIndex,fraction=0){
   const scenes=Array.isArray(media?.scenes)?media.scenes:[];
   let result=-1;
   scenes.forEach((scene,i)=>{
-    if((scene.triggerParagraph??0)<=pIndex) result=i;
+    const paragraph=scene.triggerParagraph??0;
+    const threshold=scene.triggerFraction??0;
+    if(paragraph<pIndex || (paragraph===pIndex && fraction>=threshold)) result=i;
   });
   return result<0 && scenes.length?0:result;
 }
@@ -411,19 +443,22 @@ function syncNarrationProgress(audio){
   const total=weights.reduce((a,b)=>a+b,0);
   const target=(audio.currentTime/audio.duration)*total;
   let running=0,idx=0;
+  let before=0;
   for(let i=0;i<weights.length;i++){
+    before=running;
     running+=weights[i];
     if(target<=running){idx=i;break;}
     idx=i;
   }
+  const media=TOUR_MEDIA[currentStep()?.id];
+  const fraction=clamp((target-before)/weights[idx],0,1);
+  const sceneIndex=sceneForParagraph(media,idx,fraction);
+  if(sceneIndex>=0 && sceneIndex!==state.activeScene) showStoryScene(media,sceneIndex);
+
   if(idx===state.activeParagraph) return;
 
   paras.forEach((p,i)=>p.classList.toggle('active',i===idx));
   state.activeParagraph=idx;
-
-  const media=TOUR_MEDIA[currentStep()?.id];
-  const sceneIndex=sceneForParagraph(media,idx);
-  if(sceneIndex>=0) showStoryScene(media,sceneIndex);
 
   if(!state.slideshowExpanded && state.followNarration && Date.now()>state.followSuspendUntil){
     paras[idx]?.scrollIntoView({behavior:'smooth',block:'center'});
@@ -442,6 +477,7 @@ function renderStep(){
   if(els.place) els.place.textContent=node.place||'';
 
   const media=TOUR_MEDIA[node.id];
+  preloadApprovedScenes(media);
   state.slideshowExpanded=true;
   updateSlideshowToggle();
   showStoryScene(media,0);
@@ -522,6 +558,13 @@ function closeChooser(){
 
 function begin(track='canada',index=0){
   stopAudio();
+  state.returnContext={
+    selected,
+    originNodeId,
+    pivotWorld:{...pivotWorld},
+    pivotCamera:{...pivotCamera},
+    rotX,rotY,scale,panX,panY,nodeViewLevel,nodeFocusMode
+  };
   state.track=track;
   state.index=index;
   closeChooser();
@@ -533,7 +576,8 @@ function begin(track='canada',index=0){
 }
 
 function exitTour(){
-  const returnId=currentStep()?.id || selected || 'you';
+  const saved=state.returnContext;
+  const returnId=saved?.selected || currentStep()?.id || selected || 'you';
   ++state.session;
   stopAudio();
   state.phase='idle';
@@ -547,7 +591,19 @@ function exitTour(){
   setStatus('');
   setMeter(0);
 
-  if(window.matchMedia('(max-width:800px)').matches){
+  if(saved){
+    try{
+      selected=saved.selected;
+      originNodeId=saved.originNodeId;
+      pivotWorld={...saved.pivotWorld};
+      pivotCamera={...saved.pivotCamera};
+      rotX=saved.rotX; rotY=saved.rotY; scale=saved.scale;
+      panX=saved.panX; panY=saved.panY;
+      nodeViewLevel=saved.nodeViewLevel;
+      nodeFocusMode=saved.nodeFocusMode;
+      draw();
+    }catch(e){console.error('Could not restore the pre-tour camera context.',e);}
+  }else if(window.matchMedia('(max-width:800px)').matches){
     try{
       window.AncestryMobileTreeInternal?.focusIds(returnId,10);
       selected=returnId;
@@ -555,6 +611,7 @@ function exitTour(){
       setTimeout(()=>{try{card.style.display='none';sceneContext?.classList.remove('show');draw();}catch(e){}},80);
     }catch(e){}
   }
+  state.returnContext=null;
   setTransport();
 }
 

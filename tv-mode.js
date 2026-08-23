@@ -1,4 +1,4 @@
-/* Ancestry Atlas v3.3.1 — tour-first television presentation module. No AirPlay discovery. */
+/* Ancestry Atlas v3.4.0 — tour-first television presentation module. No AirPlay discovery. */
 (()=>{
   'use strict';
   const $=id=>document.getElementById(id);
@@ -60,7 +60,11 @@
   }
   function revealControls(){
     if(!state.active)return;body.classList.remove('tv-controls-hidden');clearTimeout(state.hideTimer);
-    state.hideTimer=setTimeout(()=>{if(!document.querySelector(':focus:is(#controls *,#card *,.tv-presentation-bar *)'))body.classList.add('tv-controls-hidden')},4200);
+    state.hideTimer=setTimeout(()=>{
+      const focused=document.activeElement;
+      const protectedFocus=focused?.closest?.('#controls,#card,.tv-presentation-bar,.story-controls,.story-slideshow-toggle,.tv-dialog,.tv-story-complete');
+      if(!protectedFocus) body.classList.add('tv-controls-hidden');
+    },4200);
   }
   function enter(){
     state.selectedAtEntry=currentSelection();state.cameraAtEntry=cameraSnapshot();state.active=true;closeDialog();
@@ -75,6 +79,7 @@
   }
   async function leave({keepFullscreen=false}={}){
     if(!state.active)return;state.active=false;state.awaitingLandscape=false;state.pendingTrack=null;rotateNotice.hidden=true;resetTourChoice();clearTimeout(state.hideTimer);body.classList.remove('tv-mode','tv-controls-hidden','tv-legend-open');complete.classList.remove('open');complete.setAttribute('aria-hidden','true');
+    try{window.AncestryTour?.state?.audio?.pause?.()}catch(e){}
     if(!keepFullscreen&&(document.fullscreenElement||document.webkitFullscreenElement)){try{await (document.exitFullscreen?.()||document.webkitExitFullscreen?.())}catch(e){}}
     try{resize();draw()}catch(e){console.error('TV Mode exit resize failed.',e)}
     $('openStoryBtn')?.focus({preventScroll:true});
@@ -109,6 +114,8 @@
     }
     if(event.code==='Space'&&!/^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(document.activeElement?.tagName||'')&&body.classList.contains('tour-story-open')){event.preventDefault();$('storyPlayPause')?.click()}
   },true);
-  window.addEventListener('resize',()=>{if(state.active){if(state.awaitingLandscape&&!isPhonePortrait())beginPendingTour();try{resize();draw()}catch(e){}revealControls()}});
+  function presentationResize(){if(state.active){if(state.awaitingLandscape&&!isPhonePortrait())beginPendingTour();try{resize();draw()}catch(e){}revealControls()}}
+  window.addEventListener('resize',presentationResize);
+  window.visualViewport?.addEventListener('resize',presentationResize);
   window.AncestryTVMode={open:openDialog,enter,exit:leave,state};
 })();

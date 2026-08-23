@@ -1,28 +1,39 @@
 {
-  "packageVersion": "3.3.1",
-  "inputPackage": "Ancestry_Atlas_v3_3_0_FLAT_GitHub_Package.zip",
+  "packageVersion": "3.4.0",
+  "inputPackage": "Ancestry_Atlas_v3_3_1_FLAT_GitHub_Package.zip",
   "narration": {
     "approvedFile": "James_sheldon_webb.mp3",
     "voice": "Azure Alfie",
     "required": true,
-    "regenerationAllowed": false
+    "regenerationAllowed": false,
+    "browserSpeechAllowed": false
   },
-  "runtime": ["index.html", "atlas-content.js", "atlas-tour.js", "atlas-tour.css", "tv-mode.js", "tv-mode.css"],
+  "runtime": [
+    "index.html",
+    "atlas-content.js",
+    "atlas-tour.js",
+    "atlas-tour.css",
+    "tv-mode.js",
+    "tv-mode.css"
+  ],
   "approvedBiographyAssets": [
     "jay_marion_mesa_1941.png",
     "webb_first_car_second_home_c1942.png",
-    "charcoal_atomic_southwest_1945.png",
+    "trinity_test_fireball_16ms.jpg",
     "marion_webb_1945.png",
-    "charcoal_childhood_illness_1940s.png",
+    "charcoal_childhood_illness_wide.png",
     "webb_first_house_vernon_1945.png",
     "james_sheldon_with_siblings_c1951.png",
-    "charcoal_postwar_arizona_1950s.png",
-    "charcoal_california_transition_1960.png",
-    "charcoal_air_force_early_1960s.png",
-    "charcoal_marriage_1965.png",
-    "charcoal_later_family_legacy.png",
-    "charcoal_wartime_arizona_1943.png"
+    "postwar_arizona_road_1950.jpg",
+    "san_diego_highway_1960_65.jpg",
+    "usaf_flightline_airmen_1962.jpg",
+    "asc_students_sweethearts_ball_1964.jpg",
+    "sheldon_inez_wedding_1965.jpeg"
   ],
-  "overlayAssets": ["inline Arizona flag SVG", "inline Arizona locator SVG"],
-  "networkRequiredForPackagedBiographyAssets": false
+  "overlayAssets": [
+    "inline Arizona flag SVG",
+    "inline regional locator SVG"
+  ],
+  "networkRequiredForPackagedBiographyAssets": false,
+  "rejectedAssetsExcluded": true
 }
