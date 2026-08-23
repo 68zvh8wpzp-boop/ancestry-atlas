@@ -1,4 +1,4 @@
-/* Ancestry Atlas v3.4.0 — cinematic branch entrance + responsive A/V tour controller. */
+/* Ancestry Atlas v3.5.1 — cinematic branch entrance + measured responsive A/V controller. */
 (()=>{
 'use strict';
 
@@ -61,6 +61,25 @@ function ensureSceneStagePlacement(){
   }
 }
 ensureSceneStagePlacement();
+
+function syncStoryViewport(){
+  const vv=window.visualViewport;
+  let width=Math.max(window.innerWidth||0,document.documentElement.clientWidth||0,vv?.width||0);
+  const height=Math.max(180,Math.round(vv?.height||window.innerHeight||document.documentElement.clientHeight||0));
+  const portrait=height>=width||window.matchMedia('(orientation:portrait)').matches;
+  const screenShort=Math.min(window.screen?.width||width,window.screen?.height||width);
+  const screenLong=Math.max(window.screen?.width||width,window.screen?.height||width);
+  if(portrait) width=Math.max(width,screenShort);
+  else if(height>0&&width/height<1.6&&screenLong>width*1.5) width=screenLong;
+  width=Math.max(320,Math.round(width));
+  document.documentElement.style.setProperty('--story-vw',`${width}px`);
+  document.documentElement.style.setProperty('--story-vh',`${height}px`);
+  document.documentElement.style.setProperty('--story-center-x',`${Math.round(width/2)}px`);
+}
+syncStoryViewport();
+window.addEventListener('resize',syncStoryViewport);
+window.addEventListener('orientationchange',()=>setTimeout(syncStoryViewport,80));
+window.visualViewport?.addEventListener('resize',syncStoryViewport);
 
 const state={
   track:'canada',
@@ -505,6 +524,7 @@ function renderStep(){
 
 async function openStoryAfterEntrance(){
   if(state.session<1) return;
+  syncStoryViewport();
   clearCoreOverlays();
   renderStep();
   state.phase='paused';
@@ -558,6 +578,7 @@ function closeChooser(){
 
 function begin(track='canada',index=0){
   stopAudio();
+  syncStoryViewport();
   state.returnContext={
     selected,
     originNodeId,
