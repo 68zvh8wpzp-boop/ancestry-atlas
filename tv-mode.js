@@ -1,4 +1,4 @@
-/* Ancestry Atlas v3.4.1 — tour-first television presentation module. No AirPlay discovery. */
+/* Ancestry Atlas v3.5.0 — measured tour-first television presentation module. No AirPlay discovery. */
 (()=>{
   'use strict';
   const $=id=>document.getElementById(id);
@@ -21,12 +21,15 @@
   function currentSelection(){try{return selected||null}catch(e){return null}}
   function selectedHasStory(){try{return currentSelection()==='james_sheldon' && !!TOUR_MEDIA?.james_sheldon?.scenes?.length}catch(e){return false}}
   function updateStateLabel(){
+    syncViewportMetrics();
     const story=body.classList.contains('tour-story-open');
+    const orienting=body.classList.contains('tour-orienting');
     if(story&&!state.storyOpen) revealControls();
     state.storyOpen=story;
-    if($('tvStateLabel')) $('tvStateLabel').textContent=story?'Story':'Explore';
+    if($('tvStateLabel')) $('tvStateLabel').textContent=story?'Story':orienting?'Story starting':'Explore';
     if($('tvReturnTree')) $('tvReturnTree').hidden=!story;
-    if($('tvPlayStory')) $('tvPlayStory').hidden=story||!selectedHasStory();
+    if($('tvPlayStory')) $('tvPlayStory').hidden=story||orienting||!selectedHasStory();
+    if($('tvToggleLegend')) $('tvToggleLegend').hidden=story||orienting;
   }
   function showStart(){startPanel.hidden=false;instructions.hidden=true}
   function showInstructions(){startPanel.hidden=true;instructions.hidden=false;try{localStorage.setItem('ancestryAtlas.tvInstructionsSeen','1')}catch(e){};$('tvInstructionsStart')?.focus()}
@@ -60,17 +63,33 @@
     const el=document.documentElement;const fn=el.requestFullscreen||el.webkitRequestFullscreen;
     if(!fn)return false;try{await fn.call(el);return true}catch(error){console.info('TV Mode fullscreen was unavailable; continuing in television layout.',error);return false}
   }
+  function syncViewportMetrics(){
+    if(!state.active)return;
+    const vv=window.visualViewport;
+    let width=Math.max(window.innerWidth||0,document.documentElement.clientWidth||0,vv?.width||0);
+    const height=Math.max(window.innerHeight||0,document.documentElement.clientHeight||0,vv?.height||0);
+    const landscape=width>height||window.matchMedia('(orientation:landscape)').matches;
+    const screenLong=Math.max(window.screen?.width||0,window.screen?.height||0);
+    if(landscape&&height>0&&width/height<1.6&&screenLong>width*1.5) width=screenLong;
+    width=Math.max(320,Math.round(width));
+    const measuredHeight=Math.max(180,Math.round(height));
+    body.style.setProperty('--tv-vw',`${width}px`);
+    body.style.setProperty('--tv-vh',`${measuredHeight}px`);
+    body.style.setProperty('--tv-center-x',`${Math.round(width/2)}px`);
+  }
   function revealControls(){
     if(!state.active)return;body.classList.remove('tv-controls-hidden');clearTimeout(state.hideTimer);
     state.hideTimer=setTimeout(()=>{
       const focused=document.activeElement;
       const protectedFocus=focused?.closest?.('#controls,#card,.tv-presentation-bar,.story-controls,.story-slideshow-toggle,.tv-dialog,.tv-story-complete');
-      if(!protectedFocus) body.classList.add('tv-controls-hidden');
+      const storyPaused=body.classList.contains('tour-story-open')&&(!window.AncestryTour?.state?.audio||window.AncestryTour.state.audio.paused);
+      if(!protectedFocus&&!storyPaused) body.classList.add('tv-controls-hidden');
     },4200);
   }
   function enter(){
     state.selectedAtEntry=currentSelection();state.cameraAtEntry=cameraSnapshot();state.active=true;closeDialog();
     body.classList.add('tv-mode');body.classList.remove('tv-controls-hidden','tv-legend-open');
+    syncViewportMetrics();
     $('controls')?.classList.add('collapsed');
     $('tvToggleLegend')?.setAttribute('aria-expanded','false');
     if($('tvToggleLegend')) $('tvToggleLegend').textContent='Show legend';
@@ -119,7 +138,7 @@
     }
     if(event.code==='Space'&&!/^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(document.activeElement?.tagName||'')&&body.classList.contains('tour-story-open')){event.preventDefault();$('storyPlayPause')?.click()}
   },true);
-  function presentationResize(){if(state.active){if(state.awaitingLandscape&&!isPhonePortrait())beginPendingTour();try{resize();draw()}catch(e){}revealControls()}}
+  function presentationResize(){if(state.active){syncViewportMetrics();if(state.awaitingLandscape&&!isPhonePortrait())beginPendingTour();try{resize();draw()}catch(e){}revealControls()}}
   window.addEventListener('resize',presentationResize);
   window.visualViewport?.addEventListener('resize',presentationResize);
   window.AncestryTVMode={open:openDialog,enter,exit:leave,state};
