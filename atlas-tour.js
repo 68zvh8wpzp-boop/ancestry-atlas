@@ -1,4 +1,4 @@
-/* Ancestry Atlas v3.0.0 — cinematic branch entrance + one responsive A/V tour controller. */
+/* Ancestry Atlas v3.1.0 — cinematic branch entrance + one responsive A/V tour controller. */
 (()=>{
 'use strict';
 
@@ -38,6 +38,9 @@ const els={
   sceneCaption:$('storySceneCaption'),
   sceneSource:$('storySceneSource'),
   sceneCount:$('storySceneCount'),
+  slideshowToggle:$('storySlideshowToggle'),
+  locatorLabel:$('storyLocatorLabel'),
+  locatorDot:$('storyLocatorDot'),
   treeDock:$('mobileTreeDock'),
   treeSheet:$('mobileTreeMenuSheet')
 };
@@ -71,7 +74,8 @@ const state={
   activeScene:-1,
   followNarration:true,
   followSuspendUntil:0,
-  audioCandidateIndex:0
+  audioCandidateIndex:0,
+  slideshowExpanded:true
 };
 
 function currentTour(){ return BRANCH_TOURS[state.track]; }
@@ -323,21 +327,43 @@ function sceneForParagraph(media,pIndex){
   return result<0 && scenes.length?0:result;
 }
 
+function updateSlideshowToggle(){
+  if(!els.slideshowToggle) return;
+  els.slideshowToggle.setAttribute('aria-expanded',state.slideshowExpanded?'true':'false');
+  els.slideshowToggle.querySelector('.story-slideshow-chevron').textContent=state.slideshowExpanded?'▾':'▴';
+  els.slideshowToggle.querySelector('.story-slideshow-label').textContent=state.slideshowExpanded?'Hide slideshow':'Show slideshow';
+  document.body.classList.toggle('story-slideshow-hidden',!state.slideshowExpanded);
+  document.body.classList.toggle('story-slideshow-expanded',state.slideshowExpanded);
+}
+
+function updateLocator(scene){
+  if(els.locatorLabel) els.locatorLabel.textContent=scene?.locator||'Arizona • family story';
+  if(els.locatorDot){
+    const label=(scene?.locator||'').toLowerCase();
+    let x=80,y=19; // St. Johns / NE Arizona default
+    if(label.includes('california')){x=40;y=34;}
+    else if(label.includes('new mexico')){x=92;y=30;}
+    else if(label.includes('vernon')){x=78;y=22;}
+    else if(label.includes('utah')){x=62;y=8;}
+    els.locatorDot.setAttribute('cx',String(x));
+    els.locatorDot.setAttribute('cy',String(y));
+  }
+}
+
 function showStoryScene(media,index){
   ensureSceneStagePlacement();
   const scenes=Array.isArray(media?.scenes)?media.scenes:[];
   if(!els.sceneStrip) return;
-
   if(!scenes.length){
-    els.sceneStrip.classList.remove('show');
+    els.sceneStrip.classList.remove('show','context-only');
     els.sceneStrip.setAttribute('aria-hidden','true');
-    if(els.scenePhoto){els.scenePhoto.removeAttribute('src');els.scenePhoto.style.display='none';}
     return;
   }
 
   index=clamp(index,0,scenes.length-1);
   const scene=scenes[index];
   state.activeScene=index;
+  updateLocator(scene);
 
   if(els.sceneTitle) els.sceneTitle.textContent=scene.title||'';
   if(els.sceneCaption) els.sceneCaption.textContent=scene.caption||'';
@@ -345,14 +371,22 @@ function showStoryScene(media,index){
   if(els.sceneCount) els.sceneCount.textContent=scenes.length>1?`${index+1} / ${scenes.length}`:'';
 
   const img=els.scenePhoto;
-  if(!img || !scene.src){
-    els.sceneStrip.classList.remove('show');
+  const contextOnly=!scene.src;
+  els.sceneStrip.classList.toggle('context-only',contextOnly);
+
+  if(contextOnly){
+    if(img){
+      img.removeAttribute('src');
+      img.style.display='none';
+    }
+    els.sceneStrip.classList.add('show');
+    els.sceneStrip.setAttribute('aria-hidden','false');
     return;
   }
 
+  if(!img) return;
   img.style.display='block';
   img.style.opacity='0';
-
   const reveal=()=>{
     els.sceneStrip.classList.add('show');
     els.sceneStrip.setAttribute('aria-hidden','false');
@@ -360,13 +394,11 @@ function showStoryScene(media,index){
   };
   img.onload=reveal;
   img.onerror=()=>{
-    els.sceneStrip.classList.remove('show');
-    els.sceneStrip.setAttribute('aria-hidden','true');
     img.style.display='none';
-    setStatus(`Photo unavailable — ${scene.src}`,'error');
+    els.sceneStrip.classList.add('show','context-only');
+    els.sceneStrip.setAttribute('aria-hidden','false');
   };
-
-  img.src=new URL(scene.src,window.location.href).href + (scene.src.includes('?')?'&':'?') + 'atlas=3.0.0';
+  img.src=new URL(scene.src,window.location.href).href + (scene.src.includes('?')?'&':'?') + 'atlas=3.1.0';
   if(img.complete && img.naturalWidth>0) reveal();
 }
 
@@ -393,7 +425,7 @@ function syncNarrationProgress(audio){
   const sceneIndex=sceneForParagraph(media,idx);
   if(sceneIndex>=0) showStoryScene(media,sceneIndex);
 
-  if(state.followNarration && Date.now()>state.followSuspendUntil){
+  if(!state.slideshowExpanded && state.followNarration && Date.now()>state.followSuspendUntil){
     paras[idx]?.scrollIntoView({behavior:'smooth',block:'center'});
   }
 }
@@ -410,6 +442,8 @@ function renderStep(){
   if(els.place) els.place.textContent=node.place||'';
 
   const media=TOUR_MEDIA[node.id];
+  state.slideshowExpanded=true;
+  updateSlideshowToggle();
   showStoryScene(media,0);
   if(els.narrator){
     els.narrator.textContent=media?.audio
@@ -564,6 +598,19 @@ els.shell?.addEventListener('wheel',()=>{state.followSuspendUntil=Date.now()+700
 els.shell?.addEventListener('scroll',()=>{
   if(state.audio && !state.audio.paused) state.followSuspendUntil=Math.max(state.followSuspendUntil,Date.now()+2500);
 },{passive:true});
+
+
+els.slideshowToggle?.addEventListener('click',()=>{
+  state.slideshowExpanded=!state.slideshowExpanded;
+  updateSlideshowToggle();
+  if(state.slideshowExpanded){
+    if(els.shell) els.shell.scrollTo({top:0,behavior:'smooth'});
+  }else{
+    const active=els.copy?.querySelector('.story-transcript-paragraph.active')
+      || els.copy?.querySelector('.story-transcript-paragraph');
+    if(active) setTimeout(()=>active.scrollIntoView({behavior:'smooth',block:'center'}),80);
+  }
+});
 
 els.play?.addEventListener('click',togglePlay);
 els.mute?.addEventListener('click',toggleMute);

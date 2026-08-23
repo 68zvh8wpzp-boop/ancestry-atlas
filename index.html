@@ -532,7 +532,7 @@ window.addEventListener('error',function(e){
 
 
 
-  <link rel="stylesheet" href="atlas-tour.css?v=3.0.0">
+  <link rel="stylesheet" href="atlas-tour.css?v=3.1.0">
 </head>
 <body>
 
@@ -565,7 +565,7 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Guided Audio-Visual Family Tour</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v3.0.0 • consolidated photo-first A/V architecture</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v3.1.0 • cinema slideshow + transcript toggle + contextual map/flag plates</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop first orients you visibly in the tree, then opens the story. Recorded narration is used only when an approved audio file exists.</p>
   </div>
 </div>
@@ -583,6 +583,34 @@ window.addEventListener('error',function(e){
 <div id="storySceneStrip" class="story-scene-strip" aria-hidden="true">
   <div class="story-scene-frame">
     <div id="storySceneImage" class="story-scene-image">
+      <div id="storyContextRibbon" class="story-context-ribbon" aria-hidden="true">
+        <div class="story-az-flag" aria-label="Arizona flag, adopted 1917">
+          <svg viewBox="0 0 96 60" role="img" aria-hidden="true">
+            <defs><clipPath id="azTop"><rect width="96" height="30"/></clipPath></defs>
+            <rect width="96" height="60" fill="#174a7c"/>
+            <g clip-path="url(#azTop)">
+              <path d="M48 30 L0 30 L0 17 Z" fill="#b51f2e"/>
+              <path d="M48 30 L0 17 L0 4 Z" fill="#f2b134"/>
+              <path d="M48 30 L6 0 L23 0 Z" fill="#b51f2e"/>
+              <path d="M48 30 L23 0 L38 0 Z" fill="#f2b134"/>
+              <path d="M48 30 L38 0 L52 0 Z" fill="#b51f2e"/>
+              <path d="M48 30 L52 0 L68 0 Z" fill="#f2b134"/>
+              <path d="M48 30 L68 0 L85 0 Z" fill="#b51f2e"/>
+              <path d="M48 30 L85 0 L96 5 L96 18 Z" fill="#f2b134"/>
+              <path d="M48 30 L96 18 L96 30 Z" fill="#b51f2e"/>
+            </g>
+            <polygon points="48,19 51,26 59,26 53,31 55,39 48,34 41,39 43,31 37,26 45,26" fill="#c9822b"/>
+          </svg>
+        </div>
+        <div class="story-locator-card">
+          <svg viewBox="0 0 120 72" role="img" aria-hidden="true">
+            <path d="M38 8 L86 8 L89 18 L92 61 L48 64 L38 52 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M76 18 L82 18" stroke="currentColor" stroke-width="1.5"/>
+            <circle id="storyLocatorDot" cx="80" cy="19" r="4" fill="#d7624e"/>
+          </svg>
+          <span id="storyLocatorLabel">St. Johns, Arizona • 1943</span>
+        </div>
+      </div>
       <img id="storyScenePhoto" class="story-scene-photo" alt="">
       <div id="storySceneArt" class="story-scene-art"></div>
       <div class="story-scene-caption">
@@ -593,6 +621,10 @@ window.addEventListener('error',function(e){
     </div>
   </div>
 </div>
+    <button id="storySlideshowToggle" class="story-slideshow-toggle" type="button" aria-expanded="true">
+      <span class="story-slideshow-chevron">▾</span>
+      <span class="story-slideshow-label">Hide slideshow</span>
+    </button>
     <div class="story-track">
       <button data-story-track="canada" class="active">Canada</button>
       <button data-story-track="webb">Webb</button>
@@ -640,7 +672,7 @@ window.addEventListener('error',function(e){
 <div id="app">
 <aside id="controls" class="collapsed">
   <button id="controlsToggle">☰ Controls / legend</button>
-  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.0.0</span></h1>
+  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.1.0</span></h1>
   <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay bright; uncertain generations fall progressively into dusk and shadow. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
 
   <div class="section">
@@ -1996,7 +2028,7 @@ resize();
 
 
 
-<script src="atlas-content.js?v=3.0.0"></script>
-<script src="atlas-tour.js?v=3.0.0"></script>
+<script src="atlas-content.js?v=3.1.0"></script>
+<script src="atlas-tour.js?v=3.1.0"></script>
 </body>
 </html>

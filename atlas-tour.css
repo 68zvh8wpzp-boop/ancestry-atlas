@@ -1,4 +1,4 @@
-/* Ancestry Atlas v3.0.0 — canonical guided A/V tour stylesheet. */
+/* Ancestry Atlas v3.1.0 — canonical guided A/V tour stylesheet. */
 :root{
   --safe-top:max(10px,env(safe-area-inset-top));
   --safe-bottom:max(10px,env(safe-area-inset-bottom));
@@ -215,4 +215,139 @@ body.tour-story-open #stage{
     border-radius:18px!important;z-index:545!important
   }
   #sceneContext{display:none!important}
+}
+
+
+/* v3.1 — cinema slideshow mode.
+   While expanded, the media stage owns the phone viewport and transcript stays below.
+   Hide slideshow reveals the synchronized highlighted transcript. */
+
+.story-context-ribbon{
+  display:flex!important;
+  position:absolute!important;
+  z-index:5!important;
+  top:10px!important;
+  left:10px!important;
+  right:56px!important;
+  align-items:center!important;
+  gap:8px!important;
+  pointer-events:none!important;
+}
+.story-az-flag{
+  flex:0 0 54px!important;
+  width:54px!important;
+  height:34px!important;
+  overflow:hidden!important;
+  border:1px solid rgba(255,255,255,.34)!important;
+  border-radius:6px!important;
+  background:#0d1c28!important;
+  box-shadow:0 2px 9px rgba(0,0,0,.48)!important;
+}
+.story-az-flag svg{display:block!important;width:100%!important;height:100%!important}
+.story-locator-card{
+  min-width:0!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:5px!important;
+  padding:4px 7px!important;
+  border:1px solid rgba(255,255,255,.26)!important;
+  border-radius:8px!important;
+  background:rgba(3,10,16,.78)!important;
+  color:#dce9f0!important;
+  box-shadow:0 2px 9px rgba(0,0,0,.44)!important;
+}
+.story-locator-card svg{width:30px!important;height:23px!important;flex:0 0 30px!important}
+.story-locator-card span{
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+  font-size:9px!important;
+  line-height:1.1!important;
+  letter-spacing:.03em!important
+}
+
+.story-slideshow-toggle{
+  display:flex!important;
+  width:100%!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:7px!important;
+  margin:0!important;
+  padding:8px 12px!important;
+  border:0!important;
+  border-top:1px solid rgba(160,195,220,.13)!important;
+  border-bottom:1px solid rgba(160,195,220,.13)!important;
+  border-radius:0!important;
+  background:#071018!important;
+  color:#bfd2df!important;
+  font-size:11px!important;
+  line-height:1.1!important;
+  letter-spacing:.04em!important;
+  text-transform:none!important;
+}
+.story-slideshow-chevron{font-size:15px!important}
+
+.story-scene-strip.context-only .story-scene-image{
+  min-height:46dvh!important;
+  display:flex!important;
+  align-items:flex-end!important;
+  background:
+    radial-gradient(circle at 78% 22%, rgba(140,180,205,.17), transparent 24%),
+    linear-gradient(155deg,#071018 0%,#020407 68%,#0a1621 100%)!important;
+}
+.story-scene-strip.context-only .story-scene-caption{
+  width:100%!important;
+  padding:26px 18px 18px!important;
+  background:linear-gradient(180deg,rgba(4,9,14,0),rgba(4,9,14,.96) 42%)!important;
+}
+.story-scene-strip.context-only .story-scene-caption b{
+  font-size:22px!important;
+  line-height:1.08!important;
+  margin-bottom:8px!important;
+}
+.story-scene-strip.context-only .story-scene-caption span{
+  font-size:13px!important;
+  line-height:1.5!important;
+}
+
+@media(max-width:760px){
+  body.story-slideshow-expanded .story-top{
+    padding-top:8px!important;
+    padding-bottom:8px!important;
+  }
+  body.story-slideshow-expanded .story-scene-strip.show{
+    min-height:calc(100dvh - 210px - var(--safe-top))!important;
+  }
+  body.story-slideshow-expanded .story-scene-frame{
+    min-height:calc(100dvh - 210px - var(--safe-top))!important;
+  }
+  body.story-slideshow-expanded .story-scene-image{
+    min-height:calc(100dvh - 258px - var(--safe-top))!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+  }
+  body.story-slideshow-expanded .story-scene-photo{
+    max-height:calc(100dvh - 300px - var(--safe-top))!important;
+  }
+  body.story-slideshow-expanded .story-visual,
+  body.story-slideshow-expanded .story-narrator,
+  body.story-slideshow-expanded .story-copy{
+    opacity:.22!important;
+  }
+
+  body.story-slideshow-hidden .story-scene-strip{
+    display:none!important;
+  }
+  body.story-slideshow-hidden .story-top{
+    padding-bottom:8px!important;
+  }
+  body.story-slideshow-hidden .story-visual,
+  body.story-slideshow-hidden .story-narrator,
+  body.story-slideshow-hidden .story-copy{
+    opacity:1!important;
+  }
+  body.story-slideshow-hidden .story-copy{
+    padding-top:6px!important;
+  }
 }

@@ -1,4 +1,4 @@
-/* Ancestry Atlas v3.0.0 — content contract.
+/* Ancestry Atlas v3.1.0 — content contract.
    Text associated with a recorded narration must be byte-for-byte maintained here alongside that audio mapping. */
 
 const BRANCH_TOURS = {
@@ -77,25 +77,105 @@ const TOUR_MEDIA = {
     ],
     scenes: [
       {
+        src:'jay_marion_mesa_1941.png',
+        title:'Jay and Marion before Sheldon’s birth',
+        caption:'A family photograph of James Wilford “Jay” Webb and Marion Beulah Brenay Webb in Mesa, 1941.',
+        source:'Marion Beulah Brenay Webb life story, p. 14',
+        triggerParagraph:0,
+        locator:'Arizona • 1941',
+        visualType:'family-photo'
+      },
+      {
         src:'webb_first_car_second_home_c1942.png',
         title:'The family world just before Sheldon’s birth',
-        caption:'Jay and Marion’s first car and second home, photographed in the family life-story volume. This is family context immediately before Sheldon was born.',
+        caption:'Jay and Marion’s first car and second home, photographed in the family life-story volume.',
         source:'Marion Beulah Brenay Webb life story, p. 15',
-        triggerParagraph:0
+        triggerParagraph:1,
+        locator:'Arizona • 1942–43',
+        visualType:'family-photo'
+      },
+      {
+        title:'Wartime Southwest',
+        caption:'Context beat reserved for a rights-cleared archival photograph or charcoal alternate showing wartime Arizona and the New Mexico atomic-project corridor.',
+        source:'Visual slot — archival-first search next',
+        triggerParagraph:2,
+        locator:'Arizona / New Mexico • 1943–45',
+        visualType:'context-card'
+      },
+      {
+        src:'marion_webb_1945.png',
+        title:'Marion during the war years',
+        caption:'Marion’s 1945 portrait from her life-story volume. Her account describes raising young Sheldon during Jay’s wartime absence.',
+        source:'Marion Beulah Brenay Webb life story, p. 16',
+        triggerParagraph:3,
+        locator:'Arizona / Utah • wartime years',
+        visualType:'family-photo'
+      },
+      {
+        title:'A child’s wartime illness',
+        caption:'Context beat reserved for a subtle archival or hand-rendered scene. No invented portrait of Sheldon will be used.',
+        source:'Visual slot — evidence-safe alternate needed',
+        triggerParagraph:4,
+        locator:'American Southwest • 1940s',
+        visualType:'context-card'
       },
       {
         src:'webb_first_house_vernon_1945.png',
         title:'The Webb family’s first house in Vernon, 1945',
         caption:'A family photograph of the Vernon home during Sheldon’s early childhood.',
         source:'Marion Beulah Brenay Webb life story, p. 17',
-        triggerParagraph:5
+        triggerParagraph:5,
+        locator:'Vernon, Arizona • 1945',
+        visualType:'family-photo'
       },
       {
         src:'james_sheldon_with_siblings_c1951.png',
         title:'Sheldon with his brothers and sisters',
-        caption:'The family photograph is captioned “Drinette, Daphne, Darwin, Diane and Sheldon.” Sheldon is pictured with his siblings during the family’s postwar years.',
+        caption:'The family photograph is captioned “Drinette, Daphne, Darwin, Diane and Sheldon.”',
         source:'Marion Beulah Brenay Webb life story, p. 18',
-        triggerParagraph:7
+        triggerParagraph:6,
+        locator:'Arizona • early 1950s',
+        visualType:'family-photo'
+      },
+      {
+        title:'Arizona changes after the war',
+        caption:'Context beat reserved for a rights-cleared archival image of postwar roads, towns, or infrastructure in Arizona.',
+        source:'Visual slot — archival-first search next',
+        triggerParagraph:7,
+        locator:'Arizona • 1950s',
+        visualType:'context-card'
+      },
+      {
+        title:'High school and California',
+        caption:'Personal visual slot. Use a verified school, family, or travel photograph if available; otherwise use a restrained contextual image.',
+        source:'Visual slot — personal archive review next',
+        triggerParagraph:8,
+        locator:'Arizona → California • 1960',
+        visualType:'context-card'
+      },
+      {
+        title:'United States Air Force',
+        caption:'Personal visual slot for Sheldon’s service years. Use an authentic family/service photograph if available; otherwise use rights-cleared period context.',
+        source:'Visual slot — personal archive review next',
+        triggerParagraph:9,
+        locator:'United States • early 1960s',
+        visualType:'context-card'
+      },
+      {
+        title:'Marriage and the next generation',
+        caption:'Personal visual slot for Sheldon and Inez. Use a verified family photograph when available.',
+        source:'Visual slot — personal archive review next',
+        triggerParagraph:10,
+        locator:'Arizona • 1965',
+        visualType:'context-card'
+      },
+      {
+        title:'A life shaped by a changing Southwest',
+        caption:'Closing visual slot. The preferred final image is an authentic later family photograph rather than a generic reconstruction.',
+        source:'Visual slot — personal archive review next',
+        triggerParagraph:11,
+        locator:'Arizona • beyond',
+        visualType:'context-card'
       }
     ]
   }
