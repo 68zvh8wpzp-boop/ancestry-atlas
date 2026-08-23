@@ -1,4 +1,4 @@
-/* Ancestry Atlas v2.3.1 — cinematic branch entrance + one responsive A/V tour controller. */
+/* Ancestry Atlas v3.0.0 — cinematic branch entrance + one responsive A/V tour controller. */
 (()=>{
 'use strict';
 
@@ -49,6 +49,15 @@ if(!hud){
   hud.setAttribute('aria-live','polite');
   document.body.appendChild(hud);
 }
+
+
+function ensureSceneStagePlacement(){
+  if(els.shell && els.sceneStrip && els.sceneStrip.parentElement!==els.shell){
+    const top=els.shell.querySelector('.story-top');
+    if(top) top.insertAdjacentElement('afterend',els.sceneStrip);
+  }
+}
+ensureSceneStagePlacement();
 
 const state={
   track:'canada',
@@ -288,37 +297,6 @@ async function cinematicBranchEntrance(track,focusId,mySession){
 }
 
 
-function renderStoryMedia(step){
-  const media=TOUR_MEDIA[step?.id];
-  const scenes=Array.isArray(media?.scenes)?media.scenes:[];
-  if(!els.sceneStrip) return;
-  if(!scenes.length){
-    els.sceneStrip.classList.remove('show');
-    els.sceneStrip.setAttribute('aria-hidden','true');
-    if(els.scenePhoto) els.scenePhoto.removeAttribute('src');
-    return;
-  }
-  const scene=scenes[0];
-  // Move the media stage inside the story sheet exactly once.
-  const shell=els.shell;
-  const top=shell?.querySelector('.story-top');
-  if(shell && top && els.sceneStrip.parentElement!==shell){
-    top.insertAdjacentElement('afterend',els.sceneStrip);
-  }
-  els.sceneStrip.classList.add('show');
-  els.sceneStrip.setAttribute('aria-hidden','false');
-  if(els.scenePhoto){
-    els.scenePhoto.src=scene.src||'';
-    els.scenePhoto.alt=scene.alt||scene.title||'Historical photograph';
-    els.scenePhoto.style.display=scene.src?'block':'none';
-  }
-  if(els.sceneArt) els.sceneArt.style.display='none';
-  if(els.sceneTitle) els.sceneTitle.textContent=scene.title||'';
-  if(els.sceneCaption) els.sceneCaption.textContent=scene.caption||'';
-  if(els.sceneSource) els.sceneSource.textContent=scene.source?` • ${scene.source}`:'';
-  if(els.sceneCount) els.sceneCount.textContent=scenes.length>1?`1 / ${scenes.length}`:'';
-}
-
 
 function renderTranscript(media,step){
   if(!els.copy) return;
@@ -346,26 +324,50 @@ function sceneForParagraph(media,pIndex){
 }
 
 function showStoryScene(media,index){
+  ensureSceneStagePlacement();
   const scenes=Array.isArray(media?.scenes)?media.scenes:[];
-  if(!scenes.length || !els.sceneStrip) return;
+  if(!els.sceneStrip) return;
+
+  if(!scenes.length){
+    els.sceneStrip.classList.remove('show');
+    els.sceneStrip.setAttribute('aria-hidden','true');
+    if(els.scenePhoto){els.scenePhoto.removeAttribute('src');els.scenePhoto.style.display='none';}
+    return;
+  }
+
   index=clamp(index,0,scenes.length-1);
-  if(index===state.activeScene) return;
   const scene=scenes[index];
   state.activeScene=index;
-  els.sceneStrip.classList.add('show');
-  els.sceneStrip.setAttribute('aria-hidden','false');
-  if(els.scenePhoto){
-    els.scenePhoto.style.opacity='0';
-    setTimeout(()=>{
-      els.scenePhoto.src=scene.src||'';
-      els.scenePhoto.alt=scene.alt||scene.title||'Family photograph';
-      els.scenePhoto.onload=()=>{els.scenePhoto.style.opacity='1'};
-    },120);
-  }
+
   if(els.sceneTitle) els.sceneTitle.textContent=scene.title||'';
   if(els.sceneCaption) els.sceneCaption.textContent=scene.caption||'';
   if(els.sceneSource) els.sceneSource.textContent=scene.source?` • ${scene.source}`:'';
   if(els.sceneCount) els.sceneCount.textContent=scenes.length>1?`${index+1} / ${scenes.length}`:'';
+
+  const img=els.scenePhoto;
+  if(!img || !scene.src){
+    els.sceneStrip.classList.remove('show');
+    return;
+  }
+
+  img.style.display='block';
+  img.style.opacity='0';
+
+  const reveal=()=>{
+    els.sceneStrip.classList.add('show');
+    els.sceneStrip.setAttribute('aria-hidden','false');
+    requestAnimationFrame(()=>{img.style.opacity='1';});
+  };
+  img.onload=reveal;
+  img.onerror=()=>{
+    els.sceneStrip.classList.remove('show');
+    els.sceneStrip.setAttribute('aria-hidden','true');
+    img.style.display='none';
+    setStatus(`Photo unavailable — ${scene.src}`,'error');
+  };
+
+  img.src=new URL(scene.src,window.location.href).href + (scene.src.includes('?')?'&':'?') + 'atlas=3.0.0';
+  if(img.complete && img.naturalWidth>0) reveal();
 }
 
 function syncNarrationProgress(audio){
@@ -442,6 +444,7 @@ async function openStoryAfterEntrance(){
   document.body.classList.add('tour-story-open');
   els.modal?.classList.add('open');
   els.modal?.setAttribute('aria-hidden','false');
+  if(els.shell) els.shell.scrollTop=0;
 
   setTransport();
 }

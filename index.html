@@ -531,37 +531,8 @@ window.addEventListener('error',function(e){
 </script>
 
 
-<style id="v192-tour-label-fixes">
-/* Context cards must always be dismissible. */
-.scene-context{pointer-events:auto!important;padding-right:42px!important}
-.scene-context-close{position:absolute;right:9px;top:7px;width:30px;height:30px;border-radius:50%;padding:0!important;font-size:21px;line-height:28px;background:rgba(3,9,14,.72)!important;border:1px solid rgba(220,235,245,.26)!important;color:#fff!important;z-index:3}
 
-/* The image sequence is now a real presentation stage, not a small strip. */
-.story-scene-strip.show{display:block!important;position:fixed!important;left:12px!important;right:12px!important;top:64px!important;bottom:84px!important;transform:none!important;width:auto!important;z-index:720!important;pointer-events:auto!important}
-.story-scene-frame,.story-scene-image{height:100%!important;min-height:0!important}
-.story-scene-photo{object-fit:contain!important;background:#05090d!important;transform:none!important;filter:grayscale(.12) contrast(1.03) brightness(.88)!important}
-.story-scene-caption{max-width:min(680px,88%)!important;background:rgba(0,0,0,.56)!important;padding:10px 12px!important}
-.story-scene-caption b{font-size:clamp(18px,2.3vw,27px)!important}
-.story-scene-caption span{font-size:clamp(11px,1.4vw,15px)!important}
-
-/* Transport never goes behind an image. */
-.story-modal.open .story-controls{position:fixed!important;left:50%!important;bottom:max(14px,env(safe-area-inset-bottom))!important;transform:translateX(-50%)!important;z-index:780!important;background:rgba(5,13,20,.94)!important;border:1px solid rgba(220,235,245,.30)!important;border-radius:999px!important;padding:8px 12px!important;margin:0!important;box-shadow:0 10px 30px rgba(0,0,0,.5)!important;min-width:min(440px,calc(100vw - 24px));justify-content:center!important}
-.story-modal.open .story-controls .cd-button{display:inline-flex!important}
-.story-modal.open .story-controls .audio-status{max-width:190px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.story-modal.open .story-controls .story-audio-meter{min-width:70px;max-width:120px}
-.story-modal.open{padding-bottom:86px!important}
-.story-shell.story-prelude{background:transparent!important;border:0!important;box-shadow:none!important;pointer-events:none!important}
-.story-shell.story-prelude .story-controls{pointer-events:auto!important}
-
-@media(max-width:760px){
-  .story-scene-strip.show{left:6px!important;right:6px!important;top:max(8px,env(safe-area-inset-top))!important;bottom:82px!important}
-  .story-modal.open .story-controls{min-width:calc(100vw - 16px)!important;gap:7px!important;padding:7px 9px!important}
-  .story-modal.open .story-controls .audio-status{display:block!important;max-width:115px!important;font-size:9px!important}
-  .story-modal.open .story-controls .story-audio-meter{display:block!important;max-width:70px!important}
-}
-</style>
-
-  <link rel="stylesheet" href="atlas-tour.css?v=2.2.0">
+  <link rel="stylesheet" href="atlas-tour.css?v=3.0.0">
 </head>
 <body>
 
@@ -594,12 +565,21 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Guided Audio-Visual Family Tour</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v2.3.1 • photo-ready synchronized A/V story + resilient mobile controls</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v3.0.0 • consolidated photo-first A/V architecture</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop first orients you visibly in the tree, then opens the story. Recorded narration is used only when an approved audio file exists.</p>
   </div>
 </div>
 
 
+<div id="storyModal" class="story-modal" aria-hidden="true">
+  <div class="story-shell">
+    <div class="story-top">
+      <div>
+        <div class="landing-kicker" style="margin:0 0 5px">Guided Audio-Visual Family Tour</div>
+        <h2 id="storyTitle">Guided Audio-Visual Family Tour</h2>
+      </div>
+      <button id="storyClose" class="story-close">×</button>
+    </div>
 <div id="storySceneStrip" class="story-scene-strip" aria-hidden="true">
   <div class="story-scene-frame">
     <div id="storySceneImage" class="story-scene-image">
@@ -613,16 +593,6 @@ window.addEventListener('error',function(e){
     </div>
   </div>
 </div>
-
-<div id="storyModal" class="story-modal" aria-hidden="true">
-  <div class="story-shell">
-    <div class="story-top">
-      <div>
-        <div class="landing-kicker" style="margin:0 0 5px">Guided Audio-Visual Family Tour</div>
-        <h2 id="storyTitle">Guided Audio-Visual Family Tour</h2>
-      </div>
-      <button id="storyClose" class="story-close">×</button>
-    </div>
     <div class="story-track">
       <button data-story-track="canada" class="active">Canada</button>
       <button data-story-track="webb">Webb</button>
@@ -670,7 +640,7 @@ window.addEventListener('error',function(e){
 <div id="app">
 <aside id="controls" class="collapsed">
   <button id="controlsToggle">☰ Controls / legend</button>
-  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v2.3.1</span></h1>
+  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.0.0</span></h1>
   <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay bright; uncertain generations fall progressively into dusk and shadow. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
 
   <div class="section">
@@ -2026,7 +1996,7 @@ resize();
 
 
 
-<script src="atlas-content.js?v=2.2.0"></script>
-<script src="atlas-tour.js?v=2.2.0"></script>
+<script src="atlas-content.js?v=3.0.0"></script>
+<script src="atlas-tour.js?v=3.0.0"></script>
 </body>
 </html>
