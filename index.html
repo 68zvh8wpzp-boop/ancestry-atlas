@@ -533,21 +533,33 @@ window.addEventListener('error',function(e){
 
 
   <link rel="stylesheet" href="atlas-tour.css?v=3.2.0">
-  <link rel="stylesheet" href="tv-mode.css?v=3.3.0">
+  <link rel="stylesheet" href="tv-mode.css?v=3.3.1">
 </head>
 <body>
 
 
 <div id="lineChooser" class="line-chooser" aria-hidden="true">
   <div class="line-chooser-card">
-    <div class="landing-kicker">Explore our family</div>
-    <h2>Choose a family line</h2>
-    <p>Pick a branch and the guided story begins immediately.</p>
-    <div class="line-chooser-buttons">
-      <button type="button" data-launch-track="canada">Canada / Brenay</button>
-      <button type="button" data-launch-track="webb">Webb</button>
-      <button type="button" data-launch-track="dunbar">Dunbar</button>
-      <button type="button" data-launch-track="denmark">Denmark</button>
+    <div id="tourBranchChoice">
+      <div class="landing-kicker">Explore our family</div>
+      <h2>Choose a family line</h2>
+      <p>Choose the story you want to watch.</p>
+      <div class="line-chooser-buttons">
+        <button type="button" data-launch-track="canada">Canada / Brenay</button>
+        <button type="button" data-launch-track="webb">Webb</button>
+        <button type="button" data-launch-track="dunbar">Dunbar</button>
+        <button type="button" data-launch-track="denmark">Denmark</button>
+      </div>
+    </div>
+    <div id="tourViewingChoice" hidden>
+      <div class="landing-kicker">Guided Audio-Visual Family Tour</div>
+      <h2 id="tourViewingTitle">How would you like to watch?</h2>
+      <p>Watch <strong id="tourSelectedLine"></strong> on this device, or use the television presentation layout.</p>
+      <div class="line-chooser-buttons tour-viewing-buttons">
+        <button id="tourWatchHere" type="button">Watch on this device</button>
+        <button id="tourWatchTV" type="button">Present on television</button>
+      </div>
+      <button id="tourChoiceBack" type="button" class="tour-choice-back">← Choose another family line</button>
     </div>
     <button id="lineChooserClose" type="button" class="story-close" aria-label="Close">×</button>
   </div>
@@ -566,7 +578,7 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Guided Audio-Visual Family Tour</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v3.3.0 • modular television presentation mode</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v3.3.1 • corrected tour-first television presentation</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop first orients you visibly in the tree, then opens the story. Recorded narration is used only when an approved audio file exists.</p>
   </div>
 </div>
@@ -673,7 +685,7 @@ window.addEventListener('error',function(e){
 <div id="app">
 <aside id="controls" class="collapsed">
   <button id="controlsToggle">☰ Controls / legend</button>
-  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.3.0</span></h1>
+  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.3.1</span></h1>
   <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay bright; uncertain generations fall progressively into dusk and shadow. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
 
   <div class="section">
@@ -752,7 +764,6 @@ window.addEventListener('error',function(e){
   <button id="openStoryBtn">Story mode</button>
   <button id="openAlbumBtn">Album</button>
   <button id="printAtlasBtn">Print / Save PDF</button>
-  <button id="presentTvBtn" type="button" aria-label="Present on television" title="Present on television">▣</button>
 </div>
 <div id="mobileTreeDock" class="mobile-tree-dock" aria-label="Mobile tree controls">
   <button id="mobileTreeHome" type="button" aria-label="Home person"><span>⌂</span><small>Home</small></button>
@@ -767,7 +778,6 @@ window.addEventListener('error',function(e){
   <button id="mobileTreeAlbum">Family Album</button>
   <button id="mobileTreeWholeAtlas">Whole Atlas overview</button>
   <button id="mobileTreeStart">Start screen</button>
-  <button id="mobileTreeTV">Present on television</button>
 </div>
 
 <div id="tvModeDialog" class="tv-dialog" role="dialog" aria-modal="true" aria-labelledby="tvDialogTitle" aria-hidden="true">
@@ -775,7 +785,8 @@ window.addEventListener('error',function(e){
     <button id="tvDialogClose" class="tv-dialog-close" type="button" aria-label="Close">×</button>
     <div id="tvStartPanel">
       <h2 id="tvDialogTitle">Present on a television</h2>
-      <p>Display the Atlas in a television-optimized 16:9 layout. Continue controlling it from this device while using AirPlay Screen Mirroring or another display connection.</p>
+      <p>Display this guided tour in a television-optimized landscape layout. Continue controlling it from this device while using AirPlay Screen Mirroring or another display connection.</p>
+      <p class="tv-landscape-note"><strong>On a phone or tablet, rotate the device to landscape before the tour begins.</strong></p>
       <div class="tv-dialog-actions"><button id="tvStartMode" type="button">Start TV Mode</button><button id="tvShowInstructions" type="button">How to connect</button><button id="tvCancel" type="button">Cancel</button></div>
     </div>
     <div id="tvInstructionsPanel" hidden>
@@ -786,6 +797,9 @@ window.addEventListener('error',function(e){
       <div class="tv-dialog-actions"><button id="tvInstructionsStart" type="button">Start TV Mode</button><button id="tvInstructionsBack" type="button">Back</button></div>
     </div>
   </div>
+</div>
+<div id="tvRotateNotice" class="tv-rotate-notice" role="status" aria-live="polite" hidden>
+  <div><span aria-hidden="true">↻</span><h2>Rotate to landscape</h2><p>The tour will begin automatically when the device is horizontal.</p><button id="tvRotateCancel" type="button">Cancel TV Mode</button></div>
 </div>
 <nav id="tvPresentationBar" class="tv-presentation-bar" aria-label="Television presentation controls">
   <strong>TV Mode · <span id="tvStateLabel">Explore</span></strong>
@@ -2061,6 +2075,6 @@ resize();
 
 <script src="atlas-content.js?v=3.2.0"></script>
 <script src="atlas-tour.js?v=3.2.0"></script>
-<script src="tv-mode.js?v=3.3.0"></script>
+<script src="tv-mode.js?v=3.3.1"></script>
 </body>
 </html>

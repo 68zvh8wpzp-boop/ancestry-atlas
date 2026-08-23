@@ -1,4 +1,4 @@
-/* Ancestry Atlas v3.3.0 — AirPlay-optimized presentation module. No AirPlay discovery. */
+/* Ancestry Atlas v3.3.1 — tour-first television presentation module. No AirPlay discovery. */
 (()=>{
   'use strict';
   const $=id=>document.getElementById(id);
@@ -9,7 +9,11 @@
   const instructions=$('tvInstructionsPanel');
   const presentationBar=$('tvPresentationBar');
   const complete=$('tvStoryComplete');
-  const state={active:false,lastFocus:null,hideTimer:null,audio:null,audioBound:new WeakSet(),selectedAtEntry:null,cameraAtEntry:null};
+  const rotateNotice=$('tvRotateNotice');
+  const branchChoice=$('tourBranchChoice');
+  const viewingChoice=$('tourViewingChoice');
+  const trackNames={canada:'Canada / Brenay',webb:'Webb',dunbar:'Dunbar',denmark:'Denmark'};
+  const state={active:false,awaitingLandscape:false,pendingTrack:null,lastFocus:null,hideTimer:null,audio:null,audioBound:new WeakSet(),selectedAtEntry:null,cameraAtEntry:null};
 
   function cameraSnapshot(){
     try{return {selected,originNodeId,pivotWorld:{...pivotWorld},pivotCamera:{...pivotCamera},rotX,rotY,scale,panX,panY,nodeViewLevel};}catch(e){return null;}
@@ -30,6 +34,20 @@
     requestAnimationFrame(()=>dialogCard?.focus());
   }
   function closeDialog(){dialog.classList.remove('open');dialog.setAttribute('aria-hidden','true');state.lastFocus?.focus?.()}
+  function resetTourChoice(){branchChoice.hidden=false;viewingChoice.hidden=true}
+  function showViewingChoice(track){
+    state.pendingTrack=track;
+    branchChoice.hidden=true;viewingChoice.hidden=false;
+    $('tourSelectedLine').textContent=trackNames[track]||track;
+    $('tourWatchHere')?.focus();
+  }
+  function isPhonePortrait(){return window.innerHeight>window.innerWidth&&window.innerWidth<=1024}
+  function beginPendingTour(){
+    if(!state.pendingTrack)return;
+    const track=state.pendingTrack;state.pendingTrack=null;state.awaitingLandscape=false;
+    rotateNotice.hidden=true;resetTourChoice();
+    window.AncestryTour?.begin?.(track,0);
+  }
   function focusables(root){return [...root.querySelectorAll('button:not([hidden]):not([disabled]),[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(el=>!el.closest('[hidden]'))}
   dialog?.addEventListener('keydown',event=>{
     if(event.key==='Escape'){event.preventDefault();closeDialog();return}
@@ -49,13 +67,17 @@
     body.classList.add('tv-mode');body.classList.remove('tv-controls-hidden');
     try{localStorage.setItem('ancestryAtlas.tvModeUsed','1')}catch(e){}
     requestFullscreen();revealControls();updateStateLabel();try{resize();draw()}catch(e){console.error('TV Mode resize failed.',e)}
-    $('tvExitMode')?.focus({preventScroll:true});
+    if(state.pendingTrack&&isPhonePortrait()){
+      state.awaitingLandscape=true;rotateNotice.hidden=false;$('tvRotateCancel')?.focus({preventScroll:true});
+    }else{
+      beginPendingTour();$('tvExitMode')?.focus({preventScroll:true});
+    }
   }
   async function leave({keepFullscreen=false}={}){
-    if(!state.active)return;state.active=false;clearTimeout(state.hideTimer);body.classList.remove('tv-mode','tv-controls-hidden','tv-legend-open');complete.classList.remove('open');complete.setAttribute('aria-hidden','true');
+    if(!state.active)return;state.active=false;state.awaitingLandscape=false;state.pendingTrack=null;rotateNotice.hidden=true;resetTourChoice();clearTimeout(state.hideTimer);body.classList.remove('tv-mode','tv-controls-hidden','tv-legend-open');complete.classList.remove('open');complete.setAttribute('aria-hidden','true');
     if(!keepFullscreen&&(document.fullscreenElement||document.webkitFullscreenElement)){try{await (document.exitFullscreen?.()||document.webkitExitFullscreen?.())}catch(e){}}
     try{resize();draw()}catch(e){console.error('TV Mode exit resize failed.',e)}
-    $('presentTvBtn')?.focus({preventScroll:true});
+    $('openStoryBtn')?.focus({preventScroll:true});
   }
   function returnToTree(){complete.classList.remove('open');complete.setAttribute('aria-hidden','true');window.AncestryTour?.exit?.();setTimeout(()=>{updateStateLabel();try{draw()}catch(e){}},80)}
   function replay(){complete.classList.remove('open');complete.setAttribute('aria-hidden','true');const audio=window.AncestryTour?.state?.audio;if(audio){audio.currentTime=0;audio.play().catch(error=>console.info('Replay requires another user action.',error))}}
@@ -65,8 +87,16 @@
   }
   setInterval(()=>{if(!state.active)return;updateStateLabel();bindAudio()},800);
 
-  $('presentTvBtn')?.addEventListener('click',openDialog);$('mobileTreeTV')?.addEventListener('click',()=>{$('mobileTreeMenuSheet')?.classList.remove('open');openDialog()});
+  $('lineChooser')?.addEventListener('click',event=>{
+    const button=event.target.closest('[data-launch-track]');if(!button)return;
+    event.preventDefault();event.stopImmediatePropagation();showViewingChoice(button.dataset.launchTrack);
+  },true);
+  $('tourWatchHere')?.addEventListener('click',()=>{const track=state.pendingTrack;state.pendingTrack=null;resetTourChoice();if(track)window.AncestryTour?.begin?.(track,0)});
+  $('tourWatchTV')?.addEventListener('click',openDialog);
+  $('tourChoiceBack')?.addEventListener('click',()=>{state.pendingTrack=null;resetTourChoice();document.querySelector('#lineChooser [data-launch-track]')?.focus()});
+  $('lineChooserClose')?.addEventListener('click',()=>{state.pendingTrack=null;resetTourChoice()});
   $('tvDialogClose')?.addEventListener('click',closeDialog);$('tvCancel')?.addEventListener('click',closeDialog);$('tvShowInstructions')?.addEventListener('click',showInstructions);$('tvInstructionsBack')?.addEventListener('click',showStart);$('tvStartMode')?.addEventListener('click',enter);$('tvInstructionsStart')?.addEventListener('click',enter);
+  $('tvRotateCancel')?.addEventListener('click',()=>leave());
   dialog?.addEventListener('pointerdown',event=>{if(event.target===dialog)closeDialog()});
   $('tvExitMode')?.addEventListener('click',()=>leave());$('tvToggleLegend')?.addEventListener('click',event=>{const open=body.classList.toggle('tv-legend-open');$('controls')?.classList.toggle('collapsed',!open);event.currentTarget.setAttribute('aria-expanded',String(open));revealControls()});
   $('tvPlayStory')?.addEventListener('click',()=>{if(selectedHasStory())window.AncestryTour?.begin?.('webb',0)});$('tvReturnTree')?.addEventListener('click',returnToTree);$('tvCompleteReturn')?.addEventListener('click',returnToTree);$('tvReplay')?.addEventListener('click',replay);
@@ -79,6 +109,6 @@
     }
     if(event.code==='Space'&&!/^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(document.activeElement?.tagName||'')&&body.classList.contains('tour-story-open')){event.preventDefault();$('storyPlayPause')?.click()}
   },true);
-  window.addEventListener('resize',()=>{if(state.active){try{resize();draw()}catch(e){}revealControls()}});
+  window.addEventListener('resize',()=>{if(state.active){if(state.awaitingLandscape&&!isPhonePortrait())beginPendingTour();try{resize();draw()}catch(e){}revealControls()}});
   window.AncestryTVMode={open:openDialog,enter,exit:leave,state};
 })();
