@@ -533,6 +533,7 @@ window.addEventListener('error',function(e){
 
 
   <link rel="stylesheet" href="atlas-tour.css?v=3.2.0">
+  <link rel="stylesheet" href="tv-mode.css?v=3.3.0">
 </head>
 <body>
 
@@ -565,7 +566,7 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Guided Audio-Visual Family Tour</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v3.2.0 • complete Sheldon visual cadence + archival-first alternates</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v3.3.0 • modular television presentation mode</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop first orients you visibly in the tree, then opens the story. Recorded narration is used only when an approved audio file exists.</p>
   </div>
 </div>
@@ -672,7 +673,7 @@ window.addEventListener('error',function(e){
 <div id="app">
 <aside id="controls" class="collapsed">
   <button id="controlsToggle">☰ Controls / legend</button>
-  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.2.0</span></h1>
+  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.3.0</span></h1>
   <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay bright; uncertain generations fall progressively into dusk and shadow. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
 
   <div class="section">
@@ -751,6 +752,7 @@ window.addEventListener('error',function(e){
   <button id="openStoryBtn">Story mode</button>
   <button id="openAlbumBtn">Album</button>
   <button id="printAtlasBtn">Print / Save PDF</button>
+  <button id="presentTvBtn" type="button" aria-label="Present on television" title="Present on television">▣</button>
 </div>
 <div id="mobileTreeDock" class="mobile-tree-dock" aria-label="Mobile tree controls">
   <button id="mobileTreeHome" type="button" aria-label="Home person"><span>⌂</span><small>Home</small></button>
@@ -765,6 +767,35 @@ window.addEventListener('error',function(e){
   <button id="mobileTreeAlbum">Family Album</button>
   <button id="mobileTreeWholeAtlas">Whole Atlas overview</button>
   <button id="mobileTreeStart">Start screen</button>
+  <button id="mobileTreeTV">Present on television</button>
+</div>
+
+<div id="tvModeDialog" class="tv-dialog" role="dialog" aria-modal="true" aria-labelledby="tvDialogTitle" aria-hidden="true">
+  <div class="tv-dialog-card" tabindex="-1">
+    <button id="tvDialogClose" class="tv-dialog-close" type="button" aria-label="Close">×</button>
+    <div id="tvStartPanel">
+      <h2 id="tvDialogTitle">Present on a television</h2>
+      <p>Display the Atlas in a television-optimized 16:9 layout. Continue controlling it from this device while using AirPlay Screen Mirroring or another display connection.</p>
+      <div class="tv-dialog-actions"><button id="tvStartMode" type="button">Start TV Mode</button><button id="tvShowInstructions" type="button">How to connect</button><button id="tvCancel" type="button">Cancel</button></div>
+    </div>
+    <div id="tvInstructionsPanel" hidden>
+      <h2>How to connect</h2>
+      <h3>iPhone or iPad</h3><ol><li>Open Control Center.</li><li>Select Screen Mirroring.</li><li>Select the Apple TV or compatible television.</li><li>Return to the Atlas and start TV Mode.</li></ol>
+      <h3>Mac</h3><ol><li>Open Control Center.</li><li>Select Screen Mirroring.</li><li>Select the television.</li><li>Return to the Atlas and start TV Mode.</li></ol>
+      <p>An HDMI-connected television or projector can use the same TV Mode.</p>
+      <div class="tv-dialog-actions"><button id="tvInstructionsStart" type="button">Start TV Mode</button><button id="tvInstructionsBack" type="button">Back</button></div>
+    </div>
+  </div>
+</div>
+<nav id="tvPresentationBar" class="tv-presentation-bar" aria-label="Television presentation controls">
+  <strong>TV Mode · <span id="tvStateLabel">Explore</span></strong>
+  <button id="tvPlayStory" type="button" hidden>Play Story</button>
+  <button id="tvToggleLegend" type="button" aria-expanded="false">Legend</button>
+  <button id="tvReturnTree" type="button" hidden>Return to tree</button>
+  <button id="tvExitMode" type="button">Exit TV Mode</button>
+</nav>
+<div id="tvStoryComplete" class="tv-story-complete" role="dialog" aria-modal="true" aria-labelledby="tvCompleteTitle" aria-hidden="true">
+  <div><h2 id="tvCompleteTitle">Story complete</h2><button id="tvCompleteReturn" type="button">Return to Family Tree</button><button id="tvReplay" type="button">Replay</button><button id="tvContinueRelated" type="button" hidden>Continue to Related Person</button></div>
 </div>
 
 </section>
@@ -2030,5 +2061,6 @@ resize();
 
 <script src="atlas-content.js?v=3.2.0"></script>
 <script src="atlas-tour.js?v=3.2.0"></script>
+<script src="tv-mode.js?v=3.3.0"></script>
 </body>
 </html>
