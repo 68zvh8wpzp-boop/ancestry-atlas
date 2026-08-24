@@ -1,6 +1,6 @@
 {
-  "packageVersion": "3.7.1",
-  "inputPackage": "Ancestry_Atlas_v3_7_0_FLAT_GitHub_Package.zip",
+  "packageVersion": "3.7.2",
+  "inputPackage": "Ancestry_Atlas_v3_7_1_FLAT_GitHub_Package.zip",
   "narration": {
     "approvedFile": "James_sheldon_webb.mp3",
     "voice": "Azure Alfie",
@@ -13,8 +13,8 @@
     "atlas-content.js",
     "atlas-tour-3.6.0.js",
     "atlas-tour-3.6.0.css",
-    "tv-mode-3.7.1.js",
-    "tv-mode-3.7.1.css",
+    "tv-mode-3.7.2.js",
+    "tv-mode-3.7.2.css",
     "story-presentation-3.6.0.js",
     "story-presentation-3.6.0.css",
     "tv-film-3.7.1.js",
