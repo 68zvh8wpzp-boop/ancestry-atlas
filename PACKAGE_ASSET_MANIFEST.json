@@ -1,6 +1,6 @@
 {
-  "packageVersion": "3.6.0",
-  "inputPackage": "Ancestry_Atlas_v3_5_2_FLAT_GitHub_Package.zip (damaged ZIP; recovered from matching work_v3_5_2 production folder)",
+  "packageVersion": "3.7.0",
+  "inputPackage": "Ancestry_Atlas_v3_6_0_FLAT_GitHub_Package.zip",
   "narration": {
     "approvedFile": "James_sheldon_webb.mp3",
     "voice": "Azure Alfie",
@@ -16,7 +16,13 @@
     "tv-mode-3.6.0.js",
     "tv-mode-3.6.0.css",
     "story-presentation-3.6.0.js",
-    "story-presentation-3.6.0.css"
+    "story-presentation-3.6.0.css",
+    "tv-film-3.7.0.js",
+    "tv-film-3.7.0.css",
+    "James_Sheldon_Webb_TV_Presentation_1080p.mp4",
+    "James_Sheldon_Webb_TV_Presentation_poster.jpg",
+    "James_sheldon_webb_exact_captions.vtt",
+    "James_sheldon_webb_film_timing.json"
   ],
   "approvedBiographyAssets": [
     "jay_marion_mesa_1941.png",

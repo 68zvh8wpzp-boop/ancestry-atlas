@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<title>Ancestry Atlas v3.6.0</title>
+<title>Ancestry Atlas v3.7.0</title>
 <meta name="theme-color" content="#020609">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -540,6 +540,7 @@ window.addEventListener('error',function(e){
   <link rel="stylesheet" href="atlas-tour-3.6.0.css">
   <link rel="stylesheet" href="tv-mode-3.6.0.css">
   <link rel="stylesheet" href="story-presentation-3.6.0.css">
+  <link rel="stylesheet" href="tv-film-3.7.0.css">
 </head>
 <body>
 
@@ -560,10 +561,10 @@ window.addEventListener('error',function(e){
     <div id="tourViewingChoice" hidden>
       <div class="landing-kicker">Guided Audio-Visual Family Tour</div>
       <h2 id="tourViewingTitle">How would you like to watch?</h2>
-      <p>Watch <strong id="tourSelectedLine"></strong> on this device, or use the television presentation layout.</p>
+      <p>Watch <strong id="tourSelectedLine"></strong> interactively, or play a completed biography directly on a television.</p>
       <div class="line-chooser-buttons tour-viewing-buttons">
         <button id="tourWatchHere" type="button">Watch on this device</button>
-        <button id="tourWatchTV" type="button">Present on television</button>
+        <button id="tourWatchTV" type="button">Play on Television</button>
       </div>
       <button id="tourChoiceBack" type="button" class="tour-choice-back">← Choose another family line</button>
     </div>
@@ -584,7 +585,7 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Guided Audio-Visual Family Tour</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v3.6.0 • approved cinematic story presentation</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v3.7.0 • direct AirPlay biography film</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop first orients you visibly in the tree, then opens the story. Recorded narration is used only when an approved audio file exists.</p>
   </div>
 </div>
@@ -691,7 +692,7 @@ window.addEventListener('error',function(e){
 <div id="app">
 <aside id="controls" class="collapsed">
   <button id="controlsToggle">☰ Controls / legend</button>
-  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.6.0</span></h1>
+  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.7.0</span></h1>
   <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay bright; uncertain generations fall progressively into dusk and shadow. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
 
   <div class="section">
@@ -784,6 +785,19 @@ window.addEventListener('error',function(e){
   <button id="mobileTreeAlbum">Family Album</button>
   <button id="mobileTreeWholeAtlas">Whole Atlas overview</button>
   <button id="mobileTreeStart">Start screen</button>
+</div>
+
+<div id="tvFilmModal" class="tv-film-modal" role="dialog" aria-modal="true" aria-labelledby="tvFilmTitle" aria-hidden="true">
+  <header class="tv-film-head"><div><h2 id="tvFilmTitle">James Sheldon Webb</h2><p>Guided Audio-Visual Family Tour · Azure Alfie narration</p></div><button id="filmClose" class="tv-film-close" type="button" aria-label="Close television presentation">×</button></header>
+  <div class="tv-film-stage">
+    <video id="tvFilmVideo" controls playsinline preload="metadata" poster="James_Sheldon_Webb_TV_Presentation_poster.jpg" x-webkit-airplay="allow" aria-label="James Sheldon Webb guided biography film">
+      <source src="James_Sheldon_Webb_TV_Presentation_1080p.mp4" type="video/mp4">
+      <track kind="captions" srclang="en" label="Exact narration" src="James_sheldon_webb_exact_captions.vtt">
+      The browser could not play the approved television presentation.
+    </video>
+    <div id="tvFilmComplete" class="tv-film-complete"><div><h2>Story complete</h2><button id="filmReplay" type="button">Replay</button><button type="button" data-film-return-tree>Return to Family Tree</button></div></div>
+  </div>
+  <div class="tv-film-actions"><button id="filmChooseTV" class="tv-film-primary" type="button">Choose Television</button><button id="filmFullscreen" type="button">Play Full Screen</button><button type="button" data-film-return-tree>Return to Family Tree</button><p id="filmConnectionHelp" class="tv-film-help">AirPlay sends only the film to the television. For HDMI, choose Play Full Screen.</p></div>
 </div>
 
 <div id="tvModeDialog" class="tv-dialog" role="dialog" aria-modal="true" aria-labelledby="tvDialogTitle" aria-hidden="true">
@@ -2081,9 +2095,10 @@ resize();
 
 
 
-<script src="atlas-content.js?v=3.6.0"></script>
+<script src="atlas-content.js?v=3.7.0"></script>
 <script src="atlas-tour-3.6.0.js"></script>
 <script src="tv-mode-3.6.0.js"></script>
 <script src="story-presentation-3.6.0.js"></script>
+<script src="tv-film-3.7.0.js"></script>
 </body>
 </html>

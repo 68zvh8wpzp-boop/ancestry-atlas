@@ -1,0 +1,66 @@
+{
+  "audioDuration": 165.432,
+  "algorithm": "same character-weight paragraph timing used by the interactive Atlas",
+  "scenes": [
+    {
+      "src": "jay_marion_mesa_1941.png",
+      "start": 0,
+      "duration": 7.355
+    },
+    {
+      "src": "webb_first_car_second_home_c1942.png",
+      "start": 7.355,
+      "duration": 18.388
+    },
+    {
+      "src": "trinity_test_fireball_16ms.jpg",
+      "start": 25.744,
+      "duration": 20.798
+    },
+    {
+      "src": "marion_webb_1945.png",
+      "start": 46.542,
+      "duration": 11.604
+    },
+    {
+      "src": "charcoal_childhood_illness_wide.png",
+      "start": 58.145,
+      "duration": 12.111
+    },
+    {
+      "src": "webb_first_house_vernon_1945.png",
+      "start": 70.256,
+      "duration": 6.975
+    },
+    {
+      "src": "james_sheldon_with_siblings_c1951.png",
+      "start": 77.231,
+      "duration": 19.34
+    },
+    {
+      "src": "postwar_arizona_road_1950.jpg",
+      "start": 96.571,
+      "duration": 17.627
+    },
+    {
+      "src": "san_diego_highway_1960_65.jpg",
+      "start": 114.198,
+      "duration": 12.808
+    },
+    {
+      "src": "usaf_flightline_airmen_1962.jpg",
+      "start": 127.007,
+      "duration": 8.674
+    },
+    {
+      "src": "asc_students_sweethearts_ball_1964.jpg",
+      "start": 135.681,
+      "duration": 3.373
+    },
+    {
+      "src": "sheldon_inez_wedding_1965.jpeg",
+      "start": 139.054,
+      "duration": 26.378
+    }
+  ]
+}

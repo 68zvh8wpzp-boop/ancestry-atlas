@@ -121,7 +121,7 @@
     event.preventDefault();event.stopImmediatePropagation();showViewingChoice(button.dataset.launchTrack);
   },true);
   $('tourWatchHere')?.addEventListener('click',()=>{const track=state.pendingTrack;state.pendingTrack=null;resetTourChoice();if(track)window.AncestryTour?.begin?.(track,0)});
-  $('tourWatchTV')?.addEventListener('click',openDialog);
+  $('tourWatchTV')?.addEventListener('click',()=>{if(state.pendingTrack==='webb'&&window.AncestryTVFilm?.open)window.AncestryTVFilm.open();else openDialog()});
   $('tourChoiceBack')?.addEventListener('click',()=>{state.pendingTrack=null;resetTourChoice();document.querySelector('#lineChooser [data-launch-track]')?.focus()});
   $('lineChooserClose')?.addEventListener('click',()=>{state.pendingTrack=null;resetTourChoice()});
   $('tvDialogClose')?.addEventListener('click',closeDialog);$('tvCancel')?.addEventListener('click',closeDialog);$('tvShowInstructions')?.addEventListener('click',showInstructions);$('tvInstructionsBack')?.addEventListener('click',showStart);$('tvStartMode')?.addEventListener('click',enter);$('tvInstructionsStart')?.addEventListener('click',enter);
