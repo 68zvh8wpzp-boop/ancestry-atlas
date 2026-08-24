@@ -1,6 +1,6 @@
 {
-  "packageVersion": "3.7.3",
-  "inputPackage": "Ancestry_Atlas_v3_7_2_FLAT_GitHub_Package.zip",
+  "packageVersion": "3.7.4",
+  "inputPackage": "Ancestry_Atlas_v3_7_3_FLAT_GitHub_Package.zip",
   "narration": {
     "approvedFile": "James_sheldon_webb.mp3",
     "voice": "Azure Alfie",
@@ -17,6 +17,12 @@
     "tv-mode-3.7.3.css",
     "story-presentation-3.6.0.js",
     "story-presentation-3.6.0.css",
+    "biographies/marion/marion-story-module.js",
+    "biographies/marion/narration-approved-draft.txt",
+    "biographies/marion/story-manifest.json",
+    "biographies/marion/overlays.json",
+    "biographies/marion/rights-manifest.json",
+    "biographies/marion/visual-register.md",
     "tv-film-3.7.1.js",
     "tv-film-3.7.1.css",
     "James_Sheldon_Webb_TV_Presentation_1080p.mp4",
@@ -37,6 +43,16 @@
     "usaf_flightline_airmen_1962.jpg",
     "asc_students_sweethearts_ball_1964.jpg",
     "sheldon_inez_wedding_1965.jpeg"
+    ,"biographies/marion/assets/marion_child_photo_only_sharpened.jpg"
+    ,"biographies/marion/assets/marion_birth_house_candidate_conservative.jpg"
+    ,"biographies/marion/assets/marion_1925_journey_candidate.jpg"
+    ,"biographies/marion/assets/marion_arizona_childhood_candidate.jpg"
+    ,"biographies/marion/assets/marion_school_independence_candidate.jpg"
+    ,"biographies/marion/assets/jay_marion_mesa_1941_restored.jpg"
+    ,"biographies/marion/assets/marion_webb_1945_restored.jpg"
+    ,"biographies/marion/assets/marion_with_diane_candidate_sharpened.jpg"
+    ,"biographies/marion/assets/marion_children_family_photo_candidate.jpg"
+    ,"biographies/marion/assets/marion_family_historian_candidate.jpg"
   ],
   "overlayAssets": [
     "inline Arizona flag SVG",
