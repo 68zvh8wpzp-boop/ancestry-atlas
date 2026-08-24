@@ -5,7 +5,7 @@ import path from 'node:path';
 const root=path.dirname(fileURLToPath(import.meta.url));
 const manifest=JSON.parse(await readFile(path.join(root,'PACKAGE_ASSET_MANIFEST.json'),'utf8'));
 const content=await readFile(path.join(root,'atlas-content.js'),'utf8');
-const tour=await readFile(path.join(root,'atlas-tour-3.5.2.js'),'utf8');
+const tour=await readFile(path.join(root,'atlas-tour-3.6.0.js'),'utf8');
 const index=await readFile(path.join(root,'index.html'),'utf8');
 const files=await readdir(root);
 

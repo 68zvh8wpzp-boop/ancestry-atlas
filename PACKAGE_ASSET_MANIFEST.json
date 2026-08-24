@@ -1,6 +1,6 @@
 {
-  "packageVersion": "3.5.2",
-  "inputPackage": "Ancestry_Atlas_v3_5_1_FLAT_GitHub_Package.zip",
+  "packageVersion": "3.6.0",
+  "inputPackage": "Ancestry_Atlas_v3_5_2_FLAT_GitHub_Package.zip (damaged ZIP; recovered from matching work_v3_5_2 production folder)",
   "narration": {
     "approvedFile": "James_sheldon_webb.mp3",
     "voice": "Azure Alfie",
@@ -11,10 +11,12 @@
   "runtime": [
     "index.html",
     "atlas-content.js",
-    "atlas-tour-3.5.2.js",
-    "atlas-tour-3.5.2.css",
-    "tv-mode-3.5.2.js",
-    "tv-mode-3.5.2.css"
+    "atlas-tour-3.6.0.js",
+    "atlas-tour-3.6.0.css",
+    "tv-mode-3.6.0.js",
+    "tv-mode-3.6.0.css",
+    "story-presentation-3.6.0.js",
+    "story-presentation-3.6.0.css"
   ],
   "approvedBiographyAssets": [
     "jay_marion_mesa_1941.png",
