@@ -1,0 +1,39 @@
+name: Generate Sheldon Fable Review
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generate-review:
+    name: Create review-only MP3
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out the current production source
+        uses: actions/checkout@v4
+
+      - name: Confirm the protected API key is available
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "::error::Repository secret OPENAI_API_KEY is missing."
+            exit 1
+          fi
+
+      - name: Generate Sheldon Fable review
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node scripts/generate-sheldon-fable-review.mjs
+
+      - name: Upload private review package
+        uses: actions/upload-artifact@v4
+        with:
+          name: sheldon-fable-review-${{ github.run_number }}
+          path: review-output/
+          if-no-files-found: error
+          retention-days: 14
