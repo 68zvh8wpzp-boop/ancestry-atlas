@@ -430,12 +430,13 @@ function showStoryScene(media,index){
   const scene=scenes[index];
   state.activeScene=index;
   updateLocator(scene);
-  document.dispatchEvent(new CustomEvent('ancestryatlas:scenechange',{detail:{scene,index,media,personId:currentStep()?.id||null}}));
-
   if(els.sceneTitle) els.sceneTitle.textContent=scene.title||'';
   if(els.sceneCaption) els.sceneCaption.textContent=scene.caption||'';
   if(els.sceneSource) els.sceneSource.textContent=scene.source?` • ${scene.source}`:'';
   if(els.sceneCount) els.sceneCount.textContent=scenes.length>1?`${index+1} / ${scenes.length}`:'';
+  // Optional overlays must never be allowed to interrupt the core photograph.
+  try{document.dispatchEvent(new CustomEvent('ancestryatlas:scenechange',{detail:{scene,index,media,personId:currentStep()?.id||null}}));}
+  catch(error){console.error('Story geography overlay could not update.',error)}
 
   const img=els.scenePhoto;
   const contextOnly=!scene.src;
@@ -519,6 +520,7 @@ function renderStep(){
   if(els.place) els.place.textContent=node.place||'';
 
   const media=TOUR_MEDIA[node.id];
+  state.activeScene=-1;
   preloadApprovedScenes(media);
   state.slideshowExpanded=true;
   updateSlideshowToggle();
@@ -594,10 +596,13 @@ async function orientAndOpenCurrent({fullEntrance=false}={}){
 function openChooser(){
   els.chooser?.classList.add('open');
   els.chooser?.setAttribute('aria-hidden','false');
+  document.body.classList.add('tour-chooser-open');
+  requestAnimationFrame(()=>document.getElementById('lineChooserClose')?.focus());
 }
 function closeChooser(){
   els.chooser?.classList.remove('open');
   els.chooser?.setAttribute('aria-hidden','true');
+  document.body.classList.remove('tour-chooser-open');
 }
 
 function begin(track='canada',index=0){
@@ -628,6 +633,7 @@ function exitTour(){
   state.phase='idle';
   hud.classList.remove('show');
   document.body.classList.remove('tour-active','tour-orienting','tour-distant','tour-story-open');
+  window.__tourSuppressLabels=false;
   els.modal?.classList.remove('open');
   els.modal?.setAttribute('aria-hidden','true');
   els.sceneStrip?.classList.remove('show');
@@ -646,6 +652,11 @@ function exitTour(){
       panX=saved.panX; panY=saved.panY;
       nodeViewLevel=saved.nodeViewLevel;
       nodeFocusMode=saved.nodeFocusMode;
+      if(window.matchMedia('(max-width:800px)').matches){
+        window.AncestryMobileTreeInternal?.focusIds(saved.selected||returnId,10);
+        const history=window.AncestryTour?.mobileTree?.history;
+        if(history && history[history.length-1]!==saved.selected)history.push(saved.selected||returnId);
+      }
       draw();
     }catch(e){console.error('Could not restore the pre-tour camera context.',e);}
   }else if(window.matchMedia('(max-width:800px)').matches){
@@ -692,6 +703,7 @@ async function move(delta){
   const next=clamp(state.index+delta,0,count-1);
   if(next===state.index) return;
   state.index=next;
+  state.activeScene=-1;
   await orientAndOpenCurrent({fullEntrance:false});
 }
 

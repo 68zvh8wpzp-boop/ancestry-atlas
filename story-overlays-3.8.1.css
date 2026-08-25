@@ -1,0 +1,39 @@
+/* Ancestry Atlas v3.8.0 — adaptive historical flag and route-map overlays. */
+.story-context-ribbon .story-az-flag{display:flex!important;align-items:stretch!important;justify-content:stretch!important}
+.story-context-ribbon .story-az-flag svg{width:100%!important;height:100%!important}
+.story-context-ribbon .story-locator-card{overflow:hidden!important}
+.story-context-ribbon .story-locator-card svg.story-route-map{
+  width:clamp(92px,9vw,164px)!important;height:auto!important;aspect-ratio:2/1!important;
+  flex:0 0 clamp(92px,9vw,164px)!important;background:#07131c!important
+}
+.story-route-map .map-land{fill:#142938;stroke:#aec2cf;stroke-width:1.3}
+.story-route-map .map-border{fill:none;stroke:#617b8c;stroke-width:.7;stroke-dasharray:2 2}
+.story-route-map .map-water{fill:none;stroke:#61a8c7;stroke-width:1.15}
+.story-route-map .map-terrain{fill:none;stroke:#6c7f62;stroke-width:.7;opacity:.8}
+.story-route-map .map-route{fill:none;stroke:#f1c76c;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+.story-route-map .map-route.unresolved{stroke-dasharray:4 3}
+.story-route-map .map-stop{fill:#f1c76c;stroke:#07131c;stroke-width:1}
+.story-route-map .map-focus{fill:#e56858;stroke:#fff;stroke-width:1.2}
+.story-route-map text{fill:#e8f0f4;font:600 6px system-ui,-apple-system,sans-serif;paint-order:stroke;stroke:#07131c;stroke-width:1.8px;stroke-linejoin:round}
+.story-locator-card:focus-visible{outline:2px solid #70e0d0!important;outline-offset:3px!important}
+
+@media(max-width:540px){
+  .story-context-ribbon .story-locator-card svg.story-route-map{width:92px!important;flex-basis:92px!important}
+  .story-route-map text{font-size:5.5px}
+}
+
+body.aa-large-display.tv-mode .story-context-ribbon .story-locator-card svg.story-route-map{
+  width:clamp(150px,10vw,260px)!important;flex-basis:clamp(150px,10vw,260px)!important
+}
+
+.story-preview-image-nav{position:fixed!important;z-index:31!important;inset:50% 0 auto!important;transform:translateY(-50%)!important;pointer-events:none!important}
+.story-preview-image-nav button{
+  position:absolute!important;top:0!important;width:44px!important;height:58px!important;min-height:44px!important;
+  margin:0!important;padding:0!important;border:1px solid rgba(220,234,242,.28)!important;border-radius:10px!important;
+  background:rgba(3,10,15,.74)!important;color:#eef5f8!important;font-size:34px!important;line-height:1!important;
+  pointer-events:auto!important
+}
+.story-preview-image-nav button:disabled{opacity:.22!important}
+#storyPreviewImagePrev{left:max(8px,env(safe-area-inset-left))!important}
+#storyPreviewImageNext{right:max(8px,env(safe-area-inset-right))!important}
+@media(max-height:520px) and (orientation:landscape){.story-preview-image-nav button{width:38px!important;height:46px!important;font-size:28px!important}}

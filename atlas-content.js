@@ -76,7 +76,7 @@ const TOUR_MEDIA = {
     audioCandidates: [],
     scenes: [
       {
-        src:'jay_marion_mesa_1941.png',
+        src:'biographies/marion/assets/jay_marion_mesa_1941_restored.jpg',
         title:'Jay and Marion before Sheldon’s birth',
         caption:'James Wilford “Jay” Webb and Marion Beulah Brenay Webb in Mesa, 1941.',
         source:'Family archive • Marion Beulah Brenay Webb life story, p. 14',
