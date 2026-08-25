@@ -1,0 +1,103 @@
+name: Archive Approved Fable Audio
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  archive-approved-audio:
+    name: Preserve the seven approved recordings
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out production without changing it
+        uses: actions/checkout@v5
+
+      - name: Download the exact approved review artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p _approved/sheldon _approved/remaining
+
+          download_artifact() {
+            local artifact_name="$1"
+            local destination="$2"
+            local artifact_id
+            artifact_id="$(gh api --paginate "repos/$GITHUB_REPOSITORY/actions/artifacts?per_page=100" --jq ".artifacts[] | select(.name == \"$artifact_name\" and .expired == false) | .id" | head -n 1)"
+            if [ -z "$artifact_id" ]; then
+              echo "::error::Approved artifact $artifact_name was not found or has expired."
+              exit 1
+            fi
+            gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id/zip" > "$destination.zip"
+            unzip -q "$destination.zip" -d "$destination"
+          }
+
+          download_artifact "sheldon-fable-review-1" "_approved/sheldon"
+          download_artifact "remaining-fable-reviews-1" "_approved/remaining"
+
+      - name: Validate and archive under canonical production names
+        run: |
+          set -euo pipefail
+          destination="approved-audio/fable"
+          mkdir -p "$destination/review-records"
+
+          copy_approved() {
+            local source_name="$1"
+            local canonical_name="$2"
+            local source_path
+            source_path="$(find _approved -type f -name "$source_name" -print -quit)"
+            if [ -z "$source_path" ] || [ ! -s "$source_path" ]; then
+              echo "::error::Missing approved recording: $source_name"
+              exit 1
+            fi
+            if [ "$(wc -c < "$source_path")" -lt 100000 ]; then
+              echo "::error::Approved recording is unexpectedly small: $source_name"
+              exit 1
+            fi
+            cp "$source_path" "$destination/$canonical_name"
+          }
+
+          copy_approved "James_sheldon_webb_fable_review.mp3" "James_sheldon_webb.mp3"
+          copy_approved "Marion_beulah_brenay_webb_fable_review.mp3" "Marion_beulah_brenay_webb.mp3"
+          copy_approved "Charles_albert_brenay_fable_review.mp3" "Charles_albert_brenay.mp3"
+          copy_approved "Charles_godfrey_brenay_fable_review.mp3" "Charles_godfrey_brenay.mp3"
+          copy_approved "Ida_mae_gooley_fable_review.mp3" "Ida_mae_gooley.mp3"
+          copy_approved "John_peter_gooley_fable_review.mp3" "John_peter_gooley.mp3"
+          copy_approved "Mary_ann_dennis_fable_review.mp3" "Mary_ann_dennis.mp3"
+
+          find _approved -type f \( -name '*_transcript.txt' -o -name '*_metadata.json' \) -exec cp {} "$destination/review-records/" \;
+          (cd "$destination" && sha256sum *.mp3 > SHA256SUMS.txt)
+
+          cat > "$destination/APPROVAL.md" <<'APPROVAL'
+          # Approved OpenAI Fable narration
+
+          These seven recordings were approved by the project owner on 2026-08-25.
+
+          - Sheldon source artifact: `sheldon-fable-review-1`
+          - Remaining six source artifact: `remaining-fable-reviews-1`
+          - Model: `gpt-4o-mini-tts`
+          - Voice: `fable`
+          - Status: exact approved audio preserved; not yet promoted into the live atlas
+
+          Do not regenerate these files as a substitute for the approved recordings.
+          `SHA256SUMS.txt` locks their exact bytes.
+          APPROVAL
+
+      - name: Commit the approval archive only
+        run: |
+          set -euo pipefail
+          rm -rf _approved
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add approved-audio/fable
+          if git diff --cached --quiet; then
+            echo "The exact approved recordings are already archived."
+            exit 0
+          fi
+          git commit -m "Archive approved Fable narration set"
+          git push
