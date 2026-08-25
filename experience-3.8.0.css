@@ -1,0 +1,133 @@
+/* Ancestry Atlas v3.8.0 — isolated cross-platform presentation layer.
+   Loaded last. It owns viewport fit and responsive composition, never data,
+   biography content, audio, scene timing, or 3-D navigation semantics. */
+
+:root{
+  --aa-visible-width:100vw;
+  --aa-visible-height:100dvh;
+  --aa-touch:44px;
+  --aa-edge-x:max(10px,env(safe-area-inset-left));
+  --aa-edge-y:max(8px,env(safe-area-inset-top));
+  --aa-edge-bottom:max(8px,env(safe-area-inset-bottom));
+}
+
+html,body,#app,#stage{max-width:100%;max-height:var(--aa-visible-height)}
+body.aa-phone #app,body.aa-phone #stage{height:var(--aa-visible-height)!important}
+body.aa-phone #stage{inset:0!important}
+body.aa-phone.aa-overlay-open .mobile-tree-dock,
+body.aa-phone.aa-overlay-open #navModeBadge,
+body.aa-phone.aa-overlay-open #proofNotice{display:none!important}
+
+/* Entry surfaces always sit above the research chrome. */
+body.aa-phone .landing{height:var(--aa-visible-height)!important;padding:14px!important;overflow:auto!important}
+body.aa-phone .landing-card{width:min(100%,620px)!important;max-height:calc(var(--aa-visible-height) - 28px)!important;overflow:auto!important;padding:20px!important}
+body.aa-phone .line-chooser{z-index:1800!important;height:var(--aa-visible-height)!important;padding:12px!important}
+body.aa-phone .line-chooser-card{width:min(100%,620px)!important;max-height:calc(var(--aa-visible-height) - 24px)!important;overflow:auto!important;padding:20px!important}
+body.aa-phone.aa-landscape .line-chooser-card{padding:14px 18px!important}
+body.aa-phone.aa-landscape .line-chooser-card h2{font-size:20px!important}
+body.aa-phone.aa-landscape .line-chooser-card p{margin-bottom:10px!important}
+
+/* Phone tree: the canvas owns the screen; explanation remains available in Menu. */
+body.aa-phone:not(.tour-active):not(.tv-mode) #hud,
+body.aa-phone:not(.tour-active):not(.tv-mode) #timeline,
+body.aa-phone:not(.tour-active):not(.tv-mode) #proofNotice{display:none!important}
+body.aa-phone.mobile-evidence-open:not(.tour-active):not(.tv-mode) #proofNotice{
+  display:block!important;z-index:548!important;top:var(--aa-edge-y)!important;
+  left:var(--aa-edge-x)!important;right:var(--aa-edge-x)!important;max-width:none!important;
+  padding:8px 10px!important;font-size:10px!important;line-height:1.35!important;
+  background:rgba(5,13,19,.96)!important;box-shadow:0 8px 26px rgba(0,0,0,.48)!important;
+  pointer-events:auto!important
+}
+body.aa-phone #navModeBadge{
+  bottom:calc(65px + var(--aa-edge-bottom))!important;max-width:calc(100vw - 24px)!important;
+  padding:5px 9px!important;font-size:9px!important;opacity:.82!important
+}
+body.aa-phone .mobile-tree-dock{
+  left:6px!important;right:6px!important;bottom:var(--aa-edge-bottom)!important;
+  gap:4px!important;padding:5px!important;border-radius:15px!important
+}
+body.aa-phone .mobile-tree-dock button{
+  min-width:0!important;min-height:48px!important;margin:0!important;padding:4px 2px!important;
+  border-radius:11px!important
+}
+body.aa-phone .mobile-tree-dock button span{display:block!important;font-size:20px!important;line-height:21px!important}
+body.aa-phone .mobile-tree-dock button small{display:block!important;margin-top:2px!important;font-size:9px!important;line-height:11px!important}
+body.aa-phone #card{
+  left:8px!important;right:8px!important;bottom:calc(66px + var(--aa-edge-bottom))!important;
+  max-height:min(64vh,560px)!important;padding:14px!important
+}
+body.aa-phone .mobile-tree-menu-sheet{
+  left:8px!important;right:8px!important;bottom:calc(66px + var(--aa-edge-bottom))!important;
+  max-height:calc(var(--aa-visible-height) - 88px)!important;overflow:auto!important
+}
+
+/* Portrait phones use their height for the family rather than preserving a
+   desktop-shaped projection in the middle of the screen. */
+body.aa-phone.aa-portrait:not(.tour-active) canvas{height:var(--aa-visible-height)!important}
+
+/* Tablet: retain research UI, but keep it compact and clear of safe areas. */
+body.aa-tablet #controls{max-height:calc(var(--aa-visible-height) - 24px)!important}
+body.aa-tablet #card{max-height:calc(var(--aa-visible-height) - 100px)!important}
+
+/* Story owns the measured visible viewport on every platform. */
+body.tour-story-open #storyModal,
+body.tour-story-open .story-shell,
+body.tour-story-open #storySceneStrip,
+body.tour-story-open .story-scene-frame,
+body.tour-story-open .story-scene-image{
+  width:var(--aa-visible-width)!important;height:var(--aa-visible-height)!important;
+  max-width:none!important;max-height:none!important
+}
+body.tour-story-open .story-scene-photo{
+  width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;
+  object-fit:contain!important;object-position:center!important
+}
+
+/* Phone story: compact museum labels, maximal photograph, one bottom utility band. */
+body.aa-phone.tour-story-open.story-presentation-v360{--story-edge-x:max(10px,2.7vw,env(safe-area-inset-left));--story-edge-y:max(7px,env(safe-area-inset-top))}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-top{right:30%!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-top .landing-kicker{font-size:8px!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-top h2{font-size:clamp(13px,4.1vw,18px)!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-year{font-size:9px!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption{
+  left:var(--story-edge-x)!important;right:var(--story-edge-x)!important;
+  bottom:calc(var(--aa-edge-bottom) + 42px)!important;display:block!important;
+  max-height:42px!important;white-space:normal!important;overflow:hidden!important
+}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption b,
+body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption span{
+  font-size:clamp(9px,2.75vw,12px)!important;line-height:1.25!important
+}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-controls{
+  left:var(--story-edge-x)!important;bottom:var(--aa-edge-bottom)!important;
+  width:min(245px,52vw)!important;min-width:0!important;grid-template-rows:2px 32px!important
+}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-controls .cd-button{
+  height:32px!important;min-height:32px!important;font-size:13px!important
+}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-context-ribbon{
+  right:var(--story-edge-x)!important;bottom:var(--aa-edge-bottom)!important;
+  max-width:42vw!important;gap:4px!important
+}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-az-flag{width:35px!important;height:22px!important;flex-basis:35px!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card svg.story-route-map{width:92px!important;height:46px!important;flex-basis:92px!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card span{display:none!important}
+
+/* Short landscape viewports, including mirrored iPhone Safari. */
+body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-top{right:23%!important}
+body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-scene-caption{
+  bottom:calc(var(--aa-edge-bottom) + 34px)!important;max-height:32px!important;white-space:nowrap!important
+}
+body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-controls{
+  width:min(230px,38vw)!important;grid-template-rows:2px 27px!important
+}
+body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-controls .cd-button{height:27px!important;min-height:27px!important}
+
+/* Across-room scaling without hard-coding 1080p or 4K. */
+body.aa-large-display.tv-mode #card{font-size:clamp(17px,1.05vw,30px)!important}
+body.aa-large-display.tv-mode #card h3{font-size:clamp(26px,1.65vw,46px)!important}
+body.aa-large-display.tv-mode .tv-presentation-bar button{font-size:clamp(12px,.75vw,20px)!important}
+
+@media(prefers-reduced-motion:reduce){
+  body.aa-phone .mobile-tree-dock,body.tour-story-open .story-scene-photo{transition:none!important}
+}

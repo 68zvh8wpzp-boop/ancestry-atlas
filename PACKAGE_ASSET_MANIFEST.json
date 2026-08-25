@@ -1,15 +1,27 @@
 {
-  "packageVersion": "3.7.4",
-  "inputPackage": "Ancestry_Atlas_v3_7_3_FLAT_GitHub_Package.zip",
+  "packageVersion": "3.8.0-checkpoint",
+  "inputPackage": "Ancestry_Atlas_v3_7_4_CHECKPOINT_AWAITING_MARION_AUDIO.zip",
+  "sourceProductionVersion": "3.7.5",
+  "releaseStatus": "cross-platform visual checkpoint awaiting approved Fable recordings",
   "narration": {
-    "approvedFile": "James_sheldon_webb.mp3",
-    "voice": "Azure Alfie",
-    "required": true,
-    "regenerationAllowed": false,
-    "browserSpeechAllowed": false
+    "approvedVoice": "OpenAI Fable",
+    "model": "gpt-4o-mini-tts",
+    "status": "pending-generation-and-approval",
+    "browserSpeechAllowed": false,
+    "previousAlfiePackageUntouched": true,
+    "expectedFiles": [
+      "James_sheldon_webb.mp3",
+      "Marion_beulah_brenay_webb.mp3",
+      "Charles_albert_brenay.mp3",
+      "Charles_godfrey_brenay.mp3",
+      "Ida_mae_gooley.mp3",
+      "John_peter_gooley.mp3",
+      "Mary_ann_dennis.mp3"
+    ]
   },
   "runtime": [
     "index.html",
+    "manifest.webmanifest",
     "atlas-content.js",
     "atlas-tour-3.6.0.js",
     "atlas-tour-3.6.0.css",
@@ -17,18 +29,27 @@
     "tv-mode-3.7.3.css",
     "story-presentation-3.6.0.js",
     "story-presentation-3.6.0.css",
+    "story-overlays-3.8.0.js",
+    "story-overlays-3.8.0.css",
+    "experience-3.8.0.js",
+    "experience-3.8.0.css",
     "biographies/marion/marion-story-module.js",
-    "biographies/marion/narration-approved-draft.txt",
+    "biographies/marion/narration-approved-photo-context.txt",
     "biographies/marion/story-manifest.json",
     "biographies/marion/overlays.json",
     "biographies/marion/rights-manifest.json",
     "biographies/marion/visual-register.md",
-    "tv-film-3.7.1.js",
-    "tv-film-3.7.1.css",
-    "James_Sheldon_Webb_TV_Presentation_1080p.mp4",
-    "James_Sheldon_Webb_TV_Presentation_poster.jpg",
-    "James_sheldon_webb_exact_captions.vtt",
-    "James_sheldon_webb_film_timing.json"
+    "biographies/sheldon/narration-approved-photo-context.txt",
+    "biographies/brenay-canada/brenay-canada-story-modules.js",
+    "biographies/brenay-canada/narration/charles_albert_brenay.txt",
+    "biographies/brenay-canada/narration/charles_godfrey_brenay.txt",
+    "biographies/brenay-canada/narration/ida_mae_gooley.txt",
+    "biographies/brenay-canada/narration/john_peter_gooley.txt",
+    "biographies/brenay-canada/narration/mary_ann_dennis.txt",
+    "CROSS_PLATFORM_ACCEPTANCE_v3_8_0.md",
+    "PRODUCTION_CONTRACT_v3_8_0.md",
+    "RELEASE_NOTES_v3_8_0_CHECKPOINT.md",
+    "README_DEPLOY_v3_8_0_CHECKPOINT.txt"
   ],
   "approvedBiographyAssets": [
     "jay_marion_mesa_1941.png",
@@ -42,21 +63,29 @@
     "san_diego_highway_1960_65.jpg",
     "usaf_flightline_airmen_1962.jpg",
     "asc_students_sweethearts_ball_1964.jpg",
-    "sheldon_inez_wedding_1965.jpeg"
-    ,"biographies/marion/assets/marion_child_photo_only_sharpened.jpg"
-    ,"biographies/marion/assets/marion_birth_house_candidate_conservative.jpg"
-    ,"biographies/marion/assets/marion_1925_journey_candidate.jpg"
-    ,"biographies/marion/assets/marion_arizona_childhood_candidate.jpg"
-    ,"biographies/marion/assets/marion_school_independence_candidate.jpg"
-    ,"biographies/marion/assets/jay_marion_mesa_1941_restored.jpg"
-    ,"biographies/marion/assets/marion_webb_1945_restored.jpg"
-    ,"biographies/marion/assets/marion_with_diane_candidate_sharpened.jpg"
-    ,"biographies/marion/assets/marion_children_family_photo_candidate.jpg"
-    ,"biographies/marion/assets/marion_family_historian_candidate.jpg"
+    "sheldon_inez_wedding_1965.jpeg",
+    "biographies/marion/assets/marion_child_photo_only_sharpened.jpg",
+    "biographies/marion/assets/marion_birth_house_candidate_conservative.jpg",
+    "biographies/marion/assets/marion_1925_journey_candidate.jpg",
+    "biographies/marion/assets/marion_arizona_childhood_candidate.jpg",
+    "biographies/marion/assets/marion_school_independence_candidate.jpg",
+    "biographies/marion/assets/jay_marion_mesa_1941_restored.jpg",
+    "biographies/marion/assets/marion_webb_1945_restored.jpg",
+    "biographies/marion/assets/marion_with_diane_candidate_sharpened.jpg",
+    "biographies/marion/assets/marion_children_family_photo_candidate.jpg",
+    "biographies/marion/assets/marion_family_historian_candidate.jpg",
+    "biographies/brenay-canada/assets/arnstein_observational_charcoal_approved.png",
+    "biographies/brenay-canada/assets/alpena_churchill_lumber_1912_candidate.jpg",
+    "biographies/brenay-canada/assets/alpena_fire_aftermath_1872_web.jpg",
+    "biographies/brenay-canada/assets/alpena_maltz_block_1895_candidate.jpg",
+    "biographies/brenay-canada/assets/german_emigrants_hamburg_1874_seam_repaired.png",
+    "biographies/brenay-canada/assets/ontario_great_western_station_1867_closer_candidate.jpg",
+    "biographies/brenay-canada/assets/quebec_habitant_farm_1856_candidate.jpg",
+    "biographies/brenay-canada/assets/wwi_registration_day_1917_loc_candidate.jpg"
   ],
   "overlayAssets": [
-    "inline Arizona flag SVG",
-    "inline regional locator SVG"
+    "inline period-appropriate flag SVGs",
+    "inline terrain-aware regional and route SVGs"
   ],
   "networkRequiredForPackagedBiographyAssets": false,
   "rejectedAssetsExcluded": true

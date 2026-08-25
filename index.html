@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<title>Ancestry Atlas v3.7.4</title>
+<title>Ancestry Atlas v3.8.0</title>
 <meta name="theme-color" content="#020609">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -540,7 +540,8 @@ window.addEventListener('error',function(e){
   <link rel="stylesheet" href="atlas-tour-3.6.0.css">
   <link rel="stylesheet" href="tv-mode-3.7.3.css">
   <link rel="stylesheet" href="story-presentation-3.6.0.css">
-  <link rel="stylesheet" href="tv-film-3.7.1.css">
+  <link rel="stylesheet" href="story-overlays-3.8.0.css">
+  <link rel="stylesheet" href="experience-3.8.0.css">
 </head>
 <body>
 
@@ -586,7 +587,7 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Guided Audio-Visual Family Tour</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v3.7.4 • Marion biography module staged</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v3.8.0 • cross-platform preview • Fable audio pending</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop first orients you visibly in the tree, then opens the story. Recorded narration is used only when an approved audio file exists.</p>
   </div>
 </div>
@@ -639,6 +640,10 @@ window.addEventListener('error',function(e){
         <span id="storySceneCaption"></span><span id="storySceneSource" class="story-scene-source"></span>
       </div>
       <div id="storySceneCount" class="story-scene-count"></div>
+      <nav id="storyPreviewImageNav" class="story-preview-image-nav" aria-label="Visual preview navigation" hidden>
+        <button id="storyPreviewImagePrev" type="button" aria-label="Previous image">‹</button>
+        <button id="storyPreviewImageNext" type="button" aria-label="Next image">›</button>
+      </nav>
     </div>
   </div>
 </div>
@@ -693,7 +698,7 @@ window.addEventListener('error',function(e){
 <div id="app">
 <aside id="controls" class="collapsed">
   <button id="controlsToggle">☰ Controls / legend</button>
-  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.7.4</span></h1>
+  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.8.0</span></h1>
   <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay bright; uncertain generations fall progressively into dusk and shadow. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
 
   <div class="section">
@@ -784,21 +789,9 @@ window.addEventListener('error',function(e){
   <div class="mobile-tree-sheet-head"><strong>Tree view</strong><button id="mobileTreeMenuClose" aria-label="Close tree menu">×</button></div>
   <button id="mobileTreeStory">Guided Audio-Visual Family Tour</button>
   <button id="mobileTreeAlbum">Family Album</button>
+  <button id="mobileTreeEvidence" type="button" aria-expanded="false">Evidence key</button>
   <button id="mobileTreeWholeAtlas">Whole Atlas overview</button>
   <button id="mobileTreeStart">Start screen</button>
-</div>
-
-<div id="tvFilmModal" class="tv-film-modal" role="dialog" aria-modal="true" aria-labelledby="tvFilmTitle" aria-hidden="true">
-  <header class="tv-film-head"><div><h2 id="tvFilmTitle">James Sheldon Webb</h2><p>Guided Audio-Visual Family Tour · Azure Alfie narration</p></div><button id="filmClose" class="tv-film-close" type="button" aria-label="Close television presentation">×</button></header>
-  <div class="tv-film-stage">
-    <video id="tvFilmVideo" controls playsinline preload="metadata" poster="James_Sheldon_Webb_TV_Presentation_poster.jpg" x-webkit-airplay="allow" aria-label="James Sheldon Webb guided biography film">
-      <source src="James_Sheldon_Webb_TV_Presentation_1080p.mp4" type="video/mp4">
-      <track kind="captions" srclang="en" label="Exact narration" src="James_sheldon_webb_exact_captions.vtt">
-      The browser could not play the approved television presentation.
-    </video>
-    <div id="tvFilmComplete" class="tv-film-complete"><div><h2>Story complete</h2><button id="filmReplay" type="button">Replay</button><button type="button" data-film-return-tree>Return to Family Tree</button></div></div>
-  </div>
-  <div class="tv-film-actions"><button id="filmFullscreen" class="tv-film-primary" type="button">Watch Full Screen</button><button id="filmChooseTV" type="button">Choose Television</button><button type="button" data-film-return-tree>Return to Family Tree</button><p id="filmConnectionHelp" class="tv-film-help">Full Screen removes the Safari interface. Choose Television sends only the film through AirPlay.</p></div>
 </div>
 
 <div id="tvModeDialog" class="tv-dialog" role="dialog" aria-modal="true" aria-labelledby="tvDialogTitle" aria-hidden="true">
@@ -1106,7 +1099,16 @@ function updateTrail(id,append){
   }
   document.getElementById('trail').textContent='Trail: '+browseTrail.map(x=>nodeById.get(x)?.name).filter(Boolean).join(' › ');
 }
-function targetYForCenter(){ return stage.clientHeight*(isMobile?0.62:0.56); }
+function portraitTreeYScale(){
+  // Phone portrait screens are much taller than the tree's original desktop
+  // projection. Expand only the vertical component so a focused family uses
+  // that height without making labels or horizontal spacing oversized.
+  return isMobile && stage.clientHeight>stage.clientWidth*1.18 ? 1.8 : 1;
+}
+function targetYForCenter(){
+  const portrait=portraitTreeYScale()>1;
+  return stage.clientHeight*(isMobile?(portrait?0.68:0.62):0.56);
+}
 function centerOnNode(id){
   const n=nodeById.get(id); if(!n) return;
   // Make the selected person the actual 3-D origin of the scene.
@@ -1530,7 +1532,13 @@ function openNode(id, recenter=false, appendTrail=false){
   card.querySelector('p').textContent=n.note;
   const biography=(typeof TOUR_MEDIA!=='undefined')?TOUR_MEDIA[id]:null;
   if(biography?.storyReady===false){
-    card.querySelector('p').insertAdjacentHTML('afterend',`<div class="extra dynamic-status biography-preparing" style="border-color:#70a8ff"><strong>GUIDED AUDIO-VISUAL BIOGRAPHY</strong><br>${escapeHtml(biography.unavailableLabel||'Narration recording in preparation')}<div style="margin-top:8px"><button type="button" disabled aria-disabled="true" title="An approved recording is required before playback">Play Story</button></div></div>`);
+    const hasVisualPreview=Array.isArray(biography.scenes)&&biography.scenes.some(scene=>scene?.src);
+    const trackEntry=(typeof BRANCH_TOURS!=='undefined')?Object.entries(BRANCH_TOURS).find(([,tour])=>tour.steps?.some(step=>step.id===id)):null;
+    const track=trackEntry?.[0]||'';
+    const storyIndex=trackEntry?trackEntry[1].steps.findIndex(step=>step.id===id):-1;
+    card.querySelector('p').insertAdjacentHTML('afterend',`<div class="extra dynamic-status biography-preparing" style="border-color:#70a8ff"><strong>GUIDED AUDIO-VISUAL BIOGRAPHY</strong><br>${escapeHtml(biography.unavailableLabel||'Narration recording in preparation')}<div style="margin-top:8px"><button type="button" class="biography-preview" ${hasVisualPreview&&track&&storyIndex>=0?'':'disabled aria-disabled="true"'}>${hasVisualPreview?'Preview Story · audio pending':'Play Story'}</button></div></div>`);
+    const preview=card.querySelector('.biography-preview');
+    if(preview&&!preview.disabled)preview.onclick=()=>window.AncestryTour?.begin?.(track,storyIndex);
   }
   if(n.hold) card.querySelector('p').insertAdjacentHTML('afterend',`<div class="extra dynamic-status" style="border-color:${n.hold.kind==='priority'?'#ff2bd6':'#b8ff3d'}"><strong>${n.hold.kind==='priority'?'▶ IMMEDIATE PROOF TARGET':'▶ DOCUMENT HOLD'}</strong><br>${escapeHtml(n.hold.label)}</div>`);
   if(n.warning) card.querySelector('p').insertAdjacentHTML('afterend',`<div class="extra dynamic-status" style="border-color:#ffd166"><strong>? CAUTION</strong><br>${escapeHtml(n.warning)}</div>`);
@@ -1625,7 +1633,7 @@ function setRotationPivotToViewportCenter(){
   const persp=1/(1+Math.max(-.75,pivotZ*.026));
   const q={
     x:-panX/(scale*persp),
-    y:(h-75-panY-cy)/(scale*.64*persp),
+    y:(h-75-panY-cy)/(scale*.64*portraitTreeYScale()*persp),
     z:pivotZ
   };
 
@@ -1644,7 +1652,7 @@ function project(n){
   const persp=1/(1+Math.max(-.75,p.z*.026));
   return {
     x:w/2+panX+p.x*scale*persp,
-    y:h-75-panY-p.y*scale*.64*persp,
+    y:h-75-panY-p.y*scale*.64*portraitTreeYScale()*persp,
     z:p.z, s:persp, node:n
   };
 }
@@ -1945,7 +1953,7 @@ canvas.addEventListener('wheel',e=>{
   scale=Math.max(25,Math.min(170,scale)); draw();
 },{passive:false});
 
-document.getElementById('close').onclick=()=>{card.style.display='none';selected=null;draw();};
+document.getElementById('close').onclick=()=>{card.style.display='none';draw();};
 document.getElementById('zoomPersonBtn').onclick=()=>setNodeView('person');
 document.getElementById('zoomFamilyBtn').onclick=()=>setNodeView('family');
 document.getElementById('zoomBranchBtn').onclick=()=>setNodeView('branch');
@@ -2100,11 +2108,13 @@ resize();
 
 
 
-<script src="atlas-content.js?v=3.7.4"></script>
+<script src="atlas-content.js?v=3.8.0"></script>
 <script src="biographies/marion/marion-story-module.js?v=1.0.0"></script>
+<script src="biographies/brenay-canada/brenay-canada-story-modules.js?v=1.0.0"></script>
 <script src="atlas-tour-3.6.0.js"></script>
 <script src="tv-mode-3.7.3.js"></script>
 <script src="story-presentation-3.6.0.js"></script>
-<script src="tv-film-3.7.1.js"></script>
+<script src="story-overlays-3.8.0.js"></script>
+<script src="experience-3.8.0.js"></script>
 </body>
 </html>

@@ -12,7 +12,8 @@ const BRANCH_TOURS = {
       {id:'charles_albert', copy:'Charles Albert Brenay was born in Arnstein, Ontario, in 1897. His life connects this family directly to a small northern Ontario community at the end of the nineteenth century.', event:'His lifetime crossed the First World War, the 1918 influenza pandemic, the Great Depression, and the Second World War—events that transformed borders, migration, work, and family life across Canada and the United States.'},
       {id:'charles_godfrey', copy:'Charles Godfrey, also recorded as Gottfried Brenay or Brunne, moved from Germany into the Canadian and Michigan world of this family during the era of mass transatlantic migration.', event:'European mass migration to North America defined this era. Industrialization, steamship travel, and expanding rail networks made transatlantic and cross-border family movement possible on a scale earlier generations could scarcely imagine.'},
       {id:'ida_mae', copy:'Ida Mae Gooley links the Brenay household to a family with roots in Quebec and Ontario. Multiple records make John Peter Gooley and Mary Ann Dennis the strongest parent identification.', event:'Her generation lived through the rapid industrial growth of the Great Lakes region, when Michigan and Ontario were increasingly tied together by lumber, shipping, railways, and migration.'},
-      {id:'john_peter', copy:'John Peter Gooley was born in Quebec in 1842 and later lived in Ontario and Michigan. His exact baptism is still missing, so the tour ends here at one of the most important Canadian research frontiers.', event:'He was born before Canadian Confederation in 1867. During his lifetime, the Province of Canada became part of the new Dominion of Canada, while the neighboring United States passed through the Civil War and Reconstruction.'}
+      {id:'john_peter', copy:'John Peter Gooley was born in Quebec in 1842 and later lived in Ontario and Michigan. His exact baptism is still missing, placing an important research frontier immediately before him.', event:'He was born before Canadian Confederation in 1867. During his lifetime, the Province of Canada became part of the new Dominion of Canada, while the neighboring United States passed through the Civil War and Reconstruction.'},
+      {id:'mary_ann', copy:'Mary Ann Dennis was born in Ontario in 1844. Her documented place in the family is strong, while her exact birthplace and parents remain unresolved.', event:'She grew up as Canada West was transformed by canals, steamships and railways, and lived to see the Dominion of Canada and the increasingly industrial Great Lakes borderland.'}
     ]
   },
   webb: {
@@ -65,16 +66,14 @@ const BRANCH_TOURS = {
 
 const TOUR_MEDIA = {
   james_sheldon: {
-    audio: 'James_sheldon_webb.mp3',
-    narrator: 'Alfie',
-    transcript: "James Sheldon Webb was born on April 11, 1943, in Arizona, while the United States was deep in the Second World War.\n\nHis parents were James Wilford “Jay” Webb and Marion Beulah Brenay Webb. When Sheldon was born, they were living near the mill in a small one-room shack with a lean-to kitchen. Marion remembered bitter cold, heavy snowstorms, and having to walk about a quarter mile just to reach their car.\n\nBeyond their small community, wartime America was transforming the Southwest. Troops and military equipment moved across Arizona, while scientists at Los Alamos, just across the state line in New Mexico, secretly developed the first atomic weapons. In July 1945, when Sheldon was two, the Trinity test ushered in the atomic age.\n\nThe war touched Sheldon much more personally when Jay entered the Army. Marion was left with young Sheldon, little money, and no car, and temporarily moved to stay with Jay’s parents.\n\nThen Sheldon became seriously ill with measles. Marion remembered him covered with red spots. His condition caused enough concern that Jay was allowed to come home briefly. Sheldon recovered.\n\nWhen Jay eventually returned from the war, Marion remembered Sheldon running down the road to meet his father.\n\nThe postwar years were not immediately easy. Jay struggled to find steady work, and the family moved into an old house they repaired themselves. As Sheldon’s brothers and sisters arrived, the household grew around him. Family photographs preserve this period, including Sheldon together with his siblings.\n\nMeanwhile, Arizona was changing rapidly. Highways, automobiles, television, military installations, and Cold War technology were transforming the Southwest. Sheldon grew up between the older world of small-town Arizona and the increasingly modern America emerging after the war.\n\nHe graduated from high school in 1960. Soon afterward, Sheldon and his friend Kenny MacClaron went to California looking for work. Marion recalled that the two young men began considering the Air Force.\n\nSheldon joined and served for about two years before receiving a hardship discharge that allowed him to return home and help his father. He then continued his education and attended college.\n\nIn 1965, Sheldon married Inez Karen Prather, opening the next chapter of the Webb family story.\n\nSheldon’s early life stretched from wartime Arizona through the beginning of the atomic age and the transformation of the postwar Southwest. Behind those enormous events was a more intimate story: a boy growing up amid separation, illness, hard work, family, and extraordinary change.\n\nThat is where Sheldon’s story begins.",
-    contract: 'audio-locked',
+    audio: null,
+    narrator: 'Fable',
+    storyReady: false,
+    unavailableLabel: 'Fable narration pending — approved visual preview available',
+    transcript: "James Sheldon Webb was born on April 11, 1943, in Arizona, while the United States was deep in the Second World War. A family photograph from 1941 preserves Jay and Marion together in Mesa, shortly before Sheldon’s birth.\n\nHis parents were James Wilford “Jay” Webb and Marion Beulah Brenay Webb. When Sheldon was born, they were living near the mill in a small one-room shack with a lean-to kitchen. Marion remembered bitter cold, heavy snowstorms, and having to walk about a quarter mile just to reach their car. Another surviving family photograph shows their first car beside the modest home they occupied as their young family began.\n\nBeyond their small community, wartime America was transforming the Southwest. Troops and military equipment moved across Arizona, while scientists at Los Alamos, just across the state line in New Mexico, secretly developed the first atomic weapons. In July 1945, when Sheldon was two, the Trinity test ushered in the atomic age. A United States government photograph of Trinity’s fireball preserves the event itself, while the family remained across the state line in Arizona.\n\nThe war touched Sheldon much more personally when Jay entered the Army. Marion was left with young Sheldon, little money, and no car, and temporarily moved to stay with Jay’s parents. Marion’s 1945 portrait preserves the young mother who held the household together through that separation.\n\nThen Sheldon became seriously ill with measles. Marion remembered him covered with red spots. His condition caused enough concern that Jay was allowed to come home briefly. Sheldon recovered.\n\nWhen Jay eventually returned from the war, Marion remembered Sheldon running down the road to meet his father.\n\nThe postwar years were not immediately easy. Jay struggled to find steady work, and the family moved into an old house they repaired themselves. As Sheldon’s brothers and sisters arrived, the household grew around him. Family photographs preserve this period, including Sheldon together with his siblings. A photograph of the Vernon house records one of the homes the family repaired, and another surviving picture places Sheldon among the brothers and sisters whose arrivals transformed the household around him.\n\nMeanwhile, Arizona was changing rapidly. Highways, automobiles, television, military installations, and Cold War technology were transforming the Southwest. Sheldon grew up between the older world of small-town Arizona and the increasingly modern America emerging after the war.\n\nHe graduated from high school in 1960. Soon afterward, Sheldon and his friend Kenny MacClaron went to California looking for work. Marion recalled that the two young men began considering the Air Force.\n\nSheldon joined and served for about two years before receiving a hardship discharge that allowed him to return home and help his father. He then continued his education and attended college.\n\nIn 1965, Sheldon married Inez Karen Prather, opening the next chapter of the Webb family story. Their 1965 wedding photograph preserves Sheldon and Inez at the beginning of that new chapter.\n\nSheldon’s early life stretched from wartime Arizona through the beginning of the atomic age and the transformation of the postwar Southwest. Behind those enormous events was a more intimate story: a boy growing up amid separation, illness, hard work, family, and extraordinary change.\n\nThat is where Sheldon’s story begins.",
+    contract: 'approved-photo-context-awaiting-fable',
     visualStatus: 'archival-first',
-    audioCandidates: [
-      'James_sheldon_webb.mp3',
-      'James_sheldon_webb',
-      'james_sheldon_webb.mp3'
-    ],
+    audioCandidates: [],
     scenes: [
       {
         src:'jay_marion_mesa_1941.png',
@@ -82,7 +81,7 @@ const TOUR_MEDIA = {
         caption:'James Wilford “Jay” Webb and Marion Beulah Brenay Webb in Mesa, 1941.',
         source:'Family archive • Marion Beulah Brenay Webb life story, p. 14',
         triggerParagraph:0,
-        locator:'Arizona • 1941',
+        locator:'Arizona • 1941',flagKey:'arizona-1917',mapKey:'arizona-statewide',
         visualType:'family-photo'
       },
       {
@@ -91,7 +90,7 @@ const TOUR_MEDIA = {
         caption:'Jay and Marion’s first car and second home, immediately before Sheldon’s birth-era story.',
         source:'Family archive • Marion Beulah Brenay Webb life story, p. 15',
         triggerParagraph:1,
-        locator:'Arizona • 1942–43',
+        locator:'Arizona • 1942–43',flagKey:'arizona-1917',mapKey:'white-mountains',
         visualType:'family-photo'
       },
       {
@@ -100,7 +99,7 @@ const TOUR_MEDIA = {
         caption:'The Trinity test in New Mexico, 16 July 1945.',
         source:'Berlyn Brixner • U.S. Government • public domain',
         triggerParagraph:2,
-        locator:'Arizona / New Mexico • 1943–45',
+        locator:'Arizona / New Mexico • 1943–45',flagKey:'united-states-48-star',mapKey:'southwest-trinity',
         visualType:'archival-photo'
       },
       {
@@ -109,7 +108,7 @@ const TOUR_MEDIA = {
         caption:'Marion’s 1945 portrait. Her account describes raising young Sheldon during Jay’s wartime absence.',
         source:'Family archive • Marion Beulah Brenay Webb life story, p. 16',
         triggerParagraph:3,
-        locator:'Arizona / Utah • wartime years',
+        locator:'Arizona / Utah • wartime years',flagKey:'united-states-48-star',mapKey:'four-corners',
         visualType:'family-photo'
       },
       {
@@ -118,7 +117,7 @@ const TOUR_MEDIA = {
         caption:'Evidence-safe charcoal scene representing illness and uncertainty without inventing Sheldon’s likeness.',
         source:'Approved wide charcoal scene • distant, non-likeness figures',
         triggerParagraph:4,
-        locator:'American Southwest • 1940s',
+        locator:'American Southwest • 1940s',flagKey:'united-states-48-star',mapKey:'southwest-regional',
         visualType:'charcoal-alternate'
       },
       {
@@ -127,7 +126,7 @@ const TOUR_MEDIA = {
         caption:'A family photograph of the Vernon home during Sheldon’s early childhood.',
         source:'Family archive • Marion Beulah Brenay Webb life story, p. 17',
         triggerParagraph:5,
-        locator:'Vernon, Arizona • 1945',
+        locator:'Vernon, Arizona • 1945',flagKey:'arizona-1917',mapKey:'white-mountains',
         visualType:'family-photo'
       },
       {
@@ -136,7 +135,7 @@ const TOUR_MEDIA = {
         caption:'The family photograph is captioned “Drinette, Daphne, Darwin, Diane and Sheldon.”',
         source:'Family archive • Marion Beulah Brenay Webb life story, p. 18',
         triggerParagraph:6,
-        locator:'Arizona • early 1950s',
+        locator:'Arizona • early 1950s',flagKey:'arizona-1917',mapKey:'white-mountains',
         visualType:'family-photo'
       },
       {
@@ -145,7 +144,7 @@ const TOUR_MEDIA = {
         caption:'Road and public-works construction in postwar Arizona.',
         source:'U.S. Forest Service archival photograph • public domain',
         triggerParagraph:7,
-        locator:'Arizona • 1950s',
+        locator:'Arizona • 1950s',flagKey:'arizona-1917',mapKey:'arizona-statewide',
         visualType:'archival-photo'
       },
       {
@@ -154,7 +153,7 @@ const TOUR_MEDIA = {
         caption:'Southern California highway traffic in the early 1960s.',
         source:'Library of Congress • Bernard Gotfryd collection • no known restrictions',
         triggerParagraph:8,
-        locator:'Arizona → California • 1960',
+        locator:'Arizona → California • 1960',flagKey:'united-states-50-star',mapKey:'arizona-california',
         visualType:'archival-photo'
       },
       {
@@ -163,7 +162,7 @@ const TOUR_MEDIA = {
         caption:'Airmen and vehicles on a United States Air Force flight line in 1962.',
         source:'United States Air Force archival photograph • public domain',
         triggerParagraph:9,
-        locator:'United States • early 1960s',
+        locator:'United States • early 1960s',flagKey:'united-states-50-star',mapKey:'united-states-context',
         visualType:'archival-photo'
       },
       {
@@ -173,7 +172,7 @@ const TOUR_MEDIA = {
         source:'La Cuesta, 1964 • no copyright—United States',
         triggerParagraph:9,
         triggerFraction:.72,
-        locator:'Flagstaff, Arizona • 1964',
+        locator:'Flagstaff, Arizona • 1964',flagKey:'arizona-1917',mapKey:'arizona-flagstaff',
         visualType:'archival-photo'
       },
       {
@@ -182,7 +181,7 @@ const TOUR_MEDIA = {
         caption:'Sheldon Webb and Inez Karen Prather at their wedding in 1965.',
         source:'Family archive',
         triggerParagraph:10,
-        locator:'Arizona • 1965',
+        locator:'Arizona • 1965',flagKey:'arizona-1917',mapKey:'arizona-statewide',
         visualType:'family-photo'
       }
     ]

@@ -29,5 +29,5 @@
   if(person)observer.observe(person,{childList:true,characterData:true,subtree:true});
   if(locator)observer.observe(locator,{childList:true,characterData:true,subtree:true});
   sync();
-  document.addEventListener('click',event=>{if(!event.target.closest('#tvStartMode,#tvInstructionsStart,#tourWatchHere,#storyPlayPause'))return;if(!window.matchMedia('(display-mode: standalone)').matches)return;const lock=screen.orientation?.lock;if(typeof lock==='function')lock.call(screen.orientation,'landscape').catch(()=>{})});
+  document.addEventListener('click',event=>{if(!event.target.closest('#tvStartMode,#tvInstructionsStart')&&!body.classList.contains('tv-mode'))return;if(!window.matchMedia('(display-mode: standalone)').matches)return;const lock=screen.orientation?.lock;if(typeof lock==='function')lock.call(screen.orientation,'landscape').catch(()=>{})});
 })();

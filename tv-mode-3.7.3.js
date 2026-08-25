@@ -1,4 +1,4 @@
-/* Ancestry Atlas v3.7.3 — complete routing; Webb TV playback is always direct media. */
+/* Ancestry Atlas v3.8.0 checkpoint — TV routing supports interactive visual previews while approved Fable media is pending. */
 (()=>{
   'use strict';
   const $=id=>document.getElementById(id);
@@ -19,7 +19,14 @@
     try{return {selected,originNodeId,pivotWorld:{...pivotWorld},pivotCamera:{...pivotCamera},rotX,rotY,scale,panX,panY,nodeViewLevel};}catch(e){return null;}
   }
   function currentSelection(){try{return selected||null}catch(e){return null}}
-  function selectedHasStory(){try{return currentSelection()==='james_sheldon' && !!TOUR_MEDIA?.james_sheldon?.scenes?.length}catch(e){return false}}
+  function selectedMedia(){try{return TOUR_MEDIA?.[currentSelection()]||null}catch(e){return null}}
+  function selectedHasStory(){return !!selectedMedia()?.scenes?.length}
+  function selectedHasCompletedFilm(){try{return currentSelection()==='james_sheldon'&&TOUR_MEDIA?.james_sheldon?.storyReady!==false&&!!window.AncestryTVFilm}catch(e){return false}}
+  function selectedTourPosition(){
+    const id=currentSelection();
+    try{for(const [track,tour] of Object.entries(BRANCH_TOURS||{})){const index=tour.steps?.findIndex(step=>step.id===id)??-1;if(index>=0)return {track,index}}}catch(e){}
+    return null;
+  }
   function updateStateLabel(){
     syncViewportMetrics();
     const story=body.classList.contains('tour-story-open');
@@ -44,7 +51,7 @@
     state.pendingTrack=track;
     branchChoice.hidden=true;viewingChoice.hidden=false;
     $('tourSelectedLine').textContent=trackNames[track]||track;
-    const completedFilm=track==='webb'&&!!window.AncestryTVFilm;
+    const completedFilm=track==='webb'&&TOUR_MEDIA?.james_sheldon?.storyReady!==false&&!!window.AncestryTVFilm;
     if($('tourViewingHelp')) $('tourViewingHelp').firstChild.textContent=completedFilm?'Choose how you want to watch ':'Choose where you want to explore ';
     if($('tourWatchHere')) $('tourWatchHere').textContent=completedFilm?'Watch Full Screen':'Watch on this device';
     if($('tourWatchTV')){
@@ -59,7 +66,7 @@
     if(!state.pendingTrack)return;
     const track=state.pendingTrack;state.pendingTrack=null;state.awaitingLandscape=false;
     rotateNotice.hidden=true;resetTourChoice();
-    if(track==='webb'&&window.AncestryTVFilm?.open){leave({keepFullscreen:true});window.AncestryTVFilm.open({intent:'television'});return}
+    if(track==='webb'&&TOUR_MEDIA?.james_sheldon?.storyReady!==false&&window.AncestryTVFilm?.open){leave({keepFullscreen:true});window.AncestryTVFilm.open({intent:'television'});return}
     window.AncestryTour?.begin?.(track,0);
   }
   function focusables(root){return [...root.querySelectorAll('button:not([hidden]):not([disabled]),[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(el=>!el.closest('[hidden]'))}
@@ -129,8 +136,8 @@
     const button=event.target.closest('[data-launch-track]');if(!button)return;
     event.preventDefault();event.stopImmediatePropagation();showViewingChoice(button.dataset.launchTrack);
   },true);
-  $('tourWatchHere')?.addEventListener('click',()=>{const track=state.pendingTrack;if(track==='webb'&&window.AncestryTVFilm?.open){window.AncestryTVFilm.open({intent:'fullscreen'});return}state.pendingTrack=null;resetTourChoice();if(track)window.AncestryTour?.begin?.(track,0)});
-  $('tourWatchTV')?.addEventListener('click',()=>{if(state.pendingTrack==='webb'&&window.AncestryTVFilm?.open)window.AncestryTVFilm.open({intent:'television'});else openDialog()});
+  $('tourWatchHere')?.addEventListener('click',()=>{const track=state.pendingTrack;if(track==='webb'&&TOUR_MEDIA?.james_sheldon?.storyReady!==false&&window.AncestryTVFilm?.open){window.AncestryTVFilm.open({intent:'fullscreen'});return}state.pendingTrack=null;resetTourChoice();if(track)window.AncestryTour?.begin?.(track,0)});
+  $('tourWatchTV')?.addEventListener('click',()=>{if(state.pendingTrack==='webb'&&TOUR_MEDIA?.james_sheldon?.storyReady!==false&&window.AncestryTVFilm?.open)window.AncestryTVFilm.open({intent:'television'});else openDialog()});
   $('tourWatchInteractive')?.addEventListener('click',()=>{const track=state.pendingTrack;state.pendingTrack=null;resetTourChoice();if(track)window.AncestryTour?.begin?.(track,0)});
   $('tourChoiceBack')?.addEventListener('click',()=>{state.pendingTrack=null;resetTourChoice();document.querySelector('#lineChooser [data-launch-track]')?.focus()});
   $('lineChooserClose')?.addEventListener('click',()=>{state.pendingTrack=null;resetTourChoice()});
@@ -138,7 +145,7 @@
   $('tvRotateCancel')?.addEventListener('click',()=>leave());
   dialog?.addEventListener('pointerdown',event=>{if(event.target===dialog)closeDialog()});
   $('tvExitMode')?.addEventListener('click',()=>leave());$('tvToggleLegend')?.addEventListener('click',event=>{const open=body.classList.toggle('tv-legend-open');$('controls')?.classList.toggle('collapsed',!open);event.currentTarget.setAttribute('aria-expanded',String(open));event.currentTarget.textContent=open?'Hide legend':'Show legend';revealControls()});
-  $('tvPlayStory')?.addEventListener('click',()=>{if(!selectedHasStory())return;leave({keepFullscreen:true});window.AncestryTVFilm?.open?.({intent:'television'})});$('tvReturnTree')?.addEventListener('click',returnToTree);$('tvCompleteReturn')?.addEventListener('click',returnToTree);$('tvReplay')?.addEventListener('click',replay);
+  $('tvPlayStory')?.addEventListener('click',()=>{if(!selectedHasStory())return;if(selectedHasCompletedFilm()){leave({keepFullscreen:true});window.AncestryTVFilm.open({intent:'television'});return}const position=selectedTourPosition();if(position)window.AncestryTour?.begin?.(position.track,position.index)});$('tvReturnTree')?.addEventListener('click',returnToTree);$('tvCompleteReturn')?.addEventListener('click',returnToTree);$('tvReplay')?.addEventListener('click',replay);
   ['pointermove','pointerdown','touchstart','keydown','focusin'].forEach(type=>document.addEventListener(type,revealControls,{passive:type!=='keydown'}));
   document.addEventListener('keydown',event=>{
     if(!state.active)return;

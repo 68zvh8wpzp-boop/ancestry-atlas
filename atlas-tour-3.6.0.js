@@ -170,6 +170,10 @@ function candidateAudioUrls(media){
   return [...new Set(names)].map(name=>new URL(name,window.location.href).href + (name.includes('?')?'&':'?') + 'atlas=2.3.0');
 }
 
+function narratorLabel(media){
+  return String(media?.narrator||'Recorded narrator').trim();
+}
+
 function attachAudioEvents(audio,media,candidates,index){
   audio.preload='auto';
   audio.muted=state.muted;
@@ -179,26 +183,26 @@ function attachAudioEvents(audio,media,candidates,index){
   audio.addEventListener('loadedmetadata',()=>{
     if(state.audioLoadTimer){clearTimeout(state.audioLoadTimer);state.audioLoadTimer=null;}
     state.audioReady=true;
-    setStatus(`Alfie ready • ${Math.round(audio.duration||0)} sec • paused`,'ready');
+    setStatus(`${narratorLabel(media)} ready • ${Math.round(audio.duration||0)} sec • paused`,'ready');
     setTransport();
   });
   audio.addEventListener('canplay',()=>{
     if(state.audioLoadTimer){clearTimeout(state.audioLoadTimer);state.audioLoadTimer=null;}
     state.audioReady=true;
-    setStatus('Alfie ready • paused','ready');
+    setStatus(`${narratorLabel(media)} ready • paused`,'ready');
     setTransport();
   });
   audio.addEventListener('timeupdate',()=>syncNarrationProgress(audio));
   audio.addEventListener('play',()=>{
-    setStatus('Alfie playing','playing');
+    setStatus(`${narratorLabel(media)} playing`,'playing');
     setTransport();
   });
   audio.addEventListener('pause',()=>{
-    if(!audio.ended) setStatus('Alfie paused','ready');
+    if(!audio.ended) setStatus(`${narratorLabel(media)} paused`,'ready');
     setTransport();
   });
   audio.addEventListener('ended',()=>{
-    setStatus('Alfie narration complete','ready');
+    setStatus(`${narratorLabel(media)} narration complete`,'ready');
     setMeter(100);
     setTransport();
   });
@@ -213,7 +217,7 @@ function attachAudioEvents(audio,media,candidates,index){
       state.audioReady=false;
       state.audioUnavailable=true;
       state.audio=null;
-      setStatus('Alfie recording not found in the published site','error');
+      setStatus(`${narratorLabel(media)} recording not found in the published site`,'error');
       setTransport();
     }
   },{once:true});
@@ -229,7 +233,7 @@ function prepareAudio(step){
   }
 
   const candidates=candidateAudioUrls(media);
-  setStatus('Loading Alfie recording…','loading');
+  setStatus(`Loading ${narratorLabel(media)} recording…`,'loading');
   const audio=new Audio(candidates[0]);
   attachAudioEvents(audio,media,candidates,0);
   audio.load();
@@ -238,7 +242,7 @@ function prepareAudio(step){
       try{audio.pause();audio.removeAttribute('src');audio.load();}catch(e){}
       state.audioUnavailable=true;
       state.audio=null;
-      setStatus('The approved Alfie recording is unavailable. You can return to the tree or exit TV Mode.','error');
+      setStatus(`The approved ${narratorLabel(media)} recording is unavailable. You can return to the tree or exit TV Mode.`,'error');
       setTransport();
     }
   },8000);
@@ -426,6 +430,7 @@ function showStoryScene(media,index){
   const scene=scenes[index];
   state.activeScene=index;
   updateLocator(scene);
+  document.dispatchEvent(new CustomEvent('ancestryatlas:scenechange',{detail:{scene,index,media,personId:currentStep()?.id||null}}));
 
   if(els.sceneTitle) els.sceneTitle.textContent=scene.title||'';
   if(els.sceneCaption) els.sceneCaption.textContent=scene.caption||'';
@@ -462,6 +467,13 @@ function showStoryScene(media,index){
   };
   img.src=new URL(scene.src,window.location.href).href + (scene.src.includes('?')?'&':'?') + 'atlas=3.1.0';
   if(img.complete && img.naturalWidth>0) reveal();
+}
+
+function previewScene(delta){
+  const media=TOUR_MEDIA[currentStep()?.id];
+  const scenes=Array.isArray(media?.scenes)?media.scenes:[];
+  if(media?.audio||scenes.length<2)return;
+  showStoryScene(media,clamp((state.activeScene<0?0:state.activeScene)+delta,0,scenes.length-1));
 }
 
 function syncNarrationProgress(audio){
@@ -827,6 +839,6 @@ $('mobileTreeStart')?.addEventListener('click',()=>{
   els.landing?.classList.remove('hidden');
 });
 
-window.AncestryTour={begin,exit:exitTour,state};
+window.AncestryTour={begin,exit:exitTour,state,mobileTree,mobileFocus,mobileBack,mobileExpand,previewScene};
 setTransport();
 })();
