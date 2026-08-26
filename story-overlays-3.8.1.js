@@ -11,6 +11,8 @@
   if(!flag||!mapCard)return;
 
   const maps={
+    'arizona-mesa-regional':{base:'southwest',focus:[103,72],labels:[[103,67,'Mesa'],[122,58,'St. Johns'],[104,46,'ARIZONA']]},
+    'mesa-to-st-johns':{base:'southwest',route:[[103,72],[122,63]],labels:[[100,80,'Mesa'],[125,58,'St. Johns'],[104,46,'ARIZONA']]},
     'great-lakes-to-southwest':{base:'us',route:[[133,24],[43,63],[48,72],[55,77]],labels:[[133,21,'Saginaw'],[55,85,'Mesa']]},
     'depression-western-moves':{base:'four',route:[[52,61],[38,62],[105,31],[81,17],[66,4],[52,61]],labels:[[52,68,'Mesa'],[66,9,'Salt Lake']]},
     'mesa-to-lakeside':{base:'az',route:[[73,68],[125,35]],labels:[[72,77,'Mesa'],[123,29,'Lakeside']]},
@@ -72,6 +74,14 @@
     add(svg,'path',{class:'map-border',d:'M83 9 L78 79 M112 9 L117 80'});
   }
 
+  function southwestBase(svg){
+    add(svg,'rect',{class:'map-land',x:4,y:4,width:172,height:84,rx:2});
+    add(svg,'path',{class:'map-border',d:'M42 5 L48 42 L39 82 M78 5 L75 42 L92 87 M119 5 L117 43 L126 87 M4 43 L176 43'});
+    add(svg,'path',{class:'map-water',d:'M52 5 C49 18 55 30 50 43 C45 56 50 69 43 87 M87 44 C92 55 96 64 103 74'});
+    add(svg,'path',{class:'map-terrain',d:'M24 12 C35 20 28 31 40 39 M62 11 C72 19 64 31 77 39 M132 12 C123 22 138 31 126 40 M139 51 C128 62 144 70 132 82'});
+    [['CA',23,68],['NV',55,30],['UT',96,29],['AZ',101,65],['NM',144,65],['CO',145,29]].forEach(([t,x,y])=>{const n=add(svg,'text',{x,y});n.textContent=t});
+  }
+
   function greatBase(svg){
     add(svg,'path',{class:'map-land',d:'M9 8 H171 V84 H9 Z'});
     add(svg,'path',{class:'map-water',d:'M64 29 C71 21 84 22 88 31 C93 41 85 48 77 45 C69 43 61 37 64 29 Z M91 29 C99 21 113 22 119 31 C112 38 103 43 94 39 Z M91 47 C104 41 119 43 127 51 C117 59 101 59 91 53 Z M122 55 C135 51 146 55 152 62 C141 68 129 67 122 61 Z'});
@@ -98,7 +108,7 @@
     const spec=maps[scene?.mapKey]||maps['arizona-statewide'];
     const old=mapCard.querySelector('svg');
     const svg=el('svg',{class:'story-route-map',viewBox:'0 0 180 92',role:'img','aria-label':`${scene?.locator||'Family location'} regional route map`});
-    if(spec.base==='us')usBase(svg);else if(spec.base==='four')fourBase(svg);else if(spec.base==='great')greatBase(svg);else if(spec.base==='atlantic')atlanticBase(svg);else if(spec.base==='europe')europeBase(svg);else arizonaBase(svg);
+    if(spec.base==='us')usBase(svg);else if(spec.base==='four')fourBase(svg);else if(spec.base==='southwest')southwestBase(svg);else if(spec.base==='great')greatBase(svg);else if(spec.base==='atlantic')atlanticBase(svg);else if(spec.base==='europe')europeBase(svg);else arizonaBase(svg);
     if(spec.route?.length){
       add(svg,'polyline',{class:`map-route${scene?.routeStatus==='unresolved'?' unresolved':''}`,points:spec.route.map(point=>point.join(',')).join(' ')});
       spec.route.forEach((point,index)=>add(svg,'circle',{class:index===spec.route.length-1?'map-focus':'map-stop',cx:point[0],cy:point[1],r:index===spec.route.length-1?3.6:2.6}));
