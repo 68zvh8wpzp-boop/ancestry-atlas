@@ -17,6 +17,7 @@ body.aa-phone #stage{inset:0!important}
 body.aa-phone.aa-overlay-open .mobile-tree-dock,
 body.aa-phone.aa-overlay-open #navModeBadge,
 body.aa-phone.aa-overlay-open #proofNotice{display:none!important}
+body.aa-phone.tour-active #proofNotice{display:none!important}
 body.aa-phone:has(#albumModal.open) .mobile-tree-dock,
 body.aa-phone:has(#docModal.open) .mobile-tree-dock,
 body.aa-phone:has(#lineChooser.open) .mobile-tree-dock{display:none!important}
@@ -102,41 +103,39 @@ body.aa-phone.tour-story-open.story-presentation-v360 .story-top h2{font-size:cl
 body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-year{font-size:9px!important}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption{
   left:var(--story-edge-x)!important;right:var(--story-edge-x)!important;
-  bottom:calc(var(--aa-edge-bottom) + 70px)!important;display:grid!important;gap:5px!important;
-  max-height:min(24vh,150px)!important;padding:9px 11px!important;white-space:normal!important;overflow:auto!important;
-  border-left:3px solid rgba(227,193,126,.9)!important;background:rgba(2,7,10,.86)!important
+  bottom:calc(var(--aa-edge-bottom) + 56px)!important;display:grid!important;gap:2px!important;
+  height:50px!important;max-height:50px!important;padding:6px 9px!important;white-space:normal!important;overflow:hidden!important;
+  border-left:2px solid rgba(227,193,126,.9)!important;background:linear-gradient(90deg,rgba(2,7,10,.90),rgba(2,7,10,.58))!important
 }
 body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption b,
 body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption span{
   font-size:clamp(9px,2.75vw,12px)!important;line-height:1.25!important
 }
+body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-source{display:none!important}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-controls{
-  left:var(--story-edge-x)!important;right:var(--story-edge-x)!important;bottom:var(--aa-edge-bottom)!important;
-  width:auto!important;min-width:0!important;grid-template-rows:2px 42px!important
+  left:var(--story-edge-x)!important;right:auto!important;bottom:var(--aa-edge-bottom)!important;
+  width:52vw!important;min-width:0!important;grid-template-rows:2px 42px!important
 }
 body.aa-phone.tour-story-open.story-presentation-v360 .story-controls .cd-button{
   height:42px!important;min-height:42px!important;font-size:18px!important
 }
 body.aa-phone.tour-story-open.story-presentation-v360 .story-context-ribbon{
-  left:auto!important;right:var(--story-edge-x)!important;top:calc(var(--story-edge-y) + 70px)!important;bottom:auto!important;
-  width:92px!important;height:38px!important;max-width:none!important;padding:0!important;
-  border:1px solid rgba(217,199,166,.55)!important;border-radius:999px!important;background:rgba(17,15,12,.9)!important;
+  left:auto!important;right:var(--story-edge-x)!important;top:auto!important;bottom:var(--aa-edge-bottom)!important;
+  width:42vw!important;height:46px!important;max-width:none!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:5px!important;padding:4px!important;
+  border:1px solid rgba(217,199,166,.42)!important;border-radius:7px!important;background:rgba(3,10,15,.88)!important;
   pointer-events:auto!important
 }
-body.aa-phone.tour-story-open.story-presentation-v360 .story-context-ribbon::before{
-  content:'Map + flag';position:absolute;inset:0;display:grid;place-items:center;color:#f1e4cc;font:600 11px system-ui;letter-spacing:.02em;pointer-events:none
-}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-context-ribbon::before{content:none!important}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-context-ribbon .story-az-flag,
-body.aa-phone.tour-story-open.story-presentation-v360 .story-context-ribbon .story-locator-card{opacity:0!important}
-body.aa-phone.tour-story-open.story-presentation-v360 .story-context-ribbon .story-locator-card{position:absolute!important;inset:0!important;cursor:pointer!important}
-body.aa-phone.tour-story-open.story-presentation-v360 .story-az-flag{width:68px!important;height:43px!important;flex-basis:68px!important;border:1px solid rgba(255,255,255,.68)!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-context-ribbon .story-locator-card{opacity:1!important;position:relative!important;inset:auto!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-az-flag{width:45px!important;height:29px!important;flex-basis:45px!important;border:2px solid rgba(232,220,194,.72)!important;filter:saturate(.86) sepia(.08)!important}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card{cursor:pointer!important}
-body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card svg.story-route-map{width:min(52vw,220px)!important;height:auto!important;flex-basis:min(52vw,220px)!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card svg.story-route-map{width:104px!important;height:38px!important;flex-basis:104px!important}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card span{display:none!important}
 body.aa-phone.tour-story-open.story-presentation-v360.story-map-expanded .story-context-ribbon{
-  left:var(--story-edge-x)!important;right:var(--story-edge-x)!important;top:calc(var(--story-edge-y) + 66px)!important;bottom:calc(var(--aa-edge-bottom) + 66px)!important;
+  left:var(--story-edge-x)!important;right:var(--story-edge-x)!important;top:calc(var(--story-edge-y) + 58px)!important;bottom:calc(var(--aa-edge-bottom) + 58px)!important;
   width:auto!important;height:auto!important;border-radius:12px!important;display:flex!important;flex-direction:column!important;
-  justify-content:center!important;gap:18px!important;padding:18px!important;background:rgba(24,20,14,.97)!important
+  justify-content:center!important;gap:14px!important;padding:18px!important;background:#071018!important
 }
 body.aa-phone.tour-story-open.story-presentation-v360.story-map-expanded .story-context-ribbon::before{content:''}
 body.aa-phone.tour-story-open.story-presentation-v360.story-map-expanded .story-context-ribbon .story-az-flag,
@@ -163,7 +162,7 @@ body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-contro
 }
 body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-controls .cd-button{height:34px!important;min-height:34px!important}
 body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-context-ribbon{
-  left:auto!important;top:calc(var(--story-edge-y) + 52px)!important;max-width:92px!important
+  left:auto!important;top:auto!important;max-width:42vw!important
 }
 
 /* Across-room scaling without hard-coding 1080p or 4K. */
