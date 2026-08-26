@@ -1,0 +1,64 @@
+{
+  "manifestVersion": 1,
+  "personId": "marion_brenay",
+  "purpose": "Compact flag and regional locator overlays for Marion's guided biography",
+  "displayRules": {
+    "showFlag": true,
+    "showMap": true,
+    "mapMustShowRegionalContext": true,
+    "avoidHyperlocalCrop": true,
+    "safeAreaPlacement": "same horizontal presentation bar as compact story controls",
+    "portraitFallback": "flag and map remain visible; labels may collapse before either graphic is removed",
+    "historicalAccuracy": "Use the flag appropriate to the scene date and jurisdiction"
+  },
+  "flags": {
+    "michigan-1923": {
+      "label": "Michigan",
+      "design": "Michigan state flag",
+      "note": "Opening birthplace scene"
+    },
+    "arizona-1917": {
+      "label": "Arizona",
+      "design": "Arizona state flag adopted in 1917",
+      "note": "Default for Arizona childhood and family scenes"
+    },
+    "united-states-48-star": {
+      "label": "United States",
+      "design": "48-star United States flag",
+      "note": "Second World War scene"
+    }
+  },
+  "maps": {
+    "great-lakes-to-southwest": {
+      "bounds": "continental United States",
+      "routeLabels": ["Saginaw", "Needles", "Parker", "Mesa"],
+      "emphasis": "Michigan-to-Arizona movement"
+    },
+    "depression-western-moves": {
+      "bounds": "Arizona, Utah, and Four Corners region",
+      "routeLabels": ["Mesa", "Buckeye", "Nutrioso", "Blanding", "Salt Lake City", "Mesa"],
+      "emphasis": "Repeated farm and work-driven moves"
+    },
+    "mesa-to-lakeside": {
+      "bounds": "Arizona with statewide context",
+      "routeLabels": ["Mesa", "Lakeside"],
+      "emphasis": "Health and farm opportunity"
+    },
+    "white-mountains": {
+      "bounds": "Northeastern Arizona within statewide context",
+      "routeLabels": ["Lakeside", "St. Johns", "Vernon", "Forestdale", "Hilltop"],
+      "emphasis": "Courtship, marriage, wartime support, and timber work"
+    }
+  },
+  "sceneAssignments": [
+    { "scene": "marion-01-birth", "flag": "michigan-1923", "map": "great-lakes-to-southwest" },
+    { "scene": "marion-02-westward", "flag": "arizona-1917", "map": "great-lakes-to-southwest" },
+    { "scene": "marion-03-depression-moves", "flag": "arizona-1917", "map": "depression-western-moves" },
+    { "scene": "marion-04-childhood-work", "flag": "arizona-1917", "map": "depression-western-moves" },
+    { "scene": "marion-05-lakeside", "flag": "arizona-1917", "map": "mesa-to-lakeside" },
+    { "scene": "marion-06-jay", "flag": "arizona-1917", "map": "white-mountains" },
+    { "scene": "marion-07-war", "flag": "united-states-48-star", "map": "white-mountains" },
+    { "scene": "marion-08-postwar-family", "flag": "arizona-1917", "map": "white-mountains" },
+    { "scene": "marion-09-historian", "flag": "arizona-1917", "map": "white-mountains" }
+  ]
+}

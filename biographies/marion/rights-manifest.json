@@ -1,0 +1,50 @@
+{
+  "manifestVersion": 1,
+  "personId": "marion_brenay",
+  "reviewed": "2026-08-24",
+  "collectionRights": {
+    "name": "Farm Security Administration/Office of War Information Black-and-White Negatives",
+    "repository": "Library of Congress Prints and Photographs Division",
+    "rights": "No known restrictions; Library of Congress states the collection contents are in the public domain and free to use and reuse.",
+    "rightsUrl": "https://www.loc.gov/pictures/collection/fsa/"
+  },
+  "assets": [
+    {
+      "file": "visual_candidates/marion_1925_journey_candidate.jpg",
+      "title": "Mrs. Elmer Thomas, migrant to California, putting the front seat of their truck in place preparatory to departure from Muskogee, Oklahoma",
+      "creator": "Russell Lee",
+      "date": "1939-07",
+      "repository": "Library of Congress, FSA/OWI Collection",
+      "collectionRecord": "https://www.loc.gov/pictures/item/2004674131/",
+      "rights": "No known restrictions",
+      "use": "Context only; not the Brenay family and not their 1925 vehicle",
+      "verification": "Collection and exact catalog title verified; direct individual Library of Congress item URL remains to be attached before packaging"
+    },
+    {
+      "file": "visual_candidates/marion_arizona_childhood_candidate.jpg",
+      "title": "Children at the FSA (Farm Security Administration) Camelback Farms, Phoenix, Arizona",
+      "creator": "Russell Lee",
+      "date": "1942-02/1942-03",
+      "repository": "Library of Congress, FSA/OWI Collection",
+      "itemUrl": "https://www.loc.gov/item/2017744660/",
+      "digitalId": "LC-DIG-fsa-8a30947",
+      "reproductionNumber": "LC-USF33-013239-M4",
+      "rights": "No known restrictions",
+      "use": "Arizona childhood context only; not Marion or her siblings",
+      "verification": "Complete"
+    },
+    {
+      "file": "visual_candidates/marion_school_independence_candidate.jpg",
+      "title": "Schoolchildren of Concho, Arizona boarding the bus to go to the high school at St. Johns, Arizona",
+      "creator": "Russell Lee",
+      "date": "1940-09",
+      "repository": "Library of Congress, FSA/OWI Collection",
+      "itemUrl": "https://www.loc.gov/item/2017743309/",
+      "digitalId": "LC-DIG-fsa-8a29603",
+      "reproductionNumber": "LC-USF33-012934-M2",
+      "rights": "No known restrictions",
+      "use": "Period and regional school-travel context only; not Marion and not Lakeside school",
+      "verification": "Complete"
+    }
+  ]
+}

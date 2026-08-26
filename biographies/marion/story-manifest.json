@@ -1,0 +1,104 @@
+{
+  "manifestVersion": 1,
+  "personId": "marion_brenay",
+  "title": "Marion Beulah Brenay Webb",
+  "status": "approved-script-awaiting-audio",
+  "narrationFile": null,
+  "narrationTextFile": "marion_biography_narration_draft.txt",
+  "overlayManifest": "marion_story_overlays.json",
+  "rightsManifest": "MARION_VISUAL_RIGHTS_MANIFEST.json",
+  "timingAuthority": "future-approved-recording",
+  "timingsAreFinal": false,
+  "defaultFlag": "Arizona",
+  "scenes": [
+    {
+      "id": "marion-01-birth",
+      "paragraphs": [1],
+      "primaryAsset": "visual_candidates/marion_child_photo_only_sharpened.jpg",
+      "secondaryAsset": "visual_candidates/marion_birth_house_candidate_conservative.jpg",
+      "caption": "Marion Beulah Brenay’s earliest years",
+      "map": { "scope": "Great Lakes to Southwest", "focus": "Saginaw, Michigan" },
+      "flag": "Michigan",
+      "startSeconds": null
+    },
+    {
+      "id": "marion-02-westward",
+      "paragraphs": [2],
+      "primaryAsset": "visual_candidates/marion_1925_journey_candidate.jpg",
+      "caption": "The Brenay family’s westward journey, 1925",
+      "contextDisclosure": "Archival context image; the people shown are not the Brenay family.",
+      "rightsManifest": "MARION_VISUAL_RIGHTS_MANIFEST.json",
+      "map": { "scope": "United States regional", "route": ["Saginaw", "Needles", "Parker", "Mesa"] },
+      "flag": "Arizona",
+      "startSeconds": null
+    },
+    {
+      "id": "marion-03-depression-moves",
+      "paragraphs": [3],
+      "primaryAsset": "visual_candidates/marion_arizona_childhood_candidate.jpg",
+      "caption": "Childhood across the desert and mountain West",
+      "contextDisclosure": "Archival context image; the children shown are not Marion or her siblings.",
+      "rightsManifest": "MARION_VISUAL_RIGHTS_MANIFEST.json",
+      "map": { "scope": "Four Corners and Intermountain West", "route": ["Mesa", "Buckeye", "Nutrioso", "Blanding", "Salt Lake City", "Mesa"] },
+      "flag": "Arizona",
+      "startSeconds": null
+    },
+    {
+      "id": "marion-04-childhood-work",
+      "paragraphs": [4],
+      "primaryAsset": "visual_candidates/marion_child_photo_only_sharpened.jpg",
+      "caption": "Marion’s childhood was shaped by work and repeated loss",
+      "map": { "scope": "Arizona regional", "focus": "Mesa and Buckeye" },
+      "flag": "Arizona",
+      "startSeconds": null
+    },
+    {
+      "id": "marion-05-lakeside",
+      "paragraphs": [5],
+      "primaryAsset": "visual_candidates/marion_school_independence_candidate.jpg",
+      "caption": "A new life in Arizona’s pine country",
+      "contextDisclosure": "School travel in Concho and St. Johns, Arizona, in 1940; the people shown are not Marion.",
+      "rightsManifest": "MARION_VISUAL_RIGHTS_MANIFEST.json",
+      "map": { "scope": "Arizona regional", "route": ["Mesa", "Lakeside"] },
+      "flag": "Arizona",
+      "startSeconds": null
+    },
+    {
+      "id": "marion-06-jay",
+      "paragraphs": [6],
+      "primaryAsset": "restored_assets/sheldon/jay_marion_mesa_1941_restored.jpg",
+      "caption": "Marion and Jay at the beginning of their life together",
+      "map": { "scope": "White Mountains regional", "focus": "Lakeside and St. Johns" },
+      "flag": "Arizona",
+      "startSeconds": null
+    },
+    {
+      "id": "marion-07-war",
+      "paragraphs": [7],
+      "primaryAsset": "restored_assets/sheldon/marion_webb_1945_restored.jpg",
+      "caption": "Marion during the family’s wartime separation",
+      "map": { "scope": "Arizona regional", "focus": "Vernon and the White Mountains" },
+      "flag": "United States, wartime",
+      "startSeconds": null
+    },
+    {
+      "id": "marion-08-postwar-family",
+      "paragraphs": [8],
+      "primaryAsset": "visual_candidates/marion_with_diane_candidate_sharpened.jpg",
+      "secondaryAsset": "visual_candidates/marion_children_family_photo_candidate.jpg",
+      "caption": "Marion and the growing Webb family",
+      "map": { "scope": "White Mountains regional", "route": ["Vernon", "Lakeside", "Forestdale", "Hilltop"] },
+      "flag": "Arizona",
+      "startSeconds": null
+    },
+    {
+      "id": "marion-09-historian",
+      "paragraphs": [9],
+      "primaryAsset": "visual_candidates/marion_family_historian_candidate.jpg",
+      "caption": "Marion preserved the family’s journey for the generations that followed",
+      "map": { "scope": "Southwest regional", "focus": "Arizona" },
+      "flag": "Arizona",
+      "startSeconds": null
+    }
+  ]
+}
