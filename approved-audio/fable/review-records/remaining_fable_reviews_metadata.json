@@ -1,0 +1,59 @@
+{
+  "sourceCommit": "c58d48755e1e514f7a7f4dfa318116fb96ed994e",
+  "biographies": [
+    {
+      "name": "Marion Beulah Brenay Webb",
+      "source": "biographies/marion/narration-approved-photo-context.txt",
+      "output": "Marion_beulah_brenay_webb_fable_review.mp3",
+      "transcriptCharacters": 3523,
+      "model": "gpt-4o-mini-tts",
+      "voice": "fable",
+      "status": "review-only; not approved and not deployed"
+    },
+    {
+      "name": "Charles Albert Brenay",
+      "source": "biographies/brenay-canada/narration/charles_albert_brenay.txt",
+      "output": "Charles_albert_brenay_fable_review.mp3",
+      "transcriptCharacters": 3421,
+      "model": "gpt-4o-mini-tts",
+      "voice": "fable",
+      "status": "review-only; not approved and not deployed"
+    },
+    {
+      "name": "Charles Godfrey Brenay",
+      "source": "biographies/brenay-canada/narration/charles_godfrey_brenay.txt",
+      "output": "Charles_godfrey_brenay_fable_review.mp3",
+      "transcriptCharacters": 2504,
+      "model": "gpt-4o-mini-tts",
+      "voice": "fable",
+      "status": "review-only; not approved and not deployed"
+    },
+    {
+      "name": "Ida Mae Gooley",
+      "source": "biographies/brenay-canada/narration/ida_mae_gooley.txt",
+      "output": "Ida_mae_gooley_fable_review.mp3",
+      "transcriptCharacters": 2894,
+      "model": "gpt-4o-mini-tts",
+      "voice": "fable",
+      "status": "review-only; not approved and not deployed"
+    },
+    {
+      "name": "John Peter Gooley",
+      "source": "biographies/brenay-canada/narration/john_peter_gooley.txt",
+      "output": "John_peter_gooley_fable_review.mp3",
+      "transcriptCharacters": 2879,
+      "model": "gpt-4o-mini-tts",
+      "voice": "fable",
+      "status": "review-only; not approved and not deployed"
+    },
+    {
+      "name": "Mary Ann Dennis",
+      "source": "biographies/brenay-canada/narration/mary_ann_dennis.txt",
+      "output": "Mary_ann_dennis_fable_review.mp3",
+      "transcriptCharacters": 2630,
+      "model": "gpt-4o-mini-tts",
+      "voice": "fable",
+      "status": "review-only; not approved and not deployed"
+    }
+  ]
+}

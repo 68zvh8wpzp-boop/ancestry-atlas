@@ -1,0 +1,9 @@
+{
+  "model": "gpt-4o-mini-tts",
+  "voice": "fable",
+  "responseFormat": "mp3",
+  "transcriptSource": "atlas-content.js → TOUR_MEDIA.james_sheldon.transcript",
+  "transcriptCharacters": 3420,
+  "sourceCommit": "fae096464909d7f9a9b47a9c188c5479aa86a473",
+  "status": "review-only; not approved and not deployed"
+}
