@@ -112,12 +112,11 @@ const state={
 };
 
 const sceneImageCache=new Map();
-let sceneRenderToken=0;
 
 function sceneImageUrl(scene){
   if(!scene?.src)return '';
   const url=new URL(scene.src,window.location.href);
-  url.searchParams.set('atlas','3.8.11');
+  url.searchParams.set('atlas','3.8.12');
   return url.href;
 }
 
@@ -130,10 +129,10 @@ function preloadScene(scene,{priority='auto'}={}){
   image.fetchPriority=priority;
   const entry={url,image,status:'loading',promise:null};
   entry.promise=new Promise(resolve=>{
-    image.onload=async()=>{
-      try{await image.decode()}catch(error){}
+    image.onload=()=>{
       entry.status='ready';
       resolve(entry);
+      try{image.decode().catch(()=>{})}catch(error){}
     };
     image.onerror=()=>{
       entry.status='error';
@@ -523,7 +522,6 @@ function showStoryScene(media,index){
 
   index=clamp(index,0,scenes.length-1);
   const scene=scenes[index];
-  const renderToken=++sceneRenderToken;
   state.activeScene=index;
   updateLocator(scene);
   if(els.sceneTitle) els.sceneTitle.textContent=scene.title||'';
@@ -551,13 +549,14 @@ function showStoryScene(media,index){
   if(!img) return;
   const sceneImage=preloadScene(scene);
   const frame=img.parentElement;
+  frame.dataset.sceneUrl=sceneImage.url;
   frame?.classList.add('scene-loading');
   frame?.setAttribute('aria-busy','true');
   els.sceneStrip.classList.add('show');
   els.sceneStrip.setAttribute('aria-hidden','false');
 
   sceneImage.promise.then(entry=>{
-    if(renderToken!==sceneRenderToken||state.activeScene!==index)return;
+    if(frame.dataset.sceneUrl!==entry.url)return;
     frame?.classList.remove('scene-loading');
     frame?.setAttribute('aria-busy','false');
     if(entry.status!=='ready'){
