@@ -81,7 +81,7 @@ const TOUR_MEDIA = {
         caption:'James Wilford “Jay” Webb and Marion Beulah Brenay Webb in Mesa, 1941.',
         source:'Family archive • Marion Beulah Brenay Webb life story, p. 14',
         triggerParagraph:0,
-        locator:'Arizona • 1941',flagKey:'united-states-48-star',mapKey:'arizona-statewide',
+        locator:'Arizona • 1941',flagKey:'arizona-1917',mapKey:'arizona-statewide',
         visualType:'family-photo'
       },
       {
@@ -90,7 +90,7 @@ const TOUR_MEDIA = {
         caption:'Jay and Marion’s first car and second home, immediately before Sheldon’s birth-era story.',
         source:'Family archive • Marion Beulah Brenay Webb life story, p. 15',
         triggerParagraph:1,
-        locator:'Arizona • 1942–43',flagKey:'united-states-48-star',mapKey:'white-mountains',
+        locator:'Arizona • 1942–43',flagKey:'arizona-1917',mapKey:'white-mountains',
         visualType:'family-photo'
       },
       {
@@ -99,7 +99,7 @@ const TOUR_MEDIA = {
         caption:'The Trinity test in New Mexico, 16 July 1945.',
         source:'Berlyn Brixner • U.S. Government • public domain',
         triggerParagraph:2,
-        locator:'Arizona / New Mexico • 1943–45',flagKey:'united-states-48-star',mapKey:'southwest-trinity',
+        locator:'Arizona / New Mexico • 1943–45',flagKey:'arizona-1917',mapKey:'southwest-trinity',
         visualType:'archival-photo'
       },
       {
@@ -108,7 +108,7 @@ const TOUR_MEDIA = {
         caption:'Marion’s 1945 portrait. Her account describes raising young Sheldon during Jay’s wartime absence.',
         source:'Family archive • Marion Beulah Brenay Webb life story, p. 16',
         triggerParagraph:3,
-        locator:'Arizona / Utah • wartime years',flagKey:'united-states-48-star',mapKey:'four-corners',
+        locator:'Arizona / Utah • wartime years',flagKey:'arizona-1917',mapKey:'four-corners',
         visualType:'family-photo'
       },
       {
@@ -117,7 +117,7 @@ const TOUR_MEDIA = {
         caption:'Evidence-safe charcoal scene representing illness and uncertainty without inventing Sheldon’s likeness.',
         source:'Approved wide charcoal scene • distant, non-likeness figures',
         triggerParagraph:4,
-        locator:'American Southwest • 1940s',flagKey:'united-states-48-star',mapKey:'southwest-regional',
+        locator:'American Southwest • 1940s',flagKey:'arizona-1917',mapKey:'southwest-regional',
         visualType:'charcoal-alternate'
       },
       {
