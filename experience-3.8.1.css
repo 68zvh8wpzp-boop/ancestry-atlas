@@ -101,51 +101,58 @@ body.aa-phone.tour-story-open.story-presentation-v360 .story-top .landing-kicker
 body.aa-phone.tour-story-open.story-presentation-v360 .story-top h2{font-size:clamp(13px,4.1vw,18px)!important}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-year{font-size:9px!important}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption{
-  left:var(--story-edge-x)!important;right:calc(var(--story-edge-x) + 38vw)!important;
-  bottom:calc(var(--aa-edge-bottom) + 42px)!important;display:block!important;
-  max-height:58px!important;padding:7px 9px!important;white-space:normal!important;overflow:hidden!important;
-  border-left:2px solid rgba(227,193,126,.82)!important;background:linear-gradient(90deg,rgba(2,7,10,.88),rgba(2,7,10,.25))!important
+  left:var(--story-edge-x)!important;right:var(--story-edge-x)!important;
+  bottom:calc(var(--aa-edge-bottom) + 58px)!important;display:grid!important;gap:3px!important;
+  max-height:min(24vh,150px)!important;padding:9px 11px!important;white-space:normal!important;overflow:auto!important;
+  border-left:3px solid rgba(227,193,126,.9)!important;background:rgba(2,7,10,.86)!important
 }
 body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption b,
 body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption span{
   font-size:clamp(9px,2.75vw,12px)!important;line-height:1.25!important
 }
 body.aa-phone.tour-story-open.story-presentation-v360 .story-controls{
-  left:var(--story-edge-x)!important;bottom:var(--aa-edge-bottom)!important;
-  width:min(245px,52vw)!important;min-width:0!important;grid-template-rows:2px 32px!important
+  left:var(--story-edge-x)!important;right:var(--story-edge-x)!important;bottom:var(--aa-edge-bottom)!important;
+  width:auto!important;min-width:0!important;grid-template-rows:2px 42px!important
 }
 body.aa-phone.tour-story-open.story-presentation-v360 .story-controls .cd-button{
-  height:32px!important;min-height:32px!important;font-size:13px!important
+  height:42px!important;min-height:42px!important;font-size:18px!important
 }
 body.aa-phone.tour-story-open.story-presentation-v360 .story-context-ribbon{
-  right:var(--story-edge-x)!important;top:calc(var(--story-edge-y) + 54px)!important;bottom:auto!important;
-  max-width:35vw!important;gap:5px!important;padding:5px!important;
-  border:1px solid rgba(217,199,166,.35)!important;background:rgba(17,15,12,.88)!important;
+  left:var(--story-edge-x)!important;right:var(--story-edge-x)!important;top:calc(var(--story-edge-y) + 72px)!important;bottom:auto!important;
+  max-width:none!important;gap:8px!important;padding:7px!important;justify-content:flex-end!important;
+  border:1px solid rgba(217,199,166,.42)!important;background:rgba(17,15,12,.82)!important;
   pointer-events:auto!important
 }
-body.aa-phone.tour-story-open.story-presentation-v360 .story-az-flag{width:42px!important;height:27px!important;flex-basis:42px!important;border:1px solid rgba(255,255,255,.58)!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-az-flag{width:68px!important;height:43px!important;flex-basis:68px!important;border:1px solid rgba(255,255,255,.68)!important}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card{cursor:pointer!important}
-body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card svg.story-route-map{width:112px!important;height:57px!important;flex-basis:112px!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card svg.story-route-map{width:min(52vw,220px)!important;height:auto!important;flex-basis:min(52vw,220px)!important}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card span{display:none!important}
 body.aa-phone.tour-story-open.story-presentation-v360.story-map-expanded .story-context-ribbon{
-  left:5vw!important;right:5vw!important;bottom:18vh!important;max-width:none!important;
-  justify-content:center!important;padding:12px!important;background:rgba(3,10,15,.97)!important
+  left:var(--story-edge-x)!important;right:var(--story-edge-x)!important;top:calc(var(--story-edge-y) + 72px)!important;bottom:auto!important;
+  justify-content:center!important;padding:10px!important;background:rgba(24,20,14,.96)!important
 }
 body.aa-phone.tour-story-open.story-presentation-v360.story-map-expanded .story-locator-card svg.story-route-map{
   width:min(76vw,560px)!important;height:auto!important;flex-basis:auto!important
 }
+body.aa-phone.tour-story-open.story-presentation-v360 .story-close{
+  display:grid!important;position:fixed!important;z-index:2100!important;top:var(--story-edge-y)!important;right:var(--story-edge-x)!important;
+  width:44px!important;height:44px!important;place-items:center!important;border-radius:50%!important;
+  background:rgba(3,10,15,.94)!important;border:1px solid rgba(220,234,242,.5)!important;color:#fff!important;font-size:28px!important;pointer-events:auto!important
+}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-count{right:calc(var(--story-edge-x) + 52px)!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-slideshow-toggle{right:calc(var(--story-edge-x) + 52px)!important}
 
 /* Short landscape viewports, including mirrored iPhone Safari. */
 body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-top{right:23%!important}
 body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-scene-caption{
-  right:40vw!important;bottom:calc(var(--aa-edge-bottom) + 36px)!important;max-height:54px!important;white-space:normal!important
+  right:calc(50vw + var(--story-edge-x))!important;bottom:calc(var(--aa-edge-bottom) + 44px)!important;max-height:88px!important;white-space:normal!important
 }
 body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-controls{
-  width:min(230px,38vw)!important;grid-template-rows:2px 27px!important
+  right:auto!important;width:min(310px,48vw)!important;grid-template-rows:2px 34px!important
 }
-body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-controls .cd-button{height:27px!important;min-height:27px!important}
+body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-controls .cd-button{height:34px!important;min-height:34px!important}
 body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-context-ribbon{
-  top:calc(var(--story-edge-y) + 46px)!important;max-width:34vw!important
+  left:auto!important;top:calc(var(--story-edge-y) + 54px)!important;max-width:46vw!important
 }
 
 /* Across-room scaling without hard-coding 1080p or 4K. */
