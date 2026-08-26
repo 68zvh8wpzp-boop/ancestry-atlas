@@ -31,7 +31,7 @@ requireText(tour,'scale=startScale*Math.pow(endScale/startScale,e)','opening cam
 requireText(tour,"preloadScene(TOUR_MEDIA[currentStep()?.id]?.scenes?.[0],{priority:'high'})",'first story scene must begin loading at high priority during the branch approach');
 requireText(tour,'await waitForOpeningScene(media)','story surface must wait for its opening photograph to decode');
 requireText(tour,'if(mySession!==state.session)return','a cancelled story launch must not reopen after an image finishes');
-requireText(tour,'renderToken!==sceneRenderToken','scene swaps must ignore stale image completions');
+requireText(tour,'frame.dataset.sceneUrl!==entry.url','scene swaps must ignore stale image completions');
 forbidText(tour,'img.src=new URL(scene.src','story must not start a new unretained image request after opening');
 requireText(tour,"if(typeof openAlbum==='function')openAlbum('family')",'Family Album routes must open only family photographs');
 forbidText(tour,"if(typeof renderAlbum==='function') renderAlbum()",'album entry routes must not bypass the item builder');

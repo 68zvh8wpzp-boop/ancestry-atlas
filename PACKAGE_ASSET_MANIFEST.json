@@ -1,6 +1,6 @@
 {
-  "packageVersion": "3.8.11-decoded-first-frame-stories",
-  "inputPackage": "v3.8.10 readable archival Places at c7dd67a",
+  "packageVersion": "3.8.12-reliable-first-frame-stories",
+  "inputPackage": "v3.8.11 first-frame lifecycle at 244da43",
   "sourceProductionVersion": "3.7.5",
   "releaseStatus": "approved Fable runtime integrated; distinct Story and Tree modes, continuous deep-space approach, dedicated archival Places, and typed media collections",
   "narration": {
@@ -77,6 +77,7 @@
     ,"RELEASE_NOTES_v3_8_9_LIVE_PLACE_QA.md"
     ,"RELEASE_NOTES_v3_8_10_PLACE_CAPTION_HYGIENE.md"
     ,"RELEASE_NOTES_v3_8_11_STORY_FIRST_FRAME.md"
+    ,"RELEASE_NOTES_v3_8_12_FIRST_FRAME_HANDOFF.md"
     ,"assets/arizona_new_mexico_1919_locator.jpg"
     ,"assets/charles_albert_brunne_1901_census_full.jpg"
     ,"assets/charles_albert_brunne_1901_census_thumb.jpg"
