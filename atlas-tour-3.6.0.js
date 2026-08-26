@@ -315,7 +315,11 @@ async function cinematicBranchEntrance(track,focusId,mySession){
   els.modal?.classList.remove('open');
   els.modal?.setAttribute('aria-hidden','true');
 
-  window.__tourSuppressLabels=true;
+  // The opening is an orientation sequence, so names are information—not a
+  // late decorative reveal. Start readable and preserve the family grammar.
+  window.__tourSuppressLabels=false;
+  rotX=0;
+  rotY=0;
   const targetScale=cameraTargetForBranch(ids);
   const startScale=Math.max(.55,targetScale*.018);
   const endScale=targetScale;
@@ -324,7 +328,7 @@ async function cinematicBranchEntrance(track,focusId,mySession){
   try{draw()}catch(e){}
 
   const start=performance.now();
-  const duration=8000;
+  const duration=5600;
 
   hud.textContent=currentTour()?.title||'Family line';
   hud.classList.add('show');
@@ -338,11 +342,7 @@ async function cinematicBranchEntrance(track,focusId,mySession){
       // Most of the physical travel happens early; the final third visibly settles.
       scale=startScale+(endScale-startScale)*e;
 
-      // Labels materialize only once the constellation is becoming a readable family tree.
-      if(t>.60 && window.__tourSuppressLabels){
-        window.__tourSuppressLabels=false;
-        document.body.classList.remove('tour-distant');
-      }
+      document.body.classList.remove('tour-distant');
 
       try{draw()}catch(err){}
       if(t<1) requestAnimationFrame(tick);
