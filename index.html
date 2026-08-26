@@ -540,8 +540,8 @@ window.addEventListener('error',function(e){
   <link rel="stylesheet" href="atlas-tour-3.6.0.css">
   <link rel="stylesheet" href="tv-mode-3.7.3.css">
   <link rel="stylesheet" href="story-presentation-3.6.0.css">
-  <link rel="stylesheet" href="story-overlays-3.8.1.css?v=3.8.7">
-  <link rel="stylesheet" href="experience-3.8.1.css?v=3.8.7">
+  <link rel="stylesheet" href="story-overlays-3.8.1.css?v=3.8.8">
+  <link rel="stylesheet" href="experience-3.8.1.css?v=3.8.8">
 </head>
 <body>
 
@@ -587,7 +587,7 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Guided Audio-Visual Family Tour</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v3.8.7 • stable star approach • period locators • branch navigation</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v3.8.8 • continuous deep-space approach • Story / Tree modes • archival Places</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop first orients you visibly in the tree, then opens the story. Recorded narration is used only when an approved audio file exists.</p>
   </div>
 </div>
@@ -605,34 +605,6 @@ window.addEventListener('error',function(e){
 <div id="storySceneStrip" class="story-scene-strip" aria-hidden="true">
   <div class="story-scene-frame">
     <div id="storySceneImage" class="story-scene-image">
-      <div id="storyContextRibbon" class="story-context-ribbon" aria-hidden="true">
-        <div class="story-az-flag" aria-label="Arizona flag, adopted 1917">
-          <svg viewBox="0 0 96 60" role="img" aria-hidden="true">
-            <defs><clipPath id="azTop"><rect width="96" height="30"/></clipPath></defs>
-            <rect width="96" height="60" fill="#174a7c"/>
-            <g clip-path="url(#azTop)">
-              <path d="M48 30 L0 30 L0 17 Z" fill="#b51f2e"/>
-              <path d="M48 30 L0 17 L0 4 Z" fill="#f2b134"/>
-              <path d="M48 30 L6 0 L23 0 Z" fill="#b51f2e"/>
-              <path d="M48 30 L23 0 L38 0 Z" fill="#f2b134"/>
-              <path d="M48 30 L38 0 L52 0 Z" fill="#b51f2e"/>
-              <path d="M48 30 L52 0 L68 0 Z" fill="#f2b134"/>
-              <path d="M48 30 L68 0 L85 0 Z" fill="#b51f2e"/>
-              <path d="M48 30 L85 0 L96 5 L96 18 Z" fill="#f2b134"/>
-              <path d="M48 30 L96 18 L96 30 Z" fill="#b51f2e"/>
-            </g>
-            <polygon points="48,19 51,26 59,26 53,31 55,39 48,34 41,39 43,31 37,26 45,26" fill="#c9822b"/>
-          </svg>
-        </div>
-        <div class="story-locator-card">
-          <svg viewBox="0 0 120 72" role="img" aria-hidden="true">
-            <path d="M38 8 L86 8 L89 18 L92 61 L48 64 L38 52 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M76 18 L82 18" stroke="currentColor" stroke-width="1.5"/>
-            <circle id="storyLocatorDot" cx="80" cy="19" r="4" fill="#d7624e"/>
-          </svg>
-          <span id="storyLocatorLabel">St. Johns, Arizona • 1943</span>
-        </div>
-      </div>
       <img id="storyScenePhoto" class="story-scene-photo" alt="">
       <div id="storySceneArt" class="story-scene-art"></div>
       <div class="story-scene-caption">
@@ -651,6 +623,7 @@ window.addEventListener('error',function(e){
       <span class="story-slideshow-chevron">▾</span>
       <span class="story-slideshow-label">Hide slideshow</span>
     </button>
+    <button id="storyPlaceOpen" class="story-place-open" type="button" aria-haspopup="dialog">Place</button>
     <div class="story-track">
       <button data-story-track="canada" class="active">Canada</button>
       <button data-story-track="webb">Webb</button>
@@ -658,11 +631,11 @@ window.addEventListener('error',function(e){
       <button data-story-track="denmark">Denmark</button>
     </div>
     <div class="story-controls cd-controls" aria-label="Narration controls">
-      <button id="storyPrevAudio" class="cd-button" type="button" aria-label="Previous scene" title="Previous">⏮</button>
-      <button id="storyPlayPause" class="cd-button cd-main" type="button" aria-label="Play narration" title="Play / pause">▶</button>
-      <button id="storyMute" class="cd-button" type="button" aria-label="Mute narration" title="Mute / unmute">🔊</button>
-      <button id="storyNextAudio" class="cd-button" type="button" aria-label="Next scene" title="Next">⏭</button>
-      <button id="storyExitTransport" class="cd-button" type="button" aria-label="Exit tour" title="Exit">×</button>
+      <button id="storyPrevAudio" class="cd-button" type="button" aria-label="Previous scene"><span class="transport-icon">⏮</span><small class="transport-label">Previous</small></button>
+      <button id="storyPlayPause" class="cd-button cd-main" type="button" aria-label="Play narration"><span class="transport-icon">▶</span><small class="transport-label">Play</small></button>
+      <button id="storyMute" class="cd-button" type="button" aria-label="Mute narration"><span class="transport-icon">🔊</span><small class="transport-label">Narration</small></button>
+      <button id="storyNextAudio" class="cd-button" type="button" aria-label="Next scene"><span class="transport-icon">⏭</span><small class="transport-label">Next</small></button>
+      <button id="storyExitTransport" class="cd-button" type="button" aria-label="Exit story"><span class="transport-icon">×</span><small class="transport-label">Exit Story</small></button>
       <span id="audioStatus" class="audio-status">Paused</span>
       <div class="story-audio-meter"><span id="audioMeterFill"></span></div>
     </div>
@@ -692,6 +665,20 @@ window.addEventListener('error',function(e){
         <div id="storyProgress" class="story-progress"></div>
       </div>
     </div>
+  </div>
+</div>
+
+<div id="storyPlaceModal" class="story-place-modal" role="dialog" aria-modal="true" aria-labelledby="storyPlaceTitle" aria-hidden="true">
+  <div class="story-place-shell">
+    <header class="story-place-head"><div><div class="landing-kicker">Historical place</div><h2 id="storyPlaceTitle">Place</h2></div><button id="storyPlaceClose" type="button" aria-label="Close place view">×</button></header>
+    <div id="storyContextRibbon" class="story-context-ribbon">
+      <figure class="story-az-flag" aria-label="Arizona state flag, adopted 1917"><div id="storyFlagArt"></div><figcaption id="storyFlagCaption">Arizona state flag • adopted 1917</figcaption></figure>
+      <figure class="story-locator-card">
+        <div class="story-archival-map"><img src="assets/arizona_new_mexico_1919_locator.jpg" alt="1919 Arizona and New Mexico road map"><span id="storyLocatorDot" class="story-locator-dot"></span><span id="storyLocatorMapLabel" class="story-locator-map-label">Mesa</span></div>
+        <figcaption><strong id="storyLocatorLabel">Mesa, Arizona • 1941</strong><span id="storyLocatorSource">American Automobile Association map, 1919 • Library of Congress</span></figcaption>
+      </figure>
+    </div>
+    <p id="storyPlaceContext" class="story-place-context"></p>
   </div>
 </div>
 
@@ -779,17 +766,20 @@ window.addEventListener('error',function(e){
   <button id="printAtlasBtn">Print / Save PDF</button>
 </div>
 <div id="mobileTreeDock" class="mobile-tree-dock" aria-label="Mobile tree controls">
-  <button id="mobileTreeHome" type="button" aria-label="Home person"><span>⌂</span><small>Home</small></button>
-  <button id="mobileTreeBack" type="button" aria-label="Previous person"><span>←</span><small>Back</small></button>
-  <button id="mobileTreeFocus" type="button" aria-label="Focus current family"><span>◎</span><small>Focus</small></button>
-  <button id="mobileTreeLabels" type="button" aria-label="Show names for this branch" aria-pressed="false"><span>Aa</span><small>Names</small></button>
-  <button id="mobileTreeExpand" type="button" aria-label="Expand tree"><span>＋</span><small>Expand</small></button>
-  <button id="mobileTreeMenu" type="button" aria-label="More tree controls"><span>⋯</span><small>Menu</small></button>
+  <button id="mobileTreeReturnStory" type="button" aria-label="Return to story"><span>▶</span><small>Story</small></button>
+  <button id="mobileTreeFocus" type="button" aria-label="Center on current person"><span>◎</span><small>Center Person</small></button>
+  <button id="mobileTreeLabels" type="button" aria-label="Show names for this branch" aria-pressed="false"><span>Aa</span><small>Branch Names</small></button>
+  <button id="mobileTreeExpand" type="button" aria-label="Show a wider tree"><span>＋</span><small>Wider Tree</small></button>
+  <button id="mobileTreeHome" type="button" aria-label="Return to home person"><span>⌂</span><small>Home</small></button>
+  <button id="mobileTreeMenu" type="button" aria-label="More tree controls"><span>⋯</span><small>More</small></button>
 </div>
 <div id="mobileTreeMenuSheet" class="mobile-tree-menu-sheet" aria-hidden="true">
   <div class="mobile-tree-sheet-head"><strong>Tree view</strong><button id="mobileTreeMenuClose" aria-label="Close tree menu">×</button></div>
   <button id="mobileTreeStory">Guided Audio-Visual Family Tour</button>
-  <button id="mobileTreeAlbum">Family Album</button>
+  <button id="mobileTreeAlbum">Family Photos</button>
+  <button id="mobileTreeDocuments">Documents</button>
+  <button id="mobileTreePlaces">Places</button>
+  <button id="mobileTreeBack" type="button">Previous person</button>
   <button id="mobileTreeEvidence" type="button" aria-expanded="false">Evidence key</button>
   <button id="mobileTreeWholeAtlas">Whole Atlas overview</button>
   <button id="mobileTreeStart">Start screen</button>
@@ -830,7 +820,7 @@ window.addEventListener('error',function(e){
 </div>
 
 </section>
-<div id="albumModal" class="album-modal" aria-hidden="true"><div class="album-shell"><div class="album-head"><div class="album-title"><h2>Family Album</h2><div class="small">Verified portraits and source images currently attached to the research map. Each item keeps its name, dates, branch, image type, and provenance visible.</div></div><button id="albumClose" class="album-close">×</button></div><div class="album-filters"><button class="album-filter active" data-filter="all">All</button><button class="album-filter" data-filter="portrait">Portraits</button><button class="album-filter" data-filter="document">Documents</button><select id="albumBranch" aria-label="Filter album by branch"><option value="all">All branches</option></select></div><div id="albumGrid" class="album-grid"></div></div></div>
+<div id="albumModal" class="album-modal" aria-hidden="true"><div class="album-shell"><div class="album-head"><div class="album-title"><h2 id="albumTitle">Family Media</h2><div id="albumSubtitle" class="small">Family photographs, archival documents, and historical places are kept in distinct collections.</div></div><button id="albumClose" class="album-close">×</button></div><div class="album-filters"><button class="album-filter active" data-filter="all">All</button><button class="album-filter" data-filter="family">Family Photos</button><button class="album-filter" data-filter="document">Documents</button><button class="album-filter" data-filter="place">Places</button><select id="albumBranch" aria-label="Filter media by branch"><option value="all">All branches</option></select></div><div id="albumGrid" class="album-grid"></div></div></div>
 <div id="docModal" class="doc-modal"><button id="docClose" class="doc-close">×</button><div class="doc-panel"><img id="docImage" alt="Genealogy source document"><div id="docMeta" class="doc-meta"></div><div id="albumViewerLabel" class="album-label" style="display:none"></div><div id="albumViewerNav" class="album-detail-nav" style="display:none"><button id="albumPrev">← Previous</button><button id="albumNext">Next →</button></div><button id="jumpToPerson" class="jump-person" style="display:none">Show person in tree</button></div></div>
 </div>
 
@@ -979,6 +969,20 @@ function visibleNode(n){
   return confidenceVisible(n.confidence) && branchState[n.branch] && (showCollateral || !n.collateral);
 }
 
+const charlesAlbertNode=DATA.nodes.find(n=>n.id==='charles_albert');
+if(charlesAlbertNode){
+  charlesAlbertNode.evidence=[...(charlesAlbertNode.evidence||[]),{
+    title:'1901 Census of Canada — Charles A. Brunne household',
+    date:'31 March 1901',
+    place:'Mills Township, Muskoka and Parry Sound, Ontario',
+    thumb:'assets/charles_albert_brunne_1901_census_thumb.jpg',
+    full:'assets/charles_albert_brunne_1901_census_full.jpg',
+    provenance:'Library and Archives Canada, Census of Canada, 1901, Ontario, Muskoka and Parry Sound, Mills Township, page 4; scan z000084034.',
+    sourcePage:'https://data2.collectionscanada.gc.ca/1901/z/z002/pdf/z000084034.pdf',
+    summary:'The Brunne household includes Charles A., born 29 March 1897 in Ontario, age four. This is an archival census record—not a landscape or illustrative scene.',
+    confidence:'primary census image'
+  }];
+}
 const nodeById = new Map(DATA.nodes.map(n=>[n.id,n]));
 const parentMap = new Map();
 const childMap = new Map();
@@ -1730,23 +1734,12 @@ function draw(){
   for(let y=70;y<h;y+=70){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
   ctx.restore();
 
-  // The guided entrance begins as one distant point of ancestral light. Keep
-  // the tree and its labels out of the first approach frames; rendering a tiny
-  // collision layout here caused the rapid name-card shudder seen on phones.
   const approach=Number(window.__tourApproachProgress);
-  if(document.body.classList.contains('tour-orienting')&&Number.isFinite(approach)&&approach<.18){
-    const q=Math.max(0,approach/.18);
-    const sx=w/2+Math.cos((1-q)*Math.PI*1.35)*(1-q)*Math.min(w,h)*.055;
-    const sy=h*.48+Math.sin((1-q)*Math.PI*1.35)*(1-q)*Math.min(w,h)*.04;
-    const halo=ctx.createRadialGradient(sx,sy,0,sx,sy,9+q*18);
-    halo.addColorStop(0,'rgba(255,255,255,1)');
-    halo.addColorStop(.16,'rgba(170,214,255,.95)');
-    halo.addColorStop(.45,'rgba(91,154,230,.42)');
-    halo.addColorStop(1,'rgba(0,0,0,0)');
-    ctx.fillStyle=halo;ctx.beginPath();ctx.arc(sx,sy,9+q*18,0,Math.PI*2);ctx.fill();
-    ctx.fillStyle='#f8fcff';ctx.beginPath();ctx.arc(sx,sy,1.2+q*1.8,0,Math.PI*2);ctx.fill();
-    return;
-  }
+  // The final tree camera is also the opening camera. At extreme distance the
+  // same nodes read as one faint star, then resolve continuously—there is no
+  // separate star layer to jump to a differently positioned tree.
+  const tourReveal=document.body.classList.contains('tour-orienting')&&Number.isFinite(approach)
+    ? Math.max(.018,Math.min(1,approach/.34)) : 1;
 
   projected=DATA.nodes.filter(visibleNode).map(project);
   const map=new Map(projected.map(p=>[p.node.id,p]));
@@ -1758,7 +1751,7 @@ function draw(){
     ctx.save();
     ctx.strokeStyle=colors[e.confidence] || '#8aa';
     const edim=Math.min(evidenceDimFor(e.a),evidenceDimFor(e.b));
-    ctx.globalAlpha=(edgeAlpha[e.confidence]||.45)*edim;
+    ctx.globalAlpha=(edgeAlpha[e.confidence]||.45)*edim*tourReveal;
     ctx.filter='none';
     ctx.lineWidth=e.confidence==='confirmed'?2.3:(e.confidence==='strong'?1.9:1.45);
     if(e.confidence==='provisional'||e.confidence==='frontier') ctx.setLineDash([7,6]);
@@ -1789,7 +1782,7 @@ function draw(){
     const r=Math.max(5,7.2*p.s);
     ctx.save();
     const light=alphaByConfidence[n.confidence]||.7, dim=evidenceDimFor(n.id);
-    ctx.globalAlpha=Math.max(.24,Math.min(1,light*dim*(.92-p.z*.009)));
+    ctx.globalAlpha=Math.max(.018,Math.min(1,light*dim*(.92-p.z*.009)))*tourReveal;
     ctx.filter='none';
     // local light pool behind the node
     const glow=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,Math.max(26,58*p.s));
@@ -2120,7 +2113,7 @@ function buildAlbumItems(){
   const items=[];
   DATA.nodes.forEach(n=>{
     if(n.portrait){
-      items.push({kind:'portrait',personId:n.id,name:n.name,years:n.years||'',branch:n.branch||'',title:n.portrait.title||('Portrait: '+n.name),thumb:n.portrait.url,full:n.portrait.url,provenance:n.portrait.provenance||'',sourcePage:n.portrait.sourcePage||'',summary:'Historical portrait attached only to the person pictured.',confidence:'verified portrait source'});
+      items.push({kind:'family',personId:n.id,name:n.name,years:n.years||'',branch:n.branch||'',title:n.portrait.title||('Portrait: '+n.name),thumb:n.portrait.url,full:n.portrait.url,provenance:n.portrait.provenance||'',sourcePage:n.portrait.sourcePage||'',summary:'Historical portrait attached only to the person pictured.',confidence:'verified portrait source'});
     }
     (n.evidence||[]).forEach(ev=>items.push({kind:'document',personId:n.id,name:n.name,years:n.years||'',branch:n.branch||'',title:ev.title||('Source image: '+n.name),thumb:ev.thumb||ev.full,full:ev.full||ev.thumb,provenance:ev.provenance||'',summary:ev.summary||'',confidence:ev.confidence||'',date:ev.date||'',place:ev.place||''}));
   });
@@ -2132,7 +2125,7 @@ function buildAlbumItems(){
       (media?.scenes||[]).forEach(scene=>{
         if(!scene?.src)return;
         const familyPhoto=scene.visualType==='family-photo';
-        items.push({kind:familyPhoto?'portrait':'document',personId,name:n?.name||media.personName||'Family story',years:n?.years||'',branch:n?.branch||'',title:scene.title||'Biography image',thumb:scene.src,full:scene.src,provenance:scene.source||'Approved biography source',summary:scene.caption||'',confidence:'approved biography visual'});
+        items.push({kind:familyPhoto?'family':'place',personId,name:n?.name||media.personName||'Family story',years:n?.years||'',branch:n?.branch||'',title:scene.title||'Biography image',thumb:scene.src,full:scene.src,provenance:scene.source||'Approved biography source',summary:scene.caption||'',confidence:familyPhoto?'approved family photograph':'historical place/context image'});
       });
     });
   }
@@ -2146,8 +2139,9 @@ function buildAlbumItems(){
   return dedup;
 }
 function albumSourceShort(i){
-  if(i.kind==='portrait') return i.provenance||'Verified portrait source';
-  return i.provenance||'Source document';
+  if(i.kind==='family') return i.provenance||'Verified family-photo source';
+  if(i.kind==='place') return i.provenance||'Historical place source';
+  return i.provenance||'Archival document source';
 }
 function populateAlbumBranches(){
   const sel=document.getElementById('albumBranch');
@@ -2162,7 +2156,8 @@ function renderAlbum(){
   grid.innerHTML='';
   list.forEach((i,idx)=>{
     const b=document.createElement('button'); b.className='album-card '+i.kind;
-    b.innerHTML=`<img src="${escapeHtml(i.thumb||i.full)}" alt="${escapeHtml(i.title)}"><div class="album-name">${escapeHtml(i.name)}</div><div class="album-years">${escapeHtml(i.years||'')}</div><div class="album-kind">${i.kind==='portrait'?'Portrait':'Document'}</div><div class="album-source">${escapeHtml(albumSourceShort(i))}</div>`;
+    const kindLabel={family:'Family photo',document:'Archival document',place:'Place / context'}[i.kind]||i.kind;
+    b.innerHTML=`<img src="${escapeHtml(i.thumb||i.full)}" alt="${escapeHtml(i.title)}"><div class="album-name">${escapeHtml(i.name)}</div><div class="album-years">${escapeHtml(i.years||'')}</div><div class="album-kind">${kindLabel}</div><div class="album-source">${escapeHtml(albumSourceShort(i))}</div>`;
     b.onclick=()=>openAlbumItem(idx); grid.appendChild(b);
   });
 }
@@ -2174,7 +2169,12 @@ function openPersonMedia(personId){
   openAlbumItem(0);
 }
 
-function openAlbum(){
+function openAlbum(filter='all'){
+  albumState.filter=filter;
+  document.querySelectorAll('.album-filter').forEach(button=>button.classList.toggle('active',button.dataset.filter===filter));
+  const names={all:['Family Media','Family photographs, archival documents, and historical places are kept in distinct collections.'],family:['Family Photos','Portraits and family photographs only—no maps, landscapes, or document scans.'],document:['Documents','Archival records only, including the 1901 Canadian census image for Charles A. Brunne.'],place:['Places','Historical maps, landscapes, and contextual scenes kept apart from family photographs and records.']};
+  const [heading,subtitle]=names[filter]||names.all;
+  document.getElementById('albumTitle').textContent=heading;document.getElementById('albumSubtitle').textContent=subtitle;
   buildAlbumItems(); populateAlbumBranches(); renderAlbum();
   const m=document.getElementById('albumModal'); m.classList.add('open');m.setAttribute('aria-hidden','false');
   document.getElementById('controls').classList.add('collapsed');
@@ -2185,15 +2185,16 @@ function openAlbumItem(idx){
   openEvidence(i);
   const label=document.getElementById('albumViewerLabel');
   const extra=[i.date,i.place].filter(Boolean).join(' • ');
-  label.innerHTML=`<strong>${escapeHtml(i.name)}</strong>${i.years?`<br>${escapeHtml(i.years)}`:''}<br><span class="muted">${escapeHtml(i.branch||'')} • ${i.kind==='portrait'?'Portrait':'Source document'}</span>${extra?`<br>${escapeHtml(extra)}`:''}<br><span class="muted">Source:</span> ${escapeHtml(i.provenance||'Source recorded in research map')}`;
+  const mediaKind={family:'Family photo',document:'Archival document',place:'Place / context'}[i.kind]||i.kind;
+  label.innerHTML=`<strong>${escapeHtml(i.name)}</strong>${i.years?`<br>${escapeHtml(i.years)}`:''}<br><span class="muted">${escapeHtml(i.branch||'')} • ${mediaKind}</span>${extra?`<br>${escapeHtml(extra)}`:''}<br><span class="muted">Source:</span> ${escapeHtml(i.provenance||'Source recorded in research map')}`;
   label.style.display='block'; document.getElementById('albumViewerNav').style.display=albumState.visible.length>1?'flex':'none';
   const jump=document.getElementById('jumpToPerson'); jump.style.display=i.personId?'inline-block':'none'; jump.dataset.personId=i.personId||'';
 }
 function clearAlbumViewerExtras(){document.getElementById('albumViewerLabel').style.display='none';document.getElementById('albumViewerNav').style.display='none';document.getElementById('jumpToPerson').style.display='none';}
-document.getElementById('openAlbum').onclick=openAlbum;
+document.getElementById('openAlbum').onclick=()=>openAlbum('family');
 document.getElementById('albumClose').onclick=closeAlbum;
 document.getElementById('albumModal').addEventListener('click',e=>{if(e.target.id==='albumModal')closeAlbum();});
-document.querySelectorAll('.album-filter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.album-filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');albumState.filter=b.dataset.filter;renderAlbum();});
+document.querySelectorAll('.album-filter').forEach(b=>b.onclick=()=>openAlbum(b.dataset.filter));
 document.getElementById('albumBranch').onchange=e=>{albumState.branch=e.target.value;renderAlbum();};
 document.getElementById('albumPrev').onclick=()=>{if(!albumState.visible.length)return;openAlbumItem((albumState.index-1+albumState.visible.length)%albumState.visible.length);};
 document.getElementById('albumNext').onclick=()=>{if(!albumState.visible.length)return;openAlbumItem((albumState.index+1)%albumState.visible.length);};
@@ -2220,13 +2221,13 @@ resize();
 
 
 
-<script src="atlas-content.js?v=3.8.7"></script>
+<script src="atlas-content.js?v=3.8.8"></script>
 <script src="biographies/marion/marion-story-module.js?v=1.1.0"></script>
 <script src="biographies/brenay-canada/brenay-canada-story-modules.js?v=1.1.0"></script>
-<script src="atlas-tour-3.6.0.js?v=3.8.7"></script>
+<script src="atlas-tour-3.6.0.js?v=3.8.8"></script>
 <script src="tv-mode-3.7.3.js"></script>
 <script src="story-presentation-3.6.0.js"></script>
-<script src="story-overlays-3.8.1.js?v=3.8.7"></script>
-<script src="experience-3.8.1.js?v=3.8.7"></script>
+<script src="story-overlays-3.8.1.js?v=3.8.8"></script>
+<script src="experience-3.8.1.js?v=3.8.8"></script>
 </body>
 </html>

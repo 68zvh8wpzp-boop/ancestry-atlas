@@ -11,6 +11,7 @@
   const film=document.getElementById('tvFilmModal');
   const album=document.getElementById('albumModal');
   const documentViewer=document.getElementById('docModal');
+  const placeViewer=document.getElementById('storyPlaceModal');
   let lastClass='';
   let lastWidth=0;
   let lastHeight=0;
@@ -87,7 +88,7 @@
   }
 
   function syncSurfaceState(){
-    const open=!landing?.classList.contains('hidden')||chooser?.classList.contains('open')||story?.classList.contains('open')||film?.classList.contains('open')||album?.classList.contains('open')||documentViewer?.classList.contains('open');
+    const open=!landing?.classList.contains('hidden')||chooser?.classList.contains('open')||story?.classList.contains('open')||film?.classList.contains('open')||album?.classList.contains('open')||documentViewer?.classList.contains('open')||placeViewer?.classList.contains('open');
     body.classList.toggle('aa-overlay-open',!!open);
   }
 
@@ -98,7 +99,7 @@
     const mobileTree=window.AncestryTour?.mobileTree;
     if(back&&mobileTree)back.disabled=!mobileTree.history.length;
     if(expand&&mobileTree){
-      const labels={family:['＋','Branch'],branch:['＋','Atlas'],atlas:['◎','Family']};
+      const labels={family:['＋','Wider Tree'],branch:['＋','Whole Tree'],atlas:['◎','Local Tree']};
       const [symbol,label]=labels[mobileTree.mode]||labels.family;
       const symbolNode=expand.querySelector('span'),labelNode=expand.querySelector('small');
       if(symbolNode)symbolNode.textContent=symbol;
@@ -108,10 +109,10 @@
     if(names&&mobileTree){
       const branch=mobileTree.labelMode==='branch';
       names.setAttribute('aria-pressed',String(branch));
-      names.setAttribute('aria-label',branch?'Return to local family names':'Show names for this branch');
+      names.setAttribute('aria-label',branch?'Show local family names':'Show names for this branch');
       names.classList.toggle('active',branch);
       const labelNode=names.querySelector('small');
-      if(labelNode)labelNode.textContent=branch?'Local':'Names';
+      if(labelNode)labelNode.textContent=branch?'Local Names':'Branch Names';
     }
   }
 
@@ -146,7 +147,7 @@
     }
   }catch(error){console.error('Mobile navigation history adapter could not be installed.',error)}
 
-  ['mobileTreeHome','mobileTreeBack','mobileTreeFocus','mobileTreeLabels','mobileTreeExpand'].forEach(id=>{
+  ['mobileTreeHome','mobileTreeBack','mobileTreeFocus','mobileTreeLabels','mobileTreeExpand','mobileTreeReturnStory'].forEach(id=>{
     document.getElementById(id)?.addEventListener('click',()=>requestAnimationFrame(syncMobileDock));
   });
   document.addEventListener('ancestryatlas:mobiletreestate',syncMobileDock);
@@ -170,7 +171,7 @@
   window.visualViewport?.addEventListener('resize',schedule,{passive:true});
   if(typeof ResizeObserver==='function')new ResizeObserver(schedule).observe(stage||root);
   const surfaceObserver=new MutationObserver(syncSurfaceState);
-  [landing,chooser,story,film,album,documentViewer].filter(Boolean).forEach(element=>surfaceObserver.observe(element,{attributes:true,attributeFilter:['class','aria-hidden']}));
+  [landing,chooser,story,film,album,documentViewer,placeViewer].filter(Boolean).forEach(element=>surfaceObserver.observe(element,{attributes:true,attributeFilter:['class','aria-hidden']}));
 
   document.addEventListener('ancestryatlas:scenechange',()=>{
     body.classList.remove('mobile-evidence-open');
@@ -180,5 +181,5 @@
   syncSurfaceState();
   syncMobileDock();
   apply({recenter:true});
-  window.AncestryExperience={version:'3.8.1',refresh:apply,viewport};
+  window.AncestryExperience={version:'3.8.8',refresh:apply,viewport};
 })();

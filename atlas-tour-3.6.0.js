@@ -129,12 +129,16 @@ function setTransport(){
   if(els.prev) els.prev.disabled=state.index<=0 || state.phase==='orienting';
   if(els.next) els.next.disabled=state.index>=count-1 || state.phase==='orienting';
   if(els.mute){
-    els.mute.textContent=state.muted?'🔇':'🔊';
+    const icon=els.mute.querySelector('.transport-icon'),label=els.mute.querySelector('.transport-label');
+    if(icon)icon.textContent=state.muted?'🔇':'🔊';
+    if(label)label.textContent=state.muted?'Narration Off':'Narration On';
     els.mute.setAttribute('aria-label',state.muted?'Unmute narration':'Mute narration');
   }
   if(els.play){
     const playing=!!(state.audio && !state.audio.paused && !state.audio.ended);
-    els.play.textContent=playing?'❚❚':'▶';
+    const icon=els.play.querySelector('.transport-icon'),label=els.play.querySelector('.transport-label');
+    if(icon)icon.textContent=playing?'❚❚':'▶';
+    if(label)label.textContent=playing?'Pause':'Play';
     els.play.setAttribute('aria-label',playing?'Pause narration':'Play narration');
     const hasAudio=!!TOUR_MEDIA[currentStep()?.id]?.audio;
     els.play.disabled=state.phase==='orienting' || !hasAudio || state.audioUnavailable;
@@ -146,6 +150,7 @@ function clearCoreOverlays(){
   try{ card.style.display='none'; }catch(e){}
   try{ document.getElementById('docModal')?.classList.remove('open'); }catch(e){}
   try{ document.getElementById('albumModal')?.classList.remove('open'); }catch(e){}
+  try{ document.getElementById('storyPlaceModal')?.classList.remove('open'); }catch(e){}
 }
 
 function stopAudio(){
@@ -344,7 +349,7 @@ async function cinematicBranchEntrance(track,focusId,mySession){
   const targetScale=mobile?fitMobileBranch(ids,focusId):cameraTargetForBranch(ids);
   const endPanX=panX,endPanY=panY;
   const endRotX=0,endRotY=0;
-  const startScale=Math.max(.72,targetScale*.014);
+  const startScale=Math.max(.16,targetScale*.0025);
   const endScale=targetScale;
 
   // Solve the final label arrangement once, then keep each card on that side
@@ -361,7 +366,7 @@ async function cinematicBranchEntrance(track,focusId,mySession){
   scale=startScale;
   rotX=0;
   rotY=-.72;
-  const orbit=Math.min(stage.clientWidth,stage.clientHeight)*.14;
+  const orbit=Math.min(stage.clientWidth,stage.clientHeight)*.10;
   panX=endPanX+orbit;
   panY=endPanY;
   window.__tourApproachProgress=0;
@@ -369,7 +374,7 @@ async function cinematicBranchEntrance(track,focusId,mySession){
   try{draw()}catch(e){}
 
   const start=performance.now();
-  const duration=6400;
+  const duration=12800;
 
   hud.textContent=currentTour()?.title||'Family line';
   hud.classList.add('show');
@@ -389,9 +394,9 @@ async function cinematicBranchEntrance(track,focusId,mySession){
       panY=endPanY+Math.sin(angle)*radius*.58;
       rotX=0;
       rotY=-.72*(1-e);
-      window.__tourApproachProgress=t;
+      window.__tourApproachProgress=e;
 
-      document.body.classList.toggle('tour-distant',t<.18);
+      document.body.classList.toggle('tour-distant',t<.30);
 
       try{draw()}catch(err){}
       if(t<1) requestAnimationFrame(tick);
@@ -676,6 +681,14 @@ function begin(track='canada',index=0){
   orientAndOpenCurrent({fullEntrance:true});
 }
 
+function returnToStory(){
+  if(currentStep()){
+    els.landing?.classList.add('hidden');
+    closeChooser();
+    orientAndOpenCurrent({fullEntrance:false});
+  }else openChooser();
+}
+
 function exitTour(){
   const saved=state.returnContext;
   const returnId=currentStep()?.id || saved?.selected || selected || 'you';
@@ -811,10 +824,10 @@ document.querySelectorAll('[data-story-track]').forEach(
 
 $('startAlbum')?.addEventListener('click',()=>{
   els.landing?.classList.add('hidden');
-  if(typeof openAlbum==='function')openAlbum();
+  if(typeof openAlbum==='function')openAlbum('family');
 });
 $('openAlbumBtn')?.addEventListener('click',()=>{
-  if(typeof openAlbum==='function')openAlbum();
+  if(typeof openAlbum==='function')openAlbum('family');
 });
 $('printAtlasBtn')?.addEventListener('click',()=>window.print());
 
@@ -903,6 +916,7 @@ function closeTreeSheet(){
 }
 $('mobileTreeHome')?.addEventListener('click',()=>mobileFocus('you'));
 $('mobileTreeBack')?.addEventListener('click',mobileBack);
+$('mobileTreeReturnStory')?.addEventListener('click',returnToStory);
 $('mobileTreeFocus')?.addEventListener('click',()=>mobileFocus(selected||mobileTree.anchor||'you',false));
 $('mobileTreeLabels')?.addEventListener('click',mobileToggleBranchNames);
 $('mobileTreeExpand')?.addEventListener('click',mobileExpand);
@@ -911,8 +925,10 @@ $('mobileTreeMenuClose')?.addEventListener('click',closeTreeSheet);
 $('mobileTreeStory')?.addEventListener('click',()=>{closeTreeSheet();openChooser();});
 $('mobileTreeAlbum')?.addEventListener('click',()=>{
   closeTreeSheet();
-  if(typeof openAlbum==='function')openAlbum();
+  if(typeof openAlbum==='function')openAlbum('family');
 });
+$('mobileTreeDocuments')?.addEventListener('click',()=>{closeTreeSheet();if(typeof openAlbum==='function')openAlbum('document')});
+$('mobileTreePlaces')?.addEventListener('click',()=>{closeTreeSheet();if(typeof openAlbum==='function')openAlbum('place')});
 $('mobileTreeWholeAtlas')?.addEventListener('click',()=>{
   closeTreeSheet();
   window.__mobileTreeVisibleNodeIds=null;
@@ -924,6 +940,6 @@ $('mobileTreeStart')?.addEventListener('click',()=>{
   els.landing?.classList.remove('hidden');
 });
 
-window.AncestryTour={begin,exit:exitTour,state,mobileTree,mobileFocus,mobileBack,mobileExpand,mobileToggleBranchNames,previewScene};
+window.AncestryTour={begin,returnToStory,exit:exitTour,state,mobileTree,mobileFocus,mobileBack,mobileExpand,mobileToggleBranchNames,previewScene};
 setTransport();
 })();

@@ -53,18 +53,21 @@ Priority is locked:
 - Family photographs retain their identity, provenance and deliberate crop.
 - Rejected charcoal and rejected candidate imagery remain outside the package.
 
-## Story presentation
+## Story presentation (v3.8.8 clarification)
 
 - Guided Audio-Visual Family Tour remains slideshow-first.
-- The selected family line approaches from a distant constellation over about
-  eight seconds, slowing as it fills the screen.
-- Story image, compact caption, period flag and meaningful regional map remain
-  visible together.
+- The selected family line approaches from the same precomputed final camera
+  over about thirteen seconds. The same faint node cluster reads first as one
+  distant star, then resolves continuously; a separate star layer or handoff
+  camera is forbidden because it creates a visual jump.
+- Story photographs and captions remain unobscured. A plainly labeled `Place`
+  control opens a dedicated full-screen historical place surface containing the
+  period flag, meaningful archival regional map, marker, caption and provenance.
 - Hide slideshow reveals the exact highlighted transcript; Show slideshow
   restores the visual stage.
 - Recorded audio starts paused with sound on.
-- Locked transport symbols remain ⏮, ▶/⏸ and ⏭; their behavior is not silently
-  reassigned.
+- Transport keeps its familiar symbols and also names each action: Previous,
+  Play/Pause, Narration On/Off, Next and Exit Story.
 - While Fable is pending, separate labeled image arrows permit visual review.
   They disappear when approved audio becomes the scene-timing authority.
 - Missing media fails quietly, exposes no technical filenames and never triggers
@@ -78,8 +81,21 @@ Priority is locked:
 - Dotted routes represent supported endpoints with an unresolved path.
 - Important move drivers belong in the biography/evidence data.
 - Use the period-appropriate jurisdictional flag for the scene.
-- Map and flag remain visible in the compact lower utility rail; labels may
-  collapse before either graphic is removed.
+- Maps and flags never cover faces or story captions. They open together in the
+  dedicated Place view and must include a visible exit.
+- Do not fabricate generic locator art when an archival locator has been
+  approved. Arizona story scenes use the 1919 AAA Arizona–New Mexico map held by
+  the Library of Congress; the Arizona state flag is labeled adopted 1917.
+
+## Mode and media separation (v3.8.8)
+
+- Story and Tree are distinct modes with context-specific controls.
+- Phone Tree controls are Story, Center Person, Branch Names, Wider Tree, Home
+  and More. Previous Person, media collections and evidence remain in More.
+- Family Photos contains portraits and genuine family photographs only.
+- Documents contains archival record images only.
+- Places contains landscapes, historical scene photographs, flags, maps and
+  geographic context. Context imagery may never be labeled a document.
 
 ## Cross-platform experience
 

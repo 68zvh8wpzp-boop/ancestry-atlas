@@ -1,8 +1,8 @@
 {
-  "packageVersion": "3.8.7-navigation-and-period-locators",
-  "inputPackage": "v3.8.6 contract restoration at 930f387",
+  "packageVersion": "3.8.8-story-tree-modes-and-archival-places",
+  "inputPackage": "v3.8.7 navigation and period locators at 1be6076",
   "sourceProductionVersion": "3.7.5",
-  "releaseStatus": "approved Fable runtime integrated; stable star approach, period locator treatment, populated album, and reversible phone lineage navigation",
+  "releaseStatus": "approved Fable runtime integrated; distinct Story and Tree modes, continuous deep-space approach, dedicated archival Places, and typed media collections",
   "narration": {
     "approvedVoice": "OpenAI Fable",
     "model": "gpt-4o-mini-tts",
@@ -51,6 +51,7 @@
     "biographies/brenay-canada/narration/mary_ann_dennis.txt",
     "CROSS_PLATFORM_ACCEPTANCE_v3_8_0.md",
     "PRODUCTION_CONTRACT_v3_8_0.md",
+    "VISUAL_RIGHTS_MANIFEST.json",
     "RELEASE_NOTES_v3_8_0_CHECKPOINT.md",
     "README_DEPLOY_v3_8_0_CHECKPOINT.txt",
     "RELEASE_NOTES_v3_8_1_CORRECTIVE.md"
@@ -72,6 +73,10 @@
     ,"RELEASE_NOTES_v3_8_3_MOBILE_STORY_CORRECTIVE.md"
     ,"RELEASE_NOTES_v3_8_6_CONTRACT_RESTORATION.md"
     ,"RELEASE_NOTES_v3_8_7_NAVIGATION_AND_PERIOD_LOCATORS.md"
+    ,"RELEASE_NOTES_v3_8_8_STORY_TREE_AND_ARCHIVAL_PLACES.md"
+    ,"assets/arizona_new_mexico_1919_locator.jpg"
+    ,"assets/charles_albert_brunne_1901_census_full.jpg"
+    ,"assets/charles_albert_brunne_1901_census_thumb.jpg"
   ],
   "approvedBiographyAssets": [
     "jay_marion_mesa_1941.png",
@@ -106,8 +111,8 @@
     "biographies/brenay-canada/assets/wwi_registration_day_1917_loc_candidate.jpg"
   ],
   "overlayAssets": [
-    "inline period-appropriate flag SVGs",
-    "inline period-style cropped locator and route SVGs"
+    "inline period-appropriate flag SVGs with dated jurisdiction labels",
+    "Library of Congress 1919 Arizona–New Mexico road map with HTML place markers"
   ],
   "networkRequiredForPackagedBiographyAssets": false,
   "rejectedAssetsExcluded": true
