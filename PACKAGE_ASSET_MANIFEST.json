@@ -1,8 +1,8 @@
 {
-  "packageVersion": "3.8.3-mobile-story-corrective",
-  "inputPackage": "GitHub main at 855f9eb17cb8c0d0415dd9421c71dd902386bc2b",
+  "packageVersion": "3.8.6-contract-restoration",
+  "inputPackage": "GitHub main at b2e3f1bbf456fa16c18ee8d1edf44e8e9302a833",
   "sourceProductionVersion": "3.7.5",
-  "releaseStatus": "approved Fable runtime integrated; mobile story and local-atlas corrective",
+  "releaseStatus": "approved Fable runtime integrated; phone tree and story production contracts restored",
   "narration": {
     "approvedVoice": "OpenAI Fable",
     "model": "gpt-4o-mini-tts",
@@ -58,6 +58,7 @@
     ,"biographies/webb-branch/README.md"
     ,"biographies/webb-branch/research-register.json"
     ,"tests/governance-regression.mjs"
+    ,"tests/experience-contract-regression.mjs"
     ,"RELEASE_NOTES_v3_8_2_GOVERNANCE.md"
     ,"approved-audio/fable/APPROVAL.md"
     ,"approved-audio/fable/SHA256SUMS.txt"
@@ -69,6 +70,7 @@
     ,"approved-audio/fable/John_peter_gooley.mp3"
     ,"approved-audio/fable/Mary_ann_dennis.mp3"
     ,"RELEASE_NOTES_v3_8_3_MOBILE_STORY_CORRECTIVE.md"
+    ,"RELEASE_NOTES_v3_8_6_CONTRACT_RESTORATION.md"
   ],
   "approvedBiographyAssets": [
     "jay_marion_mesa_1941.png",
