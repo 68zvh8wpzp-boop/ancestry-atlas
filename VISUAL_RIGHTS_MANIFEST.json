@@ -12,7 +12,11 @@
     {"file":"postwar_arizona_road_1950.jpg","source":"U.S. Forest Service","rights":"public domain"},
     {"file":"san_diego_highway_1960_65.jpg","source":"Library of Congress / Bernard Gotfryd","rights":"no restrictions"},
     {"file":"usaf_flightline_airmen_1962.jpg","source":"U.S. Air Force","rights":"public domain"},
-    {"file":"asc_students_sweethearts_ball_1964.jpg","source":"La Cuesta, 1964","rights":"no copyright - United States"}
+    {"file":"asc_students_sweethearts_ball_1964.jpg","source":"La Cuesta, 1964","rights":"no copyright - United States"},
+    {"file":"assets/arizona_new_mexico_1919_locator.jpg","source":"American Automobile Association, Arizona-New Mexico road map, 1919; Library of Congress Geography and Map Division, g4331p.ct007690r","rights":"Library of Congress digital reproduction of historical map; source and date displayed in product"}
+  ],
+  "archival_records": [
+    {"file":"assets/charles_albert_brunne_1901_census_full.jpg","thumbnail":"assets/charles_albert_brunne_1901_census_thumb.jpg","source":"Library and Archives Canada, Census of Canada 1901, Ontario, Muskoka and Parry Sound, Mills Township, page 4, scan z000084034","usage":"research evidence display with source attribution"}
   ],
   "approved_charcoal": [
     {"file":"charcoal_childhood_illness_wide.png","source":"approved project illustration","usage":"distant non-likeness figures; wide across-the-room composition"}

@@ -64,8 +64,16 @@ Every branch passes these gates in order:
 - The phone opens on a calm local family neighborhood. Whole Atlas is explicit.
 - Evidence is experiential: light, line treatment, labels, notes, document holds,
   and proof-frontier language must agree.
-- Stories are slideshow-first with fixed transport, compact caption/map/flag,
-  exact transcript mode, recorded audio paused with sound on, and no browser TTS.
+- Stories are slideshow-first with named transport controls and unobscured
+  photographs. Flag and archival locator live in the dedicated Place surface;
+  exact transcript mode, recorded audio paused with sound on, and no browser TTS
+  remain locked.
+- Media types are semantic release gates: Family Photos contains family images,
+  Documents contains record scans, and Places contains maps, flags, landscapes
+  and contextual scenes. A contextual photograph is never a document.
+- Story and Tree are separate phone modes. Tree must retain one-tap access to
+  Story, Center Person, Branch Names, Wider Tree and Home; branch focus always
+  preserves a concise descendant route as well as ancestors.
 - Missing media remains readable, quiet, and human-facing; never expose filenames
   or synthesize substitutes.
 
