@@ -189,13 +189,14 @@ body.tour-story-open .story-place-open{display:block!important}
 .story-place-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:16px}.story-place-head h2{margin:4px 0 0;color:#f2ead9;font:600 clamp(22px,4vw,38px)/1.1 Georgia,serif}.story-place-head button{width:48px;height:48px;flex:none;border-radius:50%;font-size:30px;background:#132331;color:white}
 #storyPlaceModal .story-context-ribbon{display:grid!important;position:relative!important;inset:auto!important;z-index:auto!important;width:100%!important;max-width:none!important;grid-template-columns:minmax(150px,230px) minmax(0,1fr)!important;align-items:center!important;gap:clamp(16px,3vw,34px)!important;padding:0!important;pointer-events:auto!important;background:none!important;border:0!important;box-shadow:none!important}
 #storyPlaceModal .story-az-flag,#storyPlaceModal .story-locator-card{position:relative!important;inset:auto!important;opacity:1!important;width:auto!important;height:auto!important;margin:0!important;background:none!important;border:0!important;box-shadow:none!important}
+#storyPlaceModal .story-locator-card{display:block!important;overflow:visible!important}
 #storyFlagArt{padding:12px;border:1px solid rgba(219,198,151,.62);background:#111a20;box-shadow:0 10px 26px rgba(0,0,0,.35)}#storyFlagArt svg{display:block;width:100%;height:auto;filter:sepia(.12) saturate(.88) contrast(.96)}
 #storyFlagCaption,#storyPlaceModal figcaption{display:block;margin-top:9px;color:#d8c8a6;font:600 12px/1.4 Georgia,serif;letter-spacing:.035em;text-align:left}
 .story-flag-wordmark{display:grid;place-items:center;aspect-ratio:8/5;background:#172533;color:#e7dcc7;font:700 18px Georgia,serif;letter-spacing:.16em}
 .story-archival-map{position:relative;overflow:hidden;border:1px solid rgba(219,198,151,.64);background:#cfc4a7;box-shadow:0 14px 36px rgba(0,0,0,.42)}.story-archival-map img{display:block;width:100%;height:auto;filter:sepia(.12) saturate(.78) contrast(1.03)}
 .story-locator-dot{position:absolute;width:17px;height:17px;transform:translate(-50%,-50%);border:3px solid #f7e7c4;border-radius:50%;background:#bf493b;box-shadow:0 0 0 4px rgba(191,73,59,.25),0 2px 7px #000}
 .story-locator-map-label{position:absolute;transform:translate(11px,-28px);padding:3px 6px;border-radius:4px;background:rgba(8,12,13,.78);color:#fff7e6;font:700 12px/1.1 Georgia,serif;text-shadow:0 1px 2px #000;white-space:nowrap}
-#storyPlaceModal .story-locator-card figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px}.story-place-context{margin:18px 0 0;color:#c9d4da;font:400 15px/1.55 system-ui,sans-serif}
+#storyPlaceModal .story-locator-card figcaption{display:grid!important;grid-template-columns:1fr!important;gap:4px!important;width:100%!important}.story-place-context{margin:18px 0 0;color:#c9d4da;font:400 15px/1.55 system-ui,sans-serif}
 
 body.aa-phone .mobile-tree-dock{grid-template-columns:repeat(6,minmax(0,1fr))!important}
 body.aa-phone .mobile-tree-dock button small{white-space:normal!important;min-height:18px!important;text-align:center!important}
