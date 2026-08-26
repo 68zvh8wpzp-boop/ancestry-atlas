@@ -302,6 +302,26 @@ function cameraTargetForBranch(ids){
   return clamp(fit,min,max);
 }
 
+function fitMobileBranch(ids,focusId){
+  selected=focusId||ids[0];
+  originNodeId=selected;
+  pivotWorld={x:0,y:0,z:0};pivotCamera={x:0,y:0,z:0};
+  rotX=0;rotY=0;scale=1;panX=0;panY=0;
+  let pts=ids.map(id=>nodeById.get(id)).filter(Boolean).map(n=>project(n));
+  if(!pts.length)return 54;
+  const spanX=Math.max(1,Math.max(...pts.map(p=>p.x))-Math.min(...pts.map(p=>p.x)));
+  const spanY=Math.max(1,Math.max(...pts.map(p=>p.y))-Math.min(...pts.map(p=>p.y)));
+  const w=stage.clientWidth,h=stage.clientHeight;
+  const fitted=clamp(Math.min((w-176)/spanX,(h-150)/spanY),38,74);
+  scale=fitted;
+  pts=ids.map(id=>nodeById.get(id)).filter(Boolean).map(n=>project(n));
+  const centerX=(Math.min(...pts.map(p=>p.x))+Math.max(...pts.map(p=>p.x)))/2;
+  const centerY=(Math.min(...pts.map(p=>p.y))+Math.max(...pts.map(p=>p.y)))/2;
+  panX+=w/2-centerX;
+  panY+=centerY-h*.50;
+  return fitted;
+}
+
 async function cinematicBranchEntrance(track,focusId,mySession){
   let ids=setBranchOnly(track);
   if(!ids.length) return;
@@ -321,12 +341,7 @@ async function cinematicBranchEntrance(track,focusId,mySession){
   rotX=0;
   rotY=0;
   const mobile=window.matchMedia('(max-width:800px)').matches;
-  if(mobile && window.AncestryMobileTreeInternal?.neighborhood){
-    ids=[...window.AncestryMobileTreeInternal.neighborhood(focusId,7)].filter(id=>nodeById.has(id));
-    window.__tourVisibleNodeIds=new Set(ids);
-  }
-  const targetScale=mobile?58:cameraTargetForBranch(ids);
-  if(mobile){selected=focusId||ids[0];centerOnNode(selected);}
+  const targetScale=mobile?fitMobileBranch(ids,focusId):cameraTargetForBranch(ids);
   const startScale=mobile?targetScale*.52:Math.max(.55,targetScale*.018);
   const endScale=targetScale;
   scale=startScale;
