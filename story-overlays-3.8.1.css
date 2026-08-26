@@ -7,19 +7,19 @@
   flex:0 0 clamp(92px,9vw,164px)!important;background:#07131c!important
 }
 .story-context-ribbon .story-locator-card svg.story-route-map{
-  background:linear-gradient(145deg,#eadfca,#cdbf9f)!important;
+  background:linear-gradient(145deg,#f3ead8,#cdbb91)!important;
   border:1px solid rgba(96,70,38,.52)!important;border-radius:3px!important;
   box-shadow:inset 0 0 18px rgba(89,61,29,.18),0 2px 10px rgba(0,0,0,.35)!important
 }
-.story-route-map .map-land{fill:#e4d7bc;stroke:#594f3e;stroke-width:1.4}
+.story-route-map .map-land{fill:#eadfc6;stroke:#493d2d;stroke-width:1.6}
 .story-route-map .map-border{fill:none;stroke:#9a896d;stroke-width:.75;stroke-dasharray:2 2}
-.story-route-map .map-water{fill:none;stroke:#5f8ea0;stroke-width:1.35}
-.story-route-map .map-terrain{fill:none;stroke:#88906c;stroke-width:.8;opacity:.9}
-.story-route-map .map-route{fill:none;stroke:#a43e32;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.story-route-map .map-water{fill:none;stroke:#397f98;stroke-width:1.7}
+.story-route-map .map-terrain{fill:none;stroke:#77845c;stroke-width:1;opacity:.95}
+.story-route-map .map-route{fill:none;stroke:#a3382d;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
 .story-route-map .map-route.unresolved{stroke-dasharray:4 3}
 .story-route-map .map-stop{fill:#c7903f;stroke:#f7eedc;stroke-width:1}
 .story-route-map .map-focus{fill:#a43e32;stroke:#fff8e9;stroke-width:1.2}
-.story-route-map text{fill:#2f2a22;font:700 6px Georgia,serif;paint-order:stroke;stroke:#eee2cb;stroke-width:1.8px;stroke-linejoin:round}
+.story-route-map text{fill:#251f18;font:700 7px Georgia,serif;paint-order:stroke;stroke:#f4ead6;stroke-width:2.2px;stroke-linejoin:round}
 .story-locator-card:focus-visible{outline:2px solid #70e0d0!important;outline-offset:3px!important}
 
 @media(max-width:540px){
