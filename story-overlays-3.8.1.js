@@ -19,12 +19,12 @@
   const previewNav=document.getElementById('storyPreviewImageNav');
   let currentScene={};
   const markers={
-    'arizona-mesa-regional':[23.4,53.2,'Mesa'],'mesa-to-st-johns':[39.3,37.7,'St. Johns'],
-    'southwest-trinity':[51,44,'Trinity Site'],'four-corners':[44,15,'Four Corners'],
-    'southwest-regional':[31,42,'Arizona'],'white-mountains':[39.3,37.7,'St. Johns'],
-    'arizona-statewide':[31,42,'Arizona'],'arizona-california':[12,52,'California'],
-    'arizona-flagstaff':[29,31,'Flagstaff'],'great-lakes-to-southwest':[23.4,53.2,'Mesa'],
-    'depression-western-moves':[31,42,'Arizona'],'mesa-to-lakeside':[38,38,'Lakeside']
+    'arizona-mesa-regional':[29.5,61.8,'Mesa'],'mesa-to-st-johns':[45,49,'St. Johns'],
+    'southwest-trinity':[62,68,'Trinity Site'],'four-corners':[48.4,8.8,'Four Corners'],
+    'southwest-regional':[34,49,'Arizona'],'white-mountains':[45,49,'St. Johns'],
+    'arizona-statewide':[34,49,'Arizona'],'arizona-california':[9,47,'California'],
+    'arizona-flagstaff':[30.7,36.4,'Flagstaff'],'great-lakes-to-southwest':[29.5,61.8,'Mesa'],
+    'depression-western-moves':[34,49,'Arizona'],'mesa-to-lakeside':[41.5,49.5,'Lakeside']
   };
   function arizonaFlag(){
     const boundary=d=>d<=30?[0,30-d]:d<=126?[d-30,0]:[96,d-126];let rays='';
@@ -61,5 +61,5 @@
     if(previewNav)previewNav.hidden=!preview;if(previewPrev)previewPrev.disabled=(detail.index||0)<=0;if(previewNext)previewNext.disabled=(detail.index||0)>=count-1;
   });
   previewPrev?.addEventListener('click',()=>window.AncestryTour?.previewScene?.(-1));previewNext?.addEventListener('click',()=>window.AncestryTour?.previewScene?.(1));
-  window.AncestryStoryOverlays={version:'3.8.8',open,close};
+  window.AncestryStoryOverlays={version:'3.8.9',open,close};
 })();

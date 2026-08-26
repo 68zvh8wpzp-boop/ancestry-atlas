@@ -20,8 +20,9 @@ requireText(index,'id="storyPlaceOpen"','Story mode must expose a plainly labele
 forbidText(index,'<div id="storyContextRibbon" class="story-context-ribbon" aria-hidden="true">','map and flag must not cover the story photograph');
 requireText(content,"mapKey:'arizona-mesa-regional'",'opening scene must use regional Mesa context');
 requireText(content,"mapKey:'mesa-to-st-johns'",'second scene must show the supported Mesa to St. Johns movement');
-requireText(overlays,"'arizona-mesa-regional':[23.4,53.2,'Mesa']",'opening locator must mark Mesa on the archival regional map');
-requireText(overlays,"'mesa-to-st-johns':[39.3,37.7,'St. Johns']",'St. Johns locator must retain the supported movement endpoint');
+requireText(overlays,"'arizona-mesa-regional':[29.5,61.8,'Mesa']",'opening locator must mark Mesa at its calibrated archival-map position');
+requireText(overlays,"'mesa-to-st-johns':[45,49,'St. Johns']",'St. Johns locator must retain its calibrated movement endpoint');
+requireText(css,'#storyPlaceModal .story-locator-card{display:block!important','legacy overlay flex rules must not squeeze Place provenance beside the map');
 requireText(overlays,'Arizona state flag • adopted 1917','Arizona flag must use its correct adoption date');
 requireText(overlays,'assets/arizona_new_mexico_1919_locator.jpg','Place must use the real 1919 Library of Congress map');
 requireText(tour,'window.__tourLockedLabelOffsets','opening label placement must remain stable during camera movement');
