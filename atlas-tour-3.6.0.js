@@ -656,6 +656,10 @@ function exitTour(){
         window.AncestryMobileTreeInternal?.focusIds(saved.selected||returnId,10);
         const history=window.AncestryTour?.mobileTree?.history;
         if(history && history[history.length-1]!==saved.selected)history.push(saved.selected||returnId);
+        selected=saved.selected||returnId;
+        if(window.AncestryTour?.mobileTree)window.AncestryTour.mobileTree.mode='family';
+        cinematicFocus(selected,'family');
+        setTimeout(()=>{try{card.style.display='none';sceneContext?.classList.remove('show');draw();}catch(e){}},80);
       }
       draw();
     }catch(e){console.error('Could not restore the pre-tour camera context.',e);}

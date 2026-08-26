@@ -101,9 +101,10 @@ body.aa-phone.tour-story-open.story-presentation-v360 .story-top .landing-kicker
 body.aa-phone.tour-story-open.story-presentation-v360 .story-top h2{font-size:clamp(13px,4.1vw,18px)!important}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-year{font-size:9px!important}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption{
-  left:var(--story-edge-x)!important;right:var(--story-edge-x)!important;
+  left:var(--story-edge-x)!important;right:calc(var(--story-edge-x) + 38vw)!important;
   bottom:calc(var(--aa-edge-bottom) + 42px)!important;display:block!important;
-  max-height:42px!important;white-space:normal!important;overflow:hidden!important
+  max-height:58px!important;padding:7px 9px!important;white-space:normal!important;overflow:hidden!important;
+  border-left:2px solid rgba(227,193,126,.82)!important;background:linear-gradient(90deg,rgba(2,7,10,.88),rgba(2,7,10,.25))!important
 }
 body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption b,
 body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption span{
@@ -117,14 +118,14 @@ body.aa-phone.tour-story-open.story-presentation-v360 .story-controls .cd-button
   height:32px!important;min-height:32px!important;font-size:13px!important
 }
 body.aa-phone.tour-story-open.story-presentation-v360 .story-context-ribbon{
-  right:var(--story-edge-x)!important;bottom:calc(var(--aa-edge-bottom) + 52px)!important;
-  max-width:52vw!important;gap:5px!important;padding:5px!important;
-  border:1px solid rgba(190,211,224,.28)!important;background:rgba(3,10,15,.80)!important;
+  right:var(--story-edge-x)!important;top:calc(var(--story-edge-y) + 54px)!important;bottom:auto!important;
+  max-width:35vw!important;gap:5px!important;padding:5px!important;
+  border:1px solid rgba(217,199,166,.35)!important;background:rgba(17,15,12,.88)!important;
   pointer-events:auto!important
 }
-body.aa-phone.tour-story-open.story-presentation-v360 .story-az-flag{width:53px!important;height:33px!important;flex-basis:53px!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-az-flag{width:42px!important;height:27px!important;flex-basis:42px!important;border:1px solid rgba(255,255,255,.58)!important}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card{cursor:pointer!important}
-body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card svg.story-route-map{width:138px!important;height:69px!important;flex-basis:138px!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card svg.story-route-map{width:112px!important;height:57px!important;flex-basis:112px!important}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card span{display:none!important}
 body.aa-phone.tour-story-open.story-presentation-v360.story-map-expanded .story-context-ribbon{
   left:5vw!important;right:5vw!important;bottom:18vh!important;max-width:none!important;
@@ -137,12 +138,15 @@ body.aa-phone.tour-story-open.story-presentation-v360.story-map-expanded .story-
 /* Short landscape viewports, including mirrored iPhone Safari. */
 body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-top{right:23%!important}
 body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-scene-caption{
-  bottom:calc(var(--aa-edge-bottom) + 34px)!important;max-height:32px!important;white-space:nowrap!important
+  right:40vw!important;bottom:calc(var(--aa-edge-bottom) + 36px)!important;max-height:54px!important;white-space:normal!important
 }
 body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-controls{
   width:min(230px,38vw)!important;grid-template-rows:2px 27px!important
 }
 body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-controls .cd-button{height:27px!important;min-height:27px!important}
+body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-context-ribbon{
+  top:calc(var(--story-edge-y) + 46px)!important;max-width:34vw!important
+}
 
 /* Across-room scaling without hard-coding 1080p or 4K. */
 body.aa-large-display.tv-mode #card{font-size:clamp(17px,1.05vw,30px)!important}

@@ -74,7 +74,7 @@
     if(typeof targetYForCenter==='function'){
       targetYForCenter=()=>{
         const size=viewport();
-        if(body.classList.contains('aa-phone'))return size.height*(size.height>size.width?0.80:0.66);
+        if(body.classList.contains('aa-phone'))return size.height*(size.height>size.width?0.58:0.52);
         if(body.classList.contains('aa-tablet'))return size.height*.61;
         return size.height*.56;
       };
