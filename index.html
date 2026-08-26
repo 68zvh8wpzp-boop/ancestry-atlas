@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<title>Ancestry Atlas v3.8.6</title>
+<title>Ancestry Atlas v3.8.7</title>
 <meta name="theme-color" content="#020609">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -540,8 +540,8 @@ window.addEventListener('error',function(e){
   <link rel="stylesheet" href="atlas-tour-3.6.0.css">
   <link rel="stylesheet" href="tv-mode-3.7.3.css">
   <link rel="stylesheet" href="story-presentation-3.6.0.css">
-  <link rel="stylesheet" href="story-overlays-3.8.1.css?v=3.8.6">
-  <link rel="stylesheet" href="experience-3.8.1.css?v=3.8.6">
+  <link rel="stylesheet" href="story-overlays-3.8.1.css?v=3.8.7">
+  <link rel="stylesheet" href="experience-3.8.1.css?v=3.8.7">
 </head>
 <body>
 
@@ -587,7 +587,7 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Guided Audio-Visual Family Tour</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v3.8.6 • restored production contracts • approved Fable audio</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v3.8.7 • stable star approach • period locators • branch navigation</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop first orients you visibly in the tree, then opens the story. Recorded narration is used only when an approved audio file exists.</p>
   </div>
 </div>
@@ -782,6 +782,7 @@ window.addEventListener('error',function(e){
   <button id="mobileTreeHome" type="button" aria-label="Home person"><span>⌂</span><small>Home</small></button>
   <button id="mobileTreeBack" type="button" aria-label="Previous person"><span>←</span><small>Back</small></button>
   <button id="mobileTreeFocus" type="button" aria-label="Focus current family"><span>◎</span><small>Focus</small></button>
+  <button id="mobileTreeLabels" type="button" aria-label="Show names for this branch" aria-pressed="false"><span>Aa</span><small>Names</small></button>
   <button id="mobileTreeExpand" type="button" aria-label="Expand tree"><span>＋</span><small>Expand</small></button>
   <button id="mobileTreeMenu" type="button" aria-label="More tree controls"><span>⋯</span><small>Menu</small></button>
 </div>
@@ -1023,10 +1024,14 @@ function buildMobileTreeNeighborhood(id,maxNodes=10){
   const parents=parentMap.get(id)||[];
   const children=childMap.get(id)||[];
   const partners=coParentIds(id);
-  // Phone family view is a lineage ladder: the focus remains at the foot of
-  // the screen and direct ancestors receive the visual space first.
+  // Phone family view always reserves a concise route back toward descendants
+  // before allocating the rest of the budget to earlier ancestors. This keeps
+  // a selected mother or grandmother from becoming a one-way navigation trap.
+  children.forEach(push);
+  children.forEach(child=>(childMap.get(child)||[]).forEach(push));
+  partners.forEach(push);
   let frontier=[...parents], depth=0;
-  while(frontier.length && out.length<maxNodes && depth<5){
+  while(frontier.length && out.length<maxNodes && depth<6){
     const next=[];
     frontier.forEach(person=>{
       push(person);
@@ -1034,10 +1039,32 @@ function buildMobileTreeNeighborhood(id,maxNodes=10){
     });
     frontier=unique(next); depth++;
   }
-  // Immediate family is retained as restrained side context only after the
-  // direct line has been allocated.
-  partners.forEach(push);
-  children.forEach(push);
+  return new Set(out);
+}
+
+function buildLineageBranch(id,maxNodes=22){
+  if(!id||!nodeById.has(id))id='you';
+  const out=[],seen=new Set();
+  const push=x=>{if(x&&nodeById.has(x)&&!seen.has(x)&&out.length<maxNodes){seen.add(x);out.push(x);return true}return false};
+  push(id);
+  // Preserve the direct descendant route all the way to the modern anchor.
+  let down=[id],depth=0;
+  while(down.length&&out.length<maxNodes&&depth<8){
+    const next=[];
+    down.forEach(person=>(childMap.get(person)||[]).forEach(child=>{push(child);next.push(child)}));
+    down=unique(next);depth++;
+  }
+  // Then open the person's full ancestral branch, including spouses/co-parents
+  // needed to understand each generation, without pulling in collateral trees.
+  let up=[id];depth=0;
+  while(up.length&&out.length<maxNodes&&depth<8){
+    const next=[];
+    up.forEach(person=>{
+      coParentIds(person).forEach(push);
+      (parentMap.get(person)||[]).forEach(parent=>{push(parent);next.push(parent)});
+    });
+    up=unique(next);depth++;
+  }
   return new Set(out);
 }
 function setMobileTreeNeighborhood(id,maxNodes=10){
@@ -1072,7 +1099,8 @@ window.AncestryMobileTreeInternal={
     navigationNeighborhood=new Set(window.__mobileTreeVisibleNodeIds);setViewButtons('family');
   },
   clear:()=>{window.__mobileTreeVisibleNodeIds=null;},
-  neighborhood:buildMobileTreeNeighborhood
+  neighborhood:buildMobileTreeNeighborhood,
+  branch:buildLineageBranch
 };
 function buildExtraInfo(id){
   const n=nodeById.get(id);
@@ -1505,6 +1533,7 @@ function setViewButtons(level){
     badge.innerHTML=`<strong>${label}</strong>${selected&&level!=='atlas'?' · '+escapeHtml(nodeById.get(selected)?.name||''):''}`;
   }
 }
+let focusAnimationId=0;
 function cinematicFocus(id,mode='family'){
   const n=nodeById.get(id); if(!n)return;
   selected=id;
@@ -1525,8 +1554,10 @@ function cinematicFocus(id,mode='family'){
   const targets={person:isMobile?96:126,family:isMobile?64:82,branch:isMobile?46:56,atlas:isMobile?58:48};
   const target=targets[mode]||targets.family;
   const startScale=scale;
+  const animationId=++focusAnimationId;
   const start=performance.now(), dur=1650;
   function tick(t){
+    if(animationId!==focusAnimationId)return;
     const q=Math.min(1,(t-start)/dur), ease=1-Math.pow(1-q,3);
     scale=startScale+(target-startScale)*ease; draw();
     if(q<1)requestAnimationFrame(tick);
@@ -1699,6 +1730,24 @@ function draw(){
   for(let y=70;y<h;y+=70){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
   ctx.restore();
 
+  // The guided entrance begins as one distant point of ancestral light. Keep
+  // the tree and its labels out of the first approach frames; rendering a tiny
+  // collision layout here caused the rapid name-card shudder seen on phones.
+  const approach=Number(window.__tourApproachProgress);
+  if(document.body.classList.contains('tour-orienting')&&Number.isFinite(approach)&&approach<.18){
+    const q=Math.max(0,approach/.18);
+    const sx=w/2+Math.cos((1-q)*Math.PI*1.35)*(1-q)*Math.min(w,h)*.055;
+    const sy=h*.48+Math.sin((1-q)*Math.PI*1.35)*(1-q)*Math.min(w,h)*.04;
+    const halo=ctx.createRadialGradient(sx,sy,0,sx,sy,9+q*18);
+    halo.addColorStop(0,'rgba(255,255,255,1)');
+    halo.addColorStop(.16,'rgba(170,214,255,.95)');
+    halo.addColorStop(.45,'rgba(91,154,230,.42)');
+    halo.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=halo;ctx.beginPath();ctx.arc(sx,sy,9+q*18,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#f8fcff';ctx.beginPath();ctx.arc(sx,sy,1.2+q*1.8,0,Math.PI*2);ctx.fill();
+    return;
+  }
+
   projected=DATA.nodes.filter(visibleNode).map(project);
   const map=new Map(projected.map(p=>[p.node.id,p]));
 
@@ -1757,7 +1806,8 @@ function draw(){
     ctx.filter='none';
 
     const mobileAtlasLocalLabels=isMobile&&nodeViewLevel==='atlas';
-    const showNavLabel=!window.__tourSuppressLabels && (mobileAtlasLocalLabels
+    const approachLabels=!document.body.classList.contains('tour-orienting')||!Number.isFinite(approach)||approach>=.56;
+    const showNavLabel=!window.__tourSuppressLabels && approachLabels && (mobileAtlasLocalLabels
       ? navigationNeighborhood.has(n.id)
       : (!nodeFocusMode || nodeViewLevel==='atlas' || navigationNeighborhood.has(n.id)));
     if(!showNavLabel){ctx.restore();return;}
@@ -1802,18 +1852,27 @@ function draw(){
       );
     }
     let best=null,bestScore=Infinity;
-    for(const c of candidates){
-      const box={x:c.x,y:c.y,w:boxW,h:boxH};
-      let score=Math.hypot((c.x+boxW/2)-p.x,(c.y+boxH/2)-p.y)*.12;
-      if(c.x<pad)score+=(pad-c.x)*120;
-      if(c.y<pad)score+=(pad-c.y)*120;
-      if(c.x+boxW>w-pad)score+=(c.x+boxW-(w-pad))*120;
-      if(c.y+boxH>h-pad)score+=(c.y+boxH-(h-pad))*120;
-      for(const b of labelBoxes)score+=overlapArea(box,b)*4.5;
-      if(best===null||score<bestScore){best=c;bestScore=score;}
+    const locked=window.__tourLockedLabelOffsets?.[n.id];
+    if(locked){
+      best={x:p.x+locked.x,y:p.y+locked.y};
+    }else{
+      for(const c of candidates){
+        const box={x:c.x,y:c.y,w:boxW,h:boxH};
+        let score=Math.hypot((c.x+boxW/2)-p.x,(c.y+boxH/2)-p.y)*.12;
+        if(c.x<pad)score+=(pad-c.x)*120;
+        if(c.y<pad)score+=(pad-c.y)*120;
+        if(c.x+boxW>w-pad)score+=(c.x+boxW-(w-pad))*120;
+        if(c.y+boxH>h-pad)score+=(c.y+boxH-(h-pad))*120;
+        for(const b of labelBoxes)score+=overlapArea(box,b)*4.5;
+        if(best===null||score<bestScore){best=c;bestScore=score;}
+      }
     }
     let bx=Math.max(pad,Math.min(w-boxW-pad,best?.x ?? (p.x+r+8)));
     let by=Math.max(pad,Math.min(h-boxH-pad,best?.y ?? (p.y-boxH/2)));
+    if(window.__tourCaptureLabelOffsets){
+      window.__tourCapturedLabelOffsets=window.__tourCapturedLabelOffsets||{};
+      window.__tourCapturedLabelOffsets[n.id]={x:bx-p.x,y:by-p.y};
+    }
     labelBoxes.push({x:bx,y:by,w:boxW,h:boxH,id:n.id});
 
     // Leader line whenever the label has moved beyond the node's immediate edge.
@@ -1827,7 +1886,9 @@ function draw(){
       ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(lx,ly);ctx.stroke();
       ctx.restore();
     }
-    const labelAlpha=Math.max(.28,Math.min(.94,(alphaByConfidence[n.confidence]||.7)*dim*(.93-p.z*.006)));
+    const approachFade=document.body.classList.contains('tour-orienting')&&Number.isFinite(approach)
+      ? Math.max(0,Math.min(1,(approach-.56)/.22)) : 1;
+    const labelAlpha=Math.max(.28,Math.min(.94,(alphaByConfidence[n.confidence]||.7)*dim*(.93-p.z*.006)))*approachFade;
     ctx.globalAlpha=labelAlpha;
     ctx.fillStyle=cardBgFor(n.confidence);
     ctx.beginPath();
@@ -1906,8 +1967,19 @@ function selectAt(clientX, clientY){
     const d=Math.hypot(p.x-pt.x,p.y-pt.y);
     if(d<bd){bd=d;best=p;}
   }
-  if(!best) return;
+  if(!best){releaseNodeFocus();return;}
   browseTrail=[]; openNode(best.node.id, true, true);
+}
+
+function releaseNodeFocus(){
+  if(!isMobile||document.body.classList.contains('tour-active'))return;
+  card.style.display='none';
+  sceneContext?.classList.remove('show');
+  selected=null;
+  nodeFocusMode=false;
+  navigationNeighborhood=new Set(window.__mobileTreeVisibleNodeIds||[]);
+  draw();
+  document.dispatchEvent(new CustomEvent('ancestryatlas:focusreleased'));
 }
 function pointerDistance(){
   const pts=[...pointerMap.values()];
@@ -1981,7 +2053,7 @@ canvas.addEventListener('wheel',e=>{
   scale=Math.max(25,Math.min(170,scale)); draw();
 },{passive:false});
 
-document.getElementById('close').onclick=()=>{card.style.display='none';draw();};
+document.getElementById('close').onclick=()=>{if(isMobile)releaseNodeFocus();else{card.style.display='none';draw();}};
 document.getElementById('zoomPersonBtn').onclick=()=>setNodeView('person');
 document.getElementById('zoomFamilyBtn').onclick=()=>setNodeView('family');
 document.getElementById('zoomBranchBtn').onclick=()=>setNodeView('branch');
@@ -2148,13 +2220,13 @@ resize();
 
 
 
-<script src="atlas-content.js?v=3.8.6"></script>
+<script src="atlas-content.js?v=3.8.7"></script>
 <script src="biographies/marion/marion-story-module.js?v=1.1.0"></script>
 <script src="biographies/brenay-canada/brenay-canada-story-modules.js?v=1.1.0"></script>
-<script src="atlas-tour-3.6.0.js?v=3.8.6"></script>
+<script src="atlas-tour-3.6.0.js?v=3.8.7"></script>
 <script src="tv-mode-3.7.3.js"></script>
 <script src="story-presentation-3.6.0.js"></script>
-<script src="story-overlays-3.8.1.js?v=3.8.6"></script>
-<script src="experience-3.8.1.js?v=3.8.6"></script>
+<script src="story-overlays-3.8.1.js?v=3.8.7"></script>
+<script src="experience-3.8.1.js?v=3.8.7"></script>
 </body>
 </html>

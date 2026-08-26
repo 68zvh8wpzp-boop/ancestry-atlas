@@ -342,14 +342,34 @@ async function cinematicBranchEntrance(track,focusId,mySession){
   rotY=0;
   const mobile=window.matchMedia('(max-width:800px)').matches;
   const targetScale=mobile?fitMobileBranch(ids,focusId):cameraTargetForBranch(ids);
-  const startScale=mobile?targetScale*.52:Math.max(.55,targetScale*.018);
+  const endPanX=panX,endPanY=panY;
+  const endRotX=0,endRotY=0;
+  const startScale=Math.max(.72,targetScale*.014);
   const endScale=targetScale;
+
+  // Solve the final label arrangement once, then keep each card on that side
+  // of its node throughout the approach. Re-running the collision solver while
+  // scale changed was the source of the rapid phone label shudder.
+  scale=endScale;rotX=endRotX;rotY=endRotY;panX=endPanX;panY=endPanY;
+  window.__tourApproachProgress=1;
+  window.__tourCapturedLabelOffsets={};
+  window.__tourCaptureLabelOffsets=true;
+  try{draw()}catch(e){}
+  window.__tourCaptureLabelOffsets=false;
+  window.__tourLockedLabelOffsets=window.__tourCapturedLabelOffsets;
+
   scale=startScale;
+  rotX=0;
+  rotY=-.72;
+  const orbit=Math.min(stage.clientWidth,stage.clientHeight)*.14;
+  panX=endPanX+orbit;
+  panY=endPanY;
+  window.__tourApproachProgress=0;
   selected=focusId||ids[0];
   try{draw()}catch(e){}
 
   const start=performance.now();
-  const duration=5600;
+  const duration=6400;
 
   hud.textContent=currentTour()?.title||'Family line';
   hud.classList.add('show');
@@ -358,12 +378,20 @@ async function cinematicBranchEntrance(track,focusId,mySession){
     const tick=now=>{
       if(mySession!==state.session){resolve();return;}
       const t=clamp((now-start)/duration,0,1);
-      const e=easeOutQuint(t);
+      const e=t*t*t*(t*(t*6-15)+10);
 
-      // Most of the physical travel happens early; the final third visibly settles.
-      scale=startScale+(endScale-startScale)*e;
+      // Logarithmic scale reads as travel across a great distance; the decaying
+      // orbit supplies a gentle spiral without inducing motion sickness.
+      scale=startScale*Math.pow(endScale/startScale,e);
+      const radius=orbit*Math.pow(1-e,1.35);
+      const angle=-Math.PI*2.2+e*Math.PI*2.2;
+      panX=endPanX+Math.cos(angle)*radius;
+      panY=endPanY+Math.sin(angle)*radius*.58;
+      rotX=0;
+      rotY=-.72*(1-e);
+      window.__tourApproachProgress=t;
 
-      document.body.classList.remove('tour-distant');
+      document.body.classList.toggle('tour-distant',t<.18);
 
       try{draw()}catch(err){}
       if(t<1) requestAnimationFrame(tick);
@@ -377,6 +405,8 @@ async function cinematicBranchEntrance(track,focusId,mySession){
   // Let the final family-line composition breathe before the story takes over.
   window.__tourSuppressLabels=false;
   document.body.classList.remove('tour-distant');
+  scale=endScale;panX=endPanX;panY=endPanY;rotX=endRotX;rotY=endRotY;
+  window.__tourApproachProgress=1;
   selected=focusId||ids[0];
   try{draw()}catch(e){}
   await wait(mobile?1700:500);
@@ -655,6 +685,10 @@ function exitTour(){
   hud.classList.remove('show');
   document.body.classList.remove('tour-active','tour-orienting','tour-distant','tour-story-open');
   window.__tourSuppressLabels=false;
+  delete window.__tourApproachProgress;
+  delete window.__tourLockedLabelOffsets;
+  delete window.__tourCapturedLabelOffsets;
+  delete window.__tourCaptureLabelOffsets;
   els.modal?.classList.remove('open');
   els.modal?.setAttribute('aria-hidden','true');
   els.sceneStrip?.classList.remove('show');
@@ -667,7 +701,11 @@ function exitTour(){
     try{
       window.AncestryMobileTreeInternal?.focusBiography?.(returnId,10);
       selected=returnId;
-      if(window.AncestryTour?.mobileTree)window.AncestryTour.mobileTree.mode='family';
+      if(window.AncestryTour?.mobileTree){
+        window.AncestryTour.mobileTree.mode='family';
+        window.AncestryTour.mobileTree.labelMode='focus';
+        window.AncestryTour.mobileTree.anchor=returnId;
+      }
       cinematicFocus(returnId,'family');
       setTimeout(()=>{try{card.style.display='none';sceneContext?.classList.remove('show');draw();}catch(e){}},80);
     }catch(e){console.error('Could not focus the biography family view.',e);}
@@ -773,14 +811,10 @@ document.querySelectorAll('[data-story-track]').forEach(
 
 $('startAlbum')?.addEventListener('click',()=>{
   els.landing?.classList.add('hidden');
-  $('albumModal')?.classList.add('open');
-  $('albumModal')?.setAttribute('aria-hidden','false');
-  if(typeof renderAlbum==='function') renderAlbum();
+  if(typeof openAlbum==='function')openAlbum();
 });
 $('openAlbumBtn')?.addEventListener('click',()=>{
-  $('albumModal')?.classList.add('open');
-  $('albumModal')?.setAttribute('aria-hidden','false');
-  if(typeof renderAlbum==='function') renderAlbum();
+  if(typeof openAlbum==='function')openAlbum();
 });
 $('printAtlasBtn')?.addEventListener('click',()=>window.print());
 
@@ -807,7 +841,9 @@ window.addEventListener('orientationchange',()=>{
 /* Mobile tree navigation: intentionally local, never the full genealogy by default. */
 const mobileTree={
   history:[],
-  mode:'family'
+  mode:'family',
+  labelMode:'focus',
+  anchor:'you'
 };
 function mobileFocus(id='you',pushHistory=true){
   if(!window.matchMedia('(max-width:800px)').matches) return;
@@ -815,6 +851,8 @@ function mobileFocus(id='you',pushHistory=true){
   if(pushHistory && selected && selected!==target) mobileTree.history.push(selected);
   window.AncestryMobileTreeInternal?.focusIds(target,10);
   selected=target;
+  mobileTree.anchor=target;
+  mobileTree.labelMode='focus';
   try{card.style.display='none';sceneContext?.classList.remove('show');}catch(e){}
   cinematicFocus(target,'family');
   mobileTree.mode='family';
@@ -824,17 +862,36 @@ function mobileBack(){
   if(id) mobileFocus(id,false);
 }
 function mobileExpand(){
+  const anchor=selected||mobileTree.anchor||'you';
   if(mobileTree.mode==='family'){
-    window.__mobileTreeVisibleNodeIds=buildNavigationNeighborhood(selected||'you','branch');
+    window.__mobileTreeVisibleNodeIds=buildNavigationNeighborhood(anchor,'branch');
     nodeViewLevel='branch';nodeFocusMode=true;navigationNeighborhood=new Set(window.__mobileTreeVisibleNodeIds);
     setViewButtons('branch');
-    cinematicFocus(selected||'you','branch');
+    cinematicFocus(anchor,'branch');
     mobileTree.mode='branch';
   }else{
     window.__mobileTreeVisibleNodeIds=null;
     setNodeView('atlas');
     mobileTree.mode='atlas';
   }
+}
+function mobileToggleBranchNames(){
+  const anchor=selected||mobileTree.anchor||'you';
+  if(mobileTree.labelMode==='focus'){
+    const ids=window.AncestryMobileTreeInternal?.branch?.(anchor,22)||buildNavigationNeighborhood(anchor,'branch');
+    window.__mobileTreeVisibleNodeIds=new Set(ids);
+    navigationNeighborhood=new Set(ids);
+    nodeViewLevel='branch';nodeFocusMode=true;
+    selected=anchor;mobileTree.anchor=anchor;mobileTree.mode='branch';mobileTree.labelMode='branch';
+    setViewButtons('branch');
+    fitMobileBranch([...ids],anchor);
+    try{card.style.display='none';sceneContext?.classList.remove('show');draw();}catch(e){}
+  }else{
+    window.AncestryMobileTreeInternal?.focusIds(anchor,10);
+    selected=anchor;mobileTree.mode='family';mobileTree.labelMode='focus';
+    cinematicFocus(anchor,'family');
+  }
+  document.dispatchEvent(new CustomEvent('ancestryatlas:mobiletreestate'));
 }
 function openTreeSheet(){
   els.treeSheet?.classList.add('open');
@@ -846,16 +903,15 @@ function closeTreeSheet(){
 }
 $('mobileTreeHome')?.addEventListener('click',()=>mobileFocus('you'));
 $('mobileTreeBack')?.addEventListener('click',mobileBack);
-$('mobileTreeFocus')?.addEventListener('click',()=>mobileFocus(selected||'you',false));
+$('mobileTreeFocus')?.addEventListener('click',()=>mobileFocus(selected||mobileTree.anchor||'you',false));
+$('mobileTreeLabels')?.addEventListener('click',mobileToggleBranchNames);
 $('mobileTreeExpand')?.addEventListener('click',mobileExpand);
 $('mobileTreeMenu')?.addEventListener('click',openTreeSheet);
 $('mobileTreeMenuClose')?.addEventListener('click',closeTreeSheet);
 $('mobileTreeStory')?.addEventListener('click',()=>{closeTreeSheet();openChooser();});
 $('mobileTreeAlbum')?.addEventListener('click',()=>{
   closeTreeSheet();
-  $('albumModal')?.classList.add('open');
-  $('albumModal')?.setAttribute('aria-hidden','false');
-  if(typeof renderAlbum==='function') renderAlbum();
+  if(typeof openAlbum==='function')openAlbum();
 });
 $('mobileTreeWholeAtlas')?.addEventListener('click',()=>{
   closeTreeSheet();
@@ -868,6 +924,6 @@ $('mobileTreeStart')?.addEventListener('click',()=>{
   els.landing?.classList.remove('hidden');
 });
 
-window.AncestryTour={begin,exit:exitTour,state,mobileTree,mobileFocus,mobileBack,mobileExpand,previewScene};
+window.AncestryTour={begin,exit:exitTour,state,mobileTree,mobileFocus,mobileBack,mobileExpand,mobileToggleBranchNames,previewScene};
 setTransport();
 })();

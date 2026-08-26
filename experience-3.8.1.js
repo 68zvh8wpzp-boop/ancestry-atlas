@@ -94,6 +94,7 @@
   function syncMobileDock(){
     const back=document.getElementById('mobileTreeBack');
     const expand=document.getElementById('mobileTreeExpand');
+    const names=document.getElementById('mobileTreeLabels');
     const mobileTree=window.AncestryTour?.mobileTree;
     if(back&&mobileTree)back.disabled=!mobileTree.history.length;
     if(expand&&mobileTree){
@@ -103,6 +104,14 @@
       if(symbolNode)symbolNode.textContent=symbol;
       if(labelNode)labelNode.textContent=label;
       expand.setAttribute('aria-label',`${label} view`);
+    }
+    if(names&&mobileTree){
+      const branch=mobileTree.labelMode==='branch';
+      names.setAttribute('aria-pressed',String(branch));
+      names.setAttribute('aria-label',branch?'Return to local family names':'Show names for this branch');
+      names.classList.toggle('active',branch);
+      const labelNode=names.querySelector('small');
+      if(labelNode)labelNode.textContent=branch?'Local':'Names';
     }
   }
 
@@ -137,9 +146,11 @@
     }
   }catch(error){console.error('Mobile navigation history adapter could not be installed.',error)}
 
-  ['mobileTreeHome','mobileTreeBack','mobileTreeFocus','mobileTreeExpand'].forEach(id=>{
+  ['mobileTreeHome','mobileTreeBack','mobileTreeFocus','mobileTreeLabels','mobileTreeExpand'].forEach(id=>{
     document.getElementById(id)?.addEventListener('click',()=>requestAnimationFrame(syncMobileDock));
   });
+  document.addEventListener('ancestryatlas:mobiletreestate',syncMobileDock);
+  document.addEventListener('ancestryatlas:focusreleased',syncMobileDock);
 
   evidenceButton?.addEventListener('click',()=>{
     const open=body.classList.toggle('mobile-evidence-open');

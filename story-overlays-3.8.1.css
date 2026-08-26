@@ -1,6 +1,8 @@
 /* Ancestry Atlas v3.8.0 — adaptive historical flag and route-map overlays. */
-.story-context-ribbon .story-az-flag{display:flex!important;align-items:stretch!important;justify-content:stretch!important}
-.story-context-ribbon .story-az-flag svg{width:100%!important;height:100%!important}
+.story-context-ribbon .story-az-flag{display:grid!important;grid-template-rows:minmax(0,1fr) 8px!important;align-items:stretch!important;justify-content:stretch!important;background:#161410!important}
+.story-context-ribbon .story-flag-art{display:block!important;min-height:0!important;overflow:hidden!important}
+.story-context-ribbon .story-flag-art svg{display:block!important;width:100%!important;height:100%!important}
+.story-context-ribbon .story-flag-caption{display:block!important;overflow:hidden!important;white-space:nowrap!important;text-align:center!important;color:#d9c9aa!important;font:600 5.5px/8px Georgia,serif!important;letter-spacing:.08em!important;background:#211e18!important}
 .story-context-ribbon .story-locator-card{overflow:hidden!important}
 .story-context-ribbon .story-locator-card svg.story-route-map{
   width:clamp(92px,9vw,164px)!important;height:auto!important;aspect-ratio:2/1!important;
@@ -19,6 +21,15 @@
 .story-route-map .map-stop{fill:#c7903f;stroke:#f7eedc;stroke-width:1}
 .story-route-map .map-focus{fill:#a43e32;stroke:#fff8e9;stroke-width:1.2}
 .story-route-map text{fill:#edf4f7;font:700 6.5px system-ui,-apple-system,sans-serif;paint-order:stroke;stroke:#0b1b25;stroke-width:1.8px;stroke-linejoin:round}
+.story-route-map.period-locator{background:#d8ccb0!important}
+.story-route-map.period-locator .map-paper{fill:#d8ccb0;stroke:#8c7d62;stroke-width:1.2}
+.story-route-map.period-locator .map-grain{fill:#312a1d;opacity:.34;pointer-events:none}
+.story-route-map.period-locator .map-period-land{fill:#d9cfb6;stroke:#514a3d;stroke-width:1.8}
+.story-route-map.period-locator .map-period-water{fill:none;stroke:#5f8490;stroke-width:1.7}
+.story-route-map.period-locator .map-period-terrain{fill:none;stroke:#8b8c6a;stroke-width:.9;opacity:.82}
+.story-route-map.period-locator text{fill:#312b23;font:700 7px Georgia,serif;paint-order:stroke;stroke:#e4dac1;stroke-width:1.6px}
+.story-route-map.period-locator .map-period-state{font-size:8px;letter-spacing:.12em}
+.story-route-map.period-locator .map-focus{fill:#1e1a14;stroke:#f5eddc;stroke-width:1.5}
 .story-locator-card:focus-visible{outline:2px solid #70e0d0!important;outline-offset:3px!important}
 
 @media(max-width:540px){
