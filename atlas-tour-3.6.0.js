@@ -303,7 +303,7 @@ function cameraTargetForBranch(ids){
 }
 
 async function cinematicBranchEntrance(track,focusId,mySession){
-  const ids=setBranchOnly(track);
+  let ids=setBranchOnly(track);
   if(!ids.length) return;
 
   state.phase='orienting';
@@ -320,8 +320,14 @@ async function cinematicBranchEntrance(track,focusId,mySession){
   window.__tourSuppressLabels=false;
   rotX=0;
   rotY=0;
-  const targetScale=cameraTargetForBranch(ids);
-  const startScale=Math.max(.55,targetScale*.018);
+  const mobile=window.matchMedia('(max-width:800px)').matches;
+  if(mobile && window.AncestryMobileTreeInternal?.neighborhood){
+    ids=[...window.AncestryMobileTreeInternal.neighborhood(focusId,7)].filter(id=>nodeById.has(id));
+    window.__tourVisibleNodeIds=new Set(ids);
+  }
+  const targetScale=mobile?58:cameraTargetForBranch(ids);
+  if(mobile){selected=focusId||ids[0];centerOnNode(selected);}
+  const startScale=mobile?targetScale*.52:Math.max(.55,targetScale*.018);
   const endScale=targetScale;
   scale=startScale;
   selected=focusId||ids[0];
@@ -358,7 +364,7 @@ async function cinematicBranchEntrance(track,focusId,mySession){
   document.body.classList.remove('tour-distant');
   selected=focusId||ids[0];
   try{draw()}catch(e){}
-  await wait(120);
+  await wait(mobile?1700:500);
 
   if(mySession!==state.session) return;
   hud.classList.remove('show');
@@ -627,7 +633,7 @@ function begin(track='canada',index=0){
 
 function exitTour(){
   const saved=state.returnContext;
-  const returnId=saved?.selected || currentStep()?.id || selected || 'you';
+  const returnId=currentStep()?.id || saved?.selected || selected || 'you';
   ++state.session;
   stopAudio();
   state.phase='idle';
@@ -642,7 +648,15 @@ function exitTour(){
   setStatus('');
   setMeter(0);
 
-  if(saved){
+  if(window.matchMedia('(max-width:800px)').matches){
+    try{
+      window.AncestryMobileTreeInternal?.focusBiography?.(returnId,10);
+      selected=returnId;
+      if(window.AncestryTour?.mobileTree)window.AncestryTour.mobileTree.mode='family';
+      cinematicFocus(returnId,'family');
+      setTimeout(()=>{try{card.style.display='none';sceneContext?.classList.remove('show');draw();}catch(e){}},80);
+    }catch(e){console.error('Could not focus the biography family view.',e);}
+  }else if(saved){
     try{
       selected=saved.selected;
       originNodeId=saved.originNodeId;
@@ -652,24 +666,8 @@ function exitTour(){
       panX=saved.panX; panY=saved.panY;
       nodeViewLevel=saved.nodeViewLevel;
       nodeFocusMode=saved.nodeFocusMode;
-      if(window.matchMedia('(max-width:800px)').matches){
-        window.AncestryMobileTreeInternal?.focusIds(saved.selected||returnId,10);
-        const history=window.AncestryTour?.mobileTree?.history;
-        if(history && history[history.length-1]!==saved.selected)history.push(saved.selected||returnId);
-        selected=saved.selected||returnId;
-        if(window.AncestryTour?.mobileTree)window.AncestryTour.mobileTree.mode='family';
-        cinematicFocus(selected,'family');
-        setTimeout(()=>{try{card.style.display='none';sceneContext?.classList.remove('show');draw();}catch(e){}},80);
-      }
       draw();
     }catch(e){console.error('Could not restore the pre-tour camera context.',e);}
-  }else if(window.matchMedia('(max-width:800px)').matches){
-    try{
-      window.AncestryMobileTreeInternal?.focusIds(returnId,10);
-      selected=returnId;
-      cinematicFocus(returnId,'family');
-      setTimeout(()=>{try{card.style.display='none';sceneContext?.classList.remove('show');draw();}catch(e){}},80);
-    }catch(e){}
   }
   state.returnContext=null;
   setTransport();
