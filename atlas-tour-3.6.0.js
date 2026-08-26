@@ -111,6 +111,44 @@ const state={
   returnContext:null
 };
 
+const sceneImageCache=new Map();
+let sceneRenderToken=0;
+
+function sceneImageUrl(scene){
+  if(!scene?.src)return '';
+  const url=new URL(scene.src,window.location.href);
+  url.searchParams.set('atlas','3.8.11');
+  return url.href;
+}
+
+function preloadScene(scene,{priority='auto'}={}){
+  const url=sceneImageUrl(scene);
+  if(!url)return null;
+  if(sceneImageCache.has(url))return sceneImageCache.get(url);
+  const image=new Image();
+  image.decoding='async';
+  image.fetchPriority=priority;
+  const entry={url,image,status:'loading',promise:null};
+  entry.promise=new Promise(resolve=>{
+    image.onload=async()=>{
+      try{await image.decode()}catch(error){}
+      entry.status='ready';
+      resolve(entry);
+    };
+    image.onerror=()=>{
+      entry.status='error';
+      resolve(entry);
+    };
+  });
+  image.src=url;
+  if(image.complete&&image.naturalWidth>0){
+    entry.status='ready';
+    entry.promise=Promise.resolve(entry);
+  }
+  sceneImageCache.set(url,entry);
+  return entry;
+}
+
 function currentTour(){ return BRANCH_TOURS[state.track]; }
 function currentStep(){ return currentTour()?.steps?.[state.index] || null; }
 function currentNode(){ const step=currentStep(); return step ? nodeById.get(step.id) : null; }
@@ -255,12 +293,13 @@ function prepareAudio(step){
 }
 
 function preloadApprovedScenes(media){
-  (media?.scenes||[]).forEach(scene=>{
-    if(!scene?.src) return;
-    const img=new Image();
-    img.decoding='async';
-    img.src=new URL(scene.src,window.location.href).href;
-  });
+  return (media?.scenes||[]).map(preloadScene).filter(Boolean);
+}
+
+async function waitForOpeningScene(media){
+  const first=preloadScene(media?.scenes?.[0],{priority:'high'});
+  if(!first||first.status!=='loading')return first;
+  return Promise.race([first.promise,wait(12000).then(()=>first)]);
 }
 
 function setBranchOnly(track){
@@ -484,6 +523,7 @@ function showStoryScene(media,index){
 
   index=clamp(index,0,scenes.length-1);
   const scene=scenes[index];
+  const renderToken=++sceneRenderToken;
   state.activeScene=index;
   updateLocator(scene);
   if(els.sceneTitle) els.sceneTitle.textContent=scene.title||'';
@@ -509,21 +549,26 @@ function showStoryScene(media,index){
   }
 
   if(!img) return;
-  img.style.display='block';
-  img.style.opacity='0';
-  const reveal=()=>{
-    els.sceneStrip.classList.add('show');
-    els.sceneStrip.setAttribute('aria-hidden','false');
-    requestAnimationFrame(()=>{img.style.opacity='1';});
-  };
-  img.onload=reveal;
-  img.onerror=()=>{
-    img.style.display='none';
-    els.sceneStrip.classList.add('show','context-only');
-    els.sceneStrip.setAttribute('aria-hidden','false');
-  };
-  img.src=new URL(scene.src,window.location.href).href + (scene.src.includes('?')?'&':'?') + 'atlas=3.1.0';
-  if(img.complete && img.naturalWidth>0) reveal();
+  const sceneImage=preloadScene(scene);
+  const frame=img.parentElement;
+  frame?.classList.add('scene-loading');
+  frame?.setAttribute('aria-busy','true');
+  els.sceneStrip.classList.add('show');
+  els.sceneStrip.setAttribute('aria-hidden','false');
+
+  sceneImage.promise.then(entry=>{
+    if(renderToken!==sceneRenderToken||state.activeScene!==index)return;
+    frame?.classList.remove('scene-loading');
+    frame?.setAttribute('aria-busy','false');
+    if(entry.status!=='ready'){
+      if(!img.currentSrc&&!img.src)els.sceneStrip.classList.add('context-only');
+      return;
+    }
+    img.alt=scene.title||scene.caption||'Family story photograph';
+    img.style.display='block';
+    img.src=entry.url;
+    img.style.opacity='1';
+  });
 }
 
 function previewScene(delta){
@@ -577,7 +622,7 @@ function renderStep(){
 
   const media=TOUR_MEDIA[node.id];
   state.activeScene=-1;
-  preloadApprovedScenes(media);
+  preloadScene(media?.scenes?.[0],{priority:'high'});
   state.slideshowExpanded=true;
   updateSlideshowToggle();
   showStoryScene(media,0);
@@ -603,10 +648,14 @@ function renderStep(){
   setTransport();
 }
 
-async function openStoryAfterEntrance(){
-  if(state.session<1) return;
+async function openStoryAfterEntrance(mySession){
+  if(state.session<1||mySession!==state.session) return;
   syncStoryViewport();
   clearCoreOverlays();
+  const media=TOUR_MEDIA[currentStep()?.id];
+  preloadScene(media?.scenes?.[0],{priority:'high'});
+  await waitForOpeningScene(media);
+  if(mySession!==state.session)return;
   renderStep();
   state.phase='paused';
 
@@ -646,7 +695,7 @@ async function orientAndOpenCurrent({fullEntrance=false}={}){
   }
 
   if(my!==state.session) return;
-  await openStoryAfterEntrance();
+  await openStoryAfterEntrance(my);
 }
 
 function openChooser(){
@@ -673,6 +722,7 @@ function begin(track='canada',index=0){
   };
   state.track=track;
   state.index=index;
+  preloadScene(TOUR_MEDIA[currentStep()?.id]?.scenes?.[0],{priority:'high'});
   closeChooser();
   els.landing?.classList.add('hidden');
   document.querySelectorAll('[data-story-track]').forEach(

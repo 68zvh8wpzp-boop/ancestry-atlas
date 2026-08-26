@@ -61,5 +61,5 @@
     if(previewNav)previewNav.hidden=!preview;if(previewPrev)previewPrev.disabled=(detail.index||0)<=0;if(previewNext)previewNext.disabled=(detail.index||0)>=count-1;
   });
   previewPrev?.addEventListener('click',()=>window.AncestryTour?.previewScene?.(-1));previewNext?.addEventListener('click',()=>window.AncestryTour?.previewScene?.(1));
-  window.AncestryStoryOverlays={version:'3.8.10',open,close};
+  window.AncestryStoryOverlays={version:'3.8.11',open,close};
 })();

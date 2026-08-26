@@ -94,6 +94,12 @@ body.tour-story-open .story-scene-photo{
   width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;
   object-fit:contain!important;object-position:center!important
 }
+body.tour-story-open .story-scene-image.scene-loading::before{
+  content:'Preparing family photograph…'!important;display:grid!important;position:absolute!important;inset:0!important;
+  z-index:3!important;place-items:center!important;color:#9fb0bb!important;font:600 12px/1.4 system-ui,sans-serif!important;
+  letter-spacing:.04em!important;background:radial-gradient(circle at 50% 42%,rgba(36,55,68,.34),#000 62%)!important
+}
+body.tour-story-open .story-scene-image.scene-loading:has(.story-scene-photo[src])::before{content:''!important;background:transparent!important}
 
 /* Phone story: compact museum labels, maximal photograph, one bottom utility band. */
 body.aa-phone.tour-story-open.story-presentation-v360{--story-edge-x:max(10px,2.7vw,env(safe-area-inset-left));--story-edge-y:max(7px,env(safe-area-inset-top))}

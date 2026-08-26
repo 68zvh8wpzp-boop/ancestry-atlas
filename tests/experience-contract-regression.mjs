@@ -28,6 +28,11 @@ requireText(overlays,'Arizona state flag • adopted 1917','Arizona flag must us
 requireText(overlays,'assets/arizona_new_mexico_1919_locator.jpg','Place must use the real 1919 Library of Congress map');
 requireText(tour,'window.__tourLockedLabelOffsets','opening label placement must remain stable during camera movement');
 requireText(tour,'scale=startScale*Math.pow(endScale/startScale,e)','opening camera must use logarithmic distant approach');
+requireText(tour,"preloadScene(TOUR_MEDIA[currentStep()?.id]?.scenes?.[0],{priority:'high'})",'first story scene must begin loading at high priority during the branch approach');
+requireText(tour,'await waitForOpeningScene(media)','story surface must wait for its opening photograph to decode');
+requireText(tour,'if(mySession!==state.session)return','a cancelled story launch must not reopen after an image finishes');
+requireText(tour,'renderToken!==sceneRenderToken','scene swaps must ignore stale image completions');
+forbidText(tour,'img.src=new URL(scene.src','story must not start a new unretained image request after opening');
 requireText(tour,"if(typeof openAlbum==='function')openAlbum('family')",'Family Album routes must open only family photographs');
 forbidText(tour,"if(typeof renderAlbum==='function') renderAlbum()",'album entry routes must not bypass the item builder');
 requireText(index,'buildAlbumItems(); populateAlbumBranches(); renderAlbum();','album open must populate items and branch filters before display');

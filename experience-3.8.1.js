@@ -181,5 +181,5 @@
   syncSurfaceState();
   syncMobileDock();
   apply({recenter:true});
-  window.AncestryExperience={version:'3.8.10',refresh:apply,viewport};
+  window.AncestryExperience={version:'3.8.11',refresh:apply,viewport};
 })();
