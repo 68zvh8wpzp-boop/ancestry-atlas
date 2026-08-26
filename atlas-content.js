@@ -81,7 +81,7 @@ const TOUR_MEDIA = {
         caption:'James Wilford “Jay” Webb and Marion Beulah Brenay Webb in Mesa, 1941.',
         source:'Family archive • Marion Beulah Brenay Webb life story, p. 14',
         triggerParagraph:0,
-        locator:'Arizona • 1941',flagKey:'arizona-1917',mapKey:'arizona-statewide',
+        locator:'Mesa, Arizona • 1941',flagKey:'arizona-1917',mapKey:'arizona-mesa-regional',
         visualType:'family-photo'
       },
       {
@@ -90,7 +90,7 @@ const TOUR_MEDIA = {
         caption:'Jay and Marion’s first car and second home, immediately before Sheldon’s birth-era story.',
         source:'Family archive • Marion Beulah Brenay Webb life story, p. 15',
         triggerParagraph:1,
-        locator:'Arizona • 1942–43',flagKey:'arizona-1917',mapKey:'white-mountains',
+        locator:'Mesa → St. Johns • 1942–43',flagKey:'arizona-1917',mapKey:'mesa-to-st-johns',
         visualType:'family-photo'
       },
       {
