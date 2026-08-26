@@ -1,0 +1,87 @@
+name: Restore Approved Biography Modules
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  restore-modules:
+    name: Restore the missing v3.8.1 biography files
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out the current production source
+        uses: actions/checkout@v5
+
+      - name: Verify the recovery package
+        run: |
+          set -euo pipefail
+          package="Ancestry_Atlas_Missing_Biography_Modules_v3_8_1.zip"
+          expected="e4e06bd696bfb04a28673586107c7608d7c63040abd74edfd5dbadea6ce454ea"
+          if [ ! -f "$package" ]; then
+            echo "::error::$package is not in the repository root."
+            exit 1
+          fi
+          actual="$(sha256sum "$package" | cut -d ' ' -f 1)"
+          if [ "$actual" != "$expected" ]; then
+            echo "::error::Recovery package checksum does not match the validated checkpoint."
+            exit 1
+          fi
+
+      - name: Restore and validate the approved files
+        run: |
+          set -euo pipefail
+          package="Ancestry_Atlas_Missing_Biography_Modules_v3_8_1.zip"
+          mkdir -p _restore
+          unzip -q "$package" -d _restore
+
+          required=(
+            "biographies/marion/marion-story-module.js"
+            "biographies/marion/rights-manifest.json"
+            "biographies/marion/story-manifest.json"
+            "biographies/marion/overlays.json"
+            "biographies/marion/visual-register.md"
+            "biographies/brenay-canada/brenay-canada-story-modules.js"
+            "biographies/marion/assets/marion_child_photo_only_sharpened.jpg"
+            "biographies/marion/assets/marion_birth_house_candidate_conservative.jpg"
+            "biographies/marion/assets/marion_1925_journey_candidate.jpg"
+            "biographies/marion/assets/marion_arizona_childhood_candidate.jpg"
+            "biographies/marion/assets/marion_school_independence_candidate.jpg"
+            "biographies/marion/assets/jay_marion_mesa_1941_restored.jpg"
+            "biographies/marion/assets/marion_webb_1945_restored.jpg"
+            "biographies/marion/assets/marion_with_diane_candidate_sharpened.jpg"
+            "biographies/marion/assets/marion_children_family_photo_candidate.jpg"
+            "biographies/marion/assets/marion_family_historian_candidate.jpg"
+            "biographies/brenay-canada/assets/arnstein_observational_charcoal_approved.png"
+            "biographies/brenay-canada/assets/alpena_churchill_lumber_1912_candidate.jpg"
+            "biographies/brenay-canada/assets/alpena_fire_aftermath_1872_web.jpg"
+            "biographies/brenay-canada/assets/alpena_maltz_block_1895_candidate.jpg"
+            "biographies/brenay-canada/assets/german_emigrants_hamburg_1874_seam_repaired.png"
+            "biographies/brenay-canada/assets/ontario_great_western_station_1867_closer_candidate.jpg"
+            "biographies/brenay-canada/assets/quebec_habitant_farm_1856_candidate.jpg"
+            "biographies/brenay-canada/assets/wwi_registration_day_1917_loc_candidate.jpg"
+          )
+          for path in "${required[@]}"; do
+            if [ ! -s "_restore/$path" ]; then
+              echo "::error::Missing approved checkpoint file: $path"
+              exit 1
+            fi
+          done
+
+          node --check _restore/biographies/marion/marion-story-module.js
+          node --check _restore/biographies/brenay-canada/brenay-canada-story-modules.js
+          cp -R _restore/biographies/. biographies/
+
+      - name: Commit the restored checkpoint files
+        run: |
+          set -euo pipefail
+          rm -rf _restore
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add biographies
+          git rm Ancestry_Atlas_Missing_Biography_Modules_v3_8_1.zip
+          git commit -m "Restore approved v3.8.1 biography modules and assets"
+          git push
