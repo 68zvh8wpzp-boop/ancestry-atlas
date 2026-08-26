@@ -23,6 +23,7 @@ requireText(content,"mapKey:'mesa-to-st-johns'",'second scene must show the supp
 requireText(overlays,"'arizona-mesa-regional':[29.5,61.8,'Mesa']",'opening locator must mark Mesa at its calibrated archival-map position');
 requireText(overlays,"'mesa-to-st-johns':[45,49,'St. Johns']",'St. Johns locator must retain its calibrated movement endpoint');
 requireText(css,'#storyPlaceModal .story-locator-card{display:block!important','legacy overlay flex rules must not squeeze Place provenance beside the map');
+requireText(css,'#storyPlaceModal #storyFlagCaption,#storyPlaceModal #storyLocatorSource','Place flag and archival provenance captions must remain fully readable');
 requireText(overlays,'Arizona state flag • adopted 1917','Arizona flag must use its correct adoption date');
 requireText(overlays,'assets/arizona_new_mexico_1919_locator.jpg','Place must use the real 1919 Library of Congress map');
 requireText(tour,'window.__tourLockedLabelOffsets','opening label placement must remain stable during camera movement');
