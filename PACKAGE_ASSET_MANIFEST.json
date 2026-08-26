@@ -1,8 +1,8 @@
 {
-  "packageVersion": "3.8.6-contract-restoration",
-  "inputPackage": "GitHub main at b2e3f1bbf456fa16c18ee8d1edf44e8e9302a833",
+  "packageVersion": "3.8.7-navigation-and-period-locators",
+  "inputPackage": "v3.8.6 contract restoration at 930f387",
   "sourceProductionVersion": "3.7.5",
-  "releaseStatus": "approved Fable runtime integrated; phone tree and story production contracts restored",
+  "releaseStatus": "approved Fable runtime integrated; stable star approach, period locator treatment, populated album, and reversible phone lineage navigation",
   "narration": {
     "approvedVoice": "OpenAI Fable",
     "model": "gpt-4o-mini-tts",
@@ -71,6 +71,7 @@
     ,"approved-audio/fable/Mary_ann_dennis.mp3"
     ,"RELEASE_NOTES_v3_8_3_MOBILE_STORY_CORRECTIVE.md"
     ,"RELEASE_NOTES_v3_8_6_CONTRACT_RESTORATION.md"
+    ,"RELEASE_NOTES_v3_8_7_NAVIGATION_AND_PERIOD_LOCATORS.md"
   ],
   "approvedBiographyAssets": [
     "jay_marion_mesa_1941.png",
@@ -106,7 +107,7 @@
   ],
   "overlayAssets": [
     "inline period-appropriate flag SVGs",
-    "inline terrain-aware regional and route SVGs"
+    "inline period-style cropped locator and route SVGs"
   ],
   "networkRequiredForPackagedBiographyAssets": false,
   "rejectedAssetsExcluded": true

@@ -11,8 +11,8 @@
   if(!flag||!mapCard)return;
 
   const maps={
-    'arizona-mesa-regional':{base:'southwest',focus:[103,72],labels:[[103,67,'Mesa'],[122,58,'St. Johns'],[104,46,'ARIZONA']]},
-    'mesa-to-st-johns':{base:'southwest',route:[[103,72],[122,63]],labels:[[100,80,'Mesa'],[125,58,'St. Johns'],[104,46,'ARIZONA']]},
+    'arizona-mesa-regional':{base:'period-az',focus:[101,68],labels:[[101,78,'Mesa']]},
+    'mesa-to-st-johns':{base:'period-az',focus:[124,49],labels:[[124,43,'St. Johns']]},
     'great-lakes-to-southwest':{base:'us',route:[[133,24],[43,63],[48,72],[55,77]],labels:[[133,21,'Saginaw'],[55,85,'Mesa']]},
     'depression-western-moves':{base:'four',route:[[52,61],[38,62],[105,31],[81,17],[66,4],[52,61]],labels:[[52,68,'Mesa'],[66,9,'Salt Lake']]},
     'mesa-to-lakeside':{base:'az',route:[[73,68],[125,35]],labels:[[72,77,'Mesa'],[123,29,'Lakeside']]},
@@ -74,6 +74,22 @@
     add(svg,'path',{class:'map-border',d:'M83 9 L78 79 M112 9 L117 80'});
   }
 
+  function periodArizonaBase(svg){
+    svg.classList.add('period-locator');
+    const defs=add(svg,'defs',{});
+    const grain=add(defs,'filter',{id:'locatorGrain',x:'-10%',y:'-10%',width:'120%',height:'120%'});
+    add(grain,'feTurbulence',{type:'fractalNoise',baseFrequency:'.85',numOctaves:'2',seed:'7',result:'noise'});
+    add(grain,'feColorMatrix',{in:'noise',type:'saturate',values:'0',result:'mono'});
+    const transfer=add(grain,'feComponentTransfer',{in:'mono'});
+    transfer.appendChild(el('feFuncA',{type:'table',tableValues:'0 .08'}));
+    add(svg,'rect',{class:'map-paper',x:4,y:4,width:172,height:84,rx:2});
+    add(svg,'rect',{class:'map-grain',x:4,y:4,width:172,height:84,rx:2,filter:'url(#locatorGrain)'});
+    add(svg,'path',{class:'map-period-land',d:'M50 10 L132 10 L136 24 L142 77 L65 82 L48 66 Z'});
+    add(svg,'path',{class:'map-period-water',d:'M51 11 C44 24 55 35 48 48 C43 59 54 68 50 75'});
+    add(svg,'path',{class:'map-period-terrain',d:'M66 23 C80 18 94 25 111 20 M69 34 C88 29 105 39 126 32 M78 51 C98 45 113 56 134 48 M73 63 C89 58 105 66 122 61'});
+    const state=add(svg,'text',{class:'map-period-state',x:95,y:30,'text-anchor':'middle'});state.textContent='ARIZONA';
+  }
+
   function southwestBase(svg){
     add(svg,'rect',{class:'map-land',x:4,y:4,width:172,height:84,rx:2});
     add(svg,'path',{class:'map-border',d:'M42 5 L48 42 L39 82 M78 5 L75 42 L92 87 M119 5 L117 43 L126 87 M4 43 L176 43'});
@@ -108,7 +124,7 @@
     const spec=maps[scene?.mapKey]||maps['arizona-statewide'];
     const old=mapCard.querySelector('svg');
     const svg=el('svg',{class:'story-route-map',viewBox:'0 0 180 92',role:'img','aria-label':`${scene?.locator||'Family location'} regional route map`});
-    if(spec.base==='us')usBase(svg);else if(spec.base==='four')fourBase(svg);else if(spec.base==='southwest')southwestBase(svg);else if(spec.base==='great')greatBase(svg);else if(spec.base==='atlantic')atlanticBase(svg);else if(spec.base==='europe')europeBase(svg);else arizonaBase(svg);
+    if(spec.base==='us')usBase(svg);else if(spec.base==='four')fourBase(svg);else if(spec.base==='southwest')southwestBase(svg);else if(spec.base==='period-az')periodArizonaBase(svg);else if(spec.base==='great')greatBase(svg);else if(spec.base==='atlantic')atlanticBase(svg);else if(spec.base==='europe')europeBase(svg);else arizonaBase(svg);
     if(spec.route?.length){
       add(svg,'polyline',{class:`map-route${scene?.routeStatus==='unresolved'?' unresolved':''}`,points:spec.route.map(point=>point.join(',')).join(' ')});
       spec.route.forEach((point,index)=>add(svg,'circle',{class:index===spec.route.length-1?'map-focus':'map-stop',cx:point[0],cy:point[1],r:index===spec.route.length-1?3.6:2.6}));
@@ -119,7 +135,22 @@
   }
 
   function arizonaFlag(){
-    return '<svg viewBox="0 0 96 60" role="img" aria-hidden="true"><rect width="96" height="60" fill="#174a7c"/><path d="M48 30L0 30V17ZM48 30L0 17V4ZM48 30L6 0H23ZM48 30L23 0H38ZM48 30L38 0H52ZM48 30L52 0H68ZM48 30L68 0H85ZM48 30L85 0L96 5V18ZM48 30L96 18V30Z" fill="#f2b134"/><path d="M48 30L0 30V17ZM48 30L6 0H23ZM48 30L38 0H52ZM48 30L68 0H85ZM48 30L96 18V30Z" fill="#b51f2e"/><polygon points="48,19 51,26 59,26 53,31 55,39 48,34 41,39 43,31 37,26 45,26" fill="#c9822b"/></svg>';
+    const boundary=distance=>{
+      if(distance<=30)return [0,30-distance];
+      if(distance<=126)return [distance-30,0];
+      return [96,distance-126];
+    };
+    let rays='';
+    for(let i=0;i<13;i++){
+      const a=boundary(i*12),b=boundary((i+1)*12);
+      rays+=`<polygon points="48,30 ${a[0]},${a[1]} ${b[0]},${b[1]}" fill="${i%2===0?'#b32632':'#f0b33f'}"/>`;
+    }
+    const star=[];
+    for(let i=0;i<10;i++){
+      const angle=-Math.PI/2+i*Math.PI/5,r=i%2===0?11:4.7;
+      star.push(`${48+Math.cos(angle)*r},${30+Math.sin(angle)*r}`);
+    }
+    return `<svg viewBox="0 0 96 60" role="img" aria-hidden="true"><rect width="96" height="60" fill="#183f70"/>${rays}<polygon points="${star.join(' ')}" fill="#b87333"/></svg>`;
   }
 
   function usFlag(stars=50){
@@ -153,7 +184,9 @@
     else if(key==='german-empire'){name='German Empire flag';markup=germanEmpireFlag()}
     else if(key==='province-canada'){name='Province of Canada historical flag context';markup=provinceCanadaFlag()}
     else if(key==='canada-us'){name='Canada and United States';markup=canadaUsFlag()}
-    flag.innerHTML=markup;flag.setAttribute('aria-label',name);flag.title=name;
+    const caption=key==='arizona-1917'?'ARIZONA • 1912':name.toUpperCase();
+    flag.innerHTML=`<span class="story-flag-art">${markup}</span><span class="story-flag-caption">${caption}</span>`;
+    flag.setAttribute('aria-label',name);flag.title=name;
   }
 
   document.addEventListener('ancestryatlas:scenechange',event=>{
