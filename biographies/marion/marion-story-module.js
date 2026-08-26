@@ -8,10 +8,10 @@
   const module={
     moduleVersion:'1.0.0',
     personId:'marion_brenay',
-    status:'approved-visual-preview-awaiting-fable',
-    storyReady:false,
+    status:'approved-audio-archived-runtime-ready',
+    storyReady:true,
     unavailableLabel:'Fable narration pending — approved visual preview available',
-    audio:null,
+    audio:'approved-audio/fable/Marion_beulah_brenay_webb.mp3',
     narrator:'Fable',
     audioCandidates:[],
     narrationContract:'approved photo-context text; generated Fable recording becomes timing authority after approval',

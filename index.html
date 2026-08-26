@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<title>Ancestry Atlas v3.8.1</title>
+<title>Ancestry Atlas v3.8.3</title>
 <meta name="theme-color" content="#020609">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -540,8 +540,8 @@ window.addEventListener('error',function(e){
   <link rel="stylesheet" href="atlas-tour-3.6.0.css">
   <link rel="stylesheet" href="tv-mode-3.7.3.css">
   <link rel="stylesheet" href="story-presentation-3.6.0.css">
-  <link rel="stylesheet" href="story-overlays-3.8.1.css">
-  <link rel="stylesheet" href="experience-3.8.1.css">
+  <link rel="stylesheet" href="story-overlays-3.8.1.css?v=3.8.3">
+  <link rel="stylesheet" href="experience-3.8.1.css?v=3.8.3">
 </head>
 <body>
 
@@ -1494,11 +1494,16 @@ function cinematicFocus(id,mode='family'){
   refreshNavigationNeighborhood();
   setViewButtons(mode);
   if(mode==='atlas'){
-    originNodeId='you'; pivotWorld={x:0,y:0,z:0};pivotCamera={x:0,y:0,z:0};panX=0;panY=isMobile?90:40;
+    if(isMobile){
+      centerOnNode(id);
+      navigationNeighborhood=new Set(buildNavigationNeighborhood(id,'family'));
+    }else{
+      originNodeId='you'; pivotWorld={x:0,y:0,z:0};pivotCamera={x:0,y:0,z:0};panX=0;panY=40;
+    }
   }else{
     centerOnNode(id);
   }
-  const targets={person:isMobile?96:126,family:isMobile?60:82,branch:isMobile?40:56,atlas:isMobile?30:48};
+  const targets={person:isMobile?96:126,family:isMobile?64:82,branch:isMobile?46:56,atlas:isMobile?58:48};
   const target=targets[mode]||targets.family;
   const startScale=scale;
   const start=performance.now(), dur=1650;
@@ -1732,7 +1737,10 @@ function draw(){
     ctx.shadowBlur=0;
     ctx.filter='none';
 
-    const showNavLabel=!window.__tourSuppressLabels && (!nodeFocusMode || nodeViewLevel==='atlas' || navigationNeighborhood.has(n.id));
+    const mobileAtlasLocalLabels=isMobile&&nodeViewLevel==='atlas';
+    const showNavLabel=!window.__tourSuppressLabels && (mobileAtlasLocalLabels
+      ? navigationNeighborhood.has(n.id)
+      : (!nodeFocusMode || nodeViewLevel==='atlas' || navigationNeighborhood.has(n.id)));
     if(!showNavLabel){ctx.restore();return;}
 
     // Node label: shown for the current navigation neighborhood, or for the full atlas. This is deliberately
@@ -2121,13 +2129,13 @@ resize();
 
 
 
-<script src="atlas-content.js?v=3.8.1"></script>
-<script src="biographies/marion/marion-story-module.js?v=1.0.0"></script>
-<script src="biographies/brenay-canada/brenay-canada-story-modules.js?v=1.0.0"></script>
-<script src="atlas-tour-3.6.0.js"></script>
+<script src="atlas-content.js?v=3.8.3"></script>
+<script src="biographies/marion/marion-story-module.js?v=1.1.0"></script>
+<script src="biographies/brenay-canada/brenay-canada-story-modules.js?v=1.1.0"></script>
+<script src="atlas-tour-3.6.0.js?v=3.8.3"></script>
 <script src="tv-mode-3.7.3.js"></script>
 <script src="story-presentation-3.6.0.js"></script>
-<script src="story-overlays-3.8.1.js"></script>
-<script src="experience-3.8.1.js"></script>
+<script src="story-overlays-3.8.1.js?v=3.8.3"></script>
+<script src="experience-3.8.1.js?v=3.8.3"></script>
 </body>
 </html>

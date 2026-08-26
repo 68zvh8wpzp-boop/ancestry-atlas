@@ -53,7 +53,16 @@ for(const [id,textPath] of Object.entries(expected)){
   if(!item){failures.push({kind:'biography-missing',id});continue}
   const exact=(await readFile(path.join(root,textPath),'utf8')).trim();
   if(item.transcript!==exact)failures.push({kind:'transcript-mismatch',id,textPath});
-  if(item.audio!==null||item.narrator!=='Fable'||item.storyReady!==false)failures.push({kind:'pending-fable-state-invalid',id});
+  const approvedAudio={
+    james_sheldon:'approved-audio/fable/James_sheldon_webb.mp3',
+    marion_brenay:'approved-audio/fable/Marion_beulah_brenay_webb.mp3',
+    charles_albert:'approved-audio/fable/Charles_albert_brenay.mp3',
+    charles_godfrey:'approved-audio/fable/Charles_godfrey_brenay.mp3',
+    ida_mae:'approved-audio/fable/Ida_mae_gooley.mp3',
+    john_peter:'approved-audio/fable/John_peter_gooley.mp3',
+    mary_ann:'approved-audio/fable/Mary_ann_dennis.mp3'
+  };
+  if(item.audio!==approvedAudio[id]||item.narrator!=='Fable'||item.storyReady!==true)failures.push({kind:'approved-fable-runtime-state-invalid',id});
   if(!(item.scenes||[]).length)failures.push({kind:'scenes-missing',id});
 }
 

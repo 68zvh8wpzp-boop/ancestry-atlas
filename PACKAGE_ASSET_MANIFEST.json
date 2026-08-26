@@ -1,12 +1,12 @@
 {
-  "packageVersion": "3.8.2-governance-webb-kickoff",
-  "inputPackage": "GitHub main at e16294496a282f5dcf4105c835b3378c29e4cef7",
+  "packageVersion": "3.8.3-mobile-story-corrective",
+  "inputPackage": "GitHub main at 855f9eb17cb8c0d0415dd9421c71dd902386bc2b",
   "sourceProductionVersion": "3.7.5",
-  "releaseStatus": "governance and Webb research kickoff; approved Fable recordings archived and awaiting runtime integration",
+  "releaseStatus": "approved Fable runtime integrated; mobile story and local-atlas corrective",
   "narration": {
     "approvedVoice": "OpenAI Fable",
     "model": "gpt-4o-mini-tts",
-    "status": "approved-and-archived-awaiting-runtime-integration",
+    "status": "approved-archived-and-runtime-integrated",
     "browserSpeechAllowed": false,
     "previousAlfiePackageUntouched": true,
     "archivePath": "approved-audio/fable",
@@ -61,6 +61,14 @@
     ,"RELEASE_NOTES_v3_8_2_GOVERNANCE.md"
     ,"approved-audio/fable/APPROVAL.md"
     ,"approved-audio/fable/SHA256SUMS.txt"
+    ,"approved-audio/fable/James_sheldon_webb.mp3"
+    ,"approved-audio/fable/Marion_beulah_brenay_webb.mp3"
+    ,"approved-audio/fable/Charles_albert_brenay.mp3"
+    ,"approved-audio/fable/Charles_godfrey_brenay.mp3"
+    ,"approved-audio/fable/Ida_mae_gooley.mp3"
+    ,"approved-audio/fable/John_peter_gooley.mp3"
+    ,"approved-audio/fable/Mary_ann_dennis.mp3"
+    ,"RELEASE_NOTES_v3_8_3_MOBILE_STORY_CORRECTIVE.md"
   ],
   "approvedBiographyAssets": [
     "jay_marion_mesa_1941.png",
