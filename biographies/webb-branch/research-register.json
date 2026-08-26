@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "1.0",
+  "branchId": "webb",
+  "baselinePackage": "GitHub main e16294496a282f5dcf4105c835b3378c29e4cef7",
+  "status": "research-kickoff",
+  "proofFrontier": {
+    "lastSupportedPersonId": "james_webb_jr",
+    "candidateParentIds": ["james_webb_sr", "elizabeth_douglas"],
+    "status": "strong",
+    "warning": "Parent-name lead is strong, but the Elizabeth Douglas identity is conflicting/conflated and requires reconciliation."
+  },
+  "provenTrunk": [
+    "james_sheldon",
+    "james_wilford",
+    "jonathan_henry",
+    "edward_milo_jr",
+    "edward_milo_sr",
+    "james_webb_jr"
+  ],
+  "claims": [
+    {
+      "claimId": "webb-001",
+      "subjectId": "james_wilford",
+      "predicate": "childOf",
+      "objectIds": ["jonathan_henry", "della_ray"],
+      "status": "confirmed",
+      "sourceRefs": [],
+      "conflicts": [],
+      "nextAction": "Attach the already-relied-upon primary or near-primary source citations to the register before biography production."
+    },
+    {
+      "claimId": "webb-002",
+      "subjectId": "jonathan_henry",
+      "predicate": "childOf",
+      "objectIds": ["edward_milo_jr", "sarah_carling"],
+      "status": "mixed",
+      "componentStatus": {
+        "edward_milo_jr": "confirmed",
+        "sarah_carling": "strong"
+      },
+      "sourceRefs": [],
+      "conflicts": [],
+      "nextAction": "Normalize citations and resolve the difference in parental-link confidence before narration."
+    },
+    {
+      "claimId": "webb-003",
+      "subjectId": "edward_milo_jr",
+      "predicate": "childOf",
+      "objectIds": ["edward_milo_sr", "caroline_owens"],
+      "status": "strong",
+      "sourceRefs": [],
+      "conflicts": ["Edward Milo Webb Jr. death date conflicts across otherwise useful sources."],
+      "nextAction": "Reconcile vital, cemetery, obituary, and probate evidence; do not let the date conflict contaminate the parentage claim."
+    },
+    {
+      "claimId": "webb-004",
+      "subjectId": "edward_milo_sr",
+      "predicate": "childOf",
+      "objectIds": ["james_webb_jr", "hannah_griswold"],
+      "status": "mixed",
+      "componentStatus": {
+        "james_webb_jr": "confirmed",
+        "hannah_griswold": "strong"
+      },
+      "sourceRefs": [],
+      "conflicts": [],
+      "nextAction": "Obtain or cite the strongest direct parent-child evidence and household/probate cluster."
+    },
+    {
+      "claimId": "webb-005",
+      "subjectId": "james_webb_jr",
+      "predicate": "childOf",
+      "objectIds": ["james_webb_sr", "elizabeth_douglas"],
+      "status": "strong",
+      "sourceRefs": [],
+      "conflicts": ["Elizabeth Douglas identity is conflicting/conflated.", "A missing baptism is not negative evidence."],
+      "nextAction": "Reconcile East Hampton/Chatham church, land, probate, household, and sibling-cluster records before any promotion."
+    },
+    {
+      "claimId": "webb-006",
+      "subjectId": "james_webb_sr",
+      "predicate": "childOf",
+      "objectIds": ["gideon_webb", "edith_bates"],
+      "status": "provisional",
+      "sourceRefs": [],
+      "conflicts": ["Deeper New England lineage is unproved."],
+      "nextAction": "Treat as candidate research only; seek primary parish, probate, land, and kinship evidence."
+    },
+    {
+      "claimId": "webb-007",
+      "subjectId": "john_webb_1615",
+      "predicate": "childOf",
+      "objectIds": ["richard_webb_1580"],
+      "status": "frontier",
+      "sourceRefs": [],
+      "conflicts": ["English identity and migration chain are unresolved."],
+      "nextAction": "Do not cross the Atlantic in the public story until New England identity is resolved and English parish/probate evidence converges."
+    }
+  ],
+  "exclusions": [
+    "Do not treat the proposed Gideon Webb / Edith Bates ancestry as established.",
+    "Do not use absence of a baptism as disproof.",
+    "Do not merge conflicting Elizabeth Douglas identities.",
+    "Do not extend to England from surname similarity or compiled trees alone."
+  ],
+  "researchOrder": [
+    "Normalize citations for the confirmed modern trunk.",
+    "Resolve Edward Milo Webb Jr. date conflicts without downgrading unrelated claims.",
+    "Prove or disprove the James Webb Jr. parent couple through a locality-wide cluster study.",
+    "Resolve Elizabeth Douglas as a distinct person.",
+    "Only then evaluate Gideon Webb / Edith Bates and the older New England chain.",
+    "Attempt English linkage last, with parish and probate correlation."
+  ]
+}
