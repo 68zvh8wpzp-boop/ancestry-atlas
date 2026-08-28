@@ -1,0 +1,16 @@
+{
+  "schemaVersion":"1.0",
+  "personId":"edward_milo_sr",
+  "title":"Edward Milo Webb Sr.",
+  "status":"approved-script-awaiting-audio",
+  "evidenceStatus":"supported-trunk",
+  "narrationTextFile":"narration-approved.txt",
+  "narrationApprovedOn":"2026-08-28",
+  "narrationCharacterCount":2621,
+  "narrator":"Fable",
+  "audio":null,
+  "sourceRefs":["webb-src-003", "webb-src-004", "webb-src-008", "webb-src-022", "webb-src-023", "webb-src-024", "webb-src-025", "webb-src-026", "webb-src-027", "webb-src-028"],
+  "openEvidence":["direct marriage image", "complete son-authored autobiography transcript", "direct parentage evidence beyond institutional profile"],
+  "sceneManifest":"scene-manifest.json",
+  "rightsManifest":"rights-manifest.json"
+}

@@ -1,0 +1,304 @@
+{
+  "schemaVersion": "1.0",
+  "branchId": "webb",
+  "reviewed": "2026-08-27",
+  "policy": {
+    "genealogyAuthority": "Canonical graph remains index.html; this register documents evidence and does not override it.",
+    "religiousMaterial": "Religious material from the Marion and Jay life-story source is excluded from their public biographies."
+  },
+  "sources": [
+    {
+      "sourceId": "webb-src-001",
+      "title": "Marion Beulah Brenay Webb life history",
+      "creator": "Marion Beulah Brenay Webb",
+      "date": "late twentieth century",
+      "repository": "Webb family archive",
+      "sourceClass": "family-primary",
+      "access": "Private family copy; distilled in the approved Marion and Sheldon narration files.",
+      "supports": ["Jay and Marion's courtship and 5 May 1941 marriage", "early mill housing", "wartime separation", "postwar timber-town moves", "family chronology"],
+      "limits": "Exact military unit, enlistment dates and civil vital events still require record-level corroboration. Religious passages are excluded by production contract."
+    },
+    {
+      "sourceId": "webb-src-002",
+      "title": "The Morten Peder Mortensen Families, Part II, Section 1",
+      "repository": "FamilySearch digital book collection",
+      "url": "https://www.familysearch.org/patron/v2/TH-301-43970-40-28/dist.pdf?ctx=ArtCtxPublic",
+      "sourceClass": "compiled-family-history",
+      "supports": ["Della Ray birth in Colonia Pacheco", "Jonathan Henry Webb and Della Ray marriage in Colonia Morelos on 16 August 1908", "their children and later Arizona family cluster"],
+      "limits": "Useful family compilation, but not a substitute for civil, church, census or probate images."
+    },
+    {
+      "sourceId": "webb-src-003",
+      "title": "Edward Milo Webb",
+      "repository": "Church History Biographical Database",
+      "url": "https://history.churchofjesuschrist.org/chd/individual/edward-milo-webb-sr-1815?lang=eng",
+      "sourceClass": "institutional-biographical",
+      "supports": ["17 August 1815 Hanover, New York birth", "James Henry Webb and Hannah Griswold parent names", "21 December 1839 marriage to Caroline Amelia Owens", "Uriah Curtis Company travel group", "31 July 1852 death near the Platte River"],
+      "limits": "Aggregates cited records and an Edward Milo Webb Jr. autobiography; underlying images remain preferable."
+    },
+    {
+      "sourceId": "webb-src-004",
+      "title": "Edward Milo Webb, Jr.",
+      "repository": "Church History Biographical Database",
+      "url": "https://history.churchofjesuschrist.org/chd/individual/edward-milo-webb-jr-1847?lang=eng",
+      "sourceClass": "institutional-biographical",
+      "supports": ["8 March 1847 Linden, Missouri birth", "Edward Milo Webb and Caroline Amelia Owens parent names", "1852 Uriah Curtis Company travel at age five"],
+      "conflicts": ["The structured death field reports 4 April 1924 while the profile image caption and several other sources use 1921."],
+      "limits": "Death date is not used as settled narration until direct death evidence resolves the conflict."
+    },
+    {
+      "sourceId": "webb-src-005",
+      "title": "Edward Milo Webb, b. 1847",
+      "repository": "Wilford Woodruff Papers",
+      "url": "https://wilfordwoodruffpapers.org/ftp/redirect?subject_id=32124682&view=public",
+      "sourceClass": "institutional-biographical",
+      "supports": ["8 March 1847 Linden, Missouri birth", "Edward Milo Webb and Caroline Amelia Owens parent names", "1921 death-year tradition"],
+      "limits": "The person note is generated from FamilySearch data and is not independently researched."
+    },
+    {
+      "sourceId": "webb-src-006",
+      "title": "Letter from Jesse Nathaniel Smith and Edward Milo Webb, 11 November 1890",
+      "repository": "Wilford Woodruff Papers",
+      "url": "https://wilfordwoodruffpapers.org/documents/4b546f5f-07f5-4eb0-acc6-cb7838b7c013/page/ee07a21b-790a-431b-9622-2a20939695db",
+      "sourceClass": "archival-primary",
+      "supports": ["Edward Milo Webb Jr. was an adult public actor in Arizona Territory by 1890"],
+      "limits": "Does not itself prove birth, parentage or death."
+    },
+    {
+      "sourceId": "webb-src-007",
+      "title": "Pioneer Women of Arizona — Webb entries",
+      "repository": "Brigham Young University Religious Studies Center",
+      "url": "https://rsc.byu.edu/pioneer-women-arizona/w",
+      "sourceClass": "compiled-family-history",
+      "supports": ["Sarah Elizabeth Carling Webb family context", "1891 Sarah-with-children photograph identification", "Edward Milo Webb Jr. Arizona community context"],
+      "limits": "Image reuse rights must be cleared separately before packaging."
+    },
+    {
+      "sourceId": "webb-src-008",
+      "title": "The Ancestry of Edward Milo Webb & His Wife Ellen Ashman",
+      "creator": "George David Hulse",
+      "date": "1996",
+      "repository": "Published family genealogy; cataloged by Google Books",
+      "url": "https://books.google.com/books?id=zWb-ngEACAAJ",
+      "sourceClass": "compiled-family-history",
+      "supports": ["Published Webb lineage through Edward Milo Webb Sr. and James Webb Jr.", "Reported James Webb Jr. parent couple"],
+      "limits": "The older Connecticut and English lineage is not established without original record correlation."
+    },
+    {
+      "sourceId": "webb-src-009",
+      "title": "How the story of Cove Fort illustrates 'the quiet faith' of early pioneers",
+      "repository": "Church News",
+      "date": "2022-01-09",
+      "url": "https://www.thechurchnews.com/2022/1/9/23218612/cove-fort-church-historic-site-ira-hinckley-edward-milo-webb-jr/",
+      "sourceClass": "secondary-context",
+      "supports": ["Descendant recollection of Edward Milo Webb Jr.'s 1852 overland childhood", "Cove Fort and Black Hawk War context"],
+      "limits": "Modern secondary account containing descendant recollection; not used alone for contested facts."
+    },
+    {
+      "sourceId": "webb-src-010",
+      "title": "East Hampton Congregational register gap review",
+      "repository": "Inherited Ancestry Atlas research log",
+      "sourceClass": "research-log",
+      "supports": ["The surviving register series has a gap across the relevant baptism period"],
+      "limits": "Exact archive catalog citation and register image range must be attached before final narration approval; the gap is not negative evidence."
+    },
+    {
+      "sourceId": "webb-src-011",
+      "title": "James W. Webb obituary",
+      "date": "2014-12-18",
+      "repository": "Owens Livingston Mortuary",
+      "url": "https://www.owenslivingstonmortuary.com/obituaries/4677256",
+      "sourceClass": "family-authored-obituary",
+      "supports": ["Jay left Vernon in 1943 to serve in the United States Army during the Second World War", "Family-reported Bronze Star for actions in Germany", "Return to logging work after the war"],
+      "researchLeads": ["Family recollection that Jay may have participated in the D-Day invasion"],
+      "limits": "The obituary does not identify Jay's unit, campaign dates or Bronze Star order. It supports Army service and a family-reported award but does not establish D-Day participation."
+    },
+    {
+      "sourceId": "webb-src-012",
+      "title": "Mormons at Mormon Dairy",
+      "creator": "E. A. Ames",
+      "date": "1887–1889",
+      "repository": "U.S. National Archives and Records Administration",
+      "url": "https://catalog.archives.gov/id/523552",
+      "sourceClass": "archival-visual-primary",
+      "supports": ["Northern-Arizona Mormon family and settlement context during Jonathan Henry Webb's infancy"],
+      "limits": "Photographed at Mormon Dairy near present-day Mormon Lake, not at Woodruff. The unidentified women and children are not represented as Webb relatives."
+    },
+    {
+      "sourceId": "webb-src-013",
+      "title": "Small Mormon store, northern Mex.",
+      "creator": "Bain News Service, publisher",
+      "date": "circa 1900",
+      "repository": "Library of Congress, George Grantham Bain Collection",
+      "url": "https://www.loc.gov/item/2014688906/",
+      "sourceClass": "archival-visual-primary",
+      "supports": ["Northern-Mexico Mormon settlement, clothing, horse and wagon context close to Jonathan Henry Webb and Della Ray's 1908 marriage period"],
+      "limits": "The Bain caption identifies northern Mexico but not the specific colony. It is regional context only and is not represented as Colonia Morelos; the people are unidentified and are not claimed as Webb or Ray relatives."
+    },
+    {
+      "sourceId": "webb-src-014",
+      "title": "Atlas of the Mexican Conflict",
+      "creator": "Rand McNally and Company",
+      "date": "1913",
+      "repository": "Library of Congress, Geography and Map Division",
+      "url": "https://www.loc.gov/item/2012589700/",
+      "sourceClass": "archival-visual-primary",
+      "supports": ["Period map base for the Arizona-Sonora borderlands during the Mexican Revolution"],
+      "limits": "The original atlas does not document Jonathan and Della Webb's route, date of migration or motive. Pinedale and Colonia Morelos endpoint labels and the conceptual dotted connection were added by the project and must not be read as a proven itinerary."
+    },
+    {
+      "sourceId": "webb-src-015",
+      "title": "From Brutal Ally to Humble Believer: Mormon Colonists' Image of Pancho Villa",
+      "creator": "Brandon Morgan",
+      "date": "2010",
+      "repository": "New Mexico Historical Review, University of New Mexico Digital Repository",
+      "url": "https://digitalrepository.unm.edu/cgi/viewcontent.cgi?article=1545&context=nmhr",
+      "sourceClass": "scholarly-secondary",
+      "supports": ["Qualified regional context that Villa protected Mormon colonists' lives and property against Orozquista forces in Chihuahua in 1912, especially in the Colonia Díaz orbit"],
+      "limits": "This does not establish a direct relationship with Jonathan Webb or Della Ray, does not concern Colonia Morelos in Sonora, and does not establish why or when their household moved to Arizona. Villa-colonist relations later became hostile and must not be simplified into a durable protective alliance."
+    },
+    {
+      "sourceId": "webb-src-016",
+      "title": "Forest stand",
+      "creator": "G. A. Pearson",
+      "date": "1910",
+      "repository": "USDA Forest Service Research Image Library",
+      "url": "https://www.fs.usda.gov/rds/imagedb/image/18903",
+      "sourceClass": "archival-visual-primary",
+      "supports": ["Period mixed-forest context in Apache National Forest during the family's transition toward Arizona's White Mountains"],
+      "limits": "The photograph is regional Apache National Forest context, not a documented view of Pinedale. No Webb family member is pictured."
+    },
+    {
+      "sourceId": "webb-src-017",
+      "title": "USGS Topo",
+      "creator": "U.S. Geological Survey, National Geospatial Program",
+      "date": "accessed 2026-08-28",
+      "repository": "The National Map",
+      "url": "https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer",
+      "sourceClass": "federal-geospatial-reference",
+      "supports": ["Topographic context and geographic placement of Pinedale, Lakeside, Vernon, Snowflake and McNary in Arizona's White Mountains region"],
+      "limits": "The five emphasized markers and labels were added by the project. They do not establish a migration route, chronology or person-specific residence beyond the claims separately supported in the family narrative."
+    },
+    {
+      "sourceId": "webb-src-018",
+      "title": "Original Snowflake Stake Academy",
+      "creator": "Unknown photographer",
+      "date": "before 1910; published 1921",
+      "repository": "Mormon Settlement in Arizona via Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Original_Snowflake_Stake_Academy_(Mormon_settlement_in_Arizona,_1921).jpg",
+      "sourceClass": "archival-visual-primary",
+      "supports": ["The early Snowflake Stake Academy as a territorial educational institution and the institution-building context of Edward Milo Webb Jr.'s Arizona life"],
+      "limits": "Edward opened the academy as its first principal and teacher in 1889 in an earlier log-cabin classroom. This photograph shows students at the later original dedicated academy building before its 1910 destruction; Edward is not identified among them."
+    },
+    {
+      "sourceId": "webb-src-019",
+      "title": "Sarah Elizabeth Carling Webb with five children",
+      "creator": "A. Miller, photographer",
+      "date": "1891; reproduced in the 1969 first edition and 2017 second edition",
+      "repository": "Pioneer Women of Arizona, Religious Studies Center, Brigham Young University",
+      "url": "https://rsc.byu.edu/pioneer-women-arizona/w",
+      "sourceClass": "authentic-family-visual-with-commercial-rights-hold",
+      "supports": ["Sarah Elizabeth Carling Webb family context", "Identification of Clark, Jonathan Henry (captioned Henry), Burr, Owen and Catherine in the 1891 photograph", "Direct visual bridge from Edward Milo Webb Jr. through Sarah to Jonathan Henry Webb"],
+      "limits": "The photograph is credited to A. Miller and the supplied copy to Flora Clark. Current research traces reproduction to the 1969 first edition of Pioneer Women of Arizona and the 2017 second edition, but does not establish first publication, copyright notice, photographer death or a rights transfer. It is included in the private/noncommercial family Atlas by explicit user direction, but must be cleared or replaced before commercial distribution."
+    },
+    {
+      "sourceId": "webb-src-020",
+      "title": "Utah death-certificate index entry for Edward Milo Webb",
+      "creator": "Utah State Board of Health; indexed by FamilySearch",
+      "date": "11 September 1921",
+      "repository": "FamilySearch, Utah Death Certificates, 1904–1966",
+      "url": "https://ancestors.familysearch.org/en/KVPR-ZP3/edward-milo-webb-jr.-1847-1921",
+      "sourceClass": "vital-record-index-reference",
+      "supports": ["Edward Milo Webb Jr. died 11 September 1921 in Murray, Salt Lake County, Utah"],
+      "limits": "The indexed vital-record information is strong evidence, but the direct death-certificate image has not yet been attached to the Atlas evidence package."
+    },
+    {
+      "sourceId": "webb-src-021",
+      "title": "Map of the United States",
+      "creator": "U.S. Geological Survey",
+      "date": "1880",
+      "repository": "Library of Congress, Geography and Map Division",
+      "url": "https://www.loc.gov/item/2019360437/",
+      "sourceClass": "federal-archival-map",
+      "supports": ["Period geographic base for Edward Milo Webb Jr.'s westward life sequence through Missouri, the Platte corridor, Utah and Arizona Territory"],
+      "limits": "Route lines, markers, labels and evidence legend were added by the project. The dashed 1852 line is a broad company corridor; the later solid connection shows chronological place sequence and does not claim exact roads."
+    },
+    {
+      "sourceId": "webb-src-022",
+      "title": "USGS Topo — western New York locator",
+      "creator": "U.S. Geological Survey, National Geospatial Program",
+      "date": "accessed 2026-08-28",
+      "repository": "The National Map",
+      "url": "https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer",
+      "sourceClass": "federal-geospatial-reference",
+      "supports": ["Accurate geographic relationship of Hanover, Chautauqua County to Lake Erie, Lake Ontario, Chautauqua Lake and Buffalo"],
+      "limits": "The map is modern and is used only as a locator for the 1815 birthplace. The project-added marker identifies a reference point within the town on land; no exact homestead or birth site is claimed."
+    },
+    {
+      "sourceId": "webb-src-023",
+      "title": "The American atlas, exhibiting the post offices, post roads, rail roads, canals, and the physical & political divisions of the United States of North America",
+      "creator": "David H. Burr; published by John Arrowsmith",
+      "date": "1839",
+      "repository": "Library of Congress, Geography and Map Division",
+      "url": "https://www.loc.gov/item/2009582191/",
+      "sourceClass": "public-domain-period-atlas",
+      "supports": ["Period geographic context for the year Edward Milo Webb Sr. and Caroline Amelia Owens married", "Named regional context spanning New York, Ohio, Illinois and Missouri"],
+      "limits": "The project-added state labels identify regions named in the couple's early family history. No connecting line is drawn, and the image does not establish an exact route or marriage place."
+    },
+    {
+      "sourceId": "webb-src-024",
+      "title": "Nauvoo, Illinois, with temple on the hill",
+      "creator": "Attributed to Lucian R. Foster; true authorship not definitive",
+      "date": "circa 1846",
+      "repository": "Public-domain historical image distributed through Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Nauvoo_Illinois_ca_1846_with_Temple_on_hill.png",
+      "sourceClass": "public-domain-authentic-period-daguerreotype",
+      "supports": ["Visual appearance of Nauvoo, Illinois, around 1846 during Edward Milo Webb Sr.'s documented Nauvoo period"],
+      "limits": "The photograph is place context. No person in the image is identified as Edward or another Webb relative, and the photographer attribution is not treated as certain."
+    },
+    {
+      "sourceId": "webb-src-025",
+      "title": "An Evening Halt—Emigrants Moving to the West in 1840",
+      "creator": "Benjamin Franklin Reinhart",
+      "date": "1867",
+      "repository": "National Gallery of Art, Corcoran Collection",
+      "url": "https://www.nga.gov/artworks/195800-evening-halt-emigrants-moving-west-1840",
+      "sourceClass": "public-domain-historical-rendering",
+      "supports": ["People-centered visual context for nineteenth-century family migration, including clothing, household labor, children, wagons and livestock"],
+      "limits": "The painting was created in 1867 as a retrospective representation of emigrants in 1840. It is not an eyewitness Webb-family scene, and no depicted person, animal, wagon, route or event is attributed to the family."
+    },
+    {
+      "sourceId": "webb-src-026",
+      "title": "16th Company of 50 report",
+      "creator": "Brigham Young office; William B. Maxwell, company clerk",
+      "date": "4 July 1852",
+      "repository": "Church History Library, Brigham Young office emigrating companies reports, 1850–1862, CR 1234 5",
+      "url": "https://catalog.churchofjesuschrist.org/assets/79904b1f-be69-469a-9fd1-34f23b3305c9/0/8",
+      "sourceClass": "public-domain-archival-primary",
+      "supports": ["Edward Milo Webb Sr., Caroline Amelia Webb, Mary Jane Webb, Cordelia, Marcellus, Edward Jr. and young Caroline listed together in the Uriah Curtis Company report", "James Hofer recorded as the continuation entry on the following manuscript image"],
+      "limits": "The approved visual is a crop of manuscript image 9 and therefore does not show James Hofer, whose entry continues at the top of image 10. The report documents company membership and enumerated resources; it does not establish every later narrative detail of the journey."
+    },
+    {
+      "sourceId": "webb-src-027",
+      "title": "Crossing the Platte",
+      "creator": "Albert Bierstadt; published in Harper's Weekly",
+      "date": "1859",
+      "repository": "Library of Congress, Prints and Photographs Division",
+      "url": "https://www.loc.gov/pictures/item/2018648372/",
+      "sourceClass": "public-domain-near-period-wood-engraving",
+      "supports": ["Visual context for emigrant wagon travel across the South Platte in the decade of Edward Milo Webb Sr.'s final journey"],
+      "limits": "The engraving was published seven years after Edward's 1852 death. It does not depict the Uriah Curtis Company, Edward's death or an identified Webb relative, and it does not establish a cause of death."
+    },
+    {
+      "sourceId": "webb-src-028",
+      "title": "Salt Lake City in 1850",
+      "creator": "Samuel Manning; engraving from American Pictures Drawn with Pen and Ink",
+      "date": "published 1876; represents 1850",
+      "repository": "U.S. National Archives and Records Administration, NAID 513336",
+      "url": "https://catalog.archives.gov/id/513336",
+      "sourceClass": "public-domain-historical-engraving",
+      "supports": ["Visual settlement context for Salt Lake City shortly before Caroline Amelia Webb and the children arrived in September 1852"],
+      "limits": "The engraving was published in 1876 and represents Salt Lake City in 1850. It does not depict Caroline, the Webb family or their precise arrival."
+    }
+  ]
+}

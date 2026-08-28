@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0",
+  "personId": "jonathan_henry",
+  "assets": [
+    {
+      "file": "assets/jonathan_woodruff_1886_charcoal_approved.png",
+      "rights": "AI-generated original for this project; approved by user on 2026-08-27",
+      "sha256": "edcad6f1603200b17cf6a0c2bda3904ad50af80a1124f8422a8ea288b9dc5b75",
+      "use": "Observational Woodruff, Arizona Territory opening; final composition is 49.5 percent tighter than the generated original; no family likeness claimed"
+    },
+    {
+      "file": "assets/jonathan_mormon_dairy_1887_1889_approved.jpg",
+      "rights": "Public domain; U.S. National Archives and Records Administration, NAID 523552, 108-FAA-40B",
+      "sourceUrl": "https://www.archives.gov/research/american-west",
+      "sha256": "9622b68124e0991a9b598855dd2454d96d7d43382a9681f77b06ab6bb3b348c4",
+      "use": "Northern-Arizona Mormon settlement context during Jonathan's infancy; Mormon Dairy is not Woodruff and no Webb family member is depicted"
+    },
+    {
+      "file": "assets/jonathan_mormon_store_northern_mexico_1900_approved.jpg",
+      "rights": "Public domain / no known restrictions on publication; George Grantham Bain Collection, Library of Congress, LCCN 2014688906, digital ID ggbain.08915",
+      "sourceUrl": "https://www.loc.gov/item/2014688906/",
+      "sha256": "305690c61309e88287bb8f28aa037b9e4b9a3093036a72b4dfccb09eda27fa69",
+      "use": "Circa-1900 northern-Mexico Mormon settlement and clothing context close to Jonathan and Della's 1908 marriage period; the colony is unidentified and no Webb or Ray relative is depicted"
+    },
+    {
+      "file": "assets/jonathan_route_unresolved_map_1913_approved.jpg",
+      "rights": "Free to use and reuse; Rand McNally and Company, Atlas of the Mexican Conflict (1913), Library of Congress Geography and Map Division, LCCN 2012589700; project-added labels and conceptual dotted connection",
+      "sourceUrl": "https://www.loc.gov/item/2012589700/",
+      "sha256": "73f4a9fcc34fb451c689abc6a7006d2f1fef406d01ac0f867a7d89a2827183e5",
+      "use": "Period regional map establishing the supported Colonia Morelos, Sonora, and Pinedale, Arizona endpoints; the dotted curve does not represent a proven route, date or motive"
+    },
+    {
+      "file": "assets/jonathan_apache_forest_1910_approved.jpg",
+      "rights": "Creative Commons CC BY; USDA Forest Service Research Image Library image 18903",
+      "sourceUrl": "https://www.fs.usda.gov/rds/imagedb/image/18903",
+      "requiredCitation": "Olberding, Susan D.; Huebner, Daniel P.; Edminster, Carleton B. 2007. Fort Valley Experimental Forest historical photographs. Fort Collins, CO: U.S. Department of Agriculture, Forest Service, Rocky Mountain Research Station. https://doi.org/10.2737/RDS-2007-0005",
+      "sha256": "7910b2835db0353ed1700ee0f73355ed2f67e57db892fe1bd48a157f3a32a15f",
+      "use": "Period White Mountains forest context in Apache National Forest; not represented as Pinedale itself and no Webb family member is pictured"
+    },
+    {
+      "file": "assets/jonathan_white_mountains_family_network_approved.png",
+      "rights": "U.S. Geological Survey topographic base is a U.S. federal government work; project-added place markers and labels approved by user on 2026-08-28",
+      "sourceUrl": "https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer",
+      "sha256": "1dc41da10baa9a7b7e19210649377a8955bd0c9f676d06b950059ed655ed9527",
+      "use": "Geographic context for Pinedale, Lakeside, Vernon, Snowflake and McNary; no route, sequence or person-specific residence implied by the markers"
+    },
+    {
+      "file": "../../../marion/assets/jay_marion_mesa_1941_restored.jpg",
+      "rights": "family archive; approved restoration and reuse",
+      "use": "Jonathan's descendant legacy through Jay and Marion"
+    }
+  ],
+  "pendingAssets": []
+}

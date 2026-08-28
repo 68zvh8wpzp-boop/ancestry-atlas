@@ -35,6 +35,17 @@ packages. It does not alter genealogy, evidence, or approved visual decisions.
 - Distinguish the reason for a move from conditions encountered after arrival.
 - Unresolved drivers remain unresolved in manifests and evidence displays;
   editorial reasoning stays out of natural spoken narration.
+- Narration tells the life directly. Production-method commentary such as what
+  “the Atlas” chooses to include, omit, infer or avoid belongs in contracts,
+  manifests and evidence notes—not in the spoken biography.
+- Adjacent biographies may share essential events, but each must remain centered
+  on its own subject. Do not repeat another person's remembered scenes or
+  perspective when a concise relationship reference will carry the chronology.
+- When family memory or another non-primary account is explicitly attributed in
+  the narration, that attribution is normally sufficient. Do not immediately
+  follow an anecdote with commentary about what its source proves, fails to
+  prove, or contains. Put that methodological qualification in evidence notes
+  unless a genuine source conflict materially changes the narrated story.
 - Religious material from Marion and Jay’s life-story source remains excluded.
 
 ## Visuals and rights
@@ -130,6 +141,11 @@ Priority is locked:
 - Preserve confirmed, strongly supported, provisional, speculative and unresolved states.
 - Preserve research notes, sources, dates, locations, warnings and citizenship-proof targets.
 - Do not duplicate the genealogy dataset inside biography modules.
+- After a supported branch ending, an optional `Explore Research Frontier`
+  surface may present preserved candidate lines without promoting them. Webb
+  may extend visibly toward the proposed English line; Canada may extend toward
+  the Gooley/Goulet and possible French connection. Both must remain separate
+  from ordinary ancestor biographies and use the canonical evidence states.
 
 ## Current checkpoint state
 

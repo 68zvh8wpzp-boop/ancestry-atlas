@@ -1,0 +1,71 @@
+{
+  "schemaVersion":"1.0",
+  "personId":"edward_milo_sr",
+  "assets":[
+    {
+      "file":"assets/edward_sr_hanover_1815_locator_approved.jpg",
+      "rights":"USGS The National Map federal map service with project-created labels and locator marker",
+      "sourceUrl":"https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer",
+      "sourceId":"webb-src-022",
+      "sha256":"6c8bd1243dc8105e9a8443e119d6d4f1e3690c68e868c1eaebd40ae714c4074b",
+      "use":"Modern geographic locator for the historically identified town of Hanover; marker is a town reference point on land and does not claim Edward's exact birth site"
+    },
+    {
+      "file":"assets/edward_sr_caroline_1839_map_approved.jpg",
+      "rights":"Public-domain 1839 map from the Library of Congress with project-created labels and caption plate",
+      "sourceUrl":"https://www.loc.gov/item/2009582191/",
+      "sourceId":"webb-src-023",
+      "sha256":"e35ada75a100f5fb9ff53b163f7795180269debf47351c9a796d8e4669ed1357",
+      "use":"Marriage-year geographic context. The four labeled states are named regions from the couple's early family years; no route or marriage location is inferred."
+    },
+    {
+      "file":"assets/edward_sr_nauvoo_1846_approved.jpg",
+      "rights":"Public-domain circa-1846 daguerreotype; photograph-only crop with modest tonal and sharpness correction",
+      "sourceUrl":"https://commons.wikimedia.org/wiki/File:Nauvoo_Illinois_ca_1846_with_Temple_on_hill.png",
+      "sourceId":"webb-src-024",
+      "sha256":"f128f0827d1d7cc211fbfe606c361014435122713ed2eadb7fd747ac4ed0d864",
+      "use":"Authentic period view of Nauvoo during Edward's documented residence era; authorship is attributed but uncertain, and no visible person is identified as Edward or another Webb relative."
+    },
+    {
+      "file":"assets/edward_sr_family_moving_west_1840_approved.jpg",
+      "rights":"National Gallery of Art open-access public-domain media; project-created crop only",
+      "sourceUrl":"https://www.nga.gov/artworks/195800-evening-halt-emigrants-moving-west-1840",
+      "sourceId":"webb-src-025",
+      "sha256":"96fb2a5d085cd3c051d78902a0619582e088bc4e63e93de0cb7378016b25a0d5",
+      "use":"People-centered material-world context for nineteenth-century family migration. Painted in 1867 as a historical representation of 1840; no figure, vehicle, animal, route or event is identified with the Webb family."
+    },
+    {
+      "file":"assets/edward_sr_uriah_curtis_company_1852_approved.jpg",
+      "rights":"Public-domain 1852 manuscript; faithful Church History Library digital reproduction with courtesy archival credit",
+      "sourceUrl":"https://catalog.churchofjesuschrist.org/assets/79904b1f-be69-469a-9fd1-34f23b3305c9/0/8",
+      "sourceId":"webb-src-026",
+      "sha256":"01b75c99c58da62d72d626dbeac4f507cc72a2206d97a2a702962c37dc1b7005",
+      "use":"Authentic company-roll evidence for the Webb traveling household. The approved asset is an unannotated crop of manuscript image 9; James Hofer continues at the top of image 10 and is not visible in the crop."
+    },
+    {
+      "file":"assets/edward_sr_crossing_platte_1859_approved.jpg",
+      "rights":"Library of Congress item with no known restrictions on publication; project-created crop only",
+      "sourceUrl":"https://www.loc.gov/pictures/item/2018648372/",
+      "sourceId":"webb-src-027",
+      "sha256":"9368645f4fd636358df44ac7f5767e892a42fc776f0147659c73343081665c7d",
+      "use":"Near-period emigrant crossing context. The 1859 engraving does not depict Edward's company, death or an identified Webb relative and does not establish a cause of death."
+    },
+    {
+      "file":"assets/edward_sr_salt_lake_1850_approved.jpg",
+      "rights":"Public-domain U.S. National Archives holding; project-created crop only",
+      "sourceUrl":"https://catalog.archives.gov/id/513336",
+      "sourceId":"webb-src-028",
+      "sha256":"41c539f2b62927df061e76caba2c35a2f4c2127c2114bcf361c9c8e0803e1673",
+      "use":"Destination and settlement context for Caroline and the children. The engraving represents Salt Lake City in 1850 and was published in 1876; it does not depict their September 1852 arrival or identify any Webb relative."
+    },
+    {
+      "file":"assets/edward_sr_proof_frontier_approved.png",
+      "rights":"Project-created evidence graphic using canonical Atlas confidence colors; no third-party visual material",
+      "sourceUrl":"internal://webb/research-register",
+      "sourceId":null,
+      "sha256":"52ed8a339481f4dd5d3fd0890cf88af54a4c6e8717373b250685bb15ebdc6332",
+      "use":"Non-representational transition from Edward Sr.'s supported parent links to the unresolved generation above James Webb Jr.; no disputed parent name or deeper lineage is depicted."
+    }
+  ],
+  "pendingAssets":[]
+}

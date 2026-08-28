@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "personId": "james_wilford",
+  "status": "visual-sequence-awaiting-one-at-a-time-approval",
+  "scenes": [
+    {"id":"jay-01-pinedale","paragraph":0,"title":"Born in Arizona’s pine country","asset":"assets/jay_pinedale_1924_charcoal_approved.png","assetBrief":"Wide observational charcoal of Pinedale, Arizona, in 1924; forest-edge settlement, no invented likenesses.","approvalStatus":"approved","approvedOn":"2026-08-27","visualType":"approved-charcoal","place":"Pinedale, Arizona • 1924"},
+    {"id":"jay-02-depression","paragraph":1,"title":"Work in the high country","asset":"assets/jay_depression_timber_context_approved.png","assetBrief":"Depression-era northern Arizona timber-work context; tiny figures are ambiguous and no person is presented as family.","approvalStatus":"approved","approvedOn":"2026-08-27","visualType":"approved-charcoal","place":"Navajo County, Arizona • 1930s"},
+    {"id":"jay-03-marion","paragraph":2,"title":"Jay and Marion","asset":"../../../marion/assets/jay_marion_mesa_1941_restored.jpg","approvalStatus":"approved-reuse","visualType":"family-photo","place":"Lakeside / St. Johns • 1941"},
+    {"id":"jay-04-first-home","paragraph":3,"title":"A young family near the mill","asset":"../../../../webb_first_car_second_home_c1942.png","secondaryAsset":"../../../../webb_first_house_vernon_1945.png","approvalStatus":"approved-reuse","visualType":"family-photo","place":"Arizona White Mountains • early 1940s"},
+    {"id":"jay-05-war","paragraph":4,"title":"The wartime separation","asset":"assets/jay_wartime_mail_1944_approved.jpeg","assetBrief":"U.S. Army Signal Corps context photograph of Pvt. Walter E. Przybyla writing Christmas cards in Germany on 30 November 1944. Jay is not pictured; the image makes no claim about Jay's unit or location.","approvalStatus":"approved","approvedOn":"2026-08-27","visualType":"rights-cleared-archival-photo","place":"United States Army • Second World War"},
+    {"id":"jay-06-timber","paragraph":5,"title":"Following the mills","asset":"assets/jay_postwar_arizona_logging_1951_approved.jpg","assetBrief":"Photo-only crop, zoomed 30 percent, from a 6 August 1951 USDA Forest Service photograph of workers loading ponderosa logs with a truck-mounted crane at Fort Valley Experimental Forest. Jay is not pictured and the scene is regional context, not his precise camp.","approvalStatus":"approved","approvedOn":"2026-08-27","visualType":"rights-cleared-archival-photo","place":"Northern Arizona timber country • 1951"},
+    {"id":"jay-07-family","paragraph":6,"title":"A life held together through change","asset":"../../../marion/assets/marion_children_family_photo_candidate.jpg","approvalStatus":"approved-reuse","visualType":"family-photo","place":"Arizona • postwar family"}
+  ]
+}

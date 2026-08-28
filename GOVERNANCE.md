@@ -29,6 +29,21 @@ No code, narration, caption, or visual may promote a state. Promotion requires a
 written evidence decision in the branch research register, with sources and
 conflict analysis.
 
+### Optional research frontiers
+
+- A supported guided tour ends at its last supported person. It may then offer
+  an explicit, optional `Explore Research Frontier` continuation.
+- The continuation is not another ordinary ancestor tour. Candidate people use
+  their canonical provisional or frontier states, dashed relationships, and
+  plain language such as “candidate,” “reported,” or “unresolved.”
+- A frontier may explain a complete theory—including a proposed overseas
+  extension—provided it also shows the broken proof link, material conflicts,
+  evidence for and against, and the records needed next.
+- No candidate receives an ordinary ancestor biography or is counted as an
+  established generation until the evidence register formally promotes it.
+- Exiting a frontier returns to the supported endpoint and never silently moves
+  the user's tour into a hypothetical lineage.
+
 ## Branch production gates
 
 Every branch passes these gates in order:

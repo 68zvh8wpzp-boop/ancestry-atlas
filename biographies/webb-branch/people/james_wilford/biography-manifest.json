@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "personId": "james_wilford",
+  "title": "James Wilford “Jay” Webb",
+  "status": "approved-script-awaiting-audio",
+  "evidenceStatus": "supported-trunk",
+  "narrationTextFile": "narration-approved.txt",
+  "narrationApprovedOn": "2026-08-28",
+  "narrationCharacterCount": 2489,
+  "narrator": "Fable",
+  "audio": null,
+  "sourceRefs": ["webb-src-001", "webb-src-002", "webb-src-011"],
+  "lockedExclusions": ["Religious passages from the Marion/Jay life-story source"],
+  "openEvidence": ["Arizona birth record", "marriage record", "Army service file identifying unit and campaign history", "Bronze Star order or citation", "D-Day participation — family recollection requiring service-record corroboration"],
+  "sceneManifest": "scene-manifest.json",
+  "rightsManifest": "rights-manifest.json"
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0",
+  "branchId": "webb",
+  "title": "Webb — Arizona to Connecticut",
+  "status": "all-narrations-approved-awaiting-fable-and-remaining-frontier-visuals",
+  "canonicalBaseline": "GitHub main v3.8.12",
+  "people": [
+    {"personId":"james_wilford","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/james_wilford","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"not generated"},
+    {"personId":"jonathan_henry","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/jonathan_henry","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"not generated"},
+    {"personId":"edward_milo_jr","role":"full-biography-with-conflict-note","evidenceGate":"supported-trunk-with-strong-1921-death-and-1924-anomaly","artifactDirectory":"people/edward_milo_jr","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"not generated"},
+    {"personId":"edward_milo_sr","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/edward_milo_sr","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"not generated"},
+    {"personId":"james_webb_jr","role":"proof-frontier-biography","evidenceGate":"stop-before-parent-couple","artifactDirectory":"people/james_webb_jr","visualStatus":"awaiting one-at-a-time approval","narrationStatus":"approved 2026-08-28","audioStatus":"not generated"}
+  ],
+  "excludedFromThisProductionPass": [
+    "No biography is created for James Webb Sr. or Elizabeth Douglas while the identity problem remains unresolved.",
+    "Gideon Webb, Edith Bates and the proposed English line remain research-only.",
+    "No new image is presented as approved without one-at-a-time user review.",
+    "No Fable audio is generated before narration approval."
+  ],
+  "commercialReleaseGates": [
+    {
+      "personId": "edward_milo_jr",
+      "sceneId": "emj-06-family",
+      "asset": "people/edward_milo_jr/assets/edward_jr_sarah_children_1891_family_use.png",
+      "status": "blocked-pending-clearance",
+      "requiredAction": "Document public-domain status or obtain permission; otherwise replace the photograph before commercial distribution."
+    }
+  ],
+  "integrationGate": "Approved scripts remain outside TOUR_MEDIA until Fable recordings are heard and approved and each person has a complete approved visual sequence."
+}
