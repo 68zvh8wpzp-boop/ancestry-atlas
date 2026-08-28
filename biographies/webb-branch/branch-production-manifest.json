@@ -2,14 +2,14 @@
   "schemaVersion": "1.0",
   "branchId": "webb",
   "title": "Webb — Arizona to Connecticut",
-  "status": "all-narrations-approved-awaiting-fable-and-remaining-frontier-visuals",
+  "status": "all-narrations-and-fable-audio-approved-awaiting-runtime-and-remaining-frontier-visuals",
   "canonicalBaseline": "GitHub main v3.8.12",
   "people": [
-    {"personId":"james_wilford","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/james_wilford","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"not generated"},
-    {"personId":"jonathan_henry","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/jonathan_henry","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"not generated"},
-    {"personId":"edward_milo_jr","role":"full-biography-with-conflict-note","evidenceGate":"supported-trunk-with-strong-1921-death-and-1924-anomaly","artifactDirectory":"people/edward_milo_jr","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"not generated"},
-    {"personId":"edward_milo_sr","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/edward_milo_sr","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"not generated"},
-    {"personId":"james_webb_jr","role":"proof-frontier-biography","evidenceGate":"stop-before-parent-couple","artifactDirectory":"people/james_webb_jr","visualStatus":"awaiting one-at-a-time approval","narrationStatus":"approved 2026-08-28","audioStatus":"not generated"}
+    {"personId":"james_wilford","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/james_wilford","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived; awaiting runtime"},
+    {"personId":"jonathan_henry","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/jonathan_henry","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived; awaiting runtime"},
+    {"personId":"edward_milo_jr","role":"full-biography-with-conflict-note","evidenceGate":"supported-trunk-with-strong-1921-death-and-1924-anomaly","artifactDirectory":"people/edward_milo_jr","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived; awaiting runtime"},
+    {"personId":"edward_milo_sr","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/edward_milo_sr","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived; awaiting runtime"},
+    {"personId":"james_webb_jr","role":"proof-frontier-biography","evidenceGate":"stop-before-parent-couple","artifactDirectory":"people/james_webb_jr","visualStatus":"awaiting one-at-a-time approval","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived; awaiting visuals and runtime"}
   ],
   "excludedFromThisProductionPass": [
     "No biography is created for James Webb Sr. or Elizabeth Douglas while the identity problem remains unresolved.",
