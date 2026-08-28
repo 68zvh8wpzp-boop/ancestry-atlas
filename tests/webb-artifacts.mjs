@@ -2,6 +2,7 @@ import {access, readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import vm from 'node:vm';
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const branchDir=path.join(root,'biographies','webb-branch');
@@ -12,6 +13,7 @@ const frontiers=JSON.parse(await readFile(path.join(root,'biographies','research
 const atlasHtml=await readFile(path.join(root,'index.html'),'utf8');
 const failures=[];
 const sourceIds=new Set(sources.sources.map(source=>source.sourceId));
+const runtimePath=path.join(branchDir,'webb-story-modules.js');
 
 for(const claim of register.claims){
   if(!claim.sourceRefs.length) failures.push({kind:'claim-without-source',claimId:claim.claimId});
@@ -124,6 +126,22 @@ for(const person of production.people){
   for(const sourceId of manifest.sourceRefs||[]){
     if(!sourceIds.has(sourceId)) failures.push({kind:'unknown-biography-source',personId:person.personId,sourceId});
   }
+}
+
+try{
+  const runtimeContext={TOUR_MEDIA:{}};
+  vm.createContext(runtimeContext);
+  vm.runInContext(await readFile(runtimePath,'utf8'),runtimeContext);
+  for(const person of production.people){
+    const media=runtimeContext.TOUR_MEDIA[person.personId];
+    if(!media?.storyReady) failures.push({kind:'runtime-person-not-story-ready',personId:person.personId});
+    if(media?.narrator!=='Fable') failures.push({kind:'runtime-person-wrong-narrator',personId:person.personId});
+    if(media?.audio){try{await access(path.join(root,media.audio))}catch{failures.push({kind:'runtime-audio-missing',personId:person.personId,audio:media.audio})}}
+    for(const scene of media?.scenes||[]){try{await access(path.join(root,scene.src))}catch{failures.push({kind:'runtime-scene-missing',personId:person.personId,scene:scene.src})}}
+  }
+  if(!atlasHtml.includes('biographies/webb-branch/webb-story-modules.js')) failures.push({kind:'runtime-module-not-loaded'});
+}catch(error){
+  failures.push({kind:'runtime-module-invalid',message:error.message});
 }
 
 const frontier=production.people.find(person=>person.personId==='james_webb_jr');
