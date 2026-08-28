@@ -1,0 +1,17 @@
+{
+  "schemaVersion":"1.0",
+  "personId":"edward_milo_jr",
+  "title":"Edward Milo Webb Jr.",
+  "status":"approved-script-awaiting-audio",
+  "evidenceStatus":"supported-trunk-with-strong-1921-death-and-1924-anomaly",
+  "narrationTextFile":"narration-approved.txt",
+  "narrationApprovedOn":"2026-08-28",
+  "narrationCharacterCount":2763,
+  "narrator":"Fable",
+  "audio":null,
+  "sourceRefs":["webb-src-004", "webb-src-005", "webb-src-006", "webb-src-007", "webb-src-009", "webb-src-018", "webb-src-019", "webb-src-020", "webb-src-021"],
+  "conflicts":["11 September 1921 is strongly supported; 4 April 1924 remains a documented anomaly in one institutional database field"],
+  "openEvidence":["attach the direct Utah death-certificate image", "marriage and parent-child records for Jonathan Henry", "full autobiography transcript"],
+  "sceneManifest":"scene-manifest.json",
+  "rightsManifest":"rights-manifest.json"
+}

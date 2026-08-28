@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
   "branchId": "webb",
-  "baselinePackage": "GitHub main e16294496a282f5dcf4105c835b3378c29e4cef7",
-  "status": "research-kickoff",
+  "baselinePackage": "GitHub main v3.8.12 / 09044c8",
+  "status": "normalized-draft-artifacts-built",
   "proofFrontier": {
     "lastSupportedPersonId": "james_webb_jr",
     "candidateParentIds": ["james_webb_sr", "elizabeth_douglas"],
@@ -24,7 +24,7 @@
       "predicate": "childOf",
       "objectIds": ["jonathan_henry", "della_ray"],
       "status": "confirmed",
-      "sourceRefs": [],
+      "sourceRefs": ["webb-src-001", "webb-src-002"],
       "conflicts": [],
       "nextAction": "Attach the already-relied-upon primary or near-primary source citations to the register before biography production."
     },
@@ -38,7 +38,7 @@
         "edward_milo_jr": "confirmed",
         "sarah_carling": "strong"
       },
-      "sourceRefs": [],
+      "sourceRefs": ["webb-src-002", "webb-src-004", "webb-src-007"],
       "conflicts": [],
       "nextAction": "Normalize citations and resolve the difference in parental-link confidence before narration."
     },
@@ -48,9 +48,9 @@
       "predicate": "childOf",
       "objectIds": ["edward_milo_sr", "caroline_owens"],
       "status": "strong",
-      "sourceRefs": [],
-      "conflicts": ["Edward Milo Webb Jr. death date conflicts across otherwise useful sources."],
-      "nextAction": "Reconcile vital, cemetery, obituary, and probate evidence; do not let the date conflict contaminate the parentage claim."
+      "sourceRefs": ["webb-src-003", "webb-src-004", "webb-src-005", "webb-src-006", "webb-src-007", "webb-src-009", "webb-src-020"],
+      "conflicts": ["11 September 1921 is strongly supported by the Utah death-certificate index, published family history and derivative records; 4 April 1924 remains an anomalous Church History Biographical Database field whose own profile caption says 1847–1921."],
+      "nextAction": "Attach the direct Utah death-certificate image and retain the 1924 field as a documented anomaly; do not let the date issue contaminate the parentage claim."
     },
     {
       "claimId": "webb-004",
@@ -62,7 +62,7 @@
         "james_webb_jr": "confirmed",
         "hannah_griswold": "strong"
       },
-      "sourceRefs": [],
+      "sourceRefs": ["webb-src-003", "webb-src-004"],
       "conflicts": [],
       "nextAction": "Obtain or cite the strongest direct parent-child evidence and household/probate cluster."
     },
@@ -71,8 +71,12 @@
       "subjectId": "james_webb_jr",
       "predicate": "childOf",
       "objectIds": ["james_webb_sr", "elizabeth_douglas"],
-      "status": "strong",
-      "sourceRefs": [],
+      "status": "mixed",
+      "componentStatus": {
+        "james_webb_sr": "strong",
+        "elizabeth_douglas": "provisional"
+      },
+      "sourceRefs": ["webb-src-003", "webb-src-008", "webb-src-010"],
       "conflicts": ["Elizabeth Douglas identity is conflicting/conflated.", "A missing baptism is not negative evidence."],
       "nextAction": "Reconcile East Hampton/Chatham church, land, probate, household, and sibling-cluster records before any promotion."
     },
@@ -82,7 +86,7 @@
       "predicate": "childOf",
       "objectIds": ["gideon_webb", "edith_bates"],
       "status": "provisional",
-      "sourceRefs": [],
+      "sourceRefs": ["webb-src-008"],
       "conflicts": ["Deeper New England lineage is unproved."],
       "nextAction": "Treat as candidate research only; seek primary parish, probate, land, and kinship evidence."
     },
@@ -92,7 +96,7 @@
       "predicate": "childOf",
       "objectIds": ["richard_webb_1580"],
       "status": "frontier",
-      "sourceRefs": [],
+      "sourceRefs": ["webb-src-008"],
       "conflicts": ["English identity and migration chain are unresolved."],
       "nextAction": "Do not cross the Atlantic in the public story until New England identity is resolved and English parish/probate evidence converges."
     }

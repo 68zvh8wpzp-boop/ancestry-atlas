@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0",
+  "personId": "edward_milo_jr",
+  "assets": [
+    {
+      "file": "assets/edward_jr_linden_1847_charcoal_approved.png",
+      "rights": "AI-generated original for this project; approved by user on 2026-08-28",
+      "sha256": "54e57ea673ebe2942745bfc42394f8991a4049fe77c7d078ec559eff12d1de36",
+      "use": "Observational Linden-area opening; approved composition is 40 percent tighter than the generated original; no specific homestead or family likeness claimed"
+    },
+    {
+      "file": "assets/edward_jr_uriah_curtis_plains_1852_charcoal_approved.png",
+      "rights": "AI-generated original for this project; approved by user on 2026-08-28",
+      "sha256": "7d8ea315386a9af34482fc41c8598dc1be51b9d3ea110a0d45b253811ff75176",
+      "use": "Observational 1852 Uriah Curtis Company trail context; no handcarts or identifiable Webb likeness, and no claim that a particular child is Edward tending livestock"
+    },
+    {
+      "file": "assets/edward_jr_platte_loss_1852_charcoal_approved.png",
+      "rights": "AI-generated original for this project; approved by user on 2026-08-28",
+      "sha256": "fa85311a3b913b860ef9f53b75999c24604a48761c2dfc154c7524652a91bf99",
+      "use": "Restrained Platte River setting for Edward Sr.'s death; approved composition is 40 percent tighter than the generated original; no death, burial, grave, mourning pose or family likeness depicted"
+    },
+    {
+      "file": "assets/edward_jr_cove_fort_1867_charcoal_approved.png",
+      "rights": "AI-generated original for this project; approved by user on 2026-08-28",
+      "sha256": "4587f294be7c4e90a593304e326b589fe6ee575f8444f7d130e066e5e78c787e",
+      "use": "Observational Cove Fort construction context; approved composition is 30 percent tighter than the generated original; anonymous workers only, with no claim that any figure is Edward or that his reported task is depicted"
+    },
+    {
+      "file": "assets/edward_jr_snowflake_academy_students_pre1910_approved.jpg",
+      "rights": "Public domain in the United States; published in James H. McClintock, Mormon Settlement in Arizona (1921), before January 1, 1931",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Original_Snowflake_Stake_Academy_(Mormon_settlement_in_Arizona,_1921).jpg",
+      "sourceId": "webb-src-018",
+      "sha256": "9163032fd1d44802538ece59414c773379f0b7afe8ec1f6435ee71ad33da333c",
+      "use": "Students at the original dedicated Snowflake Stake Academy building before its 1910 destruction; the building postdates Edward's 1889 opening in a log cabin, and Edward is not identified among those pictured"
+    },
+    {
+      "file": "assets/edward_jr_sarah_children_1891_family_use.png",
+      "rights": "Authentic family photograph used by explicit user direction in the private/noncommercial family Atlas; commercial rights are unresolved",
+      "sourceUrl": "https://rsc.byu.edu/sites/default/files/pub_content/image/8256/SARAH_WITH_CHILDREN.png",
+      "sourceId": "webb-src-019",
+      "sha256": "816049037a59ddb3a7e0c258bd0b1aef65766c9a486898f6e563ff93c635505a",
+      "use": "Sarah Elizabeth Carling Webb with children Clark, Jonathan Henry (captioned Henry), Burr, Owen and Catherine; photographed by A. Miller in 1891",
+      "useScope": "private-noncommercial-family-atlas",
+      "commercialStatus": "blocked-pending-clearance",
+      "commercialAction": "Document public-domain status or obtain permission; otherwise replace before any commercial release"
+    },
+    {
+      "file": "assets/edward_jr_death_date_evidence_approved.png",
+      "rights": "Project-created documentary evidence graphic; approved by user on 2026-08-28",
+      "sourceIds": ["webb-src-004", "webb-src-005", "webb-src-007", "webb-src-020"],
+      "sha256": "b683ef1e085ad2784fe489b26cacc3c12b29ac16b8588f6ddc807b035fdba9c2",
+      "use": "Evidence-weighted comparison of the strongly supported 11 September 1921 death date and the anomalous 4 April 1924 structured database field; no source-document facsimile is implied"
+    },
+    {
+      "file": "assets/edward_jr_westward_route_1880_map_approved.jpg",
+      "rights": "1880 U.S. Geological Survey map from the Library of Congress Geography and Map Division; free to use and reuse; project-created route, labels and evidence legend",
+      "sourceUrl": "https://www.loc.gov/item/2019360437/",
+      "sourceId": "webb-src-021",
+      "sha256": "de6f0263f0d60ffd082ae1849f11fc824ebc7530c5848a7b86cd87caa072ebbd",
+      "use": "Broad 1852 company corridor and later documented-place sequence; no exact daily track or road is claimed"
+    }
+  ],
+  "pendingAssets": []
+}

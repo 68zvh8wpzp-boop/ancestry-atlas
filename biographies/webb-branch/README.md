@@ -1,24 +1,29 @@
 # Webb branch production module
 
-This directory begins the Webb branch as a research-first module. It contains no
-new narration, approved audio, or visual assets yet.
+This directory holds the Webb branch as a research-first production module.
+The evidence register is normalized to the v3.8.12 baseline and draft artifacts
+now exist for the five supported-trunk biographies. No new narration, visual or
+audio is approved merely because a draft file exists.
 
 `research-register.json` freezes the inherited evidence state and research order.
-Populate `sourceRefs` with normalized source records before drafting biographies.
-Add future deliverables in person-specific subdirectories only after their gate:
+`sources.json` records the present source base and its limitations.
+`branch-production-manifest.json` controls the approval and integration gates.
+Person-specific directories contain narration and scene drafts:
 
 ```text
 biographies/webb-branch/
   research-register.json
   sources.json
+  branch-production-manifest.json
   people/<person-id>/
     biography-manifest.json
-    narration-approved.txt
+    narration-draft.txt
     scene-manifest.json
     rights-manifest.json
     assets/
 ```
 
-Person IDs must match the canonical atlas graph. Assets must not be added until
-they are approved and recorded in a rights manifest.
-
+Person IDs must match the canonical atlas graph. New assets must not be added to
+the runtime until they are approved one at a time and recorded in a rights
+manifest. Draft modules remain outside `TOUR_MEDIA`, and no Fable recording is
+generated until its narration is approved.

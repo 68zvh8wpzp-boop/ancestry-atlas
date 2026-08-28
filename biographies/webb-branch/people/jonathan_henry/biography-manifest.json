@@ -1,0 +1,16 @@
+{
+  "schemaVersion":"1.0",
+  "personId":"jonathan_henry",
+  "title":"Jonathan Henry Webb",
+  "status":"approved-script-awaiting-audio",
+  "evidenceStatus":"supported-trunk",
+  "narrationTextFile":"narration-approved.txt",
+  "narrationApprovedOn":"2026-08-28",
+  "narrationCharacterCount":2688,
+  "narrator":"Fable",
+  "audio":null,
+  "sourceRefs":["webb-src-002", "webb-src-004", "webb-src-007"],
+  "openEvidence":["Arizona territorial birth record", "1908 marriage record", "1910 Mexico census or household record", "border/migration evidence", "Arizona death record"],
+  "sceneManifest":"scene-manifest.json",
+  "rightsManifest":"rights-manifest.json"
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion":"1.0",
+  "personId":"james_webb_jr",
+  "status":"awaiting-one-at-a-time-visual-approval",
+  "scenes":[
+    {"id":"jwj-01-connecticut","paragraph":0,"title":"Connecticut during the Revolution","asset":null,"assetBrief":"Rights-cleared Connecticut landscape/town context or restrained observational charcoal; no likeness.","approvalStatus":"not-presented"},
+    {"id":"jwj-02-register-gap","paragraph":1,"title":"A missing register is not a disproof","asset":null,"assetBrief":"Document-led scene explaining the register gap without fabricating a page.","approvalStatus":"document-needed"},
+    {"id":"jwj-03-new-york","paragraph":2,"title":"From Connecticut to western New York","asset":null,"assetBrief":"Period regional map with dotted route because exact path is unresolved.","approvalStatus":"not-presented"},
+    {"id":"jwj-04-descendants","paragraph":3,"title":"The supported line continues west","asset":null,"assetBrief":"Evidence-lit ancestor line from James Jr. to Edward Sr., Edward Jr., Jonathan, Jay and Sheldon.","approvalStatus":"not-presented"},
+    {"id":"jwj-05-parent-couple","paragraph":4,"title":"The unresolved parent couple","asset":null,"assetBrief":"Two-name evidence card; no portrait or invented family scene.","approvalStatus":"not-presented"},
+    {"id":"jwj-06-boundary","paragraph":5,"title":"Where the public pedigree stops","asset":null,"assetBrief":"Tree fades from strong to provisional/frontier states using canonical evidence colors.","approvalStatus":"not-presented"},
+    {"id":"jwj-07-research","paragraph":6,"title":"The records still needed","asset":null,"assetBrief":"Repository and document montage using only obtained record images.","approvalStatus":"documents-needed"},
+    {"id":"jwj-08-frontier","paragraph":7,"title":"The present edge of the Webb story","asset":null,"assetBrief":"Quiet proof-frontier closing view; no claim beyond James Jr.","approvalStatus":"not-presented"}
+  ]
+}

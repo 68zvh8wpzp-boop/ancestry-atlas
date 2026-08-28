@@ -1,0 +1,17 @@
+{
+  "schemaVersion":"1.0",
+  "personId":"james_webb_jr",
+  "title":"James Webb Jr.",
+  "status":"approved-script-awaiting-audio",
+  "evidenceStatus":"proof-frontier",
+  "narrationTextFile":"narration-approved.txt",
+  "narrationApprovedOn":"2026-08-28",
+  "narrationCharacterCount":2671,
+  "narrator":"Fable",
+  "audio":null,
+  "sourceRefs":["webb-src-003", "webb-src-008"],
+  "blockedParentIds":["james_webb_sr", "elizabeth_douglas"],
+  "prohibitedPromotions":["gideon_webb", "edith_bates", "john_webb_1615", "richard_webb_1580"],
+  "openEvidence":["East Hampton/Chatham town and church correlation", "Connecticut land records", "probate naming James Jr.", "sibling and associate cluster", "resolution of the Elizabeth Douglas identities"],
+  "sceneManifest":"scene-manifest.json"
+}
