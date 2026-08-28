@@ -1,0 +1,13 @@
+{
+  "schemaVersion":"1.0",
+  "personId":"james_webb_jr",
+  "assets":[
+    {"file":"assets/james_jr_connecticut_1777_charcoal_approved.png","rights":"AI-generated observational charcoal","sha256":"a332ce9bdd8232ff09df6ff08d01c3bfaef1c4a63dd8b41d1d92e11aea51bbed","use":"Representative rural Connecticut context circa 1777; no exact town, homestead or Webb likeness claimed"},
+    {"file":"assets/james_jr_congregational_register_gap_approved.png","rights":"AI-generated contextual charcoal","sha256":"e53d9bfc37dc72c3ffd4da92335754c71d43b22f838f1883f102740d63184845","use":"Representative Congregational meetinghouse context; not the documented East Hampton building and no baptism claimed"},
+    {"file":"assets/james_jr_connecticut_hanover_map_approved.png","rights":"AI-generated period-style map with project-directed evidence overlay","sha256":"e760e441b78f63bc75fbd89a19e0913c86af6769b55733b640d6658404ce6a15","use":"Conceptual Connecticut-to-Hanover migration corridor; exact route unresolved; not an authentic period map"},
+    {"file":"assets/james_jr_unresolved_parent_couple_approved.svg","rights":"Project-created evidence graphic","use":"Names and grades the reported parent couple without promoting either person into the supported pedigree"},
+    {"file":"assets/james_jr_proof_boundary_flags_approved.png","rights":"AI-generated photographic flag composite with project-directed evidence overlay","sha256":"c45626d1db3a204484408bb5e855197f794a107ee5bdbb16d454007678bdf194","use":"Contextual England and Grand Union flags; genealogical evidence states remain explicit; no historical scene or flag possession claimed"},
+    {"file":"assets/james_jr_connecticut_dusk_approved.png","rights":"AI-generated edit of approved observational charcoal","sha256":"a418868242c5a69d0bc3b610514e0bb07cab7d437605c640fb712c8f9954da08","use":"Closing visual bookend; representative Connecticut context only"}
+  ],
+  "holds":[{"sceneId":"jwj-07-research","reason":"Actual obtained record images are required; no document montage may be fabricated."}]
+}

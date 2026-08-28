@@ -1,10 +1,10 @@
-# Webb branch artifact and narration checkpoint — review generation pending
+# Webb branch production checkpoint — approved runtime integration
 
 ## Purpose
 
 Build the first complete, reviewable artifact layer for the supported Webb trunk
-without changing the live v3.8.12 experience or promoting the unresolved parent
-couple above James Webb Jr.
+while preserving the v3.8.12 experience architecture and refusing to promote
+the unresolved parent couple above James Webb Jr.
 
 ## Added
 
@@ -20,8 +20,12 @@ couple above James Webb Jr.
 - User-approved observational charcoal opening for Jay in Pinedale, Arizona,
   recorded with checksum and non-likeness provenance.
 - Complete approved visual sequences for Jay, Jonathan Henry Webb, Edward Milo
-  Webb Jr. and Edward Milo Webb Sr.; James Webb Jr. visuals remain pending.
-- A validated review-only Fable generation workflow for the five Webb scripts.
+  Webb Jr., Edward Milo Webb Sr. and James Webb Jr.
+- Approved Fable recordings for all five Webb scripts, restored byte-for-byte
+  from the reviewed workflow artifact and protected by checksum gates.
+- A modular Webb runtime registration generated from the approved artifacts.
+- James Webb Jr.'s redundant descendant scene is struck; the research-record
+  montage remains held until actual obtained record images exist.
 - Optional Research Frontier contracts for the proposed Webb-to-England chain
   and the Gooley/Goulet-to-France question after the supported tour endpoints.
 
@@ -42,10 +46,10 @@ couple above James Webb Jr.
 - Authentic family photograph first, rights-cleared archival image second,
   observational charcoal third.
 - New visual candidates are presented one at a time.
-- No Fable audio is generated before narration approval; all five scripts now
-  pass that gate, but review MP3 generation still requires the configured API
-  credential and listening approval.
-- No draft module is registered in the live `TOUR_MEDIA` runtime.
+- No Fable audio is generated before narration approval; all five reviewed
+  recordings are approved and registered in the runtime.
+- Only approved assets are registered in `TOUR_MEDIA`; held or struck scenes
+  remain absent.
 
 ## Validation
 

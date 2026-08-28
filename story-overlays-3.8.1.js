@@ -32,8 +32,18 @@
     const star=[];for(let i=0;i<10;i++){const angle=-Math.PI/2+i*Math.PI/5,r=i%2===0?11:4.7;star.push(`${48+Math.cos(angle)*r},${30+Math.sin(angle)*r}`)}
     return `<svg viewBox="0 0 96 60" role="img" aria-label="Arizona state flag adopted in 1917"><rect width="96" height="60" fill="#183f70"/>${rays}<polygon points="${star.join(' ')}" fill="#b87333"/></svg>`;
   }
+  function englandFlag(){
+    return '<svg viewBox="0 0 96 60" role="img" aria-label="Flag of England"><rect width="96" height="60" fill="#f3f0e8"/><rect x="40" width="16" height="60" fill="#b52432"/><rect y="22" width="96" height="16" fill="#b52432"/></svg>';
+  }
+  function thirteenStarFlag(){
+    const stars=[];for(let i=0;i<13;i++){const a=-Math.PI/2+i*Math.PI*2/13,x=24+Math.cos(a)*10,y=15+Math.sin(a)*10;stars.push(`<circle cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="1.45" fill="#f3f0e8"/>`)}
+    let stripes='';for(let i=0;i<13;i++)stripes+=`<rect y="${(i*60/13).toFixed(2)}" width="96" height="${(60/13+.15).toFixed(2)}" fill="${i%2===0?'#a92836':'#f3f0e8'}"/>`;
+    return `<svg viewBox="0 0 96 60" role="img" aria-label="Thirteen-star United States flag adopted in 1777">${stripes}<rect width="48" height="32.31" fill="#213c68"/>${stars.join('')}</svg>`;
+  }
   function flagFor(key){
     if(key==='arizona-1917')return {art:arizonaFlag(),caption:'Arizona state flag • adopted 1917'};
+    if(key==='england-st-george')return {art:englandFlag(),caption:'England • theorized origin context only'};
+    if(key==='united-states-13-star')return {art:thirteenStarFlag(),caption:'United States • thirteen-star flag adopted June 1777'};
     if(key==='michigan-1923')return {art:'<div class="story-flag-wordmark">MICHIGAN</div>',caption:'Michigan • state context'};
     if(key?.startsWith('united-states'))return {art:'<div class="story-flag-wordmark">UNITED STATES</div>',caption:'United States • period flag context'};
     if(key==='canada-red-ensign'||key==='province-canada')return {art:'<div class="story-flag-wordmark">CANADA</div>',caption:'Canada • historical flag context'};

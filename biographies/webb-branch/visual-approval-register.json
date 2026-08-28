@@ -33,12 +33,20 @@
     {"personId":"james_wilford","sceneId":"jay-04-first-home","asset":"webb_first_car_second_home_c1942.png"},
     {"personId":"james_wilford","sceneId":"jay-04-first-home","asset":"webb_first_house_vernon_1945.png"},
     {"personId":"james_wilford","sceneId":"jay-07-family","asset":"biographies/marion/assets/marion_children_family_photo_candidate.jpg"},
-    {"personId":"jonathan_henry","sceneId":"jonathan-07-legacy","asset":"biographies/marion/assets/jay_marion_mesa_1941_restored.jpg"}
+    {"personId":"jonathan_henry","sceneId":"jonathan-07-legacy","asset":"biographies/marion/assets/jay_marion_mesa_1941_restored.jpg"},
+    {"personId":"james_webb_jr","sceneId":"jwj-01-connecticut","asset":"biographies/webb-branch/people/james_webb_jr/assets/james_jr_connecticut_1777_charcoal_approved.png","approvedOn":"2026-08-28","provenance":"AI-generated observational charcoal; approved 40-percent tighter composition; representative rural Connecticut context circa 1777 with no exact town, homestead or Webb likeness claimed"},
+    {"personId":"james_webb_jr","sceneId":"jwj-02-register-gap","asset":"biographies/webb-branch/people/james_webb_jr/assets/james_jr_congregational_register_gap_approved.png","approvedOn":"2026-08-28","provenance":"AI-generated contextual charcoal of a representative late-eighteenth-century Congregational meetinghouse; not the documented East Hampton building and no baptism is claimed"},
+    {"personId":"james_webb_jr","sceneId":"jwj-03-new-york","asset":"biographies/webb-branch/people/james_webb_jr/assets/james_jr_connecticut_hanover_map_approved.png","approvedOn":"2026-08-28","provenance":"Project-directed period-style map with consistent Atlas endpoint labels; dotted Connecticut-to-Hanover corridor is conceptual and the exact route remains unresolved"},
+    {"personId":"james_webb_jr","sceneId":"jwj-05-parent-couple","asset":"biographies/webb-branch/people/james_webb_jr/assets/james_jr_unresolved_parent_couple_approved.svg","approvedOn":"2026-08-28","provenance":"Project-created evidence card; reported parent and identity-conflict grades are explicit and neither person is promoted into the supported pedigree"},
+    {"personId":"james_webb_jr","sceneId":"jwj-06-boundary","asset":"biographies/webb-branch/people/james_webb_jr/assets/james_jr_proof_boundary_flags_approved.png","approvedOn":"2026-08-28","provenance":"AI-generated photographic England and Grand Union flag context with project-directed evidence hierarchy; approved as a proof-boundary composite, not a historical scene"},
+    {"personId":"james_webb_jr","sceneId":"jwj-08-frontier","asset":"biographies/webb-branch/people/james_webb_jr/assets/james_jr_connecticut_dusk_approved.png","approvedOn":"2026-08-28","provenance":"AI-generated dusk edit of the approved opening charcoal scene; representative Connecticut context and no claim beyond James Jr."}
   ],
   "rightsHolds":[
     {"personId":"edward_milo_jr","sceneId":"emj-06-family","candidate":"1891 Sarah Elizabeth Carling Webb family photograph","reason":"Commercial reuse rights remain unresolved; private/noncommercial family Atlas use is approved, but commercial release is blocked until clearance or replacement.","holdScope":"commercial-release-only"},
     {"personId":"edward_milo_jr","candidate":"Church History Biographical Database portrait","reason":"Authentic portrait exists, but production reuse rights are not yet established."},
     {"personId":"edward_milo_sr","candidate":"Church History Biographical Database portrait or family image","reason":"Do not package until reuse rights are established."}
   ],
-  "nextCandidate":{"personId":"james_webb_jr","type":"visual-sequence","status":"deferred-until-webb-fable-review-generation"}
+  "struck":[{"personId":"james_webb_jr","sceneId":"jwj-04-descendants","reason":"User found the standalone descendant-line graphic redundant; its evidence contrast is absorbed into the proof-boundary scene."}],
+  "sourceHolds":[{"personId":"james_webb_jr","sceneId":"jwj-07-research","reason":"Use only obtained record images; no repository or document montage may be fabricated."}],
+  "nextCandidate":{"personId":"james_webb_jr","type":"runtime-integration","status":"all-narration-audio-and-visual-review-gates-cleared"}
 }
