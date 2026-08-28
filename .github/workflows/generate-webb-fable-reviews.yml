@@ -2,6 +2,11 @@ name: Generate Webb Fable Reviews
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/webb-fable-review-trigger
 
 permissions:
   contents: read
