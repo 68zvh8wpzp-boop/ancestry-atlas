@@ -1,4 +1,5 @@
 import {access, readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
@@ -32,12 +33,24 @@ for(const person of production.people){
   const narration=(await readFile(path.join(dir,manifest.narrationTextFile),'utf8')).trim();
   if(manifest.personId!==person.personId||scenes.personId!==person.personId) failures.push({kind:'person-id-mismatch',personId:person.personId});
   if(narration.length<1800||narration.length>3000) failures.push({kind:'narration-length-outside-project-contract',personId:person.personId,length:narration.length});
-  if(manifest.status==='approved-script-awaiting-audio'){
+  if(manifest.status.startsWith('approved-script')){
     if(/\b(?:the|this) atlas\b/i.test(narration)) failures.push({kind:'approved-narration-contains-product-commentary',personId:person.personId});
     if(manifest.narrationCharacterCount!==narration.length) failures.push({kind:'approved-narration-character-count-drift',personId:person.personId,manifestCount:manifest.narrationCharacterCount,actualCount:narration.length});
   }
   if(!scenes.scenes?.length) failures.push({kind:'scene-draft-empty',personId:person.personId});
-  if(manifest.audio!==null) failures.push({kind:'unapproved-audio-present',personId:person.personId});
+  if(manifest.audio===null){
+    failures.push({kind:'approved-audio-missing',personId:person.personId});
+  }else{
+    const audioPath=path.resolve(dir,manifest.audio.file);
+    try{
+      const audioBytes=await readFile(audioPath);
+      const audioSha=createHash('sha256').update(audioBytes).digest('hex');
+      if(audioSha!==manifest.audio.sha256) failures.push({kind:'approved-audio-hash-drift',personId:person.personId});
+      if(manifest.audio.voice!=='fable'||manifest.audio.approvedOn!=='2026-08-28') failures.push({kind:'approved-audio-metadata-drift',personId:person.personId});
+    }catch{
+      failures.push({kind:'approved-audio-file-missing',personId:person.personId,audioPath});
+    }
+  }
   if(person.personId==='jonathan_henry'){
     if(/Colonia Morelos,\s*Chihuahua/i.test(narration)) failures.push({kind:'colonia-morelos-wrong-state',personId:person.personId});
     const routeScene=scenes.scenes?.find(scene=>scene.id==='jonathan-04-revolution');

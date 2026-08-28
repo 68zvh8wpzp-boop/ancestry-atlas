@@ -1,9 +1,11 @@
 # Approved OpenAI Fable narration
 
-These seven recordings were approved by the project owner on 2026-08-25.
+The original seven recordings were approved by the project owner on 2026-08-25.
+Five Webb-branch recordings were approved individually on 2026-08-28.
 
 - Sheldon source artifact: `sheldon-fable-review-1`
 - Remaining six source artifact: `remaining-fable-reviews-1`
+- Webb source artifact: `webb-fable-reviews-1` (GitHub Actions run `33213595126`)
 - Model: `gpt-4o-mini-tts`
 - Voice: `fable`
 - Status: exact approved audio preserved; not yet promoted into the live atlas
