@@ -540,8 +540,9 @@ window.addEventListener('error',function(e){
   <link rel="stylesheet" href="atlas-tour-3.6.0.css">
   <link rel="stylesheet" href="tv-mode-3.7.3.css">
   <link rel="stylesheet" href="story-presentation-3.6.0.css">
-  <link rel="stylesheet" href="story-overlays-3.8.1.css?v=3.8.13">
-  <link rel="stylesheet" href="experience-3.8.1.css?v=3.8.13">
+  <link rel="stylesheet" href="story-overlays-3.8.1.css?v=3.8.14">
+  <link rel="stylesheet" href="experience-3.8.1.css?v=3.8.14">
+  <link rel="stylesheet" href="research-frontier-3.8.14.css?v=3.8.14">
 </head>
 <body>
 
@@ -587,7 +588,7 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Guided Audio-Visual Family Tour</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v3.8.13 • complete Webb runtime • reliable first-frame stories • Story / Tree modes</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v3.8.14 • Webb Research Frontier • complete Webb runtime • Story / Tree modes</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop first orients you visibly in the tree, then opens the story. Recorded narration is used only when an approved audio file exists.</p>
   </div>
 </div>
@@ -660,10 +661,32 @@ window.addEventListener('error',function(e){
         <div class="story-nav">
           <button id="storyPrev" style="display:none" aria-hidden="true">← Previous</button>
           <button id="storyFocus">Show in Atlas</button>
+          <button id="storyFrontier" type="button" hidden>Explore Research Frontier</button>
           <button id="storyNext" style="display:none" aria-hidden="true">Next →</button>
         </div>
         <div id="storyProgress" class="story-progress"></div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div id="researchFrontierModal" class="research-frontier-modal" role="dialog" aria-modal="true" aria-labelledby="researchFrontierTitle" aria-hidden="true">
+  <div class="research-frontier-shell">
+    <header id="researchFrontierHero" class="research-frontier-hero">
+      <div class="research-frontier-head">
+        <div><div class="research-frontier-kicker">Optional research continuation</div><h2 id="researchFrontierTitle">Research Frontier</h2><div id="researchFrontierSummary" class="research-frontier-summary"></div></div>
+        <button id="researchFrontierClose" class="research-frontier-close" type="button" aria-label="Return to supported ancestor">×</button>
+      </div>
+    </header>
+    <div class="research-frontier-body">
+      <div id="researchFrontierBroken" class="research-frontier-warning"></div>
+      <section id="researchFrontierChain" class="research-frontier-chain" aria-label="Evidence-weighted candidate chain"></section>
+      <div class="research-frontier-evidence">
+        <section class="research-frontier-panel"><h3>Why the theory remains plausible</h3><div id="researchFrontierFor"></div></section>
+        <section class="research-frontier-panel"><h3>Why it is not established</h3><div id="researchFrontierLimits"></div></section>
+      </div>
+      <section class="research-frontier-next"><strong>Next proof action</strong><p id="researchFrontierNext"></p><ul id="researchFrontierRecords" class="research-frontier-records"></ul></section>
+      <div class="research-frontier-actions"><button id="researchFrontierReturn" class="research-frontier-return" type="button">Return to supported James Webb Jr.</button></div>
     </div>
   </div>
 </div>
@@ -685,7 +708,7 @@ window.addEventListener('error',function(e){
 <div id="app">
 <aside id="controls" class="collapsed">
   <button id="controlsToggle">☰ Controls / legend</button>
-  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.8.13</span></h1>
+  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.8.14</span></h1>
   <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay bright; uncertain generations fall progressively into dusk and shadow. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
 
   <div class="section">
@@ -2221,14 +2244,16 @@ resize();
 
 
 
-<script src="atlas-content.js?v=3.8.13"></script>
+<script src="atlas-content.js?v=3.8.14"></script>
 <script src="biographies/marion/marion-story-module.js?v=1.1.0"></script>
 <script src="biographies/brenay-canada/brenay-canada-story-modules.js?v=1.1.0"></script>
 <script src="biographies/webb-branch/webb-story-modules.js?v=1.0.1"></script>
-<script src="atlas-tour-3.6.0.js?v=3.8.13"></script>
+<script src="biographies/research-frontiers-data.js?v=3.8.14"></script>
+<script src="research-frontier-3.8.14.js?v=3.8.14"></script>
+<script src="atlas-tour-3.6.0.js?v=3.8.14"></script>
 <script src="tv-mode-3.7.3.js"></script>
 <script src="story-presentation-3.6.0.js"></script>
-<script src="story-overlays-3.8.1.js?v=3.8.13"></script>
-<script src="experience-3.8.1.js?v=3.8.13"></script>
+<script src="story-overlays-3.8.1.js?v=3.8.14"></script>
+<script src="experience-3.8.1.js?v=3.8.14"></script>
 </body>
 </html>

@@ -1,8 +1,8 @@
 {
-  "packageVersion": "3.8.13-webb-runtime-hygiene",
-  "inputPackage": "v3.8.12 plus deployed Webb integration at c96c837",
-  "sourceProductionVersion": "3.8.12",
-  "releaseStatus": "approved twelve-biography Fable runtime integrated; Webb proof boundary preserved; release state synchronized",
+  "packageVersion": "3.8.14-webb-research-frontier",
+  "inputPackage": "deployed v3.8.13 plus approved Webb Research Frontier runtime",
+  "sourceProductionVersion": "3.8.14",
+  "releaseStatus": "approved Webb Research Frontier integrated as an explicit opt-in after James Webb Jr.; supported pedigree boundary preserved",
   "narration": {
     "approvedVoice": "OpenAI Fable",
     "model": "gpt-4o-mini-tts",
@@ -92,6 +92,11 @@
     ,"assets/charles_albert_brunne_1901_census_full.jpg"
     ,"assets/charles_albert_brunne_1901_census_thumb.jpg"
     ,"biographies/research-frontiers.json"
+    ,"biographies/research-frontiers-data.js"
+    ,"research-frontier-3.8.14.js"
+    ,"research-frontier-3.8.14.css"
+    ,"scripts/build-research-frontiers.mjs"
+    ,"RELEASE_NOTES_v3_8_14_RESEARCH_FRONTIER.md"
     ,"biographies/webb-branch/branch-production-manifest.json"
     ,"biographies/webb-branch/visual-approval-register.json"
     ,"biographies/webb-branch/webb-story-modules.js"
