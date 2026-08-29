@@ -1,8 +1,8 @@
 {
-  "packageVersion": "3.8.14-webb-research-frontier",
-  "inputPackage": "deployed v3.8.13 plus approved Webb Research Frontier runtime",
-  "sourceProductionVersion": "3.8.14",
-  "releaseStatus": "approved Webb Research Frontier integrated as an explicit opt-in after James Webb Jr.; supported pedigree boundary preserved",
+  "packageVersion": "3.8.15-sheldon-visual-corrective",
+  "inputPackage": "deployed v3.8.14 plus approved James Wilford and Sheldon visual corrective",
+  "sourceProductionVersion": "3.8.15",
+  "releaseStatus": "approved James Wilford image repair and Sheldon visual-sequence corrective integrated; narration and evidence boundaries preserved",
   "narration": {
     "approvedVoice": "OpenAI Fable",
     "model": "gpt-4o-mini-tts",
@@ -97,6 +97,7 @@
     ,"research-frontier-3.8.14.css"
     ,"scripts/build-research-frontiers.mjs"
     ,"RELEASE_NOTES_v3_8_14_RESEARCH_FRONTIER.md"
+    ,"RELEASE_NOTES_v3_8_15_SHELDON_VISUAL_CORRECTIVE.md"
     ,"biographies/webb-branch/branch-production-manifest.json"
     ,"biographies/webb-branch/visual-approval-register.json"
     ,"biographies/webb-branch/webb-story-modules.js"
@@ -113,7 +114,7 @@
     "webb_first_house_vernon_1945.png",
     "james_sheldon_with_siblings_c1951.png",
     "postwar_arizona_road_1950.jpg",
-    "san_diego_highway_1960_65.jpg",
+    "charcoal_sheldon_kenny_california_1960_approved.png",
     "usaf_flightline_airmen_1962.jpg",
     "asc_students_sweethearts_ball_1964.jpg",
     "sheldon_inez_wedding_1965.jpeg",

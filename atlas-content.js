@@ -121,11 +121,20 @@ const TOUR_MEDIA = {
         visualType:'charcoal-alternate'
       },
       {
+        src:'biographies/marion/assets/jay_marion_mesa_1941_restored.jpg',
+        title:'Jay and Marion before the war',
+        caption:'The surviving 1941 family photograph of Jay and Marion. No photograph of Jay’s return or Sheldon running to meet him is known.',
+        source:'Family archive • Marion Beulah Brenay Webb life story, p. 14',
+        triggerParagraph:5,
+        locator:'Mesa, Arizona • 1941',flagKey:'arizona-1917',mapKey:'arizona-mesa-regional',
+        visualType:'family-photo'
+      },
+      {
         src:'webb_first_house_vernon_1945.png',
         title:'The Webb family’s first house in Vernon, 1945',
         caption:'A family photograph of the Vernon home during Sheldon’s early childhood.',
         source:'Family archive • Marion Beulah Brenay Webb life story, p. 17',
-        triggerParagraph:5,
+        triggerParagraph:6,
         locator:'Vernon, Arizona • 1945',flagKey:'arizona-1917',mapKey:'white-mountains',
         visualType:'family-photo'
       },
@@ -135,6 +144,7 @@ const TOUR_MEDIA = {
         caption:'The family photograph is captioned “Drinette, Daphne, Darwin, Diane and Sheldon.”',
         source:'Family archive • Marion Beulah Brenay Webb life story, p. 18',
         triggerParagraph:6,
+        triggerFraction:.52,
         locator:'Arizona • early 1950s',flagKey:'arizona-1917',mapKey:'white-mountains',
         visualType:'family-photo'
       },
@@ -148,13 +158,13 @@ const TOUR_MEDIA = {
         visualType:'archival-photo'
       },
       {
-        src:'san_diego_highway_1960_65.jpg',
-        title:'High school, then California',
-        caption:'Southern California highway traffic in the early 1960s.',
-        source:'Library of Congress • Bernard Gotfryd collection • no known restrictions',
+        src:'charcoal_sheldon_kenny_california_1960_approved.png',
+        title:'California, 1960',
+        caption:'Interpretive charcoal reconstruction of Sheldon and Kenny in a representative California seaside setting; the boardwalk is not identified as a place they visited, and Kenny’s appearance is not documented.',
+        source:'Approved project reconstruction • Sheldon cautiously grounded in family photographs • Kenny non-specific',
         triggerParagraph:8,
         locator:'Arizona → California • 1960',flagKey:'united-states-50-star',mapKey:'arizona-california',
-        visualType:'archival-photo'
+        visualType:'charcoal-reconstruction'
       },
       {
         src:'usaf_flightline_airmen_1962.jpg',
@@ -171,7 +181,7 @@ const TOUR_MEDIA = {
         caption:'Students at Arizona State College at Flagstaff in 1964, showing campus life and contemporary dress.',
         source:'La Cuesta, 1964 • no copyright—United States',
         triggerParagraph:9,
-        triggerFraction:.72,
+        triggerFraction:.55,
         locator:'Flagstaff, Arizona • 1964',flagKey:'arizona-1917',mapKey:'arizona-flagstaff',
         visualType:'archival-photo'
       },

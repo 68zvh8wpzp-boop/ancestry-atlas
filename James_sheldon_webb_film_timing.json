@@ -28,14 +28,19 @@
       "duration": 12.111
     },
     {
-      "src": "webb_first_house_vernon_1945.png",
+      "src": "biographies/marion/assets/jay_marion_mesa_1941_restored.jpg",
       "start": 70.256,
       "duration": 6.975
     },
     {
-      "src": "james_sheldon_with_siblings_c1951.png",
+      "src": "webb_first_house_vernon_1945.png",
       "start": 77.231,
-      "duration": 19.34
+      "duration": 10.057
+    },
+    {
+      "src": "james_sheldon_with_siblings_c1951.png",
+      "start": 87.288,
+      "duration": 9.283
     },
     {
       "src": "postwar_arizona_road_1950.jpg",
@@ -43,19 +48,19 @@
       "duration": 17.627
     },
     {
-      "src": "san_diego_highway_1960_65.jpg",
+      "src": "charcoal_sheldon_kenny_california_1960_approved.png",
       "start": 114.198,
-      "duration": 12.808
+      "duration": 12.809
     },
     {
       "src": "usaf_flightline_airmen_1962.jpg",
       "start": 127.007,
-      "duration": 8.674
+      "duration": 6.626
     },
     {
       "src": "asc_students_sweethearts_ball_1964.jpg",
-      "start": 135.681,
-      "duration": 3.373
+      "start": 133.633,
+      "duration": 5.421
     },
     {
       "src": "sheldon_inez_wedding_1965.jpeg",
