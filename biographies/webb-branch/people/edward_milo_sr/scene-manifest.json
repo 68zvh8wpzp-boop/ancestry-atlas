@@ -1,7 +1,7 @@
 {
   "schemaVersion":"1.0",
   "personId":"edward_milo_sr",
-  "status":"visual-sequence-approved",
+  "status":"approved-and-runtime-integrated",
   "scenes":[
     {"id":"ems-01-hanover","paragraph":0,"title":"Western New York in 1815","asset":"assets/edward_sr_hanover_1815_locator_approved.jpg","assetBrief":"Modern USGS locator selected for geographic accuracy. It shows Lake Erie, Lake Ontario and Chautauqua Lake, with a georeferenced Hanover town reference point on land; Edward's exact birth site is unknown.","approvalStatus":"approved","approvedOn":"2026-08-28","visualType":"approved-federal-map-locator","place":"Hanover, Chautauqua County, New York • 17 August 1815"},
     {"id":"ems-02-marriage","paragraph":1,"title":"Edward and Caroline","asset":"assets/edward_sr_caroline_1839_map_approved.jpg","assetBrief":"Rights-cleared 1839 David H. Burr atlas context for the year Edward and Caroline married. New York, Ohio, Illinois and Missouri are identified as named regions from their early family years; no connecting line is shown, and neither an exact route nor a marriage place is claimed.","approvalStatus":"approved","approvedOn":"2026-08-28","visualType":"approved-period-atlas-context","place":"Married 21 December 1839 • exact marriage place not claimed"},

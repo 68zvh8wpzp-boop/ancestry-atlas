@@ -147,7 +147,11 @@ Priority is locked:
   the Gooley/Goulet and possible French connection. Both must remain separate
   from ordinary ancestor biographies and use the canonical evidence states.
 
-## Current checkpoint state
+## Historical v3.8.0 checkpoint state
+
+This section records the state at v3.8.0 and is superseded for release status by
+`PRODUCTION_CONTRACT_v3_8_13.md`. Its pending counts are not current production
+state.
 
 - Approved visual previews: James Sheldon Webb, Marion Beulah Brenay Webb,
   Charles Albert Brenay, Charles Godfrey Brenay, Ida Mae Gooley, John Peter Gooley

@@ -15,6 +15,8 @@ const failures=[];
 const sourceIds=new Set(sources.sources.map(source=>source.sourceId));
 const runtimePath=path.join(branchDir,'webb-story-modules.js');
 
+if(production.status!=='approved-and-runtime-integrated') failures.push({kind:'branch-release-state-stale',status:production.status});
+
 for(const claim of register.claims){
   if(!claim.sourceRefs.length) failures.push({kind:'claim-without-source',claimId:claim.claimId});
   for(const sourceId of claim.sourceRefs){
@@ -35,10 +37,13 @@ for(const person of production.people){
   const narration=(await readFile(path.join(dir,manifest.narrationTextFile),'utf8')).trim();
   if(manifest.personId!==person.personId||scenes.personId!==person.personId) failures.push({kind:'person-id-mismatch',personId:person.personId});
   if(narration.length<1800||narration.length>3000) failures.push({kind:'narration-length-outside-project-contract',personId:person.personId,length:narration.length});
-  if(manifest.status.startsWith('approved-script')){
+  if(manifest.status.startsWith('approved')){
     if(/\b(?:the|this) atlas\b/i.test(narration)) failures.push({kind:'approved-narration-contains-product-commentary',personId:person.personId});
     if(manifest.narrationCharacterCount!==narration.length) failures.push({kind:'approved-narration-character-count-drift',personId:person.personId,manifestCount:manifest.narrationCharacterCount,actualCount:narration.length});
   }
+  if(!manifest.status.includes('runtime-integrated')) failures.push({kind:'biography-release-state-stale',personId:person.personId,status:manifest.status});
+  if(!scenes.status.includes('runtime-integrated')) failures.push({kind:'scene-release-state-stale',personId:person.personId,status:scenes.status});
+  if(!person.audioStatus.includes('runtime-integrated')) failures.push({kind:'branch-person-audio-state-stale',personId:person.personId,status:person.audioStatus});
   if(!scenes.scenes?.length) failures.push({kind:'scene-draft-empty',personId:person.personId});
   if(manifest.audio===null){
     failures.push({kind:'approved-audio-missing',personId:person.personId});
@@ -70,6 +75,9 @@ for(const person of production.people){
     const familyAsset=rights.assets?.find(asset=>asset.file===familyScene?.asset);
     if(familyScene?.approvalStatus==='approved'&&familyAsset?.commercialStatus!=='blocked-pending-clearance'){
       failures.push({kind:'uncleared-family-photo-not-commercially-blocked',sceneId:familyScene.id});
+    }
+    if(familyScene?.approvalStatus==='approved'&&familyAsset?.useScope!=='public-noncommercial-family-atlas'){
+      failures.push({kind:'family-photo-public-display-scope-drift',sceneId:familyScene.id,useScope:familyAsset?.useScope});
     }
     const deathScene=scenes.scenes?.find(scene=>scene.id==='emj-07-evidence');
     if(deathScene?.approvalStatus==='approved'){
@@ -136,6 +144,7 @@ try{
     const media=runtimeContext.TOUR_MEDIA[person.personId];
     if(!media?.storyReady) failures.push({kind:'runtime-person-not-story-ready',personId:person.personId});
     if(media?.narrator!=='Fable') failures.push({kind:'runtime-person-wrong-narrator',personId:person.personId});
+    if(!media?.visualStatus?.includes('runtime-integrated')) failures.push({kind:'runtime-visual-state-stale',personId:person.personId,status:media?.visualStatus});
     if(media?.audio){try{await access(path.join(root,media.audio))}catch{failures.push({kind:'runtime-audio-missing',personId:person.personId,audio:media.audio})}}
     for(const scene of media?.scenes||[]){try{await access(path.join(root,scene.src))}catch{failures.push({kind:'runtime-scene-missing',personId:person.personId,scene:scene.src})}}
   }
