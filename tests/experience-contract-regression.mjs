@@ -6,6 +6,8 @@ const css=read('experience-3.8.1.css');
 const content=read('atlas-content.js');
 const overlays=read('story-overlays-3.8.1.js');
 const index=read('index.html');
+const frontier=read('research-frontier-3.8.14.js');
+const frontierCss=read('research-frontier-3.8.14.css');
 const failures=[];
 const requireText=(text,needle,label)=>{if(!text.includes(needle))failures.push(label)};
 const forbidText=(text,needle,label)=>{if(text.includes(needle))failures.push(label)};
@@ -43,6 +45,16 @@ requireText(index,'id="mobileTreeLabels"','phone dock must expose branch-name vi
 requireText(index,'function buildLineageBranch','phone branch names must follow the selected direct lineage');
 requireText(index,'function releaseNodeFocus','blank-space release from a selected node must exist');
 requireText(index,'children.forEach(child=>(childMap.get(child)||[]).forEach(push))','phone family view must reserve a downward descendant route');
+requireText(index,'id="storyFrontier"','supported tour endpoint must expose an explicit frontier opt-in');
+requireText(index,'id="researchFrontierModal"','research frontier must use a distinct surface');
+requireText(tour,"state.phase='frontier'",'frontier must be a distinct tour phase');
+requireText(tour,"state.index===count-1",'frontier entry must appear only at the supported tour endpoint');
+requireText(tour,"const required=['evidenceFor','limitsAndConflicts','recordsNeeded']",'only evidence-complete research frontiers may enter the runtime');
+requireText(tour,'ancestryatlas:frontierclose','frontier exit must return through the tour controller');
+requireText(frontier,'The ordinary guided Webb story ends here.','frontier must identify the supported endpoint');
+requireText(frontier,'This continuation is a research theory, not an established pedigree.','frontier must state that the chain is theoretical');
+requireText(frontierCss,'border:1px dashed var(--frontier-color','candidate chain must use dashed evidence styling');
+requireText(frontierCss,'.research-frontier-stage.supported{border-style:solid','supported endpoint must remain visually distinct from candidates');
 
 console.log(JSON.stringify({failures},null,2));
 if(failures.length)process.exitCode=1;

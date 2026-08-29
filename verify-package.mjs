@@ -77,8 +77,8 @@ for(const [id,textPath] of Object.entries(expected)){
   if(!(item.scenes||[]).length)failures.push({kind:'scenes-missing',id});
 }
 
-if(manifest.packageVersion!=='3.8.13-webb-runtime-hygiene')failures.push({kind:'package-version-drift',value:manifest.packageVersion});
-if(!index.includes('BUILD v3.8.13')||!index.includes('>v3.8.13</span>'))failures.push({kind:'visible-build-version-drift'});
+if(manifest.packageVersion!=='3.8.14-webb-research-frontier')failures.push({kind:'package-version-drift',value:manifest.packageVersion});
+if(!index.includes('BUILD v3.8.14')||!index.includes('>v3.8.14</span>'))failures.push({kind:'visible-build-version-drift'});
 if(webbProduction.status!=='approved-and-runtime-integrated')failures.push({kind:'webb-branch-release-state-stale',value:webbProduction.status});
 if(!/promoted into the live Atlas/.test(fableApproval))failures.push({kind:'fable-approval-release-state-stale'});
 const expectedAudioNames=Object.values(approvedAudio).map(file=>path.basename(file)).sort();

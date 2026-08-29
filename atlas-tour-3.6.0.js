@@ -26,6 +26,7 @@ const els={
   mute:$('storyMute'),
   next:$('storyNextAudio'),
   exit:$('storyExitTransport'),
+  frontier:$('storyFrontier'),
   topExit:$('storyClose'),
   status:$('audioStatus'),
   meter:$('audioMeterFill'),
@@ -151,6 +152,12 @@ function preloadScene(scene,{priority='auto'}={}){
 function currentTour(){ return BRANCH_TOURS[state.track]; }
 function currentStep(){ return currentTour()?.steps?.[state.index] || null; }
 function currentNode(){ const step=currentStep(); return step ? nodeById.get(step.id) : null; }
+function researchFrontierForTrack(track){
+  const frontier=globalThis.RESEARCH_FRONTIERS?.frontiers?.find(item=>item.branchId===track);
+  if(!frontier)return null;
+  const required=['evidenceFor','limitsAndConflicts','recordsNeeded'];
+  return required.every(key=>Array.isArray(frontier[key])&&frontier[key].length) ? frontier : null;
+}
 
 function setStatus(text,stateName=''){
   if(!els.status) return;
@@ -179,6 +186,13 @@ function setTransport(){
     els.play.setAttribute('aria-label',playing?'Pause narration':'Play narration');
     const hasAudio=!!TOUR_MEDIA[currentStep()?.id]?.audio;
     els.play.disabled=state.phase==='orienting' || !hasAudio || state.audioUnavailable;
+  }
+  if(els.frontier){
+    const frontier=researchFrontierForTrack(state.track);
+    const available=!!frontier && state.index===count-1 && state.phase!=='orienting';
+    els.frontier.hidden=!available;
+    els.frontier.disabled=!available;
+    if(available)els.frontier.textContent=globalThis.RESEARCH_FRONTIERS?.presentation?.entryLabel||'Explore Research Frontier';
   }
 }
 
@@ -788,6 +802,20 @@ function exitTour(){
   setTransport();
 }
 
+function openResearchFrontier(){
+  const frontier=researchFrontierForTrack(state.track);
+  if(!frontier||state.index!==(currentTour()?.steps?.length||1)-1)return;
+  stopAudio();
+  state.phase='frontier';
+  document.body.classList.remove('tour-story-open');
+  els.modal?.classList.remove('open');
+  els.modal?.setAttribute('aria-hidden','true');
+  els.sceneStrip?.classList.remove('show');
+  clearCoreOverlays();
+  globalThis.AncestryResearchFrontier?.open?.(state.track);
+  setTransport();
+}
+
 function togglePlay(){
   state.followNarration=true;
   state.followSuspendUntil=0;
@@ -849,6 +877,14 @@ els.prev?.addEventListener('click',()=>move(-1));
 els.next?.addEventListener('click',()=>move(1));
 els.exit?.addEventListener('click',exitTour);
 els.topExit?.addEventListener('click',exitTour);
+els.frontier?.addEventListener('click',openResearchFrontier);
+
+document.addEventListener('ancestryatlas:frontierclose',event=>{
+  if(state.phase!=='frontier')return;
+  const endpoint=event.detail?.supportedEndpoint||currentStep()?.id;
+  exitTour();
+  if(endpoint)setTimeout(()=>{try{openNode(endpoint,true,false)}catch(error){console.error('Could not return to the supported frontier endpoint.',error)}},120);
+});
 
 $('storyFocus')?.addEventListener('click',()=>{
   const step=currentStep();
@@ -881,6 +917,7 @@ $('openAlbumBtn')?.addEventListener('click',()=>{
 $('printAtlasBtn')?.addEventListener('click',()=>window.print());
 
 document.addEventListener('keydown',event=>{
+  if(document.getElementById('researchFrontierModal')?.classList.contains('open'))return;
   if(event.key==='Escape' && document.body.classList.contains('tour-active')) exitTour();
 });
 

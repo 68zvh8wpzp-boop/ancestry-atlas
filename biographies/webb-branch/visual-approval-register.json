@@ -48,5 +48,5 @@
   ],
   "struck":[{"personId":"james_webb_jr","sceneId":"jwj-04-descendants","reason":"User found the standalone descendant-line graphic redundant; its evidence contrast is absorbed into the proof-boundary scene."}],
   "sourceHolds":[{"personId":"james_webb_jr","sceneId":"jwj-07-research","reason":"Use only obtained record images; no repository or document montage may be fabricated."}],
-  "nextCandidate":{"personId":"james_webb_jr","type":"optional-research-frontier","status":"contracted-but-not-yet-produced"}
+  "nextCandidate":{"personId":"james_webb_jr","type":"optional-research-frontier","status":"approved-and-runtime-integrated","approvedOn":"2026-08-29"}
 }

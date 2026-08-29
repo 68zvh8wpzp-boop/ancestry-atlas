@@ -157,6 +157,7 @@ const frontier=production.people.find(person=>person.personId==='james_webb_jr')
 if(frontier?.role!=='proof-frontier-biography') failures.push({kind:'proof-frontier-role-missing'});
 
 if(frontiers.presentation?.entryMode!=='explicit-opt-in-after-supported-tour') failures.push({kind:'research-frontier-not-explicit-opt-in'});
+if(frontiers.status!=='approved-runtime-integrated') failures.push({kind:'research-frontier-runtime-state-drift',status:frontiers.status});
 for(const branchId of ['webb','canada']){
   const branch=frontiers.frontiers?.find(item=>item.branchId===branchId);
   if(!branch) failures.push({kind:'research-frontier-branch-missing',branchId});
@@ -165,7 +166,12 @@ for(const branchId of ['webb','canada']){
       if(!atlasHtml.includes(`"id":"${nodeId}"`)) failures.push({kind:'research-frontier-node-missing-from-canonical-graph',branchId,nodeId});
     }
   }
+  if(!branch?.nextProof) failures.push({kind:'research-frontier-next-proof-missing',branchId});
 }
+const webbFrontier=frontiers.frontiers?.find(item=>item.branchId==='webb');
+if((webbFrontier?.evidenceFor||[]).length<3) failures.push({kind:'webb-frontier-supporting-evidence-too-thin'});
+if((webbFrontier?.limitsAndConflicts||[]).length<3) failures.push({kind:'webb-frontier-conflict-evidence-too-thin'});
+if((webbFrontier?.recordsNeeded||[]).length<4) failures.push({kind:'webb-frontier-record-plan-too-thin'});
 
 console.log(JSON.stringify({
   branch:production.branchId,
