@@ -22,6 +22,16 @@ requireText(index,'id="storyPlaceOpen"','Story mode must expose a plainly labele
 forbidText(index,'<div id="storyContextRibbon" class="story-context-ribbon" aria-hidden="true">','map and flag must not cover the story photograph');
 requireText(content,"mapKey:'arizona-mesa-regional'",'opening scene must use regional Mesa context');
 requireText(content,"mapKey:'mesa-to-st-johns'",'second scene must show the supported Mesa to St. Johns movement');
+requireText(content,"src:'webb_first_house_vernon_1945.png'",'Sheldon story must retain the verified Vernon house photograph');
+requireText(content,"No photograph of Jay’s return or Sheldon running to meet him is known",'Sheldon homecoming beat must state the family-photo boundary');
+requireText(content,"source:'Family archive • Marion Beulah Brenay Webb life story, p. 14',\n        triggerParagraph:5",'Sheldon homecoming beat must use the authentic prewar Jay and Marion photograph');
+requireText(content,"source:'Family archive • Marion Beulah Brenay Webb life story, p. 17',\n        triggerParagraph:6",'Vernon house must accompany the postwar rebuilding paragraph');
+requireText(content,"source:'Family archive • Marion Beulah Brenay Webb life story, p. 18',\n        triggerParagraph:6,\n        triggerFraction:.52",'Sheldon sibling photograph must follow the rebuilt-house beat within the same paragraph');
+requireText(content,"src:'asc_students_sweethearts_ball_1964.jpg'",'Sheldon story must retain the verified college context');
+requireText(content,"triggerFraction:.55",'Sheldon college context must receive a readable share of its paragraph');
+requireText(content,"src:'charcoal_sheldon_kenny_california_1960_approved.png'",'Sheldon story must include the approved California reconstruction');
+requireText(content,"the boardwalk is not identified as a place they visited, and Kenny’s appearance is not documented",'California reconstruction must state its evidence boundaries');
+forbidText(content,"san_diego_highway_1960_65.jpg",'misidentified Las Vegas streetscape must not appear in runtime');
 requireText(overlays,"'arizona-mesa-regional':[29.5,61.8,'Mesa']",'opening locator must mark Mesa at its calibrated archival-map position');
 requireText(overlays,"'mesa-to-st-johns':[45,49,'St. Johns']",'St. Johns locator must retain its calibrated movement endpoint');
 requireText(css,'#storyPlaceModal .story-locator-card{display:block!important','legacy overlay flex rules must not squeeze Place provenance beside the map');

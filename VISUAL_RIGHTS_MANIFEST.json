@@ -10,7 +10,6 @@
   "rights_cleared_archival": [
     {"file":"trinity_test_fireball_16ms.jpg","source":"Berlyn Brixner / U.S. Government","rights":"public domain"},
     {"file":"postwar_arizona_road_1950.jpg","source":"U.S. Forest Service","rights":"public domain"},
-    {"file":"san_diego_highway_1960_65.jpg","source":"Library of Congress / Bernard Gotfryd","rights":"no restrictions"},
     {"file":"usaf_flightline_airmen_1962.jpg","source":"U.S. Air Force","rights":"public domain"},
     {"file":"asc_students_sweethearts_ball_1964.jpg","source":"La Cuesta, 1964","rights":"no copyright - United States"},
     {"file":"assets/arizona_new_mexico_1919_locator.jpg","source":"American Automobile Association, Arizona-New Mexico road map, 1919; Library of Congress Geography and Map Division, g4331p.ct007690r","rights":"Library of Congress digital reproduction of historical map; source and date displayed in product"}
@@ -19,8 +18,14 @@
     {"file":"assets/charles_albert_brunne_1901_census_full.jpg","thumbnail":"assets/charles_albert_brunne_1901_census_thumb.jpg","source":"Library and Archives Canada, Census of Canada 1901, Ontario, Muskoka and Parry Sound, Mills Township, page 4, scan z000084034","usage":"research evidence display with source attribution"}
   ],
   "approved_charcoal": [
-    {"file":"charcoal_childhood_illness_wide.png","source":"approved project illustration","usage":"distant non-likeness figures; wide across-the-room composition"}
+    {"file":"charcoal_childhood_illness_wide.png","source":"approved project illustration","usage":"distant non-likeness figures; wide across-the-room composition"},
+    {"file":"charcoal_sheldon_kenny_california_1960_approved.png","source":"AI-generated original for this project; approved by user on 2026-08-29","usage":"Interpretive 1960 California seaside reconstruction; Sheldon cautiously grounded in childhood and 1965 family photographs; Kenny non-specific; no claim that the depicted boardwalk was visited"}
   ],
   "permission_required_assets": [],
-  "rejected_assets_in_package": []
+  "rejected_assets_in_package": [
+    {
+      "file": "san_diego_highway_1960_65.jpg",
+      "reason": "Struck from runtime: the pictured Las Vegas streetscape was misidentified as Southern California, and the prior source attribution was not supportable. Do not reuse without fresh identification and rights verification."
+    }
+  ]
 }
