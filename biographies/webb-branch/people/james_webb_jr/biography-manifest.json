@@ -2,7 +2,7 @@
   "schemaVersion":"1.0",
   "personId":"james_webb_jr",
   "title":"James Webb Jr.",
-  "status":"approved-script-audio-and-visual-sequence-awaiting-runtime-integration",
+  "status":"approved-and-runtime-integrated-with-document-source-hold",
   "evidenceStatus":"proof-frontier",
   "narrationTextFile":"narration-approved.txt",
   "narrationApprovedOn":"2026-08-28",

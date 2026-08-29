@@ -1,5 +1,8 @@
 # Webb branch production checkpoint — approved runtime integration
 
+Historical branch working note. The deployed integration is formally versioned
+and synchronized by `RELEASE_NOTES_v3_8_13_WEBB_RUNTIME_HYGIENE.md`.
+
 ## Purpose
 
 Build the first complete, reviewable artifact layer for the supported Webb trunk

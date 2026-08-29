@@ -36,12 +36,13 @@
     },
     {
       "file": "assets/edward_jr_sarah_children_1891_family_use.png",
-      "rights": "Authentic family photograph used by explicit user direction in the private/noncommercial family Atlas; commercial rights are unresolved",
+      "rights": "Authentic family photograph approved by the project owner for public, noncommercial display in the family Atlas on 2026-08-28; commercial rights are unresolved",
       "sourceUrl": "https://rsc.byu.edu/sites/default/files/pub_content/image/8256/SARAH_WITH_CHILDREN.png",
       "sourceId": "webb-src-019",
       "sha256": "816049037a59ddb3a7e0c258bd0b1aef65766c9a486898f6e563ff93c635505a",
       "use": "Sarah Elizabeth Carling Webb with children Clark, Jonathan Henry (captioned Henry), Burr, Owen and Catherine; photographed by A. Miller in 1891",
-      "useScope": "private-noncommercial-family-atlas",
+      "useScope": "public-noncommercial-family-atlas",
+      "publicDisplayAuthorization": "Project owner explicitly approved publishing the family images to the public Atlas repository on 2026-08-28",
       "commercialStatus": "blocked-pending-clearance",
       "commercialAction": "Document public-domain status or obtain permission; otherwise replace before any commercial release"
     },

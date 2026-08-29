@@ -1,7 +1,7 @@
 {
   "schemaVersion":"1.0",
   "personId":"james_webb_jr",
-  "status":"visual-sequence-approved-with-document-source-hold",
+  "status":"approved-and-runtime-integrated-with-document-source-hold",
   "scenes":[
     {"id":"jwj-01-connecticut","paragraph":0,"title":"Connecticut during the Revolution","asset":"assets/james_jr_connecticut_1777_charcoal_approved.png","assetBrief":"Approved 40-percent tighter observational charcoal of a representative rural Connecticut settlement circa 1777; no exact town, homestead or Webb likeness is claimed.","approvalStatus":"approved","approvedOn":"2026-08-28","visualType":"approved-observational-charcoal","place":"Connecticut • 1777"},
     {"id":"jwj-02-register-gap","paragraph":1,"title":"A missing register is not a disproof","asset":"assets/james_jr_congregational_register_gap_approved.png","assetBrief":"Representative late-eighteenth-century New England Congregational meetinghouse rendering. It contextualizes the East Hampton Congregational register gap without claiming to depict the exact building or a baptism that has not been found.","approvalStatus":"approved","approvedOn":"2026-08-28","visualType":"approved-contextual-charcoal","place":"East Hampton / Chatham, Connecticut • register context"},

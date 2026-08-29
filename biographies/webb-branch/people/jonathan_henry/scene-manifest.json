@@ -1,7 +1,7 @@
 {
   "schemaVersion":"1.0",
   "personId":"jonathan_henry",
-  "status":"visual-sequence-approved",
+  "status":"approved-and-runtime-integrated",
   "scenes":[
     {"id":"jonathan-01-woodruff","paragraph":0,"title":"Born beside the Little Colorado","asset":"assets/jonathan_woodruff_1886_charcoal_approved.png","assetBrief":"Wide observational charcoal of the Little Colorado floodplain, irrigation and a sparse Woodruff-area settlement in 1886. Approved after a 30 percent zoom followed by an additional 15 percent zoom (49.5 percent tighter than the original composition); distant figures are ambiguous and no family likeness is claimed.","approvalStatus":"approved","approvedOn":"2026-08-27","visualType":"approved-charcoal","place":"Woodruff, Arizona Territory • 1886"},
     {"id":"jonathan-02-territory","paragraph":1,"title":"Territorial Arizona","asset":"assets/jonathan_mormon_dairy_1887_1889_approved.jpg","assetBrief":"Public-domain National Archives photograph of two Mormon women and their small children outside a building at Mormon Dairy near present-day Mormon Lake, Arizona Territory, 1887–1889. This is northern-Arizona Mormon settlement context from Jonathan's infancy; it is not Woodruff and no Webb family member is depicted.","approvalStatus":"approved","approvedOn":"2026-08-27","visualType":"rights-cleared-archival","place":"Mormon Dairy, Arizona Territory • 1887–1889"},

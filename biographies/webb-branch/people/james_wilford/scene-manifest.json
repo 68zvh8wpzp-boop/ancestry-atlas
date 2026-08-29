@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "personId": "james_wilford",
-  "status": "visual-sequence-awaiting-one-at-a-time-approval",
+  "status": "approved-and-runtime-integrated",
   "scenes": [
     {"id":"jay-01-pinedale","paragraph":0,"title":"Born in Arizona’s pine country","asset":"assets/jay_pinedale_1924_charcoal_approved.png","assetBrief":"Wide observational charcoal of Pinedale, Arizona, in 1924; forest-edge settlement, no invented likenesses.","approvalStatus":"approved","approvedOn":"2026-08-27","visualType":"approved-charcoal","place":"Pinedale, Arizona • 1924"},
     {"id":"jay-02-depression","paragraph":1,"title":"Work in the high country","asset":"assets/jay_depression_timber_context_approved.png","assetBrief":"Depression-era northern Arizona timber-work context; tiny figures are ambiguous and no person is presented as family.","approvalStatus":"approved","approvedOn":"2026-08-27","visualType":"approved-charcoal","place":"Navajo County, Arizona • 1930s"},

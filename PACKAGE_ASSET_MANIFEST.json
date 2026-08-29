@@ -1,8 +1,8 @@
 {
-  "packageVersion": "3.8.12-reliable-first-frame-stories",
-  "inputPackage": "v3.8.11 first-frame lifecycle at 244da43",
-  "sourceProductionVersion": "3.7.5",
-  "releaseStatus": "approved Fable runtime integrated; distinct Story and Tree modes, continuous deep-space approach, dedicated archival Places, and typed media collections",
+  "packageVersion": "3.8.13-webb-runtime-hygiene",
+  "inputPackage": "v3.8.12 plus deployed Webb integration at c96c837",
+  "sourceProductionVersion": "3.8.12",
+  "releaseStatus": "approved twelve-biography Fable runtime integrated; Webb proof boundary preserved; release state synchronized",
   "narration": {
     "approvedVoice": "OpenAI Fable",
     "model": "gpt-4o-mini-tts",
@@ -19,7 +19,12 @@
       "Charles_godfrey_brenay.mp3",
       "Ida_mae_gooley.mp3",
       "John_peter_gooley.mp3",
-      "Mary_ann_dennis.mp3"
+      "Mary_ann_dennis.mp3",
+      "James_wilford_webb.mp3",
+      "Jonathan_henry_webb.mp3",
+      "Edward_milo_webb_jr.mp3",
+      "Edward_milo_webb_sr.mp3",
+      "James_webb_jr.mp3"
     ]
   },
   "runtime": [
@@ -70,6 +75,11 @@
     ,"approved-audio/fable/Ida_mae_gooley.mp3"
     ,"approved-audio/fable/John_peter_gooley.mp3"
     ,"approved-audio/fable/Mary_ann_dennis.mp3"
+    ,"approved-audio/fable/James_wilford_webb.mp3"
+    ,"approved-audio/fable/Jonathan_henry_webb.mp3"
+    ,"approved-audio/fable/Edward_milo_webb_jr.mp3"
+    ,"approved-audio/fable/Edward_milo_webb_sr.mp3"
+    ,"approved-audio/fable/James_webb_jr.mp3"
     ,"RELEASE_NOTES_v3_8_3_MOBILE_STORY_CORRECTIVE.md"
     ,"RELEASE_NOTES_v3_8_6_CONTRACT_RESTORATION.md"
     ,"RELEASE_NOTES_v3_8_7_NAVIGATION_AND_PERIOD_LOCATORS.md"
@@ -81,6 +91,13 @@
     ,"assets/arizona_new_mexico_1919_locator.jpg"
     ,"assets/charles_albert_brunne_1901_census_full.jpg"
     ,"assets/charles_albert_brunne_1901_census_thumb.jpg"
+    ,"biographies/research-frontiers.json"
+    ,"biographies/webb-branch/branch-production-manifest.json"
+    ,"biographies/webb-branch/visual-approval-register.json"
+    ,"biographies/webb-branch/webb-story-modules.js"
+    ,"scripts/build-webb-runtime.mjs"
+    ,"PRODUCTION_CONTRACT_v3_8_13.md"
+    ,"RELEASE_NOTES_v3_8_13_WEBB_RUNTIME_HYGIENE.md"
   ],
   "approvedBiographyAssets": [
     "jay_marion_mesa_1941.png",

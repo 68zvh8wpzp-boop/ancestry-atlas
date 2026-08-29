@@ -2,14 +2,14 @@
   "schemaVersion": "1.0",
   "branchId": "webb",
   "title": "Webb — Arizona to Connecticut",
-  "status": "all-narrations-audio-and-visual-sequences-approved-awaiting-runtime-integration",
-  "canonicalBaseline": "GitHub main v3.8.12",
+  "status": "approved-and-runtime-integrated",
+  "canonicalBaseline": "GitHub main c96c837; formalized in v3.8.13",
   "people": [
-    {"personId":"james_wilford","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/james_wilford","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived; awaiting runtime"},
-    {"personId":"jonathan_henry","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/jonathan_henry","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived; awaiting runtime"},
-    {"personId":"edward_milo_jr","role":"full-biography-with-conflict-note","evidenceGate":"supported-trunk-with-strong-1921-death-and-1924-anomaly","artifactDirectory":"people/edward_milo_jr","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived; awaiting runtime"},
-    {"personId":"edward_milo_sr","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/edward_milo_sr","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived; awaiting runtime"},
-    {"personId":"james_webb_jr","role":"proof-frontier-biography","evidenceGate":"stop-before-parent-couple","artifactDirectory":"people/james_webb_jr","visualStatus":"approved sequence; one document-source hold intentionally retains the prior scene","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived; awaiting runtime"}
+    {"personId":"james_wilford","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/james_wilford","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived and runtime-integrated"},
+    {"personId":"jonathan_henry","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/jonathan_henry","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived and runtime-integrated"},
+    {"personId":"edward_milo_jr","role":"full-biography-with-conflict-note","evidenceGate":"supported-trunk-with-strong-1921-death-and-1924-anomaly","artifactDirectory":"people/edward_milo_jr","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived and runtime-integrated"},
+    {"personId":"edward_milo_sr","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/edward_milo_sr","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived and runtime-integrated"},
+    {"personId":"james_webb_jr","role":"proof-frontier-biography","evidenceGate":"stop-before-parent-couple","artifactDirectory":"people/james_webb_jr","visualStatus":"approved sequence; one document-source hold intentionally retains the prior scene","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived and runtime-integrated"}
   ],
   "excludedFromThisProductionPass": [
     "No biography is created for James Webb Sr. or Elizabeth Douglas while the identity problem remains unresolved.",
@@ -22,9 +22,9 @@
       "personId": "edward_milo_jr",
       "sceneId": "emj-06-family",
       "asset": "people/edward_milo_jr/assets/edward_jr_sarah_children_1891_family_use.png",
-      "status": "blocked-pending-clearance",
+      "status": "public-noncommercial-display-approved; commercial-use-blocked",
       "requiredAction": "Document public-domain status or obtain permission; otherwise replace the photograph before commercial distribution."
     }
   ],
-  "integrationGate": "Cleared: all five narrations, Fable recordings and visual sequences are approved. Runtime integration must preserve the James Webb Jr. proof boundary and the Edward Milo Webb Jr. commercial-release hold."
+  "integrationGate": "Completed on deployed main at c96c837. Future runtime changes must preserve the James Webb Jr. proof boundary and the Edward Milo Webb Jr. commercial-release hold."
 }
