@@ -5,16 +5,12 @@ import {resolve} from 'node:path';
 const apiKey=process.env.OPENAI_API_KEY;
 if(!apiKey)throw new Error('OPENAI_API_KEY is not available to this workflow.');
 
-const atlasSource=readFileSync(resolve('atlas-content.js'),'utf8');
-const sheldonMatch=atlasSource.match(/const TOUR_MEDIA\s*=\s*\{[\s\S]*?\bjames_sheldon\s*:\s*\{[\s\S]*?\btranscript\s*:\s*("(?:\\.|[^"\\])*")\s*,\s*contract\s*:/);
-if(!sheldonMatch)throw new Error('Could not locate Sheldon’s approved runtime transcript.');
-
 const biographies=[
   {
     id:'james_sheldon',
     name:'James Sheldon Webb',
-    source:'atlas-content.js → TOUR_MEDIA.james_sheldon.transcript',
-    transcript:JSON.parse(sheldonMatch[1]),
+    source:'biographies/sheldon/narration-approved-photo-context.txt',
+    transcript:readFileSync(resolve('biographies/sheldon/narration-approved-photo-context.txt'),'utf8').trim(),
     output:'James_sheldon_webb_fable_review.mp3'
   },
   {
