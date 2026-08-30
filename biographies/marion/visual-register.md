@@ -14,20 +14,21 @@ Status: pre-audio scene assembly. Narration approved; voice selection and final 
 
 | Asset | Role | Final variant | Status |
 |---|---|---|---|
-| Marion birthplace/home photograph | Opening local setting | `visual_candidates/marion_birth_house_candidate_conservative.jpg` | Approved; source attribution to be preserved from family source |
-| Marion as a young child | Personal opening/childhood | `visual_candidates/marion_child_photo_only_sharpened.jpg` | Approved final crop and cleanup |
-| 1925 westward journey context | Michigan-to-Arizona movement | `visual_candidates/marion_1925_journey_candidate.jpg` | Approved; Library of Congress FSA/OWI, no known restrictions; individual LOC item URL still to attach |
-| Arizona childhood group | Depression-era childhood | `visual_candidates/marion_arizona_childhood_candidate.jpg` | Approved; Russell Lee, Camelback Farms, 1942; LOC item 2017744660; no known restrictions |
-| School/independence context | Transition to Lakeside school years | `visual_candidates/marion_school_independence_candidate.jpg` | Approved; Russell Lee, Concho–St. Johns school bus, 1940; LOC item 2017743309; no known restrictions |
-| Jay and Marion before Sheldon | Courtship/marriage | `restored_assets/sheldon/jay_marion_mesa_1941_restored.jpg` | Approved family photograph |
-| Marion with Diane | Young motherhood/postwar family | `visual_candidates/marion_with_diane_candidate_sharpened.jpg` | Approved final sharpened family photograph |
-| Marion with children | Expanding postwar family | `visual_candidates/marion_children_family_photo_candidate.jpg` | Approved family photograph |
-| Marion family historian image | Diary and legacy | `visual_candidates/marion_family_historian_candidate.jpg` | Approved; crop page text from presentation frame where possible without altering source |
+| Marion birthplace/home photograph | Opening local setting | `assets/marion_birth_house_candidate_conservative.jpg` | Authentic family-source photograph from *Jay and Marion Life Story*, page 1 |
+| Marion as a young child | Personal opening | `assets/marion_child_photo_only_sharpened.jpg` | Approved final crop and cleanup; used once |
+| 1925 westward journey context | Michigan-to-Arizona movement | `assets/marion_1925_journey_candidate.jpg` | Approved; Library of Congress FSA/OWI, no known restrictions; individual LOC item URL still to attach |
+| Arizona childhood group | Depression-era childhood | `assets/marion_arizona_childhood_candidate.jpg` | Approved; Russell Lee, Camelback Farms, 1942; LOC item 2017744660; no known restrictions |
+| School travel context | Childhood work-and-school beat | `assets/marion_school_independence_candidate.jpg` | Approved; Russell Lee, Concho–St. Johns school bus, 1940; LOC item 2017743309; no known restrictions; Marion not pictured |
+| Marion and Jay, Lakeside-period page placement | Lakeside transition and meeting Jay | `assets/marion_jay_lakeside_period_family_restored.png` | Authentic family photograph from *Jay and Marion Life Story*, page 13; no separate printed caption or exact date; conservative restoration |
+| Marion and Jay, “Courting” | Courtship/marriage | `assets/marion_jay_courting_family_restored.png` | Authentic family photograph from *Jay and Marion Life Story*, page 10; balanced descreening and conservative sharpening |
+| Marion with Diane | Young motherhood/postwar family | `assets/marion_with_diane_candidate_sharpened.jpg` | Authentic family photograph from page 17; approved sharpened version |
+| Webb children | Diary and legacy closing | `assets/marion_children_family_photo_candidate.jpg` | Authentic family photograph from page 18; caption identifies Drinette, Daphne, Darwin, Diane and Sheldon; no additional person is identified |
 
 ## Excluded intermediates
 - `visual_candidates/marion_birth_house_candidate.jpg`
 - `visual_candidates/marion_child_photo_descreened.jpg`
 - `visual_candidates/marion_with_diane_candidate.jpg`
+- `assets/marion_family_historian_candidate.jpg` (rejected as a closing image: it is the title page and childhood photograph, not a later-life historian portrait)
 - Any previously rejected or clownish charcoal concepts.
 
 These may remain in the working archive for rollback but must not be referenced by the production manifest or included as deployable story assets.

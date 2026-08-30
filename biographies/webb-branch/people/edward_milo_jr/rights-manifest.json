@@ -62,5 +62,15 @@
       "use": "Broad 1852 company corridor and later documented-place sequence; no exact daily track or road is claimed"
     }
   ],
-  "pendingAssets": []
+  "pendingAssets": [
+    {
+      "file": "assets/edward_milo_jr_portrait.jpg",
+      "title": "Edward Milo Webb Jr. historical portrait",
+      "sourceUrl": "https://www.thechurchnews.com/2022/1/9/23218612/cove-fort-church-historic-site-ira-hinckley-edward-milo-webb-jr/",
+      "sha256": "bde0cdc33e448c319ddbfd7cb22d000b629b72c1bf12869ebf0a7ecf0e350b94",
+      "currentUse": "Packaged node thumbnail in the public, noncommercial family Atlas",
+      "commercialStatus": "blocked-pending-clearance",
+      "commercialAction": "Establish public-domain status or obtain reuse permission; otherwise replace before commercial release"
+    }
+  ]
 }

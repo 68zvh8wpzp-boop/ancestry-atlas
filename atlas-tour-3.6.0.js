@@ -399,6 +399,7 @@ async function cinematicBranchEntrance(track,focusId,mySession){
   rotY=0;
   const mobile=window.matchMedia('(max-width:800px)').matches;
   const targetScale=mobile?fitMobileBranch(ids,focusId):cameraTargetForBranch(ids);
+  navigationNeighborhood=new Set(ids);
   const endPanX=panX,endPanY=panY;
   const endRotX=0,endRotY=0;
   const startScale=Math.max(.16,targetScale*.0025);
@@ -577,10 +578,17 @@ function showStoryScene(media,index){
       if(!img.currentSrc&&!img.src)els.sceneStrip.classList.add('context-only');
       return;
     }
-    img.alt=scene.title||scene.caption||'Family story photograph';
-    img.style.display='block';
-    img.src=entry.url;
-    img.style.opacity='1';
+    // Replacing the element forces iOS Safari to recompute each raster's
+    // intrinsic box. Reusing the first scene's element could leave later
+    // photographs displayed as a narrow horizontal strip.
+    const nextImage=img.cloneNode(false);
+    nextImage.alt=scene.title||scene.caption||'Family story photograph';
+    nextImage.style.display='block';
+    nextImage.style.opacity='0';
+    nextImage.onload=()=>{nextImage.style.opacity='1';};
+    nextImage.src=entry.url;
+    frame.replaceChild(nextImage,img);
+    els.scenePhoto=nextImage;
   });
 }
 
@@ -701,9 +709,16 @@ async function orientAndOpenCurrent({fullEntrance=false}={}){
     els.modal?.setAttribute('aria-hidden','true');
 
     // Between stops, use a shorter but still deliberate camera move.
-    setBranchOnly(state.track);
+    const ids=setBranchOnly(state.track);
     window.__tourSuppressLabels=false;
-    try{cinematicFocus(step.id,'family')}catch(e){}
+    navigationNeighborhood=new Set(ids);
+    if(window.matchMedia('(max-width:800px)').matches){
+      selected=step.id;
+      nodeViewLevel='branch';nodeFocusMode=true;
+      try{fitMobileBranch(ids,step.id);draw()}catch(e){}
+    }else{
+      try{cinematicFocus(step.id,'family')}catch(e){}
+    }
     await wait(2400);
   }
 
@@ -775,14 +790,22 @@ function exitTour(){
 
   if(window.matchMedia('(max-width:800px)').matches){
     try{
-      window.AncestryMobileTreeInternal?.focusBiography?.(returnId,10);
+      // A story's narrated stops are not the same thing as the visible family
+      // branch. Return to the complete lineage around the current person so
+      // non-narrated ancestors and proof-frontier nodes do not disappear.
+      const returnIds=window.AncestryMobileTreeInternal?.branch?.(returnId,36)
+        || new Set((BRANCH_TOURS[state.track]?.steps||[]).map(step=>step.id).filter(id=>nodeById.has(id)));
+      window.__mobileTreeVisibleNodeIds=returnIds;
       selected=returnId;
+      nodeViewLevel='branch';nodeFocusMode=true;navigationNeighborhood=new Set(returnIds);
       if(window.AncestryTour?.mobileTree){
-        window.AncestryTour.mobileTree.mode='family';
-        window.AncestryTour.mobileTree.labelMode='focus';
+        window.AncestryTour.mobileTree.mode='branch';
+        window.AncestryTour.mobileTree.labelMode='branch';
         window.AncestryTour.mobileTree.anchor=returnId;
       }
-      cinematicFocus(returnId,'family');
+      fitMobileBranch([...returnIds],returnId);
+      setViewButtons('branch');
+      draw();
       setTimeout(()=>{try{card.style.display='none';sceneContext?.classList.remove('show');draw();}catch(e){}},80);
     }catch(e){console.error('Could not focus the biography family view.',e);}
   }else if(saved){
@@ -928,7 +951,9 @@ window.addEventListener('orientationchange',()=>{
     try{
       const ids=[...(window.__tourVisibleNodeIds||[])];
       if(ids.length){
-        const target=cameraTargetForBranch(ids);
+        const target=window.matchMedia('(max-width:800px)').matches
+          ? fitMobileBranch(ids,selected||ids[0])
+          : cameraTargetForBranch(ids);
         scale=target;
         draw();
       }
@@ -963,7 +988,8 @@ function mobileBack(){
 function mobileExpand(){
   const anchor=selected||mobileTree.anchor||'you';
   if(mobileTree.mode==='family'){
-    window.__mobileTreeVisibleNodeIds=buildNavigationNeighborhood(anchor,'branch');
+    window.__mobileTreeVisibleNodeIds=window.AncestryMobileTreeInternal?.branch?.(anchor,36)
+      || buildNavigationNeighborhood(anchor,'branch');
     nodeViewLevel='branch';nodeFocusMode=true;navigationNeighborhood=new Set(window.__mobileTreeVisibleNodeIds);
     setViewButtons('branch');
     cinematicFocus(anchor,'branch');

@@ -5,7 +5,7 @@
     {
       "file": "assets/jonathan_woodruff_1886_charcoal_approved.png",
       "rights": "AI-generated original for this project; approved by user on 2026-08-27",
-      "sha256": "edcad6f1603200b17cf6a0c2bda3904ad50af80a1124f8422a8ea288b9dc5b75",
+      "sha256": "0e7e49009c67cbc4ff222fdd1c98e593d1d83027103d9ee7082a769a7a38665a",
       "use": "Observational Woodruff, Arizona Territory opening; final composition is 49.5 percent tighter than the generated original; no family likeness claimed"
     },
     {
@@ -19,7 +19,7 @@
       "file": "assets/jonathan_mormon_store_northern_mexico_1900_approved.jpg",
       "rights": "Public domain / no known restrictions on publication; George Grantham Bain Collection, Library of Congress, LCCN 2014688906, digital ID ggbain.08915",
       "sourceUrl": "https://www.loc.gov/item/2014688906/",
-      "sha256": "305690c61309e88287bb8f28aa037b9e4b9a3093036a72b4dfccb09eda27fa69",
+      "sha256": "9f22a99e34a27324efe96f8797a3a05633271c90daee2c562cb5b2e1ef55344f",
       "use": "Circa-1900 northern-Mexico Mormon settlement and clothing context close to Jonathan and Della's 1908 marriage period; the colony is unidentified and no Webb or Ray relative is depicted"
     },
     {
@@ -39,9 +39,9 @@
     },
     {
       "file": "assets/jonathan_white_mountains_family_network_approved.png",
-      "rights": "U.S. Geological Survey topographic base is a U.S. federal government work; project-added place markers and labels approved by user on 2026-08-28",
+      "rights": "U.S. Geological Survey topographic base is a U.S. federal government work; project-added state-boundary emphasis, place markers and labels approved by user on 2026-08-30",
       "sourceUrl": "https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer",
-      "sha256": "1dc41da10baa9a7b7e19210649377a8955bd0c9f676d06b950059ed655ed9527",
+      "sha256": "f1ecb4c29f412e29b4fbfb6f72403a0a4ccec6ad718b7c3e839e5cb7d951a7b8",
       "use": "Geographic context for Pinedale, Lakeside, Vernon, Snowflake and McNary; no route, sequence or person-specific residence implied by the markers"
     },
     {

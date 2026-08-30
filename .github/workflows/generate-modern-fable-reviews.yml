@@ -1,0 +1,48 @@
+name: Generate Modern Family Fable Reviews
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - codex/v3.8.15-sheldon-visual-corrective
+    paths:
+      - .github/workflows/generate-modern-fable-reviews.yml
+      - scripts/generate-modern-fable-reviews.mjs
+      - biographies/sheldon/narration-approved-photo-context.txt
+      - biographies/marion/narration-approved-photo-context.txt
+      - biographies/webb-branch/people/james_wilford/narration-approved.txt
+
+permissions:
+  contents: read
+
+jobs:
+  generate-reviews:
+    name: Create Jay, Marion, and Sheldon review MP3s
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - name: Check out the revised narration source
+        uses: actions/checkout@v4
+
+      - name: Confirm the protected API key is available
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "::error::Repository secret OPENAI_API_KEY is missing."
+            exit 1
+          fi
+
+      - name: Generate three review-only Fable recordings
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node scripts/generate-modern-fable-reviews.mjs
+
+      - name: Upload private review package
+        uses: actions/upload-artifact@v4
+        with:
+          name: modern-family-fable-reviews-${{ github.run_number }}
+          path: review-output/modern-fable-2026-08-30/
+          if-no-files-found: error
+          retention-days: 14
