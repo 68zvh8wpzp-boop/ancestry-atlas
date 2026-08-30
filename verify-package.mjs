@@ -107,8 +107,8 @@ for(const record of modernReview.biographies||[]){
   if(!record.status.startsWith('approved by project owner'))failures.push({kind:'modern-review-approval-state-stale',id:record.id,status:record.status});
 }
 
-if(manifest.packageVersion!=='3.8.16-family-source-and-scale')failures.push({kind:'package-version-drift',value:manifest.packageVersion});
-if(!index.includes('BUILD v3.8.16')||!index.includes('>v3.8.16</span>'))failures.push({kind:'visible-build-version-drift'});
+if(manifest.packageVersion!=='3.8.17-mobile-museum-labels')failures.push({kind:'package-version-drift',value:manifest.packageVersion});
+if(!index.includes('BUILD v3.8.17')||!index.includes('>v3.8.17</span>'))failures.push({kind:'visible-build-version-drift'});
 if(webbProduction.status!=='approved-and-runtime-integrated')failures.push({kind:'webb-branch-release-state-stale',value:webbProduction.status});
 if(!/promoted into the live Atlas/.test(fableApproval))failures.push({kind:'fable-approval-release-state-stale'});
 const expectedAudioNames=Object.values(approvedAudio).map(file=>path.basename(file)).sort();

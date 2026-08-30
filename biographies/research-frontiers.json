@@ -62,6 +62,24 @@
       "title": "The Gooley, Goulet and possible French connection",
       "brokenProofLink": "john_peter -> reported Peter/Pierre Gooley identity",
       "summary": "John Peter Gooley's Canadian birth is strongly supported, but his reported father Peter or Pierre has not been identified securely.",
+      "flagTreatment": {
+        "supportedKey": "canada-red-ensign",
+        "supportedLabel": "Documented Canadian life",
+        "candidateKey": "france-tricolor",
+        "candidateLabel": "Possible French connection — unproved",
+        "boundaryLabel": "Proof boundary"
+      },
+      "evidenceFor": [
+        "John Peter Gooley consistently appears in later records as Canadian-born.",
+        "The Gooley or Gouley surname provides a legitimate lead for Canadian parish and civil-record research.",
+        "A Pierre Goulet and Louise-Anne Tellier marriage is documented in Quebec in 1846 and can be tested as a candidate family."
+      ],
+      "limitsAndConflicts": [
+        "No baptism or equivalent direct record has yet named John Peter Gooley's parents.",
+        "The spelling resemblance among Gooley, Gouley and Goulet does not prove that the families are identical.",
+        "Irish, Anglophone and French-Canadian origins remain open possibilities.",
+        "The documented 1846 Goulet marriage has not been connected to John Peter Gooley."
+      ],
       "candidatePaths": [
         {
           "status": "provisional",
@@ -74,7 +92,14 @@
           "warning": "The 1846 Pierre Goulet–Louise-Anne Tellier marriage is authentic, but no record yet identifies that Pierre as John Peter Gooley's father."
         }
       ],
-      "nextProof": "Find John Peter Gooley's baptism or another direct record naming his parents before connecting the documented candidate Goulet family or extending the line toward France."
+      "nextProof": "Find John Peter Gooley's baptism or another direct record naming his parents before connecting the documented candidate Goulet family or extending the line toward France.",
+      "recordsNeeded": [
+        "Quebec and Ontario Catholic and Protestant baptismal registers around 1842",
+        "Canadian civil, census and marriage records naming John Peter's parents or birthplace",
+        "Michigan death, marriage and naturalization records for parent or birthplace detail",
+        "Witness, sponsor, sibling and neighbor clusters tied to the Gooley household",
+        "Only after parent identification: correlate the 1846 Goulet–Tellier family"
+      ]
     }
   ]
 }

@@ -22,6 +22,10 @@ function stageMarkup(pathItem,index){
   return `<article class="research-frontier-stage" style="--frontier-color:${tone.color}"><div class="research-frontier-stage-label">${escape(tone.label)} ${index+1}</div><div class="research-frontier-people">${escape(names)}</div><div class="research-frontier-years">${escape(years)}</div><p>${escape(pathItem.warning)}</p></article>`;
 }
 function list(items=[]){return `<ul>${items.map(item=>`<li>${escape(item)}</li>`).join('')}</ul>`}
+function flagTreatmentMarkup(treatment){
+  if(!treatment)return '';
+  return `<div class="research-frontier-flag supported-flag" role="img" aria-label="${escape(treatment.supportedLabel)}"><span class="canada-red-ensign"><i></i></span><b>${escape(treatment.supportedLabel)}</b></div><div class="research-frontier-proof-line"><span>${escape(treatment.boundaryLabel)}</span></div><div class="research-frontier-flag candidate-flag" role="img" aria-label="${escape(treatment.candidateLabel)}"><span class="france-tricolor"><i></i></span><b>${escape(treatment.candidateLabel)}</b></div>`;
+}
 function open(branchId='webb'){
   const data=globalThis.RESEARCH_FRONTIERS;
   const frontier=data?.frontiers?.find(item=>item.branchId===branchId);
@@ -32,8 +36,9 @@ function open(branchId='webb'){
   $('researchFrontierSummary').textContent=frontier.summary;
   $('researchFrontierHero').style.backgroundImage=frontier.heroAsset?`url("${frontier.heroAsset}")`:'';
   $('researchFrontierHero').setAttribute('aria-label',frontier.heroAlt||frontier.title);
+  const flags=$('researchFrontierFlags');flags.innerHTML=flagTreatmentMarkup(frontier.flagTreatment);flags.hidden=!frontier.flagTreatment;
   $('researchFrontierBroken').textContent=`Broken proof link: ${frontier.brokenProofLink}. This continuation is a research theory, not an established pedigree.`;
-  const endpointMarkup=`<article class="research-frontier-stage supported"><div class="research-frontier-stage-label">Supported endpoint</div><div class="research-frontier-people">${escape(endpoint?.name||frontier.supportedEndpoint)}</div><div class="research-frontier-years">${escape(endpoint?.years||'')}</div><p>The ordinary guided Webb story ends here.</p></article>`;
+  const endpointMarkup=`<article class="research-frontier-stage supported"><div class="research-frontier-stage-label">Supported endpoint</div><div class="research-frontier-people">${escape(endpoint?.name||frontier.supportedEndpoint)}</div><div class="research-frontier-years">${escape(endpoint?.years||'')}</div><p>The guided ${escape(frontier.branchId==='webb'?'Webb':'Canadian')} story ends here.</p></article>`;
   $('researchFrontierChain').innerHTML=endpointMarkup+(frontier.candidatePaths||[]).map(stageMarkup).join('');
   $('researchFrontierFor').innerHTML=list(frontier.evidenceFor);
   $('researchFrontierLimits').innerHTML=list(frontier.limitsAndConflicts);

@@ -87,7 +87,7 @@ const TOUR_MEDIA = {
       {
         src:'wwii_armored_training_fort_benning_1942.jpg',
         title:'Wartime America mobilizes',
-        caption:'Soldiers train with half-track scout cars during the nationwide military mobilization of 1942. The scene is not Arizona, and no Webb family member is pictured.',
+        caption:'Soldiers train with half-track scout cars during America’s nationwide military mobilization, April 1942.',
         source:'Alfred T. Palmer • Fort Benning, Georgia • Library of Congress FSA/OWI • public domain',
         triggerParagraph:2,
         locator:'United States • April 1942',flagKey:'united-states-48-star',mapKey:'united-states-context',
@@ -106,7 +106,7 @@ const TOUR_MEDIA = {
       {
         src:'wartime_family_goodbye_1943.jpg',
         title:'A wartime family separates',
-        caption:'A serviceman says goodbye to his wife and baby through a bus window in Tennessee in 1943. This period scene represents the separation experienced by American families; it does not depict the Webbs.',
+        caption:'A serviceman says goodbye to his wife and child through a bus window in Tennessee, September 1943.',
         source:'Esther Bubley • Office of War Information • Library of Congress FSA/OWI • public domain',
         triggerParagraph:3,
         locator:'United States • September 1943',flagKey:'united-states-48-star',mapKey:'united-states-context',
@@ -115,7 +115,7 @@ const TOUR_MEDIA = {
       {
         src:'charcoal_childhood_illness_wide.png',
         title:'A child’s wartime illness',
-        caption:'Evidence-safe charcoal scene representing illness and uncertainty without inventing Sheldon’s likeness.',
+        caption:'Childhood illness during the wartime years.',
         source:'Approved wide charcoal scene • distant, non-likeness figures',
         triggerParagraph:4,
         locator:'American Southwest • 1940s',flagKey:'arizona-1917',mapKey:'southwest-regional',
@@ -124,7 +124,7 @@ const TOUR_MEDIA = {
       {
         src:'returning_servicemen_ss_john_ericsson_1945.jpg',
         title:'American servicemen return',
-        caption:'Returning American servicemen crowd the SS John Ericsson as it approaches New York in August 1945. This national homecoming scene does not depict Jay Webb or his unit.',
+        caption:'Returning American servicemen crowd the SS John Ericsson as it approaches New York, August 1945.',
         source:'Al Ravenna • New York World-Telegram and the Sun • Library of Congress • no known copyright restriction',
         triggerParagraph:5,
         locator:'United States • August 1945',flagKey:'united-states-48-star',mapKey:'united-states-context',
@@ -171,7 +171,7 @@ const TOUR_MEDIA = {
       {
         src:'charcoal_sheldon_kenny_california_1960_approved.png',
         title:'California, 1960',
-        caption:'A representative California seaside setting for Sheldon and Kenny’s 1960 trip; the boardwalk is not identified as a place they visited, and Kenny’s appearance is not documented.',
+        caption:'California seaside recreation during Sheldon and Kenny’s 1960 journey.',
         source:'Approved project reconstruction • Sheldon cautiously grounded in family photographs • Kenny non-specific',
         triggerParagraph:8,
         locator:'Arizona → California • 1960',flagKey:'united-states-50-star',mapKey:'arizona-california',

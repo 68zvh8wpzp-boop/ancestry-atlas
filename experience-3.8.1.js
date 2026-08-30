@@ -109,10 +109,10 @@
     if(names&&mobileTree){
       const branch=mobileTree.labelMode==='branch';
       names.setAttribute('aria-pressed',String(branch));
-      names.setAttribute('aria-label',branch?'Show local family names':'Show names for this branch');
+      names.setAttribute('aria-label',branch?'Show nearby family only':'Show every name in this lineage');
       names.classList.toggle('active',branch);
       const labelNode=names.querySelector('small');
-      if(labelNode)labelNode.textContent=branch?'Local Names':'Branch Names';
+      if(labelNode)labelNode.textContent=branch?'Nearby Only':'All Lineage Names';
     }
   }
 

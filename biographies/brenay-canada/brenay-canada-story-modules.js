@@ -64,7 +64,7 @@
       {
         "src": "biographies/marion/assets/marion_1925_journey_candidate.jpg",
         "title": "Westward in an old Ford",
-        "caption": "Archival context for long-distance family travel in 1925. The people shown are not the Brenay family.",
+        "caption": "Long-distance family travel in 1925.",
         "source": "Russell Lee • Library of Congress • no known restrictions",
         "triggerParagraph": 4,
         "locator": "Saginaw → Mesa • 1925",
@@ -75,7 +75,7 @@
       {
         "src": "biographies/marion/assets/marion_arizona_childhood_candidate.jpg",
         "title": "Land, work and repeated movement",
-        "caption": "Archival context for Depression-era family labor in Arizona. The people shown are not the Brenay family.",
+        "caption": "Depression-era family labor in Arizona.",
         "source": "Russell Lee • Library of Congress • no known restrictions",
         "triggerParagraph": 5,
         "locator": "Arizona / Utah • 1930s",
@@ -86,7 +86,7 @@
       {
         "src": "biographies/marion/assets/marion_school_independence_candidate.jpg",
         "title": "North to the pine country",
-        "caption": "Arizona school travel in 1940; archival context, not the Brenay family.",
+        "caption": "Arizona school travel in 1940.",
         "source": "Russell Lee • Library of Congress • no known restrictions",
         "triggerParagraph": 7,
         "locator": "Mesa → Lakeside • 1940",
@@ -134,7 +134,7 @@
       {
         "src": "biographies/brenay-canada/assets/german_emigrants_hamburg_1874_seam_repaired.png",
         "title": "The Atlantic migration generation",
-        "caption": "German emigrants in the 1870s; archival context, not the Brenay family.",
+        "caption": "German emigrants in the 1870s.",
         "source": "Rights-cleared public archival image • approved presentation treatment",
         "triggerParagraph": 1,
         "locator": "Germany → Ontario • route unresolved",
@@ -252,7 +252,7 @@
       {
         "src": "biographies/brenay-canada/assets/ontario_great_western_station_1867_closer_candidate.jpg",
         "title": "Returning across the border",
-        "caption": "Great Lakes railway travel in the period; archival context, not the Brenay family.",
+        "caption": "Great Lakes railway travel during the period.",
         "source": "Rights-cleared public archival image • approved presentation treatment",
         "triggerParagraph": 5,
         "locator": "Ontario → Michigan • c. 1903",
