@@ -1,0 +1,36 @@
+name: Generate v3.8.19 Fable Reviews
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/v3.8.19-fable-trigger
+
+permissions:
+  contents: read
+
+jobs:
+  generate-reviews:
+    name: Create six revised Fable MP3s
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out approved narration source
+        uses: actions/checkout@v4
+      - name: Confirm protected API key
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: test -n "$OPENAI_API_KEY"
+      - name: Generate review recordings
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node scripts/generate-v3.8.19-fable-reviews.mjs
+      - name: Upload private review package
+        uses: actions/upload-artifact@v4
+        with:
+          name: v3.8.19-fable-reviews-${{ github.run_number }}
+          path: review-output/v3.8.19-fable/
+          if-no-files-found: error
+          retention-days: 14
