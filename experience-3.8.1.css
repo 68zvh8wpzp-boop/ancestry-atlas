@@ -94,6 +94,11 @@ body.tour-story-open .story-scene-photo{
   width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;
   object-fit:contain!important;object-position:center!important
 }
+.story-scene-context-visual{display:none;position:fixed;z-index:5;inset:clamp(96px,14vh,150px) max(18px,5vw) clamp(150px,20vh,220px);place-items:center;background:radial-gradient(circle at 50% 45%,rgba(35,57,71,.36),rgba(0,0,0,.06) 58%,#000 100%)}
+.story-scene-context-visual[aria-hidden="false"]{display:grid}
+.story-scene-context-visual .story-route-map-full{display:block;width:min(92vw,980px)!important;height:auto!important;aspect-ratio:2/1!important;padding:clamp(12px,2.4vw,28px);border:1px solid rgba(219,198,151,.72);background:#07131c;box-shadow:0 20px 70px rgba(0,0,0,.62)}
+body.aa-phone.aa-landscape .story-scene-context-visual{inset:68px max(14px,4vw) 112px}
+body.aa-phone.aa-landscape .story-scene-context-visual .story-route-map-full{width:min(82vw,720px)!important;max-height:52dvh!important}
 body.tour-story-open .story-scene-image.scene-loading::before{
   content:'Preparing family photograph…'!important;display:grid!important;position:absolute!important;inset:0!important;
   z-index:3!important;place-items:center!important;color:#9fb0bb!important;font:600 12px/1.4 system-ui,sans-serif!important;
