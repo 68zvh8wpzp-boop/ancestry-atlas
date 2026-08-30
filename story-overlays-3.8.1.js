@@ -40,20 +40,31 @@
     let stripes='';for(let i=0;i<13;i++)stripes+=`<rect y="${(i*60/13).toFixed(2)}" width="96" height="${(60/13+.15).toFixed(2)}" fill="${i%2===0?'#a92836':'#f3f0e8'}"/>`;
     return `<svg viewBox="0 0 96 60" role="img" aria-label="Thirteen-star United States flag adopted in 1777">${stripes}<rect width="48" height="32.31" fill="#213c68"/>${stars.join('')}</svg>`;
   }
+  function unitedStatesFlag(starCount=48){
+    let stripes='';for(let i=0;i<13;i++)stripes+=`<rect y="${(i*60/13).toFixed(2)}" width="96" height="${(60/13+.15).toFixed(2)}" fill="${i%2===0?'#a92836':'#f3f0e8'}"/>`;
+    const rows=starCount===48?[8,8,8,8,8,8]:starCount===46?[8,7,8,7,8,8]:starCount===45?[8,7,8,7,8,7]:[starCount];
+    const stars=[];const cantonW=40,cantonH=32.31;
+    rows.forEach((count,row)=>{for(let col=0;col<count;col++){const x=(cantonW/(count+1))*(col+1),y=(cantonH/(rows.length+1))*(row+1);stars.push(`<circle cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="1.05" fill="#f3f0e8"/>`)}});
+    return `<svg viewBox="0 0 96 60" role="img" aria-label="United States ${starCount}-star flag">${stripes}<rect width="${cantonW}" height="${cantonH}" fill="#213c68"/>${stars.join('')}</svg>`;
+  }
+  function canadaRedEnsign(){
+    return '<svg viewBox="0 0 96 60" role="img" aria-label="Canadian Red Ensign"><rect width="96" height="60" fill="#a51f2d"/><g transform="scale(.5)"><rect width="96" height="60" fill="#173d70"/><path d="M0 0 96 60M96 0 0 60" stroke="#f3f0e8" stroke-width="13"/><path d="M0 0 96 60M96 0 0 60" stroke="#b32632" stroke-width="6"/><path d="M48 0v60M0 30h96" stroke="#f3f0e8" stroke-width="18"/><path d="M48 0v60M0 30h96" stroke="#b32632" stroke-width="10"/></g><path d="M65 19h18v23H65z" fill="#f1e6c9" stroke="#d8b65b"/><path d="M68 22h12v5H68zm0 8h12v4H68zm0 7h12v3H68z" fill="#b32632"/></svg>';
+  }
   function flagFor(key){
     if(key==='arizona-1917')return {art:arizonaFlag(),caption:'Arizona state flag • adopted 1917'};
-    if(key==='england-st-george')return {art:englandFlag(),caption:'England • theorized origin context only'};
+    if(key==='england-st-george')return {art:englandFlag(),caption:'Flag of England'};
     if(key==='united-states-13-star')return {art:thirteenStarFlag(),caption:'United States • thirteen-star flag adopted June 1777'};
-    if(key==='michigan-1923')return {art:'<div class="story-flag-wordmark">MICHIGAN</div>',caption:'Michigan • state context'};
-    if(key?.startsWith('united-states'))return {art:'<div class="story-flag-wordmark">UNITED STATES</div>',caption:'United States • period flag context'};
-    if(key==='canada-red-ensign'||key==='province-canada')return {art:'<div class="story-flag-wordmark">CANADA</div>',caption:'Canada • historical flag context'};
-    return {art:'<div class="story-flag-wordmark">PLACE</div>',caption:'Historical place context'};
+    const usStars=Number(key?.match(/^united-states-(\d+)-star$/)?.[1]);
+    if(usStars)return {art:unitedStatesFlag(usStars),caption:`United States flag • ${usStars} stars`};
+    if(key==='michigan-1923')return {art:unitedStatesFlag(48),caption:'United States flag • 48 stars, 1912–1959'};
+    if(key==='canada-red-ensign'||key==='province-canada')return {art:canadaRedEnsign(),caption:'Canadian Red Ensign • historical national flag'};
+    return {art:'',caption:''};
   }
   function update(scene){
     currentScene=scene||{};const locator=currentScene.locator||'Family place';
-    title.textContent=locator;locatorLabel.textContent=locator;context.textContent=currentScene.placeContext||currentScene.caption||'';
+    title.textContent=locator;locatorLabel.textContent=locator;context.textContent=currentScene.placeContext||'Location and period associated with this chapter.';
     const flag=flagFor(currentScene.flagKey);flagArt.innerHTML=flag.art;flagCaption.textContent=flag.caption;
-    const marker=markers[currentScene.mapKey];mapFigure.hidden=!marker;
+    const marker=markers[currentScene.mapKey];mapFigure.hidden=!marker;source.textContent='';
     if(marker){
       mapImage.src='assets/arizona_new_mexico_1919_locator.jpg';mapImage.alt='Arizona–New Mexico road map published in 1919';
       mapDot.style.left=`${marker[0]}%`;mapDot.style.top=`${marker[1]}%`;

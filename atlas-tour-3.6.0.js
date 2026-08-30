@@ -1003,13 +1003,13 @@ function mobileExpand(){
 function mobileToggleBranchNames(){
   const anchor=selected||mobileTree.anchor||'you';
   if(mobileTree.labelMode==='focus'){
-    const ids=window.AncestryMobileTreeInternal?.branch?.(anchor,22)||buildNavigationNeighborhood(anchor,'branch');
+    const ids=window.AncestryMobileTreeInternal?.branch?.(anchor,48)||buildNavigationNeighborhood(anchor,'branch');
     window.__mobileTreeVisibleNodeIds=new Set(ids);
     navigationNeighborhood=new Set(ids);
     nodeViewLevel='branch';nodeFocusMode=true;
     selected=anchor;mobileTree.anchor=anchor;mobileTree.mode='branch';mobileTree.labelMode='branch';
     setViewButtons('branch');
-    fitMobileBranch([...ids],anchor);
+    fitMobileBranch([...ids]);
     try{card.style.display='none';sceneContext?.classList.remove('show');draw();}catch(e){}
   }else{
     window.AncestryMobileTreeInternal?.focusIds(anchor,10);

@@ -71,7 +71,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/james_wilford/assets/jay_hooking_logs_portable_mill_family_restored.png",
         "title": "Jay at the portable mill",
-        "caption": "Authentic Webb family photograph captioned ‘Jay hooking logs at the portable mill’ in the autobiography; the source does not specify which figure is Jay. Conservatively descreened and sharpened.",
+        "caption": "‘Jay hooking logs at the portable mill,’ as captioned in Marion Webb’s autobiography.",
         "source": "Approved Webb branch visual • family-photo",
         "triggerParagraph": 5,
         "locator": "Arizona White Mountains • postwar years",
@@ -152,7 +152,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/jonathan_henry/assets/jonathan_white_mountains_family_network_approved.png",
         "title": "A family across the White Mountains",
-        "caption": "Portrait-format USGS topographic base with project-added markers for the five places named in the supported family narrative: Pinedale, Lakeside, Vernon, Snowflake and McNary. The markers show geographic context only; no route, sequence or person-specific residence is inferred from their placement.",
+        "caption": "Pinedale, Lakeside, Vernon, Snowflake and McNary on a United States Geological Survey topographic base.",
         "source": "Approved Webb branch visual • evidence-weighted-topographic-place-view",
         "triggerParagraph": 5,
         "locator": "Arizona White Mountains • family places",
@@ -182,7 +182,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_linden_1847_charcoal_approved.png",
         "title": "Born in northwestern Missouri",
-        "caption": "Northwestern Missouri prairie and oak woodland, with a modest timber dwelling and split-rail fencing in 1847. The setting represents the Linden area, not a specific property, and the distant figures are not identified as Webbs.",
+        "caption": "Prairie, oak woodland, a modest timber dwelling and split-rail fencing evoke the Linden, Missouri, landscape in 1847.",
         "source": "Approved Webb branch visual • approved-charcoal",
         "triggerParagraph": 0,
         "locator": "Linden area, northwestern Missouri • 1847",
@@ -222,7 +222,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_snowflake_academy_students_pre1910_approved.jpg",
         "title": "Building a life in Arizona Territory",
-        "caption": "Public-domain photograph of students at the original dedicated Snowflake Stake Academy building before its destruction by fire in 1910. Edward Milo Webb Jr. opened the academy as its first principal and teacher in 1889, but in a prior log-cabin classroom; this later building represents the institution he helped establish, not his original classroom. Edward is not identified among those pictured.",
+        "caption": "Students at Snowflake Stake Academy before the building was destroyed by fire in 1910. Edward Milo Webb Jr. had opened the academy as its first principal and teacher in 1889.",
         "source": "Approved Webb branch visual • approved-archival-photograph",
         "triggerParagraph": 4,
         "locator": "Snowflake, Arizona Territory • before 1910",
@@ -252,7 +252,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_westward_route_1880_map_approved.jpg",
         "title": "Missouri to the White Mountains",
-        "caption": "Evidence-weighted route graphic on an authentic, rights-cleared 1880 U.S. Geological Survey map. The dashed 1852 line represents the broad Uriah Curtis Company corridor from Missouri through the Platte corridor to the Salt Lake Valley, not an exact daily track. The solid later sequence links documented life places at Salt Lake, Cove Fort, Woodruff and Snowflake without claiming the roads traveled.",
+        "caption": "The Uriah Curtis Company’s broad 1852 corridor from Missouri through the Platte country to Salt Lake Valley, followed by documented family places at Cove Fort, Woodruff and Snowflake.",
         "source": "Approved Webb branch visual • approved-archival-map-with-project-overlay",
         "triggerParagraph": 7,
         "locator": "Missouri → Platte corridor → Utah → Arizona Territory",
@@ -323,7 +323,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/edward_milo_sr/assets/edward_sr_crossing_platte_1859_approved.jpg",
         "title": "The journey ends beside the Platte",
-        "caption": "Albert Bierstadt's 1859 wood engraving Crossing the Platte provides near-period emigrant and South Platte context. Published seven years after Edward's death, it does not depict his company or death, and no figure is identified as a Webb relative.",
+        "caption": "Albert Bierstadt’s 1859 wood engraving, Crossing the Platte, shows emigrant travel in the South Platte country.",
         "source": "Approved Webb branch visual • approved-public-domain-historical-engraving",
         "triggerParagraph": 5,
         "locator": "South Platte emigrant context • published 1859",
@@ -333,7 +333,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/edward_milo_sr/assets/edward_sr_salt_lake_1850_approved.jpg",
         "title": "The family continues west",
-        "caption": "Salt Lake City as represented in 1850, two years before Caroline arrived with the children. The engraving shows the settlement at their destination but does not depict the Webb family or their arrival.",
+        "caption": "Salt Lake City in 1850, two years before Caroline arrived with her children.",
         "source": "Approved Webb branch visual • approved-public-domain-historical-engraving",
         "triggerParagraph": 6,
         "locator": "Salt Lake City as represented in 1850 • family arrived September 1852",

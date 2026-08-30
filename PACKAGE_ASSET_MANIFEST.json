@@ -1,7 +1,7 @@
 {
-  "packageVersion": "3.8.16-family-source-and-scale",
+  "packageVersion": "3.8.17-mobile-museum-labels",
   "inputPackage": "deployed v3.8.15 plus approved family-source, mobile-tree, gallery and narration correctives",
-  "sourceProductionVersion": "3.8.16",
+  "sourceProductionVersion": "3.8.17",
   "releaseStatus": "approved and deployed-ready",
   "narration": {
     "approvedVoice": "OpenAI Fable",

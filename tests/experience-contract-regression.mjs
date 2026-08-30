@@ -25,15 +25,16 @@ requireText(content,"src:'webb_first_car_second_home_c1942.png',\n        title:
 requireText(content,"triggerParagraph:0,\n        locator:'Mesa → St. Johns • 1942–43'",'Sheldon opening must begin with the supported birth-era movement context');
 requireText(content,"src:'webb_first_house_vernon_1945.png'",'Sheldon story must retain the verified Vernon house photograph');
 requireText(content,"src:'returning_servicemen_ss_john_ericsson_1945.jpg'",'Sheldon homecoming beat must use the approved rights-cleared outdoor archival photograph');
-requireText(content,"This national homecoming scene does not depict Jay Webb or his unit",'Sheldon homecoming context must state its evidence boundary without editorial production commentary');
+forbidText(content,"does not depict",'viewer-facing captions must not discuss what an image does not depict');
 requireText(content,"src:'wartime_family_goodbye_1943.jpg'",'Sheldon wartime-separation beat must use the approved rights-cleared period photograph');
-requireText(content,"it does not depict the Webbs",'Sheldon wartime-separation context must state its evidence boundary');
+forbidText(content,"without inventing",'viewer-facing captions must not expose production reasoning');
+forbidText(content,"Evidence-safe",'viewer-facing captions must use museum language rather than workflow language');
 requireText(content,"source:'Family archive • Marion Beulah Brenay Webb life story, p. 17',\n        triggerParagraph:6",'Vernon house must accompany the postwar rebuilding paragraph');
 requireText(content,"source:'Family archive • Marion Beulah Brenay Webb life story, p. 18',\n        triggerParagraph:6,\n        triggerFraction:.52",'Sheldon sibling photograph must follow the rebuilt-house beat within the same paragraph');
 requireText(content,"src:'asc_students_sweethearts_ball_1964.jpg'",'Sheldon story must retain the verified college context');
 requireText(content,"triggerFraction:.55",'Sheldon college context must receive a readable share of its paragraph');
 requireText(content,"src:'charcoal_sheldon_kenny_california_1960_approved.png'",'Sheldon story must include the approved California reconstruction');
-requireText(content,"the boardwalk is not identified as a place they visited, and Kenny’s appearance is not documented",'California reconstruction must state its evidence boundaries');
+requireText(content,"California seaside recreation during Sheldon and Kenny’s 1960 journey",'California reconstruction must use concise museum labeling');
 forbidText(content,"san_diego_highway_1960_65.jpg",'misidentified Las Vegas streetscape must not appear in runtime');
 requireText(overlays,"'arizona-mesa-regional':[29.5,61.8,'Mesa']",'opening locator must mark Mesa at its calibrated archival-map position');
 requireText(overlays,"'mesa-to-st-johns':[45,49,'St. Johns']",'St. Johns locator must retain its calibrated movement endpoint');
@@ -58,6 +59,7 @@ requireText(index,'id="mobileTreeLabels"','phone dock must expose branch-name vi
 requireText(index,'function buildLineageBranch','phone branch names must follow the selected direct lineage');
 requireText(tour,'AncestryMobileTreeInternal?.branch?.(returnId,36)','story exit must restore a complete lineage rather than narration stops only');
 requireText(tour,'AncestryMobileTreeInternal?.branch?.(anchor,36)','Wider Tree must use the complete lineage branch');
+requireText(tour,'AncestryMobileTreeInternal?.branch?.(anchor,48)','All Lineage Names must include the furthest ancestors');
 requireText(index,"if(mobileState?.mode==='branch')",'selecting a person in branch view must preserve branch mode');
 requireText(index,'function fitWholeAtlasMobile','Whole Tree must calculate a genuine all-node phone fit');
 requireText(index,'fitWholeAtlasMobile();draw();return;','Whole Tree must draw from the all-node fit instead of a fixed person zoom');
@@ -75,10 +77,16 @@ requireText(tour,"state.phase='frontier'",'frontier must be a distinct tour phas
 requireText(tour,"state.index===count-1",'frontier entry must appear only at the supported tour endpoint');
 requireText(tour,"const required=['evidenceFor','limitsAndConflicts','recordsNeeded']",'only evidence-complete research frontiers may enter the runtime');
 requireText(tour,'ancestryatlas:frontierclose','frontier exit must return through the tour controller');
-requireText(frontier,'The ordinary guided Webb story ends here.','frontier must identify the supported endpoint');
+requireText(frontier,"frontier.branchId==='webb'?'Webb':'Canadian'",'frontier endpoint language must name the active branch');
 requireText(frontier,'This continuation is a research theory, not an established pedigree.','frontier must state that the chain is theoretical');
 requireText(frontierCss,'border:1px dashed var(--frontier-color','candidate chain must use dashed evidence styling');
 requireText(frontierCss,'.research-frontier-stage.supported{border-style:solid','supported endpoint must remain visually distinct from candidates');
+requireText(css,'max-height:min(30dvh,190px)!important','long phone captions must expand without being cut off');
+forbidText(css,'height:50px!important;max-height:50px!important','phone captions must not return to a fixed-height crop');
+requireText(overlays,'function unitedStatesFlag(starCount=48)','Place must render period United States flags rather than a wordmark');
+forbidText(overlays,'period flag context','Place labels must not expose production shorthand');
+forbidText(overlays,'currentScene.caption||','Place must not recycle narrative photo captions');
+requireText(frontier,'flagTreatmentMarkup','Marion’s Canadian frontier must render its proof-boundary flag treatment');
 
 console.log(JSON.stringify({failures},null,2));
 if(failures.length)process.exitCode=1;
