@@ -11,7 +11,11 @@ vm.runInContext(`${read('atlas-content.js')}\n;globalThis.EXPORTED_MEDIA=TOUR_ME
 for(const file of [
   'biographies/marion/marion-story-module.js',
   'biographies/brenay-canada/brenay-canada-story-modules.js',
+  'biographies/brenay-canada/charles-albert-revision-3.8.19.js',
+  'biographies/brenay-canada/john-mary-revision-3.8.19.js',
+  'biographies/brenay-canada/charles-godfrey-ida-revision-3.8.19.js',
   'biographies/webb-branch/webb-story-modules.js'
+  ,'biographies/webb-branch/jay-distinctness-revision-3.8.19.js'
 ])vm.runInContext(read(file),context);
 
 const productionLanguage=/\b(approved|composition|generated original|project owner|commercial release|cleared or replaced|project-created|presentation treatment|source material|the atlas|behind the scenes|editorial)\b/i;
