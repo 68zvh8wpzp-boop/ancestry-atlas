@@ -87,6 +87,12 @@ requireText(overlays,'function unitedStatesFlag(starCount=48)','Place must rende
 forbidText(overlays,'period flag context','Place labels must not expose production shorthand');
 forbidText(overlays,'currentScene.caption||','Place must not recycle narrative photo captions');
 requireText(frontier,'flagTreatmentMarkup','Marion’s Canadian frontier must render its proof-boundary flag treatment');
+for(const asset of ['story-overlays-3.8.1.css','experience-3.8.1.css','research-frontier-3.8.14.css','atlas-content.js','biographies/research-frontiers-data.js','research-frontier-3.8.14.js','atlas-tour-3.6.0.js','story-overlays-3.8.1.js','experience-3.8.1.js']){
+  requireText(index,`${asset}?v=3.8.18`,`${asset} must use the visible release cache key`);
+}
+forbidText(index,'?v=3.8.16','stale v3.8.16 cache keys must not survive a later release');
+requireText(css,'max-height:min(36dvh,150px)!important','landscape captions must use a readable content-height budget');
+forbidText(css,'right:calc(50vw + var(--story-edge-x))','landscape captions must not be cropped to the left half of the screen');
 
 console.log(JSON.stringify({failures},null,2));
 if(failures.length)process.exitCode=1;

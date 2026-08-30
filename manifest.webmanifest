@@ -2,9 +2,10 @@
   "name": "Ancestry Atlas",
   "short_name": "Ancestry Atlas",
   "description": "A guided audio-visual family history atlas.",
-  "start_url": "./",
+  "start_url": "./?v=3.8.18",
   "scope": "./",
   "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone"],
   "orientation": "any",
   "background_color": "#020609",
   "theme_color": "#020609"
