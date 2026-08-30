@@ -10,7 +10,51 @@
   },
   "assets": [
     {
-      "file": "visual_candidates/marion_1925_journey_candidate.jpg",
+      "file": "assets/marion_child_photo_only_sharpened.jpg",
+      "title": "Marion as a young child",
+      "creator": "Brenay family photographer; unidentified",
+      "date": "Circa 1920s",
+      "repository": "Jay and Marion Life Story family autobiography, page 1",
+      "rights": "Family-provided source; tour use under family project authority",
+      "sha256": "9177b4d05f743c104441fadfffed50856e793efa3441b1af82eff905824f97d7",
+      "use": "Authentic childhood photograph of Marion; approved crop and conservative cleanup",
+      "verification": "Complete"
+    },
+    {
+      "file": "assets/marion_birth_house_candidate_conservative.jpg",
+      "title": "House I was born in",
+      "creator": "Brenay family photographer; unidentified",
+      "date": "Date not stated",
+      "repository": "Jay and Marion Life Story family autobiography, page 1",
+      "rights": "Family-provided source; tour use under family project authority",
+      "sha256": "561073fe7a8f4d00198c79d280c292a6c89110009e09bc662e83313ebba5b922",
+      "use": "Authentic family-source birthplace-house photograph; conservative cleanup",
+      "verification": "Complete"
+    },
+    {
+      "file": "assets/marion_with_diane_candidate_sharpened.jpg",
+      "title": "Me and Diane",
+      "creator": "Webb family photographer; unidentified",
+      "date": "Postwar period; exact date not stated",
+      "repository": "Jay and Marion Life Story family autobiography, page 17",
+      "rights": "Family-provided source; tour use under family project authority",
+      "sha256": "5ac533b39dd983ed76947ecc5a721ac536a38dbc0cc2adf38605bd211c430f80",
+      "use": "Authentic photograph of Marion and Diane; conservative sharpening only",
+      "verification": "Complete"
+    },
+    {
+      "file": "assets/marion_children_family_photo_candidate.jpg",
+      "title": "Drinette, Daphne, Darwin, Diane and Sheldon",
+      "creator": "Webb family photographer; unidentified",
+      "date": "Postwar period; exact date not stated",
+      "repository": "Jay and Marion Life Story family autobiography, page 18",
+      "rights": "Family-provided source; tour use under family project authority",
+      "sha256": "cc3a592e7600e9da34264645545c2cfc0687bd4043e30d375669e28fbb8b02b2",
+      "use": "Authentic Webb children family photograph; conservative cleanup only",
+      "verification": "Complete"
+    },
+    {
+      "file": "assets/marion_1925_journey_candidate.jpg",
       "title": "Mrs. Elmer Thomas, migrant to California, putting the front seat of their truck in place preparatory to departure from Muskogee, Oklahoma",
       "creator": "Russell Lee",
       "date": "1939-07",
@@ -21,7 +65,7 @@
       "verification": "Collection and exact catalog title verified; direct individual Library of Congress item URL remains to be attached before packaging"
     },
     {
-      "file": "visual_candidates/marion_arizona_childhood_candidate.jpg",
+      "file": "assets/marion_arizona_childhood_candidate.jpg",
       "title": "Children at the FSA (Farm Security Administration) Camelback Farms, Phoenix, Arizona",
       "creator": "Russell Lee",
       "date": "1942-02/1942-03",
@@ -34,7 +78,7 @@
       "verification": "Complete"
     },
     {
-      "file": "visual_candidates/marion_school_independence_candidate.jpg",
+      "file": "assets/marion_school_independence_candidate.jpg",
       "title": "Schoolchildren of Concho, Arizona boarding the bus to go to the high school at St. Johns, Arizona",
       "creator": "Russell Lee",
       "date": "1940-09",
@@ -44,6 +88,28 @@
       "reproductionNumber": "LC-USF33-012934-M2",
       "rights": "No known restrictions",
       "use": "Period and regional school-travel context only; not Marion and not Lakeside school",
+      "verification": "Complete"
+    },
+    {
+      "file": "assets/marion_jay_lakeside_period_family_restored.png",
+      "title": "Marion and Jay within the Lakeside-period narrative",
+      "creator": "Webb family photographer; unidentified",
+      "date": "Circa 1940–1941; exact date not printed",
+      "repository": "Jay and Marion Life Story family autobiography, page 13",
+      "rights": "Family-provided source; tour use under family project authority",
+      "sha256": "02a2a4e77d2afd952795287f7138c1ea07ef825256f39c6b1dd1d2bae92ded57",
+      "use": "Authentic family photograph placed within Marion’s account of remaining in Lakeside and preparing to marry; no separate printed photograph caption; conservative restoration only",
+      "verification": "Complete with page-placement limitation preserved"
+    },
+    {
+      "file": "assets/marion_jay_courting_family_restored.png",
+      "title": "Courting",
+      "creator": "Webb family photographer; unidentified",
+      "date": "Before 1941-05-05",
+      "repository": "Jay and Marion Life Story family autobiography, page 10",
+      "rights": "Family-provided source; tour use under family project authority",
+      "sha256": "b2a162f5f3e3e2c4c0ad2df0f2b4a35474a91b387b8959a1eae6b445232931bc",
+      "use": "Authentic Marion Brenay and James Wilford Webb courtship photograph; conservative descreening, contrast correction, and sharpening only",
       "verification": "Complete"
     }
   ]

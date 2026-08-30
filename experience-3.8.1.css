@@ -106,7 +106,10 @@ body.aa-phone.tour-story-open.story-presentation-v360{--story-edge-x:max(10px,2.
 body.aa-phone.tour-story-open.story-presentation-v360 .story-top{right:30%!important}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-top .landing-kicker{font-size:8px!important}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-top h2{font-size:clamp(13px,4.1vw,18px)!important}
-body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-year{font-size:9px!important}
+body.tour-story-open .story-years,body.tour-story-open .story-scene-year{color:#e3c17e!important;font-weight:700!important;letter-spacing:.025em!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-year{font-size:clamp(13px,4vw,18px)!important;line-height:1.05!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-years{font-size:clamp(13px,4vw,18px)!important;line-height:1.1!important}
+body.aa-phone .album-image-unavailable{height:128px;display:grid;place-items:center;border-radius:8px;background:#111b24;color:#aebdca;font:600 11px/1.3 system-ui,sans-serif;text-align:center;padding:10px}
 body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption{
   left:var(--story-edge-x)!important;right:var(--story-edge-x)!important;
   bottom:calc(var(--aa-edge-bottom) + 56px)!important;display:grid!important;gap:2px!important;

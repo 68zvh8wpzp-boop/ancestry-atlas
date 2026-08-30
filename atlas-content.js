@@ -69,29 +69,29 @@ const TOUR_MEDIA = {
     audio: 'approved-audio/fable/James_sheldon_webb.mp3',
     narrator: 'Fable',
     storyReady: true,
-    unavailableLabel: 'Fable narration pending — approved visual preview available',
-    transcript: "James Sheldon Webb was born on April 11, 1943, in Arizona, while the United States was deep in the Second World War. A family photograph from 1941 preserves Jay and Marion together in Mesa, shortly before Sheldon’s birth.\n\nHis parents were James Wilford “Jay” Webb and Marion Beulah Brenay Webb. When Sheldon was born, they were living near the mill in a small one-room shack with a lean-to kitchen. Marion remembered bitter cold, heavy snowstorms, and having to walk about a quarter mile just to reach their car. Another surviving family photograph shows their first car beside the modest home they occupied as their young family began.\n\nBeyond their small community, wartime America was transforming the Southwest. Troops and military equipment moved across Arizona, while scientists at Los Alamos, just across the state line in New Mexico, secretly developed the first atomic weapons. In July 1945, when Sheldon was two, the Trinity test ushered in the atomic age. A United States government photograph of Trinity’s fireball preserves the event itself, while the family remained across the state line in Arizona.\n\nThe war touched Sheldon much more personally when Jay entered the Army. Marion was left with young Sheldon, little money, and no car, and temporarily moved to stay with Jay’s parents. Marion’s 1945 portrait preserves the young mother who held the household together through that separation.\n\nThen Sheldon became seriously ill with measles. Marion remembered him covered with red spots. His condition caused enough concern that Jay was allowed to come home briefly. Sheldon recovered.\n\nWhen Jay eventually returned from the war, Marion remembered Sheldon running down the road to meet his father.\n\nThe postwar years were not immediately easy. Jay struggled to find steady work, and the family moved into an old house they repaired themselves. As Sheldon’s brothers and sisters arrived, the household grew around him. Family photographs preserve this period, including Sheldon together with his siblings. A photograph of the Vernon house records one of the homes the family repaired, and another surviving picture places Sheldon among the brothers and sisters whose arrivals transformed the household around him.\n\nMeanwhile, Arizona was changing rapidly. Highways, automobiles, television, military installations, and Cold War technology were transforming the Southwest. Sheldon grew up between the older world of small-town Arizona and the increasingly modern America emerging after the war.\n\nHe graduated from high school in 1960. Soon afterward, Sheldon and his friend Kenny MacClaron went to California looking for work. Marion recalled that the two young men began considering the Air Force.\n\nSheldon joined and served for about two years before receiving a hardship discharge that allowed him to return home and help his father. He then continued his education and attended college.\n\nIn 1965, Sheldon married Inez Karen Prather, opening the next chapter of the Webb family story. Their 1965 wedding photograph preserves Sheldon and Inez at the beginning of that new chapter.\n\nSheldon’s early life stretched from wartime Arizona through the beginning of the atomic age and the transformation of the postwar Southwest. Behind those enormous events was a more intimate story: a boy growing up amid separation, illness, hard work, family, and extraordinary change.\n\nThat is where Sheldon’s story begins.",
-    contract: 'approved-photo-context-awaiting-fable',
+    unavailableLabel: 'Approved Fable narration is temporarily unavailable',
+    transcript: "James Sheldon Webb was born on April 11, 1943, in Arizona, while the United States was deep in the Second World War. A family photograph of Jay and Marion’s first car beside their modest home preserves the world into which Sheldon was born.\n\nHis parents were James Wilford “Jay” Webb and Marion Beulah Brenay Webb. When Sheldon was born, they were living near the mill in a small one-room shack with a lean-to kitchen. The winter brought bitter cold and heavy snowstorms, and reaching their car required a walk of about a quarter mile.\n\nBeyond their small community, wartime America was transforming the Southwest. Troops and military equipment moved across Arizona, while scientists at Los Alamos, just across the state line in New Mexico, secretly developed the first atomic weapons. In July 1945, when Sheldon was two, the Trinity test ushered in the atomic age. A United States government photograph of Trinity’s fireball preserves the event itself, while the family remained across the state line in Arizona.\n\nThe war touched Sheldon much more personally when Jay entered the Army. Marion was left with young Sheldon, little money, and no car, and temporarily moved to stay with Jay’s parents. The responsibility for holding the household together fell to her during that separation.\n\nThen Sheldon became seriously ill with measles. He was covered with red spots. His condition caused enough concern that Jay was allowed to come home briefly. Sheldon recovered.\n\nWhen Jay eventually returned from the war, Sheldon ran down the road to meet his father.\n\nThe postwar years were not immediately easy. Jay struggled to find steady work, and the family moved into an old house they repaired themselves. As Sheldon’s brothers and sisters arrived, the household grew around him. The Vernon house became one setting for that expanding family, including Drinette, Daphne, Darwin, Diane and Sheldon.\n\nMeanwhile, Arizona was changing rapidly. Highways, automobiles, television, military installations, and Cold War technology were transforming the Southwest. Sheldon grew up between the older world of small-town Arizona and the increasingly modern America emerging after the war.\n\nHe graduated from high school in 1960. Soon afterward, Sheldon and his friend Kenny MacClaron went to California looking for work. The two young men began considering the Air Force.\n\nSheldon joined and served for about two years before receiving a hardship discharge that allowed him to return home and help his father. He then continued his education and attended college.\n\nIn 1965, Sheldon married Inez Karen Prather, opening the next chapter of the Webb family story. Their 1965 wedding photograph preserves Sheldon and Inez at the beginning of that new chapter.\n\nSheldon’s early life stretched from wartime Arizona through the beginning of the atomic age and the transformation of the postwar Southwest. Behind those enormous events was a more intimate story: a boy growing up amid separation, illness, hard work, family, and extraordinary change.\n\nThat is where Sheldon’s story begins.",
+    contract: 'approved-photo-context-fable-locked-2026-08-30',
     visualStatus: 'archival-first',
     audioCandidates: [],
     scenes: [
       {
-        src:'biographies/marion/assets/jay_marion_mesa_1941_restored.jpg',
-        title:'Jay and Marion before Sheldon’s birth',
-        caption:'James Wilford “Jay” Webb and Marion Beulah Brenay Webb in Mesa, 1941.',
-        source:'Family archive • Marion Beulah Brenay Webb life story, p. 14',
+        src:'webb_first_car_second_home_c1942.png',
+        title:'The world into which Sheldon was born',
+        caption:'Jay and Marion’s first car beside their modest home.',
+        source:'Family archive • Marion Beulah Brenay Webb life story, p. 15',
         triggerParagraph:0,
-        locator:'Mesa, Arizona • 1941',flagKey:'arizona-1917',mapKey:'arizona-mesa-regional',
+        locator:'Mesa → St. Johns • 1942–43',flagKey:'arizona-1917',mapKey:'mesa-to-st-johns',
         visualType:'family-photo'
       },
       {
-        src:'webb_first_car_second_home_c1942.png',
-        title:'The family world just before Sheldon’s birth',
-        caption:'Jay and Marion’s first car and second home, immediately before Sheldon’s birth-era story.',
-        source:'Family archive • Marion Beulah Brenay Webb life story, p. 15',
-        triggerParagraph:1,
-        locator:'Mesa → St. Johns • 1942–43',flagKey:'arizona-1917',mapKey:'mesa-to-st-johns',
-        visualType:'family-photo'
+        src:'wwii_armored_training_fort_benning_1942.jpg',
+        title:'Wartime America mobilizes',
+        caption:'Soldiers train with half-track scout cars during the nationwide military mobilization of 1942. The scene is not Arizona, and no Webb family member is pictured.',
+        source:'Alfred T. Palmer • Fort Benning, Georgia • Library of Congress FSA/OWI • public domain',
+        triggerParagraph:2,
+        locator:'United States • April 1942',flagKey:'united-states-48-star',mapKey:'united-states-context',
+        visualType:'archival-photo'
       },
       {
         src:'trinity_test_fireball_16ms.jpg',
@@ -99,17 +99,18 @@ const TOUR_MEDIA = {
         caption:'The Trinity test in New Mexico, 16 July 1945.',
         source:'Berlyn Brixner • U.S. Government • public domain',
         triggerParagraph:2,
+        triggerFraction:.48,
         locator:'Arizona / New Mexico • 1943–45',flagKey:'arizona-1917',mapKey:'southwest-trinity',
         visualType:'archival-photo'
       },
       {
-        src:'marion_webb_1945.png',
-        title:'Marion during the war years',
-        caption:'Marion’s 1945 portrait. Her account describes raising young Sheldon during Jay’s wartime absence.',
-        source:'Family archive • Marion Beulah Brenay Webb life story, p. 16',
+        src:'wartime_family_goodbye_1943.jpg',
+        title:'A wartime family separates',
+        caption:'A serviceman says goodbye to his wife and baby through a bus window in Tennessee in 1943. This period scene represents the separation experienced by American families; it does not depict the Webbs.',
+        source:'Esther Bubley • Office of War Information • Library of Congress FSA/OWI • public domain',
         triggerParagraph:3,
-        locator:'Arizona / Utah • wartime years',flagKey:'arizona-1917',mapKey:'four-corners',
-        visualType:'family-photo'
+        locator:'United States • September 1943',flagKey:'united-states-48-star',mapKey:'united-states-context',
+        visualType:'archival-photo'
       },
       {
         src:'charcoal_childhood_illness_wide.png',
@@ -121,13 +122,13 @@ const TOUR_MEDIA = {
         visualType:'charcoal-alternate'
       },
       {
-        src:'biographies/marion/assets/jay_marion_mesa_1941_restored.jpg',
-        title:'Jay and Marion before the war',
-        caption:'The surviving 1941 family photograph of Jay and Marion. No photograph of Jay’s return or Sheldon running to meet him is known.',
-        source:'Family archive • Marion Beulah Brenay Webb life story, p. 14',
+        src:'returning_servicemen_ss_john_ericsson_1945.jpg',
+        title:'American servicemen return',
+        caption:'Returning American servicemen crowd the SS John Ericsson as it approaches New York in August 1945. This national homecoming scene does not depict Jay Webb or his unit.',
+        source:'Al Ravenna • New York World-Telegram and the Sun • Library of Congress • no known copyright restriction',
         triggerParagraph:5,
-        locator:'Mesa, Arizona • 1941',flagKey:'arizona-1917',mapKey:'arizona-mesa-regional',
-        visualType:'family-photo'
+        locator:'United States • August 1945',flagKey:'united-states-48-star',mapKey:'united-states-context',
+        visualType:'archival-photo'
       },
       {
         src:'webb_first_house_vernon_1945.png',
@@ -158,9 +159,19 @@ const TOUR_MEDIA = {
         visualType:'archival-photo'
       },
       {
+        src:'glen_canyon_first_concrete_1960.jpg',
+        title:'Building the modern Southwest',
+        caption:'Workers mark the first bucket of concrete at Glen Canyon Dam on June 17, 1960.',
+        source:'U.S. Bureau of Reclamation • public-domain federal photograph',
+        triggerParagraph:7,
+        triggerFraction:.52,
+        locator:'Glen Canyon, Arizona • 1960',flagKey:'arizona-1917',mapKey:'arizona-statewide',
+        visualType:'archival-photo'
+      },
+      {
         src:'charcoal_sheldon_kenny_california_1960_approved.png',
         title:'California, 1960',
-        caption:'Interpretive charcoal reconstruction of Sheldon and Kenny in a representative California seaside setting; the boardwalk is not identified as a place they visited, and Kenny’s appearance is not documented.',
+        caption:'A representative California seaside setting for Sheldon and Kenny’s 1960 trip; the boardwalk is not identified as a place they visited, and Kenny’s appearance is not documented.',
         source:'Approved project reconstruction • Sheldon cautiously grounded in family photographs • Kenny non-specific',
         triggerParagraph:8,
         locator:'Arizona → California • 1960',flagKey:'united-states-50-star',mapKey:'arizona-california',

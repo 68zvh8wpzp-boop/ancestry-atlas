@@ -4,30 +4,30 @@ Object.assign(TOUR_MEDIA, {
     "audio": "approved-audio/fable/James_wilford_webb.mp3",
     "narrator": "Fable",
     "storyReady": true,
-    "transcript": "James Wilford Webb, known throughout his life as Jay, was born on October 5, 1924, in Pinedale, Arizona. He was the son of Jonathan Henry Webb and Della Ray, whose lives connected Arizona’s Little Colorado settlements with the agricultural colonies of northern Mexico. Jay entered a high-country world of ponderosa pine, livestock, small farms and long distances between towns.\n\nHis childhood unfolded during the Great Depression. In northeastern Arizona, cash was scarce and family life depended on practical work. Timber and sawmills connected isolated communities to a wider economy, while rough roads and winter weather kept daily life intensely local. Physical work, improvisation and reliance on family became enduring features of Jay’s life.\n\nJay married Marion Beulah Brenay in St. Johns on May 5, 1941. Both were still teenagers. Their early marriage developed within the same mountain sawmill economy in which Jay had grown up, and a surviving family photograph preserves the young couple near the beginning of their life together.\n\nJay became a father when James Sheldon was born in 1943. Work and housing remained closely tied to the mills, and the family moved as employment shifted among the small communities of the White Mountains. An early photograph of their automobile beside a modest house captures the practical scale of those first years.\n\nDuring the Second World War, Jay served in the United States Army. His unit and full service chronology have not yet been established in the available records, leaving important questions about his wartime experience unresolved. His absence nevertheless marked a decisive interruption in the young family’s life before his eventual return.\n\nAfter the war, timber work continued to carry Jay through Vernon, Lakeside, Forestdale and Hilltop. Employment followed the mills, housing was often temporary, and the family repeatedly rebuilt its daily routines in a new place. Jay and Marion endured the death of their infant son, Jamar, and raised Sheldon together with daughters Diane, Drinette, Daphne and DeEdra.\n\nJay lived until 2014. His life stretched from Arizona’s isolated mountain communities before dependable roads to a far more connected modern state. Direct vital records and his military file remain important documentary goals, but the established arc of his life is clear: Depression-era childhood, timber work, wartime service, repeated movement and the sustained work of raising a family in Arizona’s high country.",
+    "transcript": "James Wilford Webb, known throughout his life as Jay, was born on October 5, 1924, in Pinedale, Arizona. He was the son of Jonathan Henry Webb and Della Ray, whose lives connected Arizona’s Little Colorado settlements with the agricultural colonies of northern Mexico. Jay entered a high-country world of ponderosa pine, livestock, small farms and long distances between towns.\n\nHis childhood unfolded during the Great Depression. In northeastern Arizona, cash was scarce and family life depended on practical work. Timber and sawmills connected isolated communities to a wider economy, while rough roads and winter weather kept daily life intensely local. A family photograph of Clarence and Karl working on mill equipment preserves that practical world. Physical work, improvisation and reliance on family became enduring features of Jay’s life.\n\nJay married Marion Beulah Brenay in St. Johns on May 5, 1941. Both were still teenagers. Their early marriage developed within the same mountain sawmill economy in which Jay had grown up, and a surviving family photograph preserves the young couple near the beginning of their life together.\n\nJay became a father when James Sheldon was born in 1943. Work and housing remained closely tied to the mills, and the family moved as employment shifted among the small communities of the White Mountains. A family photograph shows logs arriving at the Vernon mill, with Jay standing atop the load and Darcine sitting on the truck cab.\n\nDuring the Second World War, Jay served in the United States Army. His 1944 portrait records him as a young private. A later family photograph identifies Staff Sergeant James W. Webb guarding German prisoners of war at Rognac, France, in 1946. His unit and full service chronology have not yet been established in the available records, leaving important questions about his wartime experience unresolved. His absence nevertheless marked a decisive interruption in the young family’s life before his eventual return.\n\nAfter the war, timber work continued to carry Jay through Vernon, Lakeside, Forestdale and Hilltop. Employment followed the mills, housing was often temporary, and the family repeatedly rebuilt its daily routines in a new place. A family photograph records Jay hooking logs at a portable mill. Jay and Marion endured the death of their infant son, Jamar, and raised Sheldon together with daughters Diane, Drinette, Daphne and DeEdra.\n\nA 1953 photograph preserves Jay in the middle years of that working life. He lived until 2014. His life stretched from Arizona’s isolated mountain communities before dependable roads to a far more connected modern state. Direct vital records and his military file remain important documentary goals, but the established arc of his life is clear: Depression-era childhood, timber work, wartime service, repeated movement and the sustained work of raising a family in Arizona’s high country.",
     "contract": "approved-webb-branch-production",
     "visualStatus": "approved-and-runtime-integrated",
     "audioCandidates": [],
     "scenes": [
       {
-        "src": "biographies/webb-branch/people/james_wilford/assets/jay_pinedale_1924_charcoal_approved.png",
-        "title": "Born in Arizona’s pine country",
-        "caption": "Wide observational charcoal of Pinedale, Arizona, in 1924; forest-edge settlement, no invented likenesses.",
-        "source": "Approved Webb branch visual • approved-charcoal",
+        "src": "biographies/webb-branch/people/james_wilford/assets/jay_baby_1924_family_restored.png",
+        "title": "Jay’s earliest years",
+        "caption": "Authentic Webb family photograph of James Wilford Webb as a baby, reproduced from page 21 of the family autobiography and conservatively descreened and sharpened without reconstructed detail.",
+        "source": "Approved Webb branch visual • family-photo",
         "triggerParagraph": 0,
-        "locator": "Pinedale, Arizona • 1924",
+        "locator": "Pinedale, Arizona • circa 1924–1925",
         "flagKey": "arizona-1917",
-        "visualType": "approved-charcoal"
+        "visualType": "family-photo"
       },
       {
-        "src": "biographies/webb-branch/people/james_wilford/assets/jay_depression_timber_context_approved.png",
-        "title": "Work in the high country",
-        "caption": "Depression-era northern Arizona timber-work context; tiny figures are ambiguous and no person is presented as family.",
-        "source": "Approved Webb branch visual • approved-charcoal",
+        "src": "biographies/webb-branch/people/james_wilford/assets/clarence_karl_mill_equipment_family_restored.png",
+        "title": "Work around the mills",
+        "caption": "Authentic Webb family photograph captioned ‘Clarence and Karl working on equipment’ in the autobiography; used as family mill context and not presented as depicting Jay or a specific childhood date.",
+        "source": "Approved Webb branch visual • family-photo",
         "triggerParagraph": 1,
-        "locator": "Navajo County, Arizona • 1930s",
+        "locator": "Vernon mill context • date unstated",
         "flagKey": "arizona-1917",
-        "visualType": "approved-charcoal"
+        "visualType": "family-photo"
       },
       {
         "src": "biographies/marion/assets/jay_marion_mesa_1941_restored.jpg",
@@ -39,40 +39,52 @@ Object.assign(TOUR_MEDIA, {
         "visualType": "family-photo"
       },
       {
-        "src": "webb_first_car_second_home_c1942.png",
-        "title": "A young family near the mill",
+        "src": "biographies/webb-branch/people/james_wilford/assets/jay_vernon_mill_incoming_logs_family_restored.png",
+        "title": "Logs arriving at the Vernon mill",
+        "caption": "Authentic Webb family photograph captioned in the autobiography as logs coming into the Vernon mill, with Jay atop the logs and Darcine atop the truck cab; conservatively descreened and sharpened.",
         "source": "Approved Webb branch visual • family-photo",
         "triggerParagraph": 3,
-        "locator": "Arizona White Mountains • early 1940s",
+        "locator": "Vernon, Arizona • before 1950",
         "flagKey": "arizona-1917",
         "visualType": "family-photo"
       },
       {
-        "src": "biographies/webb-branch/people/james_wilford/assets/jay_wartime_mail_1944_approved.jpeg",
-        "title": "The wartime separation",
-        "caption": "U.S. Army Signal Corps context photograph of Pvt. Walter E. Przybyla writing Christmas cards in Germany on 30 November 1944. Jay is not pictured; the image makes no claim about Jay's unit or location.",
-        "source": "Approved Webb branch visual • rights-cleared-archival-photo",
+        "src": "biographies/webb-branch/people/james_wilford/assets/jay_private_1944_family_restored.png",
+        "title": "Private James W. Webb",
+        "caption": "Authentic 1944 Army portrait of James Wilford Webb, reproduced at its complete printed photograph boundaries from page 29 of the family autobiography and conservatively descreened and sharpened.",
+        "source": "Approved Webb branch visual • family-photo",
         "triggerParagraph": 4,
-        "locator": "United States Army • Second World War",
+        "locator": "United States Army • 1944",
         "flagKey": "arizona-1917",
-        "visualType": "rights-cleared-archival-photo"
+        "visualType": "family-photo"
       },
       {
-        "src": "biographies/webb-branch/people/james_wilford/assets/jay_postwar_arizona_logging_1951_approved.jpg",
-        "title": "Following the mills",
-        "caption": "Photo-only crop, zoomed 30 percent, from a 6 August 1951 USDA Forest Service photograph of workers loading ponderosa logs with a truck-mounted crane at Fort Valley Experimental Forest. Jay is not pictured and the scene is regional context, not his precise camp.",
-        "source": "Approved Webb branch visual • rights-cleared-archival-photo",
+        "src": "biographies/webb-branch/people/james_wilford/assets/jay_staff_sergeant_rognac_1946_family_restored.png",
+        "title": "Staff Sergeant Webb at Rognac",
+        "caption": "Authentic family photograph captioned as Staff Sergeant James W. Webb guarding German prisoners of war at Rognac, France, in 1946; complete printed photograph retained and conservatively restored.",
+        "source": "Approved Webb branch visual • family-photo",
+        "triggerParagraph": 4,
+        "locator": "Rognac, France • 1946",
+        "flagKey": "arizona-1917",
+        "visualType": "family-photo"
+      },
+      {
+        "src": "biographies/webb-branch/people/james_wilford/assets/jay_hooking_logs_portable_mill_family_restored.png",
+        "title": "Jay at the portable mill",
+        "caption": "Authentic Webb family photograph captioned ‘Jay hooking logs at the portable mill’ in the autobiography; the source does not specify which figure is Jay. Conservatively descreened and sharpened.",
+        "source": "Approved Webb branch visual • family-photo",
         "triggerParagraph": 5,
-        "locator": "Northern Arizona timber country • 1951",
+        "locator": "Arizona White Mountains • postwar years",
         "flagKey": "arizona-1917",
-        "visualType": "rights-cleared-archival-photo"
+        "visualType": "family-photo"
       },
       {
-        "src": "biographies/marion/assets/marion_children_family_photo_candidate.jpg",
-        "title": "A life held together through change",
+        "src": "biographies/webb-branch/people/james_wilford/assets/jay_1953_family_restored.png",
+        "title": "Jay in 1953",
+        "caption": "Authentic full-length photograph captioned ‘Me in 1953’ in the family autobiography; complete printed photograph retained and conservatively descreened and sharpened.",
         "source": "Approved Webb branch visual • family-photo",
         "triggerParagraph": 6,
-        "locator": "Arizona • postwar family",
+        "locator": "Arizona • 1953",
         "flagKey": "arizona-1917",
         "visualType": "family-photo"
       }
@@ -90,7 +102,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/jonathan_henry/assets/jonathan_woodruff_1886_charcoal_approved.png",
         "title": "Born beside the Little Colorado",
-        "caption": "Wide observational charcoal of the Little Colorado floodplain, irrigation and a sparse Woodruff-area settlement in 1886. Approved after a 30 percent zoom followed by an additional 15 percent zoom (49.5 percent tighter than the original composition); distant figures are ambiguous and no family likeness is claimed.",
+        "caption": "The Little Colorado floodplain, irrigation and a sparse Woodruff-area settlement in 1886. The distant figures are unidentified and no family likeness is claimed.",
         "source": "Approved Webb branch visual • approved-charcoal",
         "triggerParagraph": 0,
         "locator": "Woodruff, Arizona Territory • 1886",
@@ -120,7 +132,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/jonathan_henry/assets/jonathan_route_unresolved_map_1913_approved.jpg",
         "title": "A route left unresolved",
-        "caption": "Approved crop from Rand McNally's 1913 United States map in the Atlas of the Mexican Conflict, with project-added endpoint markers for Pinedale, Arizona, and Colonia Morelos, Sonora. The dotted curve is explicitly conceptual: it does not claim an exact road, migration date or immediate cause.",
+        "caption": "Rand McNally's 1913 United States map marks Pinedale, Arizona, and Colonia Morelos, Sonora. The dotted curve shows only the broad connection between those endpoints; the exact road, migration date and immediate cause remain unresolved.",
         "source": "Approved Webb branch visual • rights-cleared-archival-map",
         "triggerParagraph": 3,
         "locator": "Colonia Morelos, Sonora → Pinedale, Arizona • route and date unresolved",
@@ -170,7 +182,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_linden_1847_charcoal_approved.png",
         "title": "Born in northwestern Missouri",
-        "caption": "Wide observational charcoal of gently rolling northwestern Missouri prairie and oak woodland, a modest timber dwelling, split-rail fencing and tiny ambiguous figures in 1847. The approved composition is 40 percent tighter than the generated original. It is broad Linden-area context, not a specific property, and no Webb likeness is claimed.",
+        "caption": "Northwestern Missouri prairie and oak woodland, with a modest timber dwelling and split-rail fencing in 1847. The setting represents the Linden area, not a specific property, and the distant figures are not identified as Webbs.",
         "source": "Approved Webb branch visual • approved-charcoal",
         "triggerParagraph": 0,
         "locator": "Linden area, northwestern Missouri • 1847",
@@ -190,7 +202,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_platte_loss_1852_charcoal_approved.png",
         "title": "A father lost beside the Platte",
-        "caption": "Restrained charcoal landscape of a paused 1852 ox-wagon company beside the broad Platte River at late-summer evening. The approved composition is 40 percent tighter than the generated original. It establishes the documented setting of Edward Sr.'s death without depicting a body, illness, burial, grave, mourning pose or identifiable Webb relative.",
+        "caption": "An 1852 ox-wagon company pauses beside the Platte River at late-summer evening. The landscape establishes the documented setting of Edward Sr.'s death without depicting his illness, death or burial or identifying any figure as a Webb relative.",
         "source": "Approved Webb branch visual • approved-charcoal",
         "triggerParagraph": 2,
         "locator": "Platte River, Nebraska Territory • July 31, 1852",
@@ -200,7 +212,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_cove_fort_1867_charcoal_approved.png",
         "title": "Coming of age in Utah Territory",
-        "caption": "Wide observational charcoal reconstruction of communal construction at Cove Fort in 1867, with anonymous settler laborers, unfinished volcanic-stone walls, timber gate, scaffolding and an ox wagon. The approved composition is 30 percent tighter than the generated original. It provides context for the historical account placing Edward at Cove Fort without identifying any worker as Edward or converting his reported task into depicted fact.",
+        "caption": "Communal construction at Cove Fort in 1867, with unidentified laborers, unfinished volcanic-stone walls, a timber gate, scaffolding and an ox wagon. Edward is documented at Cove Fort, but no worker shown is identified as him.",
         "source": "Approved Webb branch visual • approved-charcoal",
         "triggerParagraph": 3,
         "locator": "Cove Fort, Utah Territory • 1867",
@@ -220,7 +232,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_sarah_children_1891_family_use.png",
         "title": "The line through Sarah Carling",
-        "caption": "Authentic 1891 A. Miller photograph of Sarah Elizabeth Carling Webb with Clark, Jonathan Henry (identified as Henry), Burr, Owen and Catherine. Approved by the project owner for public, noncommercial display in the family Atlas. Commercial release is blocked until the photograph is cleared or replaced.",
+        "caption": "Sarah Elizabeth Carling Webb with Clark, Jonathan Henry—captioned Henry—Burr, Owen and Catherine in an 1891 A. Miller family photograph.",
         "source": "Approved Webb branch visual • authentic-family-photograph-family-use",
         "triggerParagraph": 5,
         "locator": "Arizona Territory • 1891",
@@ -230,7 +242,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_death_date_evidence_approved.png",
         "title": "A date in conflict",
-        "caption": "Project-created evidence comparison. It grades 11 September 1921 as strongly supported by the Utah death-certificate index, the published Webb family-history account and derivative records. It preserves 4 April 1924 as a documented anomaly from one Church History Biographical Database field, noting that the same profile captions Edward 1847–1921. The direct certificate image remains to be attached.",
+        "caption": "The date 11 September 1921 is strongly supported by the Utah death-certificate index and published Webb family history. One Church History Biographical Database field instead reports 4 April 1924, although the same profile captions Edward 1847–1921. The direct certificate image remains an evidence target.",
         "source": "Approved Webb branch visual • approved-evidence-comparison",
         "triggerParagraph": 6,
         "locator": "Murray, Utah • 1921 evidence with 1924 anomaly",
@@ -301,7 +313,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/edward_milo_sr/assets/edward_sr_uriah_curtis_company_1852_approved.jpg",
         "title": "The Uriah Curtis Company",
-        "caption": "Approved crop of the authentic 4 July 1852 company report showing Edward Milo Webb, Caroline Amelia Webb, Mary Jane Webb, Cordelia, Marcellus, Edward Jr. and young Caroline as a traveling household. James Hofer appears as the continuation entry at the top of the following manuscript page and is therefore not visible in this crop. The crop preserves the manuscript only; no handwriting or tabulation has been reconstructed.",
+        "caption": "The 4 July 1852 company report lists Edward Milo Webb, Caroline Amelia Webb, Mary Jane Webb, Cordelia, Marcellus, Edward Jr. and young Caroline as a traveling household. James Hofer appears on the following manuscript page and is not visible here.",
         "source": "Approved Webb branch visual • approved-authentic-company-report",
         "triggerParagraph": 4,
         "locator": "Uriah Curtis's 16th Company of 50 • report dated 4 July 1852",
@@ -311,7 +323,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/edward_milo_sr/assets/edward_sr_crossing_platte_1859_approved.jpg",
         "title": "The journey ends beside the Platte",
-        "caption": "Approved crop of Albert Bierstadt's 1859 wood engraving Crossing the Platte, published seven years after Edward's death. It provides near-period emigrant and South Platte context, not a depiction of Edward's company or death; no visible person is identified as a Webb relative and no cause of death is implied.",
+        "caption": "Albert Bierstadt's 1859 wood engraving Crossing the Platte provides near-period emigrant and South Platte context. Published seven years after Edward's death, it does not depict his company or death, and no figure is identified as a Webb relative.",
         "source": "Approved Webb branch visual • approved-public-domain-historical-engraving",
         "triggerParagraph": 5,
         "locator": "South Platte emigrant context • published 1859",
@@ -321,7 +333,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/edward_milo_sr/assets/edward_sr_salt_lake_1850_approved.jpg",
         "title": "The family continues west",
-        "caption": "Approved crop of the public-domain engraving Salt Lake City in 1850, preserved by the U.S. National Archives and published by Samuel Manning in 1876. It shows the material and settlement context of the family's destination two years before Caroline arrived with the children; it does not depict Caroline, the Webb family or their precise arrival.",
+        "caption": "Salt Lake City as represented in 1850, two years before Caroline arrived with the children. The engraving shows the settlement at their destination but does not depict the Webb family or their arrival.",
         "source": "Approved Webb branch visual • approved-public-domain-historical-engraving",
         "triggerParagraph": 6,
         "locator": "Salt Lake City as represented in 1850 • family arrived September 1852",
@@ -331,7 +343,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/edward_milo_sr/assets/edward_sr_proof_frontier_approved.png",
         "title": "Approaching the proof frontier",
-        "caption": "Project-created evidence transition using the Atlas's canonical confidence colors. It shows Edward Milo Webb Sr.'s supported relationship to James Webb Jr. and Hannah Griswold, then dims generically above James Jr. without naming or promoting the unresolved parent couple or deeper ancestry.",
+        "caption": "Edward Milo Webb Sr.'s supported relationship to James Webb Jr. and Hannah Griswold remains illuminated. The generations above James Jr. dim because the proposed parent couple and deeper ancestry remain unresolved.",
         "source": "Approved Webb branch visual • approved-project-created-evidence-transition",
         "triggerParagraph": 7,
         "locator": "Webb proof frontier • supported line through James Webb Jr.",
@@ -352,7 +364,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/james_webb_jr/assets/james_jr_connecticut_1777_charcoal_approved.png",
         "title": "Connecticut during the Revolution",
-        "caption": "Approved 40-percent tighter observational charcoal of a representative rural Connecticut settlement circa 1777; no exact town, homestead or Webb likeness is claimed.",
+        "caption": "A representative rural Connecticut settlement circa 1777. The exact town and homestead are unresolved, and no figure is identified as a Webb family member.",
         "source": "Approved Webb branch visual • approved-observational-charcoal",
         "triggerParagraph": 0,
         "locator": "Connecticut • 1777",
@@ -372,7 +384,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/james_webb_jr/assets/james_jr_connecticut_hanover_map_approved.png",
         "title": "From Connecticut to western New York",
-        "caption": "Project-created period-style regional map with consistent high-contrast Atlas locator labels. The dotted connection shows only the supported Connecticut-to-Hanover migration corridor; the exact route is unresolved.",
+        "caption": "The dotted connection marks the supported Connecticut-to-Hanover migration corridor; the exact route remains unresolved.",
         "source": "Approved Webb branch visual • approved-project-created-period-map",
         "triggerParagraph": 2,
         "locator": "East Hampton / Chatham → Hanover • exact route unresolved",
@@ -382,7 +394,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/james_webb_jr/assets/james_jr_unresolved_parent_couple_approved.svg",
         "title": "The unresolved parent couple",
-        "caption": "Project-created two-name evidence card. James Webb Sr. remains a reported father awaiting decisive original evidence; the Elizabeth Douglas identity conflict is explicit. Neither person is promoted into the supported pedigree.",
+        "caption": "James Webb Sr. remains a reported father awaiting decisive original evidence, while the identity of Elizabeth Douglas is conflicted. Neither person belongs in the supported pedigree yet.",
         "source": "Approved Webb branch visual • approved-project-created-evidence-card",
         "triggerParagraph": 4,
         "locator": "Webb parentage problem • unresolved",
@@ -392,7 +404,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/james_webb_jr/assets/james_jr_proof_boundary_flags_approved.png",
         "title": "Where the public pedigree stops",
-        "caption": "Project-created proof-boundary composite. A faded England flag contextualizes the theorized older leads; the Grand Union/Continental Colors below is appropriate to James Jr.'s March 1777 birth. The unresolved parents remain clearly separated from the supported frontier at James Jr.",
+        "caption": "A faded England flag marks the theorized older leads, while the Grand Union or Continental Colors reflects the world of James Jr.'s March 1777 birth. The unresolved parents remain separated from the supported frontier at James Jr.",
         "source": "Approved Webb branch visual • approved-project-created-evidence-composite",
         "triggerParagraph": 5,
         "locator": "England leads → colonial Connecticut • proof boundary",
@@ -402,7 +414,7 @@ Object.assign(TOUR_MEDIA, {
       {
         "src": "biographies/webb-branch/people/james_webb_jr/assets/james_jr_connecticut_dusk_approved.png",
         "title": "The present edge of the Webb story",
-        "caption": "Approved dusk transformation of the opening Connecticut scene. It closes at the supported frontier without claiming a person, homestead or route beyond James Jr.",
+        "caption": "The Connecticut landscape darkens at the supported frontier, without claiming a person, homestead or route beyond James Jr.",
         "source": "Approved Webb branch visual • approved-observational-charcoal-bookend",
         "triggerParagraph": 7,
         "locator": "Connecticut • present proof frontier",

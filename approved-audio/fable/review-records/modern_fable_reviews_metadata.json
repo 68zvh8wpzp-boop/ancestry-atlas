@@ -1,0 +1,41 @@
+{
+  "generatedOn": "2026-08-30",
+  "biographies": [
+    {
+      "id": "james_sheldon",
+      "name": "James Sheldon Webb",
+      "source": "biographies/sheldon/narration-approved-photo-context.txt",
+      "output": "James_sheldon_webb_fable_review.mp3",
+      "transcriptCharacters": 3066,
+      "transcriptSha256": "8c68cb3f6043ea91b27776391f512231a641023d9219b2b14aa42bd6d2eee17a",
+      "audioSha256": "27b94fabb0b7df9df7e86b715b63c759b367930f8f4a3d90be76bc7b4ba3de76",
+      "model": "gpt-4o-mini-tts",
+      "voice": "fable",
+      "status": "approved by project owner 2026-08-30; promoted to live filename"
+    },
+    {
+      "id": "marion_brenay",
+      "name": "Marion Beulah Brenay Webb",
+      "source": "biographies/marion/narration-approved-photo-context.txt",
+      "output": "Marion_beulah_brenay_webb_fable_review.mp3",
+      "transcriptCharacters": 3363,
+      "transcriptSha256": "26bdbbcc9ff2334315ad6a3e505597dee5ddc9955df794f45646c63f25251726",
+      "audioSha256": "56d690bfbc3dcb7e15ee79357c1985a26725048cebe54c2dcef100036b028f17",
+      "model": "gpt-4o-mini-tts",
+      "voice": "fable",
+      "status": "approved by project owner 2026-08-30; promoted to live filename"
+    },
+    {
+      "id": "james_wilford",
+      "name": "James Wilford “Jay” Webb",
+      "source": "biographies/webb-branch/people/james_wilford/narration-approved.txt",
+      "output": "James_wilford_webb_fable_review.mp3",
+      "transcriptCharacters": 2920,
+      "transcriptSha256": "77348374eafbf3571092dda94449ebef9bdfb70557bcebcb40feb8625074343f",
+      "audioSha256": "ac1de91b347d9eb592f1b38484c3b6dea9e5dfa1eccc528dcf64076cd6acb8a5",
+      "model": "gpt-4o-mini-tts",
+      "voice": "fable",
+      "status": "approved by project owner 2026-08-30; promoted to live filename"
+    }
+  ]
+}

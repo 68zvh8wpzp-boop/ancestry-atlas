@@ -1,17 +1,18 @@
 {
-  "packageVersion": "3.8.15-sheldon-visual-corrective",
-  "inputPackage": "deployed v3.8.14 plus approved James Wilford and Sheldon visual corrective",
-  "sourceProductionVersion": "3.8.15",
-  "releaseStatus": "approved James Wilford image repair and Sheldon visual-sequence corrective integrated; narration and evidence boundaries preserved",
+  "packageVersion": "3.8.16-family-source-and-scale",
+  "inputPackage": "deployed v3.8.15 plus approved family-source, mobile-tree, gallery and narration correctives",
+  "sourceProductionVersion": "3.8.16",
+  "releaseStatus": "approved and deployed-ready",
   "narration": {
     "approvedVoice": "OpenAI Fable",
     "model": "gpt-4o-mini-tts",
-    "status": "approved-archived-and-runtime-integrated",
+    "status": "all twelve Fable recordings approved, checksummed and runtime-integrated; revised James Wilford, Marion, and Sheldon recordings approved 2026-08-30",
     "browserSpeechAllowed": false,
     "previousAlfiePackageUntouched": true,
     "archivePath": "approved-audio/fable",
     "approvalRecord": "approved-audio/fable/APPROVAL.md",
     "checksumRecord": "approved-audio/fable/SHA256SUMS.txt",
+    "modernFamilyReviewRecord": "approved-audio/fable/review-records/modern_fable_reviews_metadata.json",
     "expectedFiles": [
       "James_sheldon_webb.mp3",
       "Marion_beulah_brenay_webb.mp3",
@@ -68,6 +69,10 @@
     ,"RELEASE_NOTES_v3_8_2_GOVERNANCE.md"
     ,"approved-audio/fable/APPROVAL.md"
     ,"approved-audio/fable/SHA256SUMS.txt"
+    ,"approved-audio/fable/review-records/modern_fable_reviews_metadata.json"
+    ,"approved-audio/fable/review-records/James_sheldon_webb_fable_review_transcript.txt"
+    ,"approved-audio/fable/review-records/Marion_beulah_brenay_webb_fable_review_transcript.txt"
+    ,"approved-audio/fable/review-records/James_wilford_webb_fable_review_transcript.txt"
     ,"approved-audio/fable/James_sheldon_webb.mp3"
     ,"approved-audio/fable/Marion_beulah_brenay_webb.mp3"
     ,"approved-audio/fable/Charles_albert_brenay.mp3"
@@ -103,17 +108,23 @@
     ,"biographies/webb-branch/webb-story-modules.js"
     ,"scripts/build-webb-runtime.mjs"
     ,"PRODUCTION_CONTRACT_v3_8_13.md"
+    ,"PRODUCTION_CONTRACT_v3_8_16_FAMILY_SOURCE_AND_SCALE.md"
+    ,"RELEASE_NOTES_v3_8_16_FAMILY_SOURCE_AND_SCALE.md"
     ,"RELEASE_NOTES_v3_8_13_WEBB_RUNTIME_HYGIENE.md"
   ],
   "approvedBiographyAssets": [
     "jay_marion_mesa_1941.png",
     "webb_first_car_second_home_c1942.png",
+    "wwii_armored_training_fort_benning_1942.jpg",
+    "returning_servicemen_ss_john_ericsson_1945.jpg",
+    "wartime_family_goodbye_1943.jpg",
     "trinity_test_fireball_16ms.jpg",
     "marion_webb_1945.png",
     "charcoal_childhood_illness_wide.png",
     "webb_first_house_vernon_1945.png",
     "james_sheldon_with_siblings_c1951.png",
     "postwar_arizona_road_1950.jpg",
+    "glen_canyon_first_concrete_1960.jpg",
     "charcoal_sheldon_kenny_california_1960_approved.png",
     "usaf_flightline_airmen_1962.jpg",
     "asc_students_sweethearts_ball_1964.jpg",
@@ -127,7 +138,15 @@
     "biographies/marion/assets/marion_webb_1945_restored.jpg",
     "biographies/marion/assets/marion_with_diane_candidate_sharpened.jpg",
     "biographies/marion/assets/marion_children_family_photo_candidate.jpg",
-    "biographies/marion/assets/marion_family_historian_candidate.jpg",
+    "biographies/marion/assets/marion_jay_courting_family_restored.png",
+    "biographies/marion/assets/marion_jay_lakeside_period_family_restored.png",
+    "biographies/webb-branch/people/james_wilford/assets/jay_vernon_mill_incoming_logs_family_restored.png",
+    "biographies/webb-branch/people/james_wilford/assets/jay_baby_1924_family_restored.png",
+    "biographies/webb-branch/people/james_wilford/assets/jay_hooking_logs_portable_mill_family_restored.png",
+    "biographies/webb-branch/people/james_wilford/assets/jay_private_1944_family_restored.png",
+    "biographies/webb-branch/people/james_wilford/assets/jay_staff_sergeant_rognac_1946_family_restored.png",
+    "biographies/webb-branch/people/james_wilford/assets/jay_1953_family_restored.png",
+    "biographies/webb-branch/people/james_wilford/assets/clarence_karl_mill_equipment_family_restored.png",
     "biographies/brenay-canada/assets/arnstein_observational_charcoal_approved.png",
     "biographies/brenay-canada/assets/alpena_churchill_lumber_1912_candidate.jpg",
     "biographies/brenay-canada/assets/alpena_fire_aftermath_1872_web.jpg",
