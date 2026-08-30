@@ -34,6 +34,7 @@ const els={
   landing:$('landing'),
   sceneStrip:$('storySceneStrip'),
   scenePhoto:$('storyScenePhoto'),
+  sceneContextVisual:$('storySceneContextVisual'),
   sceneArt:$('storySceneArt'),
   sceneTitle:$('storySceneTitle'),
   sceneCaption:$('storySceneCaption'),
@@ -550,11 +551,24 @@ function showStoryScene(media,index){
   const img=els.scenePhoto;
   const contextOnly=!scene.src;
   els.sceneStrip.classList.toggle('context-only',contextOnly);
+  if(els.sceneContextVisual){
+    els.sceneContextVisual.replaceChildren();
+    els.sceneContextVisual.setAttribute('aria-hidden','true');
+  }
 
   if(contextOnly){
     if(img){
       img.removeAttribute('src');
       img.style.display='none';
+    }
+    if(els.sceneContextVisual&&scene.visualType==='map-only'){
+      const renderedMap=document.querySelector('#storyContextRibbon .story-route-map');
+      if(renderedMap){
+        const fullMap=renderedMap.cloneNode(true);
+        fullMap.classList.add('story-route-map-full');
+        els.sceneContextVisual.appendChild(fullMap);
+        els.sceneContextVisual.setAttribute('aria-hidden','false');
+      }
     }
     els.sceneStrip.classList.add('show');
     els.sceneStrip.setAttribute('aria-hidden','false');
@@ -562,6 +576,7 @@ function showStoryScene(media,index){
   }
 
   if(!img) return;
+  if(els.sceneContextVisual)els.sceneContextVisual.setAttribute('aria-hidden','true');
   const sceneImage=preloadScene(scene);
   const frame=img.parentElement;
   frame.dataset.sceneUrl=sceneImage.url;
