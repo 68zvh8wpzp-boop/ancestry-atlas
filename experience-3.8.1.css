@@ -166,7 +166,9 @@ body.aa-phone.tour-story-open.story-presentation-v360 .story-slideshow-toggle{ri
 /* Short landscape viewports, including mirrored iPhone Safari. */
 body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-top{right:23%!important}
 body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-scene-caption{
-  right:calc(50vw + var(--story-edge-x))!important;bottom:calc(var(--aa-edge-bottom) + 44px)!important;max-height:88px!important;white-space:normal!important
+  left:var(--story-edge-x)!important;right:var(--story-edge-x)!important;
+  bottom:calc(var(--aa-edge-bottom) + 42px)!important;min-height:0!important;max-height:min(36dvh,150px)!important;
+  white-space:normal!important;overflow-y:auto!important
 }
 body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-controls{
   right:auto!important;width:min(310px,48vw)!important;grid-template-rows:2px 34px!important
@@ -175,6 +177,18 @@ body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-contro
 body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-context-ribbon{
   left:auto!important;top:auto!important;max-width:42vw!important
 }
+body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-scene-caption b,
+body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-scene-caption span{
+  font-size:clamp(9px,1.55vw,11px)!important;line-height:1.22!important
+}
+
+/* Safari supplies only the visual viewport while its landscape toolbar is
+   visible. Keep every story surface inside that measured region; Home Screen
+   launch uses the manifest's bar-free fullscreen/standalone presentation. */
+body.aa-phone.aa-landscape.tour-story-open #storyModal,
+body.aa-phone.aa-landscape.tour-story-open #storySceneStrip,
+body.aa-phone.aa-landscape.tour-story-open .story-scene-frame,
+body.aa-phone.aa-landscape.tour-story-open .story-scene-image{height:var(--aa-visible-height)!important}
 
 /* Across-room scaling without hard-coding 1080p or 4K. */
 body.aa-large-display.tv-mode #card{font-size:clamp(17px,1.05vw,30px)!important}
