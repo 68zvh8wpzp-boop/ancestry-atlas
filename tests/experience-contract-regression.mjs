@@ -93,6 +93,8 @@ for(const asset of ['story-overlays-3.8.1.css','experience-3.8.1.css','research-
 forbidText(index,'?v=3.8.16','stale v3.8.16 cache keys must not survive a later release');
 requireText(css,'max-height:min(36dvh,150px)!important','landscape captions must use a readable content-height budget');
 forbidText(css,'right:calc(50vw + var(--story-edge-x))','landscape captions must not be cropped to the left half of the screen');
+requireText(tour,"scene.visualType==='map-only'",'map-only story slides must promote their route map into the full story stage');
+requireText(index,'id="storySceneContextVisual"','story stage must provide a full-screen context-map surface');
 
 console.log(JSON.stringify({failures},null,2));
 if(failures.length)process.exitCode=1;
