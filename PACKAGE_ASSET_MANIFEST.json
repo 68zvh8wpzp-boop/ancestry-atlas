@@ -1,7 +1,7 @@
 {
-  "packageVersion": "3.8.20-complete-route-maps",
+  "packageVersion": "3.8.21-cross-device-presentation",
   "inputPackage": "deployed v3.8.18 plus approved biography-distinctness narration, maps and Fable audio",
-  "sourceProductionVersion": "3.8.20",
+  "sourceProductionVersion": "3.8.21",
   "releaseStatus": "approved and deployed-ready",
   "narration": {
     "approvedVoice": "OpenAI Fable",

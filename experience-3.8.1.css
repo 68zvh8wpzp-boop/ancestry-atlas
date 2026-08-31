@@ -200,6 +200,60 @@ body.aa-large-display.tv-mode #card{font-size:clamp(17px,1.05vw,30px)!important}
 body.aa-large-display.tv-mode #card h3{font-size:clamp(26px,1.65vw,46px)!important}
 body.aa-large-display.tv-mode .tv-presentation-bar button{font-size:clamp(12px,.75vw,20px)!important}
 
+/* Desktop is a richer curatorial surface, not an enlarged phone layout. */
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360{--story-edge-x:clamp(24px,3vw,58px);--story-edge-y:clamp(20px,2.6vh,42px)}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-top{left:var(--story-edge-x)!important;right:clamp(180px,19vw,310px)!important;top:var(--story-edge-y)!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-top .landing-kicker{font-size:clamp(10px,.72vw,14px)!important;letter-spacing:.24em!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-top h2{font-size:clamp(24px,2.05vw,38px)!important;line-height:1.05!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-years,
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-scene-year{font-size:clamp(21px,1.55vw,31px)!important;line-height:1.08!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-scene-caption{
+  left:var(--story-edge-x)!important;right:auto!important;bottom:clamp(82px,10vh,116px)!important;
+  display:grid!important;width:min(760px,62vw)!important;max-height:min(27vh,230px)!important;gap:5px!important;
+  padding:15px 18px!important;overflow-y:auto!important;white-space:normal!important;
+  border:1px solid rgba(209,190,149,.34)!important;border-left:4px solid #d7b86f!important;border-radius:0 14px 14px 0!important;
+  background:linear-gradient(90deg,rgba(2,7,10,.95),rgba(3,10,14,.78) 72%,rgba(3,10,14,.34))!important;
+  box-shadow:0 14px 44px rgba(0,0,0,.34)!important
+}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-scene-caption b{font-size:clamp(17px,1.3vw,24px)!important;line-height:1.2!important;overflow:visible!important;text-overflow:clip!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-scene-caption span{font-size:clamp(13px,.98vw,18px)!important;line-height:1.42!important;overflow:visible!important;text-overflow:clip!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-controls{
+  left:var(--story-edge-x)!important;bottom:clamp(18px,2.5vh,34px)!important;width:min(520px,46vw)!important;
+  grid-template-rows:16px 3px 46px!important;gap:4px 6px!important;padding:7px 9px 9px!important;border-radius:12px!important;
+  background:rgba(3,10,15,.93)!important;box-shadow:0 12px 36px rgba(0,0,0,.38)!important
+}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-controls .audio-status{position:static!important;width:auto!important;height:auto!important;margin:0!important;overflow:visible!important;clip:auto!important;white-space:nowrap!important;font-size:10px!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-controls .cd-button{height:46px!important;min-height:46px!important;font-size:20px!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-context-ribbon{right:var(--story-edge-x)!important;bottom:clamp(18px,2.5vh,34px)!important;max-width:38vw!important;padding:7px 9px!important;border:1px solid rgba(209,190,149,.34)!important;border-radius:10px!important;background:rgba(3,10,15,.91)!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-az-flag{width:82px!important;height:52px!important;flex-basis:82px!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-locator-card svg.story-route-map{width:156px!important;height:66px!important;flex-basis:156px!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-locator-card span{max-width:18rem!important;font-size:12px!important;white-space:normal!important}
+
+/* TV Mode wins the cascade and uses the screen as a cinematic surface. */
+body.tv-mode.tour-story-open.story-presentation-v360 .story-top{top:clamp(18px,2.2vh,42px)!important;left:clamp(24px,3vw,64px)!important;right:clamp(120px,12vw,240px)!important;height:auto!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-top h2{font-size:clamp(24px,2vw,46px)!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-years,
+body.tv-mode.tour-story-open.story-presentation-v360 .story-scene-year{font-size:clamp(22px,1.65vw,38px)!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-scene-caption{
+  left:clamp(30px,4vw,86px)!important;right:auto!important;bottom:clamp(104px,12vh,168px)!important;
+  display:grid!important;width:min(1080px,72vw)!important;max-height:min(25vh,280px)!important;gap:7px!important;
+  padding:18px 24px!important;overflow-y:auto!important;white-space:normal!important;
+  border-left:5px solid #d7b86f!important;background:linear-gradient(90deg,rgba(2,7,10,.94),rgba(2,7,10,.62),transparent)!important
+}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-scene-caption b{font-size:clamp(24px,1.9vw,42px)!important;line-height:1.12!important;overflow:visible!important;text-overflow:clip!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-scene-caption span{font-size:clamp(16px,1.15vw,26px)!important;line-height:1.38!important;overflow:visible!important;text-overflow:clip!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-controls{
+  left:50%!important;right:auto!important;bottom:clamp(16px,2vh,34px)!important;transform:translateX(-50%)!important;
+  width:min(760px,58vw)!important;grid-template-rows:18px 3px 52px!important;gap:4px 7px!important;padding:7px 10px 10px!important;
+  border-radius:13px!important;background:rgba(3,9,14,.94)!important
+}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-controls .audio-status{position:static!important;width:auto!important;height:auto!important;margin:0!important;overflow:visible!important;clip:auto!important;white-space:nowrap!important;font-size:12px!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-controls .cd-button{height:52px!important;min-height:52px!important;font-size:25px!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-context-ribbon{top:clamp(86px,10vh,150px)!important;left:clamp(24px,3vw,64px)!important;right:auto!important;bottom:auto!important;max-width:44vw!important;padding:8px 10px!important;border:1px solid rgba(209,190,149,.34)!important;border-radius:10px!important;background:rgba(3,10,15,.82)!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-az-flag{width:96px!important;height:60px!important;flex-basis:96px!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-locator-card svg.story-route-map{width:190px!important;height:80px!important;flex-basis:190px!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-locator-card span{max-width:22rem!important;font-size:clamp(12px,.85vw,18px)!important;white-space:normal!important}
+
 @media(prefers-reduced-motion:reduce){
   body.aa-phone .mobile-tree-dock,body.tour-story-open .story-scene-photo{transition:none!important}
 }
