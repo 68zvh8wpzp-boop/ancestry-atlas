@@ -88,7 +88,7 @@ forbidText(overlays,'period flag context','Place labels must not expose producti
 forbidText(overlays,'currentScene.caption||','Place must not recycle narrative photo captions');
 requireText(frontier,'flagTreatmentMarkup','Marion’s Canadian frontier must render its proof-boundary flag treatment');
 for(const asset of ['story-overlays-3.8.1.css','experience-3.8.1.css','research-frontier-3.8.14.css','atlas-content.js','biographies/research-frontiers-data.js','research-frontier-3.8.14.js','atlas-tour-3.6.0.js','story-overlays-3.8.1.js','experience-3.8.1.js']){
-  requireText(index,`${asset}?v=3.8.21`,`${asset} must use the visible release cache key`);
+  requireText(index,`${asset}?v=3.8.22`,`${asset} must use the visible release cache key`);
 }
 forbidText(index,'?v=3.8.20','stale v3.8.20 cache keys must not survive the cross-device presentation release');
 requireText(css,'max-height:min(36dvh,150px)!important','landscape captions must use a readable content-height budget');

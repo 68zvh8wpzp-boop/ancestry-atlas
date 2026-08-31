@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "branchId": "webb",
-  "reviewed": "2026-08-27",
+  "reviewed": "2026-08-31",
   "policy": {
     "genealogyAuthority": "Canonical graph remains index.html; this register documents evidence and does not override it.",
     "religiousMaterial": "Religious material from the Marion and Jay life-story source is excluded from their public biographies."
@@ -299,6 +299,39 @@
       "sourceClass": "public-domain-historical-engraving",
       "supports": ["Visual settlement context for Salt Lake City shortly before Caroline Amelia Webb and the children arrived in September 1852"],
       "limits": "The engraving was published in 1876 and represents Salt Lake City in 1850. It does not depict Caroline, the Webb family or their precise arrival."
+    },
+    {
+      "sourceId": "webb-src-029",
+      "title": "Early Connecticut Marriages as Found on Ancient Church Records Prior to 1800 — Saybrook/Chester entries",
+      "creator": "Frederic W. Bailey, editor and copyist",
+      "date": "1896; entry dated 9 December 1773",
+      "repository": "Cornell University Library copy digitized by Internet Archive",
+      "url": "https://archive.org/details/cu31924092205818",
+      "sourceClass": "published-transcript-of-church-record",
+      "supports": ["A James Webb and Elizabeth Douglas married on 9 December 1773 in the surviving Third Church of Saybrook, now Chester, marriage entries", "The candidate couple existed together in the relevant Middlesex County locality before James Webb Jr.'s reported 1777 birth"],
+      "limits": "This is a nineteenth-century published transcript, not the original register image. The editor states that most Third Church records had been lost. The marriage does not by itself identify the couple as James Webb Jr.'s parents."
+    },
+    {
+      "sourceId": "webb-src-030",
+      "title": "Heads of Families at the First Census of the United States Taken in the Year 1790 — Connecticut",
+      "creator": "United States Census Office",
+      "date": "1790; published compilation 1908",
+      "repository": "United States Government Printing Office copy digitized by Internet Archive",
+      "url": "https://archive.org/details/headsoffamiliesa06unit",
+      "sourceClass": "federal-census-published-schedule",
+      "supports": ["A James Webb headed a household in Saybrook town in 1790", "The same town enumeration includes multiple Webb households and a Daniel Douglass household, forming a useful locality cluster"],
+      "limits": "The printed census names only household heads and does not state relationships. The page image and household columns must be inspected directly before demographic inference; this record does not connect the household to James Webb Jr."
+    },
+    {
+      "sourceId": "webb-src-031",
+      "title": "Connecticut Probate Estate Files Directory — Saybrook District",
+      "creator": "Connecticut State Library",
+      "date": "accessed 31 August 2026",
+      "repository": "Connecticut State Library",
+      "url": "https://libguides.ctstatelibrary.org/ProbateFilesDirectory",
+      "sourceClass": "official-archival-finding-aid",
+      "supports": ["The Saybrook Probate District directory contains a James Webb probate packet within the 1780–1880 Webb range", "Chester probate matters were served by Saybrook Probate District"],
+      "limits": "The directory identifies a retrieval target, not the decedent's identity, death date, heirs or relationship to James Webb Jr. The packet must be opened and abstracted before any genealogical conclusion."
     }
   ]
 }

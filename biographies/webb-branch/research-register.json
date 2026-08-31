@@ -7,7 +7,7 @@
     "lastSupportedPersonId": "james_webb_jr",
     "candidateParentIds": ["james_webb_sr", "elizabeth_douglas"],
     "status": "strong",
-    "warning": "Parent-name lead is strong, but the Elizabeth Douglas identity is conflicting/conflated and requires reconciliation."
+    "warning": "A James Webb–Elizabeth Douglas marriage is now documented at Saybrook/Chester on 9 December 1773, but no direct record yet connects that couple to James Webb Jr.; the Elizabeth Douglas identity remains conflicting/conflated."
   },
   "provenTrunk": [
     "james_sheldon",
@@ -76,9 +76,9 @@
         "james_webb_sr": "strong",
         "elizabeth_douglas": "provisional"
       },
-      "sourceRefs": ["webb-src-003", "webb-src-008", "webb-src-010"],
-      "conflicts": ["Elizabeth Douglas identity is conflicting/conflated.", "A missing baptism is not negative evidence."],
-      "nextAction": "Reconcile East Hampton/Chatham church, land, probate, household, and sibling-cluster records before any promotion."
+      "sourceRefs": ["webb-src-003", "webb-src-008", "webb-src-010", "webb-src-029", "webb-src-030", "webb-src-031"],
+      "conflicts": ["Elizabeth Douglas identity is conflicting/conflated.", "Compiled profiles assign incompatible birth and death years to the elder James Webb.", "A missing baptism is not negative evidence."],
+      "nextAction": "Retrieve and abstract the Saybrook District James Webb probate packet, inspect the 1790 household image, and correlate Chester/Saybrook, Chatham/East Hampton, and western-New-York church, land, tax, household, and sibling records before any promotion."
     },
     {
       "claimId": "webb-006",
@@ -105,12 +105,15 @@
     "Do not treat the proposed Gideon Webb / Edith Bates ancestry as established.",
     "Do not use absence of a baptism as disproof.",
     "Do not merge conflicting Elizabeth Douglas identities.",
+    "Do not merge the 1773 Chester couple with James Webb Jr.'s parents merely because their names and chronology fit.",
+    "Do not adopt 1733–1817 or 1754–1823 for the elder James Webb until record-level identity evidence resolves the conflict.",
     "Do not extend to England from surname similarity or compiled trees alone."
   ],
   "researchOrder": [
     "Normalize citations for the confirmed modern trunk.",
     "Resolve Edward Milo Webb Jr. date conflicts without downgrading unrelated claims.",
-    "Prove or disprove the James Webb Jr. parent couple through a locality-wide cluster study.",
+    "Retrieve the Saybrook District James Webb probate packet and inspect the 1790 Saybrook census page image.",
+    "Prove or disprove the James Webb Jr. parent couple through a Chester/Saybrook–Chatham/East Hampton–western New York cluster study.",
     "Resolve Elizabeth Douglas as a distinct person.",
     "Only then evaluate Gideon Webb / Edith Bates and the older New England chain.",
     "Attempt English linkage last, with parish and probate correlation."

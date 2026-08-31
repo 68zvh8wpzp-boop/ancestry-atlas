@@ -6,7 +6,7 @@
   "evidenceStatus": "supported-trunk",
   "narrationTextFile": "narration-approved.txt",
   "narrationApprovedOn": "2026-08-31",
-  "narrationCharacterCount": 2275,
+  "narrationCharacterCount": 2267,
   "narrator": "Fable",
   "audio": {"file":"../../../../approved-audio/fable/James_wilford_webb.mp3","voice":"fable","model":"gpt-4o-mini-tts","approvedOn":"2026-08-31","sha256":"389e088d64cb7e775815c32a7bf7a415161e2d1c9a6811e03c8fc17e1aaf5e53","status":"approved and runtime-integrated in v3.8.19"},
   "sourceRefs": ["webb-src-001", "webb-src-002", "webb-src-011"],

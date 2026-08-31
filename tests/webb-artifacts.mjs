@@ -53,7 +53,7 @@ for(const person of production.people){
       const audioBytes=await readFile(audioPath);
       const audioSha=createHash('sha256').update(audioBytes).digest('hex');
       if(audioSha!==manifest.audio.sha256) failures.push({kind:'approved-audio-hash-drift',personId:person.personId});
-      const expectedAudioApproval=person.personId==='james_wilford'?'2026-08-30':'2026-08-28';
+      const expectedAudioApproval=person.personId==='james_wilford'?'2026-08-31':'2026-08-28';
       if(manifest.audio.voice!=='fable'||manifest.audio.approvedOn!==expectedAudioApproval) failures.push({kind:'approved-audio-metadata-drift',personId:person.personId});
     }catch{
       failures.push({kind:'approved-audio-file-missing',personId:person.personId,audioPath});
