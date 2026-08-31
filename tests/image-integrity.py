@@ -12,7 +12,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 RASTER_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
-EXCLUDED_PARTS = {".git", "recovered-library"}
+EXCLUDED_PARTS = {".git", "recovered-library", "tmp", "review-output"}
 
 
 def raster_files() -> list[Path]:

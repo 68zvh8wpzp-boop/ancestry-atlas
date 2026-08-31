@@ -1,0 +1,71 @@
+{
+  "sourceCommit": "48aef367b7dde6692cfb0cefd4d5c457b3dead84",
+  "biographies": [
+    {
+      "name": "Charles Albert Brenay",
+      "source": "biographies/brenay-canada/narration/charles_albert_brenay.txt",
+      "output": "Charles_albert_brenay.mp3",
+      "transcriptCharacters": 1530,
+      "transcriptSha256": "81746a230ab81d0d8bcf56c06b708e98c7a5f3f13388242bf18901eec5fe4315",
+      "audioSha256": "6f3e88d00e6f157b34a35b96bc9590188be4cfd24a472249870a1948485278fd",
+      "model": "gpt-4o-mini-tts",
+      "voice": "fable",
+      "status": "review-only; text approved; audio awaiting listening approval"
+    },
+    {
+      "name": "Charles Godfrey Brenay",
+      "source": "biographies/brenay-canada/narration/charles_godfrey_brenay.txt",
+      "output": "Charles_godfrey_brenay.mp3",
+      "transcriptCharacters": 1677,
+      "transcriptSha256": "a6dd238741839bc296abdfa584365ed327db0507c5922c477f7e70bd5c1b29d9",
+      "audioSha256": "c7ec38a3e2ec36c29c80565145f6799749de376214239f34edf76a26b47d41af",
+      "model": "gpt-4o-mini-tts",
+      "voice": "fable",
+      "status": "review-only; text approved; audio awaiting listening approval"
+    },
+    {
+      "name": "Ida Mae Gooley",
+      "source": "biographies/brenay-canada/narration/ida_mae_gooley.txt",
+      "output": "Ida_mae_gooley.mp3",
+      "transcriptCharacters": 2025,
+      "transcriptSha256": "326d20919504d4d9bfa0e3fa0d9345fa0dcb0d5e285b885702825523913644e0",
+      "audioSha256": "4ef0e32113c8b9b8a6bbe64539c29fc52cac5ccf9e10d067fb8a79ac3afacb01",
+      "model": "gpt-4o-mini-tts",
+      "voice": "fable",
+      "status": "review-only; text approved; audio awaiting listening approval"
+    },
+    {
+      "name": "John Peter Gooley",
+      "source": "biographies/brenay-canada/narration/john_peter_gooley.txt",
+      "output": "John_peter_gooley.mp3",
+      "transcriptCharacters": 2303,
+      "transcriptSha256": "a641988cdbfa20fdfa4e75e8bfb824730f7b04ee6a25af365958961615f13136",
+      "audioSha256": "ec238922f2f666c8bffbdb355fb34b26fe6a2f6a68d10c8471a3bf19744ed618",
+      "model": "gpt-4o-mini-tts",
+      "voice": "fable",
+      "status": "review-only; text approved; audio awaiting listening approval"
+    },
+    {
+      "name": "Mary Ann Dennis",
+      "source": "biographies/brenay-canada/narration/mary_ann_dennis.txt",
+      "output": "Mary_ann_dennis.mp3",
+      "transcriptCharacters": 1362,
+      "transcriptSha256": "4ea500c36c321e5cd5c39ea0f12ea26310a4c1315ee44b60b638affd4fc0d124",
+      "audioSha256": "a67f720da813a3d79b27e0bb38b467fef09bd4f44ed0e5bc19ab5328c685c7de",
+      "model": "gpt-4o-mini-tts",
+      "voice": "fable",
+      "status": "review-only; text approved; audio awaiting listening approval"
+    },
+    {
+      "name": "James Wilford “Jay” Webb",
+      "source": "biographies/webb-branch/people/james_wilford/narration-approved.txt",
+      "output": "James_wilford_webb.mp3",
+      "transcriptCharacters": 2267,
+      "transcriptSha256": "14cc0e1a17a9c3aabd70af0238121def2744c1da9bda22919611db1b0aa4cd78",
+      "audioSha256": "389e088d64cb7e775815c32a7bf7a415161e2d1c9a6811e03c8fc17e1aaf5e53",
+      "model": "gpt-4o-mini-tts",
+      "voice": "fable",
+      "status": "review-only; text approved; audio awaiting listening approval"
+    }
+  ]
+}
