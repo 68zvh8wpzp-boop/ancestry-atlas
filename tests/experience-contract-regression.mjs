@@ -88,12 +88,16 @@ forbidText(overlays,'period flag context','Place labels must not expose producti
 forbidText(overlays,'currentScene.caption||','Place must not recycle narrative photo captions');
 requireText(frontier,'flagTreatmentMarkup','Marion’s Canadian frontier must render its proof-boundary flag treatment');
 for(const asset of ['story-overlays-3.8.1.css','experience-3.8.1.css','research-frontier-3.8.14.css','atlas-content.js','biographies/research-frontiers-data.js','research-frontier-3.8.14.js','atlas-tour-3.6.0.js','story-overlays-3.8.1.js','experience-3.8.1.js']){
-  requireText(index,`${asset}?v=3.8.19`,`${asset} must use the visible release cache key`);
+  requireText(index,`${asset}?v=3.8.20`,`${asset} must use the visible release cache key`);
 }
-forbidText(index,'?v=3.8.16','stale v3.8.16 cache keys must not survive a later release');
+forbidText(index,'?v=3.8.19','stale v3.8.19 cache keys must not survive the route-map repair release');
 requireText(css,'max-height:min(36dvh,150px)!important','landscape captions must use a readable content-height budget');
 forbidText(css,'right:calc(50vw + var(--story-edge-x))','landscape captions must not be cropped to the left half of the screen');
 requireText(tour,"scene.visualType==='map-only'",'map-only story slides must promote their route map into the full story stage');
+requireText(tour,'AncestryStoryOverlays?.renderRouteMap?.(scene)','map-only slides must render directly rather than depend on an already-visible Place map');
+requireText(overlays,'renderRouteMap','the shared overlay renderer must expose route maps to the story stage');
+requireText(overlays,"'charles-life-route'",'Charles Albert’s full-life route map must be supported');
+requireText(overlays,"'godfrey-life-route'",'Charles Godfrey’s full-life route map must be supported');
 requireText(index,'id="storySceneContextVisual"','story stage must provide a full-screen context-map surface');
 
 console.log(JSON.stringify({failures},null,2));
