@@ -128,8 +128,8 @@ for(const record of distinctnessReview.biographies||[]){
   if(sha256(audioBytes)!==record.audioSha256)failures.push({kind:'distinctness-review-audio-hash-drift',output:record.output});
 }
 
-if(manifest.packageVersion!=='3.8.19-biography-distinctness')failures.push({kind:'package-version-drift',value:manifest.packageVersion});
-if(!index.includes('BUILD v3.8.19')||!index.includes('>v3.8.19</span>'))failures.push({kind:'visible-build-version-drift'});
+if(manifest.packageVersion!=='3.8.20-complete-route-maps')failures.push({kind:'package-version-drift',value:manifest.packageVersion});
+if(!index.includes('BUILD v3.8.20')||!index.includes('>v3.8.20</span>'))failures.push({kind:'visible-build-version-drift'});
 if(webbProduction.status!=='approved-and-runtime-integrated')failures.push({kind:'webb-branch-release-state-stale',value:webbProduction.status});
 if(!/promoted into the live Atlas/.test(fableApproval))failures.push({kind:'fable-approval-release-state-stale'});
 const expectedAudioNames=Object.values(approvedAudio).map(file=>path.basename(file)).sort();

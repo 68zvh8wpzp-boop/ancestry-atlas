@@ -562,9 +562,9 @@ function showStoryScene(media,index){
       img.style.display='none';
     }
     if(els.sceneContextVisual&&scene.visualType==='map-only'){
-      const renderedMap=document.querySelector('#storyContextRibbon .story-route-map');
+      const renderedMap=window.AncestryStoryOverlays?.renderRouteMap?.(scene)||document.querySelector('#storyContextRibbon .story-route-map');
       if(renderedMap){
-        const fullMap=renderedMap.cloneNode(true);
+        const fullMap=renderedMap.parentNode?renderedMap.cloneNode(true):renderedMap;
         fullMap.classList.add('story-route-map-full');
         els.sceneContextVisual.appendChild(fullMap);
         els.sceneContextVisual.setAttribute('aria-hidden','false');
