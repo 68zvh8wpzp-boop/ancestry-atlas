@@ -3,7 +3,10 @@ import vm from 'node:vm';
 
 const html=await readFile(new URL('../index.html',import.meta.url),'utf8');
 const register=JSON.parse(await readFile(new URL('../biographies/webb-branch/research-register.json',import.meta.url),'utf8'));
+const sources=JSON.parse(await readFile(new URL('../biographies/webb-branch/sources.json',import.meta.url),'utf8'));
+const evidenceContract=await readFile(new URL('../PRODUCTION_CONTRACT_v3_8_22_EVIDENCE_PROMOTION.md',import.meta.url),'utf8');
 const failures=[];
+const sourceIds=new Set(sources.sources.map(source=>source.sourceId));
 
 const match=html.match(/const DATA = (\{.*?\});\s*\nconst canvas/s);
 if(!match){
@@ -34,7 +37,20 @@ if(!match){
     }
     if(!claim.nextAction) failures.push({kind:'claim-next-action-missing',claimId:claim.claimId});
     if(!Array.isArray(claim.sourceRefs)) failures.push({kind:'claim-sourceRefs-invalid',claimId:claim.claimId});
+    for(const sourceRef of claim.sourceRefs||[]){
+      if(!sourceIds.has(sourceRef)) failures.push({kind:'claim-source-missing',claimId:claim.claimId,sourceRef});
+    }
   }
+}
+
+for(const phrase of [
+  'A record proving that a namesake person or couple existed does not prove that',
+  'No parent-child edge may move above provisional without direct evidence',
+  'A finding aid or index is a retrieval lead.',
+  'The public tree and biography must stop at the last supported person.',
+  'approve a new source without'
+]){
+  if(!evidenceContract.includes(phrase)) failures.push({kind:'evidence-promotion-contract-missing',phrase});
 }
 
 for(const phrase of ['speechSynthesis','SpeechSynthesisUtterance']){

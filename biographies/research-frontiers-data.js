@@ -17,16 +17,20 @@ globalThis.RESEARCH_FRONTIERS={
       "supportedEndpoint": "james_webb_jr",
       "title": "The proposed Webb line toward England",
       "brokenProofLink": "james_webb_jr -> james_webb_sr + elizabeth_douglas",
-      "summary": "The father-name is strongly supported in compiled tradition, but the Elizabeth Douglas identity is conflicting and the parent couple lacks decisive locality-wide proof.",
+      "summary": "A 1773 Saybrook/Chester church-record transcript establishes a James Webb–Elizabeth Douglas marriage in the relevant locality, but the couple is not yet connected directly to James Webb Jr. and both identities remain unresolved.",
       "heroAsset": "biographies/webb-branch/people/james_webb_jr/assets/james_jr_proof_boundary_flags_approved.png",
       "heroAlt": "Approved Webb proof-boundary composition with faded England and Grand Union flag context",
       "evidenceFor": [
         "Dedicated Webb family histories repeatedly identify another James Webb and an Elizabeth Douglas as James Webb Jr.'s parents.",
+        "A published transcript of the surviving Third Church of Saybrook, now Chester, entries records the marriage of James Webb and Elizabeth Douglas on 9 December 1773.",
+        "The 1790 federal census places a James Webb household in Saybrook among a broader Webb and Douglass locality cluster.",
         "The reported father-name is consistent enough to remain a strong research lead rather than a discarded tree hint.",
         "The proposed deeper chain contains real documented New England people who can be tested against land, probate, church and kinship records."
       ],
       "limitsAndConflicts": [
         "No decisive original town, church, land or probate record currently links James Webb Jr. to the reported parent couple.",
+        "The 1773 marriage proves that a namesake couple existed together; it does not prove that they were James Jr.'s parents.",
+        "Conflicting compiled profiles assign the elder James incompatible birth and death years, including 1733–1817 and 1754–1823.",
         "Compiled material appears to combine two women named Elizabeth Douglas, producing conflicting dates and identities.",
         "The surviving East Hampton Congregational register has a gap in the relevant period; the missing baptism is not evidence against the relationship.",
         "The Gideon Webb, older New England and English links remain uncorrelated compiled genealogy, not established descent."
@@ -63,9 +67,11 @@ globalThis.RESEARCH_FRONTIERS={
           "warning": "Proposed English extension; identity and migration chain remain unresolved."
         }
       ],
-      "nextProof": "Reconcile East Hampton and Chatham church, land, probate, household and sibling-cluster evidence before evaluating the deeper New England and English chain.",
+      "nextProof": "Retrieve and abstract the Saybrook District James Webb probate packet, then correlate Chester/Saybrook, Chatham/East Hampton and western-New-York church, land, tax, household and sibling evidence before evaluating the deeper New England and English chain.",
       "recordsNeeded": [
         "East Hampton and Chatham church registers and membership material",
+        "Saybrook District James Webb probate packet indexed by the Connecticut State Library",
+        "Original-page review of the 1790 Saybrook James Webb household and neighboring Webb/Douglass households",
         "Town vital, land and tax records for Webb and Douglas households",
         "East Haddam, Colchester and neighboring probate files",
         "Sibling, witness, neighbor and associate clusters connecting James Jr. to one parent household",
