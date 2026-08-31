@@ -88,9 +88,9 @@ forbidText(overlays,'period flag context','Place labels must not expose producti
 forbidText(overlays,'currentScene.caption||','Place must not recycle narrative photo captions');
 requireText(frontier,'flagTreatmentMarkup','Marion’s Canadian frontier must render its proof-boundary flag treatment');
 for(const asset of ['story-overlays-3.8.1.css','experience-3.8.1.css','research-frontier-3.8.14.css','atlas-content.js','biographies/research-frontiers-data.js','research-frontier-3.8.14.js','atlas-tour-3.6.0.js','story-overlays-3.8.1.js','experience-3.8.1.js']){
-  requireText(index,`${asset}?v=3.8.20`,`${asset} must use the visible release cache key`);
+  requireText(index,`${asset}?v=3.8.21`,`${asset} must use the visible release cache key`);
 }
-forbidText(index,'?v=3.8.19','stale v3.8.19 cache keys must not survive the route-map repair release');
+forbidText(index,'?v=3.8.20','stale v3.8.20 cache keys must not survive the cross-device presentation release');
 requireText(css,'max-height:min(36dvh,150px)!important','landscape captions must use a readable content-height budget');
 forbidText(css,'right:calc(50vw + var(--story-edge-x))','landscape captions must not be cropped to the left half of the screen');
 requireText(tour,"scene.visualType==='map-only'",'map-only story slides must promote their route map into the full story stage');
@@ -99,6 +99,12 @@ requireText(overlays,'renderRouteMap','the shared overlay renderer must expose r
 requireText(overlays,"'charles-life-route'",'Charles Albert’s full-life route map must be supported');
 requireText(overlays,"'godfrey-life-route'",'Charles Godfrey’s full-life route map must be supported');
 requireText(index,'id="storySceneContextVisual"','story stage must provide a full-screen context-map surface');
+requireText(css,'Desktop is a richer curatorial surface, not an enlarged phone layout.','desktop must have an intentionally stronger presentation layer');
+requireText(css,'body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-scene-caption','desktop captions must be independently composed and fully readable');
+requireText(css,'width:min(760px,62vw)!important','desktop must use its additional width for a substantial museum caption');
+requireText(css,'TV Mode wins the cascade and uses the screen as a cinematic surface.','TV presentation rules must override shared story defaults');
+requireText(css,'width:min(1080px,72vw)!important','TV captions must use across-room cinematic scale');
+requireText(css,'width:min(760px,58vw)!important','TV controls must remain usable without wasting the lower screen');
 
 console.log(JSON.stringify({failures},null,2));
 if(failures.length)process.exitCode=1;
