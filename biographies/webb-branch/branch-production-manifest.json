@@ -5,7 +5,7 @@
   "status": "approved-and-runtime-integrated",
   "canonicalBaseline": "GitHub main c96c837; formalized in v3.8.13",
   "people": [
-    {"personId":"james_wilford","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/james_wilford","visualStatus":"corrected approved visual sequence 2026-08-30","narrationStatus":"approved 2026-08-30","audioStatus":"revised Fable approved 2026-08-30; archived and runtime-integrated"},
+    {"personId":"james_wilford","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/james_wilford","visualStatus":"distinct approved visual sequence 2026-08-31","narrationStatus":"distinctness revision approved 2026-08-31","audioStatus":"v3.8.19 Fable approved 2026-08-31; archived and runtime-integrated"},
     {"personId":"jonathan_henry","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/jonathan_henry","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived and runtime-integrated"},
     {"personId":"edward_milo_jr","role":"full-biography-with-conflict-note","evidenceGate":"supported-trunk-with-strong-1921-death-and-1924-anomaly","artifactDirectory":"people/edward_milo_jr","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived and runtime-integrated"},
     {"personId":"edward_milo_sr","role":"full-biography","evidenceGate":"supported-trunk","artifactDirectory":"people/edward_milo_sr","visualStatus":"complete approved visual sequence","narrationStatus":"approved 2026-08-28","audioStatus":"Fable approved 2026-08-28; archived and runtime-integrated"},

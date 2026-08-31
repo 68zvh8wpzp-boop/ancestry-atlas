@@ -1,18 +1,19 @@
 {
-  "packageVersion": "3.8.18-safari-landscape-corrective",
-  "inputPackage": "deployed v3.8.15 plus approved family-source, mobile-tree, gallery and narration correctives",
-  "sourceProductionVersion": "3.8.18",
+  "packageVersion": "3.8.19-biography-distinctness",
+  "inputPackage": "deployed v3.8.18 plus approved biography-distinctness narration, maps and Fable audio",
+  "sourceProductionVersion": "3.8.19",
   "releaseStatus": "approved and deployed-ready",
   "narration": {
     "approvedVoice": "OpenAI Fable",
     "model": "gpt-4o-mini-tts",
-    "status": "all twelve Fable recordings approved, checksummed and runtime-integrated; revised James Wilford, Marion, and Sheldon recordings approved 2026-08-30",
+    "status": "all twelve Fable recordings approved, checksummed and runtime-integrated; six biography-distinctness recordings approved 2026-08-31",
     "browserSpeechAllowed": false,
     "previousAlfiePackageUntouched": true,
     "archivePath": "approved-audio/fable",
     "approvalRecord": "approved-audio/fable/APPROVAL.md",
     "checksumRecord": "approved-audio/fable/SHA256SUMS.txt",
     "modernFamilyReviewRecord": "approved-audio/fable/review-records/modern_fable_reviews_metadata.json",
+    "biographyDistinctnessReviewRecord": "approved-audio/fable/review-records/v3.8.19_fable_reviews_metadata.json",
     "expectedFiles": [
       "James_sheldon_webb.mp3",
       "Marion_beulah_brenay_webb.mp3",
@@ -73,6 +74,13 @@
     ,"approved-audio/fable/review-records/James_sheldon_webb_fable_review_transcript.txt"
     ,"approved-audio/fable/review-records/Marion_beulah_brenay_webb_fable_review_transcript.txt"
     ,"approved-audio/fable/review-records/James_wilford_webb_fable_review_transcript.txt"
+    ,"approved-audio/fable/review-records/v3.8.19_fable_reviews_metadata.json"
+    ,"approved-audio/fable/review-records/Charles_albert_brenay_transcript.txt"
+    ,"approved-audio/fable/review-records/Charles_godfrey_brenay_transcript.txt"
+    ,"approved-audio/fable/review-records/Ida_mae_gooley_transcript.txt"
+    ,"approved-audio/fable/review-records/John_peter_gooley_transcript.txt"
+    ,"approved-audio/fable/review-records/Mary_ann_dennis_transcript.txt"
+    ,"approved-audio/fable/review-records/James_wilford_webb_transcript.txt"
     ,"approved-audio/fable/James_sheldon_webb.mp3"
     ,"approved-audio/fable/Marion_beulah_brenay_webb.mp3"
     ,"approved-audio/fable/Charles_albert_brenay.mp3"

@@ -25,7 +25,7 @@ for(const repeated of ['thirty days','Buckeye','Nutrioso','Blanding','Salt Lake 
   if(charles?.transcript.includes(repeated))failures.push(`Charles Albert still repeats Marion territory: ${repeated}`);
 }
 if(!marion?.transcript.includes('Thirty days of dirt roads'))failures.push('Marion must retain ownership of the detailed 1925 crossing');
-if(charles?.audio)failures.push('revised Charles narration must not use the superseded recording');
+if(charles?.audio!=='approved-audio/fable/Charles_albert_brenay.mp3')failures.push('Charles must use the approved v3.8.19 recording');
 if(charles?.scenes?.length!==4)failures.push('Charles visual sequence must contain four distinct beats');
 if(charles?.scenes?.at(-1)?.visualType!=='map-only')failures.push('Charles must end with the full life-route map');
 
@@ -33,9 +33,8 @@ const john=media.john_peter;
 const mary=media.mary_ann;
 if(!john||john.transcript.length>2500)failures.push('John Peter must remain focused on migration and the Gooley frontier');
 if(!mary||mary.transcript.length>1700)failures.push('Mary Ann must remain the concise Dennis evidence biography');
-for(const biography of [john,mary]){
-  if(biography?.audio)failures.push(`${biography?.personId} revised narration must not use a superseded recording`);
-}
+if(john?.audio!=='approved-audio/fable/John_peter_gooley.mp3')failures.push('John Peter must use the approved v3.8.19 recording');
+if(mary?.audio!=='approved-audio/fable/Mary_ann_dennis.mp3')failures.push('Mary Ann must use the approved v3.8.19 recording');
 for(const repeated of ['fire swept','destroyed homes','Alpena rebuilt','lumber yards']){
   if(john?.transcript.includes(repeated))failures.push(`John Peter still repeats Ida's fire territory: ${repeated}`);
   if(mary?.transcript.includes(repeated))failures.push(`Mary Ann still repeats Ida's fire territory: ${repeated}`);
@@ -48,9 +47,8 @@ const godfrey=media.charles_godfrey;
 const ida=media.ida_mae;
 if(!godfrey||godfrey.transcript.length>1900)failures.push('Charles Godfrey must remain focused on immigration, names and naturalization');
 if(!ida||ida.transcript.length>2300)failures.push('Ida Mae must remain focused on the Gooley borderland inheritance');
-for(const biography of [godfrey,ida]){
-  if(biography?.audio)failures.push(`${biography?.personId} revised narration must not use a superseded recording`);
-}
+if(godfrey?.audio!=='approved-audio/fable/Charles_godfrey_brenay.mp3')failures.push('Charles Godfrey must use the approved v3.8.19 recording');
+if(ida?.audio!=='approved-audio/fable/Ida_mae_gooley.mp3')failures.push('Ida Mae must use the approved v3.8.19 recording');
 for(const repeated of ['lumber yards','brick business blocks','identified as a Canadian citizen','registered for the American draft']){
   if(godfrey?.transcript.includes(repeated))failures.push(`Charles Godfrey repeats another biography's territory: ${repeated}`);
   if(ida?.transcript.includes(repeated))failures.push(`Ida repeats another biography's territory: ${repeated}`);
@@ -61,7 +59,7 @@ if(ida?.scenes?.some(scene=>scene.src?.includes('wwi_registration')))failures.pu
 
 const jay=media.james_wilford;
 if(!jay||jay.transcript.length>2300)failures.push('Jay must remain focused on timber work and Army service');
-if(jay?.audio)failures.push('revised Jay narration must not use the superseded recording');
+if(jay?.audio!=='approved-audio/fable/James_wilford_webb.mp3')failures.push('Jay must use the approved v3.8.19 recording');
 for(const repeated of ['Their courtship','faced separation','Jamar','kidney surgery','Daughters Diane']){
   if(jay?.transcript.includes(repeated))failures.push(`Jay still repeats Marion's household territory: ${repeated}`);
 }

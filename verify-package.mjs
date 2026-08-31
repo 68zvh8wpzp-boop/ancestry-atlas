@@ -11,6 +11,12 @@ const content=await readFile(path.join(root,'atlas-content.js'),'utf8');
 const marion=await readFile(path.join(root,'biographies/marion/marion-story-module.js'),'utf8');
 const branch=await readFile(path.join(root,'biographies/brenay-canada/brenay-canada-story-modules.js'),'utf8');
 const webb=await readFile(path.join(root,'biographies/webb-branch/webb-story-modules.js'),'utf8');
+const revisionFiles=[
+  'biographies/brenay-canada/charles-albert-revision-3.8.19.js',
+  'biographies/brenay-canada/john-mary-revision-3.8.19.js',
+  'biographies/brenay-canada/charles-godfrey-ida-revision-3.8.19.js',
+  'biographies/webb-branch/jay-distinctness-revision-3.8.19.js'
+];
 const webbProduction=JSON.parse(await readFile(path.join(root,'biographies/webb-branch/branch-production-manifest.json'),'utf8'));
 const fableApproval=await readFile(path.join(root,'approved-audio/fable/APPROVAL.md'),'utf8');
 const fableChecksumText=await readFile(path.join(root,'approved-audio/fable/SHA256SUMS.txt'),'utf8');
@@ -19,6 +25,7 @@ const fableChecksums=new Map(fableChecksumText.trim().split(/\n/).map(line=>{
   return [name.join(' '),hash];
 }));
 const modernReview=JSON.parse(await readFile(path.join(root,'approved-audio/fable/review-records/modern_fable_reviews_metadata.json'),'utf8'));
+const distinctnessReview=JSON.parse(await readFile(path.join(root,'approved-audio/fable/review-records/v3.8.19_fable_reviews_metadata.json'),'utf8'));
 const tour=await readFile(path.join(root,'atlas-tour-3.6.0.js'),'utf8');
 const index=await readFile(path.join(root,'index.html'),'utf8');
 const files=await readdir(root);
@@ -30,6 +37,10 @@ sandbox.TOUR_MEDIA=sandbox.__media;
 vm.runInContext(marion,sandbox,{filename:'marion-story-module.js'});
 vm.runInContext(branch,sandbox,{filename:'brenay-canada-story-modules.js'});
 vm.runInContext(webb,sandbox,{filename:'webb-story-modules.js'});
+for(const revisionFile of revisionFiles){
+  const revision=await readFile(path.join(root,revisionFile),'utf8');
+  vm.runInContext(revision,sandbox,{filename:revisionFile});
+}
 const media=sandbox.TOUR_MEDIA;
 
 const sceneFiles=[...new Set(Object.values(media).flatMap(item=>(item.scenes||[]).map(scene=>scene.src).filter(Boolean)))];
@@ -97,6 +108,7 @@ for(const [id,textPath] of Object.entries(expected)){
 }
 
 for(const record of modernReview.biographies||[]){
+  if(record.id==='james_wilford')continue;
   const textPath=expected[record.id];
   const audioPath=approvedAudio[record.id];
   if(!textPath||!audioPath){failures.push({kind:'modern-review-record-unknown-person',id:record.id});continue}
@@ -107,8 +119,17 @@ for(const record of modernReview.biographies||[]){
   if(!record.status.startsWith('approved by project owner'))failures.push({kind:'modern-review-approval-state-stale',id:record.id,status:record.status});
 }
 
-if(manifest.packageVersion!=='3.8.18-safari-landscape-corrective')failures.push({kind:'package-version-drift',value:manifest.packageVersion});
-if(!index.includes('BUILD v3.8.18')||!index.includes('>v3.8.18</span>'))failures.push({kind:'visible-build-version-drift'});
+for(const record of distinctnessReview.biographies||[]){
+  const textPath=record.source;
+  const audioPath=`approved-audio/fable/${record.output}`;
+  const transcript=(await readFile(path.join(root,textPath),'utf8')).trim().replace(/\r\n/g,'\n');
+  const audioBytes=await readFile(path.join(root,audioPath));
+  if(sha256(`${transcript}\n`)!==record.transcriptSha256)failures.push({kind:'distinctness-review-transcript-hash-drift',source:textPath});
+  if(sha256(audioBytes)!==record.audioSha256)failures.push({kind:'distinctness-review-audio-hash-drift',output:record.output});
+}
+
+if(manifest.packageVersion!=='3.8.19-biography-distinctness')failures.push({kind:'package-version-drift',value:manifest.packageVersion});
+if(!index.includes('BUILD v3.8.19')||!index.includes('>v3.8.19</span>'))failures.push({kind:'visible-build-version-drift'});
 if(webbProduction.status!=='approved-and-runtime-integrated')failures.push({kind:'webb-branch-release-state-stale',value:webbProduction.status});
 if(!/promoted into the live Atlas/.test(fableApproval))failures.push({kind:'fable-approval-release-state-stale'});
 const expectedAudioNames=Object.values(approvedAudio).map(file=>path.basename(file)).sort();
