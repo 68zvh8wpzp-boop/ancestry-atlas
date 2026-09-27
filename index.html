@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<title>Ancestry Atlas v3.9.5</title>
+<title>Ancestry Atlas v3.9.6</title>
 <meta name="theme-color" content="#020609">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1016,6 +1016,26 @@ if(charlesAlbertNode){
     confidence:'primary census image'
   }];
 }
+
+/* 2026-09-27: inline FamilySearch capture fallback for Jamar Webb KJJH-XGL. */
+const _jamarInline = DATA.nodes.find(n=>n.id==='jamar_webb');
+if(!_jamarInline){
+  DATA.nodes.push({
+    id:'jamar_webb',name:'Jamar Webb',years:'1946–1946',
+    place:'Springerville, Apache County, Arizona → Vernon Cemetery, Arizona',
+    branch:'Webb',confidence:'strong',
+    note:'FamilySearch capture for KJJH-XGL: Jamar Webb was born and died on 9 November 1946. The attached Arizona death entry names James Webb and Marian Brenay as his parents and places the event in Springerville, Apache County, Arizona. The burial memory and grave marker preserve Vernon as the burial place. The family caption says he lived only a few hours and passed away in St. Johns, while the Tree and permit preserve a different place/event reading; the Atlas keeps both accounts visible.',
+    x:-1.35,y:1.32,z:0.35,
+    evidence:[
+      {title:'Arizona burial or removal permit — Jamar Webb',date:'9 November 1946',place:'Springerville, Apache County, Arizona → Vernon, Arizona',thumb:'https://sg30p0.familysearch.org/service/records/storage/dascloud/patron/v2/TH-7743-156256-3574-8/thumbMobile.jpg?ctx=ArtCtxPublic',full:'https://sg30p0.familysearch.org/service/records/storage/dascloud/patron/v2/TH-7743-156256-3574-8/thumbMobile.jpg?ctx=ArtCtxPublic',sourcePage:'https://www.familysearch.org/ark:/61903/3:1:S3HY-DZ73-PDV?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AFLJW-K4S&action=view&cc=1534450&lang=en',provenance:'FamilySearch Memory “Burial Permit for Jamar Webb,” contributed by DeEdra Breckenridge, 13 November 2025; upload 0079_a-Repaired.jpg. Companion attached source: Arizona Deaths, 1870–1963, record FLJW-K4S.',summary:'Handwritten permit naming Jamar Webb and 9 November 1946; it records removal/burial at Vernon. The Tree says stillborn, while the family caption says he lived a few hours.',confidence:'original FamilySearch document image captured; handwriting read cautiously'},
+      {title:'Jamar Webb grave marker — “Our Little Angel”',date:'9 November 1946',place:'Vernon Cemetery, Vernon, Apache County, Arizona',thumb:'https://sg30p0.familysearch.org/service/records/storage/dascloud/patron/v2/TH-904-58874-1436-73/thumbMobile.jpg?ctx=ArtCtxPublic',full:'https://sg30p0.familysearch.org/service/records/storage/dascloud/patron/v2/TH-904-58874-1436-73/thumbMobile.jpg?ctx=ArtCtxPublic',sourcePage:'https://www.familysearch.org/en/tree/person/memories/KJJH-XGL',provenance:'FamilySearch Memory, upload jamar.jpg, contributed by ScottDaphne1, 20 October 2015. Marker text: “OUR LITTLE ANGEL / JAMAR / SON OF / JAMES & MARION WEBB / 9 NOV 1946 — 9 NOV 1946.”',summary:'Grave-marker photograph preserving Jamar’s parents and the one-day date range.',confidence:'original FamilySearch photograph captured; marker transcription directly visible'},
+      {title:'Arizona Deaths, 1870–1963 — Jamar Webb indexed entry',date:'1946',place:'Springerville, Apache County, Arizona',sourcePage:'https://www.familysearch.org/ark:/61903/1:1:FLJW-K4S?lang=en',provenance:'FamilySearch attached source for KJJH-XGL; Jamar Webb, male, event place Springerville, Apache, Arizona; microfilm 2114733; batch I00237-1.',summary:'Indexed evidence anchoring Jamar’s identity and parentage: James Webb and Marian Brenay.',confidence:'attached indexed record with original image viewer verified'}
+    ]
+  });
+}
+if(!DATA.edges.some(e=>e.a==='jamar_webb'&&e.b==='james_wilford')) DATA.edges.push({a:'jamar_webb',b:'james_wilford',confidence:'strong'});
+if(!DATA.edges.some(e=>e.a==='jamar_webb'&&e.b==='marion_brenay')) DATA.edges.push({a:'jamar_webb',b:'marion_brenay',confidence:'strong'});
+
 const nodeById = new Map(DATA.nodes.map(n=>[n.id,n]));
 window.__ATLAS_DATA = DATA;
 window.__ATLAS_NODE_BY_ID = nodeById;
@@ -1325,6 +1345,13 @@ const GUIDE_PROFILES = {
     life:'John Peter Gooley was born on 2 May 1842 in Quebec, probably along the St. Lawrence corridor. He later lived in Ontario and Michigan, married Mary Ann Dennis, and became the father of Ida Mae Gooley.',
     events:[{title:'Migration through Ontario and Michigan', group:'greatlakes', summary:'John Peter’s line moved out of Quebec into the larger Great Lakes world, where work, marriage, and children carried the family into Ontario and Michigan.'}]
   }
+};
+if(!GUIDE_PROFILES.jamar_webb) GUIDE_PROFILES.jamar_webb={
+  birthPlace:'Springerville, Apache County, Arizona',
+  townContext:'Jamar’s surviving record is a state burial permit, an indexed death entry, and a grave marker at Vernon Cemetery.',
+  macroContext:'His one-day life is preserved through a concentrated Arizona family record from November 1946.',
+  life:'Jamar Webb was born on 9 November 1946 and died the same day. FamilySearch identifies him as the son of James Wilford Webb and Marion Beulah Brenay Webb. The attached Arizona death index places the event in Springerville, Apache County, Arizona, and the family memorial places burial at Vernon Cemetery.\n\nThe audited page contains one attached source and two Memories: a worn Arizona burial-or-removal permit and a grave-marker photograph reading “Our Little Angel / Jamar / Son of James & Marion Webb / 9 Nov 1946 — 9 Nov 1946.” No portrait or ordinary life photograph was present.\n\nThe family caption says Jamar lived only a few hours and passed away in St. Johns, while the indexed event and apparent permit reading point to Springerville and the Tree uses a stillborn classification. The Atlas preserves both documentary evidence and family testimony without resolving the discrepancy prematurely.',
+  events:[{title:'A brief Webb life',group:'arizona',summary:'Jamar’s surviving records describe a life measured in a single day, preserved through a state permit, death index, and family memorial.'},{title:'A family memorial',group:'arizona',summary:'The Vernon Cemetery marker names Jamar as the son of James and Marion Webb and calls him “Our Little Angel.”'}]
 };
 window.__ATLAS_GUIDE_PROFILES = GUIDE_PROFILES;
 
@@ -2330,7 +2357,7 @@ resize();
 
 
 
-<script src="atlas-content.js?v=3.9.5"></script>
+<script src="atlas-content.js?v=3.9.6"></script>
 <script src="biographies/marion/marion-story-module.js?v=1.1.0"></script>
 <script src="biographies/brenay-canada/brenay-canada-story-modules.js?v=1.1.0"></script>
 <script src="biographies/brenay-canada/charles-albert-revision-3.8.19.js?v=3.8.22"></script>
