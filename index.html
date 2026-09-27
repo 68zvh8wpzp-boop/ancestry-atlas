@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<title>Ancestry Atlas v3.9.13</title>
+<title>Ancestry Atlas v3.9.14</title>
 <meta name="theme-color" content="#020609">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1404,6 +1404,7 @@ function openEvidence(e){
   const meta=document.getElementById('docMeta');
   delete meta.dataset.loadError;
   meta.innerHTML=`<strong>${escapeHtml(e.title||'Evidence')}</strong><br>${escapeHtml(e.date||'')}${e.place?' • '+escapeHtml(e.place):''}<br><br>${escapeHtml(e.summary||'')||'Captured document record; original file remains linked in the research provenance.'}<br><br><strong>Provenance:</strong> ${escapeHtml(e.provenance||'not recorded')}<br><strong>Evidence status:</strong> ${escapeHtml(e.confidence||'not recorded')}`;
+  if(e.documentUrl) meta.innerHTML += '<br><br><a href="'+escapeHtml(e.documentUrl)+'" target="_blank" rel="noopener">Open original captured file</a>';
   if(isImage) image.src=full; else image.removeAttribute('src');
   viewer.classList.add('open');
   viewer.setAttribute('aria-hidden','false');
@@ -2486,7 +2487,7 @@ resize();
 
 
 
-<script src="atlas-content.js?v=3.9.13"></script>
+<script src="atlas-content.js?v=3.9.14"></script>
 <script src="biographies/marion/marion-story-module.js?v=1.1.0"></script>
 <script src="biographies/brenay-canada/brenay-canada-story-modules.js?v=1.1.0"></script>
 <script src="biographies/brenay-canada/charles-albert-revision-3.8.19.js?v=3.8.22"></script>
