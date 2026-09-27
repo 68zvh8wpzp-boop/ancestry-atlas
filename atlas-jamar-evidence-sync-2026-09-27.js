@@ -5,7 +5,9 @@
 (() => {
   'use strict';
 
-  if (typeof DATA === 'undefined') return;
+  const atlasData = (typeof window !== 'undefined' && window.__ATLAS_DATA) ||
+    (typeof DATA !== 'undefined' ? DATA : null);
+  if (!atlasData) return;
 
   const sourcePage = 'https://www.familysearch.org/en/tree/person/memories/KJJH-XGL';
   const recordPage = 'https://www.familysearch.org/ark:/61903/1:1:FLJW-K4S?lang=en';
@@ -13,7 +15,7 @@
   const burialPermitImage = 'https://sg30p0.familysearch.org/service/records/storage/dascloud/patron/v2/TH-7743-156256-3574-8/thumbMobile.jpg?ctx=ArtCtxPublic';
   const graveMarkerImage = 'https://sg30p0.familysearch.org/service/records/storage/dascloud/patron/v2/TH-904-58874-1436-73/thumbMobile.jpg?ctx=ArtCtxPublic';
 
-  let jamar = DATA.nodes.find(n => n.id === 'jamar_webb');
+  let jamar = atlasData.nodes.find(n => n.id === 'jamar_webb');
   if (!jamar) {
     jamar = {
       id: 'jamar_webb',
@@ -27,12 +29,14 @@
       y: 1.32,
       z: 0.35
     };
-    DATA.nodes.push(jamar);
-    if (typeof nodeById !== 'undefined' && nodeById?.set) nodeById.set(jamar.id, jamar);
+    atlasData.nodes.push(jamar);
+    const atlasNodeById = (typeof window !== 'undefined' && window.__ATLAS_NODE_BY_ID) ||
+      (typeof nodeById !== 'undefined' ? nodeById : null);
+    if (atlasNodeById?.set) atlasNodeById.set(jamar.id, jamar);
   }
 
   const addEdge = (a, b, confidence) => {
-    if (!DATA.edges.some(e => e.a === a && e.b === b)) DATA.edges.push({a, b, confidence});
+    if (!atlasData.edges.some(e => e.a === a && e.b === b)) atlasData.edges.push({a, b, confidence});
   };
   addEdge('jamar_webb', 'james_wilford', 'strong');
   addEdge('jamar_webb', 'marion_brenay', 'strong');
@@ -74,8 +78,10 @@
   jamar.evidence = evidence;
   jamar.note = 'FamilySearch person-page capture completed for KJJH-XGL: 3 sources listed (one attached, two detached suggestions) and 2 Memories reviewed. No portrait of Jamar was present. Captured the burial permit, grave-marker photograph, indexed death record, parent names, burial location, contributor/date metadata, and the family-caption conflict over Springerville/St. Johns and stillborn/lived-a-few-hours wording.';
 
-  if (typeof GUIDE_PROFILES !== 'undefined') {
-    GUIDE_PROFILES.jamar_webb = {
+  const atlasProfiles = (typeof window !== 'undefined' && window.__ATLAS_GUIDE_PROFILES) ||
+    (typeof GUIDE_PROFILES !== 'undefined' ? GUIDE_PROFILES : null);
+  if (atlasProfiles) {
+    atlasProfiles.jamar_webb = {
       birthPlace: 'Springerville, Apache County, Arizona (FamilySearch indexed event)',
       townContext: 'Jamar’s surviving record is a small but unusually intimate Arizona family record: a state burial permit, an indexed death entry, and a grave marker at Vernon Cemetery.',
       macroContext: 'Jamar was born in the final months of the Second World War, when Arizona families were still living within a wartime medical, transportation, and military landscape.',
