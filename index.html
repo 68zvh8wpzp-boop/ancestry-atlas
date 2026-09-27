@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<title>Ancestry Atlas v3.9.12</title>
+<title>Ancestry Atlas v3.9.13</title>
 <meta name="theme-color" content="#020609">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1308,7 +1308,7 @@ function atlasViewerSetupGestures(){
     image.setPointerCapture?.(e.pointerId);
     atlasViewerPointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
     if(atlasViewerPointers.size===1){
-      atlasViewerGesture={type:'pan',last:{x:e.clientX,y:e.clientY}};
+      atlasViewerGesture={type:'pan',start:{x:e.clientX,y:e.clientY},last:{x:e.clientX,y:e.clientY}};
     }else if(atlasViewerPointers.size===2){
       atlasViewerGesture={type:'pinch',distance:atlasViewerDistance(),center:atlasViewerCenter()};
     }
@@ -1330,23 +1330,34 @@ function atlasViewerSetupGestures(){
       atlasViewerApply();
       return;
     }
-    if(atlasViewerGesture?.type==='pan'&&atlasViewerScale>1){
+    if(atlasViewerGesture?.type==='pan'){
       const dx=e.clientX-atlasViewerGesture.last.x;
       const dy=e.clientY-atlasViewerGesture.last.y;
-      atlasViewerPanX+=dx;
-      atlasViewerPanY+=dy;
       atlasViewerGesture.last={x:e.clientX,y:e.clientY};
-      atlasViewerApply();
+      if(atlasViewerScale>1){
+        atlasViewerPanX+=dx;
+        atlasViewerPanY+=dy;
+        atlasViewerApply();
+      }
     }
   },{passive:false});
   const endGesture=e=>{
+    const swipeStart=atlasViewerGesture?.start;
+    const swipeDx=swipeStart?e.clientX-swipeStart.x:0;
+    const swipeDy=swipeStart?e.clientY-swipeStart.y:0;
     atlasViewerPointers.delete(e.pointerId);
     if(atlasViewerPointers.size===1){
       const point=[...atlasViewerPointers.values()][0];
-      atlasViewerGesture={type:'pan',last:{x:point.x,y:point.y}};
+      atlasViewerGesture={type:'pan',start:{x:point.x,y:point.y},last:{x:point.x,y:point.y}};
     }else if(atlasViewerPointers.size===0){
+      const nav=document.getElementById('albumViewerNav');
+      const canSwipe=atlasViewerScale<=1.01&&nav&&nav.style.display!=='none'&&Math.abs(swipeDx)>55&&Math.abs(swipeDx)>Math.abs(swipeDy);
       atlasViewerGesture=null;
       if(atlasViewerScale<=1.01){atlasViewerPanX=0;atlasViewerPanY=0;}
+      if(canSwipe){
+        const target=swipeDx<0?'albumNext':'albumPrev';
+        document.getElementById(target)?.click();
+      }
     }
     atlasViewerApply();
   };
@@ -2440,7 +2451,7 @@ function openAlbumItem(idx){
   const label=document.getElementById('albumViewerLabel');
   const extra=[i.date,i.place].filter(Boolean).join(' • ');
   const mediaKind={family:'Family photo',document:'Archival document',place:'Place / context'}[i.kind]||i.kind;
-  label.innerHTML=`<strong>${escapeHtml(i.name)}</strong>${i.years?`<br>${escapeHtml(i.years)}`:''}<br><span class="muted">${escapeHtml(i.branch||'')} • ${mediaKind}</span>${extra?`<br>${escapeHtml(extra)}`:''}<br><span class="muted">Source:</span> ${escapeHtml(i.provenance||'Source recorded in research map')}`;
+  label.innerHTML=`<strong>${escapeHtml(i.name)}</strong>${i.years?`<br>${escapeHtml(i.years)}`:''}<br><span class="muted">${escapeHtml(i.branch||'')} • ${mediaKind}</span>${extra?`<br>${escapeHtml(extra)}`:''}<br><span class="muted">Source:</span> ${escapeHtml(i.provenance||'Source recorded in research map')}<br><span class="muted">Pinch to zoom • swipe left/right for next or previous</span>`;
   label.style.display='block'; document.getElementById('albumViewerNav').style.display=albumState.visible.length>1?'flex':'none';
   const jump=document.getElementById('jumpToPerson'); jump.style.display=i.personId?'inline-block':'none'; jump.dataset.personId=i.personId||'';
 }
@@ -2475,7 +2486,7 @@ resize();
 
 
 
-<script src="atlas-content.js?v=3.9.12"></script>
+<script src="atlas-content.js?v=3.9.13"></script>
 <script src="biographies/marion/marion-story-module.js?v=1.1.0"></script>
 <script src="biographies/brenay-canada/brenay-canada-story-modules.js?v=1.1.0"></script>
 <script src="biographies/brenay-canada/charles-albert-revision-3.8.19.js?v=3.8.22"></script>
