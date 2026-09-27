@@ -12,8 +12,8 @@
   const sourcePage = 'https://www.familysearch.org/en/tree/person/memories/KJJH-XGL';
   const recordPage = 'https://www.familysearch.org/ark:/61903/1:1:FLJW-K4S?lang=en';
   const originalRecord = 'https://www.familysearch.org/ark:/61903/3:1:S3HY-DZ73-PDV?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AFLJW-K4S&action=view&cc=1534450&lang=en';
-  const burialPermitImage = 'https://sg30p0.familysearch.org/service/records/storage/dascloud/patron/v2/TH-7743-156256-3574-8/thumbMobile.jpg?ctx=ArtCtxPublic';
-  const graveMarkerImage = 'https://sg30p0.familysearch.org/service/records/storage/dascloud/patron/v2/TH-904-58874-1436-73/thumbMobile.jpg?ctx=ArtCtxPublic';
+  const burialPermitImage = 'assets/jamar_burial_permit_1946.jpg';
+  const graveMarkerImage = 'assets/jamar_grave_marker_1946.jpg';
 
   let jamar = atlasData.nodes.find(n => n.id === 'jamar_webb');
   if (!jamar) {
