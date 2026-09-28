@@ -207,6 +207,32 @@ Sheldon died on 9 April 2016 in Gilbert, Maricopa County, Arizona, and is associ
     });
     jay.note='FamilySearch capture in progress for person KWZD-XX7. The page currently shows 24 sources and 210 memories. This first Atlas packet preserves Jay’s portrait, Vernon and sawmill images, a 1945 Bear Lake family reunion photograph, a military portrait titled “Jay Webb — 36th Division,” later family photographs, and the original “Jay Webb - 1946” PDF. The 1946 record describes Jay with Sheldon on a logging truck and with cousin Darcine Webb; the PDF is preserved separately as an evidence document. Captioned memories remain family testimony and are not silently promoted to civil-record fact. Religious records and imagery are intentionally excluded from the Atlas layer.';
   }
+  // Chauncey Griswold Webb and the Ann Eliza / Brigham Young collateral route.
+  const chauncey=byId('chauncey_webb');
+  const elizaChurchill=byId('eliza_jane_churchill');
+  const annEliza=byId('ann_eliza_webb');
+  const brighamYoung=byId('brigham_young');
+  if(chauncey){
+    chauncey.evidence=[
+      {title:'Church History Biographical Database — Chauncey Griswold Webb',date:'24 October 1812 – 7 April 1903',place:'Hanover, New York → Salt Lake City, Utah',sourcePage:'https://history.churchofjesuschrist.org/chd/individual/chauncey-griswold-webb-1811?lang=eng',provenance:'Official Church History Biographical Database profile. The profile names James Henry Webb and Hannah Griswold as parents; records six marriages, the Brigham Young Company, George D. Grant Company, 1856 rescue companies, and plural marital status.',summary:'Primary Atlas entry for the collateral Webb figure. The profile supports wheelwright/migration/rescue involvement and six documented marriages; it does not establish that Chauncey made every handcart or that wives were given as payment.',confidence:'official biographical profile; collateral parentage still distinct from the direct-line proof frontier'},
+      {title:'Handcart and rescue participation',date:'1848–1856',place:'Great Plains → Salt Lake Valley',sourcePage:'https://history.churchofjesuschrist.org/chd/individual/chauncey-griswold-webb-1811?lang=eng',provenance:'The official timeline records Chauncey in the Brigham Young Company, the George D. Grant Company, and the rescue companies; it also records his British and Hawaiian missions.',summary:'Documentary context for the handcart-era claim, narrowed to the roles actually supported by the record.',confidence:'official timeline evidence'}
+    ];
+    chauncey.note='Collateral Webb capture added. Chauncey Griswold Webb is supported as a Hanover sibling-cluster relative, wheelwright, migration/rescue participant, and plural husband with six documented marriages. The stronger folklore claims—that he made all the handcarts or received wives as payment—are not promoted.';
+  }
+  if(elizaChurchill){
+    elizaChurchill.evidence=[{title:'Eliza Jane Churchill Webb — collateral spouse and mother',sourcePage:'https://history.churchofjesuschrist.org/chd/individual/eliza-jane-churchill-webb-1817?lang=eng',provenance:'Church History Biographical Database relationship record and the Ann Eliza family record.',summary:'Preserves Eliza Jane as Chauncey’s first documented wife and Ann Eliza’s mother without extending the unresolved collateral branch into the direct line.',confidence:'strong collateral relationship'}];
+  }
+  if(annEliza){
+    annEliza.evidence=[
+      {title:'Utah State Archives — Ann Eliza Webb and Brigham Young',date:'7 April 1868 – January 1875',place:'Salt Lake City, Utah Territory',sourcePage:'https://archives.utah.gov/2023/03/22/ann-eliza-webb-the-woman-who-divorced-brigham-young/',provenance:'Utah State Archives history built from territorial court records and Ann Eliza’s published memoir.',summary:'Documents Ann Eliza’s parentage, first marriage and 1865 divorce, 1868 plural marriage to Brigham Young, 1873 alimony/divorce litigation, and divorce finalized in 1875.',confidence:'official archival narrative with court-record basis'},
+      {title:'BYU Library biographical authority record',date:'13 September 1844 – 7 December 1917',place:'Nauvoo, Illinois → Nevada',sourcePage:'https://archives.lib.byu.edu/agents/people/3132',provenance:'BYU Library Special Collections authority record identifies Ann Eliza as the daughter of Eliza Jane Churchill and Chauncey Griswold Webb and describes her as one of Brigham Young’s wives and a later critic of polygamy.',summary:'Independent institutional confirmation of the Chauncey–Ann Eliza relationship and her later public role.',confidence:'institutional biographical record'}
+    ];
+    annEliza.note='Ann Eliza Webb is a confirmed collateral Webb descendant, not part of the direct Jeremy Webb line. Her 1868 marriage to Brigham Young is treated as a confirmed plural marriage; Wife No. 19 remains a memoir title, not a definitive ordinal count.';
+  }
+  if(brighamYoung){
+    brighamYoung.evidence=[{title:'Brigham Young and Ann Eliza Webb — territorial court history',date:'7 April 1868 – January 1875',place:'Utah Territory',sourcePage:'https://archives.utah.gov/2023/03/22/ann-eliza-webb-the-woman-who-divorced-brigham-young/',provenance:'Utah State Archives account of the territorial court record and the marriage/divorce history.',summary:'Preserves the specific Ann Eliza relationship and the court’s treatment of the plural marriage without collapsing differing global wife counts.',confidence:'official archival narrative'}];
+  }
+
   // Marion Beulah Brenay Webb — person-page and media follow-up packet.
   if (marion) {
     const marionCaptureEvidence=[
