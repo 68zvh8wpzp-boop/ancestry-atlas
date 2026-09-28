@@ -1877,9 +1877,9 @@ function openNode(id, recenter=false, appendTrail=false){
   if(n.hold) card.querySelector('p').insertAdjacentHTML('afterend',`<div class="extra dynamic-status" style="border-color:${n.hold.kind==='priority'?'#ff2bd6':'#b8ff3d'}"><strong>${n.hold.kind==='priority'?'▶ IMMEDIATE PROOF TARGET':'▶ DOCUMENT HOLD'}</strong><br>${escapeHtml(n.hold.label)}</div>`);
   if(n.warning) card.querySelector('p').insertAdjacentHTML('afterend',`<div class="extra dynamic-status" style="border-color:#ffd166"><strong>? CAUTION</strong><br>${escapeHtml(n.warning)}</div>`);
   const guideProfile=(typeof GUIDE_PROFILES!=='undefined')?GUIDE_PROFILES[id]:null;
-  if(guideProfile?.life){
-    const fullBio=String(guideProfile.life).split(/\\n{2,}/).filter(Boolean).map(paragraph=>\`<p style="margin:0 0 10px">\${escapeHtml(paragraph)}</p>\`).join('');
-    card.querySelector('p').insertAdjacentHTML('afterend',\`<div class="extra dynamic-status full-biography" style="border-color:#70a8ff"><strong>FULL BIOGRAPHY</strong><div style="margin-top:8px">\${fullBio}</div></div>\`);
+  if(guideProfile && guideProfile.life){
+    const fullBio=String(guideProfile.life).split(/\n{2,}/).filter(Boolean).map(function(paragraph){ return '<p style="margin:0 0 10px">'+escapeHtml(paragraph)+'</p>'; }).join('');
+    card.querySelector('p').insertAdjacentHTML('afterend','<div class="extra dynamic-status full-biography" style="border-color:#70a8ff"><strong>FULL BIOGRAPHY</strong><div style="margin-top:8px">'+fullBio+'</div></div>');
   }
   document.getElementById('extraInfo').innerHTML = buildExtraInfo(id);
   renderPortrait(n);
