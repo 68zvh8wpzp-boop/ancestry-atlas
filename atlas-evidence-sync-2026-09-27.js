@@ -307,7 +307,7 @@ Sheldon died on 9 April 2016 in Gilbert, Maricopa County, Arizona, and is associ
         sourcePage:'https://ancestors.familysearch.org/en/KWCR-Z5P/jonathan-henry-webb-1886-1975',
         provenance:'FamilySearch public ancestor page lists “Jonathan Webb, Arizona, Birth Certificates and Indexes, 1855–1940.” Preserved image downloaded from https://ancestors.familysearch.org/service/tree/tree-data/published/sources/KWCR-Z5P/images/t/1/image.jpg.',
         summary:'Attached source image for the Arizona birth record. The public thumbnail is not fully legible at the available resolution, so the capture is retained without inventing a transcription.',
-        transcription:'Visible source label (page, not document image): “Jonathan Webb, Arizona, Birth Certificates and Indexes, 1855–1940.”\\nDocument image: [illegible in the available 146 × 200 public thumbnail].\\nExact line-by-line transcription: unavailable until the underlying record image can be accessed at higher resolution.',
+        transcription:'Visible source label (page, not document image): “Jonathan Webb, Arizona, Birth Certificates and Indexes, 1855–1940.”\nDocument image: [illegible in the available 146 × 200 public thumbnail].\nExact line-by-line transcription: unavailable until the underlying record image can be accessed at higher resolution.',
         confidence:'FamilySearch source thumbnail; birth details are supported by the indexed public summary'
       },
       {
@@ -319,7 +319,7 @@ Sheldon died on 9 April 2016 in Gilbert, Maricopa County, Arizona, and is associ
         sourcePage:'https://ancestors.familysearch.org/en/KWCR-Z5P/jonathan-henry-webb-1886-1975',
         provenance:'FamilySearch public ancestor page lists “Jonathan H. Webb, Utah, County Marriages, 1887–1940.” The public summary gives the marriage date and Mexican location; preserved image downloaded from https://ancestors.familysearch.org/service/tree/tree-data/published/sources/KWCR-Z5P/images/t/2/image.jpg.',
         summary:'Attached marriage-source image preserved alongside the public summary. The summary’s Mexico location and the source-title wording are kept distinct until the underlying record can be reviewed at higher resolution.',
-        transcription:'Visible source label (page, not document image): “Jonathan H. Webb, Utah, County Marriages, 1887–1940.”\\nDocument image: [illegible in the available 200 × 249 public thumbnail].\\nExact line-by-line transcription: unavailable until the underlying record image can be accessed at higher resolution.',
+        transcription:'Visible source label (page, not document image): “Jonathan H. Webb, Utah, County Marriages, 1887–1940.”\nDocument image: [illegible in the available 200 × 249 public thumbnail].\nExact line-by-line transcription: unavailable until the underlying record image can be accessed at higher resolution.',
         confidence:'FamilySearch summary plus source thumbnail; source-title/place alignment remains pending'
       }
     ];
