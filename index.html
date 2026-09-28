@@ -528,6 +528,11 @@ canvas:active{cursor:grabbing}
 .cd-controls .audio-status{margin-left:4px}
 .cd-controls .story-audio-meter{flex:1 1 120px;min-width:100px}
 /* Reliable single-layer album viewer on iPhone. */
+.doc-modal{z-index:1000!important;isolation:isolate}
+.doc-modal.open{z-index:1000!important}
+.doc-modal .doc-panel{position:relative;z-index:1001}
+.doc-modal .doc-close{z-index:1002!important}
+
 .doc-modal.open{display:flex}
 .doc-modal.open .doc-panel{width:min(1050px,100%)}
 .album-modal.viewer-behind{visibility:hidden;pointer-events:none}
@@ -2522,7 +2527,7 @@ resize();
 
 
 
-<script src="atlas-content.js?v=3.9.26"></script>
+<script src="atlas-content.js?v=3.9.27"></script>
 <script src="biographies/marion/marion-story-module.js?v=1.1.0"></script>
 <script src="biographies/brenay-canada/brenay-canada-story-modules.js?v=1.1.0"></script>
 <script src="biographies/brenay-canada/charles-albert-revision-3.8.19.js?v=3.8.22"></script>
