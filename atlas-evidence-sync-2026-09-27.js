@@ -276,4 +276,60 @@ Sheldon died on 9 April 2016 in Gilbert, Maricopa County, Arizona, and is associ
   if(typeof GUIDE_PROFILES!=='undefined'&&GUIDE_PROFILES.john_peter){
     GUIDE_PROFILES.john_peter.life="John Peter Gooley is remembered in this family as a Quebec-born ancestor, reportedly born 2 May 1842. His later life is associated with Ontario and Michigan, his marriage to Mary Ann Dennis, and their daughter Ida Mae Gooley, who became the mother of Charles Albert Brenay. The 1842 birth is strongly supported in the family reconstruction, but the original Quebec baptism has not yet been located.\n\nA separate FamilySearch profile, K856-QYW, identifies Peter John Gooley as born 24 February 1847 in Sherbrooke, Quebec, and deceased 6 June 1910 in Ossineke Township, Alpena County, Michigan. The profile records burial at Hubbard Lake and a 7 June 1847 baptism at Saint-Michel in Sherbrooke. It also carries the alternate form John Goolay and the birth name Pierre Goulet. These dates, names, and places make the profile important to the Gooley–Goulet family story, but they do not establish that it is the same man as the reported 1842 ancestor.\n\nThe family tree associates the 1847 profile with John Peter Gooley Sr. and Louise Anne Tellier, whose displayed marriage took place on 25 May 1846 in Sherbrooke. Their household includes fourteen children and both Goulet and Gooley forms. The marriage is chronologically consistent with a child born in 1847, but it cannot explain the reported 1842 birth without an independent record connecting the two identities.\n\nThe 1847 profile records a marriage to Mary Ann Dennis in 1866 at Alpena, Michigan, followed by a nine-child household: James Francis, Lucie, Benjamin F., Ida Mae, Mary Etta “Hattie,” Arthur Dale, Daisy, Peter, and Nina Gooley. Michigan and Ontario births, marriages, censuses, and deaths create a substantial household trail, with spelling variants including Goolay, Gooley, and Dooley. The family is well documented in the Alpena–Ontario corridor even though the bridge to the reported 1842 man remains open.\n\nA surviving collaboration record preserves an unresolved question about origin. One contributor compared census statements that reportedly point toward France in 1880 and Ireland in 1910; another replied that family AncestryDNA testing was believed to favor the Irish side. This is family research context, not documentary proof of nationality, parentage, or identity.\n\nSix FamilySearch Memories add visual and family-history context: an AI-colorized portrait; an untitled image; a memory titled “Peter Gooley” tagged to both K856-QYW and the short-lived profile K87N-NZD; a “Peter John Gooley” portrait whose description refers to a Book of Remembrance pedigree chart placing Peter above Ida Mae; a screenshot-style image; and an untitled family image tagged to Louise Anne Tellier, John Peter Gooley Sr., and Peter John Gooley. The images are preserved as viewer captures, with contributor, date, filename, tags, and limitations retained. Portraits, captions, and pedigree-chart testimony are not treated as independent proof of birth, parentage, or identity.\n\nNo evidence of plural marriage has been found. The visible record shows one marriage to Mary Ann Dennis, and the variant records do not amount to polygamy evidence. The next proof target is the original Quebec record for 2 May 1842, together with an independent bridge—such as a baptism, census continuity, marriage record, or other primary document—that can connect or separate the 1842 and 1847 men.";
   }
+  // Jonathan Henry Webb (KWCR-Z5P) — person-page media and biography capture.
+  const jonathanHenry=byId('jonathan_henry');
+  if(jonathanHenry){
+    jonathanHenry.portrait={
+      url:'assets/webb/jonathan_henry/jonathan-henry-portrait.jpg',
+      title:'Jonathan Henry Webb — FamilySearch tree portrait thumbnail',
+      provenance:'Public FamilySearch ancestor summary for KWCR-Z5P. The available image is a 200×200 tree-portrait thumbnail; original resolution and photographer are not exposed on the public page.',
+      sourcePage:'https://ancestors.familysearch.org/en/KWCR-Z5P/jonathan-henry-webb-1886-1975'
+    };
+    const jonathanEvidence=[
+      {
+        title:'Jonathan Henry Webb — FamilySearch tree portrait thumbnail',
+        date:'Undated',
+        place:'FamilySearch public ancestor summary, KWCR-Z5P',
+        full:'assets/webb/jonathan_henry/jonathan-henry-portrait.jpg',
+        thumb:'assets/webb/jonathan_henry/jonathan-henry-portrait.jpg',
+        sourcePage:'https://ancestors.familysearch.org/en/KWCR-Z5P/jonathan-henry-webb-1886-1975',
+        provenance:'Downloaded from the public FamilySearch portrait URL https://tree-portraits-pgp.familysearchcdn.org/8lfvk/thumb200s.jpg. The public asset is a 200×200 thumbnail; original resolution, upload date, and photographer are not exposed on the page.',
+        summary:'Portrait of Jonathan Henry Webb used as a visual identity anchor. It is preserved as a source capture without assigning a date or creator.',
+        confidence:'public FamilySearch portrait thumbnail; date and creator unknown'
+      },
+      {
+        title:'Arizona birth certificate and index source — Jonathan Webb',
+        date:'21 June 1886',
+        place:'Woodruff, Apache County, Arizona',
+        full:'assets/webb/jonathan_henry/jonathan-birth-certificate.jpg',
+        thumb:'assets/webb/jonathan_henry/jonathan-birth-certificate.jpg',
+        sourcePage:'https://ancestors.familysearch.org/en/KWCR-Z5P/jonathan-henry-webb-1886-1975',
+        provenance:'FamilySearch public ancestor page lists “Jonathan Webb, Arizona, Birth Certificates and Indexes, 1855–1940.” Preserved image downloaded from https://ancestors.familysearch.org/service/tree/tree-data/published/sources/KWCR-Z5P/images/t/1/image.jpg.',
+        summary:'Attached source image for the Arizona birth record. The public thumbnail is not fully legible at the available resolution, so the capture is retained without inventing a transcription.',
+        confidence:'FamilySearch source thumbnail; birth details are supported by the indexed public summary'
+      },
+      {
+        title:'Marriage source — Jonathan H. Webb and Della Ray',
+        date:'16 August 1908',
+        place:'Colonia Morelos, Agua Prieta, Sonora, Mexico',
+        full:'assets/webb/jonathan_henry/jonathan-marriage-record.jpg',
+        thumb:'assets/webb/jonathan_henry/jonathan-marriage-record.jpg',
+        sourcePage:'https://ancestors.familysearch.org/en/KWCR-Z5P/jonathan-henry-webb-1886-1975',
+        provenance:'FamilySearch public ancestor page lists “Jonathan H. Webb, Utah, County Marriages, 1887–1940.” The public summary gives the marriage date and Mexican location; preserved image downloaded from https://ancestors.familysearch.org/service/tree/tree-data/published/sources/KWCR-Z5P/images/t/2/image.jpg.',
+        summary:'Attached marriage-source image preserved alongside the public summary. The summary’s Mexico location and the source-title wording are kept distinct until the underlying record can be reviewed at higher resolution.',
+        confidence:'FamilySearch summary plus source thumbnail; source-title/place alignment remains pending'
+      }
+    ];
+    jonathanHenry.evidence=jonathanHenry.evidence||[];
+    for(const item of jonathanEvidence){
+      if(!jonathanHenry.evidence.some(e=>e.title===item.title)) jonathanHenry.evidence.push(item);
+    }
+    jonathanHenry.note='Born 21 June 1886 in Woodruff, Arizona. Son of Edward Milo Webb Jr. and Sarah Elizabeth Carling; husband of Della Ray; father of James Wilford Webb. The public record places the family through northern Mexico and later northeastern Arizona, while the exact move chronology remains unsettled.';
+  }
+  if(typeof GUIDE_PROFILES!=='undefined'){
+    GUIDE_PROFILES.jonathan_henry=GUIDE_PROFILES.jonathan_henry||{};
+    GUIDE_PROFILES.jonathan_henry.birthPlace='Woodruff, Apache County, Arizona';
+    GUIDE_PROFILES.jonathan_henry.life='Jonathan Henry Webb was born on 21 June 1886 in Woodruff, Apache County, Arizona, while Arizona was still a territory. FamilySearch identifies him as the son of Edward Milo Webb Jr. and Sarah Elizabeth Carling. His early life belonged to the small agricultural settlements around the Little Colorado, where distance, irrigation, weather, and family cooperation shaped daily life.\\n\\nOn 16 August 1908, Jonathan married Della Ray in Colonia Morelos, in the Agua Prieta region of Sonora, Mexico. The couple had ten children, including James Wilford “Jay” Webb, born in 1924. The surviving summary places the family later in northeastern Arizona, but the exact timing and reasons for each move north remain unresolved.\\n\\nJonathan and Della’s family lived through Arizona statehood, the Mexican Revolution’s aftermath, two world wars, and the Great Depression. Della died in 1969 in McNary, Arizona; Jonathan died in 1975 in Lakeside, Arizona, and was buried at Lakeside Cemetery. Through Jay, Jonathan became a direct ancestor of James Sheldon Webb. The current record presents Della as his documented wife; no evidence of a plural-marriage structure was found in this pass.';
+  }
+
 })();
