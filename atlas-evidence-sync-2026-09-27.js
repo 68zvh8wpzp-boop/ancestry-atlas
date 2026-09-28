@@ -157,7 +157,7 @@
     seen.add(key);
     return true;
   });
-  sheldon.note = 'FamilySearch capture completed for person LFG9-JMZ. The person page was audited for 9 attached sources and 58 memories; the Atlas now carries the captured portraits, family photographs, military and school images, wedding and engagement items, family-history PDFs, and the 1950 census image with source-by-source provenance. The 11 April 1943 Snowflake birth citation names James Wilford Webb and Marion Beulah Brenay and certificate 793; the original birth-certificate image and the attached BIRLS record image remain explicitly pending because those source viewers were blocked during capture. Captioned memories are preserved as family testimony, not silently promoted to civil-record fact.';
+  sheldon.note = 'James Sheldon Webb’s record is anchored by the 11 April 1943 Snowflake birth citation, which names James Wilford Webb and Marion Beulah Brenay and gives certificate 793. The 1950 census image, attached marriage and military-source metadata, and preserved family photographs and documents expand the story from childhood through Air Force service, education, marriage, and family history. The original birth-certificate image and BIRLS record image remain pending; captioned memories are family testimony, not civil-record fact.';
   if (typeof GUIDE_PROFILES !== 'undefined' && GUIDE_PROFILES.james_sheldon) {
     GUIDE_PROFILES.james_sheldon.birthPlace = 'Snowflake, Navajo County, Arizona';
     GUIDE_PROFILES.james_sheldon.life = `James Sheldon Webb was born on 11 April 1943 at Snowflake, Navajo County, Arizona. The FamilySearch person-page birth entry names his father as James Wilford Webb, his mother as Marion Beulah Brenay, and certificate number 793. The indexed citation is internally consistent with the immediate Webb household; the original certificate image remains a separate preservation target.
@@ -170,7 +170,7 @@ The military record is represented by Air Force training and uniform portraits a
 
 The 1965 engagement announcement, Mesa Temple wedding photographs, county-marriage citation, reception photograph, and later family portraits document Sheldon’s marriage to Inez and the growth of their household. Additional captured documents preserve the family’s 1980 sealing, Sheldon’s participation in Aaron’s airport welcome, and his four-page life sketch for Uncle Joe Brenay. That life sketch is especially important because it shows Sheldon acting as a keeper and presenter of family history, not merely appearing in it.
 
-Sheldon died on 9 April 2016 in Gilbert, Maricopa County, Arizona, and is associated with Lakeside Cemetery in Lakeside, Navajo County. The Atlas now presents him as the modern anchor of the Webb line: a person supported by a page-level birth citation, an original 1950 census image, attached marriage and military-source metadata, and a large body of captioned family photographs and documents. Where the underlying source image was not preserved, that limitation is stated rather than concealed.`;
+Sheldon died on 9 April 2016 in Gilbert, Maricopa County, Arizona, and is associated with Lakeside Cemetery in Lakeside, Navajo County. His later record combines a page-level birth citation, the original 1950 census image, attached marriage and military-source metadata, and a large body of captioned family photographs and documents. Where the underlying source image was not preserved, that limitation remains stated rather than concealed.`;
   }
 
   // James Wilford “Jay” Webb — first FamilySearch capture packet.
