@@ -1890,6 +1890,8 @@ function openNode(id, recenter=false, appendTrail=false){
   if(!document.body.classList.contains('tour-active')) showSceneFor(n);
   if(recenter) cinematicFocus(id,'family'); else {refreshNavigationNeighborhood();draw();}
 }
+const navigateTo = openNode;
+
 function stepRelation(dir){
   if(!selected) return;
   const list=(dir==='up'?parentMap.get(selected):childMap.get(selected))||[];
