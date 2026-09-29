@@ -1252,19 +1252,39 @@ function evidenceIsImage(e){
 function renderEvidence(n){
   const wrap=document.getElementById('evidenceWrap');
   const ev=n.evidence||[];
-  if(!ev.length){wrap.innerHTML='<div class="evidence-empty">No source image attached to this person yet.</div>';return;}
-  wrap.innerHTML='<div class="evidence-strip"></div>';
-  const strip=wrap.firstElementChild;
-  ev.forEach(e=>{
-    const b=document.createElement('button'); b.className='evidence-item';
-    const media=e.thumb||e.full;
-    b.innerHTML=evidenceIsImage(e)
-      ? `<img src="${escapeHtml(media||'')}" alt="${escapeHtml(e.title||'Evidence image')}"><div class="evtitle">${escapeHtml(e.title||'Evidence image')}</div>`
-      : `<div class="evidence-doc-placeholder">DOCUMENT<span>${e.documentUrl||e.sourcePage?'Open linked record':'Open captured record'}</span></div><div class="evtitle">${escapeHtml(e.title||'Evidence document')}</div>`;
-    const img=b.querySelector('img');
-    if(img) img.onerror=()=>{img.replaceWith(Object.assign(document.createElement('div'),{className:'evidence-doc-placeholder',textContent:'Image unavailable'}));};
-    b.onclick=()=>{clearAlbumViewerExtras();albumState.visible=ev;albumState.index=ev.indexOf(e);openEvidence(e);}; strip.appendChild(b);
-  });
+  if(!ev.length){wrap.innerHTML='<div class="evidence-empty">No source image or document attached to this person yet.</div>';return;}
+  const photos=ev.filter(evidenceIsImage);
+  const documents=ev.filter(e=>!evidenceIsImage(e));
+  wrap.innerHTML='';
+  const addGroup=(label,list,kind)=>{
+    if(!list.length)return;
+    const title=document.createElement('div');
+    title.className='evidence-group-title';
+    title.textContent=label;
+    title.style.cssText='font-size:11px;letter-spacing:.12em;color:#b9cbd8;margin:8px 0 4px;text-transform:uppercase';
+    wrap.appendChild(title);
+    const strip=document.createElement('div');
+    strip.className='evidence-strip '+kind;
+    list.forEach(e=>{
+      const b=document.createElement('button');
+      b.className='evidence-item';
+      const media=e.thumb||e.full;
+      const titleText=e.title|| (kind==='documents'?'Evidence document':'Evidence image');
+      if(evidenceIsImage(e)){
+        b.innerHTML='<img src="'+escapeHtml(media||'')+'" alt="'+escapeHtml(titleText)+'"><div class="evtitle">'+escapeHtml(titleText)+'</div>';
+        const img=b.querySelector('img');
+        if(img)img.onerror=()=>{img.replaceWith(Object.assign(document.createElement('div'),{className:'evidence-doc-placeholder',textContent:'Image unavailable'}));};
+      }else{
+        const action=e.documentUrl||e.sourcePage?'Open linked record':'Open captured record';
+        b.innerHTML='<div class="evidence-doc-placeholder">DOCUMENT<span>'+action+'</span></div><div class="evtitle">'+escapeHtml(titleText)+'</div>';
+      }
+      b.onclick=()=>{clearAlbumViewerExtras();albumState.visible=ev;albumState.index=ev.indexOf(e);openEvidence(e);};
+      strip.appendChild(b);
+    });
+    wrap.appendChild(strip);
+  };
+  addGroup('DOCUMENTS ('+documents.length+')',documents,'documents');
+  addGroup('PHOTOS ('+photos.length+')',photos,'photos');
 }
 let atlasViewerPointers=new Map();
 let atlasViewerGesture=null;
