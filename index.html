@@ -1260,7 +1260,7 @@ function renderEvidence(n){
     const media=e.thumb||e.full;
     b.innerHTML=evidenceIsImage(e)
       ? `<img src="${escapeHtml(media||'')}" alt="${escapeHtml(e.title||'Evidence image')}"><div class="evtitle">${escapeHtml(e.title||'Evidence image')}</div>`
-      : `<div class="evidence-doc-placeholder">DOCUMENT<span>Open captured record</span></div><div class="evtitle">${escapeHtml(e.title||'Evidence document')}</div>`;
+      : `<div class="evidence-doc-placeholder">DOCUMENT<span>${e.documentUrl||e.sourcePage?'Open linked record':'Open captured record'}</span></div><div class="evtitle">${escapeHtml(e.title||'Evidence document')}</div>`;
     const img=b.querySelector('img');
     if(img) img.onerror=()=>{img.replaceWith(Object.assign(document.createElement('div'),{className:'evidence-doc-placeholder',textContent:'Image unavailable'}));};
     b.onclick=()=>{clearAlbumViewerExtras();albumState.visible=ev;albumState.index=ev.indexOf(e);openEvidence(e);}; strip.appendChild(b);
@@ -1409,7 +1409,8 @@ function openEvidence(e){
   const meta=document.getElementById('docMeta');
   delete meta.dataset.loadError;
   meta.innerHTML=`<strong>${escapeHtml(e.title||'Evidence')}</strong><br>${escapeHtml(e.date||'')}${e.place?' • '+escapeHtml(e.place):''}<br><br>${escapeHtml(e.summary||'')||'Captured document record; original file remains linked in the research provenance.'}${e.transcription?'<br><br><strong>Transcription</strong><div class="doc-transcription">'+escapeHtml(e.transcription)+'</div>':''}<br><br><strong>Provenance:</strong> ${escapeHtml(e.provenance||'not recorded')}<br><strong>Evidence status:</strong> ${escapeHtml(e.confidence||'not recorded')}`;
-  if(e.documentUrl) meta.innerHTML += '<br><br><a href="'+escapeHtml(e.documentUrl)+'" target="_blank" rel="noopener">Open original captured file</a>';
+  const sourceLink=e.documentUrl||e.sourcePage;
+  if(sourceLink) meta.innerHTML += '<br><br><a href="'+escapeHtml(sourceLink)+'" target="_blank" rel="noopener">Open original record</a>';
   if(isImage) image.src=full; else image.removeAttribute('src');
   const nav=document.getElementById('albumViewerNav');
   if(nav) nav.style.display=albumState.visible.length>1?'flex':'none';
@@ -2416,7 +2417,8 @@ function buildAlbumItems(){
     }
     (n.evidence||[]).forEach(ev=>{
       const thumb=ev.thumb||ev.full,full=ev.full||ev.thumb;
-      if(!albumAssetIsPackaged(thumb)||!albumAssetIsPackaged(full))return;
+      const sourceOnly=!!(ev.sourcePage||ev.documentUrl);
+      if(!sourceOnly&&(!albumAssetIsPackaged(thumb)||!albumAssetIsPackaged(full)))return;
       const familyPhoto=/photo memory|portrait|photograph|birthday|school/i.test((ev.provenance||'')+' '+(ev.title||'')) && !/census|newspaper|announcement|drawing/i.test(ev.title||'');
       items.push({kind:familyPhoto?'family':'document',personId:n.id,name:n.name,years:n.years||'',branch:n.branch||'',title:ev.title||('Source image: '+n.name),thumb,full,provenance:ev.provenance||'',summary:ev.summary||'',confidence:ev.confidence||'',date:ev.date||'',place:ev.place||''});
     });
@@ -2461,7 +2463,11 @@ function renderAlbum(){
   list.forEach((i,idx)=>{
     const b=document.createElement('button'); b.type='button';b.className='album-card '+i.kind;
     const kindLabel={family:'Family photo',document:'Archival document',place:'Place / context'}[i.kind]||i.kind;
-    b.innerHTML=`<img src="${escapeHtml(i.thumb||i.full)}" alt="${escapeHtml(i.title)}"><div class="album-name">${escapeHtml(i.name)}</div><div class="album-years">${escapeHtml(i.years||'')}</div><div class="album-kind">${kindLabel}</div><div class="album-source">${escapeHtml(albumSourceShort(i))}</div>`;
+    const media=i.thumb||i.full;
+    const mediaHtml=media
+      ? `<img src="${escapeHtml(media)}" alt="${escapeHtml(i.title)}">`
+      : `<div class="album-doc-placeholder">DOCUMENT<span>Open linked record</span></div>`;
+    b.innerHTML=`${mediaHtml}<div class="album-name">${escapeHtml(i.name)}</div><div class="album-years">${escapeHtml(i.years||'')}</div><div class="album-kind">${kindLabel}</div><div class="album-source">${escapeHtml(albumSourceShort(i))}</div>`;
     const thumb=b.querySelector('img');
     thumb.onerror=()=>{thumb.remove();b.classList.add('image-unavailable');b.insertAdjacentHTML('afterbegin','<div class="album-image-unavailable">Image unavailable</div>');};
     b.onclick=()=>openAlbumItem(idx); grid.appendChild(b);
