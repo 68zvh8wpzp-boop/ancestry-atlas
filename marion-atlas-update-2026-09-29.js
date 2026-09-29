@@ -95,6 +95,14 @@ Marion and Jay remained together for seventy years. Their marriage was built fro
       if(!childMap.has('marion_brenay')) childMap.set('marion_brenay',[]);
       childMap.get('marion_brenay').push(id);
     }
+    if(!DATA.edges.some(e=>e.a===id&&e.b==='james_wilford')){
+      const edge={a:id,b:'james_wilford',confidence:'strong'};
+      DATA.edges.push(edge);
+      if(!parentMap.has(id)) parentMap.set(id,[]);
+      parentMap.get(id).push('james_wilford');
+      if(!childMap.has('james_wilford')) childMap.set('james_wilford',[]);
+      childMap.get('james_wilford').push(id);
+    }
   });
 
   const linkOnlyTitles = new Set([
