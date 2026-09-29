@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <script>
 (function(){
-  if(location.search.indexOf('v=3.8.21')!==-1){
-    location.replace(location.pathname+'?v=3.9.20');
+  if(/[?&]v=(?:3\\.8\\.21|3\\.9\\.20)(?:&|$)/.test(location.search)){
+    location.replace(location.pathname+'?v=3.9.21');
   }
 })();
 </script>
