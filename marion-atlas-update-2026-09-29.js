@@ -72,13 +72,13 @@ Marion and Jay remained together for seventy years. Their marriage was built fro
       DATA.nodes.push(child);
       nodeById.set(id,child);
     }
-    if(!DATA.edges.some(e=>e.a==='marion_brenay'&&e.b===id)){
-      const edge={a:'marion_brenay',b:id,confidence:'strong'};
+    if(!DATA.edges.some(e=>e.a===id&&e.b==='marion_brenay')){
+      const edge={a:id,b:'marion_brenay',confidence:'strong'};
       DATA.edges.push(edge);
-      if(!parentMap.has('marion_brenay')) parentMap.set('marion_brenay',[]);
-      parentMap.get('marion_brenay').push(id);
-      if(!childMap.has(id)) childMap.set(id,[]);
-      childMap.get(id).push('marion_brenay');
+      if(!parentMap.has(id)) parentMap.set(id,[]);
+      parentMap.get(id).push('marion_brenay');
+      if(!childMap.has('marion_brenay')) childMap.set('marion_brenay',[]);
+      childMap.get('marion_brenay').push(id);
     }
   });
 
