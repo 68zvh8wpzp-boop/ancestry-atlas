@@ -1246,8 +1246,11 @@ function renderPortrait(n){
   img.onerror=()=>{wrap.classList.remove('show');};
   img.onclick=()=>{clearAlbumViewerExtras();openEvidence({title:p.title||('Portrait: '+n.name),thumb:p.url,full:p.url,provenance:p.provenance||'',summary:'Historical portrait attached only to the person pictured.',confidence:'verified portrait source'});};
 }
+function evidenceHasMedia(e){
+  return /\.(?:jpe?g|png|gif|webp)(?:[?#]|$)/i.test(e?.thumb||e?.full||'');
+}
 function evidenceIsImage(e){
-  return e?.kind!=='document' && /\.(?:jpe?g|png|gif|webp)(?:[?#]|$)/i.test(e?.thumb||e?.full||'');
+  return e?.kind!=='document' && evidenceHasMedia(e);
 }
 function renderEvidence(n){
   const wrap=document.getElementById('evidenceWrap');
@@ -1270,7 +1273,7 @@ function renderEvidence(n){
       b.className='evidence-item';
       const media=e.thumb||e.full;
       const titleText=e.title|| (kind==='documents'?'Evidence document':'Evidence image');
-      const hasMedia=/\.(?:jpe?g|png|gif|webp)(?:[?#]|$)/i.test(media||'');
+      const hasMedia=evidenceHasMedia(e);
       if(hasMedia){
         b.innerHTML='<img src="'+escapeHtml(media||'')+'" alt="'+escapeHtml(titleText)+'"><div class="evtitle">'+escapeHtml(titleText)+'</div>';
         const img=b.querySelector('img');
@@ -1408,12 +1411,12 @@ function openEvidence(e){
   const viewer=document.getElementById('docModal');
   const image=document.getElementById('docImage');
   const full=e.full||e.thumb,thumb=e.thumb||e.full;
-  const isImage=evidenceIsImage(e);
+  const isImage=evidenceHasMedia(e);
   atlasViewerReset();
   let attemptedFallback=false;
   image.style.display=isImage?'block':'none';
   image.onerror=()=>{
-    if(!attemptedFallback&&thumb&&thumb!==full&&evidenceIsImage({full:thumb})){
+    if(!attemptedFallback&&thumb&&thumb!==full&&evidenceHasMedia({full:thumb})){
       attemptedFallback=true;
       image.src=thumb;
       return;
