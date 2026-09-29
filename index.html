@@ -1264,7 +1264,7 @@ function renderEvidence(n){
   const ev=n.evidence||[];
   if(!ev.length){wrap.innerHTML='<div class="evidence-empty">No source image or document attached to this person yet.</div>';return;}
   const photos=ev.filter(evidenceIsImage);
-  const documents=ev.filter(e=>!evidenceIsImage(e));
+  const documents=ev.filter(e=>!evidenceIsImage(e)).sort((a,b)=>Number(evidenceHasMedia(b))-Number(evidenceHasMedia(a)));
   wrap.innerHTML='';
   const addGroup=(label,list,kind)=>{
     if(!list.length)return;
