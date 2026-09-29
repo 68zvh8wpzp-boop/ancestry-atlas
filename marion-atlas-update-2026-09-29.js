@@ -52,11 +52,35 @@ Marion and Jay remained together for seventy years. Their marriage was built fro
   ].map(([title, full, provenance]) => ({title, full, thumb:full, provenance, summary:'Family photograph or approved historical context image attached to Marion’s biography.', confidence:'approved Atlas image'}));
 
   const documents = [
-    {title:'Marion Beulah Brenay — family life story',sourcePage:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW',provenance:'FamilySearch family memory and supplied life-story PDF; retained as the principal narrative source.',summary:'The long family account behind Marion’s childhood, marriage, motherhood, work, illness, moves, and memory-keeping.',confidence:'family testimony and supplied document reviewed'},
-    {title:'Marion and Jay Webb — FamilySearch memory index',sourcePage:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW',provenance:'FamilySearch memory index attached to the Webb family record.',summary:'Indexed family-memory record connecting Marion and Jay with their household and descendants.',confidence:'indexed family-memory evidence'},
-    {title:'Marion–Jay marriage and household record',sourcePage:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW',provenance:'Family record set reviewed for the St. Johns marriage and early Webb household.',summary:'Documentary context for the 5 May 1941 marriage and the early Arizona household.',confidence:'family record context'},
-    {title:'Jamar Webb — parentage and memorial record',sourcePage:'https://www.familysearch.org/en/tree/person/memories/KJJH-XGL',provenance:'FamilySearch record set naming Jamar as the son of James and Marion Webb.',summary:'Preserves Marion’s place as Jamar’s mother and keeps the indexed and family-memorial evidence distinct.',confidence:'indexed record and family memorial'}
+    {title:'Marion Beulah Brenay — family life story',sourcePage:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW',documentUrl:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW',provenance:'FamilySearch family memory and supplied life-story PDF; retained as the principal narrative source.',summary:'The long family account behind Marion’s childhood, marriage, motherhood, work, illness, moves, and memory-keeping.',confidence:'family testimony and supplied document reviewed'},
+    {title:'Marion and Jay Webb — FamilySearch memory index',sourcePage:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW',documentUrl:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW',provenance:'FamilySearch memory index attached to the Webb family record.',summary:'Indexed family-memory record connecting Marion and Jay with their household and descendants.',confidence:'indexed family-memory evidence'},
+    {title:'Marion–Jay marriage and household record',sourcePage:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW',documentUrl:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW',provenance:'Family record set reviewed for the St. Johns marriage and early Webb household.',summary:'Documentary context for the 5 May 1941 marriage and the early Arizona household.',confidence:'family record context'},
+    {title:'Jamar Webb — parentage and memorial record',sourcePage:'https://www.familysearch.org/en/tree/person/memories/KJJH-XGL',documentUrl:'https://www.familysearch.org/en/tree/person/memories/KJJH-XGL',provenance:'FamilySearch record set naming Jamar as the son of James and Marion Webb.',summary:'Preserves Marion’s place as Jamar’s mother and keeps the indexed and family-memorial evidence distinct.',confidence:'indexed record and family memorial'}
   ];
+
+  // Keep all six children visible in Marion’s relationship panel, even where
+  // the current tree has not yet received a full individual record.
+  const children = [
+    ['diane_webb','Diane Webb','1948–','Born during a severe snowstorm on 28 January 1948.'],
+    ['drinette_webb','Drinette Webb','1950–','Born 22 September 1950.'],
+    ['daphne_webb','Daphne Webb','1954–','Born 27 February 1954.'],
+    ['deedra_webb','DeEdra Webb','1959–','Born 4 April 1959.']
+  ];
+  children.forEach(([id,name,years,note],i)=>{
+    if(!nodeById.has(id)){
+      const child={id,name,years,place:'Arizona',branch:'Webb',confidence:'strong',note,x:-2.2+i*1.45,y:1.32,z:0.55};
+      DATA.nodes.push(child);
+      nodeById.set(id,child);
+    }
+    if(!DATA.edges.some(e=>e.a==='marion_brenay'&&e.b===id)){
+      const edge={a:'marion_brenay',b:id,confidence:'strong'};
+      DATA.edges.push(edge);
+      if(!parentMap.has('marion_brenay')) parentMap.set('marion_brenay',[]);
+      parentMap.get('marion_brenay').push(id);
+      if(!childMap.has(id)) childMap.set(id,[]);
+      childMap.get(id).push('marion_brenay');
+    }
+  });
 
   const existing = Array.isArray(marion.evidence) ? marion.evidence : [];
   const merged = [...existing, ...photos, ...documents];
