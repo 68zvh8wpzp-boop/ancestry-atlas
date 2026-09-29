@@ -1247,7 +1247,7 @@ function renderPortrait(n){
   img.onclick=()=>{clearAlbumViewerExtras();openEvidence({title:p.title||('Portrait: '+n.name),thumb:p.url,full:p.url,provenance:p.provenance||'',summary:'Historical portrait attached only to the person pictured.',confidence:'verified portrait source'});};
 }
 function evidenceIsImage(e){
-  return /\.(?:jpe?g|png|gif|webp)(?:[?#]|$)/i.test(e?.thumb||e?.full||'');
+  return e?.kind!=='document' && /\.(?:jpe?g|png|gif|webp)(?:[?#]|$)/i.test(e?.thumb||e?.full||'');
 }
 function renderEvidence(n){
   const wrap=document.getElementById('evidenceWrap');
@@ -2439,7 +2439,7 @@ function buildAlbumItems(){
       const thumb=ev.thumb||ev.full,full=ev.full||ev.thumb;
       const sourceOnly=!!(ev.sourcePage||ev.documentUrl);
       if(!sourceOnly&&(!albumAssetIsPackaged(thumb)||!albumAssetIsPackaged(full)))return;
-      const familyPhoto=/photo memory|portrait|photograph|birthday|school/i.test((ev.provenance||'')+' '+(ev.title||'')) && !/census|newspaper|announcement|drawing/i.test(ev.title||'');
+      const familyPhoto=ev.kind!=='document' && /photo memory|portrait|photograph|birthday|school/i.test((ev.provenance||'')+' '+(ev.title||'')) && !/census|newspaper|announcement|drawing/i.test(ev.title||'');
       items.push({kind:familyPhoto?'family':'document',personId:n.id,name:n.name,years:n.years||'',branch:n.branch||'',title:ev.title||('Source image: '+n.name),thumb,full,provenance:ev.provenance||'',summary:ev.summary||'',confidence:ev.confidence||'',date:ev.date||'',place:ev.place||''});
     });
   });
