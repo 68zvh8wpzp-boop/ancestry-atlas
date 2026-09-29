@@ -1270,7 +1270,7 @@ function renderEvidence(n){
       b.className='evidence-item';
       const media=e.thumb||e.full;
       const titleText=e.title|| (kind==='documents'?'Evidence document':'Evidence image');
-      const hasMedia=/\\.(?:jpe?g|png|gif|webp)(?:[?#]|$)/i.test(media||'');
+      const hasMedia=/\.(?:jpe?g|png|gif|webp)(?:[?#]|$)/i.test(media||'');
       if(hasMedia){
         b.innerHTML='<img src="'+escapeHtml(media||'')+'" alt="'+escapeHtml(titleText)+'"><div class="evtitle">'+escapeHtml(titleText)+'</div>';
         const img=b.querySelector('img');
