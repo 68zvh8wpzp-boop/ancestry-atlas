@@ -54,11 +54,21 @@ Marion and Jay remained together for seventy years. Their marriage was built fro
     ['Webb children — about 1951','james_sheldon_with_siblings_c1951.png','Family photograph • preserved Atlas asset']
   ].map(([title, full, provenance]) => ({title, full, thumb:full, provenance, summary:'Family photograph or approved historical context image attached to Marion’s biography.', confidence:'approved Atlas image'}));
 
+  const familySearchMemories = 'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW';
+  const familySearchPdf = (path) => 'https://sg30p0.familysearch.org/service/records/storage/dascloud/patron/v2/'+path+'/dist.pdf?ctx=ArtCtxPublic';
+  const fsDocument = (title, path, date, place, summary, provenance) => {
+    const scan = familySearchPdf(path);
+    return {kind:'document',title,thumb:scan,full:scan,sourcePage:familySearchMemories,date,place,provenance,summary,confidence:'original FamilySearch document scan retrieved'};
+  };
   const documents = [
-    {title:'Marion Beulah Brenay — family life story',sourcePage:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW',documentUrl:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW',provenance:'FamilySearch family memory and supplied life-story PDF; retained as the principal narrative source.',summary:'The long family account behind Marion’s childhood, marriage, motherhood, work, illness, moves, and memory-keeping.',confidence:'family testimony and supplied document reviewed'},
-    {title:'Marion and Jay Webb — FamilySearch memory index',sourcePage:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW',documentUrl:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW',provenance:'FamilySearch memory index attached to the Webb family record.',summary:'Indexed family-memory record connecting Marion and Jay with their household and descendants.',confidence:'indexed family-memory evidence'},
-    {title:'Marion–Jay marriage and household record',sourcePage:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW',documentUrl:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW',provenance:'Family record set reviewed for the St. Johns marriage and early Webb household.',summary:'Documentary context for the 5 May 1941 marriage and the early Arizona household.',confidence:'family record context'},
-    {title:'Jamar Webb — parentage and memorial record',sourcePage:'https://www.familysearch.org/en/tree/person/memories/KJJH-XGL',documentUrl:'https://www.familysearch.org/en/tree/person/memories/KJJH-XGL',provenance:'FamilySearch record set naming Jamar as the son of James and Marion Webb.',summary:'Preserves Marion’s place as Jamar’s mother and keeps the indexed and family-memorial evidence distinct.',confidence:'indexed record and family memorial'},
+    fsDocument('Jay and Marion Webb’s 50th Wedding Anniversary — 3-page scan','TH-7714-165878-331848-94','May 1991','Lakeside, Pinetop-Lakeside, Navajo County, Arizona','The anniversary newspaper announcement, a portrait of Jay and Marion, and a keepsake preserve the couple’s fiftieth anniversary and identify their family household.','FamilySearch Memory “Jay and Marion Webb’s 50th Wedding Anniversary”; upload file 50th.pdf; contributed by DeEdra Breckenridge, 10 September 2026.'),
+    fsDocument('Jay and Marion’s 40th Anniversary — 5-page scan','TH-7731-165895-2977-78','May 1981','Lakeside, Pinetop-Lakeside, Navajo County, Arizona','A five-page family scan records the fortieth anniversary at Sheldon’s home, including the grandfather clock Marion had always wanted and the family’s small 7Up toast.','FamilySearch Memory “Jay and Marion’s 40th Anniversary”; upload file Anniversary.pdf; contributed by DeEdra Breckenridge, 9 September 2026.'),
+    fsDocument('Home — Marion and the Webb family home, 1990','TH-7783-165848-634989-78','9 August 1990','Lakeside, Pinetop-Lakeside, Navajo County, Arizona','A family-home scan places Marion among the flowers at the house where her children grew up and where the next generation gathered.','FamilySearch Memory “Home”; upload file Home.pdf; tagged to Marion, Jay, and James Sheldon Webb; contributed by DeEdra Breckenridge, 9 September 2026.'),
+    fsDocument('Young Marion — age 12, 1935','TH-7714-165878-110958-27','1935','Arizona','A photograph of Marion at age twelve, with her own handwritten note: “Me age 12.”','FamilySearch Memory “Young Marion”; upload file Marion Age 12.pdf; tagged to Marion Beulah Brenay; contributed by DeEdra Breckenridge, 9 September 2026.'),
+    fsDocument('Webb Family World War II Ration Books — household scan','TH-7714-165878-61870-37','1940s','Arizona','The family ration-book scan preserves the practical wartime household context in which Marion kept children, travel, food, and fuel organized.','FamilySearch Memory “Webb Family World War II Ration Books”; original PDF scan retrieved from the Marion Beulah Brenay memory collection.'),
+    fsDocument('Marion Brenay’s 8th Grade Graduation — 5-page scan','TH-7783-165848-15052-5','18 May 1938','Mesa, Maricopa County, Arizona','Five pages preserve Marion’s graduation portraits, her graduation dress, and her certificate of graduation dated 18 May 1938.','FamilySearch Memory “Marion Brenay’s 8th Grade Graduation”; upload file 8th grade.pdf; contributed by DeEdra Breckenridge, 8 September 2026.'),
+    fsDocument('Neat as a Pin — Marion with Jay and the children, 1955','TH-7783-165848-601180-82','1955','Lakeside, Pinetop-Lakeside, Navajo County, Arizona','This family scan shows Marion’s care for presentation and order, with Jay and the children described as always “neat as a pin.”','FamilySearch Memory “Neat as a Pin”; upload file 1955.pdf; contributed by DeEdra Breckenridge, 9 September 2026.'),
+    fsDocument('Letters from Grandma Brenay — January 1985','TH-7797-159647-37599-10','January 1985','Family correspondence','Handwritten family letters preserve ordinary moments and the handwriting of Marion’s Brenay family, retaining a close view of the family world around her.','FamilySearch Memory “Letters from Grandma Brenay”; upload file Grandma Brenay.pdf; tagged to Marion and Brenay family members; contributed by DeEdra Breckenridge, 17 March 2026.'),
     {kind:'document',title:'Jamar Webb — Arizona burial or removal permit, 1946',thumb:'assets/jamar_burial_permit_1946.jpg',full:'assets/jamar_burial_permit_1946.jpg',sourcePage:'https://www.familysearch.org/ark:/61903/3:1:S3HY-DZ73-PDV?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AFLJW-K4S&action=view&cc=1534450&lang=en',documentUrl:'https://www.familysearch.org/ark:/61903/3:1:S3HY-DZ73-PDV?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AFLJW-K4S&action=view&cc=1534450&lang=en',provenance:'FamilySearch Memory “Burial Permit for Jamar Webb,” contributed by DeEdra Breckenridge; original document image captured.',summary:'A visible 1946 permit naming Jamar Webb and preserving the burial/removal record associated with Marion’s infant son.',confidence:'original FamilySearch document image captured'},
     {kind:'document',title:'Jamar Webb — memorial marker, 1946',thumb:'assets/jamar_grave_marker_1946.jpg',full:'assets/jamar_grave_marker_1946.jpg',sourcePage:'https://www.familysearch.org/en/tree/person/memories/KJJH-XGL',documentUrl:'https://www.familysearch.org/en/tree/person/memories/KJJH-XGL',provenance:'FamilySearch Memory, original memorial-marker photograph captured.',summary:'The marker identifies Jamar as the son of James and Marion Webb and preserves the 9 November 1946 date.',confidence:'original FamilySearch memorial photograph captured'}
   ];
@@ -87,7 +97,19 @@ Marion and Jay remained together for seventy years. Their marriage was built fro
     }
   });
 
-  const existing = Array.isArray(marion.evidence) ? marion.evidence : [];
+  const linkOnlyTitles = new Set([
+    'Marion and Jay Webb — FamilySearch memory index',
+    'Marion–Jay marriage index — 5 May 1941',
+    'Marion Webb — 131-memory and 27-source inventory',
+    'Marion Beulah Brenay — family life story',
+    'Marion–Jay marriage and household record',
+    'Jamar Webb — parentage and memorial record'
+  ]);
+  const existing = (Array.isArray(marion.evidence) ? marion.evidence : []).filter(item => {
+    if (linkOnlyTitles.has(item.title)) return false;
+    const linkOnly = item.kind === 'document' && item.documentUrl === familySearchMemories && !/\.(?:jpe?g|png|gif|webp|pdf)(?:[?#]|$)/i.test(item.full||item.thumb||'');
+    return !linkOnly;
+  });
   const merged = [...existing, ...photos, ...documents];
   const seen = new Set();
   marion.evidence = merged.filter(item => {
