@@ -31,7 +31,10 @@ Marion was also a keeper of memory. In 1977 she began a diary and continued writ
 
 Marion and Jay remained together for seventy years. Their marriage was built from shared labor, loyalty, improvisation, and a willingness to begin again whenever a mill burned, a job failed, an illness intervened, or a house became too small. Marion’s life connects the Brenay–Skinner family’s Michigan beginnings to the Webb family’s Arizona story. She was a daughter who crossed the country as a toddler, a girl who learned responsibility in poverty, a young woman who chose her own difficult marriage, a mother who raised six children through war and uncertainty, and a family historian who understood that ordinary details are often the things worth saving.`;
 
-  marion.note = biography;
+  // The person card already renders GUIDE_PROFILES.life as the full museum
+  // biography. Keep the node note as a short orientation so the biography is
+  // not printed twice under two different headings.
+  marion.note = 'Marion Beulah Brenay Webb (1923–2012) was born in Saginaw, Michigan, crossed the country as a toddler, and built a seventy-year Arizona marriage and household with James Wilford “Jay” Webb. Her life joined poverty, wartime separation, sawmill communities, motherhood, illness, persistence, and decades of family memory-keeping.';
   if (typeof GUIDE_PROFILES !== 'undefined' && GUIDE_PROFILES.marion_brenay) {
     GUIDE_PROFILES.marion_brenay.life = biography;
   }
