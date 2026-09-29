@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <script>
 (function(){
-  if(/[?&]v=(?:3\.8\.21|3\.9\.20|3\.9\.21|3\.9\.22)(?:&|$)/.test(location.search)){
-    location.replace(location.pathname+'?v=3.9.23');
+  if(/[?&]v=(?:3\.8\.21|3\.9\.20|3\.9\.21|3\.9\.22|3\.9\.23)(?:&|$)/.test(location.search)){
+    location.replace(location.pathname+'?v=3.9.24');
   }
 })();
 </script>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<title>Ancestry Atlas v3.9.19 — Marion document previews</title>
+<title>Ancestry Atlas v3.9.24 — Marion scan previews</title>
 <meta name="theme-color" content="#020609">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1254,10 +1254,11 @@ function renderPortrait(n){
   img.onclick=()=>{clearAlbumViewerExtras();openEvidence({title:p.title||('Portrait: '+n.name),thumb:p.url,full:p.url,provenance:p.provenance||'',summary:'Historical portrait attached only to the person pictured.',confidence:'verified portrait source'});};
 }
 function evidenceHasMedia(e){
-  return /\.(?:jpe?g|png|gif|webp)(?:[?#]|$)/i.test(e?.thumb||e?.full||'');
+  const candidate=e?.thumb||((e?.kind==='document'&&evidenceHasPdf(e))?'':e?.full||'');
+  return /\.(?:jpe?g|png|gif|webp)(?:[?#]|$)/i.test(candidate);
 }
 function evidenceHasPdf(e){
-  return /\.pdf(?:[?#]|$)/i.test(e?.thumb||e?.full||'');
+  return /\.pdf(?:[?#]|$)/i.test(e?.full||e?.pdf||'');
 }
 function evidenceHasPreview(e){
   return evidenceHasMedia(e)||evidenceHasPdf(e);
@@ -1288,10 +1289,10 @@ function renderEvidence(n){
       const titleText=e.title|| (kind==='documents'?'Evidence document':'Evidence image');
       const hasMedia=evidenceHasPreview(e);
       if(hasMedia){
-        if(evidenceHasPdf(e)){
+        if(evidenceHasPdf(e) && !evidenceHasMedia(e)){
           b.innerHTML='<div class="evidence-media-thumb pdf"><iframe class="evidence-pdf-thumb" title="'+escapeHtml(titleText)+'" src="'+escapeHtml(media||'')+'" aria-hidden="true"></iframe></div><div class="evtitle">'+escapeHtml(titleText)+'</div>';
         }else{
-          b.innerHTML='<div class="evidence-media-thumb image"><img src="'+escapeHtml(media||'')+'" alt="'+escapeHtml(titleText)+'"></div><div class="evtitle">'+escapeHtml(titleText)+'</div>';
+          b.innerHTML='<div class="evidence-media-thumb '+(evidenceHasPdf(e)?'pdf ':'')+'image"><img src="'+escapeHtml(media||'')+'" alt="'+escapeHtml(titleText)+'"></div><div class="evtitle">'+escapeHtml(titleText)+'</div>';
           const img=b.querySelector('img');
           if(img)img.onerror=()=>{img.replaceWith(Object.assign(document.createElement('div'),{className:'evidence-doc-placeholder',textContent:'Image unavailable'}));};
         }
@@ -1429,8 +1430,8 @@ function openEvidence(e){
   const image=document.getElementById('docImage');
   const pdf=document.getElementById('docPdf');
   const full=e.full||e.thumb,thumb=e.thumb||e.full;
-  const isImage=evidenceHasMedia(e);
   const isPdf=evidenceHasPdf(e);
+  const isImage=!isPdf&&evidenceHasMedia(e);
   atlasViewerReset();
   let attemptedFallback=false;
   image.style.display=isImage?'block':'none';
