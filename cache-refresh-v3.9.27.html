@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+<title>Refreshing Ancestry Atlas</title>
+<style>
+  html,body{margin:0;min-height:100%;background:#081018;color:#eef4fa;font:16px system-ui,-apple-system,sans-serif}
+  main{max-width:34rem;margin:18vh auto;padding:24px;text-align:center}
+  p{color:#b9cbd8;line-height:1.5}
+</style>
+</head>
+<body>
+<main>
+  <h1>Refreshing Ancestry Atlas v3.9.27…</h1>
+  <p>Clearing the old phone shell and opening the current Sheldon page.</p>
+</main>
+<script>
+(async function(){
+  try {
+    if (navigator.serviceWorker && navigator.serviceWorker.getRegistrations) {
+      const registrations = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(registrations.map(registration => registration.unregister()));
+    }
+    if (window.caches && caches.keys) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(key => caches.delete(key)));
+    }
+  } catch (error) {
+    // Continue to the versioned entrypoint even when the browser exposes no cache API.
+  }
+  const target = new URL('./atlas-v3.9.27.html', location.href);
+  target.searchParams.set('cache-cleared', String(Date.now()));
+  location.replace(target.href);
+})();
+</script>
+</body>
+</html>
