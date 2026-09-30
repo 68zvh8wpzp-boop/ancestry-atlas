@@ -2,7 +2,7 @@
   "name": "Ancestry Atlas",
   "short_name": "Ancestry Atlas",
   "description": "A guided audio-visual family history atlas.",
-  "start_url": "./?v=3.9.26",
+  "start_url": "./atlas-v3.9.26.html",
   "scope": "./",
   "display": "fullscreen",
   "display_override": ["fullscreen", "standalone"],
