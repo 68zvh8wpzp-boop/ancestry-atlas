@@ -40,7 +40,7 @@ Sheldon died in Gilbert, Maricopa County, Arizona, on 9 April 2016 and was laid 
     'U.S. Department of Veterans Affairs BIRLS Death File — military-service lead': 'assets/sheldon/source-record-military.svg'
   };
   if (sheldon.portrait && sheldon.portrait.title) {
-    sheldon.portrait.title = sheldon.portrait.title.replace(/FamilySearch\\s*/gi, '').trim();
+    sheldon.portrait.title = sheldon.portrait.title.replace(/FamilySearch/gi, '').trim();
   }
   (sheldon.evidence || []).forEach(item => {
     const preview = displayCards[item.title];
