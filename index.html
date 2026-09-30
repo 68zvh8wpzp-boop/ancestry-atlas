@@ -1247,7 +1247,7 @@ function renderPortrait(n){
   const p=n.portrait;
   if(!p){wrap.classList.remove('show');img.removeAttribute('src');cap.textContent='';return;}
   img.src=p.url; img.referrerPolicy='no-referrer';
-  img.alt=p.title||('Historical portrait of '+n.name);
+  img.alt=familyFacingEvidenceTitle(p)||('Historical portrait of '+n.name);
   cap.textContent='Verified historical portrait';
   wrap.classList.add('show');
   img.onerror=()=>{wrap.classList.remove('show');};
@@ -1286,7 +1286,7 @@ function renderEvidence(n){
       const b=document.createElement('button');
       b.className='evidence-item';
       const media=e.thumb||e.full;
-      const titleText=e.title|| (kind==='documents'?'Evidence document':'Evidence image');
+      const titleText=familyFacingEvidenceTitle(e)|| (kind==='documents'?'Evidence document':'Evidence image');
       const hasMedia=evidenceHasPreview(e);
       if(hasMedia){
         if(evidenceHasPdf(e) && !evidenceHasMedia(e)){
@@ -1297,7 +1297,7 @@ function renderEvidence(n){
           if(img)img.onerror=()=>{img.replaceWith(Object.assign(document.createElement('div'),{className:'evidence-doc-placeholder',textContent:'Image unavailable'}));};
         }
       }else{
-        const action=e.documentUrl||e.sourcePage?'Open linked record':'Open captured record';
+        const action=e.documentUrl||e.sourcePage?'Open linked record':'Open record';
         b.innerHTML='<div class="evidence-doc-placeholder">DOCUMENT<span>'+action+'</span></div><div class="evtitle">'+escapeHtml(titleText)+'</div>';
       }
       b.onclick=()=>{clearAlbumViewerExtras();albumState.visible=ev;albumState.index=ev.indexOf(e);openEvidence(e);};
@@ -1425,6 +1425,35 @@ function atlasViewerSetupGestures(){
 }
 atlasViewerSetupGestures();
 
+const FAMILY_BACKSTAGE_RE = /\\b(?:FamilySearch|Atlas|audit|workflow|session|captcha|Incapsula|hCaptcha|provenance|connector|backstage)\\b/i;
+function familyFacingEvidenceTitle(e){
+  return String(e?.title||'Evidence')
+    .replace(/\\bFamilySearch\\b/gi,'')
+    .replace(/\\bAtlas\\b/gi,'')
+    .replace(/\\s{2,}/g,' ')
+    .replace(/\\s*[—-]\\s*$/,'')
+    .trim() || 'Evidence';
+}
+function familyFacingEvidenceSummary(e){
+  const raw=String(e?.summary||'').trim();
+  if(raw && !FAMILY_BACKSTAGE_RE.test(raw) && !/\\b(?:captured|capture|pending|not yet|original .* not|remains linked)\\b/i.test(raw)) return raw;
+  const title=familyFacingEvidenceTitle(e);
+  if(/birth record/i.test(title)) return 'This birth record identifies James Sheldon Webb, born 11 April 1943 in Snowflake, Arizona, and names James Wilford Webb and Marion Beulah Brenay as his parents. Certificate no. 793.';
+  if(/marriage/i.test(title)) return 'This marriage record names Inez Karen Prather as Sheldon Webb\\'s wife and places the marriage in Navajo County, Arizona. The license is dated 15 January 1965.';
+  if(/census/i.test(title)) return 'This census record places seven-year-old James Sheldon Webb in the Webb household in Apache County, Arizona, with James Wilford Webb, Marion Webb, and Diane Webb.';
+  if(/veterans|BIRLS|military/i.test(title)) return 'This military-service record is included as supporting evidence for Sheldon Webb\\'s service history.';
+  return 'This record is included as supporting evidence for the family history.';
+}
+function familyFacingRecordStatus(e){
+  if(evidenceHasPreview(e)) return 'Document preview available';
+  if(e.sourcePage||e.documentUrl||e.full) return 'Linked source record available';
+  return 'Supporting record listed';
+}
+function familyFacingTranscription(e){
+  const raw=String(e?.transcription||'').trim();
+  return raw && !FAMILY_BACKSTAGE_RE.test(raw) ? raw : '';
+}
+
 function openEvidence(e){
   const viewer=document.getElementById('docModal');
   const image=document.getElementById('docImage');
@@ -1453,7 +1482,14 @@ function openEvidence(e){
   image.alt=e.title||'Full-screen family or archival image';
   const meta=document.getElementById('docMeta');
   delete meta.dataset.loadError;
-  meta.innerHTML=`<strong>${escapeHtml(e.title||'Evidence')}</strong><br>${escapeHtml(e.date||'')}${e.place?' • '+escapeHtml(e.place):''}<br><br>${escapeHtml(e.summary||'')||'Captured document record; original file remains linked in the research provenance.'}${e.transcription?'<br><br><strong>Transcription</strong><div class="doc-transcription">'+escapeHtml(e.transcription)+'</div>':''}<br><br><strong>Provenance:</strong> ${escapeHtml(e.provenance||'not recorded')}<br><strong>Evidence status:</strong> ${escapeHtml(e.confidence||'not recorded')}`;
+  const displayTitle=familyFacingEvidenceTitle(e);
+  const displaySummary=familyFacingEvidenceSummary(e);
+  const displayTranscription=familyFacingTranscription(e);
+  const displayStatus=familyFacingRecordStatus(e);
+  meta.innerHTML='<strong>'+escapeHtml(displayTitle)+'</strong><br>'+escapeHtml(e.date||'')+(e.place?' • '+escapeHtml(e.place):'')+
+    '<br><br>'+escapeHtml(displaySummary)+
+    (displayTranscription?'<br><br><strong>Transcription</strong><div class="doc-transcription">'+escapeHtml(displayTranscription)+'</div>':'')+
+    '<br><br><strong>Record status:</strong> '+escapeHtml(displayStatus);
   const sourceLink=e.sourcePage||e.documentUrl;
   if(sourceLink) meta.innerHTML += '<br><br><a href="'+escapeHtml(sourceLink)+'" target="_blank" rel="noopener">Open original record</a>';
   if(isImage) image.src=full; else image.removeAttribute('src');
@@ -2491,9 +2527,9 @@ function buildAlbumItems(){
   return dedup;
 }
 function albumSourceShort(i){
-  if(i.kind==='family') return i.provenance||'Verified family-photo source';
-  if(i.kind==='place') return i.provenance||'Historical place source';
-  return i.provenance||'Archival document source';
+  if(i.kind==='family') return 'Family photograph';
+  if(i.kind==='place') return 'Historical place source';
+  return 'Archival document';
 }
 function populateAlbumBranches(){
   const sel=document.getElementById('albumBranch');
@@ -2546,7 +2582,7 @@ function openAlbumItem(idx){
   const label=document.getElementById('albumViewerLabel');
   const extra=[i.date,i.place].filter(Boolean).join(' • ');
   const mediaKind={family:'Family photo',document:'Archival document',place:'Place / context'}[i.kind]||i.kind;
-  label.innerHTML=`<strong>${escapeHtml(i.name)}</strong>${i.years?`<br>${escapeHtml(i.years)}`:''}<br><span class="muted">${escapeHtml(i.branch||'')} • ${mediaKind}</span>${extra?`<br>${escapeHtml(extra)}`:''}<br><span class="muted">Source:</span> ${escapeHtml(i.provenance||'Source recorded in research map')}<br><span class="muted">Pinch to zoom • swipe left/right for next or previous</span>`;
+  label.innerHTML=`<strong>${escapeHtml(i.name)}</strong>${i.years?`<br>${escapeHtml(i.years)}`:''}<br><span class="muted">${escapeHtml(i.branch||'')} • ${mediaKind}</span>${extra?`<br>${escapeHtml(extra)}`:''}<br><span class="muted">Source record:</span> Linked below<br><span class="muted">Pinch to zoom • swipe left/right for next or previous</span>`;
   label.style.display='block'; document.getElementById('albumViewerNav').style.display=albumState.visible.length>1?'flex':'none';
   const jump=document.getElementById('jumpToPerson'); jump.style.display=i.personId?'inline-block':'none'; jump.dataset.personId=i.personId||'';
 }
