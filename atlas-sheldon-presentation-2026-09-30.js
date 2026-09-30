@@ -29,6 +29,7 @@ Later life brought the ordinary richness of a large family: sons, grandchildren,
 
 Sheldon died in Gilbert, Maricopa County, Arizona, on 9 April 2016 and was laid to rest at Lakeside Cemetery in Lakeside, Navajo County. He was preceded in death by his parents and by his brother Jamar. He is remembered by Inez, their sons Shared, Jeremy, and Sterling, their descendants, and the wider Webb, Brenay, Prather, and related families. His life joined wartime Arizona to an international teaching career, a long marriage, athletic and artistic pursuits, and a sustained devotion to family. The legacy he left is both personal and communal: students who learned from him, relatives who benefited from his generosity, and generations who continue to know their family through the stories and images he helped preserve.`;
 
+  sheldon.note = 'James Sheldon Webb’s life is preserved through a birth record naming his parents and certificate 793, a 1950 Apache County census image, a marriage record, military-service evidence, and family photographs and documents. Together these records trace his childhood, Air Force service, education, marriage, teaching career, and family life. Family memories are presented as testimony, distinct from civil records.';
   profile.birthPlace = 'Snowflake, Navajo County, Arizona';
   profile.life = cleanBiography;
 
