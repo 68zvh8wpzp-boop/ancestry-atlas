@@ -1425,23 +1425,23 @@ function atlasViewerSetupGestures(){
 }
 atlasViewerSetupGestures();
 
-const FAMILY_BACKSTAGE_RE = /\\b(?:FamilySearch|Atlas|audit|workflow|session|captcha|Incapsula|hCaptcha|provenance|connector|backstage)\\b/i;
+const FAMILY_BACKSTAGE_RE = /\b(?:FamilySearch|Atlas|audit|workflow|session|captcha|Incapsula|hCaptcha|provenance|connector|backstage)\b/i;
 function familyFacingEvidenceTitle(e){
   return String(e?.title||'Evidence')
-    .replace(/\\bFamilySearch\\b/gi,'')
-    .replace(/\\bAtlas\\b/gi,'')
-    .replace(/\\s{2,}/g,' ')
-    .replace(/\\s*[—-]\\s*$/,'')
+    .replace(/\bFamilySearch\b/gi,'')
+    .replace(/\bAtlas\b/gi,'')
+    .replace(/\s{2,}/g,' ')
+    .replace(/\s*[—-]\s*$/,'')
     .trim() || 'Evidence';
 }
 function familyFacingEvidenceSummary(e){
   const raw=String(e?.summary||'').trim();
-  if(raw && !FAMILY_BACKSTAGE_RE.test(raw) && !/\\b(?:captured|capture|pending|not yet|original .* not|remains linked)\\b/i.test(raw)) return raw;
+  if(raw && !FAMILY_BACKSTAGE_RE.test(raw) && !/\b(?:captured|capture|pending|not yet|original .* not|remains linked)\b/i.test(raw)) return raw;
   const title=familyFacingEvidenceTitle(e);
   if(/birth record/i.test(title)) return 'This birth record identifies James Sheldon Webb, born 11 April 1943 in Snowflake, Arizona, and names James Wilford Webb and Marion Beulah Brenay as his parents. Certificate no. 793.';
-  if(/marriage/i.test(title)) return 'This marriage record names Inez Karen Prather as Sheldon Webb\\'s wife and places the marriage in Navajo County, Arizona. The license is dated 15 January 1965.';
+  if(/marriage/i.test(title)) return "This marriage record names Inez Karen Prather as Sheldon Webb's wife and places the marriage in Navajo County, Arizona. The license is dated 15 January 1965.";
   if(/census/i.test(title)) return 'This census record places seven-year-old James Sheldon Webb in the Webb household in Apache County, Arizona, with James Wilford Webb, Marion Webb, and Diane Webb.';
-  if(/veterans|BIRLS|military/i.test(title)) return 'This military-service record is included as supporting evidence for Sheldon Webb\\'s service history.';
+  if(/veterans|BIRLS|military/i.test(title)) return "This military-service record is included as supporting evidence for Sheldon Webb's service history.";
   return 'This record is included as supporting evidence for the family history.';
 }
 function familyFacingRecordStatus(e){
