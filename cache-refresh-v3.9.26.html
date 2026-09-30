@@ -13,7 +13,7 @@
 </head>
 <body>
 <main>
-  <h1>Refreshing Ancestry Atlas…</h1>
+  <h1>Refreshing Ancestry Atlas v3.9.27…</h1>
   <p>Clearing the old phone shell and opening the current Sheldon page.</p>
 </main>
 <script>
@@ -30,7 +30,7 @@
   } catch (error) {
     // Continue to the versioned entrypoint even when the browser exposes no cache API.
   }
-  const target = new URL('./atlas-v3.9.26.html', location.href);
+  const target = new URL('./atlas-v3.9.27.html', location.href);
   target.searchParams.set('cache-cleared', String(Date.now()));
   location.replace(target.href);
 })();
