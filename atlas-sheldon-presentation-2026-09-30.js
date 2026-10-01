@@ -35,6 +35,9 @@ Sheldon died in Gilbert, Maricopa County, Arizona, on 9 April 2016 and was laid 
 
   // These records have trustworthy source links but no captured original scan.
   // Give them a legible, explicitly labeled display card instead of a black void.
+  // Remove the unavailable Ancestry-hosted birth scan even if an older overlay is cached.
+  sheldon.evidence = (sheldon.evidence || []).filter(item => item.title !== 'Arizona birth record — certificate no. 793');
+
   const displayCards = {
     'Arizona county marriage record — Sheldon Webb and Inez Karen Prather': 'assets/sheldon/source-record-civil-marriage.svg',
     'U.S. Department of Veterans Affairs BIRLS Death File — military-service lead': 'assets/sheldon/source-record-military.svg'
