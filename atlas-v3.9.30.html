@@ -1280,7 +1280,7 @@ function evidenceHasPreview(e){
   return evidenceHasMedia(e)||evidenceHasPdf(e);
 }
 function evidenceIsImage(e){
-  return e?.kind!=='document' && evidenceHasMedia(e);
+  return e?.kind==='photo' || e?.kind==='image' || (e?.kind!=='document' && evidenceHasMedia(e));
 }
 function renderEvidence(n){
   const wrap=document.getElementById('evidenceWrap');
@@ -1313,8 +1313,9 @@ function renderEvidence(n){
           if(img)img.onerror=()=>{img.replaceWith(Object.assign(document.createElement('div'),{className:'evidence-doc-placeholder',textContent:'Image unavailable'}));};
         }
       }else{
-        const action=e.documentUrl||e.sourcePage?'Open linked record':'Open record';
-        b.innerHTML='<div class="evidence-doc-placeholder">DOCUMENT<span>'+action+'</span></div><div class="evtitle">'+escapeHtml(titleText)+'</div>';
+        const action=e.documentUrl||e.sourcePage?(kind==='photos'?'Open linked memory':'Open linked record'):(kind==='photos'?'Open memory':'Open record');
+        const placeholderLabel=kind==='photos'?'PHOTO':'DOCUMENT';
+        b.innerHTML='<div class="evidence-doc-placeholder">'+placeholderLabel+'<span>'+action+'</span></div><div class="evtitle">'+escapeHtml(titleText)+'</div>';
       }
       b.onclick=()=>{clearAlbumViewerExtras();albumState.visible=ev;albumState.index=ev.indexOf(e);openEvidence(e);};
       strip.appendChild(b);
