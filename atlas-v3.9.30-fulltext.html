@@ -1472,7 +1472,7 @@ function familyFacingTranscription(e){
 }
 function formatFamilyFacingTranscription(raw){
   const text=String(raw||'').trim();
-  const full=text.match(/^FULLTEXT_ORIGINAL:\s*([\s\S]*?)\nFULLTEXT_TRANSLATION:\s*([\s\S]*)$/);
+  const full=text.match(/^FULLTEXT_ORIGINAL:\s*([\s\S]*?)\|\|\|FULLTEXT_TRANSLATION\|\|\|([\s\S]*)$/);
   if(full){
     return '<div class="transcription-pair">'+escapeHtml(full[1].trim())+'</div><div class="transcription-pair"><em>'+escapeHtml(full[2].trim())+'</em></div>';
   }
@@ -2692,7 +2692,7 @@ resize();
 <script src="story-presentation-3.6.0.js"></script>
 <script src="story-overlays-3.8.1.js?v=3.8.22"></script>
 <script src="experience-3.8.1.js?v=3.8.22"></script>
-<script src="atlas-evidence-sync-2026-10-02-fulltext-v2.js?v=2"></script>
+<script src="atlas-evidence-sync-2026-10-02-fulltext-v3.js?v=3"></script>
 <script src="atlas-sheldon-presentation-2026-09-30.js?v=20261001-3"></script>
 </body>
 </html>
