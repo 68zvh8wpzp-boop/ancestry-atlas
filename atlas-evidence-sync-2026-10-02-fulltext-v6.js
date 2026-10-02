@@ -343,3 +343,51 @@ The written memories attached to Esther’s family preserve more than dates. A r
     };
   }
 })();
+
+
+(() => {
+  'use strict';
+  const joan = {
+    id: 'brenay_joan',
+    name: 'Joan Carol Brenay',
+    years: '1939–2016',
+    place: 'Mesa, Arizona → Delta, Utah',
+    branch: 'Brenay collateral',
+    confidence: 'strong',
+    note: "Joan Carol Brenay’s record is anchored in the Charles Albert Brenay and Marian Beulah Skinner family and in a single captioned 1942 family photograph. Her death entry remains a family-record claim with zero attached sources; do not present it as independently documented.",
+    x: 2.35, y: 3.55, z: -0.75,
+    collateral: true,
+    sideRoute: true,
+    evidence: [
+      {
+        kind: 'photo',
+        title: 'Charles Albert and Marian Brenay Family',
+        date: '1942',
+        place: 'Sandpoint, Bonner, Idaho',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/LFCL-G8L',
+        provenance: 'FamilySearch memory contributed by DeEdra Breckenridge on 26 January 2025; upload filename 1020022.jpg.',
+        summary: 'The caption identifies Joan seated in a chair between Marion and Charles, with Virginia, Esther, and Joe standing behind and Martha and Ammon on the porch.',
+        confidence: 'captioned family photograph with direct Joan identification',
+        previewStatus: 'unavailable'
+      }
+    ]
+  };
+  if (!DATA.nodes.some(n => n.id === joan.id)) DATA.nodes.push(joan);
+  const map = window.__ATLAS_NODE_BY_ID;
+  if (map) map.set(joan.id, joan);
+  if (typeof parentMap !== 'undefined' && typeof childMap !== 'undefined') {
+    for (const p of ['charles_albert','marian_skinner']) {
+      if (!DATA.edges.some(e => e.a === joan.id && e.b === p)) DATA.edges.push({a:joan.id,b:p,confidence:'strong'});
+      if (!parentMap.has(joan.id)) parentMap.set(joan.id, []);
+      if (!parentMap.get(joan.id).includes(p)) parentMap.get(joan.id).push(p);
+      if (!childMap.has(p)) childMap.set(p, []);
+      if (!childMap.get(p).includes(joan.id)) childMap.get(p).push(joan.id);
+    }
+  }
+  if (typeof GUIDE_PROFILES !== 'undefined') {
+    GUIDE_PROFILES.brenay_joan = {
+      birthPlace: 'Mesa, Maricopa County, Arizona',
+      life: "Joan Carol Brenay was born on 21 August 1939 in Mesa, Arizona, the twelfth child in the Charles Albert Brenay and Marian Beulah Skinner household. Her Family Tree record places her among the thirteen Brenay children and preserves the family’s movement between Arizona and Utah during the years of her childhood. The 1942 family photograph from Sandpoint, Idaho, identifies Joan seated in a chair between Marion and Charles, with Virginia, Esther, and Joe standing behind and Martha and Ammon on the porch. It is the only linked family memory currently attached to Joan, but it gives her a clear place within the household rather than leaving her as a name alone.\n\nJoan’s later record follows the same western family geography. The source inventory includes 1940, 1950, and 1955 church-census records, United States census material, and residence entries for Navajo County, Manti, and the wider Utah region. Several of the attached records are index or census records rather than newly opened images, so they are retained as supporting context rather than presented as a single definitive life narrative.\n\nOn 4 February 1956, Joan married Anthony Fielding Lake in Kingman, Arizona. Their Family Tree page shows the marriage and no attached children. Joan is also recorded under the married name Joan Carol Lake. The couple’s later family record connects her to Delta, Utah, where she died on 16 July 2016. The death entry is attributed to family records and currently has no attached source; that limitation remains visible in the audit rather than being silently converted into a sourced fact.\n\nJoan’s life is therefore preserved through a combination of census traces, church-census records, residence clues, her marriage connection to Anthony Lake, and the 1942 Brenay family portrait. The photograph’s caption is especially valuable because it identifies Joan in relation to both her parents and siblings: she appears not as an isolated record, but as part of the large family whose later gatherings and memories continue through the Atlas. Her page adds geographic continuity from Mesa to Kingman and Delta while keeping the unsourced 2016 death claim appropriately bounded."
+    };
+  }
+})();
