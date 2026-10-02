@@ -1472,7 +1472,7 @@ function familyFacingTranscription(e){
 }
 function formatFamilyFacingTranscription(raw){
   const text=String(raw||'').trim();
-  const full=text.match(/^FULLTEXT_ORIGINAL:\s*([\s\S]*?)\nFULLTEXT_TRANSLATION:\s*([\s\S]*)$/);
+  const full=text.match(/^FULLTEXT_ORIGINAL:\s*([\s\S]*?)\|\|\|FULLTEXT_TRANSLATION\|\|\|([\s\S]*)$/);
   if(full){
     return '<div class="transcription-pair">'+escapeHtml(full[1].trim())+'</div><div class="transcription-pair"><em>'+escapeHtml(full[2].trim())+'</em></div>';
   }
