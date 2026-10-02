@@ -250,3 +250,96 @@ The family record places Virginia’s adult life in the communities of Mesa, Bla
 Virginia’s family memories also include handwritten letters from her grandmother, a funeral-program image, and other keepsakes. Those items preserve the emotional and documentary texture of the family, even when their text is not yet presented as a readable public record. The photographs that can be identified clearly already tell an important story: Virginia as a daughter among many siblings, a wife within the Hawkins family, a sister who gathered with the Brenays through marriage, funerals, and reunions, and a woman whose life remained woven into the family’s shared history from Mesa to Provo.`
   }
 })();
+
+
+(() => {
+  'use strict';
+  const esther = {
+    id: 'brenay_esther',
+    name: 'Esther Brenay',
+    years: '1933–2018',
+    place: 'Mesa, Arizona → Cedar City, Utah',
+    branch: 'Brenay collateral',
+    confidence: 'strong',
+    note: 'Esther Brenay, known in family memories as Mickey, was the ninth of Charles Albert Brenay and Marian Beulah Skinner’s thirteen children. Her adult life included three marriages, two sons and a daughter, work as a bank teller, years of travel with a pipefitter husband, and a later home in Cedar City where she and Kenneth Allred served together.',
+    x: 1.9, y: 3.35, z: -0.7,
+    collateral: true,
+    sideRoute: true,
+    evidence: [
+      {
+        kind: 'photo',
+        title: 'Esther and Kenneth',
+        date: '12 October 2002',
+        place: 'St. George, Washington, Utah',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWZ7-CRV',
+        provenance: 'FamilySearch memory contributed by DeEdra Breckenridge on 7 November 2025; upload filename img0083-Enhanced.jpg; tagged to Kenneth Dwain Allred and Esther Brenay.',
+        summary: 'The caption identifies Esther (Brenay) Allred with her husband Kenneth Allred at Arnold Brenay’s funeral and notes her bright smile.',
+        confidence: 'captioned couple photograph with direct person tags',
+        previewStatus: 'unavailable'
+      },
+      {
+        kind: 'photo',
+        title: 'Mom and Her Siblings',
+        date: '28 June 1996',
+        place: 'Mesa, Maricopa, Arizona',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWZ7-CRV',
+        provenance: 'FamilySearch memory contributed by DeEdra Breckenridge on 7 November 2025; upload filename 0056_a-Enhanced.jpg.',
+        summary: 'The contributor identifies Esther “Mickey” Allred in a rare gathering at the funeral of Marian Beulah Skinner Brenay, alongside Isaac, Ammon, Martha, Virginia, Joseph, Marion, and Arnold.',
+        confidence: 'captioned family photograph with direct Esther identification',
+        previewStatus: 'unavailable'
+      },
+      {
+        kind: 'photo',
+        title: 'Surviving Brenay Siblings at Arnold Brenay’s Funeral',
+        date: 'October 2002',
+        place: 'St. George, Washington, Utah',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWZ7-CRV',
+        provenance: 'FamilySearch memory contributed by DeEdra Breckenridge on 10 September 2026; upload filename Uncle Arnold.pdf.',
+        summary: 'The contributor identifies Esther Jensen in the sibling group gathered after Arnold Brenay’s funeral. The memory is preserved as captioned family context, not as a published document preview.',
+        confidence: 'captioned family-memory evidence; Esther is identified by the contributor',
+        previewStatus: 'unavailable'
+      },
+      {
+        kind: 'photo',
+        title: 'Charles Albert and Marian Brenay Family',
+        date: '1942',
+        place: 'Sandpoint, Bonner, Idaho',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWZ7-CRV',
+        provenance: 'FamilySearch family memory attached across the Brenay sibling pages; contributor DeEdra Breckenridge, 26 January 2025; upload filename 1020022.jpg.',
+        summary: 'The family caption identifies Esther standing in back with Virginia and Joe, with other siblings gathered around Charles and Marian.',
+        confidence: 'captioned family photograph; Esther is named directly in the contributor description',
+        previewStatus: 'unavailable'
+      }
+    ]
+  };
+  if (!DATA.nodes.some(n => n.id === esther.id)) DATA.nodes.push(esther);
+  const map = window.__ATLAS_NODE_BY_ID;
+  if (map) map.set(esther.id, esther);
+  if (typeof parentMap !== 'undefined' && typeof childMap !== 'undefined') {
+    for (const p of ['charles_albert','marian_skinner']) {
+      if (!DATA.edges.some(e => e.a === esther.id && e.b === p)) DATA.edges.push({a:esther.id,b:p,confidence:'strong'});
+      if (!parentMap.has(esther.id)) parentMap.set(esther.id, []);
+      if (!parentMap.get(esther.id).includes(p)) parentMap.get(esther.id).push(p);
+      if (!childMap.has(p)) childMap.set(p, []);
+      if (!childMap.get(p).includes(esther.id)) childMap.get(p).push(esther.id);
+    }
+  }
+  if (typeof GUIDE_PROFILES !== 'undefined') {
+    GUIDE_PROFILES.brenay_esther = {
+      birthPlace: 'Mesa, Maricopa County, Arizona',
+      life: `Esther Brenay was born on 22 September 1933 in Mesa, Arizona, the ninth of the thirteen children of Charles Albert Brenay and Marian Beulah Skinner. In family memories she is often called Mickey, a name that follows her through the stories and photographs preserved by her brothers, sisters, and nieces. She grew up in a large household whose early years moved between Arizona and Utah, and whose members remained closely connected long after they left the childhood home.
+
+A 1942 family photograph from Sandpoint, Idaho, places Esther standing in back with Virginia and Joe, while Marion, Joan, and Charles sit in chairs and Martha and Ammon sit on the porch. The arrangement preserves the family at a particular moment in wartime America, when the children’s ages stretch from the older siblings into the youngest part of the household. Esther’s later memories continue that same family thread: a 1996 photograph at her mother Marian’s funeral identifies her among Isaac, Ammon, Martha, Virginia, Joseph, Marion, and Arnold, a rare gathering of the siblings together.
+
+In December 1950, Esther married Hardy Howell Segler Sr. in Kingman, Arizona. They moved to Henderson, Nevada, where Hardy worked at the titanium plant and Esther worked as a bank teller. Their children included Denny, born in 1952, Hardy Jr., born in 1954, and Judy Lynn, born in 1956. The family’s later account remembers Esther as a working mother during a period when the expanding industries of the Southwest drew families across state lines. Her first marriage eventually ended in divorce.
+
+Esther married Rupert Lane in March 1964. His work as a pipefitter took them to many parts of the United States, giving their marriage a life shaped by travel and changing communities. Rupert died of cancer in 1988. The following year Esther married Kenneth Dwain Allred in Riviera, near Bullhead City, Arizona. In 1990 they moved to Oklahoma to be closer to Kenneth’s family, and in November 1991 they were sealed in the Dallas Texas Temple. They soon realized that the distance from Esther’s family was too great and returned west, settling in Cedar City, Utah.
+
+In Cedar City, Esther and Kenneth served together in church callings. Their favorite work was as ordinance workers in the St. George Temple, a service that linked their later years to the southern Utah communities where Esther’s siblings and extended family continued to gather. A 12 October 2002 photograph shows Esther and Kenneth together at Arnold Brenay’s funeral in St. George; the caption remembers her bright smile, even in a day of mourning.
+
+Esther died peacefully at home in Cedar City on 4 May 2018, aged eighty-four, and was buried in Cedar City Cemetery. Her obituary remembered her sons Denny and Hardy Jr., sixteen grandchildren, twenty-seven great-grandchildren, and one great-great-grandchild, along with brothers LeRoy and Isaac and brother-in-law Tony Lake. It also named the family members who had gone before her, including Kenneth, Judy Lynn, her parents, and several brothers and sisters.
+
+The written memories attached to Esther’s family preserve more than dates. A remembrance of Joe, written by his sister Mickey, recalls his kindness and care for the family; a separate tribute explains why his brothers and sisters continued to remember him. Esther’s life appears in those memories as a daughter, sister, mother, wife, worker, traveler, and temple servant whose family ties remained active across Arizona, Nevada, Oklahoma, and Utah. Her bright smile in the 2002 photograph is one small surviving emblem of that long, shared life.`
+    };
+  }
+})();
