@@ -142,3 +142,24 @@
     GUIDE_PROFILES.brenay_henry.life = 'Henry Brenay was born on 22 September 1926 in Mesa, Arizona, the son of Charles Albert Brenay and Marian Beulah Skinner. He was one of the children in the large Brenay household that carried the family through the interwar years and connected the Mesa community with the family’s later movements through the Southwest.\n\nHenry’s four attached FamilySearch sources include two entries for an Arizona birth-certificate index, a New Mexico death record, and a later GenealogyBank obituary entry in the record of his sister Virginia Lee Brenay Hawkins. The duplicate birth-index entries preserve the same 1926 identity, while the 1928 New Mexico death entry places the end of his life in Socorro County.\n\nHe died on 7 April 1928, before his second birthday. Unlike some of his siblings, Henry’s page has no attached memories, portraits, or family documents to enlarge the brief record. His place in the Brenay family is therefore preserved through the parent and sibling structure and through the small documentary trail that survives in the sources list.\n\nHenry’s story is necessarily modest: an Arizona-born child of Charles and Marian, remembered in the family’s later records as one of the siblings who died young. The available evidence supports the dates and family placement without supplying a new citizenship-grade record or a reason to extend the account beyond what the sources show.';
   }
 })();
+
+(() => {
+  'use strict';
+  const byId = id => DATA.nodes.find(n => n.id === id);
+  const ruth = byId('brenay_ruth');
+  if (!ruth) return;
+  Object.assign(ruth, {
+    name: 'Ruth Melvina Brenay',
+    years: '1928–1929',
+    place: 'Mesa, Arizona',
+    branch: 'Brenay collateral',
+    confidence: 'strong',
+    note: 'Ruth Melvina Brenay was a short-lived child in the Charles Albert Brenay and Marian Beulah Skinner household. Her four attached sources include an Arizona birth index, a Mesa cemetery record, and a GenealogyBank obituary entry; a Find a Grave index is suggested but not attached. No memories are attached.',
+    evidence: []
+  });
+  if (typeof GUIDE_PROFILES !== 'undefined') {
+    GUIDE_PROFILES.brenay_ruth = GUIDE_PROFILES.brenay_ruth || {};
+    GUIDE_PROFILES.brenay_ruth.birthPlace = 'Mesa, Maricopa County, Arizona';
+    GUIDE_PROFILES.brenay_ruth.life = 'Ruth Melvina Brenay was born on 31 December 1928 in Mesa, Arizona, the daughter of Charles Albert Brenay and Marian Beulah Skinner. She was part of the large Brenay household whose children connected the family’s Mesa years with later movements through the American Southwest and Utah.\n\nRuth’s four attached FamilySearch sources include an Arizona birth-certificate index, a Mesa city-cemetery record, and a GenealogyBank obituary entry in the record of her sister Virginia Lee Brenay Hawkins. A Find a Grave index entry is suggested on the page but is not attached. The source pattern gives Ruth a concise documentary trail from birth to burial without supplying a newly opened original certificate or cemetery image.\n\nRuth died on 17 February 1929, only weeks after her birth. Her page has no attached memories or family photographs, so the surviving account rests on the source list and the parent-and-sibling structure preserved in Family Tree. The cemetery record is a useful burial lead, but it is not treated as citizenship-grade evidence for the direct Canadian line.\n\nRuth’s documented story is necessarily brief: a Mesa-born daughter of Charles and Marian, remembered in the family’s later records as one of the children who died in infancy. The available records support her dates and family placement while leaving the underlying Arizona certificate and cemetery image as future retrieval targets.';
+  }
+})();
