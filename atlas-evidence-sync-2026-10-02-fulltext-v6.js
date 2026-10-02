@@ -163,3 +163,90 @@
     GUIDE_PROFILES.brenay_ruth.life = 'Ruth Melvina Brenay was born on 31 December 1928 in Mesa, Arizona, the daughter of Charles Albert Brenay and Marian Beulah Skinner. She was part of the large Brenay household whose children connected the family’s Mesa years with later movements through the American Southwest and Utah.\n\nRuth’s four attached FamilySearch sources include an Arizona birth-certificate index, a Mesa city-cemetery record, and a GenealogyBank obituary entry in the record of her sister Virginia Lee Brenay Hawkins. A Find a Grave index entry is suggested on the page but is not attached. The source pattern gives Ruth a concise documentary trail from birth to burial without supplying a newly opened original certificate or cemetery image.\n\nRuth died on 17 February 1929, only weeks after her birth. Her page has no attached memories or family photographs, so the surviving account rests on the source list and the parent-and-sibling structure preserved in Family Tree. The cemetery record is a useful burial lead, but it is not treated as citizenship-grade evidence for the direct Canadian line.\n\nRuth’s documented story is necessarily brief: a Mesa-born daughter of Charles and Marian, remembered in the family’s later records as one of the children who died in infancy. The available records support her dates and family placement while leaving the underlying Arizona certificate and cemetery image as future retrieval targets.';
   }
 })();
+
+(() => {
+  'use strict';
+  const byId = id => DATA.nodes.find(n => n.id === id);
+  const virginia = byId('brenay_virginia');
+  if (!virginia) return;
+  Object.assign(virginia, {
+    name: 'Virginia Lee Brenay',
+    years: '1931–2010',
+    place: 'Mesa, Arizona → Provo, Utah',
+    branch: 'Brenay collateral',
+    confidence: 'strong',
+    note: 'Virginia Lee Brenay was a daughter of Charles Albert Brenay and Marian Beulah Skinner, a sister in the large Brenay household, and the wife of David Glenn Hawkins. Family photographs preserve her among the siblings in Mesa, at a 1955 Easter gathering in Lakeside, and at later family funerals and reunions. The handwritten letters and funeral-program memory remain family keepsakes rather than published document previews until their full readable transcription and translation are verified.',
+    evidence: [
+      {
+        kind: 'photo',
+        title: 'Charles Albert and Marian Brenay Family',
+        date: '1942',
+        place: 'Sandpoint, Bonner, Idaho',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWZ6-H5P',
+        provenance: 'FamilySearch memory contributed by DeEdra Breckenridge on 26 January 2025; upload filename 1020022.jpg.',
+        summary: 'The family caption identifies the children standing in back as Virginia, Esther, and Joe; sitting in chairs as Marion, Joan, and Charles; and on the porch as Martha and Ammon.',
+        confidence: 'captioned family photograph; Virginia is named directly in the contributor description',
+        previewStatus: 'unavailable'
+      },
+      {
+        kind: 'photo',
+        title: 'The Hawkins and Webb Families — Easter Visit',
+        date: 'April 1955',
+        place: 'Lakeside, Navajo, Arizona',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWZ6-H5P',
+        provenance: 'FamilySearch memory contributed by DeEdra Breckenridge on 13 October 2025; upload filename 0059_a-Enhanced.jpg; tagged to David Glenn Hawkins, Virginia Lee Brenay, James Wilford Webb, and James Sheldon Webb.',
+        summary: 'The caption identifies an extended-family Easter visit and names Virginia Hawkins among the group. It describes a visiting tradition between the Hawkins and Webb families that continued through the contributor’s childhood.',
+        confidence: 'captioned family photograph with direct person tags and family context',
+        previewStatus: 'unavailable'
+      },
+      {
+        kind: 'photo',
+        title: 'The Brenay Siblings Together',
+        date: '2001',
+        place: 'Mesa, Maricopa, Arizona',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWZ6-H5P',
+        provenance: 'FamilySearch memory contributed by DeEdra Breckenridge on 7 November 2025; upload filename img0089-Enhanced.jpg; tagged to Arnold Albert Brenay, Marion Beulah Brenay, Virginia Lee Brenay, Martha Brenay, and Ammon Leroy Brenay.',
+        summary: 'The contributor identifies the group left to right as Arnold Brenay, Marion Webb, Virginia Hawkins, Martha Lemmon, and Ammon Brenay, gathered at their brother Joseph Heber Brenay’s funeral in Mesa.',
+        confidence: 'captioned family photograph with direct person tags',
+        previewStatus: 'unavailable'
+      },
+      {
+        kind: 'photo',
+        title: 'Mom and Her Siblings',
+        date: '28 June 1996',
+        place: 'Mesa, Maricopa, Arizona',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWZ6-H5P',
+        provenance: 'FamilySearch memory contributed by DeEdra Breckenridge on 7 November 2025; upload filename 0056_a-Enhanced.jpg; tagged to Arnold Albert Brenay, Marion Beulah Brenay, Joseph Heber Brenay, Virginia Lee Brenay, and Esther Brenay.',
+        summary: 'The caption identifies a rare gathering at Marian Beulah Skinner Brenay’s funeral: Isaac and his wife, Ammon, Martha Lemmon, Esther Allred, Virginia Hawkins, Joseph, Marion Webb, and Arnold Brenay.',
+        confidence: 'captioned family photograph with direct person tags; Isaac is preserved as a named collateral lead, not a newly asserted tree relationship',
+        previewStatus: 'unavailable'
+      },
+      {
+        kind: 'photo',
+        title: 'Surviving Brenay Siblings at Arnold Brenay’s Funeral',
+        date: 'October 2002',
+        place: 'St. George, Washington, Utah',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWZ6-H5P',
+        provenance: 'FamilySearch memory contributed by DeEdra Breckenridge on 10 September 2026; upload filename Uncle Arnold.pdf; tagged to James Wilford Webb, Ammon Leroy Brenay, Esther Brenay, Virginia Lee Brenay, and Marion Beulah Brenay.',
+        summary: 'The contributor identifies the group left to right as Marion Webb, Virginia Hawkins, Esther Jensen, Martha Lemmon, Ammon Brenay, and Isaac Brenay. The memory contains a family-document image set; it is retained here as captioned family context, not as a readable published document.',
+        confidence: 'captioned memory with direct person tags; Isaac remains an unresolved collateral identity lead',
+        previewStatus: 'unavailable'
+      }
+    ]
+  });
+  if (typeof GUIDE_PROFILES !== 'undefined') {
+    GUIDE_PROFILES.brenay_virginia = GUIDE_PROFILES.brenay_virginia || {};
+    GUIDE_PROFILES.brenay_virginia.birthPlace = 'Mesa, Maricopa County, Arizona';
+    GUIDE_PROFILES.brenay_virginia.life = 'Virginia Lee Brenay was born on 15 September 1931 in Mesa, Arizona, the daughter of Charles Albert Brenay and Marian Beulah Skinner. She grew up in a large family whose early years moved between Arizona, Utah, and the wider Southwest. The surviving family photographs show her not as an isolated name in a record, but as one of the children in a close-knit household and one of the adults who kept that family visible across generations.
+
+The Brenay home included older siblings Arnold and Marion, followed by David, Joseph, Henry, Ruth, Moroni, Virginia, Esther, Martha, Ammon, and Joan. A 1942 family photograph from Sandpoint, Idaho, identifies Virginia standing with Esther and Joe while other brothers and sisters sit nearby or gather on the porch. The caption preserves the arrangement of the household in a single frame and places Virginia within the everyday texture of the family’s wartime-era life.
+
+In 1950, Virginia married David Glenn Hawkins in Mesa. Their marriage joined two local families whose lives remained closely connected. A 1955 Easter photograph from Lakeside records Virginia with David and members of the Hawkins and Webb families, including James Wilford Webb and James Sheldon Webb. The accompanying family account describes a tradition of alternating Easter visits between Lakeside and St. David, a custom that began before the contributor’s birth and continued through childhood. The photograph therefore preserves both the people present and the rhythm of visiting that linked the two families.
+
+Virginia’s later years remain visible through several gatherings of the Brenay siblings. A 1996 photograph taken at the funeral of her mother, Marian Beulah Skinner Brenay, brings together Virginia, Marion, Joseph, Arnold, Esther, Martha, Ammon, and Isaac. A 2001 Mesa photograph taken at Joseph Heber Brenay’s funeral shows Virginia standing among Arnold, Marion, Martha, and Ammon. In 2002, at Arnold’s funeral in St. George, Virginia appears in a group identified from left to right as Marion Webb, Virginia Hawkins, Esther Jensen, Martha Lemmon, Ammon Brenay, and Isaac Brenay. These images show the siblings at moments of loss, but they also show the family’s persistence: brothers and sisters returning to one another as the years passed.
+
+The family record places Virginia’s adult life in the communities of Mesa, Blanding, Navajo County, and Utah. Her death occurred in Provo on 4 February 2010, and she was buried at East Lawn Memorial Hills on 13 February. The later memories preserve the names she carried through adulthood—Virginia Lee Brenay and Virginia Lee Hawkins—while keeping her connected to the Brenay household of her childhood.
+
+Virginia’s family memories also include handwritten letters from her grandmother, a funeral-program image, and other keepsakes. Those items preserve the emotional and documentary texture of the family, even when their text is not yet presented as a readable public record. The photographs that can be identified with confidence already tell an important story: Virginia as a daughter among many siblings, a wife within the Hawkins family, a sister who gathered with the Brenays through marriage, funerals, and reunions, and a woman whose life remained woven into the family’s shared history from Mesa to Provo.'
+  }
+})();
