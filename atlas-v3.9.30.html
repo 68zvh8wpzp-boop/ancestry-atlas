@@ -1472,16 +1472,21 @@ function familyFacingTranscription(e){
 }
 function formatFamilyFacingTranscription(raw){
   const text=String(raw||'').trim();
-  const full=text.match(/^FULLTEXT_ORIGINAL:\s*([\s\S]*?)\|\|\|FULLTEXT_TRANSLATION\|\|\|([\s\S]*)$/);
-  if(full){
-    return '<div class="transcription-pair">'+escapeHtml(full[1].trim())+'</div><div class="transcription-pair"><em>'+escapeHtml(full[2].trim())+'</em></div>';
+  const marker=text.indexOf('FULLTEXT_TRANSLATION');
+  if(text.startsWith('FULLTEXT_ORIGINAL:') && marker>=0){
+    const left=text.slice('FULLTEXT_ORIGINAL:'.length,marker).replace(/[|\\n\s]+$/,'').trim();
+    const right=text.slice(marker+'FULLTEXT_TRANSLATION'.length).replace(/^[:|\\n\s]+/,'').trim();
+    return '<div class="transcription-pair">'+escapeHtml(left)+'</div><div class="transcription-pair"><em>'+escapeHtml(right)+'</em></div>';
+  }
+  const blocks=text.split(/\n(?=Original:\s*)/);
+  const pairs=blocks.map(block=>block.match(/^Original:\s*([\s\S]*?)\nTranslation:\s*([\s\S]*)$/)).filter(Boolean);
+  if(pairs.length>1){
+    return '<div class="transcription-pair">'+escapeHtml(pairs.map(p=>p[1].trim()).join(' '))+'</div><div class="transcription-pair"><em>'+escapeHtml(pairs.map(p=>p[2].trim()).join(' '))+'</em></div>';
   }
   return text.split(/\n(?=Original:\s*)/).map(block=>{
     const pair=block.match(/^Original:\s*([\s\S]*?)\nTranslation:\s*([\s\S]*)$/);
     if(!pair) return '<div class="transcription-pair">'+escapeHtml(block)+'</div>';
-    const original=pair[1].trim();
-    const separator=/[.,;:!?]$/.test(original)?'':'.';
-    return '<div class="transcription-pair">'+escapeHtml(original+separator)+' <em>'+escapeHtml(pair[2].trim())+'</em></div>';
+    return '<div class="transcription-pair">'+escapeHtml(pair[1].trim())+' <em>'+escapeHtml(pair[2].trim())+'</em></div>';
   }).join('');
 }
 function openEvidence(e){
