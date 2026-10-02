@@ -86,6 +86,16 @@ canvas:active{cursor:grabbing}
 /* Ancestry Atlas v0.91 */
 :root{--hold:#b8ff3d;--priority:#ff2bd6;--sideRoute:#42e8ff;--warn:#ffd166}
 .searchbox{width:100%;background:#08131d;border:1px solid #34536d;color:#eef4fa;border-radius:8px;padding:8px 9px;margin:4px 0 7px;outline:none}.searchbox:focus{border-color:#70a8ff;box-shadow:0 0 0 2px rgba(112,168,255,.15)}
+#mobilePersonSearch{display:none}
+@media(max-width:800px){
+  #mobilePersonSearch{display:block;position:absolute;z-index:24;left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right));top:calc(env(safe-area-inset-top) + 56px);padding:9px 10px 8px;border:1px solid #34536d;border-radius:12px;background:rgba(8,19,29,.94);box-shadow:0 12px 32px rgba(0,0,0,.32);backdrop-filter:blur(7px)}
+  #mobilePersonSearch label{display:block;margin:0 0 5px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b9c8d6}
+  #mobilePersonSearchInput{width:100%;background:#08131d;border:1px solid #476984;color:#eef4fa;border-radius:8px;padding:9px 10px;font-size:16px;outline:none}
+  #mobilePersonSearchInput:focus{border-color:#70a8ff;box-shadow:0 0 0 2px rgba(112,168,255,.18)}
+  #mobilePersonSearchResults{max-height:27vh;overflow:auto;margin-top:4px}
+  #mobilePersonSearchResults button{display:block;width:100%;margin:4px 0 0;text-align:left;font-size:12px}
+  #proofNotice{top:calc(env(safe-area-inset-top) + 145px)}
+}
 .hold-key{display:grid;grid-template-columns:18px 1fr;gap:6px 7px;font-size:11px;color:#c9d8e4;align-items:center}.tri{font-size:15px;line-height:1}.priority-tri{color:var(--priority);text-shadow:0 0 9px var(--priority)}.hold-tri{color:var(--hold);text-shadow:0 0 8px var(--hold)}.side-arrow{color:var(--sideRoute);text-shadow:0 0 7px var(--sideRoute)}
 #evidenceModeBtn.active,#collateralBtn.active,#depthBtn.active{background:#2a5b86;border-color:#72b9ee}
 #proofNotice{position:absolute;left:14px;top:58px;max-width:330px;background:rgba(9,17,25,.78);border-left:3px solid #f0c76b;border-radius:7px;padding:7px 9px;color:#c7d7e4;font-size:10.5px;line-height:1.35;pointer-events:none}
@@ -784,6 +794,12 @@ window.addEventListener('error',function(e){
 
 <section id="stage">
   <canvas id="c"></canvas>
+
+  <div id="mobilePersonSearch" role="search" aria-label="Find a person">
+    <label for="mobilePersonSearchInput">Find a person</label>
+    <input id="mobilePersonSearchInput" type="search" placeholder="Type a name…" autocomplete="off" enterkeyhint="search">
+    <div id="mobilePersonSearchResults" class="small" aria-live="polite"></div>
+  </div>
 
 <div id="navModeBadge"><strong>Family view</strong> · tap a person to re-center</div>
 <div id="sceneContext" class="scene-context" aria-live="polite">
@@ -2462,6 +2478,36 @@ const searchInput=document.getElementById('personSearch'),searchResults=document
 function runPersonSearch(){const q=searchInput.value.trim().toLowerCase(); if(!q){searchResults.textContent='';return;} const hits=DATA.nodes.filter(n=>(n.name+' '+(n.years||'')+' '+(n.place||'')).toLowerCase().includes(q)).slice(0,6); searchResults.innerHTML=hits.map(n=>`<button data-fly=\"${escapeHtml(n.id)}\" style=\"font-size:10px;padding:4px 6px\">${escapeHtml(n.name)}</button>`).join('')||'No match'; searchResults.querySelectorAll('[data-fly]').forEach(b=>b.onclick=()=>{const id=b.dataset.fly;const n=nodeById.get(id);if(n?.collateral&&!showCollateral){showCollateral=true;document.getElementById('collateralBtn').classList.add('active');document.getElementById('collateralBtn').textContent='Collateral routes: shown';} navigateTo(id,true); searchInput.value=n.name;searchResults.textContent='';});}
 searchInput.addEventListener('input',runPersonSearch);
 searchInput.addEventListener('keydown',e=>{if(e.key==='Enter'){const b=searchResults.querySelector('[data-fly]');if(b)b.click();}});
+const mobilePersonSearchInput=document.getElementById('mobilePersonSearchInput');
+const mobilePersonSearchResults=document.getElementById('mobilePersonSearchResults');
+function selectPersonSearchResult(id){
+  const n=nodeById.get(id);
+  if(!n)return;
+  if(n.collateral&&!showCollateral){
+    showCollateral=true;
+    document.getElementById('collateralBtn').classList.add('active');
+    document.getElementById('collateralBtn').textContent='Collateral routes: shown';
+  }
+  navigateTo(id,true);
+  searchInput.value=n.name;
+  mobilePersonSearchInput.value=n.name;
+  searchResults.textContent='';
+  mobilePersonSearchResults.textContent='';
+}
+function runMobilePersonSearch(){
+  const q=mobilePersonSearchInput.value.trim().toLowerCase();
+  if(!q){mobilePersonSearchResults.textContent='';return;}
+  const hits=DATA.nodes.filter(n=>(n.name+' '+(n.years||'')+' '+(n.place||'')).toLowerCase().includes(q)).slice(0,6);
+  mobilePersonSearchResults.innerHTML=hits.map(n=>`<button type="button" data-mobile-fly="${escapeHtml(n.id)}">${escapeHtml(n.name)}</button>`).join('')||'No match';
+  mobilePersonSearchResults.querySelectorAll('[data-mobile-fly]').forEach(b=>b.onclick=()=>selectPersonSearchResult(b.dataset.mobileFly));
+}
+mobilePersonSearchInput.addEventListener('input',runMobilePersonSearch);
+mobilePersonSearchInput.addEventListener('keydown',e=>{
+  if(e.key==='Enter'){
+    const b=mobilePersonSearchResults.querySelector('[data-mobile-fly]');
+    if(b)b.click();
+  }
+});
 
 document.getElementById('focusCanada').onclick=()=>focus(['canada','brenay','gooley','dennis','skinner']);
 document.getElementById('focusDenmark').onclick=()=>focus(['denmark','seje','seye']);
@@ -2632,7 +2678,7 @@ resize();
 <script src="story-presentation-3.6.0.js"></script>
 <script src="story-overlays-3.8.1.js?v=3.8.22"></script>
 <script src="experience-3.8.1.js?v=3.8.22"></script>
-<script src="atlas-evidence-sync-2026-09-27.js?v=20261002-4"></script>
+<script src="atlas-evidence-sync-2026-09-27.js?v=20261002-5"></script>
 <script src="atlas-sheldon-presentation-2026-09-30.js?v=20261001-3"></script>
 </body>
 </html>
