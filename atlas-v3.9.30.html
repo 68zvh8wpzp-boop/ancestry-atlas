@@ -1461,6 +1461,7 @@ function familyFacingEvidenceSummary(e){
   return 'This record is included as supporting evidence for the family history.';
 }
 function familyFacingRecordStatus(e){
+  if(e.previewStatus==='unreadable') return 'Preview is not readable; open the original record';
   if(evidenceHasPreview(e)) return 'Document preview available';
   if(e.sourcePage||e.documentUrl||e.full) return 'Linked source record available';
   return 'Supporting record listed';
@@ -1473,7 +1474,9 @@ function formatFamilyFacingTranscription(raw){
   return String(raw||'').trim().split(/\n(?=Original:\s*)/).map(block=>{
     const pair=block.match(/^Original:\s*([\s\S]*?)\nTranslation:\s*([\s\S]*)$/);
     if(!pair) return '<div class="transcription-pair">'+escapeHtml(block)+'</div>';
-    return '<div class="transcription-pair">'+escapeHtml(pair[1].trim())+'. <em>'+escapeHtml(pair[2].trim())+'</em></div>';
+    const original=pair[1].trim();
+    const separator=/[.,;:!?]$/.test(original)?'':'.';
+    return '<div class="transcription-pair">'+escapeHtml(original+separator)+' <em>'+escapeHtml(pair[2].trim())+'</em></div>';
   }).join('');
 }
 
@@ -2685,7 +2688,7 @@ resize();
 <script src="story-presentation-3.6.0.js"></script>
 <script src="story-overlays-3.8.1.js?v=3.8.22"></script>
 <script src="experience-3.8.1.js?v=3.8.22"></script>
-<script src="atlas-evidence-sync-2026-09-27.js?v=20261002-5"></script>
+<script src="atlas-evidence-sync-2026-09-27.js?v=20261002-7"></script>
 <script src="atlas-sheldon-presentation-2026-09-30.js?v=20261001-3"></script>
 </body>
 </html>
