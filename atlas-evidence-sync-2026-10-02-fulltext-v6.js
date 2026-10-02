@@ -121,3 +121,24 @@
     GUIDE_PROFILES.brenay_david.life = 'David Alvin Brenay was born on 15 March 1924 in Saginaw, Michigan, the son of Charles Albert Brenay and Marian Beulah Skinner. He belonged to a large Brenay household whose children carried the family through the interwar years and into the changing communities of the American Midwest and Southwest.\n\nThe FamilySearch record places David among thirteen children, including Marion, Joseph, Henry, Ruth, Moroni, Virginia, Esther, Martha, Ammon, and Joan. A childhood photograph captioned “Joe, David, and Marion Brenay” preserves a direct visual connection among three of the siblings. The contributor identifies them from left to right and places the photograph in Michigan, giving David’s brief life a rare human scale beyond the dates in a record.\n\nDavid’s family later appears in Mesa, Arizona, where he died on 7 November 1937 and was buried in Mesa Cemetery. Six attached sources include census and church-census entries, an Arizona death index, a GenealogyBank record, and a Find a Grave index entry. Together they support the basic chronology from Saginaw birth to Mesa death, while the records remain ordinary documentary anchors rather than a single complete narrative.\n\nTwo additional memories remain attached to David’s page: an untitled “Brenay clan plus Aunt Amanda” photograph and “Charles and Phebe Kingery family.” Their visible metadata supplies wider family context, but neither is treated here as a direct portrait of David without an explicit identification.\n\nDavid Alvin Brenay died at thirteen, before adulthood could leave the kinds of records that make a life easy to reconstruct. His documented place in the Brenay family is nevertheless clear enough to preserve: a Saginaw-born child, a brother in a large household, and a young member of the family’s move into the Mesa community. The surviving photograph and the six-source chronology keep his memory distinct without overstating what the evidence can prove.';
   }
 })();
+
+(() => {
+  'use strict';
+  const byId = id => DATA.nodes.find(n => n.id === id);
+  const henry = byId('brenay_henry');
+  if (!henry) return;
+  Object.assign(henry, {
+    name: 'Henry Brenay',
+    years: '1926–1928',
+    place: 'Mesa, Arizona → Socorro, New Mexico',
+    branch: 'Brenay collateral',
+    confidence: 'strong',
+    note: 'Henry Brenay was a short-lived child in the Charles Albert Brenay and Marian Beulah Skinner household. Four attached FamilySearch sources preserve a consistent Arizona birth and New Mexico death trail; no memories are attached and no direct record image was opened in this pass.',
+    evidence: []
+  });
+  if (typeof GUIDE_PROFILES !== 'undefined') {
+    GUIDE_PROFILES.brenay_henry = GUIDE_PROFILES.brenay_henry || {};
+    GUIDE_PROFILES.brenay_henry.birthPlace = 'Mesa, Maricopa County, Arizona';
+    GUIDE_PROFILES.brenay_henry.life = 'Henry Brenay was born on 22 September 1926 in Mesa, Arizona, the son of Charles Albert Brenay and Marian Beulah Skinner. He was one of the children in the large Brenay household that carried the family through the interwar years and connected the Mesa community with the family’s later movements through the Southwest.\n\nHenry’s four attached FamilySearch sources include two entries for an Arizona birth-certificate index, a New Mexico death record, and a later GenealogyBank obituary entry in the record of his sister Virginia Lee Brenay Hawkins. The duplicate birth-index entries preserve the same 1926 identity, while the 1928 New Mexico death entry places the end of his life in Socorro County.\n\nHe died on 7 April 1928, before his second birthday. Unlike some of his siblings, Henry’s page has no attached memories, portraits, or family documents to enlarge the brief record. His place in the Brenay family is therefore preserved through the parent and sibling structure and through the small documentary trail that survives in the sources list.\n\nHenry’s story is necessarily modest: an Arizona-born child of Charles and Marian, remembered in the family’s later records as one of the siblings who died young. The available evidence supports the dates and family placement without supplying a new citizenship-grade record or a reason to extend the account beyond what the sources show.';
+  }
+})();
