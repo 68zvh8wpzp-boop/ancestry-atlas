@@ -65,3 +65,59 @@
     GUIDE_PROFILES.louise_anne_tellier_1846.life = 'Louise-Anne Tellier was born in 1828 in Sorel, in the Richelieu region of Quebec, to Jean-Baptiste Tellier dit Benjamin and Marie-Élisabeth Béfort Philippin. She grew up in a large Tellier household whose roots reached back to Saint-Ours and whose later branches moved through the Richelieu and Sherbrooke communities.\n\nOn 25 May 1846, at Saint-Michel-de-Sherbrooke, Louise-Anne married a man identified in the parish index as Pierre Goulet. The entry names her as Louise Anne Tellier and gives her father as the late Jean-Baptiste Tellier. That record is a direct bridge from the Tellier family into the Goulet household, but it does not by itself establish that Pierre Goulet was the same person later represented in Family Tree as John Peter Gooley Sr.\n\nThe later family structure attributed to Louise-Anne includes children recorded under both Goulet and Gooley forms, including Peter John Gooley and other children in the Sherbrooke-area household. Those names preserve an important research trail through Quebec parish records, censuses, and later Vermont records. They should remain a bounded identity question rather than being harmonized by assumption.\n\nLouise-Anne’s documented story is therefore that of a Sorel-born Tellier daughter who entered the Sherbrooke parish network through an 1846 marriage recorded under the Pierre Goulet name. Her parents, her Tellier upbringing, and the indexed marriage are strongly supported. The transition from Pierre Goulet to John Peter Gooley remains an open historical problem requiring the original marriage image and additional primary records.'
   }
 })();
+
+
+(() => {
+  'use strict';
+  const byId = id => DATA.nodes.find(n => n.id === id);
+  const david = byId('brenay_david');
+  if (!david) return;
+  Object.assign(david, {
+    name: 'David Alvin Brenay',
+    years: '1924–1937',
+    place: 'Saginaw, Michigan → Mesa, Arizona',
+    branch: 'Brenay collateral',
+    confidence: 'strong',
+    note: 'David Alvin Brenay was a short-lived child in the Charles Albert Brenay and Marian Beulah Skinner household. His six attached FamilySearch sources support a consistent Saginaw-to-Mesa chronology, while the memories preserve a direct sibling photograph and two contextual Brenay-family images. This is collateral evidence, not citizenship proof.',
+    evidence: [
+      {
+        kind: 'photo',
+        title: 'Joe, David, and Marion Brenay',
+        date: 'Childhood photograph; uploaded 13 October 2025',
+        place: 'Michigan, United States',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWVG-RCT',
+        provenance: 'FamilySearch memory contributed by DeEdra Breckenridge; upload filename 0061_a-Repaired-Enhanced.jpg; tags Joseph Heber Brenay, David Alvin Brenay, and Marion Beulah Brenay.',
+        summary: 'The contributor identifies the children left to right as Joe Brenay, David Brenay, and their sister Marion Brenay. The caption directly names David and places the photograph in Michigan during the children’s years.',
+        confidence: 'captioned family photograph with person tags; preserved as family-memory evidence rather than a civil record',
+        previewStatus: 'unavailable'
+      },
+      {
+        kind: 'photo',
+        title: 'Brenay clan plus Aunt Amanda',
+        date: 'Uploaded 18 August 2015',
+        place: 'Not stated',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWVG-RCT',
+        provenance: 'Untitled FamilySearch memory attached to David’s page; contributed by ScottDaphne1; upload filename Brenay clan plus Aunt Amanda.jpg.',
+        summary: 'The memory is retained as contextual Brenay-family collateral. The visible metadata tags Joseph Heber Brenay, Esther Brenay, Virginia Lee Brenay, Marian Beulah Skinner, and Arnold Albert Brenay; David is not among the visible tags, so the image is not treated as a direct portrait of him.',
+        confidence: 'attached family-memory context; no direct David identification in the visible metadata',
+        previewStatus: 'unavailable'
+      },
+      {
+        kind: 'photo',
+        title: 'Charles and Phebe Kingery family',
+        date: 'Uploaded 31 December 2013',
+        place: 'Not stated',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWVG-RCT',
+        provenance: 'Titled FamilySearch memory attached to David’s page; contributed by Shannon24Eads; upload filename Kingery Charles Phoebe Lottie and John.jpg.',
+        summary: 'This image is preserved as wider family context. The current memory metadata does not visibly identify David in the image, so it is not used as a direct identity claim.',
+        confidence: 'contextual family-memory evidence; no direct David identification in the visible metadata',
+        previewStatus: 'unavailable'
+      }
+    ]
+  });
+  if (typeof GUIDE_PROFILES !== 'undefined') {
+    GUIDE_PROFILES.brenay_david = GUIDE_PROFILES.brenay_david || {};
+    GUIDE_PROFILES.brenay_david.birthPlace = 'Saginaw, Saginaw County, Michigan';
+    GUIDE_PROFILES.brenay_david.life = 'David Alvin Brenay was born on 15 March 1924 in Saginaw, Michigan, the son of Charles Albert Brenay and Marian Beulah Skinner. He belonged to a large Brenay household whose children carried the family through the interwar years and into the changing communities of the American Midwest and Southwest.\n\nThe FamilySearch record places David among thirteen children, including Marion, Joseph, Henry, Ruth, Moroni, Virginia, Esther, Martha, Ammon, and Joan. A childhood photograph captioned “Joe, David, and Marion Brenay” preserves a direct visual connection among three of the siblings. The contributor identifies them from left to right and places the photograph in Michigan, giving David’s brief life a rare human scale beyond the dates in a record.\n\nDavid’s family later appears in Mesa, Arizona, where he died on 7 November 1937 and was buried in Mesa Cemetery. Six attached sources include census and church-census entries, an Arizona death index, a GenealogyBank record, and a Find a Grave index entry. Together they support the basic chronology from Saginaw birth to Mesa death, while the records remain ordinary documentary anchors rather than a single complete narrative.\n\nTwo additional memories remain attached to David’s page: an untitled “Brenay clan plus Aunt Amanda” photograph and “Charles and Phebe Kingery family.” Their visible metadata supplies wider family context, but neither is treated here as a direct portrait of David without an explicit identification.\n\nDavid Alvin Brenay died at thirteen, before adulthood could leave the kinds of records that make a life easy to reconstruct. His documented place in the Brenay family is nevertheless clear enough to preserve: a Saginaw-born child, a brother in a large household, and a young member of the family’s move into the Mesa community. The surviving photograph and the six-source chronology keep his memory distinct without overstating what the evidence can prove.';
+  }
+})();
