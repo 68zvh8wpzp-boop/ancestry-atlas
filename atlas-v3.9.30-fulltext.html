@@ -1471,8 +1471,13 @@ function familyFacingTranscription(e){
   return raw && !FAMILY_BACKSTAGE_RE.test(raw) ? raw : '';
 }
 function formatFamilyFacingTranscription(raw){
-  return String(raw||'').trim().split(/\n(?=Original:\s*)/).map(block=>{
-    const pair=block.match(/^Original:\s*([\s\S]*?)\nTranslation:\s*([\s\S]*)$/);
+  const text=String(raw||'').trim();
+  const full=text.match(/^FULLTEXT_ORIGINAL:\s*([\\s\\S]*?)\\nFULLTEXT_TRANSLATION:\s*([\\s\\S]*)$/);
+  if(full){
+    return '<div class="transcription-pair">'+escapeHtml(full[1].trim())+'</div><div class="transcription-pair"><em>'+escapeHtml(full[2].trim())+'</em></div>';
+  }
+  return text.split(/\\n(?=Original:\\s*)/).map(block=>{
+    const pair=block.match(/^Original:\\s*([\\s\\S]*?)\\nTranslation:\\s*([\\s\\S]*)$/);
     if(!pair) return '<div class="transcription-pair">'+escapeHtml(block)+'</div>';
     const original=pair[1].trim();
     const separator=/[.,;:!?]$/.test(original)?'':'.';
@@ -2688,7 +2693,7 @@ resize();
 <script src="story-presentation-3.6.0.js"></script>
 <script src="story-overlays-3.8.1.js?v=3.8.22"></script>
 <script src="experience-3.8.1.js?v=3.8.22"></script>
-<script src="atlas-evidence-sync-2026-09-27.js?v=20261002-11"></script>
+<script src="atlas-evidence-sync-2026-09-27.js?v=20261002-12"></script>
 <script src="atlas-sheldon-presentation-2026-09-30.js?v=20261001-3"></script>
 </body>
 </html>
