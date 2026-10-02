@@ -391,3 +391,84 @@ The written memories attached to Esther’s family preserve more than dates. A r
     };
   }
 })();
+
+
+(() => {
+  'use strict';
+  const martha = {
+    id: 'brenay_martha',
+    name: 'Martha Brenay',
+    years: '1935–2013',
+    place: 'Blanding, Utah → Ogden, Utah',
+    branch: 'Brenay collateral',
+    confidence: 'strong',
+    note: "Martha Brenay’s page provides a documented Utah birthplace and residence trail, a 1954 St. George marriage, four captioned family photographs, and a four-page handwritten-letter hold. Preserve the Larry Lemmon duplicate/step-family presentation as a cleanup lead rather than asserting a second biological child.",
+    x: 2.15, y: 3.5, z: -0.8,
+    collateral: true,
+    sideRoute: true,
+    evidence: [
+      {
+        kind: 'photo',
+        title: 'The Brenay Siblings Together',
+        date: '2001',
+        place: 'Mesa, Maricopa, Arizona',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWC1-XFC',
+        provenance: 'FamilySearch memory contributed by DeEdra Breckenridge on 7 November 2025; upload filename img0089-Enhanced.jpg.',
+        summary: 'The caption identifies Arnold, Marion, Virginia, Martha, and Ammon at their brother Joseph Heber Brenay’s funeral in Mesa.',
+        confidence: 'captioned family photograph with direct Martha identification',
+        previewStatus: 'unavailable'
+      },
+      {
+        kind: 'photo',
+        title: 'Mom and Her Siblings',
+        date: '28 June 1996',
+        place: 'Mesa, Maricopa, Arizona',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWC1-XFC',
+        provenance: 'FamilySearch memory contributed by DeEdra Breckenridge on 7 November 2025; upload filename 0056_a-Enhanced.jpg.',
+        summary: 'The caption identifies Martha among Isaac, Ammon, Esther, Virginia, Joseph, Marion, and Arnold at Marian Beulah Skinner Brenay’s funeral.',
+        confidence: 'captioned family photograph with direct Martha identification',
+        previewStatus: 'unavailable'
+      },
+      {
+        kind: 'photo',
+        title: 'Brenay Family',
+        date: '10 October 2025 upload',
+        place: 'Family gathering',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWC1-XFC',
+        provenance: 'FamilySearch memory contributed by DeEdra Breckenridge on 10 October 2025; upload filename 0013_a-Repaired.jpg.',
+        summary: 'The caption names Martha (Brenay) Lemmon with Charles Albert, Marian Skinner, Esther, Joseph, Marion, and Arnold around a dining table.',
+        confidence: 'captioned family photograph with direct Martha identification',
+        previewStatus: 'unavailable'
+      },
+      {
+        kind: 'photo',
+        title: 'Charles Albert and Marian Brenay Family',
+        date: '1942',
+        place: 'Sandpoint, Bonner, Idaho',
+        sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWC1-XFC',
+        provenance: 'FamilySearch family memory attached across the Brenay sibling pages; contributor DeEdra Breckenridge, 26 January 2025; upload filename 1020022.jpg.',
+        summary: 'The caption places Martha on the porch with Ammon; Virginia, Esther, and Joe stand behind, while Marion, Joan, and Charles sit in chairs.',
+        confidence: 'captioned family photograph; Martha is named directly in the contributor description',
+        previewStatus: 'unavailable'
+      }
+    ]
+  };
+  if (!DATA.nodes.some(n => n.id === martha.id)) DATA.nodes.push(martha);
+  const map = window.__ATLAS_NODE_BY_ID;
+  if (map) map.set(martha.id, martha);
+  if (typeof parentMap !== 'undefined' && typeof childMap !== 'undefined') {
+    for (const p of ['charles_albert','marian_skinner']) {
+      if (!DATA.edges.some(e => e.a === martha.id && e.b === p)) DATA.edges.push({a:martha.id,b:p,confidence:'strong'});
+      if (!parentMap.has(martha.id)) parentMap.set(martha.id, []);
+      if (!parentMap.get(martha.id).includes(p)) parentMap.get(martha.id).push(p);
+      if (!childMap.has(p)) childMap.set(p, []);
+      if (!childMap.get(p).includes(martha.id)) childMap.get(p).push(martha.id);
+    }
+  }
+  if (typeof GUIDE_PROFILES !== 'undefined') {
+    GUIDE_PROFILES.brenay_martha = {
+      birthPlace: 'Blanding, San Juan County, Utah',
+      life: "Martha Brenay was born on 26 July 1935 in Blanding, San Juan County, Utah, a birthplace that distinguishes her from the older Brenay siblings whose records often begin in Mesa, Arizona. Her Family Tree page places her among the thirteen children of Charles Albert Brenay and Marian Beulah Skinner and preserves a later residence trail through Navajo County, Manti, Hurricane, Florida, Ogden, and Hinckley. The record shows how the family’s geography widened across the American West while keeping the Brenay household connected.\n\nMartha married Larry Allred Lemmon on 12 June 1954 in St. George, Utah. The couple’s page shows the marriage and no attached children. Martha is also recorded under the married name Martha Lemmon. A separate Larry Lemmon entry appears in the parent-family list beside Martha; that duplicate or step-family presentation is preserved as a tree-cleanup lead, not normalized into a claim about an additional biological child.\n\nThe family photographs attached to Martha’s page place her within several generations of Brenay memory. In the 2001 photograph taken at Joseph Heber Brenay’s funeral in Mesa, Martha stands in the identified line between Virginia Hawkins and Ammon, alongside Arnold and Marion. A 1996 photograph at her mother Marian’s funeral names Martha among Isaac, Ammon, Esther, Virginia, Joseph, Marion, and Arnold, a rare gathering of the siblings. Another family photograph from 1942, taken in Sandpoint, Idaho, places Martha on the porch with Ammon while Joan, Charles, and Marion sit in chairs and Virginia, Esther, and Joe stand behind. A later family photograph around the dining table names Martha with her parents, Esther, Joseph, Marion, and Arnold.\n\nMartha’s source inventory includes census and church-census records, the 1954 Western States Marriage Index and Utah marriage entry, public-record indexes, Social Security, and GenealogyBank obituary entries. Several records carry unfinished-attachment notices, and no single source should be treated as the complete account of her life. The page also preserves a four-page January 1985 set of handwritten letters from Grandma Brenay. Those letters are kept as a documentary hold until a readable public preview and complete original-language transcription/translation can be verified.\n\nMartha died on 26 May 2013 in Ogden, Utah, and the tree records burial on 1 June at Aultorest Memorial Park. Her page therefore contributes a clear Utah branch to the family story: a Blanding birth, a St. George marriage, years connected with Manti and other Utah communities, and an Ogden life remembered through family photographs and handwritten keepsakes."
+    };
+  }
+})();
