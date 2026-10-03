@@ -1324,9 +1324,9 @@ function renderEvidence(n){
           if(img)img.onerror=()=>{img.replaceWith(Object.assign(document.createElement('div'),{className:'evidence-doc-placeholder',textContent:'Image unavailable'}));};
         }
       }else{
-        const action=e.documentUrl||e.sourcePage?'Open linked record':'Open record';
+        const action=e.sourceLinkLabel||(e.documentUrl||e.sourcePage?'Open linked source':'Open record');
         const lead=kind==='record-citations';
-        b.innerHTML='<div class="evidence-doc-placeholder">'+(lead?'RECORD LEAD':'DOCUMENT')+'<span>'+(lead?'Readable preview pending':action)+'</span></div><div class="evtitle">'+escapeHtml(titleText)+'</div>';
+        b.innerHTML='<div class="evidence-doc-placeholder">'+(lead?'LINKED CITATION':'DOCUMENT')+'<span>'+(lead?'Tap for citation and source link':action)+'</span></div><div class="evtitle">'+escapeHtml(titleText)+'</div>';
       }
       b.onclick=()=>{clearAlbumViewerExtras();albumState.visible=ev;albumState.index=ev.indexOf(e);openEvidence(e);};
       strip.appendChild(b);
@@ -1474,8 +1474,8 @@ function familyFacingEvidenceSummary(e){
   return 'This record is included as supporting evidence for the family history.';
 }
 function familyFacingRecordStatus(e){
-  if(evidenceHasPreview(e)) return 'Document preview available';
-  if(e.sourcePage||e.documentUrl||e.full) return 'Linked source record available';
+  if(evidenceHasReadablePreview(e)) return 'Document preview available';
+  if(e.sourcePage||e.documentUrl||e.full) return 'Citation only; no readable scan is attached. The linked source is available below.';
   return 'Supporting record listed';
 }
 function familyFacingTranscription(e){
@@ -1543,7 +1543,8 @@ function openEvidence(e){
     (displayTranscription?'<br><br><strong>Transcription</strong><div class="doc-transcription">'+renderTranscription(displayTranscription)+'</div>':'')+
     '<br><br><strong>Record status:</strong> '+escapeHtml(displayStatus);
   const sourceLink=e.sourcePage||e.documentUrl;
-  if(sourceLink) meta.innerHTML += '<br><br><a href="'+escapeHtml(sourceLink)+'" target="_blank" rel="noopener">Open original record</a>';
+  const sourceLinkLabel=e.sourceLinkLabel||(evidenceHasReadablePreview(e)?'Open original record':'Open linked source');
+  if(sourceLink) meta.innerHTML += '<br><br><a href="'+escapeHtml(sourceLink)+'" target="_blank" rel="noopener">'+escapeHtml(sourceLinkLabel)+'</a>';
   if(isImage) image.src=full; else image.removeAttribute('src');
   if(isPdf){pdf.src=full;pdf.referrerPolicy='no-referrer';}else{pdf.removeAttribute('src');}
   const nav=document.getElementById('albumViewerNav');
