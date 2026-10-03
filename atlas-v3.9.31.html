@@ -11,7 +11,7 @@
 })();
 </script>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<title>Ancestry Atlas v3.9.31 — Jean document preview repair</title>
+<title>Ancestry Atlas v3.9.31 — iPhone person-card and evidence repair</title>
 <meta name="theme-color" content="#020609">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -71,13 +71,18 @@ canvas:active{cursor:grabbing}
  aside.collapsed{width:auto;max-height:none;padding:8px;background:rgba(11,21,30,.92)}
  aside.collapsed > *:not(#controlsToggle){display:none}
  #controlsToggle{display:block;margin:0}
- #card{z-index:6;width:min(92vw,360px);right:max(8px,env(safe-area-inset-right));top:max(58px,calc(env(safe-area-inset-top) + 12px))}
+ /* The person card is the active mobile surface; use the full usable
+    viewport instead of leaving the search panel's upper band exposed. */
+ #card{position:fixed;z-index:100;width:calc(100vw - 16px);left:8px;right:8px;
+       top:max(8px,env(safe-area-inset-top));
+       bottom:max(82px,calc(env(safe-area-inset-bottom) + 76px));
+       max-height:none;overflow:auto}
  #hud{left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right));top:max(10px,env(safe-area-inset-top));font-size:11px}
  #timeline{bottom:max(12px,env(safe-area-inset-bottom));font-size:10px}
 }
 
 #personHeader{display:flex;gap:12px;align-items:flex-start;margin-right:26px}.portrait-wrap{display:none;flex:0 0 76px}.portrait-wrap.show{display:block}.portrait-img{width:76px;height:92px;object-fit:cover;border-radius:10px;border:1px solid #3b5c77;background:#0b151e;display:block;cursor:pointer}.portrait-caption{font-size:9px;color:#8fa3b5;line-height:1.25;margin-top:4px}.person-headtext{min-width:0;flex:1}
-#evidenceWrap{margin-top:10px}.evidence-strip{display:flex;gap:9px;overflow-x:auto;padding:4px 0 8px}.evidence-item{width:132px;min-width:132px;border:1px solid #35516a;border-radius:9px;background:#0d1d2a;padding:5px;text-align:left;color:#eaf2f8;cursor:zoom-in;overflow:hidden}.evidence-media-thumb{width:120px;height:76px;overflow:hidden;border-radius:6px;background:#071019;position:relative;margin-bottom:5px}.evidence-media-thumb img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}.evidence-item .evtitle{font-size:10px;line-height:1.25}.evidence-strip.documents .evidence-media-thumb img{object-position:center 70%}.evidence-doc-placeholder,.album-doc-placeholder{width:100%;min-height:76px;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:6px;background:#071019;color:#9eb7c8;font-size:11px;letter-spacing:.08em}.evidence-doc-placeholder span,.album-doc-placeholder span{display:block;font-size:9px;letter-spacing:0;color:#6f8da2;margin-top:4px}.evidence-empty{font-size:11px;color:#7f96a9;padding:4px 0}.research-tag{font-size:10px;color:#f0c76b;margin-top:4px}.doc-modal{display:none;position:fixed;z-index:90;inset:0;background:rgba(0,0,0,.96);padding:18px;overflow:auto}.doc-modal.open{display:block}.doc-panel{max-width:1050px;min-height:calc(100dvh - 36px);margin:auto;background:#0b151e;border:1px solid #35516a;border-radius:14px;padding:12px;display:flex;flex-direction:column;justify-content:center}.doc-panel img{width:100%;height:auto;max-height:calc(100dvh - 190px);object-fit:contain;border-radius:8px;background:#111;touch-action:none;user-select:none;-webkit-user-select:none;transform-origin:center center;will-change:transform;cursor:zoom-in}.doc-panel iframe{display:block;width:100%;height:min(72dvh,760px);border:0;border-radius:8px;background:#111}.evidence-media-thumb.pdf{background:linear-gradient(145deg,#172c3d,#0b1824)}.evidence-media-thumb.pdf::after{content:'PDF SCAN';position:absolute;left:7px;bottom:5px;padding:2px 5px;border-radius:4px;background:rgba(4,10,16,.84);color:#c8d9e5;font-size:8px;letter-spacing:.1em;pointer-events:none}.evidence-media-thumb.pdf iframe{position:absolute;left:-44%;top:-46%;width:188%;height:210%;border:0;pointer-events:none;background:#fff;mix-blend-mode:multiply}.doc-panel.viewer-zoomed img{cursor:grab}.doc-panel.viewer-panning img{cursor:grabbing}.doc-meta{font-size:12px;line-height:1.5;color:#c9d9e6;margin-top:10px}.doc-transcription{white-space:pre-wrap;margin-top:8px;padding:9px 10px;border-left:3px solid #5f86a5;background:rgba(17,34,48,.72);color:#e2edf5}.doc-close{position:fixed;right:22px;top:18px;z-index:100;font-size:25px;border-radius:99px}.candidate-note{font-size:10px;color:#f0c76b;margin:6px 0}
+#evidenceWrap{margin-top:10px}.evidence-strip{display:flex;gap:9px;overflow-x:auto;padding:4px 0 8px}.evidence-item{width:132px;min-width:132px;border:1px solid #35516a;border-radius:9px;background:#0d1d2a;padding:5px;text-align:left;color:#eaf2f8;cursor:zoom-in;overflow:hidden}.evidence-media-thumb{width:120px;height:76px;overflow:hidden;border-radius:6px;background:#071019;position:relative;margin-bottom:5px}.evidence-media-thumb img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}.evidence-item .evtitle{font-size:10px;line-height:1.25}.evidence-strip.documents .evidence-media-thumb img{object-position:center 70%}.evidence-doc-placeholder,.album-doc-placeholder{width:100%;min-height:76px;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:6px;background:#071019;color:#9eb7c8;font-size:11px;letter-spacing:.08em}.evidence-doc-placeholder span,.album-doc-placeholder span{display:block;font-size:9px;letter-spacing:0;color:#6f8da2;margin-top:4px}.evidence-empty{font-size:11px;color:#7f96a9;padding:4px 0}.research-tag{font-size:10px;color:#f0c76b;margin-top:4px}.doc-modal{display:none;position:fixed;z-index:90;inset:0;background:rgba(0,0,0,.96);padding:18px;overflow:auto}.doc-modal.open{display:block}.doc-panel{max-width:1050px;min-height:calc(100dvh - 36px);margin:auto;background:#0b151e;border:1px solid #35516a;border-radius:14px;padding:12px;display:flex;flex-direction:column;justify-content:center}.doc-panel img{width:100%;height:auto;max-height:calc(100dvh - 190px);object-fit:contain;border-radius:8px;background:#111;touch-action:none;user-select:none;-webkit-user-select:none;transform-origin:center center;will-change:transform;cursor:zoom-in}.doc-panel iframe{display:block;width:100%;height:min(72dvh,760px);border:0;border-radius:8px;background:#111}.evidence-media-thumb.pdf{background:linear-gradient(145deg,#172c3d,#0b1824)}.evidence-media-thumb.pdf::after{content:'PDF SCAN';position:absolute;left:7px;bottom:5px;padding:2px 5px;border-radius:4px;background:rgba(4,10,16,.84);color:#c8d9e5;font-size:8px;letter-spacing:.1em;pointer-events:none}.evidence-media-thumb.pdf iframe{position:absolute;left:-44%;top:-46%;width:188%;height:210%;border:0;pointer-events:none;background:#fff;mix-blend-mode:multiply}.doc-panel.viewer-zoomed img{cursor:grab}.doc-panel.viewer-panning img{cursor:grabbing}.doc-meta{font-size:12px;line-height:1.5;color:#c9d9e6;margin-top:10px}.doc-transcription{white-space:normal;margin-top:8px;padding:9px 10px;border-left:3px solid #5f86a5;background:rgba(17,34,48,.72);color:#e2edf5}.transcription-line{display:block;margin:0 0 3px;line-height:1.5}.transcription-line:last-child{margin-bottom:0}.transcription-original{font-style:normal}.transcription-translation{font-style:italic;color:#c8d8e5}.doc-close{position:fixed;right:22px;top:18px;z-index:100;font-size:25px;border-radius:99px}.candidate-note{font-size:10px;color:#f0c76b;margin:6px 0}
 
 /* v16 labeled family album */
 .album-launch{width:100%;font-weight:700;margin-top:6px}.album-modal{display:none;position:fixed;z-index:70;inset:0;background:rgba(4,9,14,.96);overflow:auto;padding:14px}.album-modal.open{display:block}.album-shell{max-width:1100px;margin:0 auto;background:#0b151e;border:1px solid #35516a;border-radius:16px;min-height:calc(100vh - 28px);padding:14px;box-shadow:0 20px 80px rgba(0,0,0,.55)}.album-head{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;position:sticky;top:0;background:rgba(11,21,30,.97);z-index:2;padding:4px 0 10px}.album-title h2{margin:0 0 3px;font-size:20px}.album-title .small{max-width:720px}.album-close{font-size:22px;border-radius:999px;min-width:42px}.album-filters{display:flex;gap:7px;flex-wrap:wrap;margin:6px 0 13px}.album-filter.active{border-color:#5de1c2;box-shadow:0 0 0 1px #5de1c2 inset}.album-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}.album-card{border:1px solid #35516a;border-radius:12px;background:#0d1d2a;padding:7px;text-align:left;color:#edf5fb;overflow:hidden}.album-card:hover,.album-card:focus{border-color:#6f9ec3}.album-card img{width:100%;height:150px;object-fit:cover;object-position:center 42%;background:#071019;border-radius:8px;background:#08111a;display:block}.album-card.document img{object-fit:cover;object-position:center 70%}.album-card .album-name{font-weight:700;font-size:12px;line-height:1.25;margin-top:7px}.album-card .album-years{font-size:10px;color:#a8c0d2;margin-top:2px}.album-card .album-kind{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#5de1c2;margin-top:5px}.album-card .album-source{font-size:9px;color:#8fa3b5;line-height:1.3;margin-top:3px}.album-empty{color:#8fa3b5;font-size:12px;padding:20px 3px}.album-detail-nav{display:flex;gap:8px;justify-content:center;margin-top:8px}.doc-panel .album-label{font-size:12px;line-height:1.5;color:#dce8f2;margin-top:10px;padding-top:8px;border-top:1px solid #294258}.doc-panel .album-label strong{font-size:14px}.doc-panel .album-label .muted{color:#91a8ba}.jump-person{margin-top:8px}
@@ -86,6 +91,16 @@ canvas:active{cursor:grabbing}
 /* Ancestry Atlas v0.91 */
 :root{--hold:#b8ff3d;--priority:#ff2bd6;--sideRoute:#42e8ff;--warn:#ffd166}
 .searchbox{width:100%;background:#08131d;border:1px solid #34536d;color:#eef4fa;border-radius:8px;padding:8px 9px;margin:4px 0 7px;outline:none}.searchbox:focus{border-color:#70a8ff;box-shadow:0 0 0 2px rgba(112,168,255,.15)}
+#mobilePersonSearch{display:none}
+@media(max-width:800px){
+  #mobilePersonSearch{display:block;position:absolute;z-index:24;left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right));top:calc(env(safe-area-inset-top) + 56px);padding:9px 10px 8px;border:1px solid #34536d;border-radius:12px;background:rgba(8,19,29,.94);box-shadow:0 12px 32px rgba(0,0,0,.32);backdrop-filter:blur(7px)}
+  #mobilePersonSearch label{display:block;margin:0 0 5px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b9c8d6}
+  #mobilePersonSearchInput{width:100%;background:#08131d;border:1px solid #476984;color:#eef4fa;border-radius:8px;padding:9px 10px;font-size:16px;outline:none}
+  #mobilePersonSearchInput:focus{border-color:#70a8ff;box-shadow:0 0 0 2px rgba(112,168,255,.18)}
+  #mobilePersonSearchResults{max-height:27vh;overflow:auto;margin-top:4px}
+  #mobilePersonSearchResults button{display:block;width:100%;margin:4px 0 0;text-align:left;font-size:12px}
+  #proofNotice{top:calc(env(safe-area-inset-top) + 145px)}
+}
 .hold-key{display:grid;grid-template-columns:18px 1fr;gap:6px 7px;font-size:11px;color:#c9d8e4;align-items:center}.tri{font-size:15px;line-height:1}.priority-tri{color:var(--priority);text-shadow:0 0 9px var(--priority)}.hold-tri{color:var(--hold);text-shadow:0 0 8px var(--hold)}.side-arrow{color:var(--sideRoute);text-shadow:0 0 7px var(--sideRoute)}
 #evidenceModeBtn.active,#collateralBtn.active,#depthBtn.active{background:#2a5b86;border-color:#72b9ee}
 #proofNotice{position:absolute;left:14px;top:58px;max-width:330px;background:rgba(9,17,25,.78);border-left:3px solid #f0c76b;border-radius:7px;padding:7px 9px;color:#c7d7e4;font-size:10.5px;line-height:1.35;pointer-events:none}
@@ -785,6 +800,12 @@ window.addEventListener('error',function(e){
 <section id="stage">
   <canvas id="c"></canvas>
 
+  <div id="mobilePersonSearch" role="search" aria-label="Find a person">
+    <label for="mobilePersonSearchInput">Find a person</label>
+    <input id="mobilePersonSearchInput" type="search" placeholder="Type a name…" autocomplete="off" enterkeyhint="search">
+    <div id="mobilePersonSearchResults" class="small" aria-live="polite"></div>
+  </div>
+
 <div id="navModeBadge"><strong>Family view</strong> · tap a person to re-center</div>
 <div id="sceneContext" class="scene-context" aria-live="polite">
   <button id="sceneContextClose" class="scene-context-close" type="button" aria-label="Close context">×</button>
@@ -1263,6 +1284,9 @@ function evidenceHasPdf(e){
 function evidenceHasPreview(e){
   return evidenceHasMedia(e)||evidenceHasPdf(e);
 }
+function evidenceHasReadablePreview(e){
+  return evidenceHasPreview(e);
+}
 function evidenceIsImage(e){
   return e?.kind!=='document' && evidenceHasMedia(e);
 }
@@ -1271,7 +1295,8 @@ function renderEvidence(n){
   const ev=n.evidence||[];
   if(!ev.length){wrap.innerHTML='<div class="evidence-empty">No source image or document attached to this person yet.</div>';return;}
   const photos=ev.filter(evidenceIsImage);
-  const documents=ev.filter(e=>!evidenceIsImage(e)).sort((a,b)=>Number(evidenceHasPreview(b))-Number(evidenceHasPreview(a)));
+  const documents=ev.filter(e=>!evidenceIsImage(e)&&evidenceHasReadablePreview(e)).sort((a,b)=>Number(evidenceHasPreview(b))-Number(evidenceHasPreview(a)));
+  const recordLeads=ev.filter(e=>!evidenceIsImage(e)&&!evidenceHasReadablePreview(e));
   wrap.innerHTML='';
   const addGroup=(label,list,kind)=>{
     if(!list.length)return;
@@ -1298,7 +1323,8 @@ function renderEvidence(n){
         }
       }else{
         const action=e.documentUrl||e.sourcePage?'Open linked record':'Open record';
-        b.innerHTML='<div class="evidence-doc-placeholder">DOCUMENT<span>'+action+'</span></div><div class="evtitle">'+escapeHtml(titleText)+'</div>';
+        const lead=kind==='record-citations';
+        b.innerHTML='<div class="evidence-doc-placeholder">'+(lead?'RECORD LEAD':'DOCUMENT')+'<span>'+(lead?'Readable preview pending':action)+'</span></div><div class="evtitle">'+escapeHtml(titleText)+'</div>';
       }
       b.onclick=()=>{clearAlbumViewerExtras();albumState.visible=ev;albumState.index=ev.indexOf(e);openEvidence(e);};
       strip.appendChild(b);
@@ -1306,6 +1332,7 @@ function renderEvidence(n){
     wrap.appendChild(strip);
   };
   addGroup('DOCUMENTS ('+documents.length+')',documents,'documents');
+  addGroup('RECORD CITATIONS ('+recordLeads.length+')',recordLeads,'record-citations');
   addGroup('PHOTOS ('+photos.length+')',photos,'photos');
 }
 let atlasViewerPointers=new Map();
@@ -1453,6 +1480,29 @@ function familyFacingTranscription(e){
   const raw=String(e?.transcription||'').trim();
   return raw && !FAMILY_BACKSTAGE_RE.test(raw) ? raw : '';
 }
+function renderTranscription(raw){
+  const lines=String(raw||'').split(/\r?\n/);
+  const out=[];
+  for(let i=0;i<lines.length;i++){
+    const original=lines[i].match(/^Original:\s*(.*)$/i);
+    if(original){
+      let translation='';
+      if(i+1<lines.length){
+        const next=lines[i+1].match(/^Translation:\s*(.*)$/i);
+        if(next){translation=next[1];i++;}
+      }
+      out.push('<div class="transcription-line"><span class="transcription-original">'+escapeHtml(original[1])+'</span>'+(translation?' <em class="transcription-translation">'+escapeHtml(translation)+'</em>':'')+'</div>');
+      continue;
+    }
+    const translationOnly=lines[i].match(/^Translation:\s*(.*)$/i);
+    if(translationOnly){
+      out.push('<div class="transcription-line"><em class="transcription-translation">'+escapeHtml(translationOnly[1])+'</em></div>');
+      continue;
+    }
+    if(lines[i].trim()) out.push('<div class="transcription-line">'+escapeHtml(lines[i])+'</div>');
+  }
+  return out.join('');
+}
 
 function openEvidence(e){
   const viewer=document.getElementById('docModal');
@@ -1488,7 +1538,7 @@ function openEvidence(e){
   const displayStatus=familyFacingRecordStatus(e);
   meta.innerHTML='<strong>'+escapeHtml(displayTitle)+'</strong><br>'+escapeHtml(e.date||'')+(e.place?' • '+escapeHtml(e.place):'')+
     '<br><br>'+escapeHtml(displaySummary)+
-    (displayTranscription?'<br><br><strong>Transcription</strong><div class="doc-transcription">'+escapeHtml(displayTranscription)+'</div>':'')+
+    (displayTranscription?'<br><br><strong>Transcription</strong><div class="doc-transcription">'+renderTranscription(displayTranscription)+'</div>':'')+
     '<br><br><strong>Record status:</strong> '+escapeHtml(displayStatus);
   const sourceLink=e.sourcePage||e.documentUrl;
   if(sourceLink) meta.innerHTML += '<br><br><a href="'+escapeHtml(sourceLink)+'" target="_blank" rel="noopener">Open original record</a>';
@@ -2462,6 +2512,36 @@ const searchInput=document.getElementById('personSearch'),searchResults=document
 function runPersonSearch(){const q=searchInput.value.trim().toLowerCase(); if(!q){searchResults.textContent='';return;} const hits=DATA.nodes.filter(n=>(n.name+' '+(n.years||'')+' '+(n.place||'')).toLowerCase().includes(q)).slice(0,6); searchResults.innerHTML=hits.map(n=>`<button data-fly=\"${escapeHtml(n.id)}\" style=\"font-size:10px;padding:4px 6px\">${escapeHtml(n.name)}</button>`).join('')||'No match'; searchResults.querySelectorAll('[data-fly]').forEach(b=>b.onclick=()=>{const id=b.dataset.fly;const n=nodeById.get(id);if(n?.collateral&&!showCollateral){showCollateral=true;document.getElementById('collateralBtn').classList.add('active');document.getElementById('collateralBtn').textContent='Collateral routes: shown';} navigateTo(id,true); searchInput.value=n.name;searchResults.textContent='';});}
 searchInput.addEventListener('input',runPersonSearch);
 searchInput.addEventListener('keydown',e=>{if(e.key==='Enter'){const b=searchResults.querySelector('[data-fly]');if(b)b.click();}});
+const mobilePersonSearchInput=document.getElementById('mobilePersonSearchInput');
+const mobilePersonSearchResults=document.getElementById('mobilePersonSearchResults');
+function selectPersonSearchResult(id){
+  const n=nodeById.get(id);
+  if(!n)return;
+  if(n.collateral&&!showCollateral){
+    showCollateral=true;
+    document.getElementById('collateralBtn').classList.add('active');
+    document.getElementById('collateralBtn').textContent='Collateral routes: shown';
+  }
+  navigateTo(id,true);
+  searchInput.value=n.name;
+  mobilePersonSearchInput.value=n.name;
+  searchResults.textContent='';
+  mobilePersonSearchResults.textContent='';
+}
+function runMobilePersonSearch(){
+  const q=mobilePersonSearchInput.value.trim().toLowerCase();
+  if(!q){mobilePersonSearchResults.textContent='';return;}
+  const hits=DATA.nodes.filter(n=>(n.name+' '+(n.years||'')+' '+(n.place||'')).toLowerCase().includes(q)).slice(0,6);
+  mobilePersonSearchResults.innerHTML=hits.map(n=>`<button type="button" data-mobile-fly="${escapeHtml(n.id)}">${escapeHtml(n.name)}</button>`).join('')||'No match';
+  mobilePersonSearchResults.querySelectorAll('[data-mobile-fly]').forEach(b=>b.onclick=()=>selectPersonSearchResult(b.dataset.mobileFly));
+}
+mobilePersonSearchInput.addEventListener('input',runMobilePersonSearch);
+mobilePersonSearchInput.addEventListener('keydown',e=>{
+  if(e.key==='Enter'){
+    const b=mobilePersonSearchResults.querySelector('[data-mobile-fly]');
+    if(b)b.click();
+  }
+});
 
 document.getElementById('focusCanada').onclick=()=>focus(['canada','brenay','gooley','dennis','skinner']);
 document.getElementById('focusDenmark').onclick=()=>focus(['denmark','seje','seye']);
@@ -2632,7 +2712,7 @@ resize();
 <script src="story-presentation-3.6.0.js"></script>
 <script src="story-overlays-3.8.1.js?v=3.8.22"></script>
 <script src="experience-3.8.1.js?v=3.8.22"></script>
-<script src="atlas-evidence-sync-2026-09-27.js?v=20261002-4"></script>
+<script src="atlas-evidence-sync-2026-09-27.js?v=20261002-6"></script>
 <script src="atlas-sheldon-presentation-2026-09-30.js?v=20261001-3"></script>
 </body>
 </html>
