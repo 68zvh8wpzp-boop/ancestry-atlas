@@ -64,7 +64,10 @@ body.aa-phone .mobile-tree-dock button{
 }
 body.aa-phone .mobile-tree-dock button span{display:block!important;font-size:17px!important;line-height:18px!important}
 body.aa-phone .mobile-tree-dock button small{display:block!important;margin-top:1px!important;font-size:8px!important;line-height:9px!important}
-body.aa-phone #card{\n  left:8px!important;right:8px!important;top:var(--aa-edge-y)!important;bottom:calc(66px + var(--aa-edge-bottom))!important;\n  max-height:none!important;overflow:auto!important;z-index:545!important;padding:14px!important\n}
+body.aa-phone #card{
+  left:8px!important;right:8px!important;top:var(--aa-edge-y)!important;bottom:calc(66px + var(--aa-edge-bottom))!important;
+  max-height:none!important;overflow:auto!important;z-index:545!important;padding:14px!important
+}
 body.aa-phone .mobile-tree-menu-sheet{
   left:8px!important;right:8px!important;bottom:calc(66px + var(--aa-edge-bottom))!important;
   max-height:calc(var(--aa-visible-height) - 88px)!important;overflow:auto!important
