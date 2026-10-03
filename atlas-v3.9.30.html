@@ -1299,6 +1299,14 @@ function evidenceIsImage(e){
 function renderEvidence(n){
   const wrap=document.getElementById('evidenceWrap');
   const ev=n.evidence||[];
+  const ammonPreviewByTitle={
+    'Bringing Mom and Dad Home':'assets/ammon-docs-preview/bringing-mom-and-dad-home-page-1.jpg',
+    'Letters from Grandma Brenay':'assets/ammon-docs-preview/letters-from-grandma-brenay-page-1.jpg'
+  };
+  ev.forEach(e=>{
+    const preview=ammonPreviewByTitle[e.title];
+    if(preview){if(!e.thumb)e.thumb=preview;if(!e.full)e.full=preview;}
+  });
   if(!ev.length){wrap.innerHTML='<div class="evidence-empty">No source image or document attached to this person yet.</div>';return;}
   const photos=ev.filter(evidenceIsImage);
   const documents=ev.filter(e=>!evidenceIsImage(e)).sort((a,b)=>Number(evidenceHasPreview(b))-Number(evidenceHasPreview(a)));
@@ -2712,7 +2720,7 @@ resize();
 <script src="story-presentation-3.6.0.js"></script>
 <script src="story-overlays-3.8.1.js?v=3.8.22"></script>
 <script src="experience-3.8.1.js?v=3.8.22"></script>
-<script src="atlas-evidence-sync-2026-09-27.js?v=20261002-10"></script>\n<script src="atlas-evidence-sync-2026-10-03-fulltext-v9.js?v=20261003-45"></script>
+<script src="atlas-evidence-sync-2026-09-27.js?v=20261002-10"></script>\n<script src="atlas-evidence-sync-2026-10-03-fulltext-v9.js?v=20261003-46"></script>
 <script src="atlas-sheldon-presentation-2026-09-30.js?v=20261001-3"></script>
 </body>
 </html>
