@@ -71,7 +71,8 @@ canvas:active{cursor:grabbing}
  aside.collapsed{width:auto;max-height:none;padding:8px;background:rgba(11,21,30,.92)}
  aside.collapsed > *:not(#controlsToggle){display:none}
  #controlsToggle{display:block;margin:0}
- #card{z-index:6;width:min(92vw,360px);right:max(8px,env(safe-area-inset-right));top:max(58px,calc(env(safe-area-inset-top) + 12px))}
+ /* The person card is the active mobile surface; use the full usable viewport. */
+ #card{position:fixed;z-index:100;width:calc(100vw - 16px);left:8px;right:8px;top:max(8px,env(safe-area-inset-top));bottom:max(82px,calc(env(safe-area-inset-bottom) + 76px));max-height:none;overflow:auto}
  #hud{left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right));top:max(10px,env(safe-area-inset-top));font-size:11px}
  #timeline{bottom:max(12px,env(safe-area-inset-bottom));font-size:10px}
 }
@@ -1293,6 +1294,9 @@ function evidenceHasPdf(e){
 function evidenceHasPreview(e){
   return evidenceHasMedia(e)||evidenceHasPdf(e);
 }
+function evidenceHasReadablePreview(e){
+  return evidenceHasPreview(e);
+}
 function evidenceIsImage(e){
   return e?.kind==='photo' || e?.kind==='image' || (e?.kind!=='document' && evidenceHasMedia(e));
 }
@@ -1309,7 +1313,8 @@ function renderEvidence(n){
   });
   if(!ev.length){wrap.innerHTML='<div class="evidence-empty">No source image or document attached to this person yet.</div>';return;}
   const photos=ev.filter(evidenceIsImage);
-  const documents=ev.filter(e=>!evidenceIsImage(e)).sort((a,b)=>Number(evidenceHasPreview(b))-Number(evidenceHasPreview(a)));
+  const documents=ev.filter(e=>!evidenceIsImage(e)&&evidenceHasReadablePreview(e)).sort((a,b)=>Number(evidenceHasPreview(b))-Number(evidenceHasPreview(a)));
+  const recordLeads=ev.filter(e=>!evidenceIsImage(e)&&!evidenceHasReadablePreview(e));
   wrap.innerHTML='';
   const addGroup=(label,list,kind)=>{
     if(!list.length)return;
@@ -1345,6 +1350,7 @@ function renderEvidence(n){
     wrap.appendChild(strip);
   };
   addGroup('DOCUMENTS ('+documents.length+')',documents,'documents');
+  addGroup('RECORD CITATIONS ('+recordLeads.length+')',recordLeads,'record-citations');
   addGroup('PHOTOS ('+photos.length+')',photos,'photos');
 }
 let atlasViewerPointers=new Map();
