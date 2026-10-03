@@ -1,0 +1,296 @@
+/* Ancestry Atlas v3.8.0 — isolated cross-platform presentation layer.
+   Loaded last. It owns viewport fit and responsive composition, never data,
+   biography content, audio, scene timing, or 3-D navigation semantics. */
+
+:root{
+  --aa-visible-width:100vw;
+  --aa-visible-height:100dvh;
+  --aa-touch:44px;
+  --aa-edge-x:max(10px,env(safe-area-inset-left));
+  --aa-edge-y:max(8px,env(safe-area-inset-top));
+  --aa-edge-bottom:max(8px,env(safe-area-inset-bottom));
+}
+
+html,body,#app,#stage{max-width:100%;max-height:var(--aa-visible-height)}
+body.aa-phone #app,body.aa-phone #stage{height:var(--aa-visible-height)!important}
+body.aa-phone #stage{inset:0!important}
+body.aa-phone.aa-overlay-open .mobile-tree-dock,
+body.aa-phone.aa-overlay-open #navModeBadge,
+body.aa-phone.aa-overlay-open #proofNotice{display:none!important}
+body.aa-phone.tour-active #proofNotice{display:none!important}
+body.aa-phone:has(#albumModal.open) .mobile-tree-dock,
+body.aa-phone:has(#docModal.open) .mobile-tree-dock,
+body.aa-phone:has(#lineChooser.open) .mobile-tree-dock{display:none!important}
+
+/* Entry surfaces always sit above the research chrome. */
+body.aa-phone .landing{height:var(--aa-visible-height)!important;padding:14px!important;overflow:auto!important}
+body.aa-phone .landing-card{width:min(100%,620px)!important;max-height:calc(var(--aa-visible-height) - 28px)!important;overflow:auto!important;padding:20px!important}
+body.aa-phone .line-chooser{z-index:1800!important;height:var(--aa-visible-height)!important;padding:12px!important}
+body.aa-phone .line-chooser-card{width:min(100%,620px)!important;max-height:calc(var(--aa-visible-height) - 24px)!important;overflow:auto!important;padding:20px!important}
+body.aa-phone #lineChooserClose{
+  display:grid!important;position:sticky!important;z-index:4!important;top:0!important;
+  float:right!important;width:44px!important;height:44px!important;margin:-8px -8px 0 10px!important;
+  place-items:center!important;border-radius:50%!important;font-size:26px!important
+}
+body.aa-phone #albumModal .album-shell{height:calc(var(--aa-visible-height) - 16px)!important;max-height:none!important}
+body.aa-phone #albumModal .album-grid{padding-bottom:18px!important}
+body.aa-phone #mobileTreeBack:disabled{opacity:.38!important;filter:saturate(.3)!important}
+body.aa-phone.aa-landscape .line-chooser-card{padding:14px 18px!important}
+body.aa-phone.aa-landscape .line-chooser-card h2{font-size:20px!important}
+body.aa-phone.aa-landscape .line-chooser-card p{margin-bottom:10px!important}
+
+/* Phone tree: the canvas owns the screen; explanation remains available in Menu. */
+body.aa-phone:not(.tour-active):not(.tv-mode) #hud,
+body.aa-phone:not(.tour-active):not(.tv-mode) #timeline,
+body.aa-phone:not(.tour-active):not(.tv-mode) #proofNotice{display:none!important}
+body.aa-phone.mobile-evidence-open:not(.tour-active):not(.tv-mode) #proofNotice{
+  display:block!important;z-index:548!important;top:var(--aa-edge-y)!important;
+  left:var(--aa-edge-x)!important;right:var(--aa-edge-x)!important;max-width:none!important;
+  padding:8px 10px!important;font-size:10px!important;line-height:1.35!important;
+  background:rgba(5,13,19,.96)!important;box-shadow:0 8px 26px rgba(0,0,0,.48)!important;
+  pointer-events:auto!important
+}
+body.aa-phone #navModeBadge{
+  bottom:calc(65px + var(--aa-edge-bottom))!important;max-width:calc(100vw - 24px)!important;
+  padding:5px 9px!important;font-size:9px!important;opacity:.82!important
+}
+body.aa-phone .mobile-tree-dock{
+  left:6px!important;right:6px!important;bottom:var(--aa-edge-bottom)!important;
+  gap:4px!important;padding:5px!important;border-radius:15px!important
+}
+body.aa-phone .mobile-tree-dock button{
+  min-width:0!important;height:45px!important;min-height:45px!important;margin:0!important;padding:2px!important;
+  border-radius:11px!important
+}
+body.aa-phone .mobile-tree-dock button span{display:block!important;font-size:17px!important;line-height:18px!important}
+body.aa-phone .mobile-tree-dock button small{display:block!important;margin-top:1px!important;font-size:8px!important;line-height:9px!important}
+body.aa-phone #card{\n  left:8px!important;right:8px!important;top:var(--aa-edge-y)!important;bottom:calc(66px + var(--aa-edge-bottom))!important;\n  max-height:none!important;overflow:auto!important;z-index:545!important;padding:14px!important\n}
+body.aa-phone .mobile-tree-menu-sheet{
+  left:8px!important;right:8px!important;bottom:calc(66px + var(--aa-edge-bottom))!important;
+  max-height:calc(var(--aa-visible-height) - 88px)!important;overflow:auto!important
+}
+
+/* Portrait phones use their height for the family rather than preserving a
+   desktop-shaped projection in the middle of the screen. */
+body.aa-phone.aa-portrait:not(.tour-active) canvas{height:var(--aa-visible-height)!important}
+
+/* Tablet: retain research UI, but keep it compact and clear of safe areas. */
+body.aa-tablet #controls{max-height:calc(var(--aa-visible-height) - 24px)!important}
+body.aa-tablet #card{max-height:calc(var(--aa-visible-height) - 100px)!important}
+
+/* Story owns the measured visible viewport on every platform. */
+body.tour-story-open #storyModal,
+body.tour-story-open .story-shell,
+body.tour-story-open #storySceneStrip,
+body.tour-story-open .story-scene-frame,
+body.tour-story-open .story-scene-image{
+  width:var(--aa-visible-width)!important;height:var(--aa-visible-height)!important;
+  max-width:none!important;max-height:none!important
+}
+body.tour-story-open .story-scene-photo{
+  width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;
+  object-fit:contain!important;object-position:center!important
+}
+.story-scene-context-visual{display:none;position:fixed;z-index:5;inset:clamp(96px,14vh,150px) max(18px,5vw) clamp(150px,20vh,220px);place-items:center;background:radial-gradient(circle at 50% 45%,rgba(35,57,71,.36),rgba(0,0,0,.06) 58%,#000 100%)}
+.story-scene-context-visual[aria-hidden="false"]{display:grid}
+.story-scene-context-visual .story-route-map-full{display:block;width:min(92vw,980px)!important;height:auto!important;aspect-ratio:2/1!important;padding:clamp(12px,2.4vw,28px);border:1px solid rgba(219,198,151,.72);background:#07131c;box-shadow:0 20px 70px rgba(0,0,0,.62)}
+body.aa-phone.aa-landscape .story-scene-context-visual{inset:68px max(14px,4vw) 112px}
+body.aa-phone.aa-landscape .story-scene-context-visual .story-route-map-full{width:min(82vw,720px)!important;max-height:52dvh!important}
+body.tour-story-open .story-scene-image.scene-loading::before{
+  content:'Preparing family photograph…'!important;display:grid!important;position:absolute!important;inset:0!important;
+  z-index:3!important;place-items:center!important;color:#9fb0bb!important;font:600 12px/1.4 system-ui,sans-serif!important;
+  letter-spacing:.04em!important;background:radial-gradient(circle at 50% 42%,rgba(36,55,68,.34),#000 62%)!important
+}
+body.tour-story-open .story-scene-image.scene-loading:has(.story-scene-photo[src])::before{content:''!important;background:transparent!important}
+
+/* Phone story: compact museum labels, maximal photograph, one bottom utility band. */
+body.aa-phone.tour-story-open.story-presentation-v360{--story-edge-x:max(10px,2.7vw,env(safe-area-inset-left));--story-edge-y:max(7px,env(safe-area-inset-top))}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-top{right:30%!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-top .landing-kicker{font-size:8px!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-top h2{font-size:clamp(13px,4.1vw,18px)!important}
+body.tour-story-open .story-years,body.tour-story-open .story-scene-year{color:#e3c17e!important;font-weight:700!important;letter-spacing:.025em!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-year{font-size:clamp(13px,4vw,18px)!important;line-height:1.05!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-years{font-size:clamp(13px,4vw,18px)!important;line-height:1.1!important}
+body.aa-phone .album-image-unavailable{height:128px;display:grid;place-items:center;border-radius:8px;background:#111b24;color:#aebdca;font:600 11px/1.3 system-ui,sans-serif;text-align:center;padding:10px}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption{
+  left:var(--story-edge-x)!important;right:var(--story-edge-x)!important;
+  bottom:calc(var(--aa-edge-bottom) + 56px)!important;display:grid!important;gap:2px!important;
+  height:auto!important;min-height:50px!important;max-height:min(30dvh,190px)!important;padding:8px 10px!important;white-space:normal!important;overflow-y:auto!important;overscroll-behavior:contain!important;
+  border-left:2px solid rgba(227,193,126,.9)!important;background:linear-gradient(90deg,rgba(2,7,10,.90),rgba(2,7,10,.58))!important
+}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption b,
+body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-caption span{
+  font-size:clamp(9px,2.75vw,12px)!important;line-height:1.25!important
+}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-source{display:none!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-controls{
+  left:var(--story-edge-x)!important;right:auto!important;bottom:var(--aa-edge-bottom)!important;
+  width:52vw!important;min-width:0!important;grid-template-rows:2px 42px!important
+}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-controls .cd-button{
+  height:42px!important;min-height:42px!important;font-size:18px!important
+}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-context-ribbon{
+  left:auto!important;right:var(--story-edge-x)!important;top:auto!important;bottom:var(--aa-edge-bottom)!important;
+  width:42vw!important;height:46px!important;max-width:none!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:5px!important;padding:4px!important;
+  border:1px solid rgba(217,199,166,.42)!important;border-radius:7px!important;background:rgba(3,10,15,.88)!important;
+  pointer-events:auto!important
+}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-context-ribbon::before{content:none!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-context-ribbon .story-az-flag,
+body.aa-phone.tour-story-open.story-presentation-v360 .story-context-ribbon .story-locator-card{opacity:1!important;position:relative!important;inset:auto!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-az-flag{width:52px!important;height:38px!important;flex-basis:52px!important;border:1px solid rgba(232,220,194,.72)!important;filter:saturate(.82) sepia(.12)!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card{cursor:pointer!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card svg.story-route-map{width:104px!important;height:38px!important;flex-basis:104px!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-locator-card span{display:none!important}
+body.aa-phone.tour-story-open.story-presentation-v360.story-map-expanded .story-context-ribbon{
+  left:var(--story-edge-x)!important;right:var(--story-edge-x)!important;top:calc(var(--story-edge-y) + 58px)!important;bottom:calc(var(--aa-edge-bottom) + 58px)!important;
+  width:auto!important;height:auto!important;border-radius:12px!important;display:flex!important;flex-direction:column!important;
+  justify-content:center!important;gap:14px!important;padding:18px!important;background:#071018!important
+}
+body.aa-phone.tour-story-open.story-presentation-v360.story-map-expanded .story-context-ribbon::before{content:''}
+body.aa-phone.tour-story-open.story-presentation-v360.story-map-expanded .story-context-ribbon .story-az-flag,
+body.aa-phone.tour-story-open.story-presentation-v360.story-map-expanded .story-context-ribbon .story-locator-card{opacity:1!important;position:relative!important;inset:auto!important}
+body.aa-phone.tour-story-open.story-presentation-v360.story-map-expanded .story-context-ribbon .story-az-flag{width:82px!important;height:58px!important;flex-basis:58px!important;align-self:flex-start!important}
+body.aa-phone.tour-story-open.story-presentation-v360.story-map-expanded .story-locator-card svg.story-route-map{
+  width:min(84vw,560px)!important;height:auto!important;flex-basis:auto!important
+}
+body.aa-phone.tour-story-open.story-presentation-v360.story-map-expanded .story-locator-card{width:100%!important;display:flex!important;flex-direction:column!important;gap:10px!important;background:transparent!important;border:0!important;box-shadow:none!important}
+body.aa-phone.tour-story-open.story-presentation-v360.story-map-expanded .story-locator-card span{display:block!important;color:#dacbad!important;font:600 12px/1.3 Georgia,serif!important;letter-spacing:.04em!important;text-align:center!important;white-space:normal!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-close{
+  display:grid!important;position:fixed!important;z-index:2100!important;top:var(--story-edge-y)!important;right:var(--story-edge-x)!important;
+  width:44px!important;height:44px!important;place-items:center!important;border-radius:50%!important;
+  background:rgba(3,10,15,.94)!important;border:1px solid rgba(220,234,242,.5)!important;color:#fff!important;font-size:28px!important;pointer-events:auto!important
+}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-scene-count{right:calc(var(--story-edge-x) + 52px)!important}
+body.aa-phone.tour-story-open.story-presentation-v360 .story-slideshow-toggle{right:calc(var(--story-edge-x) + 52px)!important}
+
+/* Short landscape viewports, including mirrored iPhone Safari. */
+body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-top{right:23%!important}
+body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-scene-caption{
+  left:var(--story-edge-x)!important;right:var(--story-edge-x)!important;
+  bottom:calc(var(--aa-edge-bottom) + 42px)!important;min-height:0!important;max-height:min(36dvh,150px)!important;
+  white-space:normal!important;overflow-y:auto!important
+}
+body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-controls{
+  right:auto!important;width:min(310px,48vw)!important;grid-template-rows:2px 34px!important
+}
+body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-controls .cd-button{height:34px!important;min-height:34px!important}
+body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-context-ribbon{
+  left:auto!important;top:auto!important;max-width:42vw!important
+}
+body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-scene-caption b,
+body.aa-phone.aa-landscape.tour-story-open.story-presentation-v360 .story-scene-caption span{
+  font-size:clamp(9px,1.55vw,11px)!important;line-height:1.22!important
+}
+
+/* Safari supplies only the visual viewport while its landscape toolbar is
+   visible. Keep every story surface inside that measured region; Home Screen
+   launch uses the manifest's bar-free fullscreen/standalone presentation. */
+body.aa-phone.aa-landscape.tour-story-open #storyModal,
+body.aa-phone.aa-landscape.tour-story-open #storySceneStrip,
+body.aa-phone.aa-landscape.tour-story-open .story-scene-frame,
+body.aa-phone.aa-landscape.tour-story-open .story-scene-image{height:var(--aa-visible-height)!important}
+
+/* Across-room scaling without hard-coding 1080p or 4K. */
+body.aa-large-display.tv-mode #card{font-size:clamp(17px,1.05vw,30px)!important}
+body.aa-large-display.tv-mode #card h3{font-size:clamp(26px,1.65vw,46px)!important}
+body.aa-large-display.tv-mode .tv-presentation-bar button{font-size:clamp(12px,.75vw,20px)!important}
+
+/* Desktop is a richer curatorial surface, not an enlarged phone layout. */
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360{--story-edge-x:clamp(24px,3vw,58px);--story-edge-y:clamp(20px,2.6vh,42px)}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-top{left:var(--story-edge-x)!important;right:clamp(180px,19vw,310px)!important;top:var(--story-edge-y)!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-top .landing-kicker{font-size:clamp(10px,.72vw,14px)!important;letter-spacing:.24em!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-top h2{font-size:clamp(24px,2.05vw,38px)!important;line-height:1.05!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-years,
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-scene-year{font-size:clamp(21px,1.55vw,31px)!important;line-height:1.08!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-scene-caption{
+  left:var(--story-edge-x)!important;right:auto!important;bottom:clamp(82px,10vh,116px)!important;
+  display:grid!important;width:min(760px,62vw)!important;max-height:min(27vh,230px)!important;gap:5px!important;
+  padding:15px 18px!important;overflow-y:auto!important;white-space:normal!important;
+  border:1px solid rgba(209,190,149,.34)!important;border-left:4px solid #d7b86f!important;border-radius:0 14px 14px 0!important;
+  background:linear-gradient(90deg,rgba(2,7,10,.95),rgba(3,10,14,.78) 72%,rgba(3,10,14,.34))!important;
+  box-shadow:0 14px 44px rgba(0,0,0,.34)!important
+}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-scene-caption b{font-size:clamp(17px,1.3vw,24px)!important;line-height:1.2!important;overflow:visible!important;text-overflow:clip!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-scene-caption span{font-size:clamp(13px,.98vw,18px)!important;line-height:1.42!important;overflow:visible!important;text-overflow:clip!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-controls{
+  left:var(--story-edge-x)!important;bottom:clamp(18px,2.5vh,34px)!important;width:min(520px,46vw)!important;
+  grid-template-rows:16px 3px 46px!important;gap:4px 6px!important;padding:7px 9px 9px!important;border-radius:12px!important;
+  background:rgba(3,10,15,.93)!important;box-shadow:0 12px 36px rgba(0,0,0,.38)!important
+}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-controls .audio-status{position:static!important;width:auto!important;height:auto!important;margin:0!important;overflow:visible!important;clip:auto!important;white-space:nowrap!important;font-size:10px!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-controls .cd-button{height:46px!important;min-height:46px!important;font-size:20px!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-context-ribbon{right:var(--story-edge-x)!important;bottom:clamp(18px,2.5vh,34px)!important;max-width:38vw!important;padding:7px 9px!important;border:1px solid rgba(209,190,149,.34)!important;border-radius:10px!important;background:rgba(3,10,15,.91)!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-az-flag{width:82px!important;height:52px!important;flex-basis:82px!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-locator-card svg.story-route-map{width:156px!important;height:66px!important;flex-basis:156px!important}
+body.aa-desktop:not(.tv-mode).tour-story-open.story-presentation-v360 .story-locator-card span{max-width:18rem!important;font-size:12px!important;white-space:normal!important}
+
+/* TV Mode wins the cascade and uses the screen as a cinematic surface. */
+body.tv-mode.tour-story-open.story-presentation-v360 .story-top{top:clamp(18px,2.2vh,42px)!important;left:clamp(24px,3vw,64px)!important;right:clamp(120px,12vw,240px)!important;height:auto!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-top h2{font-size:clamp(24px,2vw,46px)!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-years,
+body.tv-mode.tour-story-open.story-presentation-v360 .story-scene-year{font-size:clamp(22px,1.65vw,38px)!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-scene-caption{
+  left:clamp(30px,4vw,86px)!important;right:auto!important;bottom:clamp(104px,12vh,168px)!important;
+  display:grid!important;width:min(1080px,72vw)!important;max-height:min(25vh,280px)!important;gap:7px!important;
+  padding:18px 24px!important;overflow-y:auto!important;white-space:normal!important;
+  border-left:5px solid #d7b86f!important;background:linear-gradient(90deg,rgba(2,7,10,.94),rgba(2,7,10,.62),transparent)!important
+}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-scene-caption b{font-size:clamp(24px,1.9vw,42px)!important;line-height:1.12!important;overflow:visible!important;text-overflow:clip!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-scene-caption span{font-size:clamp(16px,1.15vw,26px)!important;line-height:1.38!important;overflow:visible!important;text-overflow:clip!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-controls{
+  left:50%!important;right:auto!important;bottom:clamp(16px,2vh,34px)!important;transform:translateX(-50%)!important;
+  width:min(760px,58vw)!important;grid-template-rows:18px 3px 52px!important;gap:4px 7px!important;padding:7px 10px 10px!important;
+  border-radius:13px!important;background:rgba(3,9,14,.94)!important
+}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-controls .audio-status{position:static!important;width:auto!important;height:auto!important;margin:0!important;overflow:visible!important;clip:auto!important;white-space:nowrap!important;font-size:12px!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-controls .cd-button{height:52px!important;min-height:52px!important;font-size:25px!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-context-ribbon{top:clamp(86px,10vh,150px)!important;left:clamp(24px,3vw,64px)!important;right:auto!important;bottom:auto!important;max-width:44vw!important;padding:8px 10px!important;border:1px solid rgba(209,190,149,.34)!important;border-radius:10px!important;background:rgba(3,10,15,.82)!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-az-flag{width:96px!important;height:60px!important;flex-basis:96px!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-locator-card svg.story-route-map{width:190px!important;height:80px!important;flex-basis:190px!important}
+body.tv-mode.tour-story-open.story-presentation-v360 .story-locator-card span{max-width:22rem!important;font-size:clamp(12px,.85vw,18px)!important;white-space:normal!important}
+
+@media(prefers-reduced-motion:reduce){
+  body.aa-phone .mobile-tree-dock,body.tour-story-open .story-scene-photo{transition:none!important}
+}
+
+/* v3.8.8 — Option 1: Story and Tree are distinct, plainly labeled modes. */
+.story-place-open{display:none!important;position:fixed!important;z-index:1530!important;right:max(76px,calc(env(safe-area-inset-right) + 76px))!important;top:calc(env(safe-area-inset-top) + 82px)!important;padding:9px 15px!important;border:1px solid rgba(218,191,131,.6)!important;border-radius:999px!important;background:rgba(8,15,21,.92)!important;color:#f4e4bd!important;font:700 12px/1 system-ui,sans-serif!important;letter-spacing:.04em!important;box-shadow:0 8px 24px rgba(0,0,0,.34)!important}
+body.tour-story-open .story-place-open{display:block!important}
+.story-controls .cd-button{flex-direction:column!important;gap:2px!important}
+.story-controls .transport-icon{font-size:20px!important;line-height:20px!important}
+.story-controls .transport-label{display:block!important;color:#d8e3ea!important;font:600 8px/10px system-ui,sans-serif!important;white-space:nowrap!important}
+
+.story-place-modal{display:none;position:fixed;inset:0;z-index:4900;background:rgba(1,5,8,.92);padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));overflow:auto}
+.story-place-modal.open{display:flex;align-items:center;justify-content:center}
+.story-place-shell{width:min(1040px,100%);max-height:100%;overflow:auto;border:1px solid rgba(209,186,133,.55);border-radius:24px;background:linear-gradient(160deg,#0b1720,#050c12 72%);box-shadow:0 30px 90px rgba(0,0,0,.68);padding:clamp(14px,3vw,30px)}
+.story-place-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:16px}.story-place-head h2{margin:4px 0 0;color:#f2ead9;font:600 clamp(22px,4vw,38px)/1.1 Georgia,serif}.story-place-head button{width:48px;height:48px;flex:none;border-radius:50%;font-size:30px;background:#132331;color:white}
+#storyPlaceModal .story-context-ribbon{display:grid!important;position:relative!important;inset:auto!important;z-index:auto!important;width:100%!important;max-width:none!important;grid-template-columns:minmax(150px,230px) minmax(0,1fr)!important;align-items:center!important;gap:clamp(16px,3vw,34px)!important;padding:0!important;pointer-events:auto!important;background:none!important;border:0!important;box-shadow:none!important}
+#storyPlaceModal .story-az-flag,#storyPlaceModal .story-locator-card{position:relative!important;inset:auto!important;opacity:1!important;width:auto!important;height:auto!important;margin:0!important;background:none!important;border:0!important;box-shadow:none!important}
+#storyPlaceModal .story-az-flag{display:block!important;grid-template-rows:none!important;overflow:visible!important}
+#storyPlaceModal .story-locator-card{display:block!important;overflow:visible!important}
+#storyFlagArt{padding:12px;border:1px solid rgba(219,198,151,.62);background:#111a20;box-shadow:0 10px 26px rgba(0,0,0,.35)}#storyFlagArt svg{display:block;width:100%;height:auto;filter:sepia(.12) saturate(.88) contrast(.96)}
+#storyFlagCaption,#storyPlaceModal figcaption{display:block;margin-top:9px;color:#d8c8a6;font:600 12px/1.4 Georgia,serif;letter-spacing:.035em;text-align:left}
+#storyPlaceModal #storyFlagCaption,#storyPlaceModal #storyLocatorSource{display:block!important;height:auto!important;overflow:visible!important;white-space:normal!important;text-overflow:clip!important;font:600 12px/1.4 Georgia,serif!important;color:#d8c8a6!important}
+.story-flag-wordmark{display:grid;place-items:center;aspect-ratio:8/5;background:#172533;color:#e7dcc7;font:700 18px Georgia,serif;letter-spacing:.16em}
+.story-archival-map{position:relative;overflow:hidden;border:1px solid rgba(219,198,151,.64);background:#cfc4a7;box-shadow:0 14px 36px rgba(0,0,0,.42)}.story-archival-map img{display:block;width:100%;height:auto;filter:sepia(.12) saturate(.78) contrast(1.03)}
+.story-locator-dot{position:absolute;width:17px;height:17px;transform:translate(-50%,-50%);border:3px solid #f7e7c4;border-radius:50%;background:#bf493b;box-shadow:0 0 0 4px rgba(191,73,59,.25),0 2px 7px #000}
+.story-locator-map-label{position:absolute;transform:translate(11px,-28px);padding:3px 6px;border-radius:4px;background:rgba(8,12,13,.78);color:#fff7e6;font:700 12px/1.1 Georgia,serif;text-shadow:0 1px 2px #000;white-space:nowrap}
+#storyPlaceModal .story-locator-card figcaption{display:grid!important;grid-template-columns:1fr!important;gap:4px!important;width:100%!important}.story-place-context{margin:18px 0 0;color:#c9d4da;font:400 15px/1.55 system-ui,sans-serif}
+
+body.aa-phone .mobile-tree-dock{grid-template-columns:repeat(6,minmax(0,1fr))!important}
+body.aa-phone .mobile-tree-dock button small{white-space:normal!important;min-height:18px!important;text-align:center!important}
+body.aa-phone .story-place-open{top:calc(env(safe-area-inset-top) + 69px)!important;right:70px!important;padding:8px 13px!important}
+body.aa-phone .story-controls{grid-template-rows:14px 2px 48px!important}
+body.aa-phone .story-controls .cd-button{height:48px!important}
+body.aa-phone .story-controls .transport-icon{font-size:18px!important}
+body.aa-phone .story-controls .transport-label{font-size:7.5px!important}
+
+@media(max-width:700px){
+  #storyPlaceModal .story-context-ribbon{grid-template-columns:1fr!important}
+  #storyPlaceModal .story-az-flag{width:min(40vw,156px)!important;justify-self:center!important}
+  #storyPlaceModal #storyFlagArt{padding:7px!important}
+  #storyPlaceModal .story-locator-card{width:100%!important}
+  .story-place-shell{border-radius:18px;padding:14px}.story-place-head{margin-bottom:10px}.story-place-head h2{font-size:clamp(22px,7vw,31px)}.story-place-context{font-size:13px;line-height:1.5;margin-top:12px}
+}
