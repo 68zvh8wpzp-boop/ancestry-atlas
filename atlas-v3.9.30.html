@@ -1286,7 +1286,7 @@ function evidenceHasPreview(e){
 }
 function evidenceHasReadablePreview(e){
   const candidate=[e?.thumb,e?.full].filter(Boolean).join(' ');
-  if(/assets\\/sheldon\\/source-record-(?:civil-marriage|military)\\.svg(?:[?#]|\\s|$)/i.test(candidate))return false;
+  if(/assets\/sheldon\/source-record-(?:civil-marriage|military)\.svg(?:[?#]|\s|$)/i.test(candidate))return false;
   return evidenceHasPreview(e);
 }
 function evidenceIsImage(e){
