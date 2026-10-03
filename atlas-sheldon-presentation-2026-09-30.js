@@ -33,24 +33,28 @@ Sheldon died in Gilbert, Maricopa County, Arizona, on 9 April 2016 and was laid 
   profile.birthPlace = 'Snowflake, Navajo County, Arizona';
   profile.life = cleanBiography;
 
-  // These records have trustworthy source links but no captured original scan.
-  // Give them a legible, explicitly labeled display card instead of a black void.
+  // The two attached citations have no captured document image. Keep them
+  // tappable as citations, and never pass decorative SVG cards off as scans.
   // Remove the unavailable Ancestry-hosted birth scan even if an older overlay is cached.
   sheldon.evidence = (sheldon.evidence || []).filter(item => item.title !== 'Arizona birth record — certificate no. 793');
 
-  const displayCards = {
-    'Arizona county marriage record — Sheldon Webb and Inez Karen Prather': 'assets/sheldon/source-record-civil-marriage.svg',
-    'U.S. Department of Veterans Affairs BIRLS Death File — military-service lead': 'assets/sheldon/source-record-military.svg'
-  };
   if (sheldon.portrait && sheldon.portrait.title) {
     sheldon.portrait.title = sheldon.portrait.title.replace(/FamilySearch/gi, '').trim();
   }
   (sheldon.evidence || []).forEach(item => {
-    const preview = displayCards[item.title];
-    if (preview) {
-      item.kind = 'document';
-      item.visualKind = 'document';
-      if (!item.thumb && !item.full) item.thumb = preview;
+    if (item.title === 'Arizona county marriage record — Sheldon Webb and Inez Karen Prather') {
+      item.kind = 'citation';
+      item.visualKind = 'record-citation';
+      if (/assets\/sheldon\/source-record-civil-marriage\.svg(?:[?#]|$)/i.test(item.thumb || '')) delete item.thumb;
+      if (/assets\/sheldon\/source-record-civil-marriage\.svg(?:[?#]|$)/i.test(item.full || '')) delete item.full;
+      item.sourcePage = 'https://www.familysearch.org/en/tree/sources/viewedit/7BQ7-X9Q?context';
+      item.sourceLinkLabel = 'Open FamilySearch source citation';
+    } else if (item.title === 'U.S. Department of Veterans Affairs BIRLS Death File — military-service lead') {
+      item.kind = 'citation';
+      item.visualKind = 'record-citation';
+      if (/assets\/sheldon\/source-record-military\.svg(?:[?#]|$)/i.test(item.thumb || '')) delete item.thumb;
+      if (/assets\/sheldon\/source-record-military\.svg(?:[?#]|$)/i.test(item.full || '')) delete item.full;
+      item.sourceLinkLabel = 'Open Ancestry BIRLS index (may require subscription)';
     }
   });
 })();
