@@ -33,5 +33,14 @@ renderEvidence=function(n){
   }
 };
 
+// The three setting views belong in Places, and uncaptured citations stay out of Documents.
+const originalBuildAlbumItems=buildAlbumItems;
+buildAlbumItems=function(){
+  return originalBuildAlbumItems().filter(item=>!(item.personId==='grace_hill'&&!item.full)).map(item=>{
+    if(item.personId==='grace_hill'&&String(item.full||'').startsWith('assets/grace-places/'))item.kind='place';
+    return item;
+  });
+};
+
 })();
 
