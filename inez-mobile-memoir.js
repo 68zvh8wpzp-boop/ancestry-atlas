@@ -37,4 +37,58 @@ Inez and Sheldon marked their fiftieth wedding anniversary in January 2015. In S
     events:[{title:'A small-town childhood',group:'arizona',summary:'Inez grew up in Lakeside and graduated in 1963 from the town’s final class before the school became Blue Ridge.'},{title:'Teaching across borders',group:'international',summary:'Her career included Arizona and New Mexico schools, the Panama Canal Zone, São Paulo, and Kuwait.'},{title:'A family life documented in her own words',group:'family',summary:'Beginning in 1983, Inez wrote and revised a long account of her childhood, teaching, family moves, travel, and later years.'}]
   };
 
+  const photo = (file,title,date,place,summary,transcription) => ({
+    kind:'photo', title,date,place,
+    thumb:`assets/inez-life-story/${file}`,full:`assets/inez-life-story/${file}`,
+    summary, provenance:'Family photograph embedded in Inez Prather’s life story manuscript.',
+    confidence:'Family caption; date and identity retained with stated uncertainty.',
+    transcription:transcription || 'Original: [no text present]\nTranslation: [not applicable]'
+  });
+  const noText = 'Original: [no text present]\nTranslation: [not applicable]';
+  const memoirPhotos = [
+    photo('image3.jpeg','Inez as a young child','about 1948','Lakeside, Arizona','Childhood portrait of Inez.','Original: [no text present]\nTranslation: [not applicable]'),
+    photo('image4.jpeg','Inez at about age ten','about 1956','Arizona','School-age portrait of Inez.','Original: [no text present]\nTranslation: [not applicable]'),
+    photo('image5.jpeg','Inez’s high-school portrait','about 1963','Lakeside, Arizona','Portrait from her high-school years.','Original: [no text present]\nTranslation: [not applicable]'),
+    photo('image6.jpeg','Lakeside High School seniors, 1963','1963','Lakeside, Arizona','Senior composite that includes Inez. Visible names and school title transcribed from the photograph.','Original:\nJOHNNY AMOS | PAM DEFENBAUGH | DAVID GILLESPIE | WESLEY HENNING | GRACE JACKSON | BILLIE JO JOHNSON\nLAKESIDE\nSENIORS\n1963\nLANNY JOHNSON | RICKY JOHNSON\nLINDA KELLY | DALE KING | BEVERLY PENROD | TERRY PENROD | INEZ PRATHER | TOM RHOTON\n[Portrait captions along the bottom edge are cropped.]\nTranslation: The title and all visible names are in English and remain unchanged. [Portrait captions along the bottom edge are cropped.]'),
+    photo('image8.jpeg','Inez and Sheldon with their two young sons','1973 or later','Arizona','Family portrait from the early years of parenthood.',noText),
+    photo('image9.jpeg','Inez portrait','undated','Arizona','Professional portrait of Inez.',noText),
+    photo('image10.jpeg','Inez portrait','undated','Arizona','A second professional portrait of Inez.',noText),
+    photo('image11.jpeg','Inez, Sheldon, and their three sons','undated','Arizona','Family portrait with their three sons.',noText),
+    photo('image12.jpeg','Inez and Sheldon at Niagara Falls','2008','Niagara Falls','The couple on a trip to Niagara Falls.',noText),
+    photo('image13.jpeg','Inez and Sheldon at a monument in Peru','undated','Peru','Travel photograph of the couple at a large stone monument.',noText),
+    photo('image14.jpeg','Inez with a group in Lima','2011–12','Lima, Peru','Group photograph from the period of their Lima service.',noText),
+    photo('image15.jpeg','Grandson Griffin as a baby','undated','Arizona','Photograph of a young grandchild.',noText),
+    photo('image16.jpeg','Inez with a large group in Lima','2011','Lima, Peru','Group photograph from the Lima period.',noText),
+    photo('image17.jpeg','Inez at a museum exhibit','undated','Peru','Inez viewing a museum display.',noText),
+    photo('image18.png','A Lima avenue and surrounding neighborhoods','2011–12','Lima, Peru','City view from Inez’s time in Lima.',noText),
+    photo('image19.jpeg','Market vendor in the Andes','2011–12','Peru','Travel photograph of a woman at an outdoor market.',noText),
+    photo('image20.png','Andean valley and cultivated fields','2011–12','Peru','Mountain landscape with fields and settlements.',noText),
+    photo('image21.png','Inez and Sheldon on a mountain overlook','2011–12','Peru','Family travel photograph in the Andes.',noText),
+    photo('image22.png','Market scene in Peru','2011–12','Peru','Travel photograph of market stalls and visitors.',noText),
+    photo('image23.jpeg','Caral archaeological site','2011–12','Peru','Photograph of the stone structures at Caral.',noText),
+    photo('image24.jpeg','Family at Caral','2011–12','Peru','Inez and family members among the structures at Caral.',noText),
+    photo('image25.jpeg','Caral archaeological landscape','2011–12','Peru','Wide view of the archaeological site.',noText),
+    photo('image28.jpeg','Temple grounds in Peru','2011–12','Peru','Photograph of a temple building seen during travel.',noText),
+    photo('image29.jpeg','Inez and Sheldon with a physician','undated','Arizona','The couple photographed with a physician.',noText),
+    photo('image30.jpeg','Stone terraces at Machu Picchu','2011–12','Peru','Travel photograph of the archaeological landscape.',noText),
+    photo('image31.jpeg','Inez and Sheldon at Machu Picchu','2011–12','Peru','The couple among the ruins at Machu Picchu.',noText),
+    photo('image32.jpeg','Machu Picchu and Huayna Picchu','2011–12','Peru','Landscape view of the site and surrounding mountains.',noText),
+    photo('image33.png','Floating reed islands on Lake Titicaca','2011–12','Peru','Travel photograph on Lake Titicaca.',noText),
+    photo('image34.png','Market beside a highland lake','2011–12','Peru','Outdoor market and highland landscape.',noText),
+    photo('image35.jpeg','The Webb family together','December 2012','Arizona','Family photograph from December 2012.',noText),
+    photo('image36.jpeg','Family on an Alaska cruise','undated','Alaska','Family members aboard a cruise ship.',noText),
+    photo('image37.jpeg','Alaska fjord from the ship','undated','Alaska','View across a glacial fjord.',noText),
+    photo('image38.jpeg','Totem pole in Alaska','undated','Alaska','Photograph of a carved totem pole beside a road.',noText),
+    photo('image39.jpeg','Totem pole in a forest clearing','undated','Alaska','A second view of a carved totem pole.',noText),
+    photo('image40.jpeg','Saxman historical sign','undated','Saxman, Alaska','Photograph of a roadside sign describing the village and its totem poles.','Original:\nSAXMAN\nLEGEND: TLINGIT INDIAN VILLAGE, ESTABLISHED 1894, IS NAMED\nFOR SCHOOL TEACHER SAMUEL SAXMAN. ONE OF THREE\nMEN LOST DEC. OF 1886 WHILE SCOUTING FOR A NEW\nLOCATION FOR PEOPLE OF TONGASS AND CAPE FOX\nVILLAGES. TOTEMS HERE COMPRISING WORLD’S LARGEST\nCOLLECTION, INCLUDING POLES MOVED FROM PENNOCK,\nTONGASS, AND VILLAGE ISLANDS AND FROM OLD CAPE\nFOX VILLAGE AT KIRK POINT. MANY ARE POLES RESTORED\nUNDER FEDERAL WORKS PROJECT DIRECTED BY THE\nU.S. FOREST SERVICE BEGINNING IN 1939.\nALASKA DEPARTMENT OF HIGHWAYS [lower line partly clipped]\nTranslation: The sign is in English; the transcription is unchanged. [The lower line is partly clipped.]'),
+    photo('image43.jpeg','Inez and Sheldon at home','about 2015','Arizona','A later photograph of the couple together.',noText),
+    photo('image49.jpeg','View across Lima','2011–12','Lima, Peru','A second city view from the Lima period.',noText),
+    photo('image50.jpeg','Tropical beach and palms','undated','Peru','Travel photograph of a Pacific coast beach.',noText),
+    photo('image55.jpeg','Machu Picchu panorama','2011–12','Peru','Wide view across the Machu Picchu site.',noText)
+  ];
+
+  i.evidence = i.evidence || [];
+  for (const item of memoirPhotos) {
+    if (!i.evidence.some(existing => existing.full === item.full)) i.evidence.push(item);
+  }
 })();

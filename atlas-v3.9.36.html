@@ -733,7 +733,7 @@ window.addEventListener('error',function(e){
     <div id="storyContextRibbon" class="story-context-ribbon">
       <figure class="story-az-flag" aria-label="Arizona state flag, adopted 1917"><div id="storyFlagArt"></div><figcaption id="storyFlagCaption">Arizona state flag • adopted 1917</figcaption></figure>
       <figure class="story-locator-card">
-        <div class="story-archival-map"><img src="assets/arizona_new_mexico_1919_locator.jpg" alt="1919 Arizona and New Mexico road map"><span id="storyLocatorDot" class="story-locator-dot"></span><span id="storyLocatorMapLabel" class="story-locator-map-label">Mesa</span></div>
+        <div class="story-archival-map"><img loading="lazy" decoding="async" src="assets/arizona_new_mexico_1919_locator.jpg" alt="1919 Arizona and New Mexico road map"><span id="storyLocatorDot" class="story-locator-dot"></span><span id="storyLocatorMapLabel" class="story-locator-map-label">Mesa</span></div>
         <figcaption><strong id="storyLocatorLabel">Mesa, Arizona • 1941</strong><span id="storyLocatorSource">American Automobile Association map, 1919 • Library of Congress</span></figcaption>
       </figure>
     </div>
@@ -1343,7 +1343,7 @@ function renderEvidence(n){
         if(evidenceHasPdf(e) && !evidenceHasMedia(e)){
           b.innerHTML='<div class="evidence-media-thumb pdf"><iframe class="evidence-pdf-thumb" title="'+escapeHtml(titleText)+'" src="'+escapeHtml(media||'')+'" aria-hidden="true"></iframe></div><div class="evtitle">'+escapeHtml(titleText)+'</div>';
         }else{
-          b.innerHTML='<div class="evidence-media-thumb '+(evidenceHasPdf(e)?'pdf ':'')+'image"><img src="'+escapeHtml(media||'')+'" alt="'+escapeHtml(titleText)+'"></div><div class="evtitle">'+escapeHtml(titleText)+'</div>';
+          b.innerHTML='<div class="evidence-media-thumb '+(evidenceHasPdf(e)?'pdf ':'')+'image"><img loading="lazy" decoding="async" src="'+escapeHtml(media||'')+'" alt="'+escapeHtml(titleText)+'"></div><div class="evtitle">'+escapeHtml(titleText)+'</div>';
           const img=b.querySelector('img');
           if(img)img.onerror=()=>{img.replaceWith(Object.assign(document.createElement('div'),{className:'evidence-doc-placeholder',textContent:'Image unavailable'}));};
         }
@@ -2649,7 +2649,7 @@ function renderAlbum(){
     const kindLabel={family:'Family photo',document:'Archival document',place:'Place / context'}[i.kind]||i.kind;
     const media=i.thumb||i.full;
     const mediaHtml=media
-      ? `<img src="${escapeHtml(media)}" alt="${escapeHtml(i.title)}">`
+      ? `<img loading="lazy" decoding="async" src="${escapeHtml(media)}" alt="${escapeHtml(i.title)}">`
       : `<div class="album-doc-placeholder">DOCUMENT<span>Open linked record</span></div>`;
     b.innerHTML=`${mediaHtml}<div class="album-name">${escapeHtml(i.name)}</div><div class="album-years">${escapeHtml(i.years||'')}</div><div class="album-kind">${kindLabel}</div><div class="album-source">${escapeHtml(albumSourceShort(i))}</div>`;
     const thumb=b.querySelector('img');
@@ -2742,6 +2742,6 @@ resize();
 
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v12.js?v=20261003-60"></script>
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v14.js?v=20261003-63"></script>
-<script src="inez-mobile-memoir.js?v=20261004-2"></script>
+<script src="inez-mobile-memoir.js?v=20261004-3"></script>
 </body>
 </html>
