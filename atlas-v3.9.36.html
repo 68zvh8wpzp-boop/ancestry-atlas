@@ -1085,6 +1085,9 @@ if(!_jamarInline){
 if(!DATA.edges.some(e=>e.a==='jamar_webb'&&e.b==='james_wilford')) DATA.edges.push({a:'jamar_webb',b:'james_wilford',confidence:'strong'});
 if(!DATA.edges.some(e=>e.a==='jamar_webb'&&e.b==='marion_brenay')) DATA.edges.push({a:'jamar_webb',b:'marion_brenay',confidence:'strong'});
 
+// Thomas Prather: register before relation maps are built.
+if(!DATA.nodes.some(n=>n.id==='thomas_prather')) DATA.nodes.push({"id":"thomas_prather","name":"Thomas Estil Prather","years":"1878–1950","place":"Moscow, Missouri → Lakeside, Arizona","branch":"Hill / Prather","confidence":"strong","note":"Thomas Prather was Inez’s father and Grace’s husband. He worked in several trades, settled in Lakeside, and arranged the telephone office that supported his family.","x":3.8,"y":2.2,"z":-2});
+if(!DATA.edges.some(e=>e.a==='inez_karen'&&e.b==='thomas_prather')) DATA.edges.push({a:'inez_karen',b:'thomas_prather',confidence:'strong'});
 const nodeById = new Map(DATA.nodes.map(n=>[n.id,n]));
 window.__ATLAS_DATA = DATA;
 window.__ATLAS_NODE_BY_ID = nodeById;
@@ -2744,5 +2747,6 @@ resize();
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v14.js?v=20261003-63"></script>
 <script src="inez-mobile-memoir.js?v=20261004-4"></script>
 <script src="grace-mobile-memoir.js?v=20261004-5"></script>
+<script src="thomas-mobile-memoir.js?v=20261004-1"></script>
 </body>
 </html>
