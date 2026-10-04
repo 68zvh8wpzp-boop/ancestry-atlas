@@ -1499,7 +1499,7 @@ function familyFacingEvidenceSummary(e){
 }
 function familyFacingRecordStatus(e){
   if(e.previewStatus==='unreadable') return 'Preview is not readable; open the original record';
-  if(evidenceHasPreview(e)) return 'Document preview available';
+  if(evidenceHasPreview(e)) return evidenceIsImage(e) ? 'Photograph available' : 'Document preview available';
   if(e.sourcePage||e.documentUrl||e.full) return 'Linked source record available';
   return 'Supporting record listed';
 }
@@ -2742,6 +2742,6 @@ resize();
 
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v12.js?v=20261003-60"></script>
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v14.js?v=20261003-63"></script>
-<script src="inez-mobile-memoir.js?v=20261004-3"></script>
+<script src="inez-mobile-memoir.js?v=20261004-4"></script>
 </body>
 </html>
