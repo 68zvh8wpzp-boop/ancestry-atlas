@@ -186,6 +186,8 @@ canvas:active{cursor:grabbing}
   opacity:0;transition:opacity .35s ease,transform .35s ease;transform-origin:center top;
 }
 .scene-context.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.scene-context-close{position:absolute;right:8px;top:8px;width:32px;height:32px;pointer-events:auto;cursor:pointer;font-size:20px;z-index:1}
+.scene-context:not(.show) .scene-context-close{visibility:hidden}
 .scene-era{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:#93afc5;margin-bottom:5px}
 .scene-head{font-size:16px;font-weight:750;color:#f5f8fb;line-height:1.25}
 .scene-copy{font-size:12px;line-height:1.5;color:#c7d5e0;margin-top:5px}
@@ -1580,7 +1582,7 @@ document.getElementById('docModal').addEventListener('click',e=>{if(e.target.id=
 
 // v1.2 — birth-place / birth-era scene setting and cinematic node navigation
 const sceneContext=document.getElementById('sceneContext');
-document.getElementById('sceneContextClose').onclick=()=>sceneContext.classList.remove('show');
+document.getElementById('sceneContextClose').onclick=e=>{e.preventDefault();e.stopPropagation();sceneContext.classList.remove('show');};
 const sceneEra=document.getElementById('sceneEra');
 const sceneHead=document.getElementById('sceneHead');
 const sceneCopy=document.getElementById('sceneCopy');
