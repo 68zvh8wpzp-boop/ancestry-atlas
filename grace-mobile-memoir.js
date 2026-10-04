@@ -22,5 +22,16 @@ const contextPhotos=[{"kind":"photo","title":"Place: The Elms Hotel","date":"Mar
 const newspaperCitations=[{"kind":"record","title":"Grace Lahnert newspaper byline — 13 July 1978","date":"13 July 1978","place":"White Mountain Independent","sourcePage":"https://azmemory.azlibrary.gov/nodes/view/292864","documentUrl":"https://azmemory.azlibrary.gov/nodes/view/292864","summary":"The archive’s indexed text includes “By Grace Lahnert.” Inez’s autobiography also describes Grace’s weekly newspaper column. The original newspaper page has not yet been inspected.","confidence":"Indexed byline corroborates the memoir; original scan unavailable through current access.","provenance":"Arizona Memory Project, White Mountain Independent, volume 68, issue 28; search-index lead, no captured preview."},{"kind":"record","title":"Grace Lahnert newspaper byline — 10 August 1978","date":"10 August 1978","place":"White Mountain Independent","sourcePage":"https://azmemory.azlibrary.gov/nodes/view/292868","documentUrl":"https://azmemory.azlibrary.gov/nodes/view/292868","summary":"The archive’s indexed text includes “By Grace Lahnert.” The original newspaper page has not yet been inspected.","confidence":"Indexed byline lead; original scan unavailable through current access.","provenance":"Arizona Memory Project, White Mountain Independent, volume 68, issue 32; search-index lead, no captured preview."}];
 for(const e of contextPhotos){if(!g.evidence.some(old=>old.full===e.full))g.evidence.push(e);}
 for(const e of newspaperCitations){if(!g.evidence.some(old=>old.sourcePage===e.sourcePage))g.evidence.push(e);}
+// Keep uninspected newspaper references distinct from document previews.
+const originalRenderEvidence=renderEvidence;
+renderEvidence=function(n){
+  originalRenderEvidence(n);
+  if(n&&n.id==='grace_hill'){
+    document.querySelectorAll('#evidenceWrap .record-citations .evidence-doc-placeholder').forEach(p=>{
+      if(p.firstChild&&p.firstChild.nodeType===3)p.firstChild.textContent='REFERENCE';
+    });
+  }
+};
+
 })();
 
