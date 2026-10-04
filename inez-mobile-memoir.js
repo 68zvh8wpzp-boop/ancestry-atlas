@@ -27,7 +27,8 @@ Inez began keeping life-story notes in 1983, after her mother’s death on 27 Ap
 Inez and Sheldon marked their fiftieth wedding anniversary in January 2015. In Sheldon’s final years she cared for him as Parkinson’s disease and a tumor affected his health. He died in an assisted-living residence in Gilbert on 9 April 2016. Their shared story includes three sons and a growing family, but Inez’s own life stands on its own: a small-town student who became a teacher across continents, a library volunteer, a traveler, and the family’s determined recorder of memory.`;
   i.years = '1946–';
   i.place = 'Lakeside, Arizona';
-  i.note = inezLife;
+  i.biography = inezLife;
+  i.note = 'Inez Karen Prather grew up in Lakeside, Arizona, became a teacher in the United States and abroad, and preserved her family’s story in a detailed memoir.';
   GUIDE_PROFILES.inez_karen = {
     birthPlace:'Pink Haven, Lakeside, Arizona',
     townContext:'Lakeside is in Arizona’s White Mountains. Inez’s account describes a small school, a drive-in theatre, nearby family homes, and a community where relatives and neighbors were closely connected.',
