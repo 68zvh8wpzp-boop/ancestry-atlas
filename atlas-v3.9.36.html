@@ -1580,6 +1580,7 @@ document.getElementById('docModal').addEventListener('click',e=>{if(e.target.id=
 
 // v1.2 — birth-place / birth-era scene setting and cinematic node navigation
 const sceneContext=document.getElementById('sceneContext');
+document.getElementById('sceneContextClose').onclick=()=>sceneContext.classList.remove('show');
 const sceneEra=document.getElementById('sceneEra');
 const sceneHead=document.getElementById('sceneHead');
 const sceneCopy=document.getElementById('sceneCopy');
