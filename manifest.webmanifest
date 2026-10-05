@@ -2,10 +2,13 @@
   "name": "Ancestry Atlas",
   "short_name": "Ancestry Atlas",
   "description": "A guided audio-visual family history atlas.",
-  "start_url": "./atlas-v3.9.36.html?iphone-refresh=20261005-eliza-tidy-7",
+  "start_url": "./atlas-v3.9.36.html?iphone-refresh=20261005-william-8",
   "scope": "./",
   "display": "fullscreen",
-  "display_override": ["fullscreen", "standalone"],
+  "display_override": [
+    "fullscreen",
+    "standalone"
+  ],
   "orientation": "any",
   "background_color": "#020609",
   "theme_color": "#020609"
