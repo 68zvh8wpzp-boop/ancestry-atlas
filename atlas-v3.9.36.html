@@ -556,6 +556,7 @@ canvas:active{cursor:grabbing}
 .doc-modal.open{display:flex}
 .doc-modal.open .doc-panel{width:min(1050px,100%)}
 .album-modal.viewer-behind{visibility:hidden;pointer-events:none}
+.evidence-strip.documents .evidence-media-thumb img{object-fit:contain;object-position:center}
 </style>
 
 <script>
@@ -2050,6 +2051,11 @@ function openNode(id, recenter=false, appendTrail=false){
     const fullBio=String(guideProfile.life).split(/\n{2,}/).filter(Boolean).map(function(paragraph){ return '<p style="margin:0 0 10px">'+escapeHtml(paragraph)+'</p>'; }).join('');
     card.querySelector('p').insertAdjacentHTML('afterend','<div class="extra dynamic-status full-biography" style="border-color:#70a8ff"><strong>BIOGRAPHY</strong><div style="margin-top:8px">'+fullBio+'</div></div>');
   }
+  if(Array.isArray(n.historicalNotes)){
+    const anchor=card.querySelector('.full-biography')||card.querySelector('p');
+    const notes=n.historicalNotes.map(note=>'<section class="extra dynamic-status historical-note" style="border-color:#bfa56a"><strong>'+escapeHtml(note.title)+'</strong>'+note.paragraphs.map(p=>'<p style="margin:8px 0;line-height:1.6">'+escapeHtml(p)+'</p>').join('')+'<div style="font-size:12px">'+(note.links||[]).map(l=>'<a href="'+escapeHtml(l.url)+'" target="_blank" rel="noopener noreferrer" style="color:#bdd8ef">'+escapeHtml(l.label)+'</a>').join(' · ')+'</div></section>').join('');
+    anchor.insertAdjacentHTML('afterend',notes);
+  }
   document.getElementById('extraInfo').innerHTML = buildExtraInfo(id);
   renderPortrait(n);
   renderEvidence(n);
@@ -2757,5 +2763,6 @@ resize();
 <script src="davia-mobile-memoir.js?v=20261004-2"></script>
 <script src="thomas-dunbar-mobile-biography.js?v=20261004-2"></script>
 <script src="eliza-mobile-biography.js?v=20261004-2"></script>
+<script src="hill-feud-media-and-dunbar-note.js?v=20261004-1"></script>
 </body>
 </html>
