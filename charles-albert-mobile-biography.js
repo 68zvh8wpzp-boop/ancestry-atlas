@@ -137,7 +137,7 @@ person.evidence=[
     "date": "1918–1919",
     "place": "Saginaw, Michigan",
     "summary": "Private, Company C, 78th Infantry; enlisted 29 August 1918, discharged 21 January 1919.",
-    "provenance": "UnitedStatesVA MasterIndex1917–1940,RG15,DGS76193916,image412. Original unchanged2048×684JPEG downloaded5Oct2026.",
+    "provenance": "UnitedStatesVA MasterIndex1917–1940,RG15,DGS76193916,image412. Original unchanged3898×1301JPEG downloaded5Oct2026.",
     "sourcePage": "https://www.familysearch.org/ark:/61903/3:1:3Q9M-CS1C-HSKK-Y?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AQPZY-C6MW&action=view&cc=2968245&lang=en",
     "previewStatus": "readable",
     "transcription": "FULLTEXT_ORIGINAL:\nBRENAY CHARLES ALBERT\nPvt Co C 78 Inf\n1016 Clinton St  Saginaw Mich\nSn 4 720 243       Died [blank]\nBorn 3/29/97\nEnl 8/29/18       Dis 1/21/19\nC 359 184\nK 402 341\nA2 985 677\nT3 727 007\nE 184 462\nCt. 1 913 714\nI\nU. S. VETERANS BUREAU\nMAIL AND RECORDS\nForm 7202—Rev. Sept., 1926\nINDEX CARD\nGPO [illegible imprint]\n\nFULLTEXT_TRANSLATION\nNot applicable — the original is in English."
@@ -150,7 +150,7 @@ person.evidence=[
     "date": "7 December 1983",
     "place": "Mesa, Arizona",
     "summary": "The funeral notice names Marian and nine surviving children, including Isaac.",
-    "provenance": "FamilySearchimg0079.jpg; DeEdraBreckenridge7Nov2025. Originalunchanged403×391JPEG. Newspaperpublicationname not given.",
+    "provenance": "FamilySearchimg0079.jpg; DeEdraBreckenridge7Nov2025. Originalunchanged403×359JPEG. Newspaperpublicationname not given.",
     "sourcePage": "https://www.familysearch.org/en/tree/person/memories/KWC1-XF6",
     "previewStatus": "readable",
     "transcription": "FULLTEXT_ORIGINAL:\n1-Funeral\nBRENAY, Charles Albert.\nHusband to Marian, father\nto: Arnold, Joseph, Am-\nmon, Isaac, Marion Webb,\nVirginia Hawkins, Esther\nLaine, Martha Lemmon,\nJoan Lake. Services 1:00\nPM Wed. Meldrum Mortu-\nary Chapel. Visitation 6-8\nPM Tues. at Mortuary.\n\nFULLTEXT_TRANSLATION\nNot applicable — the original is in English."
