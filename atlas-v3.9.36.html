@@ -2034,6 +2034,9 @@ function openNode(id, recenter=false, appendTrail=false){
   card.querySelector('.meta').textContent=[n.years,n.place,n.branch].filter(Boolean).join(' • ');
   card.querySelectorAll('.dynamic-status').forEach(x=>x.remove());
   card.querySelector('p').textContent=n.note;
+  const repeatedBiography = n.id==='charles_godfrey' && typeof GUIDE_PROFILES!=='undefined' && n.note===GUIDE_PROFILES[n.id]?.life;
+  card.querySelector('p').hidden=repeatedBiography;
+  card.querySelector('p').previousElementSibling.hidden=repeatedBiography;
   const biography=(typeof TOUR_MEDIA!=='undefined')?TOUR_MEDIA[id]:null;
   if(biography?.storyReady===false){
     const hasVisualPreview=Array.isArray(biography.scenes)&&biography.scenes.some(scene=>scene?.src);
