@@ -404,7 +404,7 @@ person.evidence=[
     "title": "Charles — later portrait",
     "thumb": "assets/charles-albert/memory-48-charles-albert-brenay.jpg",
     "full": "assets/charles-albert/memory-48-charles-albert-brenay.jpg",
-    "summary": "A small, distinct later portrait of Charles. The preserved original is only 116 × 116 pixels.",
+    "summary": "A small, distinct later portrait of Charles. The preserved original is only 61 × 81 pixels.",
     "provenance": "Charles Albert Brenay\n›\nMemories\n›\nNo title\nNo title\n\nDetails\n0\n\nInformation\n\nTagged People\nClick a face to tag a person.\nCharles Albert Brenay\nMale\n1897-1983\n•\nKWC1-XF6\nContributed By\nS\nScottDaphne1\n12 June 2015\nUpload File Name\n\ncharles albert brenay.jpg\n\n18\n0",
     "sourcePage": "https://www.familysearch.org/en/tree/person/memories/KWC1-XF6",
     "previewStatus": "readable",
