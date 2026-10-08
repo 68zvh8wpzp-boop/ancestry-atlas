@@ -2034,7 +2034,7 @@ function openNode(id, recenter=false, appendTrail=false){
   card.querySelector('.meta').textContent=[n.years,n.place,n.branch].filter(Boolean).join(' • ');
   card.querySelectorAll('.dynamic-status').forEach(x=>x.remove());
   card.querySelector('p').textContent=n.note;
-  const repeatedBiography = ['charles_godfrey','ida_mae'].includes(n.id) && typeof GUIDE_PROFILES!=='undefined' && n.note===GUIDE_PROFILES[n.id]?.life;
+  const repeatedBiography = ['charles_godfrey','ida_mae','john_peter'].includes(n.id) && typeof GUIDE_PROFILES!=='undefined' && n.note===GUIDE_PROFILES[n.id]?.life;
   card.querySelector('p').hidden=repeatedBiography;
   card.querySelector('p').previousElementSibling.hidden=repeatedBiography;
   const biography=(typeof TOUR_MEDIA!=='undefined')?TOUR_MEDIA[id]:null;
@@ -2773,7 +2773,7 @@ resize();
 <script src="charles-albert-mobile-biography.js?v=20261007-3"></script>
 <script src="charles-godfrey-mobile-biography.js?v=20261007-5-final"></script>
 <script src="ida-mae-mobile-biography.js?v=20261008-4"></script>
-<script src="john-peter-mobile-biography.js?v=20261008-1"></script>
+<script src="john-peter-mobile-biography.js?v=20261008-2"></script>
 </body>
 </html>
 
