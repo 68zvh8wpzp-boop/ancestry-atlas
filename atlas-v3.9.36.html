@@ -1295,7 +1295,7 @@ function renderPortrait(n){
   cap.textContent='Verified historical portrait';
   wrap.classList.add('show');
   img.onerror=()=>{wrap.classList.remove('show');};
-  img.onclick=()=>{clearAlbumViewerExtras();openEvidence({title:p.title||('Portrait: '+n.name),thumb:p.url,full:p.url,provenance:p.provenance||'',summary:'Historical portrait attached only to the person pictured.',confidence:'verified portrait source'});};
+  img.onclick=()=>{clearAlbumViewerExtras();openEvidence(Object.assign({},p,{title:p.title||('Portrait: '+n.name),thumb:p.url,full:p.url,summary:p.summary||'Historical portrait attached only to the person pictured.',confidence:'verified portrait source'}));};
 }
 function evidenceHasMedia(e){
   const candidate=e?.thumb||((e?.kind==='document'&&evidenceHasPdf(e))?'':e?.full||'');
@@ -2033,7 +2033,7 @@ function openNode(id, recenter=false, appendTrail=false){
   card.querySelector('h3').textContent=n.name;
   card.querySelector('.meta').textContent=[n.years,n.place,n.branch].filter(Boolean).join(' • ');
   card.querySelectorAll('.dynamic-status').forEach(x=>x.remove());
-  card.querySelector('p').textContent=n.id==='mary_ann' ? (n.CONTEXT || '') : n.note;
+  card.querySelector('p').textContent=['mary_ann','jessie_irene_aurin','richard_francis_skinner'].includes(n.id) ? (n.CONTEXT || '') : n.note;
   const repeatedBiography = ['charles_godfrey','ida_mae','john_peter'].includes(n.id) && typeof GUIDE_PROFILES!=='undefined' && n.note===GUIDE_PROFILES[n.id]?.life;
   card.querySelector('p').hidden=repeatedBiography;
   card.querySelector('p').previousElementSibling.hidden=repeatedBiography;
@@ -2613,14 +2613,14 @@ function buildAlbumItems(){
   const items=[];
   DATA.nodes.forEach(n=>{
     if(n.portrait&&albumAssetIsPackaged(n.portrait.url)){
-      items.push({kind:'family',personId:n.id,name:n.name,years:n.years||'',branch:n.branch||'',title:n.portrait.title||('Portrait: '+n.name),thumb:n.portrait.url,full:n.portrait.url,provenance:n.portrait.provenance||'',sourcePage:n.portrait.sourcePage||'',summary:'Historical portrait attached only to the person pictured.',confidence:'verified portrait source'});
+      items.push({...n.portrait,kind:'family',personId:n.id,name:n.name,years:n.years||'',branch:n.branch||'',title:n.portrait.title||('Portrait: '+n.name),thumb:n.portrait.url,full:n.portrait.url,provenance:n.portrait.provenance||'',sourcePage:n.portrait.sourcePage||'',summary:'Historical portrait attached only to the person pictured.',confidence:'verified portrait source'});
     }
     (n.evidence||[]).forEach(ev=>{
       const thumb=ev.thumb||ev.full,full=ev.full||ev.thumb;
       const sourceOnly=!!(ev.sourcePage||ev.documentUrl);
       if(!sourceOnly&&(!albumAssetIsPackaged(thumb)||!albumAssetIsPackaged(full)))return;
-      const familyPhoto=ev.kind!=='document' && /photo memory|portrait|photograph|birthday|school/i.test((ev.provenance||'')+' '+(ev.title||'')) && !/census|newspaper|announcement|drawing/i.test(ev.title||'');
-      items.push({kind:familyPhoto?'family':'document',personId:n.id,name:n.name,years:n.years||'',branch:n.branch||'',title:ev.title||('Source image: '+n.name),thumb,full,provenance:ev.provenance||'',summary:ev.summary||'',confidence:ev.confidence||'',date:ev.date||'',place:ev.place||''});
+      const familyPhoto=ev.kind==='photo' || (ev.kind!=='document' && /photo memory|portrait|photograph|birthday|school/i.test((ev.provenance||'')+' '+(ev.title||'')) && !/census|newspaper|announcement|drawing/i.test(ev.title||''));
+      items.push({...ev,kind:familyPhoto?'family':'document',personId:n.id,name:n.name,years:n.years||'',branch:n.branch||'',title:ev.title||('Source image: '+n.name),thumb,full,provenance:ev.provenance||'',summary:ev.summary||'',confidence:ev.confidence||'',date:ev.date||'',place:ev.place||''});
     });
   });
   // Completed/approved biography photographs are part of the family album too.
@@ -2775,6 +2775,8 @@ resize();
 <script src="ida-mae-mobile-biography.js?v=20261008-4"></script>
 <script src="john-peter-mobile-biography.js?v=20261008-4"></script>
 <script src="mary-ann-mobile-biography.js?v=20261009-mary-1"></script>
+<script src="atlas-evidence-sync-2026-10-03-fulltext-v16.js?v=20261009-jessie-1"></script>
+<script src="jessie-aurin-mobile-biography.js?v=20261009-jessie-1"></script>
 </body>
 </html>
 
