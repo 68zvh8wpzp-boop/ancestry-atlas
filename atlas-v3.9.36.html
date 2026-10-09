@@ -2033,7 +2033,7 @@ function openNode(id, recenter=false, appendTrail=false){
   card.querySelector('h3').textContent=n.name;
   card.querySelector('.meta').textContent=[n.years,n.place,n.branch].filter(Boolean).join(' • ');
   card.querySelectorAll('.dynamic-status').forEach(x=>x.remove());
-  card.querySelector('p').textContent=n.note;
+  card.querySelector('p').textContent=n.id==='mary_ann' ? (n.CONTEXT || '') : n.note;
   const repeatedBiography = ['charles_godfrey','ida_mae','john_peter'].includes(n.id) && typeof GUIDE_PROFILES!=='undefined' && n.note===GUIDE_PROFILES[n.id]?.life;
   card.querySelector('p').hidden=repeatedBiography;
   card.querySelector('p').previousElementSibling.hidden=repeatedBiography;
