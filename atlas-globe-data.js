@@ -1,7 +1,7 @@
 /* Atlas Globe geography source. Strict event types: born, lived, died. */
 window.ANCESTRY_GLOBE_DATA = {
-  "version": "2026-10-10-globe-1",
-  "sourcesNote": "First geographic pass drawn from the existing 101-person Atlas graph and documented biographical reviews. Not a certified complete FamilySearch location inventory. Dates and some township centroids approximate; uncertain pin locations are labeled.",
+  "version": "2026-10-10-globe-2",
+  "sourcesNote": "Initial location pass from the current Atlas person graph and reviewed biographies. Only born/lived/died. More historic people/place events require original record audits. Township/county and historic region pins are explicitly approximate; ambiguous localities omitted.",
   "branches": [
     {
       "id": "webb",
@@ -346,6 +346,42 @@ window.ANCESTRY_GLOBE_DATA = {
           "when": "childhood",
           "qualifier": "",
           "evidence": "Atlas person graph and family research; see person's source register"
+        },
+        {
+          "personId": "inez_karen",
+          "name": "Inez Karen Prather",
+          "branch": "hill",
+          "type": "born",
+          "when": "1946",
+          "qualifier": "",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        },
+        {
+          "personId": "inez_karen",
+          "name": "Inez Karen Prather",
+          "branch": "hill",
+          "type": "lived",
+          "when": "1946–1963; 1976 onward",
+          "qualifier": "",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        },
+        {
+          "personId": "thomas_prather",
+          "name": "Thomas Estil Prather",
+          "branch": "hill",
+          "type": "lived",
+          "when": "1939–1950",
+          "qualifier": "",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        },
+        {
+          "personId": "thomas_prather",
+          "name": "Thomas Estil Prather",
+          "branch": "hill",
+          "type": "died",
+          "when": "1950",
+          "qualifier": "",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
         }
       ]
     },
@@ -534,60 +570,6 @@ window.ANCESTRY_GLOBE_DATA = {
           "type": "born",
           "when": "1943",
           "qualifier": "probable",
-          "evidence": "Atlas person graph and family research; see person's source register"
-        }
-      ]
-    },
-    {
-      "id": "thatcher",
-      "name": "Thatcher, Arizona, USA",
-      "lng": -109.7593,
-      "lat": 32.8493,
-      "precision": "town",
-      "events": [
-        {
-          "personId": "della_ray",
-          "name": "Della Ray Webb",
-          "branch": "denmark",
-          "type": "lived",
-          "when": "by 1914",
-          "qualifier": "",
-          "evidence": "Atlas person graph and family research; see person's source register"
-        },
-        {
-          "personId": "jonathan_henry",
-          "name": "Jonathan Henry Webb",
-          "branch": "webb",
-          "type": "lived",
-          "when": "by 1914",
-          "qualifier": "",
-          "evidence": "Atlas person graph and family research; see person's source register"
-        }
-      ]
-    },
-    {
-      "id": "tempe",
-      "name": "Tempe, Arizona, USA",
-      "lng": -111.94,
-      "lat": 33.4255,
-      "precision": "city",
-      "events": [
-        {
-          "personId": "della_ray",
-          "name": "Della Ray Webb",
-          "branch": "denmark",
-          "type": "lived",
-          "when": "1927",
-          "qualifier": "",
-          "evidence": "Atlas person graph and family research; see person's source register"
-        },
-        {
-          "personId": "jonathan_henry",
-          "name": "Jonathan Henry Webb",
-          "branch": "webb",
-          "type": "lived",
-          "when": "1927",
-          "qualifier": "",
           "evidence": "Atlas person graph and family research; see person's source register"
         }
       ]
@@ -964,9 +946,9 @@ window.ANCESTRY_GLOBE_DATA = {
     {
       "id": "coloniadiaz",
       "name": "Colonia Díaz, Chihuahua, Mexico",
-      "lng": -107.963,
-      "lat": 31.41,
-      "precision": "approximate",
+      "lng": -108.00251,
+      "lat": 31.14777,
+      "precision": "historical colony",
       "events": [
         {
           "personId": "morten_peder",
@@ -1030,6 +1012,33 @@ window.ANCESTRY_GLOBE_DATA = {
           "when": "1908",
           "qualifier": "",
           "evidence": "Atlas person graph and family research; see person's source register"
+        },
+        {
+          "personId": "isaiah_hill",
+          "name": "Isaiah “Zay” Hill Sr.",
+          "branch": "hill",
+          "type": "lived",
+          "when": "1920",
+          "qualifier": "",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        },
+        {
+          "personId": "grace_hill",
+          "name": "Grace Mildred Hill",
+          "branch": "hill",
+          "type": "lived",
+          "when": "childhood",
+          "qualifier": "",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        },
+        {
+          "personId": "davia_dunbar",
+          "name": "Davia / David Ann Dunbar",
+          "branch": "hill",
+          "type": "died",
+          "when": "1923",
+          "qualifier": "",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
         }
       ]
     },
@@ -1111,6 +1120,33 @@ window.ANCESTRY_GLOBE_DATA = {
           "when": "19th c.",
           "qualifier": "",
           "evidence": "Atlas person graph and family research; see person's source register"
+        },
+        {
+          "personId": "davia_dunbar",
+          "name": "Davia / David Ann Dunbar",
+          "branch": "hill",
+          "type": "born",
+          "when": "1856",
+          "qualifier": "Rocky Fork Township; county pin approximate",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        },
+        {
+          "personId": "davia_dunbar",
+          "name": "Davia / David Ann Dunbar",
+          "branch": "hill",
+          "type": "lived",
+          "when": "1856–1880s",
+          "qualifier": "Rocky Fork Township",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        },
+        {
+          "personId": "russell_hill",
+          "name": "Colonel Russell Hill",
+          "branch": "hill",
+          "type": "lived",
+          "when": "1880",
+          "qualifier": "Rocky Fork Township census",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
         }
       ]
     },
@@ -1570,6 +1606,141 @@ window.ANCESTRY_GLOBE_DATA = {
           "when": "1899",
           "qualifier": "",
           "evidence": "Atlas person graph and family research; see person's source register"
+        }
+      ]
+    },
+    {
+      "id": "kayenta",
+      "name": "Kayenta, Arizona, USA",
+      "lng": -110.253,
+      "lat": 36.7278,
+      "precision": "town",
+      "events": [
+        {
+          "personId": "inez_karen",
+          "name": "Inez Karen Prather",
+          "branch": "hill",
+          "type": "lived",
+          "when": "1968–1969",
+          "qualifier": "",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        },
+        {
+          "personId": "james_sheldon",
+          "name": "James Sheldon Webb",
+          "branch": "webb",
+          "type": "lived",
+          "when": "1968–1969",
+          "qualifier": "",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        }
+      ]
+    },
+    {
+      "id": "kirtland",
+      "name": "Kirtland, New Mexico, USA",
+      "lng": -108.3395,
+      "lat": 36.7422,
+      "precision": "town",
+      "events": [
+        {
+          "personId": "inez_karen",
+          "name": "Inez Karen Prather",
+          "branch": "hill",
+          "type": "lived",
+          "when": "1969–1972",
+          "qualifier": "",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        },
+        {
+          "personId": "james_sheldon",
+          "name": "James Sheldon Webb",
+          "branch": "webb",
+          "type": "lived",
+          "when": "1969–1972",
+          "qualifier": "",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        }
+      ]
+    },
+    {
+      "id": "canalzone",
+      "name": "Panama Canal Zone (approximate residence), Panama",
+      "lng": -79.625,
+      "lat": 9.05,
+      "precision": "regional approximate",
+      "events": [
+        {
+          "personId": "inez_karen",
+          "name": "Inez Karen Prather",
+          "branch": "hill",
+          "type": "lived",
+          "when": "1973–1976",
+          "qualifier": "Exact neighborhood not resolved",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        },
+        {
+          "personId": "james_sheldon",
+          "name": "James Sheldon Webb",
+          "branch": "webb",
+          "type": "lived",
+          "when": "1973–1976",
+          "qualifier": "Exact neighborhood not resolved",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        }
+      ]
+    },
+    {
+      "id": "excelsior",
+      "name": "Excelsior Springs, Missouri, USA",
+      "lng": -94.2261,
+      "lat": 39.3392,
+      "precision": "city",
+      "events": [
+        {
+          "personId": "isaiah_hill",
+          "name": "Isaiah “Zay” Hill Sr.",
+          "branch": "hill",
+          "type": "died",
+          "when": "1963",
+          "qualifier": "",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        },
+        {
+          "personId": "grace_hill",
+          "name": "Grace Mildred Hill",
+          "branch": "hill",
+          "type": "lived",
+          "when": "1930s",
+          "qualifier": "Apartment hotel period",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        },
+        {
+          "personId": "thomas_prather",
+          "name": "Thomas Estil Prather",
+          "branch": "hill",
+          "type": "lived",
+          "when": "winters before 1939",
+          "qualifier": "Seasonal residence",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        }
+      ]
+    },
+    {
+      "id": "garrardky",
+      "name": "Garrard County, Kentucky, USA",
+      "lng": -84.56,
+      "lat": 37.62,
+      "precision": "county approximate",
+      "events": [
+        {
+          "personId": "russell_hill",
+          "name": "Colonel Russell Hill",
+          "branch": "hill",
+          "type": "born",
+          "when": "c. 1848–1850",
+          "qualifier": "Lancaster or nearby; uncertain",
+          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
         }
       ]
     }
