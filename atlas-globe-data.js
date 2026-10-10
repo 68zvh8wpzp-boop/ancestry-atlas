@@ -1,7 +1,7 @@
-/* Ancestry Atlas Family Geography. Direct ancestors incl provisional, region-level fallback when city unknown. */
+/* Ancestry Atlas family geographical events and separate, explicitly unproven country research leads. */
 window.ANCESTRY_GLOBE_DATA = {
-  "version": "2026-10-10-globe-8-regional-fallbacks",
-  "sourcesNote": "Only direct ancestors, including provisional links (explicitly labeled), are included. If no reliable city is known, the named country/province/region is pinned at a representative coordinate and clearly flagged as approximate; the marker is NOT evidence of a specific birthtown or home. Research-attribution of region may itself be provisional. Collateral and rejected candidates excluded.",
+  "version": "2026-10-10-globe-9-research-leads",
+  "sourcesNote": "Only direct ancestors, including provisional links (explicitly labeled), are included. If no reliable city is known, the named country/province/region is pinned at a representative coordinate and clearly flagged as approximate; the marker is NOT evidence of a specific birthtown or home. Research-attribution of region may itself be provisional. Collateral and rejected candidates excluded. Three separately typed research-origin country pins (France/Sweden/Ireland) are optional UI overlays; they are NOT ancestor-person born/lived/died events, are not counted in the 73 direct ancestors or 165 associations, and do not establish any nation's origin as fact.",
   "branches": [
     {
       "id": "webb",
@@ -2698,5 +2698,58 @@ window.ANCESTRY_GLOBE_DATA = {
   "directAncestorCount": 73,
   "supplementalDirectAncestors": [
     "thomas_prather"
+  ],
+  "hypotheses": [
+    {
+      "id": "hypothesis_france_goulet",
+      "name": "France",
+      "lng": 2.3522,
+      "lat": 48.8566,
+      "precision": "country representative: Paris",
+      "branch": "canada",
+      "lead": "Possible French Goulet origin",
+      "confidence": "research hypothesis — unresolved",
+      "summary": "The Gooley name may ultimately connect to a French-Canadian Goulet family. The proposed Quebec records have not established a direct link to John Peter Gooley, and no known ancestor on this line has been documented as born or resident in France.",
+      "qualification": "This pin marks France as a geographic research lead only. Paris is a population-center locator, not an ancestral hometown or documented birth, residence or death location.",
+      "relatedPersonId": "john_peter",
+      "relatedPersonLabel": "John Peter Gooley — established Canadian branch",
+      "sourceUrl": "https://www.familysearch.org/",
+      "sourceLabel": "FamilySearch original Quebec parish-register research and Atlas Gooley lineage frontier",
+      "researchIssue": "Gooley French origin / 1846 Sherbrooke Pierre Goulet–Louise-Anne Tellier candidate; no parent-child proof"
+    },
+    {
+      "id": "hypothesis_sweden_auren",
+      "name": "Sweden",
+      "lng": 18.0686,
+      "lat": 59.3293,
+      "precision": "country representative: Stockholm",
+      "branch": "canada",
+      "lead": "Possible Swedish Aurén / Aurin origin",
+      "confidence": "research hypothesis — unresolved",
+      "summary": "Jessie Irene Aurin's father's identity remains disputed between John/Jonas Aurin–Auene records and a proposed Karl Johan Aurén. The original 1880 Michigan census and the 1883 marriage record for Karl Johan are needed before attaching a Swedish birthplace or residence to Jessie's paternal line.",
+      "qualification": "This pin marks a Swedish ancestry possibility, not evidence of a specific Swedish town. The user's Swedish DNA estimate cannot identify which family branch supplied that ancestry.",
+      "relatedPersonId": "jessie_irene_aurin",
+      "relatedPersonLabel": "Jessie Irene Aurin Skinner — connected ancestor",
+      "sourceUrl": "https://www.familysearch.org/tree/person/details/LZD1-X5W",
+      "sourceLabel": "FamilySearch candidate Karl Johan Aurén (identity not confirmed)",
+      "researchIssue": "Ancestry Atlas Jessie/Aurin Work issue #41: original John/Jonas Auene birth/census and Karl Johan Aurén marriage comparison"
+    },
+    {
+      "id": "hypothesis_ireland_gooley",
+      "name": "Ireland",
+      "lng": -6.2603,
+      "lat": 53.3498,
+      "precision": "country representative: Dublin",
+      "branch": "canada",
+      "lead": "Possible Irish Gooley origin",
+      "confidence": "very speculative research alternative",
+      "summary": "A possible Irish or Anglophone origin has been raised when investigating Gooley name variants. No specific Irish-born or Ireland-resident direct ancestor is currently documented in this lineage, and the competing French-Canadian origin remains unresolved.",
+      "qualification": "This is a low-confidence country-level lead, not an ancestral migration route, birthplace, or residence. Dublin is only a representative national locator.",
+      "relatedPersonId": "john_peter",
+      "relatedPersonLabel": "John Peter Gooley — documented Canadian ancestor",
+      "sourceUrl": "",
+      "sourceLabel": "Atlas Gooley origin frontier — unproven surname-origin alternatives",
+      "researchIssue": "The Gooley origin remains a research frontier; Irish vs French-Canadian hypotheses unverified"
+    }
   ]
 };
