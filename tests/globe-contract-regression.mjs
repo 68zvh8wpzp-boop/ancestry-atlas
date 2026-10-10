@@ -67,7 +67,30 @@ assert(!globeCode.includes('new maplibregl.Marker'),'HTML markers leak behind th
 assert(globeCode.includes("map.addSource(PIN_SOURCE,{type:'geojson'"),'Missing geo-anchored city source');
 assert(globeCode.includes("type:'symbol',source:PIN_SOURCE"),'Missing map-native anchored red pin layer');
 assert(globeCode.includes("'icon-anchor':'bottom'"),'Pins must anchor tips to map coordinates');
-assert(globeCode.includes("ctx.fillStyle='#d83b38'"),'All pins must be uniform red');
+assert(globeCode.includes("makePinImage('#d83b38')"),'Documented locations require red pins');
+assert(globeCode.includes("makePinImage('#387bc0')"),'Provisional direct-only places require blue pins');
+assert(globeCode.includes("makePinImage('#e6b331')"),'Separate speculative research leads require yellow pins');
+assert(globeCode.includes("status:eventsOf(p).some"),'Mixed established/provisional location classification missing');
+assert(globeCode.includes("type:'symbol',source:HYP_SOURCE"),'Research pins need native globe symbols');
+assert(globeCode.includes("data:researchFeatures()"),'Research source not loaded independently');
+assert(globeCode.includes("globeResearchToggle"),'Opt-in/out research-layer control missing');
+assert(globeCode.includes("selectResearch(lead"),'Research pin click handler missing');
+assert(globeCode.includes("Research lead · not a life-event pin"),'Research cards must not masquerade as life-event pins');
+assert(html.includes('atlas-globe-status-colors.css'),'Missing research color legend stylesheet');
+assert(html.includes('globeResearchToggle'),'Missing research-layer checkbox');
+assert(html.includes('pin-legend'),'Missing map legend');
+const leads=data.hypotheses||[];
+assert.equal(leads.length,3,'Exactly 3 deliberately separated origin hypotheses expected');
+assert.deepEqual([...leads.map(l=>l.id)].sort().join(','),'hypothesis_france_goulet,hypothesis_ireland_gooley,hypothesis_sweden_auren');
+for(const h of leads){
+ assert(Number.isFinite(h.lat)&&Math.abs(h.lat)<=90&&Number.isFinite(h.lng)&&Math.abs(h.lng)<=180);
+ assert(h.confidence&&h.qualification&&h.summary,'Research lead must state uncertainty');
+ assert(!Object.hasOwn(data.personMeta,h.id),'Research hypothesis must not be counted as a direct ancestor');
+ assert(!data.places.some(p=>p.events.some(e=>e.personId===h.id)),'Origin hypothesis must not appear as born/lived/died event');
+}
+const sweden=leads.find(l=>l.id==='hypothesis_sweden_auren');
+assert(sweden.name.includes('Karlstad, Värmland, Sweden'),'Sweden research lead must point to Karlstad');
+assert(Math.abs(sweden.lat-59.3809)<0.001&&Math.abs(sweden.lng-13.5028)<0.001,'Karlstad marker coordinates incorrect');
 assert(globeCode.includes("map.queryRenderedFeatures(e.point"),'Only rendered (front of globe) pins may be tapped');
 assert(globeCode.includes("setData(pinFeatures())"),'Filters must update native GeoJSON symbols');
 assert(!globeCode.includes("branchGradient"),'Pin color must not change by branch');
