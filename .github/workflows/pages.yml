@@ -24,6 +24,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Verify Richard Skinner source viewer and iPhone link contract
+        run: node tests/richard-skinner-source-viewer.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
