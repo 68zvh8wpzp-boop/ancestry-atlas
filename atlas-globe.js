@@ -56,10 +56,11 @@ if(!place)return;
 const list=eventsOf(place);
 if(!list.length){panel.hidden=true;return;}
 document.getElementById('placeTitle').textContent=place.name;
-document.getElementById('placeTypeLabel').textContent='The family geography';
+
 const users=new Set(list.map(e=>e.personId));
 const types=new Set(list.map(e=>e.type));
-document.getElementById('placeMeta').textContent=users.size+' '+(users.size===1?'person':'people')+' · '+[...types].map(t=>titles[t]).join(' / ')+(place.precision.includes('approximate')?' · Approximate position':'');
+document.getElementById('placeTypeLabel').textContent=place.representativePin?'Approximate country / region':'Family place';
+document.getElementById('placeMeta').textContent=users.size+' '+(users.size===1?'person':'people')+' · '+[...types].map(t=>titles[t]).join(' / ')+(place.representativePin?' · Representative regional pin — not a town':place.precision.includes('approximate')?' · Approximate position':'');
 peopleNode.replaceChildren();
 const groups=new Map();
 for(const item of list){if(!groups.has(item.personId))groups.set(item.personId,[]);groups.get(item.personId).push(item);}
@@ -72,6 +73,13 @@ const row=element('div','person-place-head');
 const label=element('strong');const dot=element('span','person-branch');dot.style.background=color(first.branch);label.append(dot,document.createTextNode(first.name));
 row.append(label,element('em','',branches.get(first.branch)?.name||'Family'));
 link.append(row);
+const personMeta=data.personMeta?.[first.personId];
+if(personMeta?.lineageStatus==='provisional'){
+ link.append(element('div','person-place-uncertain','Provisional ancestral connection'));
+}
+if(place.representativePin){
+ link.append(element('div','person-place-region','Regional position only · exact locality not identified'));
+}
 for(const item of items){
 const detail=element('div','person-place-desc');
 const name=element('span','event-name',titles[item.type]);detail.append(name,document.createTextNode(' · '+[item.when,item.qualifier].filter(Boolean).join(' · ')));
