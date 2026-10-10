@@ -17,6 +17,9 @@ const eventEnabled=new Set(['born','lived','died']);
 const titles={born:'Born',lived:'Lived',died:'Died'};
 // Native globe symbols clip at the horizon. Do not use overlay markers.
 const PIN_SOURCE='atlas-family-places',PIN_LAYER='atlas-red-place-pins',PIN_HIT_LAYER='atlas-red-pin-targets',PIN_IMAGE='atlas-red-pin';
+const PIN_BLUE='atlas-blue-provisional-pin',PIN_YELLOW='atlas-yellow-research-pin';
+const HYP_SOURCE='atlas-research-leads',HYP_LAYER='atlas-yellow-research-layer',HYP_HIT_LAYER='atlas-yellow-research-targets';
+let showResearch=true;
 let map=null;
 let chosen=null;
 function eventsOf(place){return place.events.filter(e=>branchEnabled.has(e.branch)&&eventEnabled.has(e.type));}
@@ -26,9 +29,23 @@ function normalized(value){return String(value||'').normalize('NFD').replace(/[\
 function color(branchId){return branches.get(branchId)?.color||'#dec5a1';}
 function element(tag,cls,text){const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=text;return el;}
 function pinFeatures(){
- return {type:'FeatureCollection',features:visiblePlaces().map(p=>({type:'Feature',properties:{id:p.id,name:p.name},geometry:{type:'Point',coordinates:[p.lng,p.lat]}}))};
+ return {type:'FeatureCollection',features:visiblePlaces().map(p=>({
+  type:'Feature',
+  properties:{id:p.id,name:p.name,kind:'ancestor',
+   status:eventsOf(p).some(e=>data.personMeta?.[e.personId]?.lineageStatus!=='provisional')?'established':'provisional'},
+  geometry:{type:'Point',coordinates:[p.lng,p.lat]}
+ }))};
 }
-function makePinImage(){
+function visibleResearch(){
+ return showResearch?(data.hypotheses||[]).filter(h=>branchEnabled.has(h.branch)):[];
+}
+function researchFeatures(){
+ return {type:'FeatureCollection',features:visibleResearch().map(h=>({
+  type:'Feature',properties:{id:h.id,name:h.name,kind:'research'},
+  geometry:{type:'Point',coordinates:[h.lng,h.lat]}
+ }))};
+}
+function makePinImage(fill){
  const canvas=document.createElement('canvas');canvas.width=44;canvas.height=64;
  const ctx=canvas.getContext('2d');if(!ctx)throw Error('Canvas pin image could not be generated');
  ctx.scale(2,2);
@@ -39,18 +56,43 @@ function makePinImage(){
  ctx.bezierCurveTo(2.5,6.2,6.3,2,11,2);
  ctx.bezierCurveTo(15.7,2,19.5,6.2,19.5,11.5);
  ctx.bezierCurveTo(19.5,18.8,13.3,25.2,11,30);
- ctx.closePath();ctx.fillStyle='#d83b38';ctx.strokeStyle='#fff6e9';ctx.lineWidth=1.2;ctx.fill();ctx.stroke();
+ ctx.closePath();ctx.fillStyle=fill;ctx.strokeStyle='#fff6e9';ctx.lineWidth=1.2;ctx.fill();ctx.stroke();
  ctx.shadowColor='transparent';ctx.shadowBlur=0;ctx.shadowOffsetY=0;
  ctx.beginPath();ctx.arc(11,11,3.35,0,Math.PI*2);ctx.fillStyle='#fff8ef';ctx.fill();
  return ctx.getImageData(0,0,canvas.width,canvas.height);
 }
 function closePanel(){chosen=null;panel.hidden=true;}
 function announceCounts(){
-const places=visiblePlaces();countNode.textContent=places.length+' places · '+uniquePeople(places)+' people';
-emptyNode.hidden=places.length>0;
+ const places=visiblePlaces(),research=visibleResearch();
+ countNode.textContent=places.length+' places · '+uniquePeople(places)+' people'+(research.length?' · '+research.length+' leads':'');
+ const rc=document.getElementById('researchCount');if(rc)rc.textContent='('+(data.hypotheses||[]).length+')';
+ emptyNode.hidden=places.length>0||research.length>0;
 }
 function renderPanel(){
 if(!chosen)return;
+const research=(data.hypotheses||[]).find(h=>h.id===chosen);
+if(research){
+ if(!visibleResearch().some(h=>h.id===research.id)){panel.hidden=true;return;}
+ document.getElementById('placeTitle').textContent=research.name;
+ document.getElementById('placeTypeLabel').textContent='Research lead · not a life-event pin';
+ document.getElementById('placeMeta').textContent=research.lead+' · Unproven origin';
+ peopleNode.replaceChildren();
+ const heading=element('div','research-lead-title',research.confidence);
+ const explanation=element('p','person-place-desc',research.summary);
+ const caution=element('p','person-place-region',research.qualification);
+ peopleNode.append(heading,explanation,caution);
+ if(research.relatedPersonId){
+  const link=element('a','person-place','View connected Atlas ancestor: '+research.relatedPersonLabel+' →');
+  link.href='./atlas-v3.9.36.html?atlas-person='+encodeURIComponent(research.relatedPersonId);
+  peopleNode.append(link);
+ }
+ if(research.sourceUrl){
+  const link=element('a','research-source','Research record: '+research.sourceLabel+' ↗');
+  link.href=research.sourceUrl;link.target='_blank';link.rel='noopener noreferrer';
+  peopleNode.append(link);
+ }
+ panel.hidden=false;return;
+}
 const place=data.places.find(p=>p.id===chosen);
 if(!place)return;
 const list=eventsOf(place);
@@ -97,8 +139,13 @@ const currentZoom=map.getZoom();
 map.flyTo({center:[place.lng,place.lat],zoom:Math.max(3.2,currentZoom),essential:true,speed:1.1});
 }
 }
+function selectResearch(lead,{fly=true}={}){
+ chosen=lead.id;renderPanel();
+ if(map&&fly)map.flyTo({center:[lead.lng,lead.lat],zoom:Math.max(3.4,map.getZoom()),essential:true,speed:1.1});
+}
 function updateMarkers(){
  if(map&&map.getSource(PIN_SOURCE))map.getSource(PIN_SOURCE).setData(pinFeatures());
+ if(map&&map.getSource(HYP_SOURCE))map.getSource(HYP_SOURCE).setData(researchFeatures());
  announceCounts();renderPanel();
 }
 const filterRoot=document.getElementById('globeBranchFilters');
@@ -126,20 +173,32 @@ updateMarkers();searchNow();
 eventRoot.append(button);
 }
 function searchNow(){
-matchesNode.replaceChildren();
-const query=normalized(search.value).trim();
-if(query.length<2)return;
-const matching=visiblePlaces().filter(p=>normalized(p.name).includes(query)||eventsOf(p).some(e=>normalized(e.name).includes(query))).slice(0,8);
-for(const p of matching){
-const button=element('button','search-item',p.name);button.type='button';
-const names=[...new Set(eventsOf(p).filter(e=>normalized(e.name).includes(query)).map(e=>e.name))].slice(0,2);
-if(names.length)button.append(element('small','',names.join(' · ')));
-button.addEventListener('click',()=>{selectPlace(p);search.value='';matchesNode.replaceChildren();search.blur();});
-matchesNode.append(button);
-}
-if(!matching.length)matchesNode.append(element('div','search-item','No matching family places'));
+ matchesNode.replaceChildren();
+ const query=normalized(search.value).trim();
+ if(query.length<2)return;
+ const matching=visiblePlaces().filter(p=>normalized(p.name).includes(query)||eventsOf(p).some(e=>normalized(e.name).includes(query))).slice(0,8);
+ for(const p of matching){
+  const button=element('button','search-item',p.name);button.type='button';
+  const names=[...new Set(eventsOf(p).filter(e=>normalized(e.name).includes(query)).map(e=>e.name))].slice(0,2);
+  if(names.length)button.append(element('small','',names.join(' · ')));
+  button.addEventListener('click',()=>{selectPlace(p);search.value='';matchesNode.replaceChildren();search.blur();});
+  matchesNode.append(button);
+ }
+ const room=Math.max(0,8-matching.length);
+ const possible=visibleResearch().filter(h=>normalized(h.name).includes(query)||normalized(h.lead).includes(query)||normalized(h.relatedPersonLabel).includes(query)).slice(0,room);
+ for(const h of possible){
+  const button=element('button','search-item',h.name);
+  button.type='button';button.append(element('small','','Research lead · '+h.lead));
+  button.addEventListener('click',()=>{selectResearch(h);search.value='';matchesNode.replaceChildren();search.blur();});
+  matchesNode.append(button);
+ }
+ if(!matching.length&&!possible.length)matchesNode.append(element('div','search-item','No matching family places or research leads'));
 }
 search.addEventListener('input',searchNow);
+const researchToggle=document.getElementById('globeResearchToggle');
+if(researchToggle){showResearch=researchToggle.checked;researchToggle.addEventListener('change',()=>{
+ showResearch=researchToggle.checked;updateMarkers();searchNow();
+});}
 document.getElementById('closePlacePanel').addEventListener('click',closePanel);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden)document.getElementById('closePlacePanel').click();});
 const home=()=>{if(map)map.flyTo({center:[-42,40],zoom:1.05,pitch:0,bearing:0,essential:true,duration:1400});};
@@ -160,12 +219,22 @@ center:[-42,40],zoom:1.05,minZoom:0.5,maxZoom:15,pitch:0,maxPitch:45,antialias:t
 map.on('style.load',()=>{map.setProjection({type:'globe'});});
 map.addControl(new maplibregl.NavigationControl({showCompass:true,showZoom:true}),'top-right');
 map.on('load',()=>{
- map.addImage(PIN_IMAGE,makePinImage(),{pixelRatio:2});
+ map.addImage(PIN_IMAGE,makePinImage('#d83b38'),{pixelRatio:2});
+ map.addImage(PIN_BLUE,makePinImage('#387bc0'),{pixelRatio:2});
+ map.addImage(PIN_YELLOW,makePinImage('#e6b331'),{pixelRatio:2});
  map.addSource(PIN_SOURCE,{type:'geojson',data:pinFeatures()});
- // 15px invisible hit areas improve taps without visible oversized dots.
+ map.addSource(HYP_SOURCE,{type:'geojson',data:researchFeatures()});
+ // Map-native hit targets remain invisible on the globe and aid iPhone taps.
  map.addLayer({id:PIN_HIT_LAYER,type:'circle',source:PIN_SOURCE,paint:{'circle-radius':15,'circle-color':'#d83b38','circle-opacity':0}});
+ map.addLayer({id:HYP_HIT_LAYER,type:'circle',source:HYP_SOURCE,paint:{'circle-radius':15,'circle-color':'#e6b331','circle-opacity':0}});
  map.addLayer({id:PIN_LAYER,type:'symbol',source:PIN_SOURCE,layout:{
-  'icon-image':PIN_IMAGE,'icon-anchor':'bottom',
+  'icon-image':['match',['get','status'],'provisional',PIN_BLUE,PIN_IMAGE],
+  'icon-anchor':'bottom',
+  'icon-size':['interpolate',['linear'],['zoom'],0,0.7,2,0.82,5,1],
+  'icon-allow-overlap':true,'icon-ignore-placement':true
+ }});
+ map.addLayer({id:HYP_LAYER,type:'symbol',source:HYP_SOURCE,layout:{
+  'icon-image':PIN_YELLOW,'icon-anchor':'bottom',
   'icon-size':['interpolate',['linear'],['zoom'],0,0.7,2,0.82,5,1],
   'icon-allow-overlap':true,'icon-ignore-placement':true
  }});
@@ -174,14 +243,20 @@ map.on('load',()=>{
  if(id){const p=data.places.find(p=>p.events.some(e=>e.personId===id));if(p)selectPlace(p);}
 });
 map.on('click',e=>{
- const hits=map.queryRenderedFeatures(e.point,{layers:[PIN_HIT_LAYER]});
- const id=hits[0]?.properties?.id;
+ const hits=map.queryRenderedFeatures(e.point,{layers:[HYP_HIT_LAYER,PIN_HIT_LAYER]});
+ const id=hits[0]?.properties?.id,kind=hits[0]?.properties?.kind;
+ if(kind==='research'){
+  const lead=(data.hypotheses||[]).find(h=>h.id===id);
+  if(lead){selectResearch(lead,{fly:false});return;}
+ }
  const p=id&&data.places.find(place=>place.id===id);
  if(p){selectPlace(p,{fly:false});return;}
  if(!panel.hidden)closePanel();
 });
 map.on('mouseenter',PIN_HIT_LAYER,()=>{map.getCanvas().style.cursor='pointer';});
 map.on('mouseleave',PIN_HIT_LAYER,()=>{map.getCanvas().style.cursor='';});
+map.on('mouseenter',HYP_HIT_LAYER,()=>{map.getCanvas().style.cursor='pointer';});
+map.on('mouseleave',HYP_HIT_LAYER,()=>{map.getCanvas().style.cursor='';});
 map.on('error',e=>{if(status&&!status.hidden)status.textContent='Map tiles are loading slowly. Check your network if the globe remains blank.';console.warn('Atlas globe tile or renderer issue',e?.error||e);});
 
 }catch(error){status.textContent='The 3D globe could not start on this device. '+String(error.message||error);console.error('Family geography globe initialization',error);}
