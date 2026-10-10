@@ -40,11 +40,20 @@ assert.equal(mapped.size,73,'Missing ancestor from the globe');
 for(const id of allowedPeople)assert(mapped.has(id),'Missing direct ancestor '+id);
 for(const id of mapped)assert(allowedPeople.has(id),'Non-direct or collateral family leaked into globe: '+id);
 assert.equal(data.unplacedAncestors.length,0,'Unlocated ancestors should use labeled representative regions');
+assert.equal(data.places.length,62,'Expected province-level Quebec location added without an invented town');
+assert.equal(triples.size,167,'Expected two strictly typed Quebec reported events');
+const qc=data.places.find(p=>p.id==='region_quebec');
+assert(qc?.representativePin&&qc.locationStatus==='provisional','Quebec must remain a blue, explicitly approximate provincial pin');
+assert(qc.lat===45.5017&&qc.lng===-73.5673,'Quebec needs representative Montreal population-center coordinates');
+assert.equal(qc.events.map(e=>e.personId+'/'+e.type).sort().join(','),'john_peter/born,mary_ann/lived');
+assert(qc.events.every(e=>e.placeEvidenceStatus.includes('pending original')),'Quebec associations must not imply original record verification');
+assert(qc.events.some(e=>e.personId==='mary_ann'&&e.qualifier.includes('Ontario')),'Mary Ann reported Ontario birth must be preserved');
+assert(globeCode.includes("p.locationStatus==='provisional'"),'Quebec reported location must display blue despite supported lineage');
 for(const id of ['peter_gooley','wilhelm_brunne','johanne_weller','elizabeth_douglas','gideon_webb','edith_bates','anna_bassett','john_webb_1615','john_webb_1640','susanna_cunliffe']){
  assert(mapped.has(id),'Missing provisional direct-line candidate '+id);
 }
 const regionalPins=data.places.filter(p=>p.representativePin);
-assert.equal(regionalPins.length,6,'Representative regional pin set unexpectedly changed');
+assert.equal(regionalPins.length,7,'Representative regional pin set unexpectedly changed');
 for(const p of regionalPins){
  assert(p.name&&!/(?:invented|fictional)/i.test(p.name));
  assert(p.precision.includes('approximate'));
@@ -70,7 +79,7 @@ assert(globeCode.includes("'icon-anchor':'bottom'"),'Pins must anchor tips to ma
 assert(globeCode.includes("makePinImage('#d83b38')"),'Documented locations require red pins');
 assert(globeCode.includes("makePinImage('#387bc0')"),'Provisional direct-only places require blue pins');
 assert(globeCode.includes("makePinImage('#e6b331')"),'Separate speculative research leads require yellow pins');
-assert(globeCode.includes("status:eventsOf(p).some"),'Mixed established/provisional location classification missing');
+assert(globeCode.includes("status:p.locationStatus==='provisional'"),'Mixed established/provisional location classification missing');
 assert(globeCode.includes("type:'symbol',source:HYP_SOURCE"),'Research pins need native globe symbols');
 assert(globeCode.includes("data:researchFeatures()"),'Research source not loaded independently');
 assert(globeCode.includes("globeResearchToggle"),'Opt-in/out research-layer control missing');
