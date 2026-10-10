@@ -76,3 +76,25 @@ The 1918 Eastern Avenue house-directory references **Arthur J. Auren** and **Alr
 These are plausible members of the *later Karl Johan/Carolina Hult Worcester family* because their birth years follow the compiled **1883** marriage, but **birth years and same address do not prove parentage, mother, or that they were the same family**. The list itself is a modern aggregation, not an examined original death certificate. Confirm via 1900/1910 census family groups and birth/marriage records.
 
 **Priority decision preserved:** Michigan **1879 Jessie birth / 1880 Jonas household originals** come first; Massachusetts is a useful discriminator, not a license to turn Jessie’s father into Karl Johan Aurén.
+
+## 10 October — potential Kelley → Aurin → McConnell blended-family sequence
+
+A useful *newly retrieved secondary genealogy lead* is the [PeopleLegacy memorial compilation for Simon “Sim” Aurin](https://peoplelegacy.com/simon_sim_aurin-6Z7y6S), described there as born **29 November 1881**, died **15 March 1953** and buried at Elbridge Township Cemetery. Its associated relatives for mother **Amelia Lucinda Cotton McConnell** include:
+
+- **George W. Kelley** (1871–1923).
+- **Ivah Lenoria Kelley Vanbrocklin** (1875–1904).
+- **Frances I. Kelley Miller** (1877–1951).
+- **Jessie Aurin Skinner** (the site incorrectly says born **1897**, contrary to her **1879** primary birth index).
+- **Simon “Sim” Aurin** (1881–1953).
+- **Earl Rolland McConnell** (1893–1975).
+
+This clustering offers a testable **possible succession of Kelley / Aurin / McConnell relationships for Amelia**. Crucially, it supplies a new independent spelling clue for the girls Iva and Frances listed as Aurin household members in the prior 1880 index transcription: they may have been born **Kelley**, sharing a mother with Jessie and Simon. The compilation itself does **not** prove any of those maternal links, the order or validity of marriages, or biological fathers. Its *Jessie born 1897* error is direct evidence of low reliability, so **do not import these relationships or dates into published genealogy** without primary records.
+
+**Next verification:** 1870s Amelia Kelley household/marriage; 1875 Ivah and 1877 Frances birth returns; 1879 Jessie birth; 1880 household to see whether the enumerator assigned girls the surname Aurin as stepchildren; 1881 Simon original birth with mother’s maiden name; 1893 Earl McConnell birth and Amelia’s later marriage. A reliable Amelia marriage series would settle whether there was even a first relationship with a Kelley and whether the later Aurén/Hult 1883 claim can be the same father.
+
+Citations:
+- [Simon Aurin compiled memorial and relatives](https://peoplelegacy.com/simon_sim_aurin-6Z7y6S).
+- [Oceana County clerk's official historic birth-record request page](https://oceana.mi.us/departments/county-clerk/birth-certificates/), first certified birth record **$15**, extra **$6**; county says mailed requests are processed in **1–2 business days** *after receipt*, not guaranteed delivery time. Requester ID and fee required; no request submitted.
+- [Michigan County Births 1867–1917](https://www.familysearch.org/en/search/collection/1923472), additional county originals whose coverage varies by county; 1879 recording is not comprehensive.
+
+**Result this session:** no independently confirmed handwriting from Jessie’s 1879 birth register, 1880 Elbridge original census, or the reported 1883 Karl Johan/Karolina marriage. Do not say the parental identity is resolved.
