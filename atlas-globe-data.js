@@ -1,7 +1,7 @@
-/* Globe source: direct ancestors, including provisional and approved supplemental parent not yet graphed. */
+/* Ancestry Atlas Family Geography. Direct ancestors incl provisional, region-level fallback when city unknown. */
 window.ANCESTRY_GLOBE_DATA = {
-  "version": "2026-10-10-globe-7-reconcile-prather",
-  "sourcesNote": "All pins and listings restricted to the canonical Atlas's direct-ancestor parent chain, including provisional relationships (clearly labeled). Unmapped direct ancestors listed separately when no city born/lived/died is grounded. Collateral people and frontier/rejected candidates excluded. Uncertain historic map positions/dates labeled. Based on graph and selected archival/compiled evidence, not a completed 101-person record audit. Thomas Estil Prather explicitly restored from approved biography because the main tree lacks his Inez-to-father graph edge; graph repair separately needed.",
+  "version": "2026-10-10-globe-8-regional-fallbacks",
+  "sourcesNote": "Only direct ancestors, including provisional links (explicitly labeled), are included. If no reliable city is known, the named country/province/region is pinned at a representative coordinate and clearly flagged as approximate; the marker is NOT evidence of a specific birthtown or home. Research-attribution of region may itself be provisional. Collateral and rejected candidates excluded.",
   "branches": [
     {
       "id": "webb",
@@ -1842,6 +1842,270 @@ window.ANCESTRY_GLOBE_DATA = {
           "evidence": "Ancestry user-built genealogy: https://www.ancestry.com/genealogy/records/asenath-elizabeth-browning-24-21bjf1x"
         }
       ]
+    },
+    {
+      "id": "region_moen",
+      "name": "Møn, Denmark",
+      "lng": 12.305,
+      "lat": 54.972,
+      "precision": "regional approximate",
+      "representativePin": true,
+      "regionNote": "Map pin is a representative point for this named region, not an ancestral street address or town.",
+      "events": [
+        {
+          "personId": "avens_mortens",
+          "name": "Avens / Avendtz Mortensdatter",
+          "branch": "denmark",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Known only as Møn or a nearby parish in current Atlas; exact residence not yet verified",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "supported"
+        },
+        {
+          "personId": "malene_mortens",
+          "name": "Malene Christiane Mortensdatter",
+          "branch": "denmark",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Known only as Møn or a nearby parish in current Atlas; exact residence not yet verified",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "supported"
+        },
+        {
+          "personId": "margrethe_anders",
+          "name": "Margrethe Andersdatter",
+          "branch": "denmark",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Known only as Møn or a nearby parish in current Atlas; exact residence not yet verified",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "supported"
+        },
+        {
+          "personId": "margrethe_lars",
+          "name": "Margrethe Lauridsdatter",
+          "branch": "denmark",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Known only as Møn or a nearby parish in current Atlas; exact residence not yet verified",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "supported"
+        },
+        {
+          "personId": "morten_nielsen",
+          "name": "Morten Nielsen",
+          "branch": "denmark",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Known only as Møn or a nearby parish in current Atlas; exact residence not yet verified",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "supported"
+        },
+        {
+          "personId": "niels_pedersen",
+          "name": "Niels Pedersen",
+          "branch": "denmark",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Known only as Møn or a nearby parish in current Atlas; exact residence not yet verified",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "supported"
+        },
+        {
+          "personId": "niels_seye",
+          "name": "Niels Seye",
+          "branch": "denmark",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Known only as Møn or a nearby parish in current Atlas; exact residence not yet verified",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "supported"
+        },
+        {
+          "personId": "oluf_hemmingsen",
+          "name": "Oluf Hemmingsen Seye",
+          "branch": "denmark",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Known only as Møn or a nearby parish in current Atlas; exact residence not yet verified",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "supported"
+        }
+      ]
+    },
+    {
+      "id": "region_connecticut",
+      "name": "Connecticut, United States",
+      "lng": -72.7,
+      "lat": 41.6,
+      "precision": "state approximate",
+      "representativePin": true,
+      "regionNote": "Map pin is a representative point for this named region, not an ancestral street address or town.",
+      "events": [
+        {
+          "personId": "elizabeth_douglas",
+          "name": "Elizabeth Douglas",
+          "branch": "webb",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Connecticut is the working geographic attribution; town and residence evidence still unresolved",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "provisional"
+        },
+        {
+          "personId": "james_webb_sr",
+          "name": "James Webb (often styled James Henry Webb)",
+          "branch": "webb",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Connecticut is the working geographic attribution; town and residence evidence still unresolved",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "supported"
+        }
+      ]
+    },
+    {
+      "id": "region_new_england",
+      "name": "New England, United States",
+      "lng": -71.7,
+      "lat": 43.04,
+      "precision": "regional approximate",
+      "representativePin": true,
+      "regionNote": "Map pin is a representative point for this named region, not an ancestral street address or town.",
+      "events": [
+        {
+          "personId": "anna_bassett",
+          "name": "Anna Bassett",
+          "branch": "webb",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Traditional New England placement only; individual locality and pedigree are not established",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "provisional"
+        },
+        {
+          "personId": "john_webb_1640",
+          "name": "John Webb",
+          "branch": "webb",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Traditional New England placement only; individual locality and pedigree are not established",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "provisional"
+        },
+        {
+          "personId": "susanna_cunliffe",
+          "name": "Susannah Cunliffe",
+          "branch": "webb",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Traditional New England placement only; individual locality and pedigree are not established",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "provisional"
+        },
+        {
+          "personId": "john_webb_1615",
+          "name": "John Webb",
+          "branch": "webb",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Traditional New England placement only; individual locality and pedigree are not established",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "provisional"
+        }
+      ]
+    },
+    {
+      "id": "region_germany",
+      "name": "Germany",
+      "lng": 10.45,
+      "lat": 51.2,
+      "precision": "country approximate",
+      "representativePin": true,
+      "regionNote": "Map pin is a representative point for this named region, not an ancestral street address or town.",
+      "events": [
+        {
+          "personId": "johanne_weller",
+          "name": "Johanne Dorothea Weller",
+          "branch": "canada",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Country-level family attribution only; parental relationship and German hometown remain provisional",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "provisional"
+        },
+        {
+          "personId": "wilhelm_brunne",
+          "name": "Wilhelm Karl Charles Brunne",
+          "branch": "canada",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Country-level family attribution only; parental relationship and German hometown remain provisional",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "provisional"
+        }
+      ]
+    },
+    {
+      "id": "region_great_lakes",
+      "name": "Canada (Great Lakes region, uncertain)",
+      "lng": -82.5,
+      "lat": 45.78,
+      "precision": "regional approximate",
+      "representativePin": true,
+      "regionNote": "Map pin is a representative point for this named region, not an ancestral street address or town.",
+      "events": [
+        {
+          "personId": "peter_gooley",
+          "name": "Peter Gooley",
+          "branch": "canada",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "Only a reported Canada/Great Lakes association; country, locality, identity and ancestral link are unresolved",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "provisional"
+        }
+      ]
+    },
+    {
+      "id": "region_england",
+      "name": "England",
+      "lng": -1.5,
+      "lat": 52.5,
+      "precision": "country approximate",
+      "representativePin": true,
+      "regionNote": "Map pin is a representative point for this named region, not an ancestral street address or town.",
+      "events": [
+        {
+          "personId": "john_webb_1615",
+          "name": "John Webb",
+          "branch": "webb",
+          "type": "born",
+          "when": "Date not established",
+          "qualifier": "Traditional attribution of English origin, not an original birth registration; lineage is provisional",
+          "evidence": "Current Atlas person-page place attribution and working ancestral connection; original parish/civil residence or birth records not yet inspected",
+          "locationPrecision": "country/region only",
+          "relationshipConfidence": "provisional"
+        }
+      ]
     }
   ],
   "personMeta": {
@@ -2430,178 +2694,7 @@ window.ANCESTRY_GLOBE_DATA = {
       "source": "Approved Inez/Thomas Prather original memoir biography; thomas-mobile-memoir.js"
     }
   },
-  "unplacedAncestors": [
-    {
-      "personId": "anna_bassett",
-      "name": "Anna Bassett",
-      "branch": "webb",
-      "confidence": "provisional",
-      "lineageStatus": "provisional",
-      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "avens_mortens",
-      "name": "Avens / Avendtz Mortensdatter",
-      "branch": "denmark",
-      "confidence": "strong",
-      "lineageStatus": "supported",
-      "relationshipNote": "Connected on the current working direct-ancestor line",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "elizabeth_douglas",
-      "name": "Elizabeth Douglas",
-      "branch": "webb",
-      "confidence": "provisional",
-      "lineageStatus": "provisional",
-      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "james_webb_sr",
-      "name": "James Webb (often styled James Henry Webb)",
-      "branch": "webb",
-      "confidence": "strong",
-      "lineageStatus": "supported",
-      "relationshipNote": "Connected on the current working direct-ancestor line",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "johanne_weller",
-      "name": "Johanne Dorothea Weller",
-      "branch": "canada",
-      "confidence": "provisional",
-      "lineageStatus": "provisional",
-      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "john_webb_1640",
-      "name": "John Webb",
-      "branch": "webb",
-      "confidence": "provisional",
-      "lineageStatus": "provisional",
-      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "john_webb_1615",
-      "name": "John Webb",
-      "branch": "webb",
-      "confidence": "provisional",
-      "lineageStatus": "provisional",
-      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "malene_mortens",
-      "name": "Malene Christiane Mortensdatter",
-      "branch": "denmark",
-      "confidence": "strong",
-      "lineageStatus": "supported",
-      "relationshipNote": "Connected on the current working direct-ancestor line",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "margrethe_anders",
-      "name": "Margrethe Andersdatter",
-      "branch": "denmark",
-      "confidence": "strong",
-      "lineageStatus": "supported",
-      "relationshipNote": "Connected on the current working direct-ancestor line",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "margrethe_lars",
-      "name": "Margrethe Lauridsdatter",
-      "branch": "denmark",
-      "confidence": "strong",
-      "lineageStatus": "supported",
-      "relationshipNote": "Connected on the current working direct-ancestor line",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "morten_nielsen",
-      "name": "Morten Nielsen",
-      "branch": "denmark",
-      "confidence": "strong",
-      "lineageStatus": "supported",
-      "relationshipNote": "Connected on the current working direct-ancestor line",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "niels_pedersen",
-      "name": "Niels Pedersen",
-      "branch": "denmark",
-      "confidence": "strong",
-      "lineageStatus": "supported",
-      "relationshipNote": "Connected on the current working direct-ancestor line",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "niels_seye",
-      "name": "Niels Seye",
-      "branch": "denmark",
-      "confidence": "strong",
-      "lineageStatus": "supported",
-      "relationshipNote": "Connected on the current working direct-ancestor line",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "oluf_hemmingsen",
-      "name": "Oluf Hemmingsen Seye",
-      "branch": "denmark",
-      "confidence": "strong",
-      "lineageStatus": "supported",
-      "relationshipNote": "Connected on the current working direct-ancestor line",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "peter_gooley",
-      "name": "Peter Gooley",
-      "branch": "canada",
-      "confidence": "provisional",
-      "lineageStatus": "provisional",
-      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "susanna_cunliffe",
-      "name": "Susannah Cunliffe",
-      "branch": "webb",
-      "confidence": "provisional",
-      "lineageStatus": "provisional",
-      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    },
-    {
-      "personId": "wilhelm_brunne",
-      "name": "Wilhelm Karl Charles Brunne",
-      "branch": "canada",
-      "confidence": "provisional",
-      "lineageStatus": "provisional",
-      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
-      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
-      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
-    }
-  ],
+  "unplacedAncestors": [],
   "directAncestorCount": 73,
   "supplementalDirectAncestors": [
     "thomas_prather"
