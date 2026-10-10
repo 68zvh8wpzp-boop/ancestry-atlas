@@ -65,3 +65,14 @@ Together with the [1918 real-estate list at 155 Eastern Avenue](https://ldsgenea
 The directory page says its online text was machine-generated and may contain errors: **underlying facsimile not yet checked**. Same address is not proof of parent-child relations, co-ownership may differ from actual residence, and **this cluster is not proof that Charles J. Aurin is the 1880 Michigan father Jonas or the 1879 John Auene**.
 
 **New follow-up:** Identify **Arthur J. Auren**, **Alrik G. Auren**, and **Gustaf Hult** independently in 1910/1920 Worcester census and Swedish-American records; then compare their kinship and Karl Johan/Charles J. age with Jessie's Michigan 1880 original. Preserve this as an identity-discrimination route, not a genealogical line extension.
+
+## Corroborated Worcester adult name cluster — Arthur and Alrik
+
+The 1918 Eastern Avenue house-directory references **Arthur J. Auren** and **Alrik G. Auren** alongside **Charles J. Auren** and several Hult household names. A separate public compilation of U.S. death-index information, [Locate Ancestors: Auren](https://www.locateancestors.com/auren/), lists:
+- **Arthur Auren**, reportedly born **19 November 1884**, died **July 1965**.
+- **Alrik Auren**, reportedly born **21 January 1888**, died **June 1963**.
+- **Philip Auren**, reportedly born **22 March 1886**, died **November 1968**, with later Worcester County/Massachusetts residence.
+
+These are plausible members of the *later Karl Johan/Carolina Hult Worcester family* because their birth years follow the compiled **1883** marriage, but **birth years and same address do not prove parentage, mother, or that they were the same family**. The list itself is a modern aggregation, not an examined original death certificate. Confirm via 1900/1910 census family groups and birth/marriage records.
+
+**Priority decision preserved:** Michigan **1879 Jessie birth / 1880 Jonas household originals** come first; Massachusetts is a useful discriminator, not a license to turn Jessie’s father into Karl Johan Aurén.
