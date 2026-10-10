@@ -174,3 +174,13 @@ Official [Mason County District Library genealogy page](https://www.masoncounty.
 Independent surname+location index searches for widow Betsey Ann (Brockway) Cotton in Leavitt/Elbridge, Oceana County, **1870 federal census** (NARA M593 roll696) did **not** yield a defensible person-specific page, enumeration district, or household ID in publicly accessible results. This is a *search/index access limit*, not proof of residence elsewhere; do not fabricate her household or label the 1870 census 'checked negative'. Retry by identifying one of known younger children Almon/Almon Cotton, Jay Nelson/J. N. Cotton, Hattie Cornelia or Amelia born New York and testing place variants, then inspect full original. The 1886 history already documents Betsey's later marriage to Samuel Rackleff in 1872, but no marriage return independently inspected.
 
 **One-person audit decision:** Hattie 1920 county-register *transcription* materially strengthens the mother Betsey Brockway link but raises father-middle-initial conflict; Amelia's own 1919 certified identity remains unverified. The Amelia biography remains a research draft; already approved Jessie/Richard pages are untouched. 
+
+
+## 10 October 2026 — user confirms two Mason County inquiries SENT
+
+**User explicitly stated:** “OK, I sent both of those.” This applies to the two prepared October 10 Gmail drafts:
+
+1. Mason County District Library, obituary/death-notice request for Amelia Lucinda Cotton Aurin McConnell, February 10–18, 1919, [original draft/thread](https://mail.google.com/mail/u/?authuser=jeremybbew1%40gmail.com#all/1a1270d8658b55b8): **SENT BY USER**.
+2. Mason County Clerk, preliminary lookup for Amelia's February 1919 death registration under McConnell/Aurin/Cotton, [original draft/thread](https://mail.google.com/mail/u/?authuser=jeremybbew1%40gmail.com#all/1a1270d95b535e7e): **SENT BY USER**.
+
+This supersedes the earlier **DRAFTED, NOT SENT** statuses above. Neither office's receipt, a reply, original death location, death date, any fee/payment, or certificate issuance has yet been established. Do not create duplicate outgoing inquiries. Proceed with independent records while awaiting any response.
