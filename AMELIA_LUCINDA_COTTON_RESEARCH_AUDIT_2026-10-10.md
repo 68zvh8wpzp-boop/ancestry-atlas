@@ -69,7 +69,7 @@ The 1886 writer independently reports **Amelia Lucinda Cotton = a woman married 
 
 ### Verification still needed
 
-1. Inspect and retain *facsimile image* of printed **p.714 (addendum to p.369)** and p.369, plus p.372 (Nathaniel), preserving transcription and precise citation. Avoid treating Internet Archive OCR text as an archival scan.
+1. Inspect and retain *facsimile image* of printed **p.714 (addendum to p.369)** and p.369, plus p. 322 (Nathaniel's profile; OCR pagination needs scan check), preserving transcription and precise citation. Avoid treating Internet Archive OCR text as an archival scan.
 2. Confirm John W. Cotton / Betsey Brockway family with 1850–1870 censuses, John's 1870 death/estate, and Betsey's 1872 Rackleff marriage.
 3. Trace Amelia's 1879 birth-register/1880 household and later 1919 death; clarify whether Daniel Kelley relates to **Hattie alone** or additional relationships.
 4. Confirm revolutionary Nathaniel Montague's 1781 roll or pension if this branch is proved; no historical honors or military image are to be placed on an approved card based solely on a family genealogy.
