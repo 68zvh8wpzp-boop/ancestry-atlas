@@ -1,7 +1,7 @@
-/* Atlas globe geography: direct ancestors including provisional connections. */
+/* Globe source: direct ancestors, including provisional and approved supplemental parent not yet graphed. */
 window.ANCESTRY_GLOBE_DATA = {
-  "version": "2026-10-10-globe-6-provisional-direct",
-  "sourcesNote": "All pins and listings restricted to the canonical Atlas's direct-ancestor parent chain, including provisional relationships (clearly labeled). Unmapped direct ancestors listed separately when no city born/lived/died is grounded. Collateral people and frontier/rejected candidates excluded. Uncertain historic map positions/dates labeled. Based on graph and selected archival/compiled evidence, not a completed 101-person record audit.",
+  "version": "2026-10-10-globe-7-reconcile-prather",
+  "sourcesNote": "All pins and listings restricted to the canonical Atlas's direct-ancestor parent chain, including provisional relationships (clearly labeled). Unmapped direct ancestors listed separately when no city born/lived/died is grounded. Collateral people and frontier/rejected candidates excluded. Uncertain historic map positions/dates labeled. Based on graph and selected archival/compiled evidence, not a completed 101-person record audit. Thomas Estil Prather explicitly restored from approved biography because the main tree lacks his Inez-to-father graph edge; graph repair separately needed.",
   "branches": [
     {
       "id": "webb",
@@ -364,6 +364,24 @@ window.ANCESTRY_GLOBE_DATA = {
           "when": "1946–1963; 1976–1990",
           "qualifier": "",
           "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        },
+        {
+          "personId": "thomas_prather",
+          "name": "Thomas Estil Prather",
+          "branch": "hill",
+          "type": "lived",
+          "when": "1939–1950",
+          "qualifier": "Lakeside household; Inez family memoir",
+          "evidence": "Approved Thomas/Inez family memoir and thomas-mobile-memoir.js"
+        },
+        {
+          "personId": "thomas_prather",
+          "name": "Thomas Estil Prather",
+          "branch": "hill",
+          "type": "died",
+          "when": "1950",
+          "qualifier": "Lakeside, Arizona; mother/daughter firsthand family history",
+          "evidence": "Approved Thomas/Inez family memoir and thomas-mobile-memoir.js"
         }
       ]
     },
@@ -1615,6 +1633,15 @@ window.ANCESTRY_GLOBE_DATA = {
           "when": "1930s",
           "qualifier": "Apartment hotel period",
           "evidence": "Atlas original/approved memoir research; review linked person page for the source"
+        },
+        {
+          "personId": "thomas_prather",
+          "name": "Thomas Estil Prather",
+          "branch": "hill",
+          "type": "lived",
+          "when": "winters before 1939",
+          "qualifier": "Seasonal residence reported in family memoir",
+          "evidence": "Approved thomas-mobile-memoir.js"
         }
       ]
     },
@@ -2393,6 +2420,14 @@ window.ANCESTRY_GLOBE_DATA = {
       "lineageStatus": "supported",
       "relationshipNote": "Connected on the current working direct-ancestor line",
       "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "thomas_prather": {
+      "name": "Thomas Estil Prather",
+      "branch": "hill",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Direct ancestor: father of Inez Karen Prather, established in her approved memoir; canonical parent edge missing from graph and queued for repair.",
+      "source": "Approved Inez/Thomas Prather original memoir biography; thomas-mobile-memoir.js"
     }
   },
   "unplacedAncestors": [
@@ -2567,5 +2602,8 @@ window.ANCESTRY_GLOBE_DATA = {
       "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
     }
   ],
-  "directAncestorCount": 72
+  "directAncestorCount": 73,
+  "supplementalDirectAncestors": [
+    "thomas_prather"
+  ]
 };
