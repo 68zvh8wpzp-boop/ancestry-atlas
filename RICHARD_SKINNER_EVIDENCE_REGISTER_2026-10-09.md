@@ -1,42 +1,37 @@
-# Richard Francis Skinner — evidence register and publication checkpoint (9 October 2026)
+# Richard Francis Skinner — evidence checkpoint, 9 October 2026
 
-**Canonical person ID:** `richard_francis_skinner`  
-**Branch:** Canada / Brenay / Skinner; direct ancestor  
-**Prior published baseline:** `eb197d6172651f1a67c230bc7b243076c12a9c00`  
-**Scope:** Reconcile evidence recovered in the immediately preceding research session without promoting unverified parentage or making an absent scan look like an original.
+**Canonical profile:** `richard_francis_skinner`; FamilySearch LRV3-L3W. **Direct ancestor** through Marian Beulah Skinner. Original published bio in `richard-skinner-mobile-biography.js`; keep its existing approved wording and genealogy confidence.
 
-## Evidence summary
+## Original source evidence — captured and read
 
-| Claim | Evidence examined in preceding research | Assessment | Publication status |
-| --- | --- | --- | --- |
-| Richard married Ellen M. Hay on 17 September 1882 in Newfield, Oceana County, Michigan | Michigan marriage return, ages 19 and 17; Richard a farmer; both Michigan-born | Primary register details recorded during prior examination; Ellen identified as Richard's first wife | Record citation published in person page; original image NOT stored in repository |
-| Their son Marcie Leo was recorded as born on 20 January 1894 at Torch Lake, Antrim County, Michigan | Two-page Michigan birth return, male child of Richard F. and Ellen Skinner; father laborer; Michigan-born parents | Original handwritten place reads *Torch Lake*; indexed *Larch Lake* is a transcription error. Memorial gives **21 January** rather than 20 January; retain date discrepancy | Record citation published; both scan pages NOT stored |
-| Jessie Irene Aurin and Richard married on 5 November 1899 in Elbridge Township, Oceana County, Michigan | Marriage return, license 3 November, Richard 36, Jessie 20; Richard declared one earlier marriage | Strengthens identification of Jessie as his **second** wife; names father John Skinner and mother Marian Lewis but does not distinguish which John Skinner | Record citation published; original image NOT stored |
-| The 1900 Leavitt Township census includes Richard, Jessie, Millie Irene and Marcie Leo | 1900 U.S. census, Oceana County, Michigan | Corroborates blended family household after second marriage | Record citation published; original image NOT stored |
-| Richard died 17 November 1933, in South Branch Township, Crawford County, Michigan | Prior genealogy notes; original death certificate image not yet recovered | Death and parent identity require original certificate re-check | Research open; not published as a source image |
+| Claim | Original manuscript identification | Proof qualification |
+| --- | --- | --- |
+| Richard F. Skinner and Ellen M. Hay married **17 September 1882**, Newfield, Michigan | Oceana County marriage return, p. 40, record 51, image 515/647, ARK [S3HY-6QPS-F3X](https://www.familysearch.org/ark:/61903/3:1:S3HY-6QPS-F3X). Individual index N3N4-76B. | Richard 19, Ellen 17, both Michigan-born; T. C. Landon, Justice; registered Sept. 20. No parents named here. |
+| Male child written **Marcia Skinner**, later known as Marcie Leo Skinner, born **20 January 1894**, Torch Lake, Antrim County | Birth return p. 119, record 185, DGS004207150, [child page](https://www.familysearch.org/ark:/61903/3:1:S3HT-64JS-Z78) and [parents page](https://www.familysearch.org/ark:/61903/3:1:S3HT-64JS-J9Y). | Parents Richard F. and Ellen Skinner; both Michigan-born; father laborer; register records June 10, 1895. Index “Larch Lake” is erroneous. Later memorial gives **Jan 21**, 1900 census gives **Jan 1893**: retain all conflicting observations separately. |
+| Richard, Jessie, Millie and Marcie shared a household June **1900** | [Original census sheet](https://www.familysearch.org/ark:/61903/3:1:S3HY-6FHS-N4K), DGS004120248, image262/391, Oceana County Leavitt Township ED110 sheet7A, household133 lines10–13, enumerated June9. | Richard head, farmer, November1862 age37, Michigan-born father Canada (Eng), mother Michigan; Jessie wife September1879 age20; Millie daughter November1889 age10; Marcie son written born January1893 age6. The census's birth-year entry conflicts with primary birth return. It does not independently name Millie or Marcie's biological mother. |
+| Richard married **Jessie Irene Aurin 5 November 1899** in Elbridge Township | Michigan marriage indexed [N3FS-5ZD](https://www.familysearch.org/ark:/61903/1:1:N3FS-5ZD), DGS004208267 image319 previously examined. | Richard age36, farmer; second marriage; his named parents John Skinner and Marian Lewis. Exact John Andrew/Jr paternal identity **not resolved**; do not promote. |
+| Richard died **17 November 1933**, South Branch Township, Crawford County | Death *index* [KFH8-P2R](https://www.familysearch.org/ark:/61903/1:1:KFH8-P2R); DGS005363683, film001973223/image729; original viewer unavailable. | Index says father John Skinner; apparently wrongly classifies his wife Jessie Auron as his mother. This should not be accepted as maternal evidence. Original certificate remains unrecovered. |
 
-## Collection-level retrieval links (NOT person-specific image links)
+## Full-resolution originals retained in the research Library
 
-- Michigan marriage returns, 1868–1925: https://www.familysearch.org/en/search/collection/1452395
-- Michigan statewide birth registers, 1867–1902: https://www.familysearch.org/en/search/collection/1459684
-- United States census, 1900: https://www.familysearch.org/en/search/collection/1325221
-- Michigan death certificates: https://michiganology.org/vital-records/
+1. `richard-ellen-marriage-1882-original.jpg` — 639,148 bytes; untouched source image.
+2. `marcie-skinner-birth-1894-child-original.jpg` — 2,179,264 bytes; original page 119 child side.
+3. `marcie-skinner-birth-1894-parents-original.jpg` — 2,014,387 bytes; original page 119 parents side.
+4. `richard-skinner-census-1900-original.jpg` — 737,228 bytes; full original sheet.
+5. `richard-marcie-logging-memory-218727497.jpg` — 3,362,091 bytes; source memory [218727497](https://www.familysearch.org/en/memories/memory/218727497), contributor identifies Richard/Marcie; time/place unknown.
+6. `richard-william-carlton-memory-31066388.jpg` — 1,911,372 bytes; source memory [31066388](https://www.familysearch.org/en/memories/memory/31066388), two men tagged Richard and William Philip Carlton; identities and date await corroboration.
 
-**Source-handling rule:** These links lead to collections and must be labeled “Browse record collection,” not “Open original record.” The original register, the two birth pages and the census image were read in the preceding research session, but their bytes and durable record-specific image URLs are absent from the currently accessible working files. They are not recreated as screenshots, synthetic thumbnails, or complete handwritten transcriptions.
+The six originals have been recovered from persistent ChatGPT Library and copied unchanged into an archival package. They are **not yet embedded in the GitHub repository/Atlas media gallery**. The Atlas instead has person-specific direct archival source links and transcriptions, clearly marked as links rather than thumbnails.
 
-## Unresolved work
+## All six FamilySearch memories reviewed
 
-1. Retain high-resolution source scans for 1882 marriage, **both** 1894 birth-return pages, 1899 marriage and 1900 census. Add page-level identifiers, complete transcriptions and original provenance once images are present.
-2. Find and retain Richard's 1933 Michigan death certificate, and examine its parent names and informant with awareness of informant error.
-3. Establish which **John Skinner** is Richard's father; the first name alone does not prove a specific man's identity. Marian Lewis is named in the 1899 return.
-4. Reconcile the 20 January date of the two-page birth return with the 21 January date on Marcie's later memorial. Preserve both readings pending additional independent evidence.
-5. Cross-check the remaining Richard family-memory sources; the family photo assets currently retained are one individual portrait and one group photograph shared with Jessie.
-6. Verify the rendered gallery and linked collection-label behavior in the *installed iPhone application* after a fresh load. Repository validation is not a substitute.
+Two already deployed (Richard portrait; c1906 Richard/Jessie family), two additional distinct images retained as listed above; family-scene `skinner-family-untitled.jpg` duplicates the existing c1906 photograph, and the low-resolution `richard-brenay-composite-memory-208497545.jpg` duplicates the logging image. The latter has an illegible handwritten upper-scene caption. Its 1942 Sandpoint dating must **not** be assigned to Richard, who died in 1933.
 
-## Non-regression
+## Publication and remaining gates
 
-- Richard's already-published biographical prose remains unchanged.
-- Jessie Irene Aurin's biography, portrait and family photographs remain unchanged.
-- The graph's existing parentage confidence is not promoted.
-- Missing source images appear as **Record Citations**, not original documents.
-- This checkpoint is not a completed person audit until the source-image and iPhone gates are met.
+- Current text-only person record gallery: **two deployed photos; four document citations** with ARK links; museum biography and separate short context unchanged.
+- **Still to finish:** upload original scans and the two distinct memories into GitHub and confirm previews/full source tap-through; obtain/review the 1933 certificate; identify the correct John Skinner by a correlated 1870/1880 identity bridge; finish image-specific transcription quality assurance and prove installed iPhone gallery/story navigation.
+- Neither gallery photo count nor installed iPhone validation may be marked complete based solely on code commits. Matching recorded narration remains pending.
+- No edits were made to FamilySearch.
+
+**Current classification: research originals preserved; source links published in GitHub; gallery and iPhone verification incomplete.**
