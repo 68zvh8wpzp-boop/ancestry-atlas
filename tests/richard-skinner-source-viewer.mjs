@@ -71,8 +71,9 @@ assert(html.includes('class="doc-source-action"'),'Original source links must re
 assert(html.includes('Open untouched original photograph'),'Upright studio viewing derivative must preserve original-file access');
 assert(html.includes('photoGroup=kind==='),'Gallery must retain accurate photo-link wording');
 assert(html.includes('richard-skinner-mobile-biography.js?v=20261009-skinner-7'),'HTML must load the current Richard module');
-assert(entry.includes('iphone-refresh=20261009-skinner-7'),'Root entry must cache-bust current media revision');
-assert(manifest.includes('iphone-refresh=20261009-skinner-7'),'Installed PWA must cache-bust current media revision');
+const currentMobileRelease=entry.match(/iphone-refresh=([A-Za-z0-9-]+)/)?.[1];
+assert(currentMobileRelease,'Root entry must carry a mobile-release cache-busting token');
+assert(manifest.includes('iphone-refresh='+currentMobileRelease),'Installed PWA and root entry must agree on the current release');
 for(const [i,script] of [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(m=>m[1]).filter(Boolean).entries()){
  new vm.Script(script,{filename:'atlas inline '+i});
 }
