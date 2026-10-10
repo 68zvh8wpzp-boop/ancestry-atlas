@@ -1,0 +1,28 @@
+# Marian Beulah Skinner Brenay — museum biography and separate setting
+**10 October 2026 · REVIEW CANDIDATE · Not yet user-approved or installed in the Atlas.**
+
+## Biography
+
+Marian Beulah Skinner was born on 3 March 1903 in Colfax, Michigan, at a time when the farms and small communities of the state's northwest were still closely tied to logging and the Great Lakes. She was the daughter of Richard Francis Skinner and Jessie Irene Aurin, whose own histories were rooted in western Michigan. Her early life belonged to that rural world, but the greater part of her adult life would unfold far from it.
+
+At seventeen, Marian married Charles Albert Brenay in Alpena, Michigan, on 13 September 1920. Charles was a Canadian-born young man who had grown up across the border in Michigan and recently completed military service. Their first years together brought a growing family and a move to Saginaw. There, on 20 January 1923, their daughter Marion Beulah was born. The similarity between mother and daughter’s names would follow the family through records and memories.
+
+In 1925, with four young children, the Brenays left Michigan for Arizona. The family would later remember a difficult month-long journey in an old Ford truck, followed by years in which a dependable home and livelihood were often hard to secure. For Marian, the moves came during the years of raising a rapidly growing household. The family lived in places where electricity, indoor plumbing and plentiful cash could not be assumed, and where food gardens, household work and the labor of older children helped keep everyday life going.
+
+A 1930 census in Mesa offers a particularly personal glimpse of the family’s wider circle. Marian and Charles were living with their children, while Marian’s mother, Jessie Skinner, was also in the household. Jessie’s presence placed two generations of women together during a demanding period of Marian’s family life. Rather than existing only in separate family branches, the Michigan relatives remained part of the household the Brenays were making in Arizona.
+
+Marian and Charles ultimately became parents of thirteen children: Arnold Albert, Marion Beulah, David Alvin, Joseph Heber, Henry, Ruth Melvina, Moroni, Virginia Lee, Esther, Martha, Ammon Leroy, Joan Carol and Isaac. Their children’s lives stretched across the unsettled decades of the Great Depression and the Second World War. Four died young: Henry, Ruth, Moroni and David. The loss of those children formed a grave part of the family’s history, alongside the continued raising of their surviving sons and daughters.
+
+As the children grew, the family’s ties extended through Arizona and beyond. The recollections preserved by daughter Marion describe temporary houses, practical work, shared responsibilities, and the resourcefulness required of a large family in lean years. Marian’s role appears within that wider family account, though few surviving documents so far preserve her personal words. Her life was not simply her husband’s itinerary or her daughter’s childhood: she remained the mother at the center of a household whose members experienced the same moves and hardships at very different ages.
+
+In 1970, Marian and Charles marked fifty years of marriage. A surviving anniversary photograph shows them together, a moment that connects the young Michigan couple of 1920 with the grandparents they had become. Charles died in 1983. Marian lived into her nineties, and the cemetery record places her in Mesa beside him in 1996. The family they raised carried the Skinner and Brenay stories into succeeding generations.
+
+## Local and regional historical context
+
+**Western Michigan, 1903–1925.** The inland farms, lake ports and lumber towns of Michigan were linked by railways and shipping at the turn of the century. Around Alpena and Saginaw, an older timber economy was giving way to manufacturing and more diversified agriculture. These changes formed the regional setting of Marian's childhood and marriage.
+
+**Arizona, 1925–1996.** In Arizona the Brenays entered communities shaped by irrigation farming, difficult overland travel, seasonal work and rapid population change. Great Depression hardships intensified pressures on families attempting to farm or establish small businesses. Rural White Mountains settlements and the Mesa area offered different landscapes and economies, both connected to longstanding Indigenous homelands and communities. By the later twentieth century, paved roads, expanding towns and modern services had transformed many of the places the Brenay children remembered from earlier decades.
+
+## Proof notes — not part of the museum text
+
+The birth date, marriage date and children list come from the accepted canonical Atlas family account and prior family research; the **1903 birth county**, her exact death date, original birth and 1920 marriage returns and complete FamilySearch Memories inspection remain unresolved. The **1930 original Mesa census** was previously examined in Jessie’s evidence register; its full original remains unpackaged. The **1970 anniversary photograph** is already held in `assets/charles-albert/`; any duplicate gallery use must meet the visual distinctness/approval contract. [Mesa Cemetery listing](https://www.interment.net/data/us/az/maricopa/mesa-cemetery/records-boa-byu.htm) gives Marian **age 93, date June 25 1996 and grave 0128-4-7**: date category may be burial/interment, not established as death date. [Marion's published obituary](https://www.owenslivingstonmortuary.com/obituaries/4676459) directly names her mother **Marian Beulah (Skinner) Brenay**. The text should remain a review candidate until full original/media audit and user approval.
