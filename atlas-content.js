@@ -6,4 +6,4 @@ document.write('<script src="atlas-content-base-v3.4.0.js?v=3.9.31"><\/script><s
 // mobile document preview layer 3.9.14
 
 /* Family Globe experience entrance from the existing Atlas home, toolbar and mobile menu. */
-document.write('<script src="atlas-globe-launcher.js?v=20261010-1"><\\/script>');
+document.write('<script src="atlas-globe-launcher.js?v=20261010-1"><\/script>');
