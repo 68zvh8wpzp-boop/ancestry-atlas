@@ -1,0 +1,63 @@
+# Morten Peder Mortensen — direct-ancestor person-page audit
+**10 October 2026 | Canonical ID: \`morten_peder\` | Father of Elsie Margaret Mortensen Ray | REVIEW STAGE — not approved or installed**
+
+## Person and existing publication
+Morten Peder Mortensen (1828–1891), married Dorothea Knudsen Jensen, is the father of Elsie Margaret Mortensen Ray and therefore a **direct ancestor**. The Atlas canonical graph \`atlas-v3.9.36.html\` already has \`morten_peder\` and an **authentic externally linked historical portrait** attributed to the Church History Biographical Database (official profile ID **PER-GKV6WS0**). This is NOT a new/fabricated photo. Existing full museum page, historical setting and complete FamilySearch gallery are **not certified** in the 101-person register. Elsie's current biography is review-only and her original media and 1918 death certificate remain in [issue #45](https://github.com/68zvh8wpzp-boop/ancestry-atlas/issues/45).
+
+## Primary-derived institutional timeline; exact original registers still require inspection
+**Church History Biographical Database individual** [Morten Peder Mortensen, 1828](https://history.churchofjesuschrist.org/chd/individual/morten-peder-mortensen-1828?lang=eng) (individual RID **PER-GKV6WS0**) identifies:
+- Birth **27 May 1828**, **Hårbølle, Fanefjord, Præstø, Denmark**; parents **Peder Mortensen** and **Helena Pedersen Mortensen**.
+- Baptism (LDS religious) **3 June 1855**; entry attributes officiant to **L. P. Gold**, whereas 1995 family account says **Søren P. Guhl**. Do not silently reconcile.
+- Scandinavian missionary record **28 April 1856–1 April 1859**; the **source named** is Scandinavian Mission manuscript history and reports, vols 1–2, pp 60, 217. Raw registers **not inspected**.
+- Marriage to **Dorthea Knudsen Jensen** **10 May 1859**; compiled family history locates ceremony onboard *William Tapscott*, a few days before New York. No original shipboard civil record inspected.
+- Joined [**Robert F. Neslen wagon company**](https://history.churchofjesuschrist.org/chd/organization/pioneer-company/robert-f-neslen-company-1859?lang=eng), **Florence, Nebraska 23 June–Salt Lake City 15 September 1859**, 371 participants in organization database. Original company journal, rosters and contemporaneous *Deseret News* reports survive; individual listing attached via official profile but full original journal not inspected.
+- Second Scandinavian mission **5 May 1867–15 July 1870**, original **Missionary Department registers**, 1867 **Vol A p9 line385**, **Vol B p10 line385**, official catalog [source link exposed by official biography](https://history.churchofjesuschrist.org/chd/individual/morten-peder-mortensen-1828?lang=eng). Institutional page reports **arrived home 10 August 1870** while the family book says **November 1870** (conflict). Click-through digital register images returned access/cache error; underlying original not inspected.
+- 1875 Arizona/Moenkopi mission assignment **11 Oct 1875**, missionary registers **Vol A p30 line1291**, **Vol B p33 line1291**; describes his marital status at this time as **plurally married**, independent administrative support for household arrangement. Original register pages need capture.
+- Death **16 June 1891**, **Colonia Díaz, Chihuahua, Mexico** — **institutional date** from database, not a linked individually inspected Mexican civil death entry. Death-date conflict below.
+
+## Scanned compiled family history — page facsimiles vs searchable text carefully separated
+[*The Morten Peder Mortensen Families*, digital 207-page PDF](https://www.familysearch.org/patron/v2/TH-301-43970-40-28/dist.pdf?ctx=ArtCtxPublic), compiled by Viva Cluff Whetten and Lillian Jones Richins (1995), **printed pp24–31**, PDF zero-index **1–7**. **Pages 28 and 29 (PDF index 4 and 5) visually viewed** this audit; p27 (index3) visually inspected as well. Certain other screenshots returned **cache miss**, so only the searchable text of remaining p24–26 and p30–31 was available this pass, NOT the original page photograph. This printed book is *compiled family recollection*, not an original Danish parish/birth, 1870 temple marriage or Mexican death certificate.
+
+Life details to preserve with attribution/correlation:
+- **Born 1828 or 1829** in the book's opening line (says **1829**, contradicting Church History **1828**); eldest son of Peder and Helena. Worked farm, learned **cooperage, shoemaking, repairs and carpentry**. Danish family farm sold when his parents migrated **1856**, but he **stayed in Denmark three years** on Scandinavian mission rather than travelling with them.
+- Met **Dorothea**, daughter of brewer/innkeeper Knud Jensen and Bodil/Bodill Olsen, while working in Denmark; married her on the **1859 Atlantic crossing**. Group arrived in Salt Lake City **15 September 1859**.
+- Early Utah homes near Ephraim and Gunnison, including dugout at Gunnison; mail delivery and road security are family-history assertions, not inspected military/service proof.
+- Returned to Denmark for an assignment 1867–1870; the institutional missionary registers independently substantiate that journey. Wife Dorothea and children moved to Scipio near her parents during his absence.
+- **Plural marriage** in Dec 1870: three securely reported wives total, **Dorothea Knudsen Jensen** (first), **Martine Rasmussen** (second) and **Karen Katrina Olsen** (third). Book gives **19 December 1870**, WeRelate compiled trees give **10 December 1870**, and **original temple register NOT inspected**. Book describes upstairs/downstairs room division in first shared house. Original Church missionary register independently lists him as *plurally married* by 1875.
+- **Arizona colonization:** 1875 site-selection assignment and 1876 move into northern Arizona with family; at **Moenkopi near Hopi villages** traded wool with Indigenous residents; worked with **loom/spinning wheel, dairying, livestock, wooden tools**, and was associated with Sunset/near Holbrook, Moenkopi, Willow Springs and Tuba City. Some book descriptions of Indigenous peoples have paternalistic or prejudicial framing and **must not be reproduced uncritically**.
+- **Mexico:** The compiled family account says Morten helped examine land purchase arrangements in **1884**, led family transfers to Chihuahua in the **mid-1880s**, acquired land near Casas Grandes River and made **the first shingled house** in his community, plus school/church building. The printed book p30 incorrectly gives **1986**, a glaring typo for the nineteenth-century move; correlate date against original records before asserting **1886 exactly**.
+- He spoke Danish with at least wife Martine and family history says household adults retained Danish accents while encouraging English for children.
+- Last day family recollection: met Danish friend Jens Jensen; later found dead in a shed after an ordinary errand. Family book identifies **6 June 1891**, not identical to institutional **16 June 1891**. **Do not invent cause of death, an accident or an autopsy.**
+
+## Material contradictions and rejected premature relationships
+
+**Exact birth day conflict — new original-page retrieval lead**:
+- Official Church History institutional database **27 May 1828**.
+- [Danske Slægtsforskere GEDCOM index, Morten Pedersen](https://gedcom.slaegt.dk/?fil=41&person=4251) claims **24 May 1828**, baptism **22 June 1828**, father **Peder Mortensen**, mother **Lene Pedersdatter** (name variant Helena); explicitly cites **Fanefjord Sogn church book 1825–1838, boys, “Opslag 36/132”** in Danish National Archives **Arkivalieronline**. The cited **original register folio/frame has NOT been opened or visually inspected**; indexing is derivative. This gives an actionable exact film/frame target, and also flags a plausible birth-date conflict.
+- Another family-book heading says **27 May 1829**. Preserve each by source; main bio should use **late May 1828** pending original parish page. Do not promote 1829 over institutional entry.
+
+**Exact death-day conflict**:
+- Official Church History **16 June 1891**;
+- Printed Mortensen family history p31 **6 June 1891** (the family scene describing death is attached specifically to June 6);
+- WeRelate genealogical profile **6 July 1891**, which is an unsourced compiled alternate; Knighton family tree repeats **6 June** and a reported **7 June burial** but no original marker/manuscript inspected. Maintain all.
+- Need original Mexico death/burial record, photograph of dated grave stone or contemporary obituary. The family account of unexpected death is personal memory; no basis for precise cause.
+
+**Possible false extra wife — do NOT add as proven:** [Knighton family tree Morten/Birthe Gregersen](https://www.knightonhistory.com/familygroup.php?familyID=F1038&tree=main) **assigns Birthe Gregersen marriage 19 December 1870**, but **also says Birthe died 14 February 1868 in Denmark**, before the alleged marriage. WeRelate also adds a “Berthe Gregersen” spouse without a marriage date. This is **chronologically incompatible data**, unlike documented 1870 Martine/Karen sisters. No original marriage/death for this Birthe with Morten found. **Quarantine as conflicting name/identity, not a fourth confirmed wife**. A fourth wife's actual existence remains unproven.
+
+**1859 actual migration group**:
+- [Robert F. Neslen wagon company official organization](https://history.churchofjesuschrist.org/chd/organization/pioneer-company/robert-f-neslen-company-1859?lang=eng) is source-linked to company diaries and 1859 *Deseret News* notices.
+- [BYU Religious Studies Center *Liverpool to New York*](https://rsc.byu.edu/pushing-pulling-zion/liverpool-england-new-york-city-new-york) publishes transcribed **1859 ship diary passages** from company leader Neslen describing boarding *William Tapscott* April 7 and voyage beginning April 11, landing New York **13 May 1859**. These primary diaries prove **ship voyage context**; alone they do not individually name Morten or Dorothea, whose presence is supported by the Church History personal profile and the Mortensen family book. The detailed captain's-marriage claim still needs ship log/marriage return.
+- Context sources are not to be packaged as photos/documents specifically proving his identity unless the page text explicitly names him.
+
+## Media and presentation facts
+- Atlas *already* has a historical portrait URL on Morten node from [Church History Biography](https://history.churchofjesuschrist.org/chd/individual/morten-peder-mortensen-1828?lang=eng); **portrait presence in graph verified**, original pixel bytes in local GitHub/assets folder **not checked/captured**, and live iPhone loading unverified. Preserve provenance. Do not label a family-book page as a portrait.
+- Morten original missionary registers 1867 **vol A p9 line385**, 1875 **vol A p30 line1291**, Danish parish **Opslag36/132**, and ship 1859 are **highest-value manuscript capture**. Full original handwritten transcription + complete italic translation, and meaningful mobile preview; documents uncapped; photos max30 (unless Sheldon/Inez).
+- [Danish archive index](https://gedcom.slaegt.dk/?fil=41&person=4251) is **not** substitute for original parish manuscript or a certified identity join.
+- Last full FamilySearch person-page audit, Sources/Memories/old versions still not inspected in signed-in browser this turn. No per-person media count invented. No family tree/FamilySearch edits.
+
+## Relationship/proof boundary
+Direct father **Peder Mortensen** and mother **Helena Pedersen / Lene Pedersdatter Sandersen** are identified by institutional Church History profile. The actual Danish baptism original, and proof chains one generation farther back, remain separate record tasks. No unjustified promoted grandparents, no speculative multiple spouses.
+
+## Next and approval stages
+Draft a distinct Morten museum biography (Denmark craftsman -> shipboard marriage -> North American manual work -> Arizona wool/wood -> Mexico carpentry) and separate social/regional setting. Give the **three-wife family structure one short factual paragraph**, not most of his life. Historical religious activity and documented missions can be described because these actually shaped his travel. **Biographical exact birth/death dates remain unresolved.** Do not overstate private feelings or historical Native context.
+Stage source/evidence file, then original family-image capture, genuine portraits, proofs, regression, live Atlas render and user iPhone validation before labeling approved. Previously approved Elsie, Della (review only), Jay/Jonathan etc left unchanged.
