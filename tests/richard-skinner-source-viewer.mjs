@@ -73,7 +73,7 @@ assert(html.includes('photoGroup=kind==='),'Gallery must retain accurate photo-l
 assert(html.includes('richard-skinner-mobile-biography.js?v=20261009-skinner-7'),'HTML must load the current Richard module');
 assert(entry.includes('iphone-refresh=20261009-skinner-7'),'Root entry must cache-bust current media revision');
 assert(manifest.includes('iphone-refresh=20261009-skinner-7'),'Installed PWA must cache-bust current media revision');
-for(const [i,script] of [...html.matchAll(/<script\\b[^>]*>([\\s\\S]*?)<\\/script>/g)].map(m=>m[1]).filter(Boolean).entries()){
+for(const [i,script] of [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(m=>m[1]).filter(Boolean).entries()){
  new vm.Script(script,{filename:'atlas inline '+i});
 }
 console.log('PASS: Richard Skinner 4 original source scans, 1 indexed link, 4 family photos; SHA-256 original preservation; preview and iPhone entry contracts.');
