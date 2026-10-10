@@ -88,3 +88,7 @@ User requested concentrated Jessie research. Her approved biography and photogra
 
 **Separate month discrepancy:** 1879 birth index says 25 October; the full 1900 census original records September 1879. Keep both observations rather than harmonizing.
 
+**Original-record retrieval:** NARA microfilm T9-599 is confirmed for Oceana's 1880 enumeration. Oceana County Clerk's published first historical birth certificate fee is $15 and requires photo ID and payment for an actual order. The Alpena County Library holds Alpena death-register microfilm through 1993 and offers old newspaper obituaries. Green Township maintains Spratt Cemetery and may have burial/interment registers. An unsent inquiry draft is prepared for each of these three agencies in Gmail. No certificate has been ordered, no message sent, and no fee/ID submitted.
+
+**1936 Utah marriage attachment:** a purported attached source was observed in an earlier FamilySearch source inventory, but no event details, spouse identity or source-page image are verified; do not add a late-life marriage to Jessie's approved biography. Father John Auene versus Jonas Aurin versus Karl Johan Aurén remains unresolved.
+
