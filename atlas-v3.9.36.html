@@ -88,6 +88,9 @@ canvas:active{cursor:grabbing}
 .doc-source-action.secondary{background:#182f44;border-color:#42627d}
 .evidence-item.evidence-link-only{cursor:pointer}
 .evidence-item.evidence-link-only .evidence-doc-placeholder{flex-direction:column;line-height:1.35;background:linear-gradient(160deg,#172c3d,#0b1825);border:1px solid #395b78;padding:7px;letter-spacing:.03em}
+/* A linked family photograph's in-app image is an authentic thumb, not the original full scan. */
+.doc-modal.source-preview .doc-panel{min-height:0;max-width:760px;margin:clamp(45px,7dvh,90px) auto;justify-content:flex-start}
+.doc-modal.source-preview .doc-panel img{max-width:min(100%,440px);max-height:40dvh;margin:0 auto;object-fit:contain}
 /* v16 labeled family album */
 .album-launch{width:100%;font-weight:700;margin-top:6px}.album-modal{display:none;position:fixed;z-index:70;inset:0;background:rgba(4,9,14,.96);overflow:auto;padding:14px}.album-modal.open{display:block}.album-shell{max-width:1100px;margin:0 auto;background:#0b151e;border:1px solid #35516a;border-radius:16px;min-height:calc(100vh - 28px);padding:14px;box-shadow:0 20px 80px rgba(0,0,0,.55)}.album-head{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;position:sticky;top:0;background:rgba(11,21,30,.97);z-index:2;padding:4px 0 10px}.album-title h2{margin:0 0 3px;font-size:20px}.album-title .small{max-width:720px}.album-close{font-size:22px;border-radius:999px;min-width:42px}.album-filters{display:flex;gap:7px;flex-wrap:wrap;margin:6px 0 13px}.album-filter.active{border-color:#5de1c2;box-shadow:0 0 0 1px #5de1c2 inset}.album-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}.album-card{border:1px solid #35516a;border-radius:12px;background:#0d1d2a;padding:7px;text-align:left;color:#edf5fb;overflow:hidden}.album-card:hover,.album-card:focus{border-color:#6f9ec3}.album-card img{width:100%;height:150px;object-fit:cover;object-position:center 42%;background:#071019;border-radius:8px;background:#08111a;display:block}.album-card.document img{object-fit:cover;object-position:center 70%}.album-card .album-name{font-weight:700;font-size:12px;line-height:1.25;margin-top:7px}.album-card .album-years{font-size:10px;color:#a8c0d2;margin-top:2px}.album-card .album-kind{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#5de1c2;margin-top:5px}.album-card .album-source{font-size:9px;color:#8fa3b5;line-height:1.3;margin-top:3px}.album-empty{color:#8fa3b5;font-size:12px;padding:20px 3px}.album-detail-nav{display:flex;gap:8px;justify-content:center;margin-top:8px}.doc-panel .album-label{font-size:12px;line-height:1.5;color:#dce8f2;margin-top:10px;padding-top:8px;border-top:1px solid #294258}.doc-panel .album-label strong{font-size:14px}.doc-panel .album-label .muted{color:#91a8ba}.jump-person{margin-top:8px}
 @media(max-width:600px){.album-modal{padding:6px}.album-shell{min-height:calc(100vh - 12px);padding:10px;border-radius:12px}.album-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.album-card img{height:128px}.album-card{padding:5px}.album-head{top:0}.album-title h2{font-size:18px}}
@@ -1307,7 +1310,7 @@ function renderPortrait(n){
 }
 function evidenceHasMedia(e){
   const candidate=e?.thumb||((e?.kind==='document'&&evidenceHasPdf(e))?'':e?.full||'');
-  return /\.(?:jpe?g|png|gif|webp|svg)(?:[?#]|$)/i.test(candidate);
+  return /^data:image\/(?:jpeg|png|webp|gif);base64,/i.test(candidate) || /\.(?:jpe?g|png|gif|webp|svg)(?:[?#]|$)/i.test(candidate);
 }
 function evidenceHasPdf(e){
   return /\.pdf(?:[?#]|$)/i.test(e?.full||e?.pdf||'');
@@ -1335,8 +1338,8 @@ function renderEvidence(n){
     if(preview){if(!e.thumb)e.thumb=preview;if(!e.full)e.full=preview;}
   });
   if(!ev.length){wrap.innerHTML='<div class="evidence-empty">No source image or document attached to this person yet.</div>';return;}
-  const photos=ev.filter(e=>evidenceIsImage(e)&&evidenceHasReadablePreview(e));
-  const photoSourceLinks=ev.filter(e=>evidenceIsImage(e)&&!evidenceHasReadablePreview(e)&&e.sourcePage);
+  const photos=ev.filter(e=>evidenceIsImage(e)&&evidenceHasReadablePreview(e)&&e.sourceLevel!=='photo-link');
+  const photoSourceLinks=ev.filter(e=>evidenceIsImage(e)&&e.sourceLevel==='photo-link'&&e.sourcePage);
   const sourceLinkedRichards=ev.filter(e=>n.id==='richard_francis_skinner'&&e.kind==='document'&&(e.sourcePage||e.documentUrl));
   const documents=ev.filter(e=>!evidenceIsImage(e)&&(evidenceHasReadablePreview(e)||sourceLinkedRichards.includes(e))).sort((a,b)=>Number(evidenceHasPreview(b))-Number(evidenceHasPreview(a)));
   const recordLeads=ev.filter(e=>!evidenceIsImage(e)&&!documents.includes(e));
@@ -1519,6 +1522,7 @@ function familyFacingEvidenceSummary(e){
 }
 function familyFacingRecordStatus(e){
   if(e.previewStatus==='unreadable') return 'Preview is not readable; open the original record';
+  if(e.sourceLevel==='photo-link') return 'Genuine small preview; full-resolution original available from source link';
   if(evidenceHasPreview(e)) return evidenceIsImage(e) ? 'Photograph available' : 'Document preview available';
   if(e.sourceLevel==='collection') return 'Record-series link available; original scan not included';
   if(e.sourceLevel==='index') return 'Indexed individual record linked; original scan not included';
@@ -1560,6 +1564,7 @@ function openEvidence(e){
   atlasViewerReset();
   let attemptedFallback=false;
   viewer.classList.toggle('source-only',!isImage&&!isPdf);
+  viewer.classList.toggle('source-preview',e.sourceLevel==='photo-link'&&isImage);
   image.style.display=isImage?'block':'none';
   pdf.style.display=isPdf?'block':'none';
   image.onerror=()=>{
@@ -2799,7 +2804,7 @@ resize();
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v16.js?v=20261009-jessie-1"></script>
 <script src="jessie-aurin-mobile-biography.js?v=20261009-jessie-1"></script>
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v15.js?v=20261009-skinner-2"></script>
-<script src="richard-skinner-mobile-biography.js?v=20261009-skinner-5"></script>
+<script src="richard-skinner-mobile-biography.js?v=20261009-skinner-6"></script>
 </body>
 </html>
 
