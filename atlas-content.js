@@ -4,3 +4,6 @@
 document.write('<script src="atlas-content-base-v3.4.0.js?v=3.9.31"><\/script><script src="atlas-evidence-sync-2026-09-13.js?v=3.9.31"><\/script><script src="atlas-evidence-sync-2026-09-27.js?v=3.9.31"><\/script><script src="marion-atlas-update-2026-09-29.js?v=3.9.39"><\/script>');
 
 // mobile document preview layer 3.9.14
+
+/* Family Globe experience entrance from the existing Atlas home, toolbar and mobile menu. */
+document.write('<script src="atlas-globe-launcher.js?v=20261010-1"><\\/script>');
