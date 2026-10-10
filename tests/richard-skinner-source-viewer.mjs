@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
 import vm from 'node:vm';
 
 const html=fs.readFileSync('atlas-v3.9.36.html','utf8');
@@ -14,39 +16,64 @@ const person=data.nodes[0];
 const evidence=person.evidence;
 const documents=evidence.filter(e=>e.kind==='document');
 const originals=documents.filter(e=>e.sourceLevel==='original');
-const index=documents.filter(e=>e.sourceLevel==='index');
-const installedPhotos=evidence.filter(e=>e.kind==='photo'&&e.full);
-const linkedPhotos=evidence.filter(e=>e.kind==='photo'&&e.sourceLevel==='photo-link'&&!e.full&&e.thumb?.startsWith('data:image/webp;base64,'));
-assert.equal(documents.length,4,'All four record citations required');
-assert.equal(originals.length,3,'Three person-specific image entries required');
-assert.equal(index.length,1,'1899 marriage must remain honestly classified as indexed link');
-assert.equal(installedPhotos.length,2,'Two photos remain genuinely installed');
-assert.equal(linkedPhotos.length,2,'Two genuine photo previews remain distinct from full-resolution linked sources');
-for(const photo of linkedPhotos){
-  const bytes=Buffer.from(photo.thumb.slice('data:image/webp;base64,'.length),'base64');
-  assert(bytes.length>900,'A linked-family photo preview must contain genuine image bytes');
-  assert.equal(bytes.toString('ascii',0,4),'RIFF','Preview must be an actual RIFF WebP');
-  assert.equal(bytes.toString('ascii',8,12),'WEBP','Preview must be a valid WebP container');
-  assert(photo.sourcePage?.startsWith('https://www.familysearch.org/en/memories/memory/'),'Keep high-resolution FamilySearch memory URL');
-}
+const indexed=documents.filter(e=>e.sourceLevel==='index');
+const photos=evidence.filter(e=>e.kind==='photo');
+assert.equal(documents.length,5,'Four original scan pages plus the 1899 indexed marriage citation');
+assert.equal(originals.length,4,'Original 1882 marriage, both adjoining 1894 birth pages and 1900 census must be packaged');
+assert.equal(indexed.length,1,'The 1899 marriage stays a labelled indexed-source link, not a fabricated scan');
+assert.equal(photos.length,4,'Richard portrait, c.1906 family, snowy logging group and studio');
+assert.equal(photos.filter(e=>e.full&&e.thumb).length,4,'All four photograph gallery entries require packaged full-resolution media and previews');
+assert.equal(evidence.filter(e=>e.sourceLevel==='photo-link').length,0,'No formerly link-only family photo remains in this release');
+assert(indexed.every(e=>!e.full&&!e.thumb),'The missing 1899 marriage image must remain link-only');
 
-assert(originals.every(e=>e.sourcePage.includes('/ark:/61903/3:1:')),'Original image URLs must be person-specific ARKs');
-assert(originals.every(e=>e.transcription?.startsWith('FULLTEXT_ORIGINAL:')&&e.transcription.includes('FULLTEXT_TRANSLATION:')),'Preserve original transcription and translation-status block');
-assert(documents.every(e=>!e.thumb&&!e.full),'Do not fabricate a local document preview before its binary is installed');
-assert(evidence.find(e=>e.title.includes('Birth return')).additionalSourcePage.includes('S3HT-64JS-J9Y'),'Keep second birth register page');
-assert(documents.some(e=>e.transcription?.includes('Jan. 1893'))&&documents.some(e=>e.transcription?.includes('1894')),'Preserve census/birth birth-year conflict');
-assert(!person.hold,'Previously resolved hold must not be resurrected');
-assert(person.biography.length>2000,'Richard approved biography must remain present');
+for(const e of [...originals,...photos]){
+  assert(e.full?.startsWith('assets/'),'Full-size media must use a real packaged local source');
+  assert(e.thumb?.startsWith('assets/'),'Thumbnail must be an authentic packaged asset');
+  assert(e.sourcePage?.startsWith('https://www.familysearch.org/'),'Retain original source provenance URL');
+  for(const p of [e.full,e.thumb]){
+    assert(fs.existsSync(p),`Packaged file missing: ${p}`);
+    const data=fs.readFileSync(p);
+    assert(data.length>20000,`Empty or unusably tiny source image: ${p}`);
+    assert.equal(data[0],0xff,'JPEG source has wrong file signature');
+    assert.equal(data[1],0xd8,'JPEG source has wrong file signature');
+  }
+}
+for(const e of originals) assert(e.sourcePage.includes('/ark:/61903/3:1:'),'Original source must have a record-specific image ARK');
+for(const e of originals) assert(e.transcription?.startsWith('FULLTEXT_ORIGINAL:')&&e.transcription.includes('FULLTEXT_TRANSLATION:'),'Original and translation-status block must accompany original scans');
+assert(evidence.find(e=>e.title.includes('Birth return')).additionalSourcePage.includes('S3HT-64JS-J9Y'),'Keep second page source link');
+assert(originals.some(e=>e.transcription.includes('Jan. 1893'))&&originals.some(e=>e.transcription.includes('1894')),'Preserve the conflicting census and birth-register year readings');
+
+const exactOriginalHashes={
+  'richard-ellen-marriage-1882-original.jpg':'c3dcf02224784cc7a2c76e128a150035f511fabf3f55635f68dc1915fb064319',
+  'marcie-skinner-birth-1894-child-original.jpg':'0bdfe48a375407f9ed63b527e6527187251351825eb35c78efd2c5cf93aec278',
+  'marcie-skinner-birth-1894-parents-original.jpg':'8f6642ee577a797beed7ccefd5a883c77dc38dc434643fb89f0ef3e9d2358793',
+  'richard-skinner-census-1900-original.jpg':'c68566829b22bc93759f1a7e8c17134bb6cb5f2fbe139d3da64f9eef80a8579f',
+  'richard-marcie-logging-memory-218727497.jpg':'a4b8020b19068285e1603428d9f5b2b37db6c36711abd69fd994c14ee89aba11',
+  'richard-william-carlton-memory-31066388.jpg':'16ea1f6af1d480c1ad4ddaa39b56fbe53681222c679289ce25632bceadeef833',
+};
+for(const[name,sha]of Object.entries(exactOriginalHashes)){
+ const f=path.join('assets/richard-skinner',name);
+ assert(fs.existsSync(f),`Archive original missing: ${f}`);
+ assert.equal(crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex'),sha,`Source original changed: ${f}`);
+}
+const studio=photos.find(e=>e.title.includes('studio portrait'));
+assert(studio?.originalAsset,'Untouched studio original must remain separately accessible from the upright display derivative');
+assert(fs.existsSync(studio.originalAsset),'Original studio photo missing');
+assert(!person.hold,'Resolved research hold must not be resurrected');
+assert(person.biography.length>2000,'Richard published biography must remain present');
 assert(person.CONTEXT.length<250,'Brief context must remain distinct from full biography');
-assert(html.includes("sourceLinkedRichards.includes(e)"),'Linked documents must render in Documents');
-assert(html.includes("PHOTO SOURCE LINKS ("),'Links must not count as installed photos');
-assert(html.includes("viewer.classList.toggle('source-only'"),'Link-only viewer must not show blank scan frame');
-assert(html.includes("viewer.classList.toggle('source-preview'"),'Limited-size photos must not masquerade as full-resolution original scans');
-assert(html.includes('class="doc-source-action"'),'Prominent original-source action must remain');
-assert(html.includes('photoGroup=kind==='),'Family photo source links must have correct action labels');
-assert(html.includes('richard-skinner-mobile-biography.js?v=20261009-skinner-6'),'HTML must load current Richard content version');
-assert(entry.includes('iphone-refresh=20261009-skinner-6'),'iPhone entry page should cache-bust current version');
-assert(manifest.includes('iphone-refresh=20261009-skinner-6'),'Installed PWA start URL should cache-bust current version');
-const scripts=[...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(m=>m[1]).filter(Boolean);
-for(const [i,script] of scripts.entries()) new vm.Script(script,{filename:'atlas inline '+i});
-console.log('PASS: Richard Skinner: 4 linked documents, 2 installed photographs, 2 clearly linked family photo sources, no fabricated previews, intact biography, mobile action and scripts.');
+assert(tour.richard_francis_skinner.scenes.length>=4,'Four narrative photo scenes must remain present');
+assert(html.includes("sourceLinkedRichards.includes(e)"),'Documents must display in the Documents gallery');
+assert(html.includes("PHOTO SOURCE LINKS ("),'Fallback photo source links supported on other unfinished pages');
+assert(html.includes("viewer.classList.toggle('source-only'"),'Link-only viewer must not have an empty image panel');
+assert(html.includes("viewer.classList.toggle('source-preview'"),'Small linked previews must be marked honestly');
+assert(html.includes('class="doc-source-action"'),'Original source links must remain prominently clickable');
+assert(html.includes('Open untouched original photograph'),'Upright studio viewing derivative must preserve original-file access');
+assert(html.includes('photoGroup=kind==='),'Gallery must retain accurate photo-link wording');
+assert(html.includes('richard-skinner-mobile-biography.js?v=20261009-skinner-7'),'HTML must load the current Richard module');
+assert(entry.includes('iphone-refresh=20261009-skinner-7'),'Root entry must cache-bust current media revision');
+assert(manifest.includes('iphone-refresh=20261009-skinner-7'),'Installed PWA must cache-bust current media revision');
+for(const [i,script] of [...html.matchAll(/<script\\b[^>]*>([\\s\\S]*?)<\\/script>/g)].map(m=>m[1]).filter(Boolean).entries()){
+ new vm.Script(script,{filename:'atlas inline '+i});
+}
+console.log('PASS: Richard Skinner 4 original source scans, 1 indexed link, 4 family photos; SHA-256 original preservation; preview and iPhone entry contracts.');
