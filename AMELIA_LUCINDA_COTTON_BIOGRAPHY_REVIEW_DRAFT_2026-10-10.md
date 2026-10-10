@@ -13,11 +13,11 @@ The move brought the family into the changing economy of the lower Great Lakes. 
 
 Amelia was seventeen when her father died in Leavitt Township on 30 March 1870. His death came while the younger members of the household were still growing up, and the family continued in Oceana County. Two years later her mother married Samuel Rackleff. By then Amelia was entering adulthood in the Michigan community that would remain central to the next generation.
 
-She became known by the married surname Aurin and was living in Crystal Valley when her extended family's history was recorded in the nineteenth century. Her sister Hattie Cornelia Cotton lived nearby under the surname Kelley. Those two distinct married names matter: later assembled family accounts have sometimes confused the sisters' relationships.
+She became known by the married surname Aurin and was living in Crystal Valley when her extended family's history was recorded in the nineteenth century. Her sister Hattie Cornelia Cotton lived nearby under the surname Kelley. The sisters were part of the same community, though their households followed different courses in adulthood.
 
-Amelia's daughter Jessie was recorded at birth in Crystal Township in October 1879 under a surname rendered *Auene* in the surviving index. At Jessie's marriage in 1899, her mother was named *Amelia Cotton*. The two records connect the younger woman's Michigan beginnings with Amelia's own earlier identity. Other names and relationships associated with Amelia's later household are still being reconciled from contemporary records.
+Amelia's daughter Jessie was recorded at birth in Crystal Township in October 1879 under a surname rendered *Auene* in the surviving index. At Jessie's marriage in 1899, her mother was named *Amelia Cotton*. Jessie's beginnings in Oceana County were part of the Michigan life Amelia had built there. In time, the younger generation would carry the family's story beyond the places of Amelia's own youth.
 
-Across Amelia's lifetime, a family rooted in northern New York became part of a growing western Michigan community. Her generation carried that move; her daughter's would carry the family's story farther. What survives most securely is a record of kinship, place and movement across the Great Lakes region, rather than a complete account of Amelia's private life.
+Across Amelia's lifetime, a family rooted in northern New York became part of a growing western Michigan community. Her generation carried that move; her daughter's would carry the family's story farther. Her family's movement from New York to Michigan formed an enduring connection between two regions of the Great Lakes.
 
 ## Historical setting — separate from biography
 
@@ -44,3 +44,7 @@ Oceana County formed part of a landscape long occupied and used by Odawa and oth
 - original 1919 death date/burial, missing 1870–1910 household chain, full document gallery.
 
 **Production note:** Never install this draft as an ordinary approved biography or create genealogy edges before evidence decision, source gallery capture and user approval. No FamilySearch edits. Preserve already approved Jessie and Richard pages. When original images are available, revise *from* this version, retain prior accepted facts, and bring an actual candidate to the user for approval.
+
+
+### New primary-source audit target — 1870 John West Cotton mortality schedule
+Reported death 30 March 1870 in Leavitt Township fits 1870 federal mortality reporting period. Inspect NARA **T1164 reel 27, FamilySearch DGS 7310988**, [collection](https://www.familysearch.org/en/search/collection/2632078). This does not yet supply a verified John Cotton row. Distinguish from living-household census M593-696; absence from an incomplete mortality enumeration would not disprove death. See Amelia research audit for source checks.
