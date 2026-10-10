@@ -782,7 +782,7 @@ window.addEventListener('error',function(e){
     <button id="collateralBtn">Collateral routes: hidden</button>
     <button id="depthBtn" class="active">3D depth: expanded</button>
     <button id="reset">Reset view</button>
-    <button id="dragModeBtn">Drag: lateral rotate</button>
+    <button id="dragModeBtn">Drag: sideways rotate + vertical move</button><div class="navhint">On the family tree, drag left/right to rotate and drag up/down to move through generations. Select <b>Drag: pan</b> to move freely in both directions; scroll to zoom.</div>
     <button id="focusCanada">Canada</button>
     <button id="focusDenmark">Denmark</button>
     <button id="focusDunbar">Dunbar</button>
@@ -835,7 +835,7 @@ window.addEventListener('error',function(e){
   <div id="sceneCopy" class="scene-copy"></div>
 </div>
 
-  <div id="hud">Ancestry Atlas • evidence-weighted 3D • rotate around what is on screen • ⌘/Ctrl+F-style search below</div>
+  <div id="hud">Ancestry Atlas • drag left/right to rotate, up/down to move • scroll to zoom • search below</div>
   <div id="proofNotice">Light is evidence: bright = established; dimmer = supported; dusk = provisional; shadow = frontier. The Webb proof frontier currently sits at James Webb Jr. → James Webb + Elizabeth Douglas.</div><div id="timeline">Present → 1900s → 1800s → 1700s → 1600s → 1500s</div>
   <div id="card"><button id="close">×</button><div id="personHeader"><div id="portraitWrap" class="portrait-wrap"><img id="portraitImg" class="portrait-img" alt="Historical portrait"><div id="portraitCaption" class="portrait-caption"></div></div><div class="person-headtext"><h3></h3><div class="meta"></div></div></div><div class="label">Context</div><p></p><div class="label">Additional genealogical details</div><div id="extraInfo" class="extra"></div><div class="label">Images / documents</div><div id="evidenceWrap"></div><div id="trail">Trail: current node</div><div class="relation-title">Choose an ancestor to surf upward</div><div id="parentButtons" class="relation-buttons"></div><div class="relation-title">Return toward descendants</div><div id="childButtons" class="relation-buttons"></div><div class="button-row"><button id="centerNode">Center on node</button><button id="goParent">Next ancestor ↑</button><button id="goChild">Back ↓</button></div><div class="button-row"><button id="zoomPersonBtn">Person view</button><button id="zoomFamilyBtn">Family view</button><button id="zoomBranchBtn">Branch view</button><button id="zoomAtlasBtn">Full atlas</button></div><div class="navhint" id="navhint">Choose a named parent above to follow a specific branch. Each selection recenters the map on that ancestor.</div><span class="badge"></span></div>
 
@@ -2511,7 +2511,13 @@ canvas.addEventListener('pointermove',e=>{
     const dx=e.clientX-gesture.last.x, dy=e.clientY-gesture.last.y;
     if(Math.hypot(dx,dy)>1.5) moved=true;
     if(gesture.type==='pan'){ panX+=dx; panY-=dy; }
-    else { rotY+=dx*.007; /* lateral yaw only: vertical drag does not tilt */ }
+    else {
+      // Desktop/laptop interaction: horizontal dragging rotates the tree;
+      // vertical dragging moves it with the pointer (screen y = h - panY).
+      // Keep pitch stable so exploring ancestors doesn't flip the 3-D scene.
+      rotY += dx*.007;
+      panY -= dy;
+    }
     gesture.last={x:e.clientX,y:e.clientY}; draw();
   }
 },{passive:false});
@@ -2620,7 +2626,7 @@ document.getElementById('controlsToggle').onclick=()=>{
 document.getElementById('dragModeBtn').onclick=()=>{
   dragMode = dragMode==='rotate' ? 'pan' : 'rotate';
   const b=document.getElementById('dragModeBtn');
-  b.textContent=dragMode==='rotate'?'Drag: lateral rotate':'Drag: pan';
+  b.textContent=dragMode==='rotate'?'Drag: sideways rotate + vertical move':'Drag: pan';
   b.classList.toggle('active', dragMode==='pan');
 };
 document.getElementById('centerNode').onclick=()=>{ if(selected) centerOnNode(selected); };
