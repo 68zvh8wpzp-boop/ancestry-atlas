@@ -35,3 +35,16 @@ Two already deployed (Richard portrait; c1906 Richard/Jessie family), two additi
 - No edits were made to FamilySearch.
 
 **Current classification: research originals preserved; source links published in GitHub; gallery and iPhone verification incomplete.**
+
+## Source-viewer repair checkpoint — 9 October 2026
+
+This supersedes the earlier **link-only photo card** description, without changing genealogical findings:
+
+- Four documented records now appear under **Documents** as genuinely linked record cards, with source-specific images or individual record links, family-facing transcriptions and prominently labeled “Open original” controls. **None is falsely displayed as an installed original scan.**
+- Two already installed family photographs remain full image assets.
+- The two additional distinct family photographs now show **genuine 180-pixel WebP preview images derived from the retained originals**, with the unchanged full-resolution originals still in the research Library and the original FamilySearch memory explicitly linked in each viewer.
+- The studio portrait's source file remains unmodified; its displayed low-resolution preview is rotated upright for viewing. The contributor's uncertain identities and dates remain attributed, not independently proved.
+- The composite and older duplicated family photo are preserved in Library but excluded from Richard's display to avoid duplication and the contradictory 1942 date.
+- iPhone link-only document modal now avoids a blank full-screen image and puts the source action ahead of the transcription; photo-source previews use a smaller viewer that directs readers to the true original.
+- Version `20261009-skinner-6` is the intended release. The `tests/richard-skinner-source-viewer.mjs` test guards the four documents, two installed photos, two genuine additional previews, source original links, biography preservation and iPhone entry-cache version.
+- **Not completed:** full original document images and full original new photographs are not yet packaged in the public GitHub site. Installed iPhone behavioral verification and original 1933 death certificate remain open. Repository/CI success is not proof of installed iPhone behavior.
