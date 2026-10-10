@@ -48,3 +48,10 @@ Oceana County formed part of a landscape long occupied and used by Odawa and oth
 
 ### New primary-source audit target — 1870 John West Cotton mortality schedule
 Reported death 30 March 1870 in Leavitt Township fits 1870 federal mortality reporting period. Inspect NARA **T1164 reel 27, FamilySearch DGS 7310988**, [collection](https://www.familysearch.org/en/search/collection/2632078). This does not yet supply a verified John Cotton row. Distinguish from living-household census M593-696; absence from an incomplete mortality enumeration would not disprove death. See Amelia research audit for source checks.
+
+
+### New evidence gate — Hattie C. Kelley county-register (1920) and reported Ludington death
+
+Oceana County **Liber 3 p.3**, 13 June 1920, transcribed record identifies Hattie C. Kelley as daughter of **John C. Cotton** and **Betsey Brockway**; [source](https://www.migenweb.org/oceana/vitals/deathliber1A.html). This is valuable independent mother-maiden-name corroboration but **John C.** does not equal the 1886 book's **John West** without original inspection; age 61y 6m 26d implies November 1858, not December 22 in book. Do not incorporate conflicting initials or exact Hattie birth into personal Amelia prose without resolution.
+
+**Amelia's 1919 death reported in Ludington** is only an unverified secondary lead. [PeopleLegacy](https://peoplelegacy.com/amelia_lucinda_cotton_mcconnell-18361j) supplies 11 February 1919 and Carpenter Cemetery burial but no death location. Mason County newspaper and clerk research drafts prepared, **NOT SENT**; source details in main Amelia research register. Preserve the biography's currently unspecified death place rather than prematurely saying Ludington.
