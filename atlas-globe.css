@@ -34,10 +34,8 @@ button,input,a{font:inherit}button{cursor:pointer}a{color:inherit}
 .search-item:hover{background:#24445c}.search-item small{display:block;color:#bccbd4}
 .toolbar-hint{margin:12px 0 0;font-size:11px;color:#bdcad5;line-height:1.5}
 .map-caption{position:absolute;z-index:3;left:50%;bottom:12px;transform:translateX(-50%);font-size:11px;color:#d4e0e7;text-shadow:0 2px 4px #06121c;text-align:center;white-space:nowrap;pointer-events:none;max-width:90%}
-.globe-pin{--pin-color:#61a9da;position:relative;width:24px;height:24px;border:2px solid #fff8e6;border-radius:50%;background:var(--pin-color);box-shadow:0 2px 8px #03101b,0 0 0 5px rgba(9,25,40,.18);cursor:pointer;transition:transform .16s ease;display:grid;place-items:center;color:#08212b;font-size:11px;font-weight:800}
-.globe-pin:hover,.globe-pin.active{transform:scale(1.25);box-shadow:0 0 0 5px rgba(239,228,197,.24),0 2px 10px #03101b}
-.globe-pin .pin-core{width:7px;height:7px;border-radius:100%;background:white;box-shadow:0 0 4px #223}
-.globe-pin.multi{width:29px;height:29px}
+/* Place pins are rendered inside the globe's WebGL symbol layer, not as
+   HTML overlays. Their teardrop tips coincide with each location's lat/lon. */
 .place-panel{position:absolute;z-index:9;right:clamp(12px,3vw,34px);top:22px;width:min(370px,calc(100vw - 24px));max-height:calc(100% - 48px);overflow:auto;border-radius:20px;border:1px solid rgba(201,220,230,.28);background:rgba(9,23,37,.96);backdrop-filter:blur(18px);box-shadow:0 20px 70px rgba(0,0,0,.5);padding:20px}
 .place-panel[hidden],.empty-state[hidden]{display:none!important}
 .place-heading{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;padding-bottom:13px;border-bottom:1px solid #365166}
