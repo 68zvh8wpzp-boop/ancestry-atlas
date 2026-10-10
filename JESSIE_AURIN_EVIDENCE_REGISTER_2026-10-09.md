@@ -79,3 +79,8 @@ Official [Alpena County Clerk death-records instructions](https://www.alpenacoun
 Official [Alpena Library genealogy and obituary-request instructions](https://www.alpenalibrary.org/genealogy) explicitly offer newspapers from 1871 onward at **specialcollections@alpenalibrary.org**, phone **(989) 356-6188 ext 17**. A **Gmail draft** requesting the March 5–15, 1956 obituary, death date and gravestone/interment facts was created, **NOT SENT**. It remains for user review and sending; do not tell user an inquiry has reached library.
 
 **Priority:** 1956 county death certificate and original 1879 birth/1880 census, then handwritten 1899 marriage page. Preserve strong Amelia Cotton link; do not identify John Auene / Jonas Aurin / Karl Johan Aurén as the same father until original names and marriage sequence are reconciled.
+
+## 10 October 2026 — intensive Jessie audit
+
+User requested concentrated Jessie research. Her approved biography and photographs remain unchanged. The 1899 original-image ARK was recovered from earlier research: https://www.familysearch.org/ark:/61903/3:1:S3HT-67LS-TW4 . The 1880 Elbridge family source is on NARA census reel T9-599. The 1879 handwritten birth register and 1880 family census image are still not recovered.
+
