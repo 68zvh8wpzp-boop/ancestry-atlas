@@ -22,6 +22,14 @@ assert.equal(originals.length,3,'Three person-specific image entries required');
 assert.equal(index.length,1,'1899 marriage must remain honestly classified as indexed link');
 assert.equal(installedPhotos.length,2,'Two photos remain genuinely installed');
 assert.equal(linkedPhotos.length,2,'Two genuine photo previews remain distinct from full-resolution linked sources');
+for(const photo of linkedPhotos){
+  const bytes=Buffer.from(photo.thumb.slice('data:image/webp;base64,'.length),'base64');
+  assert(bytes.length>900,'A linked-family photo preview must contain genuine image bytes');
+  assert.equal(bytes.toString('ascii',0,4),'RIFF','Preview must be an actual RIFF WebP');
+  assert.equal(bytes.toString('ascii',8,12),'WEBP','Preview must be a valid WebP container');
+  assert(photo.sourcePage?.startsWith('https://www.familysearch.org/en/memories/memory/'),'Keep high-resolution FamilySearch memory URL');
+}
+
 assert(originals.every(e=>e.sourcePage.includes('/ark:/61903/3:1:')),'Original image URLs must be person-specific ARKs');
 assert(originals.every(e=>e.transcription?.startsWith('FULLTEXT_ORIGINAL:')&&e.transcription.includes('FULLTEXT_TRANSLATION:')),'Preserve original transcription and translation-status block');
 assert(documents.every(e=>!e.thumb&&!e.full),'Do not fabricate a local document preview before its binary is installed');
