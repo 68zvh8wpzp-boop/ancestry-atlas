@@ -1,7 +1,7 @@
 /* Atlas globe: direct ancestors and separately identified, optional research-only pins. */
 window.ANCESTRY_GLOBE_DATA = {
-  "version": "2026-10-10-globe-10-karlstad-research-colors",
-  "sourcesNote": "Only direct ancestors, including provisional links (explicitly labeled), are included. If no reliable city is known, the named country/province/region is pinned at a representative coordinate and clearly flagged as approximate; the marker is NOT evidence of a specific birthtown or home. Research-attribution of region may itself be provisional. Collateral and rejected candidates excluded. Three separately typed research-origin country pins (France/Sweden/Ireland) are optional UI overlays; they are NOT ancestor-person born/lived/died events, are not counted in the 73 direct ancestors or 165 associations, and do not establish any nation's origin as fact. Sweden research lead is placed at Karlstad, Värmland by user request, without asserting a birth, residence or death event there. Established person-place pins red; provisional-only direct-line locations blue; speculative origin research leads yellow.",
+  "version": "2026-10-10-globe-11-quebec-provisional",
+  "sourcesNote": "Only direct ancestors, including provisional links (explicitly labeled), are included. If no reliable city is known, the named country/province/region is pinned at a representative coordinate and clearly flagged as approximate; the marker is NOT evidence of a specific birthtown or home. Research-attribution of region may itself be provisional. Collateral and rejected candidates excluded. Three separately typed research-origin country pins (France/Sweden/Ireland) are optional UI overlays; they are NOT ancestor-person born/lived/died events, are not counted in the 73 direct ancestors or 167 associations, and do not establish any nation's origin as fact. Sweden research lead is placed at Karlstad, Värmland by user request, without asserting a birth, residence or death event there. Established person-place pins red; provisional-only direct-line locations blue; speculative origin research leads yellow.",
   "branches": [
     {
       "id": "webb",
@@ -25,6 +25,42 @@ window.ANCESTRY_GLOBE_DATA = {
     }
   ],
   "places": [
+    {
+      "id": "region_quebec",
+      "name": "Québec, Canada",
+      "lng": -73.5673,
+      "lat": 45.5017,
+      "precision": "province approximate",
+      "representativePin": true,
+      "locationStatus": "provisional",
+      "regionNote": "Map pin is a representative point for the province near Montréal, not an ancestral street address or town. Birthplace/residence originals have not been confirmed for these two people.",
+      "events": [
+        {
+          "personId": "john_peter",
+          "name": "John Peter Gooley",
+          "branch": "canada",
+          "type": "born",
+          "when": "c. 1842 (reported)",
+          "qualifier": "Québec province only · reported birthplace · original record not yet verified",
+          "evidence": "User's reported Québec birth attribution for John Peter Gooley (c. 1842); record must be checked against the correct John Peter rather than the rejected namesake",
+          "locationPrecision": "province only; Montréal is a representative locator",
+          "relationshipConfidence": "supported",
+          "placeEvidenceStatus": "reported; pending original"
+        },
+        {
+          "personId": "mary_ann",
+          "name": "Mary Ann Dennis",
+          "branch": "canada",
+          "type": "lived",
+          "when": "Date not established",
+          "qualifier": "User-directed Québec placement · residence unverified · separately reported born in Ontario",
+          "evidence": "User explicitly requested Québec placement for Mary Ann Dennis on 10 Oct 2026; no reviewed record yet proving Quebec residence",
+          "locationPrecision": "province only; Montréal is a representative locator",
+          "relationshipConfidence": "supported",
+          "placeEvidenceStatus": "reported; pending original"
+        }
+      ]
+    },
     {
       "id": "arnstein",
       "name": "Arnstein, Ontario, Canada",
