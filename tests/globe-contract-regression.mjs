@@ -33,6 +33,26 @@ for(const place of data.places){
  }
 }
 assert.equal(data.places.find(p=>p.id==='coloniadiaz')?.lat,31.14777);
+assert.equal(data.directAncestorCount,73,'All 73 known direct ancestors must be included, not collateral people');
+const allowedPeople=new Set(Object.keys(data.personMeta));
+const mapped=new Set(data.places.flatMap(p=>p.events.map(e=>e.personId)));
+assert.equal(mapped.size,73,'Missing ancestor from the globe');
+for(const id of allowedPeople)assert(mapped.has(id),'Missing direct ancestor '+id);
+for(const id of mapped)assert(allowedPeople.has(id),'Non-direct or collateral family leaked into globe: '+id);
+assert.equal(data.unplacedAncestors.length,0,'Unlocated ancestors should use labeled representative regions');
+for(const id of ['peter_gooley','wilhelm_brunne','johanne_weller','elizabeth_douglas','gideon_webb','edith_bates','anna_bassett','john_webb_1615','john_webb_1640','susanna_cunliffe']){
+ assert(mapped.has(id),'Missing provisional direct-line candidate '+id);
+}
+const regionalPins=data.places.filter(p=>p.representativePin);
+assert.equal(regionalPins.length,6,'Representative regional pin set unexpectedly changed');
+for(const p of regionalPins){
+ assert(p.name&&!/(?:invented|fictional)/i.test(p.name));
+ assert(p.precision.includes('approximate'));
+ assert(p.regionNote.includes('not an ancestral street address'));
+ assert(p.events.every(e=>['born','lived','died'].includes(e.type)));
+}
+assert(globeCode.includes('Provisional ancestral connection'),'Connection uncertainty absent from person cards');
+assert(globeCode.includes('Representative regional pin'),'Regional pin not labeled as such');
 assert(!data.places.some(p=>['tempe','thatcher'].includes(p.id)),'Childbirth-only inferred residence should not create a pin');
 assert(html.includes('id="globeMap"'));
 assert(html.includes('atlas-globe-data.js'));
