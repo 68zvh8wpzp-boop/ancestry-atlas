@@ -361,7 +361,7 @@ window.ANCESTRY_GLOBE_DATA = {
           "name": "Inez Karen Prather",
           "branch": "hill",
           "type": "lived",
-          "when": "1946–1963; 1976 onward",
+          "when": "1946–1963; 1976–1990",
           "qualifier": "",
           "evidence": "Atlas original/approved memoir research; review linked person page for the source"
         },
