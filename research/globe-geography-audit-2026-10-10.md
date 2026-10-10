@@ -3,22 +3,24 @@
 **Scope:** live `main` globe data inventory as inspected through the connected GitHub repository. This is a **source-review worklist**, not an assertion that every possible event is known, verified or mappable. No FamilySearch data was edited.
 
 ## Current baseline
-- **73 direct ancestors** (includes provisional parent-child connections), **61 life-event locations**, and **165 mapped person/place/event associations**. The three separate research pins for France, Karlstad (Sweden), and Ireland are excluded from those counts.
-- **47 of 73 people have no mapped born event; 64 have no mapped died event.** This is *not* a count of source errors: births may be unknown or evidence may be insufficient; deaths may be unknown or the person may still be living. Do not invent missing birth/death pins to fill the matrix.
+- **73 direct ancestors** (includes provisional parent-child connections), **62 life-event locations**, and **167 mapped person/place/event associations**. The three separate research pins for France, Karlstad (Sweden), and Ireland are excluded from those counts.
+- **46 of 73 people have no mapped born event; 64 have no mapped died event.** This is *not* a count of source errors: births may be unknown or evidence may be insufficient; deaths may be unknown or the person may still be living. Do not invent missing birth/death pins to fill the matrix.
 - Event whitelist remains **born, lived, died** only. Marriage, burial, travel, cemetery, possible ancestral nationality and surname etymology are not substitutes.
-- Six approximate regional/representative ancestor pins remain labeled as such: Møn (Denmark), Connecticut, New England, Germany, Canada/Great Lakes (uncertain), England. A representative coordinate is **not** a claim that a person lived in the point's city.
+- Seven approximate regional/representative ancestor pins remain labeled as such: Møn (Denmark), Connecticut, New England, Germany, Canada/Great Lakes (uncertain), England, Québec (user-requested reported association). A representative coordinate is **not** a claim that a person lived in the point's city.
 
 ## Immediate evidence decisions / blocked additions
 
 1. **Jessie Irene Aurin Skinner — Crystal Township, Oceana County, Michigan.** The linked 1879 birth-index source ([FamilySearch F451-1XH](https://www.familysearch.org/ark:/61903/1:1:F451-1XH); DGS 004206546; indexed date 25 Oct 1879) is described in the existing research queue as a birth register associated with **Crystal Township**. It has **not** yet been determined from the actual handwritten form whether that township is the *birthplace*, the registration jurisdiction, the parents' residence, or some combination. **Do not map Crystal as Jessie's born/lived location until the image is inspected and the specific event is established.** Crystal Township here is the **Oceana County** township (approx. 43.7736, −86.2183), not the same-named Montcalm County township ([Mapcarta](https://mapcarta.com/22325946); [township government](https://crystaltownship.org/)). Jessie’s 1880 Elbridge residence stays mapped, provisionally pending handwritten household review. Queue original transcription in [issue #41](https://github.com/68zvh8wpzp-boop/ancestry-atlas/issues/41).
 
-2. **John Peter “Peter” Gooley — reported 1842 Québec / Canada East birthplace.** This remains a **reported genealogical attribution**, not a verified primary Quebec baptism; the similarly named 1828/1847 FamilySearch candidate is not proof of this ancestor's birth. **Do not add a Québec-province born pin** until a province-bearing source is reliably matched to the correct man. Preserve his established Alpena residence and keep possible French origin as a separate yellow research-only pin.
+2. **John Peter “Peter” Gooley — reported 1842 Québec / Canada East birthplace.** This remains a **reported genealogical attribution**, not a verified primary Quebec baptism; the similarly named 1828/1847 FamilySearch candidate is not proof of this ancestor's birth. **A user-requested provisional Québec province born pin is now shown**, with the marker placed near Montréal as a geographic anchor only. It does not establish a city of birth or confirm the original record. Preserve his established Alpena residence and keep possible French origin as a separate yellow research-only pin.
 
-3. **Mary Ann Dennis — reported 1844 Ontario / Canada West birthplace.** Secondary genealogical material records an Ontario origin but an original province-bearing record has not been audited; date is also inconsistent in some later material. **Do not add an Ontario-province born pin** until evidence of her own birthplace is checked. An Ontario address in a descendant’s record does not satisfy the rule.
+3. **Mary Ann Dennis — reported 1844 Ontario / Canada West birthplace.** Secondary genealogical material records an Ontario origin but an original province-bearing record has not been audited; date is also inconsistent in some later material. **The user directed a provisional Québec province placement for Mary Ann**, displayed as a reported residence association, not a Québec birth claim, pending independent residence evidence. Do not add an Ontario-province born pin until evidence of her own birthplace is checked. An Ontario address in a descendant’s record does not satisfy the rule.
 
 4. **Karlstad, Värmland, Sweden.** This is a deliberately chosen *research starting point* for the disputed Karl Johan Aurén / John-Jonas Aurin father identity, **not** a confirmed birthplace or residence of Jessie’s forebear. Keep the marker yellow and distinct from life-event pins; first inspect 1880 and 1879 originals and the proposed Karl Johan identity in [issue #41](https://github.com/68zvh8wpzp-boop/ancestry-atlas/issues/41). A surname resemblance or DNA ethnicity estimate alone is not sufficient.
 
 5. **Older Danish, Webb, and Brunne regional attributions.** The six representative family pins currently embed tentative `lived` or `born` claims backed by general Atlas attribution instead of individual parish/civil citations. Audit each per person and downgrade/remove any life-event association found to rest **solely** on surname, a spouse's origin, an inferred migration route, or collateral family records. Never replace a region with an invented town.
+
+**Québec mapping note (user direction, 10 Oct 2026):** These records are explicitly report-level and the blue province marker is not proof of a Montréal connection, verified Québec birthplace, or confirmed Mary Ann residence. Their individual direct-ancestor lineage can be supported independently of the provincial claim. No change to source tree or approved person biographies.
 
 ## Next source and release gates
 - Match original 1879 Jessie birth record, 1880 Jessie household, then parent identity; retain both full originals and a legible crop, with full transcription and accurate source citation. Do not rewrite user-approved Jessie biography or promote provisional father.
@@ -67,7 +69,7 @@
 | James Wilford Ray Sr. | supported | — | — | 4 |
 | Jessie Irene Aurin / Aurian | provisional | — | — | 3 |
 | Johanne Dorothea Weller | provisional | — | — | 1 |
-| John Peter Gooley | supported | — | — | 1 |
+| John Peter Gooley | supported | Québec, Canada [region; reported] | — | 1 |
 | John Webb | provisional | Old Saybrook, Connecticut, USA | — | 0 |
 | John Webb | provisional | — | — | 1 |
 | John Webb | provisional | England [region] | — | 1 |
@@ -82,7 +84,7 @@
 | Marian Beulah Skinner | supported | — | — | 6 |
 | Marion Beulah Brenay | supported | Saginaw, Michigan, USA | — | 10 |
 | Mary “Molly” Weedon | supported | — | — | 1 |
-| Mary Ann Dennis | supported | — | — | 1 |
+| Mary Ann Dennis | supported | — | — | 2 (including Québec, unverified) |
 | Mette Jørgensdatter / Seye | supported | — | — | 1 |
 | Morten Nielsen | supported | — | — | 1 |
 | Morten Peder Mortensen | supported | Hårbølle, Møn, Denmark | Colonia Díaz, Chihuahua, Mexico | 5 |
