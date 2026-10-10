@@ -1,0 +1,35 @@
+name: Install verified Richard Skinner source media
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - assets/richard-skinner/richard-skinner-media.zip
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Atlas
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify exact archival package and install original JPEGs
+        run: python3 tools/install_richard_skinner_media.py
+
+      - name: Publish unchanged originals and derived previews
+        run: |
+          git add assets/richard-skinner/*.jpg
+          if git diff --cached --quiet; then
+            echo "Archival files already installed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Install verified Richard Skinner original records and photographs"
+          git pull --rebase origin main
+          git push origin HEAD:main
