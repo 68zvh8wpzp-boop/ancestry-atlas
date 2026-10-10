@@ -1,7 +1,7 @@
-/* Ancestry Atlas family geographical events and separate, explicitly unproven country research leads. */
+/* Atlas globe: direct ancestors and separately identified, optional research-only pins. */
 window.ANCESTRY_GLOBE_DATA = {
-  "version": "2026-10-10-globe-9-research-leads",
-  "sourcesNote": "Only direct ancestors, including provisional links (explicitly labeled), are included. If no reliable city is known, the named country/province/region is pinned at a representative coordinate and clearly flagged as approximate; the marker is NOT evidence of a specific birthtown or home. Research-attribution of region may itself be provisional. Collateral and rejected candidates excluded. Three separately typed research-origin country pins (France/Sweden/Ireland) are optional UI overlays; they are NOT ancestor-person born/lived/died events, are not counted in the 73 direct ancestors or 165 associations, and do not establish any nation's origin as fact.",
+  "version": "2026-10-10-globe-10-karlstad-research-colors",
+  "sourcesNote": "Only direct ancestors, including provisional links (explicitly labeled), are included. If no reliable city is known, the named country/province/region is pinned at a representative coordinate and clearly flagged as approximate; the marker is NOT evidence of a specific birthtown or home. Research-attribution of region may itself be provisional. Collateral and rejected candidates excluded. Three separately typed research-origin country pins (France/Sweden/Ireland) are optional UI overlays; they are NOT ancestor-person born/lived/died events, are not counted in the 73 direct ancestors or 165 associations, and do not establish any nation's origin as fact. Sweden research lead is placed at Karlstad, Värmland by user request, without asserting a birth, residence or death event there. Established person-place pins red; provisional-only direct-line locations blue; speculative origin research leads yellow.",
   "branches": [
     {
       "id": "webb",
@@ -2719,20 +2719,20 @@ window.ANCESTRY_GLOBE_DATA = {
     },
     {
       "id": "hypothesis_sweden_auren",
-      "name": "Sweden",
-      "lng": 18.0686,
-      "lat": 59.3293,
-      "precision": "country representative: Stockholm",
+      "name": "Karlstad, Värmland, Sweden",
+      "lng": 13.5028,
+      "lat": 59.3809,
+      "precision": "city research anchor — Karlstad, Värmland",
       "branch": "canada",
-      "lead": "Possible Swedish Aurén / Aurin origin",
+      "lead": "Aurén / Aurin Swedish research — Karlstad focus",
       "confidence": "research hypothesis — unresolved",
-      "summary": "Jessie Irene Aurin's father's identity remains disputed between John/Jonas Aurin–Auene records and a proposed Karl Johan Aurén. The original 1880 Michigan census and the 1883 marriage record for Karl Johan are needed before attaching a Swedish birthplace or residence to Jessie's paternal line.",
-      "qualification": "This pin marks a Swedish ancestry possibility, not evidence of a specific Swedish town. The user's Swedish DNA estimate cannot identify which family branch supplied that ancestry.",
+      "summary": "Karlstad in Värmland is the user-selected geographic starting point for investigating whether Jessie Irene Aurin's paternal family connects to Karl Johan Aurén. The John/Jonas Aurin–Auene identity discrepancy and Karl Johan's proposed relationship are unresolved; Karlstad has not been verified as an ancestor's birth, home or death location.",
+      "qualification": "Karlstad is a user-designated research focus, NOT a verified ancestral hometown or life event. The Swedish DNA estimate cannot establish which ancestor or place contributed it.",
       "relatedPersonId": "jessie_irene_aurin",
       "relatedPersonLabel": "Jessie Irene Aurin Skinner — connected ancestor",
       "sourceUrl": "https://www.familysearch.org/tree/person/details/LZD1-X5W",
-      "sourceLabel": "FamilySearch candidate Karl Johan Aurén (identity not confirmed)",
-      "researchIssue": "Ancestry Atlas Jessie/Aurin Work issue #41: original John/Jonas Auene birth/census and Karl Johan Aurén marriage comparison"
+      "sourceLabel": "Provisional Karl Johan Aurén person page; compare Jessie's 1880 census and Michigan parentage originals",
+      "researchIssue": "Atlas issue #41 — identify father John/Jonas Aurin versus Karl Johan Aurén; Karlstad is a research anchor, not yet sourced residence."
     },
     {
       "id": "hypothesis_ireland_gooley",
