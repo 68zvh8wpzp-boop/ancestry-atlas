@@ -98,3 +98,11 @@ Citations:
 - [Michigan County Births 1867–1917](https://www.familysearch.org/en/search/collection/1923472), additional county originals whose coverage varies by county; 1879 recording is not comprehensive.
 
 **Result this session:** no independently confirmed handwriting from Jessie’s 1879 birth register, 1880 Elbridge original census, or the reported 1883 Karl Johan/Karolina marriage. Do not say the parental identity is resolved.
+
+## Source advance — the 1886 Montague genealogy supplies Amelia's married surname
+
+The full digitized text of George W. Montague and William L. Montague's *History and Genealogy of the Montague Family of America* (1886), **printed p.714, addendum to p.369 no.2950**, explicitly identifies **Amelia Lucinda Cotton (born 24 January 1853), daughter of John West Cotton and Betsey Ann Brockway, as married to a man surnamed Aurin and living with him in Crystal Valley, Oceana County**. The same entry separately calls her sister **Hattie Cornelia Cotton married to Kelley**. [View scanned-volume transcript](https://archive.org/stream/historygenealogy00mont/historygenealogy00mont_djvu.txt).
+
+**Improved but bounded conclusion:** this contemporary nineteenth-century published family information links **Amelia Cotton -> Amelia Aurin** far better than modern tree assertions; it is compatible with the 1879 Jessie Auene mother field and 1899 Jessie marriage's Amelia Cotton field. Crucially the book **does not supply the Aurin husband's given name**. It cannot decide whether father was John Auene, Jonas Aurin or Karl Johan Aurén, nor prove a tie to the later Worcester Charles J. Aurin / Hult household. Obtain 1879 birth, 1880 census, 1881 Simon birth and marriage registers before merging any men. Printed-page facsimiles still need inspection; this reading is from full historical volume transcription.
+
+See companion [Amelia research audit](./AMELIA_LUCINDA_COTTON_RESEARCH_AUDIT_2026-10-10.md) for the documented Cotton/Brockway/Montague line and full sibling details.
