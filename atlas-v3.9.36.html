@@ -1340,7 +1340,7 @@ function renderEvidence(n){
   if(!ev.length){wrap.innerHTML='<div class="evidence-empty">No source image or document attached to this person yet.</div>';return;}
   const photos=ev.filter(e=>evidenceIsImage(e)&&evidenceHasReadablePreview(e)&&e.sourceLevel!=='photo-link');
   const photoSourceLinks=ev.filter(e=>evidenceIsImage(e)&&e.sourceLevel==='photo-link'&&e.sourcePage);
-  const sourceLinkedRichards=ev.filter(e=>n.id==='richard_francis_skinner'&&e.kind==='document'&&(e.sourcePage||e.documentUrl));
+  const sourceLinkedRichards=ev.filter(e=>n.id==='richard_francis_skinner'&&e.kind==='document'&&e.sourceLevel==='original'&&(e.sourcePage||e.documentUrl));
   const documents=ev.filter(e=>!evidenceIsImage(e)&&(evidenceHasReadablePreview(e)||sourceLinkedRichards.includes(e))).sort((a,b)=>Number(evidenceHasPreview(b))-Number(evidenceHasPreview(a)));
   const recordLeads=ev.filter(e=>!evidenceIsImage(e)&&!documents.includes(e));
   wrap.innerHTML='';
@@ -1591,7 +1591,8 @@ function openEvidence(e){
   const sourceLink=e.sourcePage||e.documentUrl;
   const linkLabel=e.sourceLevel==='collection'?'Browse record collection':e.sourceLevel==='index'?'Open indexed record':e.sourceLevel==='original'?'Open original record image':e.sourceLevel==='photo-link'?'Open original family photograph':'Open original record';
   const sourceActions=(sourceLink?'<a class="doc-source-action" href="'+escapeHtml(sourceLink)+'" target="_blank" rel="noopener">'+escapeHtml(linkLabel)+' ↗</a>':'')+
-    (e.additionalSourcePage?'<a class="doc-source-action secondary" href="'+escapeHtml(e.additionalSourcePage)+'" target="_blank" rel="noopener">Open adjoining parent details ↗</a>':'');
+    (e.additionalSourcePage?'<a class="doc-source-action secondary" href="'+escapeHtml(e.additionalSourcePage)+'" target="_blank" rel="noopener">Open adjoining parent details ↗</a>':'')+
+    (e.originalAsset?'<a class="doc-source-action secondary" href="'+escapeHtml(e.originalAsset)+'" target="_blank" rel="noopener">Open untouched original photograph ↗</a>':'');
   meta.innerHTML='<strong>'+escapeHtml(displayTitle)+'</strong><br>'+escapeHtml(e.date||'')+(e.place?' • '+escapeHtml(e.place):'')+
     (sourceActions?'<div class="doc-source-actions">'+sourceActions+'</div>':'')+
     '<br>'+escapeHtml(displaySummary)+
@@ -2804,7 +2805,7 @@ resize();
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v16.js?v=20261009-jessie-1"></script>
 <script src="jessie-aurin-mobile-biography.js?v=20261009-jessie-1"></script>
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v15.js?v=20261009-skinner-2"></script>
-<script src="richard-skinner-mobile-biography.js?v=20261009-skinner-6"></script>
+<script src="richard-skinner-mobile-biography.js?v=20261009-skinner-7"></script>
 </body>
 </html>
 

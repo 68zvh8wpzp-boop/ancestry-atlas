@@ -48,3 +48,10 @@ This supersedes the earlier **link-only photo card** description, without changi
 - iPhone link-only document modal now avoids a blank full-screen image and puts the source action ahead of the transcription; photo-source previews use a smaller viewer that directs readers to the true original.
 - Version `20261009-skinner-6` is the intended release. The `tests/richard-skinner-source-viewer.mjs` test guards the four documents, two installed photos, two genuine additional previews, source original links, biography preservation and iPhone entry-cache version.
 - **Not completed:** full original document images and full original new photographs are not yet packaged in the public GitHub site. Installed iPhone behavioral verification and original 1933 death certificate remain open. Repository/CI success is not proof of installed iPhone behavior.
+
+
+## 9 October 2026 — original-image media release (follow-up)
+
+Original, unchanged scans for the 1882 marriage, both adjoining 1894 birth-return pages, the 1900 census and both additional photographs have been transferred into GitHub's object store along with legible thumbnail derivatives. The studio photograph is also included as an upright archival display derivative because its untouched source carries conflicting EXIF rotation metadata. All originals remain available at their own permanent asset paths; no reconstructed or synthetic evidence was substituted. The photo display captions retain contributor attribution and dating limits.
+
+Public person-page gallery release: four document images, one link-only 1899 marriage citation, four family photographs (portrait, c1906 family, snowy woodland, studio) and four story scenes. The actual mobile device review, matching narration, father John Skinner identity bridge and Richard's 1933 original death certificate remain open. The main branch commit and deployment status must be verified separately after publishing this object tree.
