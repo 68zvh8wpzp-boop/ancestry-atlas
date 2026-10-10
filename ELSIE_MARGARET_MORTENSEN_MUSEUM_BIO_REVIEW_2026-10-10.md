@@ -6,7 +6,7 @@
 
 Elsie Margaret Mortensen was born on 16 August 1864 in Gunnison, Utah Territory, the daughter of Danish-born immigrants Morten Peder Mortensen and Dorothea Knudsen Jensen. She grew up in a household where work on the land and care for animals shaped the days. The family raised grain, vegetables and fruit, kept sheep, and spun or worked wool for clothing. The routines of milking, food preparation and sewing were part of a childhood in which a family's needs had to be met largely through its own labor.
 
-In May 1867, before Elsie's third birthday, her father returned to Denmark for three years. Her mother took the children to Scipio, where her own parents could help care for them. Morten came home in November 1870. He then married two additional Danish women, Martine Rasmussen and Karen Katrina Olsen, making Elsie's childhood household a plural family.
+In May 1867, before Elsie's third birthday, her father returned to Denmark for three years. Her mother took the children to Scipio, where her own parents could help care for them. Morten returned to Utah later in 1870. He then married two additional Danish women, Martine Rasmussen and Karen Katrina Olsen, making Elsie's childhood household a plural family.
 
 When Margaret was twelve, her parents joined a movement from Utah into Arizona Territory. They set out on 28 October 1876, taking their possessions and livestock over difficult roads toward settlements along the Little Colorado River. Her adolescence brought both practical duties and occasions for recreation. Family memories describe young people moving benches aside after supper to square-dance to fiddles and banjos, playing games and pulling molasses candy. Such evenings belonged to the same household world as the day's demanding chores.
 
