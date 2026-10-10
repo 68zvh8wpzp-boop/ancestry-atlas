@@ -1340,7 +1340,7 @@ function renderEvidence(n){
   if(!ev.length){wrap.innerHTML='<div class="evidence-empty">No source image or document attached to this person yet.</div>';return;}
   const photos=ev.filter(e=>evidenceIsImage(e)&&evidenceHasReadablePreview(e)&&e.sourceLevel!=='photo-link');
   const photoSourceLinks=ev.filter(e=>evidenceIsImage(e)&&e.sourceLevel==='photo-link'&&e.sourcePage);
-  const sourceLinkedRichards=ev.filter(e=>n.id==='richard_francis_skinner'&&e.kind==='document'&&e.sourceLevel==='original'&&(e.sourcePage||e.documentUrl));
+  const sourceLinkedRichards=ev.filter(e=>e.kind==='document'&&(e.sourcePage||e.documentUrl)&&((n.id==='richard_francis_skinner'&&e.sourceLevel==='original')||n.id==='jessie_irene_aurin'));
   const documents=ev.filter(e=>!evidenceIsImage(e)&&(evidenceHasReadablePreview(e)||sourceLinkedRichards.includes(e))).sort((a,b)=>Number(evidenceHasPreview(b))-Number(evidenceHasPreview(a)));
   const recordLeads=ev.filter(e=>!evidenceIsImage(e)&&!documents.includes(e));
   wrap.innerHTML='';
@@ -2803,7 +2803,7 @@ resize();
 <script src="john-peter-mobile-biography.js?v=20261008-4"></script>
 <script src="mary-ann-mobile-biography.js?v=20261009-mary-1"></script>
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v16.js?v=20261009-jessie-1"></script>
-<script src="jessie-aurin-mobile-biography.js?v=20261009-jessie-1"></script>
+<script src="jessie-aurin-mobile-biography.js?v=20261009-jessie-2"></script>
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v15.js?v=20261009-skinner-2"></script>
 <script src="richard-skinner-mobile-biography.js?v=20261009-skinner-7"></script>
 </body>
