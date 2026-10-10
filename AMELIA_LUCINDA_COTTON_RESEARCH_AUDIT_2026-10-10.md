@@ -40,3 +40,38 @@ The same modern compilation lists **Daniel Phillip Kelley (1846–1935)** as a s
 **Possible interpretations:** (a) Daniel truly had relationships/marriages with both sisters at different dates; (b) compiled modern relatives/spouses were combined incorrectly; (c) one or more names refer to distinct men. **No interpretation is presently proved.** Because the compilation also erroneously dates Jessie as born **1897** instead of **1879**, its family edges require stringent independent verification.
 
 **Do not import Daniel as Amelia's proven husband, or George/Ivah/Frances as her biological children, yet.** Prioritize actual **1870–1885 Oceana marriage, divorce, death and child birth records**, and corroborate mother’s identity from each child’s contemporary register. The 1880 Aurin household listing the older girls as Aurin is *not itself proof of maternity*.
+
+## PRIMARY PUBLICATION DISCOVERY — 1886 Montague genealogy, actually examined in full text (10 October)
+
+**Critical status correction:** The original working note above described this book as "located, not read." That status is superseded here. I examined the digitized **full-text transcription** of the 1886 volume, locating two *separate* passages, printed **pp. 369 and 714**. The actual **printed-page facsimile images are NOT YET SAVED OR INSPECTED**, so this is an 1886 historical compiled genealogy with verified full-text content, not yet a photo-verified contemporaneous vital certificate. Source: George W. Montague, rev. William L. Montague, *History and Genealogy of the Montague Family of America* (Amherst, MA: J. E. Williams, 1886), [Internet Archive digitized complete text](https://archive.org/stream/historygenealogy00mont/historygenealogy00mont_djvu.txt), printed p. **369**, entry **2546 / 2950**, and **p. 714**, errata/addenda following "P. 369, No. 2950."
+
+### Page 714 — significant first-hand published-family details
+
+The supplemental entry **“P. 369, No. 2950”** records the following in a much earlier source than the recent online family trees:
+
+- **John West Cotton**: born **1 April 1826** in **Edwards, New York**; married **23 November 1847** at **Pitcairn, New York** to **Betsey Ann Brockway**; died **30 March 1870** in **Leavitt Township, Oceana County, Michigan**. The recent memorial's approximate birth **1825** is superseded as a stronger historical *claim* but not yet independently proven.
+- **Betsey Ann Brockway**: born **29 September 1826**, daughter of **Jeremiah Brockway of Potsdam, New York**; second marriage **15 February 1872** to **Samuel Rackleff** (earlier p.369 calls him Radcliffe). Listed residing in **Elbridge, Oceana County**, as of the book's publication.
+- Their daughter **Amelia Lucinda Cotton**, born **24 January 1853**, is recorded as **married to someone surnamed Aurin**, with the couple in **Crystal Valley, Michigan**.
+- Their daughter **Hattie Cornelia Cotton**, born **22 December 1858**, is separately recorded as **married to a Kelley**, also in **Crystal Valley**. *Modern memorial gives 28 June 1858 instead; preserve both rather than silently reconcile.*
+- The first-marriage children also listed: **Imogene (30 Sep 1848)**, **Eugene (10 Nov 1850)**, **Lucy (26 Sep 1854–17 Jul 1867)**, **Almon (12 Jul 1857)**, **Jay Nelson (12 Nov 1860)**, **Frederick Weston (21 Feb 1862)**, **Frank (5 Apr 1865)** and **Lillie Dale (8 Mar 1867)**. Confirm full entry against scan: an apparent OCR/bibliographic inconsistency affects Jay's children and Frank's marriage date; do not copy those suspect details to published biographies.
+- This corroborates **Amelia Aurin** versus **Hattie Kelley as different sisters** before the memorial aggregators, substantially reducing confidence in modern online claims assigning the same Daniel Kelley as both women's husband. **It does not prove Amelia never married any Kelley** at another time; independent marriage evidence is still necessary.
+
+### Page 369 — direct earlier ancestry
+
+- **Ruth Montague**, daughter of **Nathaniel Montague (person 2458)**, born **27 November 1790** at Cambridge, Vermont; married **Solomon Cotton** in **1810**. Ruth died **25 November 1874**. Their surviving child **John W. Cotton (person 2950)** is connected by enumerated child listing. The book says Ruth's father held Revolutionary War service, which must be independently proven.
+- **Solomon Cotton**, born **7 May 1790** at Montpelier, Vermont; died **2 September 1853**. He and Ruth had seven children, with only three reaching adulthood: Norman, Daniel Moulton (born 26 Aug 1822), and John W.
+- **Nathaniel Montague (2458)**, born **4 June 1759** at Sunderland, Massachusetts, named a son of **Samuel Montague (2440)**. The volume gives his first wife as **Lucy West**, Ruth's mother, and says he served in the Revolutionary War, including service in **Captain Tehan Noble's company, Colonel Warren's regiment, 7 May–18 June 1781**, citing *History of Pittsford, Vermont*, p. 178. **The underlying military roll and pension file have not been obtained.** Later marriage claims are not promoted as fully proved.
+- The original chapter says that **five John West Cotton children relocated to Michigan with him: Imogene, Eugene, Amelia, Almon and Jay**, before John died. This is important migration context and connects Amelia to a real Michigan household, rather than only to compiled online relationships.
+
+### Stronger combined identity result (still evidence-bound)
+
+The 1886 writer independently reports **Amelia Lucinda Cotton = a woman married to an Aurin in Crystal Valley**. Earlier Jessie-specific 1879/1899 indexed records give **Amelia Auene** as mother and **Amelia Cotton** in the marriage entry, with the family nearby in **Oceana County**. Geography, names, and contemporaneous marriage surname make **Amelia Lucinda Cotton / Aurin** a **strong working identification**, much stronger than uncorroborated trees. The remaining necessary original bridge is Jessie's full 1879 birth registration and Amelia's 1870s marriage to Aurin; do NOT automatically promote John/Jonas/Karl Johan as one father.
+
+### Verification still needed
+
+1. Inspect and retain *facsimile image* of printed **p.714 (addendum to p.369)** and p.369, plus p.372 (Nathaniel), preserving transcription and precise citation. Avoid treating Internet Archive OCR text as an archival scan.
+2. Confirm John W. Cotton / Betsey Brockway family with 1850–1870 censuses, John's 1870 death/estate, and Betsey's 1872 Rackleff marriage.
+3. Trace Amelia's 1879 birth-register/1880 household and later 1919 death; clarify whether Daniel Kelley relates to **Hattie alone** or additional relationships.
+4. Confirm revolutionary Nathaniel Montague's 1781 roll or pension if this branch is proved; no historical honors or military image are to be placed on an approved card based solely on a family genealogy.
+
+**Research status raised:** historic family book transcribed and source-checked; Amelia's marriage surname and two further maternal generations have **strong documentary leads**. **Person-page approval, facsimile capture, and original civil certificate checks remain open.**
