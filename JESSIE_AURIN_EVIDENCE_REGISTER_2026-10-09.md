@@ -84,3 +84,7 @@ Official [Alpena Library genealogy and obituary-request instructions](https://ww
 
 User requested concentrated Jessie research. Her approved biography and photographs remain unchanged. The 1899 original-image ARK was recovered from earlier research: https://www.familysearch.org/ark:/61903/3:1:S3HT-67LS-TW4 . The 1880 Elbridge family source is on NARA census reel T9-599. The 1879 handwritten birth register and 1880 family census image are still not recovered.
 
+**Death-marker discrepancy:** Jean Stroven's 2003 on-site Spratt Cemetery inscription transcription gives 'Skinner, Jessie, 1897–1956, mother' (https://www.interment.net/data/us/mi/alpena/spratt/index.htm). The Alpena County Library Spratt cemetery PDF p.4 also reads 'SKINNER Jessie 1897 1956' (https://alpenalibrary.org/wp-content/uploads/2023/10/Spratt-Cemetery.pdf). This is incompatible with Jessie's age 20 at her November 1899 marriage, the 1879 birth index, and her age 20 in 1900 and 50 in 1930. Prefer **1879** as birth year; don't silently dismiss cemetery testimony. Two published sources may reflect one common inscription/transcription. Original stone photo and 1956 death record needed.
+
+**Separate month discrepancy:** 1879 birth index says 25 October; the full 1900 census original records September 1879. Keep both observations rather than harmonizing.
+
