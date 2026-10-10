@@ -1,7 +1,7 @@
-/* Atlas Globe geography source. Strict event types: born, lived, died. */
+/* Atlas globe geography: direct ancestors including provisional connections. */
 window.ANCESTRY_GLOBE_DATA = {
-  "version": "2026-10-10-globe-2",
-  "sourcesNote": "Initial location pass from the current Atlas person graph and reviewed biographies. Only born/lived/died. More historic people/place events require original record audits. Township/county and historic region pins are explicitly approximate; ambiguous localities omitted.",
+  "version": "2026-10-10-globe-6-provisional-direct",
+  "sourcesNote": "All pins and listings restricted to the canonical Atlas's direct-ancestor parent chain, including provisional relationships (clearly labeled). Unmapped direct ancestors listed separately when no city born/lived/died is grounded. Collateral people and frontier/rejected candidates excluded. Uncertain historic map positions/dates labeled. Based on graph and selected archival/compiled evidence, not a completed 101-person record audit.",
   "branches": [
     {
       "id": "webb",
@@ -364,24 +364,6 @@ window.ANCESTRY_GLOBE_DATA = {
           "when": "1946–1963; 1976–1990",
           "qualifier": "",
           "evidence": "Atlas original/approved memoir research; review linked person page for the source"
-        },
-        {
-          "personId": "thomas_prather",
-          "name": "Thomas Estil Prather",
-          "branch": "hill",
-          "type": "lived",
-          "when": "1939–1950",
-          "qualifier": "",
-          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
-        },
-        {
-          "personId": "thomas_prather",
-          "name": "Thomas Estil Prather",
-          "branch": "hill",
-          "type": "died",
-          "when": "1950",
-          "qualifier": "",
-          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
         }
       ]
     },
@@ -524,33 +506,6 @@ window.ANCESTRY_GLOBE_DATA = {
           "branch": "webb",
           "type": "lived",
           "when": "1880s",
-          "qualifier": "",
-          "evidence": "Atlas person graph and family research; see person's source register"
-        }
-      ]
-    },
-    {
-      "id": "springerville",
-      "name": "Springerville, Arizona, USA",
-      "lng": -109.2859,
-      "lat": 34.1334,
-      "precision": "town",
-      "events": [
-        {
-          "personId": "jamar_webb",
-          "name": "Jamar Webb",
-          "branch": "webb",
-          "type": "born",
-          "when": "1946",
-          "qualifier": "",
-          "evidence": "Atlas person graph and family research; see person's source register"
-        },
-        {
-          "personId": "jamar_webb",
-          "name": "Jamar Webb",
-          "branch": "webb",
-          "type": "died",
-          "when": "1946",
           "qualifier": "",
           "evidence": "Atlas person graph and family research; see person's source register"
         }
@@ -743,24 +698,6 @@ window.ANCESTRY_GLOBE_DATA = {
       "lat": 40.7608,
       "precision": "city",
       "events": [
-        {
-          "personId": "chauncey_webb",
-          "name": "Chauncey Griswold Webb",
-          "branch": "webb",
-          "type": "lived",
-          "when": "19th c.",
-          "qualifier": "",
-          "evidence": "Atlas person graph and family research; see person's source register"
-        },
-        {
-          "personId": "ann_eliza_webb",
-          "name": "Ann Eliza Webb",
-          "branch": "webb",
-          "type": "lived",
-          "when": "19th c.",
-          "qualifier": "",
-          "evidence": "Atlas person graph and family research; see person's source register"
-        },
         {
           "personId": "james_wilford",
           "name": "James Wilford “Jay” Webb",
@@ -1246,15 +1183,6 @@ window.ANCESTRY_GLOBE_DATA = {
           "when": "1815",
           "qualifier": "",
           "evidence": "Atlas person graph and family research; see person's source register"
-        },
-        {
-          "personId": "chauncey_webb",
-          "name": "Chauncey Griswold Webb",
-          "branch": "webb",
-          "type": "born",
-          "when": "1812",
-          "qualifier": "",
-          "evidence": "Atlas person graph and family research; see person's source register"
         }
       ]
     },
@@ -1291,6 +1219,15 @@ window.ANCESTRY_GLOBE_DATA = {
           "when": "1667",
           "qualifier": "",
           "evidence": "Atlas person graph and family research; see person's source register"
+        },
+        {
+          "personId": "gideon_webb",
+          "name": "Gideon Webb",
+          "branch": "webb",
+          "type": "born",
+          "when": "1709",
+          "qualifier": "Born in Saybrook per compiled Bates family genealogy",
+          "evidence": "Pane-Joyce family genealogy: https://aleph0.clarku.edu/~djoyce/gen/report/rr10/rr10_382.html"
         }
       ]
     },
@@ -1307,42 +1244,6 @@ window.ANCESTRY_GLOBE_DATA = {
           "branch": "webb",
           "type": "born",
           "when": "1674",
-          "qualifier": "",
-          "evidence": "Atlas person graph and family research; see person's source register"
-        }
-      ]
-    },
-    {
-      "id": "nauvoo",
-      "name": "Nauvoo, Illinois, USA",
-      "lng": -91.3848,
-      "lat": 40.55,
-      "precision": "town",
-      "events": [
-        {
-          "personId": "ann_eliza_webb",
-          "name": "Ann Eliza Webb",
-          "branch": "webb",
-          "type": "born",
-          "when": "1844",
-          "qualifier": "",
-          "evidence": "Atlas person graph and family research; see person's source register"
-        },
-        {
-          "personId": "eliza_jane_churchill",
-          "name": "Eliza Jane Churchill Webb",
-          "branch": "webb",
-          "type": "lived",
-          "when": "1840s",
-          "qualifier": "",
-          "evidence": "Atlas person graph and family research; see person's source register"
-        },
-        {
-          "personId": "chauncey_webb",
-          "name": "Chauncey Griswold Webb",
-          "branch": "webb",
-          "type": "lived",
-          "when": "1840s",
           "qualifier": "",
           "evidence": "Atlas person graph and family research; see person's source register"
         }
@@ -1714,15 +1615,6 @@ window.ANCESTRY_GLOBE_DATA = {
           "when": "1930s",
           "qualifier": "Apartment hotel period",
           "evidence": "Atlas original/approved memoir research; review linked person page for the source"
-        },
-        {
-          "personId": "thomas_prather",
-          "name": "Thomas Estil Prather",
-          "branch": "hill",
-          "type": "lived",
-          "when": "winters before 1939",
-          "qualifier": "Seasonal residence",
-          "evidence": "Atlas original/approved memoir research; review linked person page for the source"
         }
       ]
     },
@@ -1743,6 +1635,937 @@ window.ANCESTRY_GLOBE_DATA = {
           "evidence": "Atlas original/approved memoir research; review linked person page for the source"
         }
       ]
+    },
+    {
+      "id": "chester_ct",
+      "name": "Chester, Connecticut, USA",
+      "lng": -72.45092,
+      "lat": 41.40316,
+      "precision": "town",
+      "events": [
+        {
+          "personId": "gideon_webb",
+          "name": "Gideon Webb",
+          "branch": "webb",
+          "type": "lived",
+          "when": "18th century",
+          "qualifier": "Chester/Saybrook historical locality, period not established precisely",
+          "evidence": "Existing Atlas Gideon Webb location attribution: atlas-v3.9.36.html"
+        }
+      ]
+    },
+    {
+      "id": "east_haddam",
+      "name": "East Haddam, Connecticut, USA",
+      "lng": -72.4613,
+      "lat": 41.4529,
+      "precision": "town",
+      "events": [
+        {
+          "personId": "edith_bates",
+          "name": "Edith Bates",
+          "branch": "webb",
+          "type": "born",
+          "when": "1710",
+          "qualifier": "Birthplace attribution remains compiled; line to user provisional",
+          "evidence": "Bates family genealogy: https://aleph0.clarku.edu/~djoyce/gen/report/rr10/rr10_382.html"
+        }
+      ]
+    },
+    {
+      "id": "hartford",
+      "name": "Hartford, Connecticut, USA",
+      "lng": -72.6851,
+      "lat": 41.7637,
+      "precision": "city",
+      "events": [
+        {
+          "personId": "hannah_griswold",
+          "name": "Hannah Griswold",
+          "branch": "webb",
+          "type": "born",
+          "when": "1790",
+          "qualifier": "Research-source attribution pending original Hartford vital return",
+          "evidence": "Mormon Historical Studies, vol 3 no 2 (2002), Webb Hannah entry: https://ensignpeakfoundation.org/wp-content/uploads/2013/05/MHS3.2Fall2002WomenNauvooRS.pdf"
+        }
+      ]
+    },
+    {
+      "id": "laharpe",
+      "name": "La Harpe, Illinois, USA",
+      "lng": -90.9696,
+      "lat": 40.5831,
+      "precision": "town",
+      "events": [
+        {
+          "personId": "hannah_griswold",
+          "name": "Hannah Griswold",
+          "branch": "webb",
+          "type": "died",
+          "when": "1845",
+          "qualifier": "Reported 16 Oct 1845; historical roster, original return uninspected",
+          "evidence": "Mormon Historical Studies, vol 3 no 2 (2002), Webb Hannah entry: https://ensignpeakfoundation.org/wp-content/uploads/2013/05/MHS3.2Fall2002WomenNauvooRS.pdf"
+        }
+      ]
+    },
+    {
+      "id": "esopus_ny",
+      "name": "Esopus, New York, USA",
+      "lng": -73.9735,
+      "lat": 41.8276,
+      "precision": "town",
+      "events": [
+        {
+          "personId": "isaac_carling",
+          "name": "Isaac Van Wagoner Carling",
+          "branch": "webb",
+          "type": "born",
+          "when": "1831",
+          "qualifier": "Compiled date, original birth register not inspected",
+          "evidence": "Frank Family Pedigrees: https://www.frankhistory.com/pedigrees/getperson.php?personID=I4815&tree=frank"
+        }
+      ]
+    },
+    {
+      "id": "fillmore_ut",
+      "name": "Fillmore, Utah, USA",
+      "lng": -112.3248,
+      "lat": 38.9689,
+      "precision": "town",
+      "events": [
+        {
+          "personId": "isaac_carling",
+          "name": "Isaac Van Wagoner Carling",
+          "branch": "webb",
+          "type": "lived",
+          "when": "1850s–1875",
+          "qualifier": "Family reminiscence and Carling children born in Fillmore",
+          "evidence": "1965 Thomas Chamberlain family history: https://www.familysearch.org/en/memories/memory/2501673"
+        },
+        {
+          "personId": "asenath_browning",
+          "name": "Asenath Elizabeth Browning",
+          "branch": "webb",
+          "type": "lived",
+          "when": "1850s–1875",
+          "qualifier": "Mother of Carling children; family history records household prior to Orderville",
+          "evidence": "1965 Thomas Chamberlain family history: https://www.familysearch.org/en/memories/memory/2501673"
+        }
+      ]
+    },
+    {
+      "id": "orderville_ut",
+      "name": "Orderville, Utah, USA",
+      "lng": -112.636,
+      "lat": 37.275,
+      "precision": "town",
+      "events": [
+        {
+          "personId": "isaac_carling",
+          "name": "Isaac Van Wagoner Carling",
+          "branch": "webb",
+          "type": "lived",
+          "when": "from 1875",
+          "qualifier": "August 1875 arrival with family in original family-written account",
+          "evidence": "1965 Thomas Chamberlain family history: https://www.familysearch.org/en/memories/memory/2501673"
+        },
+        {
+          "personId": "asenath_browning",
+          "name": "Asenath Elizabeth Browning",
+          "branch": "webb",
+          "type": "lived",
+          "when": "from 1875",
+          "qualifier": "1850s–70s family residence inferred specifically from family-authored move in 1875",
+          "evidence": "1965 Thomas Chamberlain family history: https://www.familysearch.org/en/memories/memory/2501673"
+        },
+        {
+          "personId": "isaac_carling",
+          "name": "Isaac Van Wagoner Carling",
+          "branch": "webb",
+          "type": "died",
+          "when": "1911",
+          "qualifier": "Compiled date, requires original death entry",
+          "evidence": "Frank Family Pedigrees: https://www.frankhistory.com/pedigrees/getperson.php?personID=I4815&tree=frank"
+        },
+        {
+          "personId": "asenath_browning",
+          "name": "Asenath Elizabeth Browning",
+          "branch": "webb",
+          "type": "died",
+          "when": "1899",
+          "qualifier": "Compiled death place/date, needs original vital registration",
+          "evidence": "Ancestry user-built genealogy: https://www.ancestry.com/genealogy/records/asenath-elizabeth-browning-24-21bjf1x"
+        }
+      ]
+    },
+    {
+      "id": "quincy_il",
+      "name": "Quincy, Illinois, USA",
+      "lng": -91.4099,
+      "lat": 39.9356,
+      "precision": "city",
+      "events": [
+        {
+          "personId": "asenath_browning",
+          "name": "Asenath Elizabeth Browning",
+          "branch": "webb",
+          "type": "born",
+          "when": "1835",
+          "qualifier": "Compiled date/birthplace, unverified original",
+          "evidence": "Ancestry user-built genealogy: https://www.ancestry.com/genealogy/records/asenath-elizabeth-browning-24-21bjf1x"
+        }
+      ]
     }
-  ]
+  ],
+  "personMeta": {
+    "james_sheldon": {
+      "name": "James Sheldon Webb",
+      "branch": "webb",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "inez_karen": {
+      "name": "Inez Karen Prather",
+      "branch": "hill",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "james_wilford": {
+      "name": "James Wilford “Jay” Webb",
+      "branch": "webb",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "marion_brenay": {
+      "name": "Marion Beulah Brenay",
+      "branch": "canada",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "grace_hill": {
+      "name": "Grace Mildred Hill",
+      "branch": "hill",
+      "confidence": "confirmed",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "jonathan_henry": {
+      "name": "Jonathan Henry Webb",
+      "branch": "webb",
+      "confidence": "confirmed",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "della_ray": {
+      "name": "Della Ray Webb",
+      "branch": "denmark",
+      "confidence": "confirmed",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "charles_albert": {
+      "name": "Charles Albert Brenay",
+      "branch": "canada",
+      "confidence": "confirmed",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "marian_skinner": {
+      "name": "Marian Beulah Skinner",
+      "branch": "canada",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "isaiah_hill": {
+      "name": "Isaiah “Zay” Hill Sr.",
+      "branch": "hill",
+      "confidence": "confirmed",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "edward_milo_jr": {
+      "name": "Edward Milo Webb Jr.",
+      "branch": "webb",
+      "confidence": "confirmed",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "sarah_carling": {
+      "name": "Sarah Elizabeth Carling",
+      "branch": "webb",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "james_wilford_ray": {
+      "name": "James Wilford Ray Sr.",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "elsie_mortensen": {
+      "name": "Elsie Margaret Mortensen Ray",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "charles_godfrey": {
+      "name": "Charles Godfrey / Gottfried Brenay (Brunne)",
+      "branch": "canada",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "ida_mae": {
+      "name": "Ida Mae Gooley",
+      "branch": "canada",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "richard_francis_skinner": {
+      "name": "Richard Francis Skinner",
+      "branch": "canada",
+      "confidence": "strong",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "jessie_irene_aurin": {
+      "name": "Jessie Irene Aurin / Aurian",
+      "branch": "canada",
+      "confidence": "confirmed",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "russell_hill": {
+      "name": "Colonel Russell Hill",
+      "branch": "hill",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "davia_dunbar": {
+      "name": "Davia / David Ann Dunbar",
+      "branch": "hill",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "edward_milo_sr": {
+      "name": "Edward Milo Webb Sr.",
+      "branch": "webb",
+      "confidence": "confirmed",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "caroline_owens": {
+      "name": "Caroline Amelia Owens",
+      "branch": "webb",
+      "confidence": "confirmed",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "isaac_carling": {
+      "name": "Isaac Van Wagoner Carling",
+      "branch": "webb",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "asenath_browning": {
+      "name": "Asenath Elizabeth Browning",
+      "branch": "webb",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "morten_peder": {
+      "name": "Morten Peder Mortensen",
+      "branch": "denmark",
+      "confidence": "confirmed",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "dorthea_jensen": {
+      "name": "Dorthea Jensen Mortensen",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "wilhelm_brunne": {
+      "name": "Wilhelm Karl Charles Brunne",
+      "branch": "canada",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "johanne_weller": {
+      "name": "Johanne Dorothea Weller",
+      "branch": "canada",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "john_peter": {
+      "name": "John Peter Gooley",
+      "branch": "canada",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "mary_ann": {
+      "name": "Mary Ann Dennis",
+      "branch": "canada",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "thomas_d": {
+      "name": "Thomas D. Dunbar",
+      "branch": "hill",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "elizabeth_edwards": {
+      "name": "Elizabeth A. “Louisa” Edwards",
+      "branch": "hill",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "james_webb_jr": {
+      "name": "James Webb Jr.",
+      "branch": "webb",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "hannah_griswold": {
+      "name": "Hannah Griswold",
+      "branch": "webb",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "peder_mortensen_1806": {
+      "name": "Peder Mortensen",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "helena_sandersen": {
+      "name": "Helena / Lene Pedersdatter Sandersen",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "knud_jensen_brygger": {
+      "name": "Knud Jensen Brygger",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "bodil_olesdatter": {
+      "name": "Bodil Olesdatter",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "peter_gooley": {
+      "name": "Peter Gooley",
+      "branch": "canada",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "william_weedon": {
+      "name": "William Weedon / Weeden Dunbar",
+      "branch": "hill",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "franny_weldon": {
+      "name": "Frances Fanny Weldon",
+      "branch": "hill",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "james_webb_sr": {
+      "name": "James Webb (often styled James Henry Webb)",
+      "branch": "webb",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "elizabeth_douglas": {
+      "name": "Elizabeth Douglas",
+      "branch": "webb",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "mette_jorg": {
+      "name": "Mette Jørgensdatter / Seye",
+      "branch": "denmark",
+      "confidence": "confirmed",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "peder_sandersen": {
+      "name": "Peder Sandersen",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "ane_kirstine": {
+      "name": "Ane Kirstine Jørgensdatter",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "rev_thomas": {
+      "name": "Thomas Dunbar",
+      "branch": "hill",
+      "confidence": "confirmed",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "molly_weedon": {
+      "name": "Mary “Molly” Weedon",
+      "branch": "hill",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "gideon_webb": {
+      "name": "Gideon Webb",
+      "branch": "webb",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "edith_bates": {
+      "name": "Edith Bates",
+      "branch": "webb",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "anne_seje": {
+      "name": "Anne Nielsdatter Seje",
+      "branch": "denmark",
+      "confidence": "confirmed",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "levin_madsen": {
+      "name": "Levin Sander Madsen",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "margrethe_anders": {
+      "name": "Margrethe Andersdatter",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "john_webb_1667": {
+      "name": "John Webb",
+      "branch": "webb",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "ruth_graves": {
+      "name": "Ruth Graves",
+      "branch": "webb",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "niels_olufsen": {
+      "name": "Niels Olufsen / Olsen Seye",
+      "branch": "denmark",
+      "confidence": "confirmed",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "margrethe_lars": {
+      "name": "Margrethe Lauridsdatter",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "mads_hansen": {
+      "name": "Mads Hansen",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "malene_mortens": {
+      "name": "Malene Christiane Mortensdatter",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "john_webb_1640": {
+      "name": "John Webb",
+      "branch": "webb",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "susanna_cunliffe": {
+      "name": "Susannah Cunliffe",
+      "branch": "webb",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "oluf_hemmingsen": {
+      "name": "Oluf Hemmingsen Seye",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "morten_nielsen": {
+      "name": "Morten Nielsen",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "thrine_levins": {
+      "name": "Thrine Levinsdatter",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "john_webb_1615": {
+      "name": "John Webb",
+      "branch": "webb",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "anna_bassett": {
+      "name": "Anna Bassett",
+      "branch": "webb",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "hemming_olufsen": {
+      "name": "Hemming Olufsen Seye",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "niels_pedersen": {
+      "name": "Niels Pedersen",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "avens_mortens": {
+      "name": "Avens / Avendtz Mortensdatter",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "levin_zander": {
+      "name": "Levin Zander",
+      "branch": "denmark",
+      "confidence": "confirmed",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "oluf_nielsen": {
+      "name": "Oluf Nielsen Seye",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    },
+    "niels_seye": {
+      "name": "Niels Seye",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10"
+    }
+  },
+  "unplacedAncestors": [
+    {
+      "personId": "anna_bassett",
+      "name": "Anna Bassett",
+      "branch": "webb",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "avens_mortens",
+      "name": "Avens / Avendtz Mortensdatter",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "elizabeth_douglas",
+      "name": "Elizabeth Douglas",
+      "branch": "webb",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "james_webb_sr",
+      "name": "James Webb (often styled James Henry Webb)",
+      "branch": "webb",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "johanne_weller",
+      "name": "Johanne Dorothea Weller",
+      "branch": "canada",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "john_webb_1640",
+      "name": "John Webb",
+      "branch": "webb",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "john_webb_1615",
+      "name": "John Webb",
+      "branch": "webb",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "malene_mortens",
+      "name": "Malene Christiane Mortensdatter",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "margrethe_anders",
+      "name": "Margrethe Andersdatter",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "margrethe_lars",
+      "name": "Margrethe Lauridsdatter",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "morten_nielsen",
+      "name": "Morten Nielsen",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "niels_pedersen",
+      "name": "Niels Pedersen",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "niels_seye",
+      "name": "Niels Seye",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "oluf_hemmingsen",
+      "name": "Oluf Hemmingsen Seye",
+      "branch": "denmark",
+      "confidence": "strong",
+      "lineageStatus": "supported",
+      "relationshipNote": "Connected on the current working direct-ancestor line",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "peter_gooley",
+      "name": "Peter Gooley",
+      "branch": "canada",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "susanna_cunliffe",
+      "name": "Susannah Cunliffe",
+      "branch": "webb",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    },
+    {
+      "personId": "wilhelm_brunne",
+      "name": "Wilhelm Karl Charles Brunne",
+      "branch": "canada",
+      "confidence": "provisional",
+      "lineageStatus": "provisional",
+      "relationshipNote": "Provisional relationship to your direct line; not yet proved",
+      "source": "Ancestry Atlas canonical directed parent graph, evaluated 2026-10-10",
+      "reason": "No town/locality yet supported for born, lived or died; broad countries/regions are not pinned."
+    }
+  ],
+  "directAncestorCount": 72
 };
