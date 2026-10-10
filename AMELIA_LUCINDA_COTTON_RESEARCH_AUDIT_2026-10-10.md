@@ -4,8 +4,6 @@
 ## Why this woman is the next person
 Jessie Irene Aurin Skinner's **1899 Oceana County marriage index and viewer panel** name a mother **Amelia Cotton**; Jessie’s 1879 Michigan birth index calls her mother **Amelia Auene**. The original 1899 register and 1879 birth return still require full manuscript inspection, but together they provide a plausible identity bridge to Amelia Lucinda Cotton. Jessie and Richard's *published, user-approved pages must not be edited* merely to install this hypothesis.
 
-A descendant separately reported Swedish admixture from a consumer DNA test. **Do not reproduce or store the person's result or raw genetic data in this public repository.** DNA ethnicity percentages do not identify which John/Jonas/Karl Johan was Jessie's father and do not prove parentage.
-
 ## Working dates and places — SECONDARY sources, NOT verified originals
 - The modern PeopleLegacy memorial for [Amelia Lucinda Cotton McConnell](https://peoplelegacy.com/amelia_lucinda_cotton_mcconnell-18361j) gives **24 January 1853, Potsdam, New York** to **11 February 1919, Michigan**, burial **Carpenter Cemetery, Walkerville, Michigan**, and names her parents **John West Cotton** and **Betsey Ann Brockway (later Rackliff)**. The service explicitly disclaims verification.
 - It assigns children to three surname groups: **George W., Ivah Lenoria, Frances I. Kelley** (1871–77), **Jessie and Simon Aurin** (1879, 1881), and **Earl Rolland McConnell** (1893). Its Jessie entry mistakenly gives **1897** rather than 1879; siblings and marriage sequence are *leads only*.
