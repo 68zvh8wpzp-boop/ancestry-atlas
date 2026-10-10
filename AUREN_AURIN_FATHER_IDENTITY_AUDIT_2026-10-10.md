@@ -53,3 +53,15 @@ The Karolina Hult/Karl Johan Aurén hypothesis has a **specific later geographic
 - Next potential differentiator: examine **1900–1940 Worcester censuses**, probate/death of Charles/Carl/Karl Johan, the **1883 Michigan** alleged Karolina marriage return, and compare with **Oceana County 1879/1880** records. If a Massachusetts Charles J. Aurin can be tracked in tandem with the Swedish-born Karolina family, test whether this contradicts or supports a single person moving from Michigan after 1881.
 
 **Do not describe the Karl Johan–Karolina Worcester marriage and a prior marriage to Amelia as an established two-marriage biography.** The original 1883 return is still needed, and the compiled families may represent separate individuals.
+
+## 1918 same-address cluster — stronger candidate discriminator
+
+The [1918 Worcester house-directory entry for Eastern Avenue, Part 17](https://ldsgenealogy.com/MA/books/The-Worcester-house-directory-and-family-address-book-a-supplement-to-the-Worcester-directory-1918-part-17.htm) includes the following *co-listed persons on a single address line*:
+
+**“Auren Charles J; Auren Arthur J; Auren Alrik G; Hult Gustaf; Hult Olga M; Hult Enis C; Hult Elsie C; Hult Hjalmer C”** (followed by additional names).
+
+Together with the [1918 real-estate list at 155 Eastern Avenue](https://ldsgenealogy.com/MA/books/The-Worcester-house-directory-and-family-address-book-a-supplement-to-the-Worcester-directory-1918-part-98.htm) naming **Hult Gustaf & Charles J. Aurin**, this anchors the existence of a *Worcester Auren/Aurin–Hult cluster* by 1918 more specifically than a name-only match.
+
+The directory page says its online text was machine-generated and may contain errors: **underlying facsimile not yet checked**. Same address is not proof of parent-child relations, co-ownership may differ from actual residence, and **this cluster is not proof that Charles J. Aurin is the 1880 Michigan father Jonas or the 1879 John Auene**.
+
+**New follow-up:** Identify **Arthur J. Auren**, **Alrik G. Auren**, and **Gustaf Hult** independently in 1910/1920 Worcester census and Swedish-American records; then compare their kinship and Karl Johan/Charles J. age with Jessie's Michigan 1880 original. Preserve this as an identity-discrimination route, not a genealogical line extension.
