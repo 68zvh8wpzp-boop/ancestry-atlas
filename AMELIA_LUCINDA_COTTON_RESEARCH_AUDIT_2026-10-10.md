@@ -32,3 +32,11 @@ George William Montague and William Lewis Montague, *History and Genealogy of th
 Amelia is a **promising direct ancestor through Jessie** (with independent Amelia Cotton appearance on Jessie’s 1899 marriage). A full person page should cover New York childhood, western Michigan settlement, her households/marriages, her children and later life **only where personal evidence warrants**; local/regional settings go into separate context rather than padding biographical prose. Capture original source images and full handwritten transcriptions; no photographs found/packaged this session. Do not construct synthetic documents, promote parents on copied secondary trees, or publish unapproved biography.
 
 **Status: evidence register started; 1886 printed genealogy located, not read; original parent/marital records outstanding; no FamilySearch edits.**
+
+## Name-collision warning — Daniel Phillip Kelley appears under TWO Cotton sisters
+
+The same modern compilation lists **Daniel Phillip Kelley (1846–1935)** as a spouse of **Amelia Lucinda Cotton** ([Amelia's entry](https://peoplelegacy.com/amelia_lucinda_cotton_mcconnell-18361j)) **and of her reported sister Harriet Cornelia Cotton** ([Harriet's entry](https://peoplelegacy.com/harriet_cornelia_hattie_cotton_kelley-35242y)). On the latter page Harriet is listed with Daniel's children **Danna (1879), Arthur (1880), and Gertrude (1885)**; Amelia's entry instead lists **George (1871), Ivah (1875), and Frances (1877)** as Kelley children.
+
+**Possible interpretations:** (a) Daniel truly had relationships/marriages with both sisters at different dates; (b) compiled modern relatives/spouses were combined incorrectly; (c) one or more names refer to distinct men. **No interpretation is presently proved.** Because the compilation also erroneously dates Jessie as born **1897** instead of **1879**, its family edges require stringent independent verification.
+
+**Do not import Daniel as Amelia's proven husband, or George/Ivah/Frances as her biological children, yet.** Prioritize actual **1870–1885 Oceana marriage, divorce, death and child birth records**, and corroborate mother’s identity from each child’s contemporary register. The 1880 Aurin household listing the older girls as Aurin is *not itself proof of maternity*.
