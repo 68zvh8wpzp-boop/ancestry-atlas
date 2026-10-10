@@ -31,8 +31,36 @@ Reported biography in Source A:
 - Open Elsie's real FamilySearch Sources and Memories (FamilySearch person ID not verified here); capture **every** distinct historic portrait/family photograph/document with provenance, origin links and legible thumbnails. No fabricated count or visually unchecked claim.
 - The lengthy Nellie Ray Toone family memory is **prose** rather than handwritten original image; preserve the link and page authorship. Respect copyright; summarize historical claims and keep original intact, no unsupported full republication.
 - **Arizona historical death records** official state portal covers 1918, and person-specific scan is a high-value source: https://genealogyapp.azdhs.gov/Genealogy/home/index?page=genealogysearch . Requires interactive form to search; **no specific Elsie death certificate inspected**.
-- 1870 Utah census did not exist; use **1870 U.S. census for Utah territory** with Mortensen household plus **1880 AZ original** if named page located.
+- The **1870 U.S. federal census DID enumerate Utah Territory**. Look for the Mortensen household in that original (Utah Territory) and the reported 1880 Yavapai County, Arizona population schedule, NARA T9, p. 484B; an actual household row has **not** been inspected here.
 - Separate museum biography should center Elsie's life as Danish immigrant's Utah-born daughter, cattle/farm life, two-sister plural household, Mexican colonies and her *documented* 1912 departure, her twelve children, late health—rather than recycle Della's childhood or Jay's life. Keep local/regional context separate and religion modest but accurate for nineteenth-century documented family choices.
 
 ## Stage / next gate
 **Evidence inventory started only; no text/photo/graph publication; prior approvals untouched.** Inspect the 1918 death certificate and 1882/1884 original marriage returns, followed by full FamilySearch memories, prior biography versions and unique portrait. After documentary completion, prepare robust museum biography and historical setting, source/media gallery, test release and **actual iPhone approval**. Do not edit FamilySearch.
+
+
+## 10 October 2026 — cemetery burial conflict verified; personal biography drafted
+
+### Actual near-original cemetery burial record
+
+[**Mesa City Cemetery burial register transcription**](https://www.interment.net/data/us/az/maricopa/mesa-cemetery/records-raa-riv.htm), Raa–Riv, line for **RAY, Elsie Margaret**, age **53**, **Date 6/24/1918**, **Location 0131-2-2**, **Mortuary Burton**. The cemetery page explicitly explains the City of Mesa-supplied records as **burial dates**; therefore **June 24, 1918 is her BURIAL, not a confirmed death date**. Neighbor plot and same mortuary: **James W. Ray Sr. 0131-2-1, cemetery burial 28 Oct 1920**, son **James Wilford Ray Jr. 0131-2-3, burial 9 Nov 1919**. Note father/son cemetery burial dates may happen close to death; do not automatically equate with exact death without original. No grave marker photo acquired.
+
+**Conflict:** The Mortensen family compilation p161 and half-sister/stepdaughter Nellie Ray Toone's 1974 memoir both say **died June 29, 1918**, five days **after** cemetery burial June 24. WeRelate has **June 18** from copied family information, possible chronologically but not primary. *Only one original 1918 Arizona death certificate* can decide actual day and circumstances, or establish the cemetery entered an incorrect year/day. Do not pick a winner from current derivative sources. The cemetery transcription is a person-specific institutional record and a substantive improvement beyond earlier copied family trees. Her **exact cemetery location is 0131-2-2**, not a generic Mesa reference.
+
+### Family history page-level check and source ambiguity
+
+Digital 207-page [*Mortensen Families* family-book PDF](https://www.familysearch.org/patron/v2/TH-301-43970-40-28/dist.pdf?ctx=ArtCtxPublic), **printed pp161–163**, text inspected through digital PDF source. Exact screenshot requests for PDF **zero-index 137–139** returned a source-cache error, and a direct download request failed. **The physical facsimile/page photo and possible labeled Elsie portrait were NOT captured**, regardless of an indexed text layer; don't claim gallery or image QA passed. Local original image remains a Work-mode task.
+
+**Within-source marriage-date conflict:** Elsie's p161 account says Maria Helena married James Ray **11 December 1884**; **Maria Helena's own p209 excerpt within this very same book** names **3 December 1884**, matching Nellie Ray Toone's 1974 narrative. Elsie p161 also gives Elsie+James **27 January 1882**, Nellie gives **28 January 1882**. These are not new identities, just unresolved day-of-month values. Two co-wives were sisters; the father James Ray had twelve children by Elsie and eleven by Maria according to family stories. Della born to Elsie, Ada born to Maria, seven weeks apart in 1891.
+
+### Additional personal life facts from same printed source + Nellie memoir
+
+- Growing up on a farm in Utah and moving with parents to Arizona **28 October 1876**, age 12; family evening dances and molasses-candy pulling (printed p161).
+- **Margaret made an independent family timing choice**: she waited until children finished school **spring 1900** before bringing them to Colonia Morelos (printed p162).
+- **1912 Mexico exodus actually attributed to Elsie's own household**, not merely regional setting (printed p162). Government supplied tents and food during arrival; near Tucson James and older children sought paid agricultural work.
+- **Fall 1914:** moved to eighty-acre Chandler farm; two separate homes for Elsie and sister-wife Maria stood **one-quarter mile apart** (p163). This is an important distinction from earlier days of sharing a single Colonia Díaz house.
+- Following her son Waldo's birth 1909, poor health restricted work; **1918 gallstone surgery** followed by fatal illness. Nellie's 1974 account says nephew/niece **Ada (Maria's daughter, Margaret's niece and stepdaughter in polygamous household)**, then trained as a nurse, assisted during last illness. This is a family-recollection claim, not surgeon's original record.
+- Children in Elsie's compiled list twelve: **James Wilford Jr., Edna, John Alexander, Della, Sims Flood, Milo Eugene, Dorothy, Ferneth Evelena, Elsie, Clifton, Marguerite, Waldo**. Do not conflate Maria's 11 children. Verify full original birth evidence as attainable.
+
+### Museum and release status
+
+[Elsie museum biography + separate regional context REVIEW DRAFT](./ELSIE_MARGARET_MORTENSEN_MUSEUM_BIO_REVIEW_2026-10-10.md) created. Nineteenth-century plural marriage described **once, proportionately** as a household structure; biography mostly about Elsie's farm upbringing, move, children, schooling choice, 1912 exodus, 1914 Chandler homes, declining health and legacy. **Not installed, media/gallery originals not captured, FamilySearch profile page and iPhone unverified, user has not approved.** Prior approved relatives unchanged.
