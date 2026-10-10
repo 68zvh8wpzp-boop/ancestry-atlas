@@ -43,7 +43,14 @@ assert(launcherCode.includes('startGlobe'),'Landing screen does not launch globe
 assert(launcherCode.includes('mobileTreeGlobe'),'Mobile menu does not launch globe');
 assert(launcherCode.includes('atlas-person'),'Globe-to-tree person route missing');
 assert(globeCode.includes("setProjection({type:'globe'})"),'3D globe projection not applied');
-assert(globeCode.includes("new maplibregl.Marker"),'Missing globe pins');
+assert(!globeCode.includes('new maplibregl.Marker'),'HTML markers leak behind the globe horizon on iPhone');
+assert(globeCode.includes("map.addSource(PIN_SOURCE,{type:'geojson'"),'Missing geo-anchored city source');
+assert(globeCode.includes("type:'symbol',source:PIN_SOURCE"),'Missing map-native anchored red pin layer');
+assert(globeCode.includes("'icon-anchor':'bottom'"),'Pins must anchor tips to map coordinates');
+assert(globeCode.includes("ctx.fillStyle='#d83b38'"),'All pins must be uniform red');
+assert(globeCode.includes("map.queryRenderedFeatures(e.point"),'Only rendered (front of globe) pins may be tapped');
+assert(globeCode.includes("setData(pinFeatures())"),'Filters must update native GeoJSON symbols');
+assert(!globeCode.includes("branchGradient"),'Pin color must not change by branch');
 assert(globeCode.includes("encodeURIComponent(first.personId)"),'Person deep links missing');
 assert(css.includes('@media(max-width:720px)'),'Mobile layout missing');
 assert(!globeCode.includes('satellite'),'Political base map must not use satellite imagery');
