@@ -42,3 +42,14 @@ No probability ranking is justified without original images. The first and secon
 - No FamilySearch tree updates. No claim that a signed-in FamilySearch original image was inspected in this run: public record pages did not yield an authenticated image using the tools available.
 
 **Status: RESEARCH UNDERWAY; father identity open; original records needed.**
+
+## Secondary branch discovered: Worcester, Massachusetts (evidence to distinguish namesakes)
+
+The Karolina Hult/Karl Johan Aurén hypothesis has a **specific later geographic lead**, independent of the Oceana birth records:
+
+- A user-submitted [Geneanet tree result for Karolina Hult](https://sv.geneanet.org/fonds/individus/?categories_1%5Barbres%5D=arbres&categories_2%5Barbres%23utilisateur%5D=arbres%23utilisateur&go=1&nom=H%C3%9CLT&page=5&size=30) gives *Karolina Hult*, born **23 September 1853** in **Sunne, Sweden**, died **22 July 1934** in **Worcester, Massachusetts**, spouse **Carl Johan Auren**, five children. **Compiled and unverified**; a real genealogical lead, NOT evidence that Jessie’s father was this husband.
+- A printed Swedish-American community history [*Svenskarne i Worcester, 1868–1898*, p. 63](https://www.lidmanarkivet.se/file/2.pdf) contains **“C. J. Auren”** as a participant/office-holder in a fraternal organization. Exact identity and family links not established by the initials alone.
+- The [1918 Worcester house-directory and family address book, Part 98](https://ldsgenealogy.com/MA/books/The-Worcester-house-directory-and-family-address-book-a-supplement-to-the-Worcester-directory-1918-part-98.htm) names **“Hult Gustaf & Charles J. Aurin”** together at **155 Eastern Avenue**, while [Part 78](https://ldsgenealogy.com/MA/books/The-Worcester-house-directory-and-family-address-book-a-supplement-to-the-Worcester-directory-1918-part-78.htm) cross-references **“Aurin Charles J., see Hult Gustaf”**. This is genuine **contemporaneous printed directory evidence for a Charles J. Aurin associated with Gustaf Hult in Worcester in 1918**, though neither property co-ownership nor co-occurrence proves parentage or that he is Jessie's John Auene.
+- Next potential differentiator: examine **1900–1940 Worcester censuses**, probate/death of Charles/Carl/Karl Johan, the **1883 Michigan** alleged Karolina marriage return, and compare with **Oceana County 1879/1880** records. If a Massachusetts Charles J. Aurin can be tracked in tandem with the Swedish-born Karolina family, test whether this contradicts or supports a single person moving from Michigan after 1881.
+
+**Do not describe the Karl Johan–Karolina Worcester marriage and a prior marriage to Amelia as an established two-marriage biography.** The original 1883 return is still needed, and the compiled families may represent separate individuals.
