@@ -32,7 +32,7 @@ function pinFeatures(){
  return {type:'FeatureCollection',features:visiblePlaces().map(p=>({
   type:'Feature',
   properties:{id:p.id,name:p.name,kind:'ancestor',
-   status:eventsOf(p).some(e=>data.personMeta?.[e.personId]?.lineageStatus!=='provisional')?'established':'provisional'},
+   status:p.locationStatus==='provisional'?'provisional':(eventsOf(p).some(e=>data.personMeta?.[e.personId]?.lineageStatus!=='provisional')?'established':'provisional')},
   geometry:{type:'Point',coordinates:[p.lng,p.lat]}
  }))};
 }
