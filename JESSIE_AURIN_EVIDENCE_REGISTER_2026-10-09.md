@@ -43,3 +43,10 @@ The 1900/1930 censuses independently state **Jessie's father born Sweden and mot
 6. Preserve biography, exact family-photo captions and final accepted Richard Skinner assets unchanged. No FamilySearch tree edits.
 
 **Release scope:** source gallery enrichment and evidence register; NOT a genealogical relationship promotion, NOT final person-page approval.
+
+## User page approval — 9 October 2026
+
+- **PERSON PAGE APPROVED BY USER.** Following the mobile-display review request, the user replied **“Jessie is approved.”** Treat the published Jessie person page as accepted. Preserve its 556-word museum biography, distinct short context, three family photographs, and five document/citation entries on subsequent releases.
+- **Published checkpoint:** module `20261009-jessie-2`; root/installed-app entry `iphone-refresh=20261009-jessie-2`; both Jessie and previously accepted Richard media regression checks and both GitHub Pages workflows succeeded for commit `92f249fe18ad02021953d72b77d74cb893194f91`.
+- **Acceptance does not promote disputed parentage.** The John Auene (1879 birth) / Jonas Aurin (1880 census) / suggested Karl Johan Aurén identity bridge is still unproved. Amelia Auene / Amelia Cotton-Catton / Amelia Lucinda Cotton likewise needs image-level corroboration. Preserve the unresolved 1930 original full scan, 1879 and 1880 original-image retrieval, and 1956 death certificate as research tasks, not reasons to revoke Jessie’s page approval.
+- **Next research/person audit:** examine the putative parental identity **Karl Johan Aurén / John Auene / Jonas Aurin** and primary records before asserting that Jessie’s father is the same man as the tree’s Karl Johan Aurén. The linked maternal lead is Amelia Cotton; do not merge profiles without evidence. Proceed one person at a time. No FamilySearch edits.
