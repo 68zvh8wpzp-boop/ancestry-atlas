@@ -26,7 +26,7 @@ assert(originals.every(e=>e.sourcePage.includes('/ark:/61903/3:1:')),'Original i
 assert(originals.every(e=>e.transcription?.startsWith('FULLTEXT_ORIGINAL:')&&e.transcription.includes('FULLTEXT_TRANSLATION:')),'Preserve original transcription and translation-status block');
 assert(documents.every(e=>!e.thumb&&!e.full),'Do not fabricate a local document preview before its binary is installed');
 assert(evidence.find(e=>e.title.includes('Birth return')).additionalSourcePage.includes('S3HT-64JS-J9Y'),'Keep second birth register page');
-assert(evidence.some(e=>e.summary?.includes('1893')&&e.summary?.includes('1894')),'Preserve birth-year conflict');
+assert(documents.some(e=>e.transcription?.includes('Jan. 1893'))&&documents.some(e=>e.transcription?.includes('1894')),'Preserve census/birth birth-year conflict');
 assert(!person.hold,'Previously resolved hold must not be resurrected');
 assert(person.biography.length>2000,'Richard approved biography must remain present');
 assert(person.CONTEXT.length<250,'Brief context must remain distinct from full biography');
