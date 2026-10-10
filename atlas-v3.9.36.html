@@ -1365,8 +1365,9 @@ function renderEvidence(n){
           if(img)img.onerror=()=>{img.replaceWith(Object.assign(document.createElement('div'),{className:'evidence-doc-placeholder',textContent:'Image unavailable'}));};
         }
       }else{
-        const action=e.sourceLevel==='collection'?'Browse source collection':e.sourceLevel==='original'?'Open source-image link':e.sourceLevel==='index'?'Open indexed record':(e.documentUrl||e.sourcePage?(kind==='photos'?'Open linked memory':'Open linked record'):(kind==='photos'?'Open memory':'Open record'));
-        const placeholderLabel=kind==='photos'?'PHOTO':e.sourcePage?'LINKED RECORD':'DOCUMENT';
+        const photoGroup=kind==='photos'||kind==='photo-source-links';
+        const action=e.sourceLevel==='collection'?'Browse source collection':e.sourceLevel==='original'?'Open source-image link':e.sourceLevel==='index'?'Open indexed record':(e.documentUrl||e.sourcePage?(photoGroup?'Open linked family memory':'Open linked record'):(photoGroup?'Open memory':'Open record'));
+        const placeholderLabel=photoGroup?'PHOTO SOURCE LINK':e.sourcePage?'LINKED RECORD':'DOCUMENT';
         b.classList.add('evidence-link-only');
         b.innerHTML='<div class="evidence-doc-placeholder">'+placeholderLabel+'<span>'+escapeHtml(action)+'</span></div><div class="evtitle">'+escapeHtml(titleText)+'</div>';
       }
@@ -1583,7 +1584,7 @@ function openEvidence(e){
   const displayTranscription=familyFacingTranscription(e);
   const displayStatus=familyFacingRecordStatus(e);
   const sourceLink=e.sourcePage||e.documentUrl;
-  const linkLabel=e.sourceLevel==='collection'?'Browse record collection':e.sourceLevel==='index'?'Open indexed record':e.sourceLevel==='original'?'Open original record image':'Open original record';
+  const linkLabel=e.sourceLevel==='collection'?'Browse record collection':e.sourceLevel==='index'?'Open indexed record':e.sourceLevel==='original'?'Open original record image':e.sourceLevel==='photo-link'?'Open original family photograph':'Open original record';
   const sourceActions=(sourceLink?'<a class="doc-source-action" href="'+escapeHtml(sourceLink)+'" target="_blank" rel="noopener">'+escapeHtml(linkLabel)+' ↗</a>':'')+
     (e.additionalSourcePage?'<a class="doc-source-action secondary" href="'+escapeHtml(e.additionalSourcePage)+'" target="_blank" rel="noopener">Open adjoining parent details ↗</a>':'');
   meta.innerHTML='<strong>'+escapeHtml(displayTitle)+'</strong><br>'+escapeHtml(e.date||'')+(e.place?' • '+escapeHtml(e.place):'')+
