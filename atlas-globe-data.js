@@ -2066,8 +2066,8 @@ window.ANCESTRY_GLOBE_DATA = {
     {
       "id": "region_great_lakes",
       "name": "Canada (Great Lakes region, uncertain)",
-      "lng": -82.5,
-      "lat": 45.78,
+      "lng": -80.25,
+      "lat": 44.5,
       "precision": "regional approximate",
       "representativePin": true,
       "regionNote": "Map pin is a representative point for this named region, not an ancestral street address or town.",
