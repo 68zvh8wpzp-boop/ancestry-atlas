@@ -1335,7 +1335,8 @@ function renderEvidence(n){
     if(preview){if(!e.thumb)e.thumb=preview;if(!e.full)e.full=preview;}
   });
   if(!ev.length){wrap.innerHTML='<div class="evidence-empty">No source image or document attached to this person yet.</div>';return;}
-  const photos=ev.filter(evidenceIsImage);
+  const photos=ev.filter(e=>evidenceIsImage(e)&&evidenceHasReadablePreview(e));
+  const photoSourceLinks=ev.filter(e=>evidenceIsImage(e)&&!evidenceHasReadablePreview(e)&&e.sourcePage);
   const sourceLinkedRichards=ev.filter(e=>n.id==='richard_francis_skinner'&&e.kind==='document'&&(e.sourcePage||e.documentUrl));
   const documents=ev.filter(e=>!evidenceIsImage(e)&&(evidenceHasReadablePreview(e)||sourceLinkedRichards.includes(e))).sort((a,b)=>Number(evidenceHasPreview(b))-Number(evidenceHasPreview(a)));
   const recordLeads=ev.filter(e=>!evidenceIsImage(e)&&!documents.includes(e));
@@ -1377,6 +1378,7 @@ function renderEvidence(n){
   addGroup('DOCUMENTS ('+documents.length+')',documents,'documents');
   addGroup('RECORD CITATIONS ('+recordLeads.length+')',recordLeads,'record-citations');
   addGroup('PHOTOS ('+photos.length+')',photos,'photos');
+  addGroup('PHOTO SOURCE LINKS ('+photoSourceLinks.length+')',photoSourceLinks,'photo-source-links');
 }
 let atlasViewerPointers=new Map();
 let atlasViewerGesture=null;
@@ -1520,6 +1522,7 @@ function familyFacingRecordStatus(e){
   if(e.sourceLevel==='collection') return 'Record-series link available; original scan not included';
   if(e.sourceLevel==='index') return 'Indexed individual record linked; original scan not included';
   if(e.sourceLevel==='original') return 'Original source image linked; archival file not yet in the Atlas';
+  if(e.sourceLevel==='photo-link') return 'Original family photograph at source; preview not yet installed';
   if(e.sourcePage||e.documentUrl||e.full) return 'Linked source record available';
   return 'Supporting record listed';
 }
@@ -2795,7 +2798,7 @@ resize();
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v16.js?v=20261009-jessie-1"></script>
 <script src="jessie-aurin-mobile-biography.js?v=20261009-jessie-1"></script>
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v15.js?v=20261009-skinner-2"></script>
-<script src="richard-skinner-mobile-biography.js?v=20261009-skinner-4"></script>
+<script src="richard-skinner-mobile-biography.js?v=20261009-skinner-5"></script>
 </body>
 </html>
 
