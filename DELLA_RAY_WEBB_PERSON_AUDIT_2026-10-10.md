@@ -217,3 +217,10 @@ TH-904-93482-2874-31
 - Story: My Dear,Sweet Grandmother - Della Ray Webb, unread in full.
 
 **Current states:** catalogued68cards; captured3PDF originals +1photo original; checked transcriptions deathcertificate/lifesketch, EllsworthfulltranscriptionOPEN. Packaged0, deployed0, webverifiedfalse, iPhoneverifiedfalse. No contentapproval inherited. Resume funeralprogram/anniversary originals, remainingstories, photooriginals and duplicatehashreview; Sources48/censuses/marriage/birthregistration stillOPEN. No FamilySearch mutations.
+
+
+### Funeral original recovered after viewer load — supersedes preceding timeout
+
+Second grounded Menu→Download attempt succeeded. Original full1038×1369 JPEG inspected and complete line-preserving transcription saved: `della-ray-webb-funeral-program-1969-original.jpg` (Library libfile_12c60a2183608191817703ea43a122bf), `della-ray-webb-funeral-program-1969-transcription.md` (Library libfile_55c4109cf72081919720ae1403543e59). English, no illegible text, translationnotapplicable. Service scheduled2p.m.4December1969 atLakesidechurch; interment3:30p.m.LakesideCemetery. PallbearersH.Ray,Karl,Maurice,Junius,Jay,BishopV.JuneWebb; grandsons honorary. Planned grandchildrenmusic/violintribute names documented; plannedroles not automatically proof ofperformance. Capture/transcriptionPASS; Atlaspreview/notpackaged remainsOPEN.
+
+Captured total now3PDForiginals +1photograph +1documentJPEG. Checkedtranscripts3(death/lifesketch/funeral); EllsworthOPEN. Retainedphotofinalcount/dedupOPEN. ResumeanniversaryoriginalTH-904-65835-440-26, ZolabirthrecordTH-904-55528-1643-28, remaining4stories and photooriginals. No deployment/phoneclaim.
