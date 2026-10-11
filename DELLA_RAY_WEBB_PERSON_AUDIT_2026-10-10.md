@@ -87,3 +87,14 @@ In the *Mortensen Families* [digitized PDF](https://www.familysearch.org/patron/
 **Other book clue:** The mother Elsie Margaret's reported death **29 June 1918** in both sources conflicts with an online WeRelate profile that gives **18 June 1918**. Original 1918 AZ death certificate is the deciding record. This becomes a separate task for Elsie's later person audit, not reason to rewrite Della's approved relations.
 
 **Outcome:** Della's unpublished museum biography revised to include 1891 sibling detail, confirmed family visit in **1919** and caring for brother Waldo after 1920. No additional public-media image or vital record claimed retrieved; document/portrait capture remains queued.
+
+
+## 10 October 2026 — original Arizona death certificate retrieved and transcribed
+
+The user cleared the ADHS search CAPTCHA. Named search returned one Della Webb death, 1 December 1969. Original state PDF opened, downloaded and visually inspected in full: state file **69-012998**, search identifier **102-1969-012998**, official image https://genealogyapp.azdhs.gov/Genealogy/Home/GetGenealogyimage?id=2422551 . Original preserved as `della-ray-webb-death-1969-original.pdf` (Library libfile_7f8c662002848191bf028d518d39ba2b); entered-field transcription/correlation saved as `della-ray-webb-death-1969-transcription.md` (Library libfile_03bc49f399b08191a4dc11a89160e4b2).
+
+Certificate confirms **13 June 1891, Pacheco Mexico**, age78; died **1 December1969, McNary General Hospital, Apache County**; residence **Lakeside, Navajo County**; surviving spouse typed **Johnathon Henry Webb**; informant **H. Ray Webb, son, Mesa**; occupation Housewife; burial **4 December1969, Lakeside Cemetery**, Jackson Mortuary, Show Low. It reports **57 years** in both Arizona and Lakeside, supporting an approximate1912 state-arrival inference, not exact migration or uninterrupted Lakeside residence. The latter requires reconciliation with Thatcher/Pinedale records.
+
+**Conflict retained:** father typed **James Willford Webb**, whereas family histories identify **James Wilford Ray**. Mother typed **Margrett Mortensen**, not complete Elsie Margaret. Retain exact transcription; do not overwrite parent graph from one conflicting death entry. U.S.A. citizenship entry does not establish its acquisition date or route. English document, no translation needed. Original scan's left-margin labels partly clipped; uncertain signatures explicitly qualified.
+
+**Status:** certificate catalogued/captured/transcribed/preserved; NOT packaged/deployed/web-preview-verified/iPhone-verified in Atlas. Biography remains review-only. No FamilySearch or family graph changes. Next: locate Della PID and full memories/source inventory, original marriage/censuses, authentic gallery.
