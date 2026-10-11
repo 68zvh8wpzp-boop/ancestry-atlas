@@ -81,3 +81,12 @@ Current release remains REVIEW ONLY. One photo original recovered, duplicate rec
 
 
 **1958 invitation original recovered:** full contemporary announcement prints1908–1958,16August1958,L.D.S.RecreationHall,Lakeside,eightto12,Pleaseomitgifts. Original and full transcript retained. Zola1923birthoriginal also captured; Julybirthfield contradictsFebruary/Marchfilingdates; no disputedbirthmonth added to museumprose. Original1920/1930/1940householdscaptured;1940recordsSamePlace1935 andhighestgrade8 forDella, withoutproofnamedschool. Currentwordcount recalculated at nexteditorialpass; prior1191 predatesdressmaking/anniversaryaddition. Remainsreviewonly.
+
+
+## 11 October — dated typescript now recovered
+
+**Source 9:** Della Ray Webb, *Memories of My Father*, two-page scanned typescript, signed in type **January 1964**; memory TH-904-98062-1953-38, LeslieDella1,9April2020, upload Della Ray Webb.pdf. Full original and checked line-preserving transcript retained (libfile_232b8c09f9c8819189f76b5b914331ab; libfile_6cf5bc27ef74819197d2652413305216). This supplies a dated scanned witness for childhood details previously read through the edited2017 story; it is **not the handwritten manuscript**, and the two versions are not independent witnesses. Typescript says “about ten” atMorelos, versus editedstoryeleven; exact year not promoted. Typing defects1988brotherbirthyear,Sonra,Chichuahua,bugvats retained. TwelveAugust1912departure matches Della's separatehandwrittenlifesketch. No new biography prose needed: these personal scenes were already restored.
+
+**Current authoritative media status supersedes old remaining paragraphs:** birth,1913application,1920/1930/1940censuses,anniversary,Zolabirth,death,lifesketch,funeral,andfatherrecollection originals captured. Qualified1913transcript andfatherrecollection transcript checked. Sixpersonalphotographoriginals captured; finaldedup/selection remainsopen. Ellsworth9pagecheckedtranscript,1950matchingoriginal,remaininggallery/audio,earlierversions and previews/releasechecks open. Biography remainsreviewonly. No deployment or actualiPhone pass.
+
+Current biography word count: 1243 (whitespace-separated). Sole spouse and all ten established children retained.
