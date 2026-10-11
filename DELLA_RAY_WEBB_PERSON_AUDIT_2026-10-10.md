@@ -124,3 +124,96 @@ Downloaded full4-page original **Della Ray Webb Life Sketch**, upload `Della Ray
 **p4:** vegetablegarden, homemadecandy/cookies/bread/cinnamonbuns forgrandchildren, music atgatherings and household instruments. Prioritize concretepersonal details; no need to repeat genericreligiouscontext. No legalmidwifeoccupation inferred from threebirths. Father'sRay surname is now supported in Della's own account despite deathreturnWebb error.
 
 **Resume:** full exact4-page handwrittentranscription preserving amendments/uncertainwords; full68memoryinventory and originalphoto capture/duplicatecheck; then sourceoriginals and draftbiography integration. Current browser left on life-sketchviewer; signed-insession verified. Captured2familyPDFs and deathPDF; neither gallerypublished nor iPhonechecked. NoFamilySearchmutation.
+
+
+## 11 October UTC — checked transcription, 68-card catalog and enriched review draft
+
+Completed four-page handwritten transcription, preserving line breaks, additions, readable deletions and explicit uncertain/illegible deleted passages. English/no translation applicable. Preserved `della-ray-webb-handwritten-life-sketch-transcription.md`, Library libfile_4b9c73802d40819192f7f4ba9591d0d6. Main surviving narrative transcribed; overwritten deleted text remains qualified, not guessed.
+
+Revised museum review at commit d6dbd769837deca6993c65a50f960cb81c2842fa, 1 words, all ten children and sole spouse named. Della's own dated departure, care work, hobbies and official death/burial now included. Separate **Memories of her childhood - by Grandma Webb**, contributed Cherryl McNeil Beal 3 April 2017, story.txt, read in full; contributor explicitly corrected spelling. Underlying childhood manuscript not recovered. Recollections add china dishes with Ada, farm harvests, campfire meals, flood damage, Douglas tent camp and Tucson. Age eleven at Morelos conflicts with compiled1900 move; precise year omitted. No miracle/army claim, first-settler claim, or unsupported education detail imported.
+
+**Catalog reconciled to68 distinct displayed cards** from two gallery sections: FamilySearch classification **59Photo /3Document /5Story /1Audio**. This is a card catalog, not68 distinct images or captured originals. At least funeral program, anniversary announcement and Zola birth return need Documents reclassification. Attached2:32audio remains separate from4:00audio card. Visual/hash duplicate reconciliation against Jonathan/Jay assets remains OPEN; photo limit30.
+
+**First photo original captured:** Della Webb and her daughters, TH-904-100031-893-57; displayed date7April1947; contributedLeslieDella1,30June2020, upload20190926_223652.jpg. Full Menu→Download original is1557×1233, visually inspected. Left-to-right labels: ZolaMargaret, Thora, Della, Gwen, Louise (site face tags, not printed image text). Original: [no text present]. Translation: [not applicable]. Saved `della-webb-and-daughters-1947-original.jpg`, Library libfile_e56a8e501c8881918e5e6bdc17680c1d. First attempt downloaded257pxthumbnail and was replaced before retention; no thumbnail claimed original. Della centered in group. Reuse/duplicate comparison still pending.
+
+**Funeral program:** original viewer opened, contributorMarthaJane,5August2016, upload1969 12Dec 4 Della Ray Webb Funeral Program.jpg, storageTH-904-65835-473-13. MenuDownload timed out with no local file; capture/transcription remainsOPEN, not passed.
+
+### Card identifiers (62 image/PDF-backed cards)
+
+Untitled unless a title follows. Identifiers transcribed from displayed thumbnail DOM, not guessed download URLs.
+
+```text
+TH-904-93482-2873-28
+TH-904-93482-2869-32
+TH-904-93482-2857-28
+TH-904-93480-1912-34 | Family Reunion in Payson Arizona
+TH-904-93480-1918-52
+TH-904-93476-4340-29
+TH-904-93476-3003-41
+TH-904-93476-3007-53
+TH-904-93476-3001-47
+TH-904-93476-3008-52
+TH-904-93475-939-85
+TH-904-93475-931-93
+TH-904-93475-929-89
+TH-904-93475-930-94
+TH-904-93475-932-92 | This picture goes with the poem that Dori wrote about Grandma Della
+TH-904-90647-8467-35 | DOCUMENT: Della Ray Webb Life Sketch
+TH-904-82643-1145-2 | 1966 siblings: Marguerite Thomas, Fern Willis, Della Webb, Elsie Willis; Wickenburg, Arizona
+TH-904-79655-6766-67 | Sarah Elizabeth Carling and Her Daughter and Three Sons and Their Spouses
+TH-904-77107-2164-0
+TH-904-76464-985-84 | Della Ray Webb
+TH-904-76463-1330-59 | 50th Wedding Anniversary
+TH-904-76461-3528-49 | Thora, Karl, Ray Webb
+TH-904-76390-984-98 | Rashae Webb Blessing
+TH-904-65835-473-13 | DOCUMENT classified as photo: Dec 4, 1969 Della Ray Webb Funeral Program
+TH-904-65835-460-2 | Della Ray Webb
+TH-904-65835-440-26 | DOCUMENT classified as photo: Aug 16, 1958 John Henry & Della Ray Webb 50th Wedding Anniversary Announcement
+TH-904-55682-1634-33 | Della Ray and Jonathan Henry Webb
+TH-904-55528-1643-28 | DOCUMENT classified as photo: Webb, Zola Margaret 1923 (birth record visible)
+TH-904-55528-976-0 | Webb, Jonathan Henry 1886-1975 & Della Ray 1891-1969
+TH-904-55527-734-79 | Ray, Della (Wood) 1891-1969
+TH-904-55527-713-74 | Webb, Jonathan Henry 1886 & Della Ray 1891, married 1908
+TH-300-42359-275-4
+TH-7727-159582-282629-64 | Webb Family Gathering
+TH-7793-159549-869057-20 | Grandpa and Grandma Webb
+TH-7793-159549-868679-40 | Jonathan Henry and Della Ray Webb at Canyon Lake
+TH-7721-159576-341020-96 | At Grandpa and Grandma Webb’s House
+TH-7723-139303-199403-85 | Chandler Ward Sunday School 1927
+TH-7734-128643-4965-85
+TH-904-100033-3372-57
+TH-904-100031-890-60
+TH-904-100031-893-57 | Della Webb and her daughters
+TH-904-100031-903-56
+TH-904-99070-4510-45
+TH-904-98465-6639-89
+TH-904-98465-6647-91
+TH-904-98465-6642-84
+TH-904-98451-2424-35
+TH-904-98451-2449-58
+TH-904-98451-2422-53
+TH-904-98451-2428-31 | No title, attached audio 2:32
+TH-904-98451-2434-31
+TH-904-98451-2436-29 | 50th Wedding Anniversary Della and Jonathan Webb
+TH-904-98451-2439-32
+TH-904-98451-2437-30 | Della and Jonathan Webb and Children 50 th Wedding Anniversary
+TH-904-98451-2442-29
+TH-904-98203-4803-35
+TH-904-98062-1953-38 | DOCUMENT: No title
+TH-904-98061-1261-23
+TH-904-98061-931-7 | DOCUMENT: Henry and Della Webb By Ardell and Marjorie Ellsworth
+TH-904-93496-422-92
+TH-904-93496-427-97
+TH-904-93482-2874-31
+```
+
+### Remaining6 cards without image identifiers in this catalog
+
+- Audio: July7,2019 Memories of JH and Della Webb (4:00), unlistened/uncaptured.
+- Story: Dec26,1960 Ray Reunion in Mesa, Arizona, unread in full.
+- Story: My Grandma by Kayle McNeil, unread in full.
+- Story: Tribute to Grandma from the Grandchildren by Raymond D.Webb, unread in full.
+- Story: Memories of her childhood - by Grandma Webb, read in full as noted above; underlying handwritten original open.
+- Story: My Dear,Sweet Grandmother - Della Ray Webb, unread in full.
+
+**Current states:** catalogued68cards; captured3PDF originals +1photo original; checked transcriptions deathcertificate/lifesketch, EllsworthfulltranscriptionOPEN. Packaged0, deployed0, webverifiedfalse, iPhoneverifiedfalse. No contentapproval inherited. Resume funeralprogram/anniversary originals, remainingstories, photooriginals and duplicatehashreview; Sources48/censuses/marriage/birthregistration stillOPEN. No FamilySearch mutations.
