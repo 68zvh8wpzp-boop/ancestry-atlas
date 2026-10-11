@@ -2297,8 +2297,13 @@ function draw(){
 
     // Node label: shown for the current navigation neighborhood, or for the full atlas. This is deliberately
     // drawn as a compact card so the genealogy remains legible on iPhone.
-    const nameSize=Math.max(9.5,11.4*p.s);
-    const metaSize=Math.max(8,9.4*p.s);
+    // Screen-space label typography must not outgrow its clipping rows at
+    // higher perspective zoom; previously names, years and places were sliced.
+    const nameSize=Math.max(11,Math.min(18,11.4*p.s));
+    const metaSize=Math.max(9,Math.min(14,9.4*p.s));
+    const nameLineH=Math.ceil(nameSize*1.55);
+    const metaLineH=Math.ceil(metaSize*1.6);
+    const labelInset=6, labelGap=2;
     const line1=n.name;
     const line2=n.years || 'date unresolved';
     const line3=n.place || 'location unresolved';
@@ -2311,7 +2316,7 @@ function draw(){
     const mediaReserve=(hasPortrait||hasDocs)?34:0;
     const textMax=isMobile?228:320;
     const boxW=Math.min(textMax+mediaReserve,Math.max(122,w1,w2,w3)+18+mediaReserve);
-    const boxH=46;
+    const boxH=labelInset*2+nameLineH+metaLineH*2+labelGap*2;
     // Collision-aware label placement. Labels may slide away from their node,
     // but a leader line keeps the relationship visually explicit.
     const pad=5;
@@ -2382,13 +2387,18 @@ function draw(){
     ctx.textAlign='left'; ctx.textBaseline='top';
     const textRightPad=mediaReserve? (mediaReserve+8) : 8;
     const textAvail=boxW-10-textRightPad;
+    const nameY=by+labelInset;
+    const yearsY=nameY+nameLineH+labelGap;
+    const placeY=yearsY+metaLineH+labelGap;
+    // Clip only horizontally. Vertical clip slots scale with font size, with
+    // breathing room for Chrome/Edge/Safari text metrics and descenders.
     ctx.fillStyle=textColorFor(n.confidence,'name');
     ctx.font=`600 ${nameSize}px system-ui`;
-    ctx.save(); ctx.beginPath(); ctx.rect(bx+5,by+4,textAvail,14); ctx.clip(); ctx.fillText(line1,bx+6,by+4); ctx.restore();
+    ctx.save(); ctx.beginPath(); ctx.rect(bx+5,nameY,textAvail,nameLineH); ctx.clip(); ctx.fillText(line1,bx+6,nameY+1); ctx.restore();
     ctx.fillStyle=textColorFor(n.confidence,'meta'); ctx.font=`${metaSize}px system-ui`;
-    ctx.save(); ctx.beginPath(); ctx.rect(bx+5,by+19,textAvail,11); ctx.clip(); ctx.fillText(line2,bx+6,by+19); ctx.restore();
+    ctx.save(); ctx.beginPath(); ctx.rect(bx+5,yearsY,textAvail,metaLineH); ctx.clip(); ctx.fillText(line2,bx+6,yearsY+1); ctx.restore();
     ctx.fillStyle=textColorFor(n.confidence,'place');
-    ctx.save(); ctx.beginPath(); ctx.rect(bx+5,by+31,textAvail,11); ctx.clip(); ctx.fillText(line3,bx+6,by+31); ctx.restore();
+    ctx.save(); ctx.beginPath(); ctx.rect(bx+5,placeY,textAvail,metaLineH); ctx.clip(); ctx.fillText(line3,bx+6,placeY+1); ctx.restore();
 
     // visible media cue on the relationship/tree view.
     if(hasPortrait||hasDocs){
@@ -2640,7 +2650,10 @@ const unavailableAlbumAssets=new Set([
   'assets/goulet_tellier_marriage_1846_full.jpg'
 ]);
 function albumAssetIsPackaged(url){
-  return !!url&&!/^https?:/i.test(url)&&!unavailableAlbumAssets.has(url);
+  // Local media are packaged; canonical portraits may also have an external
+  // HTTPS original. Permit those to appear in the family-photo collection,
+  // and let <img> fallback signal when the publisher blocks embedding.
+  return !!url&&!unavailableAlbumAssets.has(url)&&(!/^(?:https?:)?\/\//i.test(url)||/^https:\/\//i.test(url));
 }
 function buildAlbumItems(){
   const items=[];
