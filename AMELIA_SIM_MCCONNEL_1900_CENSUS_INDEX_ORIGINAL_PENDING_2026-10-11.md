@@ -1,0 +1,22 @@
+# Amelia L. McConnel / Sim J. McConnel — 1900 Elbridge census index (original pending)
+
+**Investigated 11 October 2026** — FamilySearch index entry attached to Julius Simon Aurin **KN8N-86L**. The user opened the index record titled **“Sim J Mc Connel, United States, Census, 1900”** and supplied its full-page source panel as a screenshot. The screenshot has been preserved under the Atlas Library's **Original Records/Jessie Aurin** folder as:
+`1900-Sim-J-McConnel-Amelia-L-McConnel-FamilySearch-census-index-screenshot-2026-10-11.jpeg`.
+
+**CRUCIAL source status:** Only **the FamilySearch index/source detail** has been inspected; the actual original 1900 handwritten census page in the small preview **has not** been enlarged and read. No handwritten transcription, original image export, or iPhone gallery verification claimed.
+
+## Indexed source and household
+*U.S. Census, 1900*, Elbridge Township, Oceana County, Michigan, **Enumeration District 104, sheet 4B**, household indexed around **line 80** (index's person line number, not necessarily all household members).
+
+- **Sim J. McConnel**, indexed as son of household head, age **19**, born **November 1881** in **Michigan**, single, mother born New York, father listed **New York** in this later index. The last father birthplace is **inconsistent** with his own original 1881 birth record's father **John Aurene** (father birthplace explicitly Unknown there) and with **Jessie's original 1879 birth record + the 1880 census** giving father born Sweden. It could be error/stepfather information, but do not assert the mechanism.
+- **Amelia L. McConnel**, indexed as head, woman **47**, birth **January 1853**, birthplace New York, **widowed**. Her parents' birthplaces both indexed New York. Index fields appear to display **“Number of Children 10”** and **“Number of Living Children 3”**; these require checking on original because the wider 1900 family panel already contains several children and Jessie survived until 1956, raising a serious possible index/column attribution issue.
+- Additional people in the indexed household: **William S. McConnel** male **11** (estimated born ~1888/89, Michigan), **Rybena F. McConnel** female **9** (~1890/91, Michigan), **Carl R. McConnel** male **7** (~1892/93, Michigan). Actual spellings and relationship-to-head (and all father/mother birthplaces, birth months, family boundaries) must be read from the original before historical narrative promotion. Names as displayed on user screenshot.
+- The census makes the household likely the same Amelia Lucinda Cotton who married Jonas Aurin in Crystal, 1879, and mother of Jessie (1879) and Julius (1881). But this family index alone **does not tell us** how/when Amelia's Aurin marriage ended, whether Jonas died, or the identity and death date of a later McConnel husband. **“Widowed” in 1900 could refer to a later marriage, not necessarily Jonas.** Research any McConnell marriage, spouse, children's birth entries, death/probate and church register before asserting Jonas died/divorced/abandoned them.
+
+## Evidence bearing on Jessie's Swedish father
+The already original-examined **1879 Jonas-Aurin / Amelia marriage**, **October 1879 Jessie birth**, **June 1880 Jonas census age36 / Amelia L age26**, and **November 1881 Julius birth** anchor the Michigan father as Jonas/John Aurin (born about 1843–44, birthplace Sweden in 1879/1880). The original-examined Worcester 1882 Charles Auren/Carolina Hult marriage shows an apparent separate Charles born around 1853, but the Michigan Jonas disappearance is still not explained. This 1900 census does **not** settle those identity questions.
+
+## Next step
+On the expanded census source panel, user taps **VIEW ORIGINAL DOCUMENT** directly below the thumbnail, then downloads entire image as a PDF with FamilySearch citation (as for the three earlier originals). Preserve full page, source-specific image ARK, and a legible enlargement of **all lines of Amelia's family plus immediate neighboring households**. Read marital status, offspring born/living, mother's and each child's year/month, relationship, father-birthplace, household members and household number firsthand; compare and correct suspicious index fields. Then look for Amelia's McConnel remarriage and the McConnel children's **original** birth registrations.
+
+**Atlas governance:** Indexed record image screenshot saved; report is research-only. Jessie person page previously approved. Do not overwrite biography or link it as if full original had been examined; no FamilySearch changes.
