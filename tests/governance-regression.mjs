@@ -1,14 +1,17 @@
 import {readFile} from 'node:fs/promises';
 import vm from 'node:vm';
 
-const html=await readFile(new URL('../index.html',import.meta.url),'utf8');
+const entry=await readFile(new URL('../index.html',import.meta.url),'utf8');
+const entryPath=entry.match(/var target = '\.\/(atlas-v[0-9.]+\.html)/)?.[1];
+if(!entryPath)throw new Error('Canonical redirect entry is missing');
+const html=await readFile(new URL('../'+entryPath,import.meta.url),'utf8');
 const register=JSON.parse(await readFile(new URL('../biographies/webb-branch/research-register.json',import.meta.url),'utf8'));
 const sources=JSON.parse(await readFile(new URL('../biographies/webb-branch/sources.json',import.meta.url),'utf8'));
 const evidenceContract=await readFile(new URL('../PRODUCTION_CONTRACT_v3_8_22_EVIDENCE_PROMOTION.md',import.meta.url),'utf8');
 const failures=[];
 const sourceIds=new Set(sources.sources.map(source=>source.sourceId));
 
-const match=html.match(/const DATA = (\{.*?\});\s*\nconst canvas/s);
+const match=html.match(/const DATA = (\{[^\n]*\});/s);
 if(!match){
   failures.push({kind:'canonical-data-not-found'});
 }else{

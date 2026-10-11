@@ -48,8 +48,9 @@ for(const e of photos){
 assert(html.includes("n.id==='jessie_irene_aurin'"),'Jessie document links must appear in her Documents section');
 assert(html.includes("sourceLinkedRichards.includes(e)"),'Existing Richard linked-source layout must not regress');
 assert(html.includes('jessie-aurin-mobile-biography.js?v=20261009-jessie-2'),'Load the revised Jessie evidence module');
-assert(entry.includes('iphone-refresh=20261009-jessie-2'),'iPhone entry route cache refresh must change');
-assert(manifest.includes('iphone-refresh=20261009-jessie-2'),'Installed PWA manifest start URL must change');
+const release=entry.match(/iphone-refresh=([A-Za-z0-9-]+)/)?.[1];
+assert(release,'iPhone entry must carry a release token');
+assert(manifest.includes('iphone-refresh='+release),'Installed PWA and root entry must match');
 assert(richard.includes("moduleVersion:'20261009-skinner-7'"),'Previously approved Richard module must remain unchanged');
 const register=fs.readFileSync('JESSIE_AURIN_EVIDENCE_REGISTER_2026-10-09.md','utf8');
 for(const phrase of ['John Auene','Jonas Aurin','Karl Johan Aurén','Amelia Cotton','1930'])assert(register.includes(phrase),'Missing parent identity conflict or Mesa source: '+phrase);

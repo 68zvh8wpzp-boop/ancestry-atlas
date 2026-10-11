@@ -323,3 +323,18 @@ Next Della-only: remaining original photos with Jonathan/Jay and within-Della du
 Read-only FamilySearch KWCR-Z55 All Changes was inspected using the site's filters. Brief Life History returned “No changes exist for the selected filter.” Notes returned a legacy “Living” note added 26 August 2013 by FamilySearch and deleted 5 July 2021 by AnnetteRudie with reason “deceased as of 1969,” plus the compiled IMPORTANT EVENTS note added 26 August 2013 (the same blessing/baptism/marriage/burial assertions already reviewed in Collaborate). No new substantive biographical evidence was recovered from those two filters. This is a scoped history check, not a claim that every historical source/photo/relationship row has been exhausted. The newest all-change rows also show repeated deleted duplicate-child relationships; deleted duplicates do not expand the ten-child family list.
 
 Resume target remains Della Ray Webb / della_ray / KWCR-Z55 / issue #44. Six personal photo originals are captured in total, with final selection and deduplication against Jonathan/Jay still open. Four documentary PDFs are captured (death, handwritten life sketch, Ellsworth, January 1964 father's memoir); Ellsworth's nine-page checked transcription remains open. Current museum biography is 1,243 words and review-only. Next concrete work: finish Ellsworth transcription, remaining originals/audio/1950 research and selected-gallery deduplication, then build the actual review package before requesting content approval. Packaged 0; deployed 0; web verification false; actual iPhone verification false. FamilySearch was not edited.
+
+
+# Della Ray Webb release — 11 October 2026
+
+User instruction: “Finish it and deploy it.” Canonical surface: GitHub main, atlas-v3.9.36.html, release token 20261011-della-1.
+
+Packaged: canonical 1,243-word third-person biography naming Jonathan Henry and all ten children; seven selected distinct original family photographs; twelve document entities, 26 scan pages, untouched native originals, complete page readers and transcription blocks. No matching new narration is approved, so Della’s stale narration is disabled. Graph dates, relationships and all other biographies are unchanged.
+
+Validation: Della original SHA-256 preservation and page-reader regression, genealogy governance, Richard and Jessie regression tests passed. Updated checks resolve the canonical redirect page and compatibility content layer. Global package verification still reports twelve pre-existing checksum errors for six historical approved audio files. Those bytes and their locked approval records remain unchanged. The owner’s explicit deployment instruction is applied to this isolated Della release; the global result is not represented as passing.
+
+Verification states: catalogued 68 memories (59 photos, 3 documents, 5 stories, 1 audio); captured and packaged seven selected photo originals and twelve document entities from memories and attached records. Other memory photographs are not represented as captured or fully deduplicated. Web verification pending deployment. Actual iPhone verification pending; no inferred phone pass. Issue 44 remains open for the remaining gallery inventory and actual iPhone test.
+
+Known limitations: expanded gallery selection/deduplication remains unfinished; 1950 census original not recovered; original handwriting uncertainties remain bracketed; Ellsworth date and child-count errors are preserved in evidence notes rather than inserted into biography.
+
+Rollback: e75398ccf04a6f4c65b2d2465749a718cfc560f3.

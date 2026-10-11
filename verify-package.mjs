@@ -7,7 +7,7 @@ import {createHash} from 'node:crypto';
 
 const root=path.dirname(fileURLToPath(import.meta.url));
 const manifest=JSON.parse(await readFile(path.join(root,'PACKAGE_ASSET_MANIFEST.json'),'utf8'));
-const content=await readFile(path.join(root,'atlas-content.js'),'utf8');
+const content=await readFile(path.join(root,'atlas-content-base-v3.4.0.js'),'utf8');
 const marion=await readFile(path.join(root,'biographies/marion/marion-story-module.js'),'utf8');
 const branch=await readFile(path.join(root,'biographies/brenay-canada/brenay-canada-story-modules.js'),'utf8');
 const webb=await readFile(path.join(root,'biographies/webb-branch/webb-story-modules.js'),'utf8');
@@ -27,7 +27,10 @@ const fableChecksums=new Map(fableChecksumText.trim().split(/\n/).map(line=>{
 const modernReview=JSON.parse(await readFile(path.join(root,'approved-audio/fable/review-records/modern_fable_reviews_metadata.json'),'utf8'));
 const distinctnessReview=JSON.parse(await readFile(path.join(root,'approved-audio/fable/review-records/v3.8.19_fable_reviews_metadata.json'),'utf8'));
 const tour=await readFile(path.join(root,'atlas-tour-3.6.0.js'),'utf8');
-const index=await readFile(path.join(root,'index.html'),'utf8');
+const entry=await readFile(path.join(root,'index.html'),'utf8');
+const entryPath=entry.match(/var target = '\.\/(atlas-v[0-9.]+\.html)/)?.[1];
+if(!entryPath)throw new Error('Canonical redirect entry is missing');
+const index=await readFile(path.join(root,entryPath),'utf8');
 const files=await readdir(root);
 
 const sandbox={window:{},console};
@@ -44,7 +47,7 @@ for(const revisionFile of revisionFiles){
 const media=sandbox.TOUR_MEDIA;
 
 const sceneFiles=[...new Set(Object.values(media).flatMap(item=>(item.scenes||[]).map(scene=>scene.src).filter(Boolean)))];
-const indexFiles=[...index.matchAll(/(?:src|href)="([^"#?]+)(?:\?[^"#]*)?"/g)].map(match=>match[1]).filter(file=>!/^https?:|^data:/.test(file)&&!file.includes('${'));
+const indexFiles=[...index.matchAll(/(?:src|href)="([^"#?]+)(?:\?[^"#]*)?"/g)].map(match=>match[1]).filter(file=>!/^https?:|^data:/.test(file)&&!file.includes('${')&&!file.includes("'+"));
 const required=[...new Set([...manifest.runtime,...manifest.approvedBiographyAssets,...sceneFiles,...indexFiles])];
 const checks=[];
 for(const file of required){
@@ -128,8 +131,8 @@ for(const record of distinctnessReview.biographies||[]){
   if(sha256(audioBytes)!==record.audioSha256)failures.push({kind:'distinctness-review-audio-hash-drift',output:record.output});
 }
 
-if(manifest.packageVersion!=='3.8.21-cross-device-presentation')failures.push({kind:'package-version-drift',value:manifest.packageVersion});
-if(!index.includes('BUILD v3.8.21')||!index.includes('>v3.8.21</span>'))failures.push({kind:'visible-build-version-drift'});
+if(manifest.packageVersion!==entryPath.match(/atlas-v([0-9]+(?:\.[0-9]+)*)/)[1])failures.push({kind:'package-version-drift',value:manifest.packageVersion});
+if(!index.includes('BUILD v'+manifest.packageVersion)||!index.includes('>v'+manifest.packageVersion+'</span>'))failures.push({kind:'visible-build-version-drift'});
 if(webbProduction.status!=='approved-and-runtime-integrated')failures.push({kind:'webb-branch-release-state-stale',value:webbProduction.status});
 if(!/promoted into the live Atlas/.test(fableApproval))failures.push({kind:'fable-approval-release-state-stale'});
 const expectedAudioNames=Object.values(approvedAudio).map(file=>path.basename(file)).sort();

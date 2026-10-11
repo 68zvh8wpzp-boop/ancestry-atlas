@@ -1,0 +1,22 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+import crypto from 'node:crypto';
+const html=fs.readFileSync('atlas-v3.9.36.html','utf8');
+const base=JSON.parse(html.match(/const DATA = (\{[^\n]*\});/)[1]);
+const before=structuredClone(base);const guide={},tour={};
+vm.runInNewContext(fs.readFileSync('della-ray-mobile-biography.js','utf8'),{DATA:base,GUIDE_PROFILES:guide,TOUR_MEDIA:tour});
+const person=base.nodes.find(n=>n.id==='della_ray');
+assert(person.BIOGRAPHY.split(/\s+/).length>=900);
+assert.equal(person.BIOGRAPHY,guide.della_ray.life);assert.equal(person.BIOGRAPHY,tour.della_ray.transcript);
+for(const name of ['Jonathan Henry Webb','Thora','Henry Ray','Karl Albert','Maurice Eugene','Junius Edson','Gwen','Zola Margaret','James Wilford','Louise','Velmer June'])assert(person.BIOGRAPHY.includes(name),name);
+assert(!/FamilySearch|Atlas|audit|workflow|provenance|current session|hCaptcha/i.test(person.BIOGRAPHY));
+assert.deepEqual(base.edges,before.edges,'Genealogy edges must remain unchanged');
+for(const n of base.nodes.filter(n=>n.id!=='della_ray'))assert.deepEqual(n,before.nodes.find(x=>x.id===n.id));
+const photos=person.evidence.filter(e=>e.kind==='photo'),docs=person.evidence.filter(e=>e.kind==='document');assert.equal(photos.length,7);assert.equal(docs.length,12);
+for(const e of person.evidence){for(const p of [e.thumb,e.full,e.originalAsset])assert(fs.statSync(p).size>10000,p);assert(e.transcription.startsWith('FULLTEXT_ORIGINAL:'));assert(e.transcription.includes('FULLTEXT_TRANSLATION:'));if(e.kind==='document'){assert(fs.existsSync(e.readerUrl));const reader=fs.readFileSync(e.readerUrl,'utf8');assert(reader.includes('<pre>')&&reader.includes('<em>'));}}
+const reg=JSON.parse(fs.readFileSync('assets/della-ray/asset-register.json'));
+for(const [name,hash]of Object.entries(reg.hashes))assert.equal(crypto.createHash('sha256').update(fs.readFileSync('assets/della-ray/'+name)).digest('hex'),hash,name);
+for(const s of [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(m=>m[1]).filter(Boolean))new vm.Script(s);
+const entry=fs.readFileSync('index.html','utf8'),manifest=fs.readFileSync('manifest.webmanifest','utf8');assert(entry.includes('20261011-della-1')&&manifest.includes('20261011-della-1'));
+console.log('PASS: Della canonical 1243-word biography, husband and ten children, seven original photos, twelve readable document entities, complete page readers, unchanged graph and original SHA-256 preservation.');

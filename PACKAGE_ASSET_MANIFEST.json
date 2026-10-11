@@ -1,7 +1,7 @@
 {
-  "packageVersion": "3.8.21-cross-device-presentation",
+  "packageVersion": "3.9.36",
   "inputPackage": "deployed v3.8.18 plus approved biography-distinctness narration, maps and Fable audio",
-  "sourceProductionVersion": "3.8.21",
+  "sourceProductionVersion": "3.9.36",
   "releaseStatus": "approved and deployed-ready",
   "narration": {
     "approvedVoice": "OpenAI Fable",
@@ -61,64 +61,65 @@
     "VISUAL_RIGHTS_MANIFEST.json",
     "RELEASE_NOTES_v3_8_0_CHECKPOINT.md",
     "README_DEPLOY_v3_8_0_CHECKPOINT.txt",
-    "RELEASE_NOTES_v3_8_1_CORRECTIVE.md"
-    ,"GOVERNANCE.md"
-    ,"biographies/webb-branch/README.md"
-    ,"biographies/webb-branch/research-register.json"
-    ,"tests/governance-regression.mjs"
-    ,"tests/experience-contract-regression.mjs"
-    ,"RELEASE_NOTES_v3_8_2_GOVERNANCE.md"
-    ,"approved-audio/fable/APPROVAL.md"
-    ,"approved-audio/fable/SHA256SUMS.txt"
-    ,"approved-audio/fable/review-records/modern_fable_reviews_metadata.json"
-    ,"approved-audio/fable/review-records/James_sheldon_webb_fable_review_transcript.txt"
-    ,"approved-audio/fable/review-records/Marion_beulah_brenay_webb_fable_review_transcript.txt"
-    ,"approved-audio/fable/review-records/James_wilford_webb_fable_review_transcript.txt"
-    ,"approved-audio/fable/review-records/v3.8.19_fable_reviews_metadata.json"
-    ,"approved-audio/fable/review-records/Charles_albert_brenay_transcript.txt"
-    ,"approved-audio/fable/review-records/Charles_godfrey_brenay_transcript.txt"
-    ,"approved-audio/fable/review-records/Ida_mae_gooley_transcript.txt"
-    ,"approved-audio/fable/review-records/John_peter_gooley_transcript.txt"
-    ,"approved-audio/fable/review-records/Mary_ann_dennis_transcript.txt"
-    ,"approved-audio/fable/review-records/James_wilford_webb_transcript.txt"
-    ,"approved-audio/fable/James_sheldon_webb.mp3"
-    ,"approved-audio/fable/Marion_beulah_brenay_webb.mp3"
-    ,"approved-audio/fable/Charles_albert_brenay.mp3"
-    ,"approved-audio/fable/Charles_godfrey_brenay.mp3"
-    ,"approved-audio/fable/Ida_mae_gooley.mp3"
-    ,"approved-audio/fable/John_peter_gooley.mp3"
-    ,"approved-audio/fable/Mary_ann_dennis.mp3"
-    ,"approved-audio/fable/James_wilford_webb.mp3"
-    ,"approved-audio/fable/Jonathan_henry_webb.mp3"
-    ,"approved-audio/fable/Edward_milo_webb_jr.mp3"
-    ,"approved-audio/fable/Edward_milo_webb_sr.mp3"
-    ,"approved-audio/fable/James_webb_jr.mp3"
-    ,"RELEASE_NOTES_v3_8_3_MOBILE_STORY_CORRECTIVE.md"
-    ,"RELEASE_NOTES_v3_8_6_CONTRACT_RESTORATION.md"
-    ,"RELEASE_NOTES_v3_8_7_NAVIGATION_AND_PERIOD_LOCATORS.md"
-    ,"RELEASE_NOTES_v3_8_8_STORY_TREE_AND_ARCHIVAL_PLACES.md"
-    ,"RELEASE_NOTES_v3_8_9_LIVE_PLACE_QA.md"
-    ,"RELEASE_NOTES_v3_8_10_PLACE_CAPTION_HYGIENE.md"
-    ,"RELEASE_NOTES_v3_8_11_STORY_FIRST_FRAME.md"
-    ,"RELEASE_NOTES_v3_8_12_FIRST_FRAME_HANDOFF.md"
-    ,"assets/arizona_new_mexico_1919_locator.jpg"
-    ,"assets/charles_albert_brunne_1901_census_full.jpg"
-    ,"assets/charles_albert_brunne_1901_census_thumb.jpg"
-    ,"biographies/research-frontiers.json"
-    ,"biographies/research-frontiers-data.js"
-    ,"research-frontier-3.8.14.js"
-    ,"research-frontier-3.8.14.css"
-    ,"scripts/build-research-frontiers.mjs"
-    ,"RELEASE_NOTES_v3_8_14_RESEARCH_FRONTIER.md"
-    ,"RELEASE_NOTES_v3_8_15_SHELDON_VISUAL_CORRECTIVE.md"
-    ,"biographies/webb-branch/branch-production-manifest.json"
-    ,"biographies/webb-branch/visual-approval-register.json"
-    ,"biographies/webb-branch/webb-story-modules.js"
-    ,"scripts/build-webb-runtime.mjs"
-    ,"PRODUCTION_CONTRACT_v3_8_13.md"
-    ,"PRODUCTION_CONTRACT_v3_8_16_FAMILY_SOURCE_AND_SCALE.md"
-    ,"RELEASE_NOTES_v3_8_16_FAMILY_SOURCE_AND_SCALE.md"
-    ,"RELEASE_NOTES_v3_8_13_WEBB_RUNTIME_HYGIENE.md"
+    "RELEASE_NOTES_v3_8_1_CORRECTIVE.md",
+    "GOVERNANCE.md",
+    "biographies/webb-branch/README.md",
+    "biographies/webb-branch/research-register.json",
+    "tests/governance-regression.mjs",
+    "tests/experience-contract-regression.mjs",
+    "RELEASE_NOTES_v3_8_2_GOVERNANCE.md",
+    "approved-audio/fable/APPROVAL.md",
+    "approved-audio/fable/SHA256SUMS.txt",
+    "approved-audio/fable/review-records/modern_fable_reviews_metadata.json",
+    "approved-audio/fable/review-records/James_sheldon_webb_fable_review_transcript.txt",
+    "approved-audio/fable/review-records/Marion_beulah_brenay_webb_fable_review_transcript.txt",
+    "approved-audio/fable/review-records/James_wilford_webb_fable_review_transcript.txt",
+    "approved-audio/fable/review-records/v3.8.19_fable_reviews_metadata.json",
+    "approved-audio/fable/review-records/Charles_albert_brenay_transcript.txt",
+    "approved-audio/fable/review-records/Charles_godfrey_brenay_transcript.txt",
+    "approved-audio/fable/review-records/Ida_mae_gooley_transcript.txt",
+    "approved-audio/fable/review-records/John_peter_gooley_transcript.txt",
+    "approved-audio/fable/review-records/Mary_ann_dennis_transcript.txt",
+    "approved-audio/fable/review-records/James_wilford_webb_transcript.txt",
+    "approved-audio/fable/James_sheldon_webb.mp3",
+    "approved-audio/fable/Marion_beulah_brenay_webb.mp3",
+    "approved-audio/fable/Charles_albert_brenay.mp3",
+    "approved-audio/fable/Charles_godfrey_brenay.mp3",
+    "approved-audio/fable/Ida_mae_gooley.mp3",
+    "approved-audio/fable/John_peter_gooley.mp3",
+    "approved-audio/fable/Mary_ann_dennis.mp3",
+    "approved-audio/fable/James_wilford_webb.mp3",
+    "approved-audio/fable/Jonathan_henry_webb.mp3",
+    "approved-audio/fable/Edward_milo_webb_jr.mp3",
+    "approved-audio/fable/Edward_milo_webb_sr.mp3",
+    "approved-audio/fable/James_webb_jr.mp3",
+    "RELEASE_NOTES_v3_8_3_MOBILE_STORY_CORRECTIVE.md",
+    "RELEASE_NOTES_v3_8_6_CONTRACT_RESTORATION.md",
+    "RELEASE_NOTES_v3_8_7_NAVIGATION_AND_PERIOD_LOCATORS.md",
+    "RELEASE_NOTES_v3_8_8_STORY_TREE_AND_ARCHIVAL_PLACES.md",
+    "RELEASE_NOTES_v3_8_9_LIVE_PLACE_QA.md",
+    "RELEASE_NOTES_v3_8_10_PLACE_CAPTION_HYGIENE.md",
+    "RELEASE_NOTES_v3_8_11_STORY_FIRST_FRAME.md",
+    "RELEASE_NOTES_v3_8_12_FIRST_FRAME_HANDOFF.md",
+    "assets/arizona_new_mexico_1919_locator.jpg",
+    "assets/charles_albert_brunne_1901_census_full.jpg",
+    "assets/charles_albert_brunne_1901_census_thumb.jpg",
+    "biographies/research-frontiers.json",
+    "biographies/research-frontiers-data.js",
+    "research-frontier-3.8.14.js",
+    "research-frontier-3.8.14.css",
+    "scripts/build-research-frontiers.mjs",
+    "RELEASE_NOTES_v3_8_14_RESEARCH_FRONTIER.md",
+    "RELEASE_NOTES_v3_8_15_SHELDON_VISUAL_CORRECTIVE.md",
+    "biographies/webb-branch/branch-production-manifest.json",
+    "biographies/webb-branch/visual-approval-register.json",
+    "biographies/webb-branch/webb-story-modules.js",
+    "scripts/build-webb-runtime.mjs",
+    "PRODUCTION_CONTRACT_v3_8_13.md",
+    "PRODUCTION_CONTRACT_v3_8_16_FAMILY_SOURCE_AND_SCALE.md",
+    "RELEASE_NOTES_v3_8_16_FAMILY_SOURCE_AND_SCALE.md",
+    "RELEASE_NOTES_v3_8_13_WEBB_RUNTIME_HYGIENE.md",
+    "della-ray-mobile-biography.js"
   ],
   "approvedBiographyAssets": [
     "jay_marion_mesa_1941.png",
@@ -162,12 +163,105 @@
     "biographies/brenay-canada/assets/german_emigrants_hamburg_1874_seam_repaired.png",
     "biographies/brenay-canada/assets/ontario_great_western_station_1867_closer_candidate.jpg",
     "biographies/brenay-canada/assets/quebec_habitant_farm_1856_candidate.jpg",
-    "biographies/brenay-canada/assets/wwi_registration_day_1917_loc_candidate.jpg"
+    "biographies/brenay-canada/assets/wwi_registration_day_1917_loc_candidate.jpg",
+    "assets/della-ray/della-henry-webb-anniversary-1958-original.jpg",
+    "assets/della-ray/ellsworth-page-5.jpg",
+    "assets/della-ray/ellsworth-page-9.jpg",
+    "assets/della-ray/della-webb-and-daughters-1947-original-preview.jpg",
+    "assets/della-ray/della-ray-webb-death-1969-original.pdf",
+    "assets/della-ray/zola-webb-birth-1923-transcription.md",
+    "assets/della-ray/della-henry-webb-anniversary-1958-original-preview.jpg",
+    "assets/della-ray/della-henry-webb-1939-original.jpg",
+    "assets/della-ray/father-page-1-preview.jpg",
+    "assets/della-ray/della-webb-census-1920-household-transcription.md",
+    "assets/della-ray/della-ray-webb-memories-of-my-father-transcription.md",
+    "assets/della-ray/life-page-3.jpg",
+    "assets/della-ray/della-ray-webb-funeral-program-1969-transcription.md",
+    "assets/della-ray/ellsworth-page-6.jpg",
+    "assets/della-ray/life-page-1.jpg",
+    "assets/della-ray/father-reader.html",
+    "assets/della-ray/henry-della-webb-ellsworth-original.pdf",
+    "assets/della-ray/father-page-2.jpg",
+    "assets/della-ray/della-ray-birth-1891-transcription-translation.md",
+    "assets/della-ray/anniversary-reader.html",
+    "assets/della-ray/della-webb-and-sisters-1966-caption.md",
+    "assets/della-ray/life-page-4.jpg",
+    "assets/della-ray/della-webb-census-1940-sheet-8b-original.jpg",
+    "assets/della-ray/della-webb-census-1920-original-preview.jpg",
+    "assets/della-ray/life-reader.html",
+    "assets/della-ray/della-henry-webb-children-anniversary-original-preview.jpg",
+    "assets/della-ray/della-webb-family-gathering-1956-original-preview.jpg",
+    "assets/della-ray/della-webb-and-sisters-1966-original.jpg",
+    "assets/della-ray/della-webb-census-1930-original.jpg",
+    "assets/della-ray/della-ray-webb-funeral-program-1969-original-preview.jpg",
+    "assets/della-ray/della-webb-census-1940-sheet-8a-original.jpg",
+    "assets/della-ray/zola-reader.html",
+    "assets/della-ray/life-page-2.jpg",
+    "assets/della-ray/della-ray-jonathan-webb-marriage-1913-transcription.md",
+    "assets/della-ray/della-henry-webb-children-anniversary-original.jpg",
+    "assets/della-ray/ellsworth-page-1-preview.jpg",
+    "assets/della-ray/census1930-reader.html",
+    "assets/della-ray/della-henry-webb-anniversary-1958-transcription.md",
+    "assets/della-ray/death-page-1.jpg",
+    "assets/della-ray/della-webb-census-1930-household-transcription.md",
+    "assets/della-ray/life-page-1-preview.jpg",
+    "assets/della-ray/zola-webb-birth-1923-original.jpg",
+    "assets/della-ray/death-reader.html",
+    "assets/della-ray/della-henry-webb-1939-original-preview.jpg",
+    "assets/della-ray/della-ray-birth-1891-register-pages-253-254-original.jpg",
+    "assets/della-ray/zola-webb-birth-1923-original-preview.jpg",
+    "assets/della-ray/della-ray-webb-death-1969-transcription.md",
+    "assets/della-ray/marriage-reader.html",
+    "assets/della-ray/della-webb-and-sisters-1966-original-preview.jpg",
+    "assets/della-ray/census1940-reader.html",
+    "assets/della-ray/della-webb-census-1920-original.jpg",
+    "assets/della-ray/ellsworth-reader.html",
+    "assets/della-ray/ellsworth-page-8.jpg",
+    "assets/della-ray/census1920-reader.html",
+    "assets/della-ray/death-page-1-preview.jpg",
+    "assets/della-ray/asset-register.json",
+    "assets/della-ray/della-ray-jonathan-webb-marriage-1913-original-preview.jpg",
+    "assets/della-ray/della-webb-grandchildren-house-original-preview.jpg",
+    "assets/della-ray/ellsworth-page-3.jpg",
+    "assets/della-ray/della-webb-grandchildren-house-original.jpg",
+    "assets/della-ray/ellsworth-page-7.jpg",
+    "assets/della-ray/della-ray-webb-handwritten-life-sketch-original.pdf",
+    "assets/della-ray/della-ray-birth-1891-register-pages-251-252-original-preview.jpg",
+    "assets/della-ray/della-webb-family-gathering-1956-original.jpg",
+    "assets/della-ray/della-henry-webb-canyon-lake-original-preview.jpg",
+    "assets/della-ray/della-ray-birth-1891-register-pages-251-252-original.jpg",
+    "assets/della-ray/della-webb-and-daughters-1947-original.jpg",
+    "assets/della-ray/ellsworth-page-1.jpg",
+    "assets/della-ray/della-webb-census-1930-original-preview.jpg",
+    "assets/della-ray/henry-della-webb-ellsworth-transcription.md",
+    "assets/della-ray/della-webb-census-1940-household-transcription.md",
+    "assets/della-ray/birth-reader.html",
+    "assets/della-ray/ellsworth-page-4.jpg",
+    "assets/della-ray/della-ray-jonathan-webb-marriage-1913-original.jpg",
+    "assets/della-ray/della-webb-photo-originals-continued-caption-register.md",
+    "assets/della-ray/della-webb-census-1940-sheet-8a-original-preview.jpg",
+    "assets/della-ray/father-page-1.jpg",
+    "assets/della-ray/della-ray-webb-memories-of-my-father-original.pdf",
+    "assets/della-ray/della-ray-webb-handwritten-life-sketch-transcription.md",
+    "assets/della-ray/funeral-reader.html",
+    "assets/della-ray/della-ray-webb-funeral-program-1969-original.jpg",
+    "assets/della-ray/della-henry-webb-canyon-lake-original.jpg",
+    "assets/della-ray/della-ray-webb-family-stories-preserved.md",
+    "assets/della-ray/ellsworth-page-2.jpg",
+    "assets/della-ray/della-webb-grandchildren-house-caption.md"
   ],
   "overlayAssets": [
     "inline period-appropriate flag SVGs with dated jurisdiction labels",
-    "Library of Congress 1919 Arizona–New Mexico road map with HTML place markers"
+    "Library of Congress 1919 Arizona\u2013New Mexico road map with HTML place markers"
   ],
   "networkRequiredForPackagedBiographyAssets": false,
-  "rejectedAssetsExcluded": true
+  "rejectedAssetsExcluded": true,
+  "personPageReleases": {
+    "della_ray": {
+      "version": "20261011-della-1",
+      "photos": 7,
+      "documentEntities": 12,
+      "iphoneVerified": false
+    }
+  }
 }

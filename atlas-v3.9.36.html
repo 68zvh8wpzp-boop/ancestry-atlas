@@ -637,7 +637,7 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Guided Audio-Visual Family Tour</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v3.9.29 • Sheldon mobile cache refresh • source cards and biography corrected</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v3.9.36 • Della Ray Webb • 11 October 2026</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop first orients you visibly in the tree, then opens the story. Recorded narration is used only when an approved audio file exists.</p>
   </div>
 </div>
@@ -759,7 +759,7 @@ window.addEventListener('error',function(e){
 <div id="app">
 <aside id="controls" class="collapsed">
   <button id="controlsToggle">☰ Controls / legend</button>
-  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.8.22</span></h1>
+  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.9.36</span></h1>
   <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay bright; uncertain generations fall progressively into dusk and shadow. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
 
   <div class="section">
@@ -1592,7 +1592,8 @@ function openEvidence(e){
   const linkLabel=e.sourceLevel==='collection'?'Browse record collection':e.sourceLevel==='index'?'Open indexed record':e.sourceLevel==='original'?'Open original record image':e.sourceLevel==='photo-link'?'Open original family photograph':'Open original record';
   const sourceActions=(sourceLink?'<a class="doc-source-action" href="'+escapeHtml(sourceLink)+'" target="_blank" rel="noopener">'+escapeHtml(linkLabel)+' ↗</a>':'')+
     (e.additionalSourcePage?'<a class="doc-source-action secondary" href="'+escapeHtml(e.additionalSourcePage)+'" target="_blank" rel="noopener">Open adjoining parent details ↗</a>':'')+
-    (e.originalAsset?'<a class="doc-source-action secondary" href="'+escapeHtml(e.originalAsset)+'" target="_blank" rel="noopener">Open untouched original photograph ↗</a>':'');
+    (e.readerUrl?'<a class="doc-source-action secondary" href="'+escapeHtml(e.readerUrl)+'" target="_blank" rel="noopener">Read all pages ↗</a>':'')+
+    (e.originalAsset?'<a class="doc-source-action secondary" href="'+escapeHtml(e.originalAsset)+'" target="_blank" rel="noopener">'+(e.kind==='document'?'Open full original document':'Open untouched original photograph')+' ↗</a>':'');
   meta.innerHTML='<strong>'+escapeHtml(displayTitle)+'</strong><br>'+escapeHtml(e.date||'')+(e.place?' • '+escapeHtml(e.place):'')+
     (sourceActions?'<div class="doc-source-actions">'+sourceActions+'</div>':'')+
     '<br>'+escapeHtml(displaySummary)+
@@ -2060,7 +2061,7 @@ function openNode(id, recenter=false, appendTrail=false){
   card.querySelector('h3').textContent=n.name;
   card.querySelector('.meta').textContent=[n.years,n.place,n.branch].filter(Boolean).join(' • ');
   card.querySelectorAll('.dynamic-status').forEach(x=>x.remove());
-  card.querySelector('p').textContent=['mary_ann','jessie_irene_aurin','richard_francis_skinner'].includes(n.id) ? (n.CONTEXT || '') : n.note;
+  card.querySelector('p').textContent=['mary_ann','jessie_irene_aurin','richard_francis_skinner','della_ray'].includes(n.id) ? (n.CONTEXT || '') : n.note;
   const repeatedBiography = ['charles_godfrey','ida_mae','john_peter'].includes(n.id) && typeof GUIDE_PROFILES!=='undefined' && n.note===GUIDE_PROFILES[n.id]?.life;
   card.querySelector('p').hidden=repeatedBiography;
   card.querySelector('p').previousElementSibling.hidden=repeatedBiography;
@@ -2844,6 +2845,7 @@ resize();
 <script src="jessie-aurin-mobile-biography.js?v=20261009-jessie-2"></script>
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v15.js?v=20261009-skinner-2"></script>
 <script src="richard-skinner-mobile-biography.js?v=20261009-skinner-7"></script>
+<script src="della-ray-mobile-biography.js?v=20261011-della-1"></script>
 </body>
 </html>
 
