@@ -285,3 +285,34 @@ Currentpersonalphotooriginals captured2:1947daughters and1966sisters. CanyonLake
 Saved artifacts: della-ray-jonathan-webb-marriage-1913-transcription.md — libfile_50b02c1d54ec8191bb6e28302fb55608; della-webb-and-sisters-1966-original.jpg — libfile_d446b20a6f60819194e92bf4245b796c; della-webb-and-sisters-1966-caption.md — libfile_baf159b6f7e48191864acf339649ee51. All three save results succeeded and local identity metadata applied.
 
 FamilySearch session expired overnight. Current live page is ordinary Sign In, not a bot block. Further gallery downloads require secure sign-in; retained local sources remain usable for Ellsworth transcription. No completion claim.
+
+
+## 11 October 2026 — renewed sign-in, four more photographs, dated father memoir, Collaborate and Timeline
+
+Secure sign-in succeeded; live Della Memories returned account Jeremy16094 and KWCR-Z55. The preceding expired-session block is resolved. No FamilySearch edits. Browser download-event paths now reliably correlate native files; a similarly named restored photo unrelated to Della was rejected after inspection. When a semantic menu click opened Print instead, the print dialog was dismissed and the settled visible Download control used. No fabricated or screenshot original retained.
+
+### Captured additions
+
+| Item | Provenance and native original | Preservation |
+|---|---|---|
+| Della/Henry at Canyon Lake | TH-7793-159549-868679-40; DeEdra Breckenridge,15March2026;0044_a.jpg;683x929,113615bytes | della-henry-webb-canyon-lake-original.jpg; libfile_86866958c1a481919cc48b4db6f7b762 |
+| Grandpa and Grandma Webb | TH-7793-159549-869057-20; DeEdra Breckenridge,15March2026;0046_a.jpg;dated1939,placeunknown;593x839,103267bytes | della-henry-webb-1939-original.jpg; libfile_5a41aac1a42c819182f07fc762affa94 |
+| Webb Family Gathering | TH-7727-159582-282629-64;DeEdra Breckenridge,16March2026;0043_a.jpg;July1956,Lakeside;1336x826,252496bytes | della-webb-family-gathering-1956-original.jpg;libfile_e133b64fdc088191b1644a8af0099a08 |
+| Della/Henry and children anniversary portrait | TH-904-98451-2437-30;LeslieDella1,25April2020;20190926_215605.jpg;2309x1295,516298bytes | della-henry-webb-children-anniversary-original.jpg;libfile_cc7a969e71b0819186c0ed1518dcb020 |
+| Memories of My Father | TH-904-98062-1953-38;LeslieDella1,9April2020;Della Ray Webb.pdf;2page scanned typescript,149948bytes; signed in type Della Ray Webb,January1964 | della-ray-webb-memories-of-my-father-original.pdf;libfile_232b8c09f9c8819189f76b5b914331ab; checked full transcription libfile_6cf5bc27ef74819197d2652413305216 |
+
+Photo caption/transcription/hash register: della-webb-photo-originals-continued-caption-register.md,libfile_c56fa151d91c8191adb97d6e5fbce6e4. All seven batch save results succeeded; local identity metadata applied. First two and anniversary no visible text. Gathering exact inscription **July, 1956**, English, translation not applicable. Contributor identifications retained separately; attached Abel Alexander DeWitt Sr/Jr tags incompatible with 1956 (deaths1913/1953) excluded, not silently accepted or edited. Anniversary shows11people and does NOT independently establish all10children present. No unverified individual names added. CanyonLake place fieldMesa differs from title/description, preserved as discrepancy.
+
+**Father memoir:** both pages visually reviewed and complete line-preserving transcript checked. Typescript retains1988asbrotherbirthyear,Chichuahua,Sonra,bugvats and displacedcandy. Original has aboutten atMorelos; edited2017storyeleven. Do not assign exact move year. Personal scenes already included in review biography: tinydishes,Ada,harvesting,molasses,campfirecooking,floodedfarms,Douglastents. DatedJanuary1964 and departure12August1912 preserved; same witness as handwritten account, not two independent contemporary sources. Miracle/army interpretation not promoted. Document is scannedtypescriptonly, NOT recoveredhandwrittenmanuscript. Evidence review updated at b96f741d8967a4a39b9f11d703515d86208a01c9; museum prose unchanged, 1243words by whitespace count, sole spouse/all10children retained.
+
+### Collaborate and Timeline inspected
+
+Collaborate has one note, changed26August2013 byMurielKeyser: Name & Blessing4August1891 JesseN.Smith; baptized/confirmed31July1899 JamesMortensen; patriarchalblessingJamesSkousen; marriage16August1908 BishopCharlesW.Lillywhite; burialLakesideCityCemetery. Compilednote, not originalordinance/weddingreturn. Full note expanded/read. LegacyDisputes contains two duplicate23March2011comments attributedDelWebb: “There was no female child born in1918.” This matches existingJuniusmale1918 household list; no extra child added/deleted.
+
+Full Timeline rendered/read: birth/registration, all10children, 1908marriage, motherdeath29July1918/fatherdeath28October1920, sisterEdnadeath8April1922 and burial4December1969. These are compiled attachedtreeevents, not new primary evidence. Timeline still gives Zola22February1923, not resolution of originalscanJuly/filing conflict. Generic historical overlays include geographically irrelevantKyrgyz/Sovietevents: not imported as Della personalcontext. No new1950household or precise1912borderrecord found onTimeline. Earlier versions still uninspected.
+
+### Current reconciled progress
+
+68 memory cards catalogued. Six personal photograph originals captured (1947daughters,1966sisters, plus fourabove); final retention/dedup remainsopen, cap30. Documentary originals now include father memoir as a fourthPDF alongside death/lifesketch/Ellsworth, plus birth2spreads,1913application,4US-censussheets,funeral,anniversary,Zolabirth. Eleven documentary entity transcripts checked with explicit qualifications; Ellsworth checked transcription remainsopen. Four story bodies preserved separately. These are captured/evidence reviewed, **not packaged/deployed/webverified/iPhoneverified**. All new Atlas document previews still unimplemented. Biography approval remainsopen; no approval requested before gallery/reviewpackage is concrete.
+
+Next Della-only: remaining original photos with Jonathan/Jay and within-Della duplicate comparison; Ellsworth9page checked transcript;1950matchingoriginal;earlierprofileversions;audio. Then concrete review package, user content review, authorized release and actual web/iPhone verification. Queue44 remainsopen.
