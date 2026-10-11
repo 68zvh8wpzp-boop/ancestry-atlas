@@ -1,3 +1,5 @@
+> **CURRENT 11 OCTOBER 2026 STATUS OVERRIDE:** The Oceana naturalization custodian email to Tonya Selig was **actually SENT** in Gmail twice (10:04 and 10:28 AM Central, same thread), despite outdated historical notes in this file calling it “unsent”; no reply received when checked. Do not send again. No Jonas-specific naturalization/death/divorce or Frances original birth has been found. New research report: [Jonas independent source search + Frances frontier](./JONAS_AURIN_1881_1888_INDEPENDENT_SEARCH_AND_FRANCES_FRONTIER_2026-10-11.md). Original 1870/71/74/79/81/82/88 and 1880/1900 evidence remains archived, accepted Jessie biography unchanged.
+
 # Amelia Lucinda Cotton / Aurin / McConnell — person-audit working register
 **10 October 2026 — direct ancestor candidate, research in progress; NOT an approved person page**
 
