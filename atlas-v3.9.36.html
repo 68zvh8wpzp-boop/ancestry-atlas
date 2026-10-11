@@ -900,7 +900,7 @@ window.addEventListener('error',function(e){
 </div>
 
 </section>
-<div id="albumModal" class="album-modal" aria-hidden="true"><div class="album-shell"><div class="album-head"><div class="album-title"><h2 id="albumTitle">Family Media</h2><div id="albumSubtitle" class="small">Family photographs, archival documents, and historical places are kept in distinct collections.</div></div><button id="albumClose" class="album-close">×</button></div><div class="album-filters"><button class="album-filter active" data-filter="all">All</button><button class="album-filter" data-filter="family">Family Photos</button><button class="album-filter" data-filter="document">Documents</button><button class="album-filter" data-filter="place">Places</button><select id="albumBranch" aria-label="Filter media by branch"><option value="all">All branches</option></select></div><div id="albumGrid" class="album-grid"></div></div></div>
+<div id="albumModal" class="album-modal" role="dialog" aria-modal="true" aria-label="Family Album" aria-hidden="true"><div class="album-shell"><div class="album-head"><div class="album-title"><h2 id="albumTitle">Family Media</h2><div id="albumSubtitle" class="small">Family photographs, archival documents, and historical places are kept in distinct collections.</div></div><button id="albumClose" class="album-close">×</button></div><div class="album-filters"><button class="album-filter active" data-filter="all">All</button><button class="album-filter" data-filter="family">Family Photos</button><button class="album-filter" data-filter="document">Documents</button><button class="album-filter" data-filter="place">Places</button><select id="albumBranch" aria-label="Filter media by branch"><option value="all">All branches</option></select></div><div id="albumGrid" class="album-grid"></div></div></div>
 <div id="docModal" class="doc-modal"><button id="docClose" class="doc-close">×</button><div class="doc-panel"><img id="docImage" alt="Genealogy source document"><iframe id="docPdf" title="Document PDF preview" style="display:none" loading="lazy"></iframe><div id="docMeta" class="doc-meta"></div><div id="albumViewerLabel" class="album-label" style="display:none"></div><div id="albumViewerNav" class="album-detail-nav" style="display:none"><button id="albumPrev">← Previous</button><button id="albumNext">Next →</button></div><button id="jumpToPerson" class="jump-person" style="display:none">Show person in tree</button></div></div>
 </div>
 
@@ -2686,6 +2686,8 @@ function populateAlbumBranches(){
   const sel=document.getElementById('albumBranch');
   const branches=[...new Set(albumState.items.map(i=>i.branch).filter(Boolean))].sort();
   sel.innerHTML='<option value="all">All branches</option>'+branches.map(b=>`<option value="${escapeHtml(b)}">${escapeHtml(b)}</option>`).join('');
+  if(albumState.branch!=='all'&&!branches.includes(albumState.branch))albumState.branch='all';
+  sel.value=albumState.branch;
 }
 function renderAlbum(){
   const grid=document.getElementById('albumGrid');
@@ -2702,7 +2704,15 @@ function renderAlbum(){
       : `<div class="album-doc-placeholder">DOCUMENT<span>Open linked record</span></div>`;
     b.innerHTML=`${mediaHtml}<div class="album-name">${escapeHtml(i.name)}</div><div class="album-years">${escapeHtml(i.years||'')}</div><div class="album-kind">${kindLabel}</div><div class="album-source">${escapeHtml(albumSourceShort(i))}</div>`;
     const thumb=b.querySelector('img');
-    thumb.onerror=()=>{thumb.remove();b.classList.add('image-unavailable');b.insertAdjacentHTML('afterbegin','<div class="album-image-unavailable">Image unavailable</div>');};
+    // A legitimate link-only source has no <img>. Do not crash the entire
+    // Family Album when it appears under All or Documents.
+    if(thumb){
+      thumb.onerror=()=>{
+        thumb.remove();
+        b.classList.add('image-unavailable');
+        b.insertAdjacentHTML('afterbegin','<div class="album-image-unavailable">Image unavailable — use source link in record details</div>');
+      };
+    }
     b.onclick=()=>openAlbumItem(idx); grid.appendChild(b);
   });
 }
@@ -2716,14 +2726,23 @@ function openPersonMedia(personId){
 
 function openAlbum(filter='all'){
   albumState.filter=filter;
-  document.getElementById('albumModal').classList.remove('viewer-behind');
+  const m=document.getElementById('albumModal');
+  m.classList.remove('viewer-behind');
   document.querySelectorAll('.album-filter').forEach(button=>button.classList.toggle('active',button.dataset.filter===filter));
   const names={all:['Family Media','Family photographs, archival documents, and historical places are kept in distinct collections.'],family:['Family Photos','Portraits and family photographs only—no maps, landscapes, or document scans.'],document:['Documents','Archival records only, including the 1901 Canadian census image for Charles A. Brunne.'],place:['Places','Historical maps, landscapes, and contextual scenes kept apart from family photographs and records.']};
   const [heading,subtitle]=names[filter]||names.all;
   document.getElementById('albumTitle').textContent=heading;document.getElementById('albumSubtitle').textContent=subtitle;
-  buildAlbumItems(); populateAlbumBranches(); renderAlbum();
-  const m=document.getElementById('albumModal'); m.classList.add('open');m.setAttribute('aria-hidden','false');
-  document.getElementById('controls').classList.add('collapsed');
+  // Open the overlay before loading assets: never turn a media error into an
+  // apparently unresponsive Album button on desktop or iPhone.
+  m.classList.add('open');m.setAttribute('aria-hidden','false');
+  try{
+    buildAlbumItems();populateAlbumBranches();renderAlbum();
+  }catch(error){
+    console.error('Family Album render error',error);
+    document.getElementById('albumGrid').innerHTML='<div class="album-empty" role="alert">Family Album could not display all its media. Reload the page to retry; the original family records have not been changed.</div>';
+  }
+  const controls=document.getElementById('controls');
+  if(controls&&isMobile)controls.classList.add('collapsed');
 }
 function closeAlbum(){const m=document.getElementById('albumModal');m.classList.remove('open');m.setAttribute('aria-hidden','true');}
 function openAlbumItem(idx){
@@ -2738,7 +2757,7 @@ function openAlbumItem(idx){
   const jump=document.getElementById('jumpToPerson'); jump.style.display=i.personId?'inline-block':'none'; jump.dataset.personId=i.personId||'';
 }
 function clearAlbumViewerExtras(){document.getElementById('albumViewerLabel').style.display='none';document.getElementById('albumViewerNav').style.display='none';document.getElementById('jumpToPerson').style.display='none';document.getElementById('albumModal').classList.remove('viewer-behind');}
-document.getElementById('openAlbum').onclick=()=>openAlbum('family');
+document.getElementById('openAlbum').onclick=()=>{albumState.branch='all';openAlbum('all');};
 document.getElementById('albumClose').onclick=closeAlbum;
 document.getElementById('albumModal').addEventListener('click',e=>{if(e.target.id==='albumModal')closeAlbum();});
 document.querySelectorAll('.album-filter').forEach(b=>b.onclick=()=>openAlbum(b.dataset.filter));
