@@ -11,3 +11,6 @@ Verification states: catalogued 68 memories (59 photos, 3 documents, 5 stories, 
 Known limitations: expanded gallery selection/deduplication remains unfinished; 1950 census original not recovered; original handwriting uncertainties remain bracketed; Ellsworth date and child-count errors are preserved in evidence notes rather than inserted into biography.
 
 Rollback: e75398ccf04a6f4c65b2d2465749a718cfc560f3.
+
+
+Live verification: deployment run 38138602545 succeeded for bdc5577c9e2c4ec017f1ba0435818d1e27227259. Browser confirmed canonical biography, DOCUMENTS (12), PHOTOS (7), readable life-sketch preview and all four reader pages, photo next navigation, and nine-page Ellsworth reader. Follow-up resets the viewer scroll position when opening a new item; release token 20261011-della-2. Actual iPhone and full gallery inventory remain unverified.

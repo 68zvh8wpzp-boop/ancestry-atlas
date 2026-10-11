@@ -1604,6 +1604,7 @@ function openEvidence(e){
   const nav=document.getElementById('albumViewerNav');
   if(nav) nav.style.display=albumState.visible.length>1?'flex':'none';
   viewer.classList.add('open');
+  viewer.scrollTop=0;
   viewer.setAttribute('aria-hidden','false');
 }
 document.getElementById('docClose').onclick=()=>{atlasViewerReset();const viewer=document.getElementById('docModal');viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true');};

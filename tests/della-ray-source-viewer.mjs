@@ -18,5 +18,5 @@ for(const e of person.evidence){for(const p of [e.thumb,e.full,e.originalAsset])
 const reg=JSON.parse(fs.readFileSync('assets/della-ray/asset-register.json'));
 for(const [name,hash]of Object.entries(reg.hashes))assert.equal(crypto.createHash('sha256').update(fs.readFileSync('assets/della-ray/'+name)).digest('hex'),hash,name);
 for(const s of [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(m=>m[1]).filter(Boolean))new vm.Script(s);
-const entry=fs.readFileSync('index.html','utf8'),manifest=fs.readFileSync('manifest.webmanifest','utf8');assert(entry.includes('20261011-della-1')&&manifest.includes('20261011-della-1'));
+const entry=fs.readFileSync('index.html','utf8'),manifest=fs.readFileSync('manifest.webmanifest','utf8');const release=entry.match(/iphone-refresh=([A-Za-z0-9-]+)/)?.[1];assert(release&&manifest.includes('iphone-refresh='+release));assert(html.includes('viewer.scrollTop=0;'),'Each document opens at its first page');
 console.log('PASS: Della canonical 1243-word biography, husband and ten children, seven original photos, twelve readable document entities, complete page readers, unchanged graph and original SHA-256 preservation.');
