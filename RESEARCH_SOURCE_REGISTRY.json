@@ -448,6 +448,54 @@
       "evidence": "library:file_0000000030f482109b3fa2ce50680654",
       "originalRefs": [],
       "note": "Burial index Garfield Township Cemetery/Linwood, 11 July 1872 birth; original burial register/tombstone not confirmed. No repeated acquisition without new lead."
+    },
+    {
+      "id": "charles-albert-1918-draft-registration",
+      "personId": "charles_albert",
+      "event": "military-registration",
+      "sourceKeys": [
+        "target:charles-albert:1918-ww1-draft"
+      ],
+      "status": "indexed",
+      "evidence": "library:file_00000000acb481fdb2207f88dd78df1a",
+      "originalRefs": [],
+      "note": "Ledger says contemporaneous WWI draft located, naming 29 Mar 1897 Arnstein Canada and father Charles; full original manuscript inspection/capture not independently established here. Do not call a new discovery."
+    },
+    {
+      "id": "marion-brenay-1923-certified-birth-request",
+      "personId": "marion_brenay",
+      "event": "birth",
+      "sourceKeys": [
+        "target:marion-brenay:1923-01-20-certified-birth"
+      ],
+      "status": "blocked",
+      "evidence": "library:file_00000000acb481fdb2207f88dd78df1a",
+      "originalRefs": [],
+      "note": "Certified Michigan birth certificate naming Charles Albert and Marian Skinner REQUESTED and pending; no duplicate request. This is a document acquisition stream, not proof original is absent from genealogy sources."
+    },
+    {
+      "id": "charles-albert-1897-baptism-request",
+      "personId": "charles_albert",
+      "event": "baptism",
+      "sourceKeys": [
+        "target:charles-albert:1897-arnstein-baptism"
+      ],
+      "status": "blocked",
+      "evidence": "library:file_00000000acb481fdb2207f88dd78df1a",
+      "originalRefs": [],
+      "note": "United Church of Canada Archives search requested; response pending. Distinct from Ontario civil birth search. Do not duplicate request."
+    },
+    {
+      "id": "charles-albert-federal-n25-request",
+      "personId": "charles_albert",
+      "event": "citizenship-verification",
+      "sourceKeys": [
+        "target:charles-albert:uscis-n25-verification"
+      ],
+      "status": "blocked",
+      "evidence": "library:file_00000000acb481fdb2207f88dd78df1a",
+      "originalRefs": [],
+      "note": "USCIS/DHS N-25 nationality verification request in motion; result pending. Do not duplicate request."
     }
   ],
   "tasks": [
@@ -470,7 +518,7 @@
   ],
   "coverage": {
     "kind": "selected-records-only",
-    "coveredRecords": 32,
+    "coveredRecords": 36,
     "allAncestorOriginalsAudited": false,
     "note": "Missing register entry is UNKNOWN, never proof that an original has not been examined. Backfill from historical audits and FamilySearch Media before proposing work."
   }
