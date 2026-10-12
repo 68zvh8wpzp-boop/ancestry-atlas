@@ -14,4 +14,6 @@ check({recordId:'marian-skinner-1903-birth',owner:'work',action:'inspect-origina
 check({recordId:'unknown-original',owner:'chat',action:'inspect-original'},'HOLD','No unique registered source');
 check({sourceKey:'alpena:certificate:1382499',owner:'chat',action:'find-record'},'BLOCK','already inspected');
 check({recordId:'alpena-godfrey-naturalization-1917-1921',owner:'chat',action:'targeted-reexamination'},'HOLD','no assigned active task');
-console.log('Research task intake: 6 stop/ownership/continuation tests passed');
+check({recordId:'alpena-godfrey-naturalization-1917-1921',owner:'chat',action:'transcribe-original'},'BLOCK','Published transcript');
+check({recordId:'marian-skinner-1903-birth',owner:'work',action:'verify-iphone'},'BLOCK','not been published');
+console.log('Research task intake: 8 stop/ownership/continuation tests passed');
