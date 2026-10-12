@@ -381,6 +381,73 @@
         "github:assets/charles_albert_brunne_1901_census_full.jpg"
       ],
       "note": "Original 1901 Canadian household image preserved in Atlas. Check contextual reading before claiming entire person audit completed."
+    },
+    {
+      "id": "ida-mae-gooley-1880-wilson-census",
+      "personId": "L4B2-99V",
+      "event": "census",
+      "sourceKeys": [
+        "census:1880:wilson-alpena:ida-gooley"
+      ],
+      "status": "published",
+      "evidence": "library:file_0000000030f482109b3fa2ce50680654",
+      "originalRefs": [
+        "github:assets/ida-mae/ida-census-1880.jpg"
+      ],
+      "note": "Original 1880 Wilson household previously captured and published on approved Ida page; same census as John Peter and Mary Ann; do not re-retrieve."
+    },
+    {
+      "id": "ida-mae-brenay-1920-rust-census",
+      "personId": "L4B2-99V",
+      "event": "census",
+      "sourceKeys": [
+        "census:1920:rust-township:ed269:s5a:lines17-25"
+      ],
+      "status": "published",
+      "evidence": "library:file_0000000030f482109b3fa2ce50680654",
+      "originalRefs": [
+        "github:assets/ida-mae/ida-census-1920.jpg"
+      ],
+      "note": "Full original 6104x4192 captured, transcribed, published and user-approved 8 Oct. June M Weich, 9 months, explicitly granddaughter; parentage unproven."
+    },
+    {
+      "id": "ida-mae-brenay-1930-pinconning-census",
+      "personId": "L4B2-99V",
+      "event": "census",
+      "sourceKeys": [
+        "census:1930:pinconning:ed9-43:s3a:lines22-25"
+      ],
+      "status": "published",
+      "evidence": "library:file_0000000030f482109b3fa2ce50680654",
+      "originalRefs": [
+        "github:assets/ida-mae/ida-census-1930.jpg"
+      ],
+      "note": "Full original 5826x4192 captured, transcribed, published and user-approved. Ida on manuscript line 23, index wrongly line 24; Junie May Whyte 11 explicitly granddaughter. Parent birthplace conflict preserved."
+    },
+    {
+      "id": "ida-mae-gooley-1932-death-index",
+      "personId": "L4B2-99V",
+      "event": "death",
+      "sourceKeys": [
+        "familysearch:KF4R-3T5",
+        "michigan:death-index:1932-06-04:ida-brenay"
+      ],
+      "status": "indexed",
+      "evidence": "library:file_0000000030f482109b3fa2ce50680654",
+      "originalRefs": [],
+      "note": "Index inspected, death 4 Jun 1932 Garfield Bay County, father Peter Gooly, age59; original death certificate image unavailable. Cemetery index QV2X-BYPW corroborates 11 Jul 1872 birth; no original death scan claimed."
+    },
+    {
+      "id": "ida-mae-gooley-burial-index",
+      "personId": "L4B2-99V",
+      "event": "burial",
+      "sourceKeys": [
+        "familysearch:QV2X-BYPW"
+      ],
+      "status": "indexed",
+      "evidence": "library:file_0000000030f482109b3fa2ce50680654",
+      "originalRefs": [],
+      "note": "Burial index Garfield Township Cemetery/Linwood, 11 July 1872 birth; original burial register/tombstone not confirmed. No repeated acquisition without new lead."
     }
   ],
   "tasks": [
@@ -403,7 +470,7 @@
   ],
   "coverage": {
     "kind": "selected-records-only",
-    "coveredRecords": 27,
+    "coveredRecords": 32,
     "allAncestorOriginalsAudited": false,
     "note": "Missing register entry is UNKNOWN, never proof that an original has not been examined. Backfill from historical audits and FamilySearch Media before proposing work."
   }
