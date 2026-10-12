@@ -150,6 +150,148 @@
       "evidence": "github:MARIAN_B_S_SKINNER_PERSON_AUDIT_2026-10-10.md",
       "locatorState": "not-yet-identified",
       "originalRefs": []
+    },
+    {
+      "id": "amelia-cotton-mcconnell-1888-marriage",
+      "personId": "amelia_cotton",
+      "event": "marriage",
+      "sourceKeys": [
+        "oceana:marriage:1888-10-20:entry135"
+      ],
+      "status": "saved",
+      "evidence": "library:file_0000000033b081f9833e38f623ae8cef",
+      "originalRefs": [
+        "library:file_00000000b36081f68dbe6438a2c98735"
+      ],
+      "note": "Original Amelia Aurin née Cotton and Smith McConnell marriage entry; previously read, not a novel acquisition."
+    },
+    {
+      "id": "john-peter-gooley-1880-census",
+      "personId": "K856-QYW",
+      "event": "census",
+      "sourceKeys": [
+        "census:1880:wilson-alpena:john-goolay"
+      ],
+      "status": "saved",
+      "evidence": "library:file_00000000494c81f7b3c9e8aa389f8569",
+      "originalRefs": [
+        "library:file_000000002a5081f6b6a1f323c3071388"
+      ],
+      "note": "Original Wilson MI household: Peter, Mary Ann, James, Benjamin, Ida, Hattie, Arthur, Daisy."
+    },
+    {
+      "id": "godfrey-ida-1893-marriage",
+      "personId": "93VH-G6X",
+      "event": "marriage",
+      "sourceKeys": [
+        "alpena:marriage:1893:charles-godfrey-ida-gooley"
+      ],
+      "status": "published",
+      "evidence": "library:file_000000008f2081f6a3ab2349a3962c76",
+      "originalRefs": [
+        "github:assets/charles-godfrey/charles-ida-marriage-1893.jpg"
+      ],
+      "note": "Previously examined, source image packaged in published Godfrey page."
+    },
+    {
+      "id": "godfrey-1942-death",
+      "personId": "93VH-G6X",
+      "event": "death",
+      "sourceKeys": [
+        "michigan:death:1942-10-21:charles-g-brenay"
+      ],
+      "status": "published",
+      "evidence": "library:file_000000008f2081f6a3ab2349a3962c76",
+      "originalRefs": [
+        "github:assets/charles-godfrey/charles-g-brenay-death-1942.jpg"
+      ],
+      "note": "Previously examined original death certificate; 1875 birth year differs from older family evidence."
+    },
+    {
+      "id": "godfrey-1910-census",
+      "personId": "93VH-G6X",
+      "event": "census",
+      "sourceKeys": [
+        "census:1910:charles-godfrey-brenay"
+      ],
+      "status": "published",
+      "evidence": "library:file_000000008f2081f6a3ab2349a3962c76",
+      "originalRefs": [
+        "github:assets/charles-godfrey/godfrey-census-1910.jpg"
+      ],
+      "note": "Already published census image, not a fresh record."
+    },
+    {
+      "id": "marian-skinner-1930-mesa-census",
+      "personId": "KWC1-XFX",
+      "relatedPersonIds": [
+        "jessie_aurin",
+        "charles_albert"
+      ],
+      "event": "census",
+      "sourceKeys": [
+        "familysearch-ark:33SQ-GR4R-H5J"
+      ],
+      "status": "examined",
+      "evidence": "github:MARIAN_B_S_SKINNER_PERSON_AUDIT_2026-10-10.md",
+      "originalRefs": [],
+      "note": "Entire original was visually viewed previously; full original page NOT packaged. Parallel Work owns Marian person audit; consult existing originals before any new capture."
+    },
+    {
+      "id": "jonas-aurien-1875-homestead",
+      "personId": "jonas_aurin",
+      "event": "land",
+      "sourceKeys": [
+        "blm:1875:homestead-entry:6719",
+        "blm:1880:patent:4174"
+      ],
+      "status": "saved",
+      "evidence": "library:file_0000000033b081f9833e38f623ae8cef",
+      "originalRefs": [
+        "library:file_00000000889081f694d62de8883352c1"
+      ],
+      "note": "1875 entry / 1880 patent and original tract-book image; RG49 complete case file NOT obtained, $50 paid copy declined."
+    },
+    {
+      "id": "charles-auren-1882-worcester-marriage-excluded",
+      "personId": "LZD1-X5W",
+      "event": "marriage",
+      "sourceKeys": [
+        "massachusetts:worcester:marriage:1882-11-11:entry583"
+      ],
+      "status": "saved",
+      "evidence": "library:file_0000000033b081f9833e38f623ae8cef",
+      "originalRefs": [
+        "library:file_00000000c12881f6911208332ac31120"
+      ],
+      "note": "Worcester Charles/Karl Johan Aurén b ~1852–53 married Carolina Hult; WRONG identity for Jonas Michigan b~1843; original inspected and archived; do not attach as ancestor."
+    },
+    {
+      "id": "charles-albert-1897-arnstein-birth-certificate",
+      "personId": "charles_albert",
+      "event": "birth",
+      "sourceKeys": [
+        "target:charles-albert:b1879-no",
+        "target:charles-albert:birth:1897-03-29-arnstein"
+      ],
+      "status": "unexamined",
+      "locatorState": "not-yet-identified",
+      "evidence": "library:file_0000000051e8822f8c71ce5b831341ec",
+      "originalRefs": [],
+      "note": "Exact Ontario original civil/parish birth registration NOT located. Date/place established independently by inspected 1919/1920 naturalization original; request to Ontario already in process; do not duplicate."
+    },
+    {
+      "id": "jessie-skinner-1899-marriage-original",
+      "personId": "jessie_aurin",
+      "event": "marriage",
+      "sourceKeys": [
+        "dgs:004208267:319",
+        "familysearch-ark:S3HT-67LS-TW4"
+      ],
+      "status": "indexed",
+      "evidence": "library:file_0000000033b081f9833e38f623ae8cef",
+      "originalRefs": [],
+      "note": "Indexed marriage 1899 to Richard Skinner, reports Jessie father unknown; exact original manuscript imaging status not verified, no paid or duplicate retrieval."
     }
   ],
   "tasks": [
@@ -172,7 +314,7 @@
   ],
   "coverage": {
     "kind": "selected-records-only",
-    "coveredRecords": 10,
+    "coveredRecords": 20,
     "allAncestorOriginalsAudited": false,
     "note": "Missing register entry is UNKNOWN, never proof that an original has not been examined. Backfill from historical audits and FamilySearch Media before proposing work."
   }
