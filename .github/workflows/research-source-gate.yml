@@ -5,12 +5,16 @@ on:
       - 'RESEARCH_SOURCE_REGISTRY.json'
       - 'research-source-gate.mjs'
       - 'tests/research-source-gate.mjs'
+      - 'research-task-intake.mjs'
+      - 'tests/research-task-intake.mjs'
       - '.github/workflows/research-source-gate.yml'
   pull_request:
     paths:
       - 'RESEARCH_SOURCE_REGISTRY.json'
       - 'research-source-gate.mjs'
       - 'tests/research-source-gate.mjs'
+      - 'research-task-intake.mjs'
+      - 'tests/research-task-intake.mjs'
       - '.github/workflows/research-source-gate.yml'
   workflow_dispatch:
 permissions:
@@ -25,3 +29,4 @@ jobs:
           node-version: '22'
       - run: node research-source-gate.mjs
       - run: node tests/research-source-gate.mjs
+      - run: node tests/research-task-intake.mjs
