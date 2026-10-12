@@ -77,7 +77,8 @@
       "personId": "jonas_aurin",
       "event": "census",
       "sourceKeys": [
-        "1880-elbridge-jonas-aurin-original"
+        "familysearch-ark:33SQ-GYBF-S9GN",
+        "census:1880:elbridge-jonas-aurin"
       ],
       "status": "saved",
       "evidence": "library:file_0000000033b081f9833e38f623ae8cef",
