@@ -28,6 +28,7 @@ jobs:
         run: |
           node research-source-gate.mjs
           node tests/research-source-gate.mjs
+          node tests/research-task-intake.mjs
 
       - name: Verify Richard Skinner source viewer and iPhone link contract
         run: node tests/richard-skinner-source-viewer.mjs
