@@ -9,11 +9,22 @@
       "sourceKeys": [
         "alpena:petition:307",
         "alpena:certificate:1382499",
-        "alpena:admission:1921-06-13"
+        "alpena:admission:1921-06-13",
+        "alpena:declaration:1917-04-11",
+        "alpena:petition:1919-06-02"
       ],
       "status": "published",
-      "evidence": "research-resume-2026-10-07.md",
-      "note": "Declaration 11 Apr 1917, petition 2 Jun 1919, oath/admission 13 Jun 1921; original reviewed and Atlas published."
+      "evidence": "library:file_000000008f2081f6a3ab2349a3962c76",
+      "note": "Declaration 11 Apr 1917, petition 2 Jun 1919, oath/admission 13 Jun 1921; original reviewed and Atlas published.",
+      "originalRefs": [
+        "github:assets/charles-godfrey/godfrey-declaration-0491.jpg",
+        "github:assets/charles-godfrey/godfrey-naturalization-0651.jpg",
+        "github:assets/charles-godfrey/godfrey-naturalization-0654.jpg"
+      ],
+      "sourceKeysExtra": [
+        "alpena:declaration:1917-04-11",
+        "alpena:petition:1919-06-02"
+      ]
     },
     {
       "id": "alpena-albert-naturalization-1919-1920",
@@ -25,9 +36,14 @@
         "dgs:7790824:0696",
         "alpena:admission:1920-06-07"
       ],
-      "status": "examined",
-      "evidence": "familysearch-101-audit-checkpoint-2026-09-25.md",
-      "note": "Petition, oath and court order originally examined; verify saved-gallery state separately."
+      "status": "published",
+      "evidence": "library:file_0000000051e8822f8c71ce5b831341ec",
+      "note": "Petition, oath and court order originally examined; verify saved-gallery state separately.",
+      "originalRefs": [
+        "github:assets/charles-albert/charles-naturalization-0692.jpeg",
+        "github:assets/charles-albert/charles-naturalization-0694.jpeg",
+        "github:assets/charles-albert/charles-naturalization-0696.jpeg"
+      ]
     },
     {
       "id": "jessie-aurin-1879-birth",
@@ -36,9 +52,12 @@
       "sourceKeys": [
         "oceana:birth:1879:jessie-aurene"
       ],
-      "status": "examined",
-      "evidence": "jessie-parentage-research-2026-10-11.md",
-      "note": "Original birth register captured, father John Auene."
+      "status": "saved",
+      "evidence": "library:file_0000000033b081f9833e38f623ae8cef",
+      "note": "Original birth register captured, father John Auene.",
+      "originalRefs": [
+        "library:file_00000000d12881f99333ef63f19796a2"
+      ]
     },
     {
       "id": "jonas-aurin-1879-marriage",
@@ -47,8 +66,11 @@
       "sourceKeys": [
         "dgs:004207608:438"
       ],
-      "status": "examined",
-      "evidence": "jessie-parentage-research-2026-10-11.md"
+      "status": "saved",
+      "evidence": "library:file_0000000033b081f9833e38f623ae8cef",
+      "originalRefs": [
+        "library:file_00000000b940820cb9c4eb11bf35f6a3"
+      ]
     },
     {
       "id": "jonas-aurin-1880-census",
@@ -57,8 +79,11 @@
       "sourceKeys": [
         "1880-elbridge-jonas-aurin-original"
       ],
-      "status": "examined",
-      "evidence": "jessie-parentage-research-2026-10-11.md"
+      "status": "saved",
+      "evidence": "library:file_0000000033b081f9833e38f623ae8cef",
+      "originalRefs": [
+        "library:file_0000000060d081f698cc73341f604aee"
+      ]
     },
     {
       "id": "julius-aurene-1881-birth",
@@ -67,8 +92,11 @@
       "sourceKeys": [
         "oceana:birth:1881:julius"
       ],
-      "status": "examined",
-      "evidence": "jessie-parentage-research-2026-10-11.md"
+      "status": "saved",
+      "evidence": "library:file_0000000033b081f9833e38f623ae8cef",
+      "originalRefs": [
+        "library:file_00000000942c820cb8c89d64066aa779"
+      ]
     },
     {
       "id": "mary-ann-dennis-1851-niagara",
@@ -79,8 +107,9 @@
         "lac:22805933"
       ],
       "status": "examined",
-      "evidence": "mary-ann-research-progress-2026-10-09.md",
-      "note": "Mary Ann age8 page49 inspected; parents NOT proved. Adjacent-page revisit parked."
+      "evidence": "library:file_00000000749481fd8d6ab2ba63f29e7e",
+      "note": "Mary Ann age8 page49 visually inspected; screenshot library:file_00000000a22881fdb6f2e8f78eaec355; full original scan NOT archived, parents NOT proved; adjacent-page revisit parked.",
+      "originalRefs": []
     },
     {
       "id": "peter-gooley-1910-death",
@@ -89,30 +118,37 @@
       "sourceKeys": [
         "michigan:peter-gooley-death:1910-06-06"
       ],
-      "status": "examined",
-      "evidence": "john-peter-biography-and-evidence-2026-10-08.md",
-      "note": "Parents explicitly unknown on certificate."
+      "status": "saved",
+      "evidence": "library:file_00000000494c81f7b3c9e8aa389f8569",
+      "note": "Parents explicitly unknown on certificate.",
+      "originalRefs": [
+        "library:file_00000000677881f6bc4b7cccb2e83eab"
+      ]
     },
     {
       "id": "marian-skinner-1903-birth",
       "personId": "KWC1-XFX",
       "event": "birth",
       "sourceKeys": [
-        "marian-skinner:birth:1903"
+        "target:marian-skinner:birth:1903"
       ],
       "status": "unexamined",
-      "evidence": "MARIAN_B_S_SKINNER_PERSON_AUDIT_2026-10-10.md",
-      "note": "Work session owns research; check any later original first."
+      "evidence": "github:MARIAN_B_S_SKINNER_PERSON_AUDIT_2026-10-10.md",
+      "note": "Work session owns research; check any later original first.",
+      "locatorState": "not-yet-identified",
+      "originalRefs": []
     },
     {
       "id": "marian-skinner-1920-marriage",
       "personId": "KWC1-XFX",
       "event": "marriage",
       "sourceKeys": [
-        "marian-skinner:marriage:1920-09-13"
+        "target:marian-skinner:marriage:1920-09-13"
       ],
       "status": "unexamined",
-      "evidence": "MARIAN_B_S_SKINNER_PERSON_AUDIT_2026-10-10.md"
+      "evidence": "github:MARIAN_B_S_SKINNER_PERSON_AUDIT_2026-10-10.md",
+      "locatorState": "not-yet-identified",
+      "originalRefs": []
     }
   ],
   "tasks": [
@@ -132,5 +168,11 @@
       "novelty": "Marriage parent/witness columns have not been transcribed in 10 Oct audit",
       "state": "queued"
     }
-  ]
+  ],
+  "coverage": {
+    "kind": "selected-records-only",
+    "coveredRecords": 10,
+    "allAncestorOriginalsAudited": false,
+    "note": "Missing register entry is UNKNOWN, never proof that an original has not been examined. Backfill from historical audits and FamilySearch Media before proposing work."
+  }
 }
