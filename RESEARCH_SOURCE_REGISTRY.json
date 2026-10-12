@@ -1,0 +1,136 @@
+{
+  "schema": 1,
+  "updated": "2026-10-12",
+  "records": [
+    {
+      "id": "alpena-godfrey-naturalization-1917-1921",
+      "personId": "93VH-G6X",
+      "event": "naturalization",
+      "sourceKeys": [
+        "alpena:petition:307",
+        "alpena:certificate:1382499",
+        "alpena:admission:1921-06-13"
+      ],
+      "status": "published",
+      "evidence": "research-resume-2026-10-07.md",
+      "note": "Declaration 11 Apr 1917, petition 2 Jun 1919, oath/admission 13 Jun 1921; original reviewed and Atlas published."
+    },
+    {
+      "id": "alpena-albert-naturalization-1919-1920",
+      "personId": "charles_albert",
+      "event": "naturalization",
+      "sourceKeys": [
+        "dgs:7790824:0691",
+        "dgs:7790824:0694",
+        "dgs:7790824:0696",
+        "alpena:admission:1920-06-07"
+      ],
+      "status": "examined",
+      "evidence": "familysearch-101-audit-checkpoint-2026-09-25.md",
+      "note": "Petition, oath and court order originally examined; verify saved-gallery state separately."
+    },
+    {
+      "id": "jessie-aurin-1879-birth",
+      "personId": "jessie_aurin",
+      "event": "birth",
+      "sourceKeys": [
+        "oceana:birth:1879:jessie-aurene"
+      ],
+      "status": "examined",
+      "evidence": "jessie-parentage-research-2026-10-11.md",
+      "note": "Original birth register captured, father John Auene."
+    },
+    {
+      "id": "jonas-aurin-1879-marriage",
+      "personId": "jonas_aurin",
+      "event": "marriage",
+      "sourceKeys": [
+        "dgs:004207608:438"
+      ],
+      "status": "examined",
+      "evidence": "jessie-parentage-research-2026-10-11.md"
+    },
+    {
+      "id": "jonas-aurin-1880-census",
+      "personId": "jonas_aurin",
+      "event": "census",
+      "sourceKeys": [
+        "1880-elbridge-jonas-aurin-original"
+      ],
+      "status": "examined",
+      "evidence": "jessie-parentage-research-2026-10-11.md"
+    },
+    {
+      "id": "julius-aurene-1881-birth",
+      "personId": "julius_aurene",
+      "event": "birth",
+      "sourceKeys": [
+        "oceana:birth:1881:julius"
+      ],
+      "status": "examined",
+      "evidence": "jessie-parentage-research-2026-10-11.md"
+    },
+    {
+      "id": "mary-ann-dennis-1851-niagara",
+      "personId": "LZVC-KZB",
+      "event": "census",
+      "sourceKeys": [
+        "lac:e002358212",
+        "lac:22805933"
+      ],
+      "status": "examined",
+      "evidence": "mary-ann-research-progress-2026-10-09.md",
+      "note": "Mary Ann age8 page49 inspected; parents NOT proved. Adjacent-page revisit parked."
+    },
+    {
+      "id": "peter-gooley-1910-death",
+      "personId": "K856-QYW",
+      "event": "death",
+      "sourceKeys": [
+        "michigan:peter-gooley-death:1910-06-06"
+      ],
+      "status": "examined",
+      "evidence": "john-peter-biography-and-evidence-2026-10-08.md",
+      "note": "Parents explicitly unknown on certificate."
+    },
+    {
+      "id": "marian-skinner-1903-birth",
+      "personId": "KWC1-XFX",
+      "event": "birth",
+      "sourceKeys": [
+        "marian-skinner:birth:1903"
+      ],
+      "status": "unexamined",
+      "evidence": "MARIAN_B_S_SKINNER_PERSON_AUDIT_2026-10-10.md",
+      "note": "Work session owns research; check any later original first."
+    },
+    {
+      "id": "marian-skinner-1920-marriage",
+      "personId": "KWC1-XFX",
+      "event": "marriage",
+      "sourceKeys": [
+        "marian-skinner:marriage:1920-09-13"
+      ],
+      "status": "unexamined",
+      "evidence": "MARIAN_B_S_SKINNER_PERSON_AUDIT_2026-10-10.md"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "marian-1903-birth-original",
+      "recordId": "marian-skinner-1903-birth",
+      "owner": "work",
+      "action": "inspect-original",
+      "novelty": "Original birth register and parental columns not documented as examined in 10 Oct audit",
+      "state": "queued"
+    },
+    {
+      "id": "marian-1920-marriage-original",
+      "recordId": "marian-skinner-1920-marriage",
+      "owner": "work",
+      "action": "inspect-original",
+      "novelty": "Marriage parent/witness columns have not been transcribed in 10 Oct audit",
+      "state": "queued"
+    }
+  ]
+}
