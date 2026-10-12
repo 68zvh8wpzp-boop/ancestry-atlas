@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {validate} from '../research-source-gate.mjs';
+const base=JSON.parse(readFileSync(new URL('../RESEARCH_SOURCE_REGISTRY.json',import.meta.url),'utf8'));
+const clone=()=>structuredClone(base);
+assert.deepEqual(validate(base),[],'baseline should be valid');
+let x=clone();x.tasks.push({id:'duplicate-godfrey',recordId:'alpena-godfrey-naturalization-1917-1921',owner:'chat',action:'inspect-original',novelty:'Retrieve full petition and original oath of allegiance from archives',state:'queued'});
+assert(validate(x).some(s=>s.includes('Already inspected')),'Godfrey repeat must fail');
+x=clone();x.tasks.push({id:'cross-session-overlap',recordId:'marian-skinner-1903-birth',owner:'chat',action:'inspect-original',novelty:'Open full birth register to examine parent columns',state:'active'});
+assert(validate(x).some(s=>s.includes('ownership conflict')),'dual active ownership must fail');
+x=clone();x.records.push({...x.records[0],id:'fake-duplicate'});assert(validate(x).some(s=>s.includes('Duplicate source key')),'same source in two records must fail');
+x=clone();x.tasks.push({id:'unknown-task',recordId:'not-a-record',owner:'chat',action:'inspect-original',novelty:'Some record needing inspection with provenance',state:'queued'});assert(validate(x).some(s=>s.includes('Unknown record')),'untracked target must fail');
+console.log('Research source gate: baseline and 4 negative tests passed');
