@@ -304,6 +304,83 @@
         "library:file_00000000825881f99322ec0171ae59f5"
       ],
       "note": "Patent details/screenshot preserved, but do not claim that the complete patent image or full homestead application case file is archived."
+    },
+    {
+      "id": "john-peter-gooley-1901-canada-census",
+      "personId": "K856-QYW",
+      "event": "census",
+      "sourceKeys": [
+        "census:1901:mills-ontario:peter-gooley"
+      ],
+      "status": "examined",
+      "evidence": "library:file_00000000494c81f7b3c9e8aa389f8569",
+      "originalRefs": [],
+      "note": "Original examined; Peter b 2 May 1842 listed United States, immigration 1896; Mary Ann b 15 Aug 1844 Canada. Birthplace conflicts with other censuses. Do not assume full original scan archived."
+    },
+    {
+      "id": "john-peter-gooley-1910-census",
+      "personId": "K856-QYW",
+      "event": "census",
+      "sourceKeys": [
+        "census:1910:ossineke-alpena:peter-gooley"
+      ],
+      "status": "examined",
+      "evidence": "library:file_00000000494c81f7b3c9e8aa389f8569",
+      "originalRefs": [],
+      "note": "Original inspected, Can.French birthplace, parents Fr.French, immigrant 1860, Na; 9 children 7 surviving. Full scan status unverified."
+    },
+    {
+      "id": "john-peter-mary-ann-1908-deeds",
+      "personId": "K856-QYW",
+      "relatedPersonIds": [
+        "mary_ann_dennis"
+      ],
+      "event": "land",
+      "sourceKeys": [
+        "alpena:deeds:1908:gooley-benjamin-and-gray"
+      ],
+      "status": "examined",
+      "evidence": "library:file_00000000494c81f7b3c9e8aa389f8569",
+      "originalRefs": [],
+      "note": "1908 land conveyances 80 acres to Benjamin and 40 acres to William H Gray in section 26. Do not imply original full-page scan saved."
+    },
+    {
+      "id": "mary-ann-dennis-1901-canada-census",
+      "personId": "mary_ann_dennis",
+      "event": "census",
+      "sourceKeys": [
+        "census:1901:mills-ontario:mary-ann-gooley"
+      ],
+      "status": "examined",
+      "evidence": "library:file_00000000494c81f7b3c9e8aa389f8569",
+      "originalRefs": [],
+      "note": "Same original household as Peter 1901; evidence of birth 15 Aug 1844 Canada, not proof of parents."
+    },
+    {
+      "id": "mary-ann-dennis-1910-census",
+      "personId": "mary_ann_dennis",
+      "event": "census",
+      "sourceKeys": [
+        "census:1910:ossineke-alpena:mary-gooley"
+      ],
+      "status": "examined",
+      "evidence": "library:file_00000000494c81f7b3c9e8aa389f8569",
+      "originalRefs": [],
+      "note": "Same original household as Peter 1910; Can.English birthplace, 9 born 7 surviving; not parental proof."
+    },
+    {
+      "id": "charles-albert-1901-canada-census",
+      "personId": "charles_albert",
+      "event": "census",
+      "sourceKeys": [
+        "census:1901:arnstein:charles-albert-brunne"
+      ],
+      "status": "published",
+      "evidence": "library:file_0000000051e8822f8c71ce5b831341ec",
+      "originalRefs": [
+        "github:assets/charles_albert_brunne_1901_census_full.jpg"
+      ],
+      "note": "Original 1901 Canadian household image preserved in Atlas. Check contextual reading before claiming entire person audit completed."
     }
   ],
   "tasks": [
@@ -326,7 +403,7 @@
   ],
   "coverage": {
     "kind": "selected-records-only",
-    "coveredRecords": 21,
+    "coveredRecords": 27,
     "allAncestorOriginalsAudited": false,
     "note": "Missing register entry is UNKNOWN, never proof that an original has not been examined. Backfill from historical audits and FamilySearch Media before proposing work."
   }
