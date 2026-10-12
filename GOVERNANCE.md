@@ -44,6 +44,22 @@ conflict analysis.
 - Exiting a frontier returns to the supported endpoint and never silently moves
   the user's tour into a hypothetical lineage.
 
+
+## Mandatory research de-duplication gate (12 October 2026)
+
+This is a **pre-investigation stop gate**, not a retrospective reminder. It applies to ordinary ChatGPT chats, active ChatGPT Work sessions, person-page audits and archive searches. **No recommendation to retrieve an original as a new lead is permitted before the following comparison is completed.**
+
+1. **Canonical person and event:** Identify actual person ID(s), name variants, event/date/place, and original-source ID (DGS/ARK/film/image, archive volume/page or equivalent). Distinguish near-name relatives.
+2. **Read later checkpoints FIRST:** Search the latest per-person research logs, FamilySearch original-source inventories, original-image Library assets, GitHub issue comments, deployed Atlas person modules/document gallery, and release notes. Sort by verification date; a stale open checkbox or earlier “not inspected” never overrules a later full examination and release. Reading only the work queue is insufficient.
+3. **Proof-of-novelty statement before proceeding:** Classify target as **DONE—original inspected and saved/published**, **PARTIAL—named missing field/page/context**, **UNEXAMINED—specific source found but no original read**, or **BLOCKED—access/cost**. Give exact prior evidence location and what *new* claim the action could prove. If DONE and no new issue, **STOP; do not fetch, recommend or queue anew**. If novelty cannot be established, **HOLD for reconciliation** rather than calling it a lead.
+4. **One-action ownership across chats:** Assign an active workstream and scope. Ordinary-chat and Work-session tasks use the same issue and record ledger but **GitHub updates do not automatically synchronize live Work sessions**; at handoff the active owner must explicitly refresh latest entries and acknowledge scope before overlapping. Distinguish issue tracking from control of Work execution.
+5. **Save after meaningful action, not just at the end:** Store precise original URL and locator, whole uncropped authoritative image (if permitted), adjacent context/handwriting, transcription and translation, what changed, unresolved conflicts, and whether the page was merely indexed/read/saved/packaged/published/iPhone-verified. Link artifact and date in ledger. Mark superseded requests **CLOSED—DUPLICATE** while preserving history.
+6. **High-value gate:** Prioritize an unresolved direct ancestor/parentage or citizenship-proof gap. If an original has already been studied in depth or a path was exhaustively manually searched, require a specific new question, better image, or new archival series. Otherwise park it; do not spend time on circular searches.
+
+**Known governance failure/negative test:** The 12 Oct 2026 proposal to obtain Charles Godfrey Brenay's 1921 naturalization must FAIL the pre-investigation gate. The declaration (11 Apr 1917), petition (2 Jun 1919 no.307) and oath/admission (13 Jun 1921, certificate 1382499) were opened, transcribed and packaged in the 7 Oct `research-resume-2026-10-07.md` and published Godfrey Atlas documents/story. The later open index entry did NOT constitute a new lead. The 1851 Niagara Mary Ann Dennis original census page had already been manually inspected and the broader marriage path extensively searched; repeating inaccessible viewer URLs without a new source is another stop case.
+
+**Completion language is constrained:** “found in an index,” “opened original,” “archived scan,” “published to Atlas,” and “iPhone-validated” are separate assertions. Never say “complete person audit” or “new source” merely from checklist status. No email access without a new explicit user request; no paid records or FamilySearch tree changes without authorization.
+
 ## Branch production gates
 
 Every branch passes these gates in order:
