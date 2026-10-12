@@ -1,0 +1,27 @@
+name: Research source anti-duplication gate
+on:
+  push:
+    paths:
+      - 'RESEARCH_SOURCE_REGISTRY.json'
+      - 'research-source-gate.mjs'
+      - 'tests/research-source-gate.mjs'
+      - '.github/workflows/research-source-gate.yml'
+  pull_request:
+    paths:
+      - 'RESEARCH_SOURCE_REGISTRY.json'
+      - 'research-source-gate.mjs'
+      - 'tests/research-source-gate.mjs'
+      - '.github/workflows/research-source-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node research-source-gate.mjs
+      - run: node tests/research-source-gate.mjs
