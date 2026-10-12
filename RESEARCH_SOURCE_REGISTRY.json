@@ -242,15 +242,14 @@
       "personId": "jonas_aurin",
       "event": "land",
       "sourceKeys": [
-        "blm:1875:homestead-entry:6719",
-        "blm:1880:patent:4174"
+        "blm:1875:homestead-entry:6719"
       ],
-      "status": "saved",
+      "status": "partial",
       "evidence": "library:file_0000000033b081f9833e38f623ae8cef",
       "originalRefs": [
         "library:file_00000000889081f694d62de8883352c1"
       ],
-      "note": "1875 entry / 1880 patent and original tract-book image; RG49 complete case file NOT obtained, $50 paid copy declined."
+      "note": "Original tract book and 1875 entry evidence preserved; COMPLETE federal RG49 case file not obtained and $50 paid copy declined. This is only partial source coverage, not a completed homestead packet."
     },
     {
       "id": "charles-auren-1882-worcester-marriage-excluded",
@@ -271,7 +270,6 @@
       "personId": "charles_albert",
       "event": "birth",
       "sourceKeys": [
-        "target:charles-albert:b1879-no",
         "target:charles-albert:birth:1897-03-29-arnstein"
       ],
       "status": "unexamined",
@@ -292,6 +290,20 @@
       "evidence": "library:file_0000000033b081f9833e38f623ae8cef",
       "originalRefs": [],
       "note": "Indexed marriage 1899 to Richard Skinner, reports Jessie father unknown; exact original manuscript imaging status not verified, no paid or duplicate retrieval."
+    },
+    {
+      "id": "jonas-aurien-1880-land-patent",
+      "personId": "jonas_aurin",
+      "event": "land",
+      "sourceKeys": [
+        "blm:1880:patent:4174"
+      ],
+      "status": "partial",
+      "evidence": "library:file_0000000033b081f9833e38f623ae8cef",
+      "originalRefs": [
+        "library:file_00000000825881f99322ec0171ae59f5"
+      ],
+      "note": "Patent details/screenshot preserved, but do not claim that the complete patent image or full homestead application case file is archived."
     }
   ],
   "tasks": [
@@ -314,7 +326,7 @@
   ],
   "coverage": {
     "kind": "selected-records-only",
-    "coveredRecords": 20,
+    "coveredRecords": 21,
     "allAncestorOriginalsAudited": false,
     "note": "Missing register entry is UNKNOWN, never proof that an original has not been examined. Backfill from historical audits and FamilySearch Media before proposing work."
   }
