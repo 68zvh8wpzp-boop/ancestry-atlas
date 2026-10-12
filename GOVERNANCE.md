@@ -66,6 +66,13 @@ The committed `RESEARCH_SOURCE_REGISTRY.json` is a **partial, curated ledger**; 
 
 **Update protocol:** Search existing records by FamilySearch person ID plus archival source key and review latest original-inspection status. Add one normalized record with evidence path and the correct strongest supported status. Add a task only when the missing work is specific; assign a unique `owner` (`work`, `chat` or `hold`) and a substantial `novelty` explanation. For an already examined document, targeted re-examination requires a distinct action and a cited reason, not `inspect-original` again. Keep one active or queued task per record across both sessions. Following capture, update record status and retire the original acquisition task in the same commit or next immediate commit. Re-run `node research-source-gate.mjs && node tests/research-source-gate.mjs`.
 
+**Required task-intake command, for both ChatGPT Work and regular chat:**
+- Before starting any original-source task, identify a normalized record ID or source key from the registry and run:
+  \`node research-task-intake.mjs --record marian-skinner-1903-birth --owner work --action inspect-original\`
+- \`CONTINUE_EXISTING\` means continue the specifically assigned registered task, after reading the most recent handoff and originals inventory. A \`BLOCK\` forbids the duplicate/overlapping action; a \`HOLD\` requires fresh reconciliation and a new validated queue entry before starting. A source not present in the partial register is \`HOLD\`, **never automatically new**.
+- On completion, archive source evidence, update status/paths and **remove or pause any now-obsolete acquisition tasks** before committing. Both CI and Pages run the validator, negative regressions, and intake tests.
+- This guards commands and commits, but cannot technically interrupt independent ongoing ChatGPT Work or control off-repository browsing. A running Work agent must adopt these steps explicitly; any manual bypass is noncompliant.
+
 **Fail-closed principle:** Records not yet registered must not be called “new” solely for lacking a registry match: consult older audit logs, Library images and deployed Atlas sources before registering. The automated gate enforces only **registered** tasks and source keys; it cannot intercept free-form research suggestions in an independent chat, and running ChatGPT Work must refresh the repository manually. The registry must be progressively backfilled from proven historical originals. Treat passing tests as validation of entries, not an assertion that the entire family tree is fully audited.
 
 ## Branch production gates
