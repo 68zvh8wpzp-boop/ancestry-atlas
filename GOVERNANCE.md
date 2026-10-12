@@ -68,8 +68,8 @@ The committed `RESEARCH_SOURCE_REGISTRY.json` is a **partial, curated ledger**; 
 
 **Required task-intake command, for both ChatGPT Work and regular chat:**
 - Before starting any original-source task, identify a normalized record ID or source key from the registry and run:
-  \`node research-task-intake.mjs --record marian-skinner-1903-birth --owner work --action inspect-original\`
-- \`CONTINUE_EXISTING\` means continue the specifically assigned registered task, after reading the most recent handoff and originals inventory. A \`BLOCK\` forbids the duplicate/overlapping action; a \`HOLD\` requires fresh reconciliation and a new validated queue entry before starting. A source not present in the partial register is \`HOLD\`, **never automatically new**.
+  `node research-task-intake.mjs --record marian-skinner-1903-birth --owner work --action inspect-original`
+- `CONTINUE_EXISTING` means continue the specifically assigned registered task, after reading the most recent handoff and originals inventory. A `BLOCK` forbids the duplicate/overlapping action; a `HOLD` requires fresh reconciliation and a new validated queue entry before starting. A source not present in the partial register is `HOLD`, **never automatically new**.
 - On completion, archive source evidence, update status/paths and **remove or pause any now-obsolete acquisition tasks** before committing. Both CI and Pages run the validator, negative regressions, and intake tests.
 - This guards commands and commits, but cannot technically interrupt independent ongoing ChatGPT Work or control off-repository browsing. A running Work agent must adopt these steps explicitly; any manual bypass is noncompliant.
 
