@@ -18,6 +18,10 @@ export function assessTask(d,{recordId,sourceKey,owner,action}){
   return result('BLOCK','Original already inspected; use a specific documented targeted-reexamination task only for genuinely new evidence');
  if(['saved','published'].includes(record.status)&&action==='capture-original')
   return result('BLOCK','Authoritative source already saved; establish a specific new image-quality gap');
+ if(record.status==='published'&&action==='transcribe-original')
+  return result('BLOCK','Published transcript already exists; register a justified targeted re-examination instead');
+ if(record.status!=='published'&&action==='verify-iphone')
+  return result('BLOCK','Record has not been published, so phone validation cannot be claimed');
  const active=(d.tasks||[]).filter(t=>t.recordId===record.id&&t.state!=='paused');
  if(active.length>1)return result('BLOCK','Conflicting active/queued tasks detected; resolve registry first');
  if(active.length===1){
