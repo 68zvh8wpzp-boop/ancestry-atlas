@@ -67,6 +67,8 @@ export function validate(d,{checkPaths=false}={}){
   if(alreadyExamined.has(r.status)&&['inspect-original','find-record','audit-sources'].includes(t.action))
     errors.push('Already inspected: '+t.id+' ('+r.id+')');
   if(alreadySaved.has(r.status)&&t.action==='capture-original')errors.push('Already saved: '+t.id);
+  if(r.status==='published'&&t.action==='transcribe-original')errors.push('Already published and transcribed; require targeted re-examination: '+t.id);
+  if(r.status!=='published'&&t.action==='verify-iphone')errors.push('Cannot phone-verify a source not published: '+t.id);
   if(t.action==='targeted-reexamination'){
    if(typeof t.overrideReason!=='string'||t.overrideReason.trim().length<40||
       typeof t.requestedDifference!=='string'||t.requestedDifference.trim().length<16||
