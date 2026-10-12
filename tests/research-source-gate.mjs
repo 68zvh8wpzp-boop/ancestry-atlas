@@ -62,4 +62,16 @@ expectRejection('Unjustified targeted repeat',d=>d.tasks.push({
 expectRejection('Do not claim exhaustive inventory',d=>{delete d.coverage;},
  'Missing/invalid coverage declaration');
 
-console.log('Research source gate: verified baseline and 12 negative regressions');
+expectRejection('Published source transcription must not restart',d=>d.tasks.push({
+ id:'retranscribe-godfrey',recordId:'alpena-godfrey-naturalization-1917-1921',
+ owner:'chat',action:'transcribe-original',
+ novelty:'Transcribe this already published naturalization entry again',state:'queued'
+}),'Already published and transcribed');
+
+expectRejection('iPhone QA must have published source',d=>d.tasks.push({
+ id:'prepublication-iphone',recordId:'marian-skinner-1903-birth',
+ owner:'work',action:'verify-iphone',
+ novelty:'Check the birth-record viewer on iPhone before an original is published',state:'paused'
+}),'Cannot phone-verify');
+
+console.log('Research source gate: verified baseline and 14 negative regressions');
