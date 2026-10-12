@@ -60,6 +60,14 @@ This is a **pre-investigation stop gate**, not a retrospective reminder. It appl
 
 **Completion language is constrained:** “found in an index,” “opened original,” “archived scan,” “published to Atlas,” and “iPhone-validated” are separate assertions. Never say “complete person audit” or “new source” merely from checklist status. No email access without a new explicit user request; no paid records or FamilySearch tree changes without authorization.
 
+## Automated research source gate (implemented 12 October 2026)
+
+The committed `RESEARCH_SOURCE_REGISTRY.json` is a **partial, curated ledger**; it is not yet an exhaustive inventory of all 101 people. `research-source-gate.mjs` validates the ledger and proposed tasks; `tests/research-source-gate.mjs` supplies negative regression cases. CI runs the gate on registry/code changes and the **GitHub Pages deployment workflow now invokes it before publishing**. No original-record research task should be proposed until the record and its source keys have been entered/checked.
+
+**Update protocol:** Search existing records by FamilySearch person ID plus archival source key and review latest original-inspection status. Add one normalized record with evidence path and the correct strongest supported status. Add a task only when the missing work is specific; assign a unique `owner` (`work`, `chat` or `hold`) and a substantial `novelty` explanation. For an already examined document, targeted re-examination requires a distinct action and a cited reason, not `inspect-original` again. Keep one active or queued task per record across both sessions. Following capture, update record status and retire the original acquisition task in the same commit or next immediate commit. Re-run `node research-source-gate.mjs && node tests/research-source-gate.mjs`.
+
+**Fail-closed principle:** Records not yet registered must not be called “new” solely for lacking a registry match: consult older audit logs, Library images and deployed Atlas sources before registering. The automated gate enforces only **registered** tasks and source keys; it cannot intercept free-form research suggestions in an independent chat, and running ChatGPT Work must refresh the repository manually. The registry must be progressively backfilled from proven historical originals. Treat passing tests as validation of entries, not an assertion that the entire family tree is fully audited.
+
 ## Branch production gates
 
 Every branch passes these gates in order:
