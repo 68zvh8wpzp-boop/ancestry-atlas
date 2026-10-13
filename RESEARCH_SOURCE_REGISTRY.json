@@ -506,13 +506,17 @@
       ],
       "status": "saved",
       "evidence": "github:JESSIE_1956_OBITUARY_HEADSTONE_AND_OCEANA_DEED_ACCESS_2026-10-13.md",
-      "note": "Alpena News March 6 1956 p2 exact birth 25 Oct 1879, age76, named surviving children/McConnell brothers; PDF from Alpena Library preserved in Library. Photo of document not yet in public GitHub assets; no iPhone visual verification.",
+      "note": "Alpena News March 6 1956 p2 exact birth 25 Oct 1879, age76, named surviving children/McConnell brothers; PDF from Alpena Library preserved in Library. Read-only newspaper JPEG and issue-date proof now linked in public Atlas gallery; iPhone rendering awaits user confirmation.",
       "originalRefs": [
         "library:file_000000002bb0820ca81b47fd33060465"
       ],
       "relatedPersonIds": [
         "marian_skinner",
         "richard_francis_skinner"
+      ],
+      "publicPreviewRefs": [
+        "github:assets/jessie-aurin/1956-jessie-alpena-news-obituary-page-2.jpg",
+        "github:assets/jessie-aurin/1956-jessie-alpena-news-date-page-proof.jpg"
       ]
     },
     {
@@ -524,9 +528,12 @@
       ],
       "status": "saved",
       "evidence": "github:JESSIE_1956_OBITUARY_HEADSTONE_AND_OCEANA_DEED_ACCESS_2026-10-13.md",
-      "note": "Photo supplied by Alpena Library (credited to Find a Grave), inscription MOTHER JESSIE SKINNER 1897–1956; contradicts 1879 original birth + 1956 obituary. Full JPEG Library preserved, public Atlas image not yet packaged; stone photograph is not birth source.",
+      "note": "Photo supplied by Alpena Library (credited to Find a Grave), inscription MOTHER JESSIE SKINNER 1897–1956; contradicts 1879 original birth + 1956 obituary. Full JPEG Library preserved, Optimized JPEG of marker now included in public Atlas gallery; source is not a birth certificate; iPhone rendering awaits user confirmation.",
       "originalRefs": [
         "library:file_00000000c524820eae7f4cb4a0643358"
+      ],
+      "publicPreviewRefs": [
+        "github:assets/jessie-aurin/1956-jessie-spratt-cemetery-headstone.jpg"
       ]
     },
     {
