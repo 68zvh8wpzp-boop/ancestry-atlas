@@ -569,7 +569,7 @@ canvas:active{cursor:grabbing}
 .album-modal.viewer-behind{visibility:hidden;pointer-events:none}
 .evidence-strip.documents .evidence-media-thumb img{object-fit:contain;object-position:center}
 /* Dotted amber explicitly optional hypothesis, never a parent-child navigation edge. */
-#parentButtons .aurin-frontier-link{border:1px dashed #bc9952;border-radius:9px;background:#302919;color:#f6d99a;font-size:12px;line-height:1.5;padding:9px 11px;margin:8px 0;max-width:100%;box-sizing:border-box}#parentButtons .aurin-frontier-link summary{cursor:pointer;font-weight:600}#parentButtons .aurin-frontier-details{color:#e3d3b9;font-size:12px;line-height:1.55;margin-top:9px}#parentButtons .aurin-frontier-details p{margin:9px 0}#parentButtons .aurin-frontier-details a{color:#afcefa;text-decoration:underline}
+#parentButtons .aurin-frontier-link{border:1px dashed #bc9952;border-radius:9px;background:#302919;color:#f6d99a;font-size:12px;line-height:1.5;padding:9px 11px;margin:8px 0;max-width:100%;box-sizing:border-box}#parentButtons .aurin-frontier-link summary{cursor:pointer;font-weight:600}#parentButtons .aurin-frontier-details{color:#e3d3b9;font-size:12px;line-height:1.55;margin-top:9px}#parentButtons .aurin-frontier-details p{margin:9px 0}#parentButtons .aurin-frontier-details a{color:#afcefa;text-decoration:underline}.surname-origin-note{border-left:3px solid #bfa56a;padding:9px 12px;margin:10px 0;background:rgba(191,165,106,.09);line-height:1.55;color:#e3d5b9}
 /* Keep horizontally scrollable gallery cards anchored within the phone's viewport. */
 #evidenceWrap .evidence-strip{box-sizing:border-box;max-width:100%;scroll-snap-type:x proximity;scroll-padding-inline:8px;overscroll-behavior-x:contain;padding-inline:8px}
 #evidenceWrap .evidence-item{scroll-snap-align:start;flex-shrink:0}
@@ -1114,6 +1114,18 @@ DATA.nodes.push({"id":"john_auene_1879","name":"John Auene — recorded father",
 DATA.edges.push({a:'jessie_irene_aurin',b:'amelia_l_cotton',confidence:'strong',source:'Oceana original 1879 Jessie birth, 1880 original household, 1899 original marriage'});
 DATA.edges.push({a:'jessie_irene_aurin',b:'john_auene_1879',confidence:'strong',source:'Oceana original 1879 Jessie birth return; John–Jonas equivalence unresolved'});
 
+
+/* Display naming preferences are separate from original field transcription and lineage proof. */
+const johnJonasDisplay=DATA.nodes.find(n=>n.id==='john_auene_1879');
+if(johnJonasDisplay){
+  johnJonasDisplay.name='John/Jonas Aurin (Auene)';
+  johnJonasDisplay.note='John/Jonas is the display convention for the probable same Michigan father: Jessie’s original 1879 birth return records John Auene, Sweden-born farmer at Crystal; the 1879 marriage and original 1880 household use Jonas Aurin, and an 1875 land record uses Jonas Aurien. The corresponding identity is strongly suggested by the household evidence, but John and Jonas have not been proved to be the same individual by an independent identity record. Aurén is a plausible earlier Swedish surname spelling, not an established spelling on the Michigan originals; the proposed Karl Johan Aurén with conflicting Massachusetts records remains a separate research candidate.';
+}
+const jessieSurnameDisplay=DATA.nodes.find(n=>n.id==='jessie_irene_aurin');
+if(jessieSurnameDisplay){
+  jessieSurnameDisplay.surnameHypothesis='Likely ancestral spelling: Aurén (research hypothesis). Jessie’s original 1879 Michigan birth return is indexed Auene, with Aurin/Aurene and similar spellings in other Michigan records. Aurén may have been the earlier Swedish family form, but no original Swedish record yet proves that spelling for this Michigan family.';
+}
+
 const nodeById = new Map(DATA.nodes.map(n=>[n.id,n]));
 window.__ATLAS_DATA = DATA;
 window.__ATLAS_NODE_BY_ID = nodeById;
@@ -1246,6 +1258,7 @@ function buildExtraInfo(id){
   const coparents=nameList(coParentIds(id));
   const parts=[];
   parts.push(relationLine('Direct parents / immediate ancestors shown here', parents));
+  if(n.surnameHypothesis)parts.push('<div class="surname-origin-note"><strong>Surname / original spelling:</strong> '+escapeHtml(n.surnameHypothesis)+'</div>');
   parts.push(relationLine('Spouse or co-parent links visible in this map', coparents));
   parts.push(relationLine('Direct children / immediate descendants shown here', children));
   parts.push(`<div><strong>Research status meaning:</strong> ${confidenceText[n.confidence] || ''}</div>`);
@@ -1278,11 +1291,11 @@ function renderRelationButtons(id){
     const frontier=document.createElement('details');
     frontier.className='aurin-frontier-link';
     const summary=document.createElement('summary');
-    summary.textContent='Research Frontier: Jonas Aurin identity (unproved)';
+    summary.textContent='Research Frontier: John/Jonas identity (unproved)';
     frontier.appendChild(summary);
     const research=document.createElement('section');
     research.className='aurin-frontier-details';
-    research.innerHTML='<strong>Possible same man, not established:</strong> Jessie’s original 1879 birth return names her father <strong>John Auene</strong>. A separate 1879 Crystal marriage and the original 1880 household name <strong>Jonas Aurin</strong> with Amelia and infant Jessie. An 1875 land tract names Jonas Aurien, and an 1881 birth return again uses John Aurene. The identities are closely associated, but the original records do not themselves explain the John/Jonas difference.'
+    research.innerHTML='<strong>John/Jonas is a working combined label; identity not fully established:</strong> Jessie’s original 1879 birth return names her father <strong>John Auene</strong>. A separate 1879 Crystal marriage and the original 1880 household name <strong>Jonas Aurin</strong> with Amelia and infant Jessie. An 1875 land tract names Jonas Aurien, and an 1881 birth return again uses John Aurene. The identities are closely associated, but the original records do not themselves explain the John/Jonas difference.'
       +'<p><strong>Do not merge Karl Johan Aurén.</strong> The proposed Swedish-born man reported born about 1853 has conflicting dates and Massachusetts records. No proven Swedish parent line or migration has been attached to Jessie.</p>'
       +'<p><strong>Next proof:</strong> search the free Oceana deed index, naturalization and probate records for a definitive Jonas/John identity bridge. Do not order paid files or contact offices without permission.</p>'
       +'<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/68zvh8wpzp-boop/ancestry-atlas/blob/main/JESSIE_1879_ORIGINAL_BIRTH_RETURN_2026-10-11.md">1879 original birth and 1880 parent cross-check</a> · <a target="_blank" rel="noopener noreferrer" href="https://github.com/68zvh8wpzp-boop/ancestry-atlas/blob/main/JONAS_AMELIA_1879_ORIGINAL_MARRIAGE_REGISTER_2026-10-11.md">1879 original marriage</a></p>';
