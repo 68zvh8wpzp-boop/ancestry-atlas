@@ -144,12 +144,16 @@
       "personId": "KWC1-XFX",
       "event": "marriage",
       "sourceKeys": [
-        "target:marian-skinner:marriage:1920-09-13"
+        "familysearch-ark:S3HY-D1G3-8SD",
+        "dgs:004032471:614",
+        "montmorency-marriage:1920:record22"
       ],
-      "status": "unexamined",
+      "status": "saved",
       "evidence": "github:MARIAN_B_S_SKINNER_PERSON_AUDIT_2026-10-10.md",
-      "locatorState": "not-yet-identified",
-      "originalRefs": []
+      "originalRefs": [
+        "github:assets/richard-skinner/marion-skinner-albert-brenay-1920-marriage-original.jpg"
+      ],
+      "note": "Reconciled 13 Oct 2026 against ORIGINAL IMAGE already archived in Richard Francis Skinner source gallery: Montmorency County marriage register, page 294 entry 22, DGS 004032471 image 614/618, FamilySearch ARK S3HY-D1G3-8SD. Original transcribed in RICHARD_SKINNER_SOURCE_REVIEW_2026-10-11.md; married 13 Sep 1920 at Alpena. Marian/Marion Skinner age 17 names father Richard Skinner, mother 'not known'; groom Albert Brenay parents Charles Brenay and Ida Goodman; witnesses Elizabeth Kuhlman and [Audin?] Kuhlman. The original is ALREADY CAPTURED (905,318-byte JPEG); not newly discovered; do not restart lookup. Does not establish Jessie as bride's mother on its own."
     },
     {
       "id": "amelia-cotton-mcconnell-1888-marriage",
@@ -556,14 +560,6 @@
       "owner": "work",
       "action": "inspect-original",
       "novelty": "Original birth register and parental columns not documented as examined in 10 Oct audit",
-      "state": "queued"
-    },
-    {
-      "id": "marian-1920-marriage-original",
-      "recordId": "marian-skinner-1920-marriage",
-      "owner": "work",
-      "action": "inspect-original",
-      "novelty": "Marriage parent/witness columns have not been transcribed in 10 Oct audit",
       "state": "queued"
     }
   ],
