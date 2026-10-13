@@ -35,12 +35,21 @@ vm.runInNewContext(html.slice(addStart,addEnd),{DATA:familyGraph},{timeout:3000}
 const mother=familyGraph.nodes.find(x=>x.id==='amelia_l_cotton');
 const father=familyGraph.nodes.find(x=>x.id==='john_auene_1879');
 assert(mother?.confidence==='strong'&&father?.confidence==='strong','Both parents recorded on original 1879 birth must be surfable');
+assert.equal(father.name,'John/Jonas Aurin (Auene)','Preferred visible father name must be John/Jonas');
+assert(father.note.includes('1879 birth return records John Auene')&&father.note.includes('1880 household use Jonas Aurin'),'Keep source readings distinct');
+assert(father.note.includes('not been proved to be the same individual'),'Do not imply resolved identity');
+const jessie=familyGraph.nodes.find(n=>n.id==='jessie_irene_aurin');
+assert(jessie.surnameHypothesis.includes('Likely ancestral spelling: Aurén'),'Show possible Swedish spelling in note');
+assert(jessie.surnameHypothesis.includes('1879 Michigan birth return is indexed Auene'),'Do not overwrite period surname');
+assert(jessie.surnameHypothesis.includes('no original Swedish record yet proves'),'Retain spelling uncertainty');
+assert(html.includes('if(n.surnameHypothesis)parts.push'),'Render surname note under genealogical details');
+
 const jessieParents=familyGraph.edges.filter(e=>e.a==='jessie_irene_aurin');
 assert.equal(jessieParents.length,2,'Jessie has exactly the two independently supported birth-register parents');
 assert.deepEqual(jessieParents.map(e=>e.b).sort(),['amelia_l_cotton','john_auene_1879']);
 assert(jessieParents.every(e=>e.confidence==='strong'),'Parent links can only reflect original-record evidence');
 assert(!familyGraph.nodes.some(n=>/jonas_aurin|karl_johan_auren/i.test(n.id)),'Unproved alternative identities must not be promoted to tree people');
-assert(html.includes("summary.textContent='Research Frontier: Jonas Aurin identity (unproved)'"),'Clearly labeled optional research disclosure is required');
+assert(html.includes("summary.textContent='Research Frontier: John/Jonas identity (unproved)'"),'Clearly labeled optional research disclosure is required');
 assert(html.includes("No further ancestor is currently mapped from this node."),'Ordinary stop text remains for unknown unrelated endpoints');
 assert(html.includes('Do not merge Karl Johan Aurén'),'Paternal Swedish identity conflicts must be explicit');
 assert(html.includes('Return of Births')||father.evidence.some(e=>e.sourceReference?.includes('Return of Births')),'Original parental evidence citation must remain');
