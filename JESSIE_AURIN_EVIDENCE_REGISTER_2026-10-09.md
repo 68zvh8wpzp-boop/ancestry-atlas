@@ -135,3 +135,8 @@ The generic public web tool cannot access authenticated person/record-image page
 - **Preservation distinction:** raw supplied obituary PDF and marker JPEG **saved to research Library** and text/citations and three gallery JPEG images integrated into the public Atlas module, with the untouched original PDF and gravestone photograph retained in the Library. No device-level visual verification yet. Existing user-approved Jessie biography/photographs and parentage proof boundary were preserved unchanged.
 
 **Three actual 1956 gallery JPEGs committed** to GitHub Pages sources: `assets/jessie-aurin/1956-jessie-alpena-news-obituary-page-2.jpg` (obituary), `assets/jessie-aurin/1956-jessie-alpena-news-date-page-proof.jpg` (issue/date proof), and `assets/jessie-aurin/1956-jessie-spratt-cemetery-headstone.jpg` (marker). Both source entries plus the issue-date evidence entry are attached in `jessie-aurin-mobile-biography.js` as real `thumb` and `full` image paths. **Awaiting user iPhone viewer validation.**
+
+
+## 13 October 2026 — source-faithful display names
+
+The user prefers **John/Jonas Aurin (Auene)** as the displayed father name. The 1879 original birth says **John Auene**, while the 1879 marriage and 1880 original census say **Jonas Aurin**; John-to-Jonas remains an evidence-limited correlation, not a proved name change. The original family surname may have been **Aurén** in Sweden. Show **likely ancestral spelling Aurén (research hypothesis)** on Jessie's person page, while retaining manuscript Auene/Aurin/Aurene spellings. No original Swedish surname document currently confirms Aurén as Jessie's actual 1879 birth surname. Neither the Karl Johan Aurén proposed identity nor the Swedish origin line is promoted. Approved biography unchanged.
