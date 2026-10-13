@@ -12,6 +12,17 @@ const data={nodes:[{id:'jessie_irene_aurin',hold:{kind:'document'}}]};
 const guide={};const media={};
 vm.runInNewContext(source,{DATA:data,GUIDE_PROFILES:guide,TOUR_MEDIA:media},{timeout:3000});
 const p=data.nodes[0];
+const featuredTitles=[
+ 'Jessie Skinner — 1956 Alpena News obituary',
+ 'The Alpena News — obituary issue-date and page verification',
+ 'Jessie Skinner — photographed grave marker (1897–1956)'
+];
+for(let n=0;n<featuredTitles.length;n++){
+ assert.equal(p.evidence[n].title,featuredTitles[n],'Three authentic 1956 source images should appear before older link-only records');
+ assert(p.evidence[n].full?.startsWith('assets/jessie-aurin/1956-'),'Featured source must display the archived image');
+}
+assert(html.includes('galleryRank(a)-galleryRank(b)'),'Show genuine 1956 media first in the Documents carousel');
+assert(html.includes('Swipe sideways for more'),'Swipe affordance required on phone');
 const docs=p.evidence.filter(e=>e.kind==='document');
 const photos=p.evidence.filter(e=>e.kind==='photo');
 assert.equal(photos.length,3,'Keep the three distinct installed family photos; do not duplicate the old group scene');
@@ -62,7 +73,7 @@ for(const e of photos){
 }
 assert(html.includes("n.id==='jessie_irene_aurin'"),'Jessie document links must appear in her Documents section');
 assert(html.includes("sourceLinkedRichards.includes(e)"),'Existing Richard linked-source layout must not regress');
-assert(html.includes('jessie-aurin-mobile-biography.js?v=20261013-jessie-1956-gallery-2'),'Load the revised Jessie evidence module');
+assert(html.includes('jessie-aurin-mobile-biography.js?v=20261013-jessie-1956-mobile-gallery-3'),'Load the revised Jessie evidence module');
 const release=entry.match(/iphone-refresh=([A-Za-z0-9-]+)/)?.[1];
 assert(release,'iPhone entry must carry a release token');
 assert(manifest.includes('iphone-refresh='+release),'Installed PWA and root entry must match');
