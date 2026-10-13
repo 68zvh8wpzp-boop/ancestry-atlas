@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-10-12",
+  "updated": "2026-10-13",
   "records": [
     {
       "id": "alpena-godfrey-naturalization-1917-1921",
@@ -496,6 +496,50 @@
       "evidence": "library:file_00000000acb481fdb2207f88dd78df1a",
       "originalRefs": [],
       "note": "USCIS/DHS N-25 nationality verification request in motion; result pending. Do not duplicate request."
+    },
+    {
+      "id": "jessie-skinner-1956-newspaper-obituary",
+      "personId": "jessie_irene_aurin",
+      "event": "obituary",
+      "sourceKeys": [
+        "alpena-news:1956-03-06:p2:jessie-skinner"
+      ],
+      "status": "saved",
+      "evidence": "github:JESSIE_1956_OBITUARY_HEADSTONE_AND_OCEANA_DEED_ACCESS_2026-10-13.md",
+      "note": "Alpena News March 6 1956 p2 exact birth 25 Oct 1879, age76, named surviving children/McConnell brothers; PDF from Alpena Library preserved in Library. Photo of document not yet in public GitHub assets; no iPhone visual verification.",
+      "originalRefs": [
+        "library:file_000000002bb0820ca81b47fd33060465"
+      ],
+      "relatedPersonIds": [
+        "marian_skinner",
+        "richard_francis_skinner"
+      ]
+    },
+    {
+      "id": "jessie-skinner-1956-headstone-photo",
+      "personId": "jessie_irene_aurin",
+      "event": "headstone",
+      "sourceKeys": [
+        "spratt-cemetery:headstone:jessie-skinner:1897-1956"
+      ],
+      "status": "saved",
+      "evidence": "github:JESSIE_1956_OBITUARY_HEADSTONE_AND_OCEANA_DEED_ACCESS_2026-10-13.md",
+      "note": "Photo supplied by Alpena Library (credited to Find a Grave), inscription MOTHER JESSIE SKINNER 1897–1956; contradicts 1879 original birth + 1956 obituary. Full JPEG Library preserved, public Atlas image not yet packaged; stone photograph is not birth source.",
+      "originalRefs": [
+        "library:file_00000000c524820eae7f4cb4a0643358"
+      ]
+    },
+    {
+      "id": "jonas-aurin-oceana-deed-portal-assistance-2026",
+      "personId": "jonas_aurin",
+      "event": "research-access",
+      "sourceKeys": [
+        "oceana:register-of-deeds:access-email:2026-10-13"
+      ],
+      "status": "examined",
+      "evidence": "github:JESSIE_1956_OBITUARY_HEADSTONE_AND_OCEANA_DEED_ACCESS_2026-10-13.md",
+      "note": "Chief Deputy Gail Schulte offered phone walk-through of online index (231-873-4158; oceana.mi.publicsearch.us). No Aurin deed located, no paid search requested or completed.",
+      "originalRefs": []
     }
   ],
   "tasks": [
