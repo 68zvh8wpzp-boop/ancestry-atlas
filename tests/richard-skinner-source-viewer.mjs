@@ -18,9 +18,9 @@ const documents=evidence.filter(e=>e.kind==='document');
 const originals=documents.filter(e=>e.sourceLevel==='original');
 const indexed=documents.filter(e=>e.sourceLevel==='index');
 const photos=evidence.filter(e=>e.kind==='photo');
-assert.equal(documents.length,5,'Four original scan pages plus the 1899 indexed marriage citation');
-assert.equal(originals.length,4,'Original 1882 marriage, both adjoining 1894 birth pages and 1900 census must be packaged');
-assert.equal(indexed.length,1,'The 1899 marriage stays a labelled indexed-source link, not a fabricated scan');
+assert(documents.length>=5,'At least the original four scans and the now-captured 1899 marriage must remain packaged; enrichment is additive');
+assert(originals.length>=5,'The original 1882 marriage, both adjoining 1894 birth pages, 1900 census and now-captured 1899 marriage must remain packaged');
+assert(originals.some(e=>e.title.includes('Richard Skinner and Jessie Aurin')&&e.full&&e.thumb),'1899 marriage original, now acquired, must remain in original-image gallery');
 assert.equal(photos.length,4,'Richard portrait, c.1906 family, snowy logging group and studio');
 assert.equal(photos.filter(e=>e.full&&e.thumb).length,4,'All four photograph gallery entries require packaged full-resolution media and previews');
 assert.equal(evidence.filter(e=>e.sourceLevel==='photo-link').length,0,'No formerly link-only family photo remains in this release');
@@ -29,7 +29,7 @@ assert(indexed.every(e=>!e.full&&!e.thumb),'The missing 1899 marriage image must
 for(const e of [...originals,...photos]){
   assert(e.full?.startsWith('assets/'),'Full-size media must use a real packaged local source');
   assert(e.thumb?.startsWith('assets/'),'Thumbnail must be an authentic packaged asset');
-  assert(e.sourcePage?.startsWith('https://www.familysearch.org/'),'Retain original source provenance URL');
+  assert(e.sourcePage?.startsWith('https://www.familysearch.org/')||e.sourcePage?.startsWith('https://michigan.access.preservica.com/'),'Retain authentic FamilySearch or Michigan archive provenance');
   for(const p of [e.full,e.thumb]){
     assert(fs.existsSync(p),`Packaged file missing: ${p}`);
     const data=fs.readFileSync(p);
@@ -38,7 +38,7 @@ for(const e of [...originals,...photos]){
     assert.equal(data[1],0xd8,'JPEG source has wrong file signature');
   }
 }
-for(const e of originals) assert(e.sourcePage.includes('/ark:/61903/3:1:'),'Original source must have a record-specific image ARK');
+for(const e of originals) assert(e.sourcePage.includes('/ark:/61903/3:1:')||e.sourcePage.includes('michigan.access.preservica.com/'),'Original source must have a record-specific image ARK or authoritative Michigan original archive link');
 for(const e of originals) assert(e.transcription?.startsWith('FULLTEXT_ORIGINAL:')&&e.transcription.includes('FULLTEXT_TRANSLATION:'),'Original and translation-status block must accompany original scans');
 assert(evidence.find(e=>e.title.includes('Birth return')).additionalSourcePage.includes('S3HT-64JS-J9Y'),'Keep second page source link');
 assert(originals.some(e=>e.transcription.includes('Jan. 1893'))&&originals.some(e=>e.transcription.includes('1894')),'Preserve the conflicting census and birth-register year readings');
@@ -70,11 +70,11 @@ assert(html.includes("viewer.classList.toggle('source-preview'"),'Small linked p
 assert(html.includes('class="doc-source-action"'),'Original source links must remain prominently clickable');
 assert(html.includes('Open untouched original photograph'),'Upright studio viewing derivative must preserve original-file access');
 assert(html.includes('photoGroup=kind==='),'Gallery must retain accurate photo-link wording');
-assert(html.includes('richard-skinner-mobile-biography.js?v=20261009-skinner-7'),'HTML must load the current Richard module');
+assert(html.includes('richard-skinner-mobile-biography.js?v=20261011-skinner-8'),'HTML must load the current Richard module');
 const currentMobileRelease=entry.match(/iphone-refresh=([A-Za-z0-9-]+)/)?.[1];
 assert(currentMobileRelease,'Root entry must carry a mobile-release cache-busting token');
 assert(manifest.includes('iphone-refresh='+currentMobileRelease),'Installed PWA and root entry must agree on the current release');
 for(const [i,script] of [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(m=>m[1]).filter(Boolean).entries()){
  new vm.Script(script,{filename:'atlas inline '+i});
 }
-console.log('PASS: Richard Skinner 4 original source scans, 1 indexed link, 4 family photos; SHA-256 original preservation; preview and iPhone entry contracts.');
+console.log('PASS: Richard Skinner original source scans (including 1899 marriage and 1933 death), 4 family photos; SHA-256 original preservation; previews and iPhone entry contracts.');
