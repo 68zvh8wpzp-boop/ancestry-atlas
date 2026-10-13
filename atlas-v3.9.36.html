@@ -569,7 +569,7 @@ canvas:active{cursor:grabbing}
 .album-modal.viewer-behind{visibility:hidden;pointer-events:none}
 .evidence-strip.documents .evidence-media-thumb img{object-fit:contain;object-position:center}
 /* Dotted amber explicitly optional hypothesis, never a parent-child navigation edge. */
-#parentButtons .aurin-frontier-link{border:1px dashed #bc9952;background:#302919;color:#f6d99a;font-size:12px;line-height:1.4;white-space:normal;text-align:left;max-width:100%}
+#parentButtons .aurin-frontier-link{border:1px dashed #bc9952;border-radius:9px;background:#302919;color:#f6d99a;font-size:12px;line-height:1.5;padding:9px 11px;margin:8px 0;max-width:100%;box-sizing:border-box}#parentButtons .aurin-frontier-link summary{cursor:pointer;font-weight:600}#parentButtons .aurin-frontier-details{color:#e3d3b9;font-size:12px;line-height:1.55;margin-top:9px}#parentButtons .aurin-frontier-details p{margin:9px 0}#parentButtons .aurin-frontier-details a{color:#afcefa;text-decoration:underline}
 /* Keep horizontally scrollable gallery cards anchored within the phone's viewport. */
 #evidenceWrap .evidence-strip{box-sizing:border-box;max-width:100%;scroll-snap-type:x proximity;scroll-padding-inline:8px;overscroll-behavior-x:contain;padding-inline:8px}
 #evidenceWrap .evidence-item{scroll-snap-align:start;flex-shrink:0}
@@ -1274,11 +1274,19 @@ function renderRelationButtons(id){
   }
   if(!parentIds.length) pWrap.textContent=(id==='john_auene_1879'||id==='amelia_l_cotton')?'Earlier ancestry has not yet been established from original records.':'No further ancestor is currently mapped from this node.';
   if(id==='jessie_irene_aurin'||id==='john_auene_1879'){
-    const frontier=document.createElement('button');
+    // Candidate identities are outside the ancestor parentMap: separate research disclosure, explicit opt-in.
+    const frontier=document.createElement('details');
     frontier.className='aurin-frontier-link';
-    frontier.textContent='Explore Jonas Aurin identity — research only ↗';
-    frontier.title='Research hypothesis: John Auene and Jonas Aurin may be the same person; Swedish Karl Johan Aurén is not established';
-    frontier.onclick=()=>window.AncestryResearchFrontier?.open('aurin');
+    const summary=document.createElement('summary');
+    summary.textContent='Research Frontier: Jonas Aurin identity (unproved)';
+    frontier.appendChild(summary);
+    const research=document.createElement('section');
+    research.className='aurin-frontier-details';
+    research.innerHTML='<strong>Possible same man, not established:</strong> Jessie's original 1879 birth return names her father <strong>John Auene</strong>. A separate 1879 Crystal marriage and the original 1880 household name <strong>Jonas Aurin</strong> with Amelia and infant Jessie. An 1875 land tract names Jonas Aurien, and an 1881 birth return again uses John Aurene. The identities are closely associated, but the original records do not themselves explain the John/Jonas difference.'
+      +'<p><strong>Do not merge Karl Johan Aurén.</strong> The proposed Swedish-born man reported born about 1853 has conflicting dates and Massachusetts records. No proven Swedish parent line or migration has been attached to Jessie.</p>'
+      +'<p><strong>Next proof:</strong> search the free Oceana deed index, naturalization and probate records for a definitive Jonas/John identity bridge. Do not order paid files or contact offices without permission.</p>'
+      +'<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/68zvh8wpzp-boop/ancestry-atlas/blob/main/JESSIE_1879_ORIGINAL_BIRTH_RETURN_2026-10-11.md">1879 original birth and 1880 parent cross-check</a> · <a target="_blank" rel="noopener noreferrer" href="https://github.com/68zvh8wpzp-boop/ancestry-atlas/blob/main/JONAS_AMELIA_1879_ORIGINAL_MARRIAGE_REGISTER_2026-10-11.md">1879 original marriage</a></p>';
+    frontier.appendChild(research);
     pWrap.appendChild(frontier);
   }
   if(!childIds.length) cWrap.textContent='No mapped descendant from this node.';
