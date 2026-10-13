@@ -140,3 +140,10 @@ The generic public web tool cannot access authenticated person/record-image page
 ## 13 October 2026 — source-faithful display names
 
 The user prefers **John/Jonas Aurin (Auene)** as the displayed father name. The 1879 original birth says **John Auene**, while the 1879 marriage and 1880 original census say **Jonas Aurin**; John-to-Jonas remains an evidence-limited correlation, not a proved name change. The original family surname may have been **Aurén** in Sweden. Show **likely ancestral spelling Aurén (research hypothesis)** on Jessie's person page, while retaining manuscript Auene/Aurin/Aurene spellings. No original Swedish surname document currently confirms Aurén as Jessie's actual 1879 birth surname. Neither the Karl Johan Aurén proposed identity nor the Swedish origin line is promoted. Approved biography unchanged.
+
+
+## 13 October 2026 — user approval of naming and ancestry-navigation display
+
+**User explicitly approved on 13 October 2026** the delivered iPhone Atlas presentation showing **John/Jonas Aurin (Auene)** and the genealogical note that **Aurén is a likely but unverified ancestral surname spelling**. The user separately confirmed that Jessie's upward parent-navigation worked. Mark **these display and navigation changes user-validated / approved**; do not reopen their review without an actual regression or substantive new evidence.
+
+**Scope:** This approval does **not** verify an exact original Swedish name or merge the 1879 John Auene, 1880 Jonas Aurin and the conflicting proposed Karl Johan Aurén profile. It does not constitute a fresh iPhone validation of every 1956 obituary/headstone document-image preview. The already approved Jessie biography remains intact. All original manuscript spellings, citations and unresolved proof questions remain preserved.
