@@ -568,6 +568,8 @@ canvas:active{cursor:grabbing}
 .doc-modal.open .doc-panel{width:min(1050px,100%)}
 .album-modal.viewer-behind{visibility:hidden;pointer-events:none}
 .evidence-strip.documents .evidence-media-thumb img{object-fit:contain;object-position:center}
+/* Dotted amber explicitly optional hypothesis, never a parent-child navigation edge. */
+#parentButtons .aurin-frontier-link{border:1px dashed #bc9952;background:#302919;color:#f6d99a;font-size:12px;line-height:1.4;white-space:normal;text-align:left;max-width:100%}
 /* Keep horizontally scrollable gallery cards anchored within the phone's viewport. */
 #evidenceWrap .evidence-strip{box-sizing:border-box;max-width:100%;scroll-snap-type:x proximity;scroll-padding-inline:8px;overscroll-behavior-x:contain;padding-inline:8px}
 #evidenceWrap .evidence-item{scroll-snap-align:start;flex-shrink:0}
@@ -1106,6 +1108,12 @@ if(!DATA.edges.some(e=>e.a==='jamar_webb'&&e.b==='marion_brenay')) DATA.edges.pu
 // Thomas Prather: register before relation maps are built.
 if(!DATA.nodes.some(n=>n.id==='thomas_prather')) DATA.nodes.push({"id":"thomas_prather","name":"Thomas Estil Prather","years":"1878–1950","place":"Moscow, Missouri → Lakeside, Arizona","branch":"Hill / Prather","confidence":"strong","note":"Thomas Prather was Inez’s father and Grace’s husband. He worked in several trades, settled in Lakeside, and arranged the telephone office that supported his family.","x":3.8,"y":2.2,"z":-2});
 if(!DATA.edges.some(e=>e.a==='inez_karen'&&e.b==='thomas_prather')) DATA.edges.push({a:'inez_karen',b:'thomas_prather',confidence:'strong'});
+// Jessie birth-return ancestry: recorded parents only. Do NOT merge John Auene with Jonas Aurin or Karl Johan Aurén.
+DATA.nodes.push({"id":"amelia_l_cotton","name":"Amelia L. Cotton / Auene","years":"c. 1853–1919 (death year provisional)","place":"Crystal and Elbridge Townships, Oceana County, Michigan","branch":"Skinner / Aurin","confidence":"strong","note":"Jessie's 1879 original birth return identifies her mother as Amelia Auene, born in New York. The 1880 original names Amelia L. Aurin in the household with infant Jessie, and Jessie's 1899 marriage names Amelia Cotton as her mother. These records strongly connect the maternal identity; Amelia's own parents and some marital history remain under investigation.","x":0,"y":6.45,"z":-4.6,"evidence":[{"kind":"document","title":"Jessie Auene — 1879 original birth return naming mother Amelia","date":"25 October 1879","sourceLevel":"original","sourcePage":"https://www.familysearch.org/ark:/61903/1:1:F451-1XH","sourceReference":"Oceana County, Michigan, Return of Births for 1879, p. 276, entry 16, DGS 004206546; exact original manuscript visually inspected and archived in private research Library; no public-image copy installed.","summary":"Jessie, born 25 October 1879 at Crystal, mother Amelia Auene, born New York; father John Auene born Sweden.","transcription":"FULLTEXT_ORIGINAL: Birth no. 16. October 25th, 1879. Jessie Auene. Crystal, Mich. Father John Auene, Sweden, farmer; mother Amelia Auene, New York. Parents reside Crystal. FULLTEXT_TRANSLATION: [not applicable: English original]"},{"kind":"document","title":"Jessie and Amelia L. Aurin — 1880 Elbridge original census","date":"19 June 1880","sourceLevel":"original","sourcePage":"https://www.familysearch.org/ark:/61903/3:1:33SQ-GYBF-S9GN?view=index","sourceReference":"1880 United States census, Elbridge Township, Oceana County, Michigan, ED 216, original p. 16, lines 42–46; full original inspected and previously archived.","summary":"Household includes infant Jessie, mother Amelia L. Aurin and head Jonas Aurin; given-name conflict John versus Jonas remains."},{"kind":"document","title":"Jessie and Richard Skinner — 1899 original marriage","date":"5 November 1899","sourceLevel":"original","sourcePage":"https://www.familysearch.org/ark:/61903/3:1:S3HT-67LS-TW4","sourceReference":"1899 Michigan marriage original, DGS 004208267 image 319, mother of bride given as Amelia Cotton; father given as unknown.","summary":"Jessie names Amelia Cotton as her mother, independently supporting the maiden-name correlation. Her father's name is recorded as unknown in this later marriage return."}]});
+DATA.nodes.push({"id":"john_auene_1879","name":"John Auene — recorded father","years":"Adult in 1879; birth and death undetermined","place":"Crystal Township, Oceana County, Michigan","branch":"Skinner / Aurin","confidence":"strong","note":"The original Oceana County birth return for Jessie, 25 October 1879, explicitly names her father John Auene, a Sweden-born farmer resident at Crystal. The 1880 Elbridge census instead calls the household head Jonas Aurin. Similar locality, spouse, household and origin make the identity correspondence compelling, but it is not a verified equivalence; the later suggested Swedish Karl Johan Aurén must remain separate.","x":1.55,"y":6.45,"z":-4.2,"evidence":[{"kind":"document","title":"Jessie Auene — 1879 birth return naming father John","date":"25 October 1879","sourceLevel":"original","sourcePage":"https://www.familysearch.org/ark:/61903/1:1:F451-1XH","sourceReference":"Return of Births in Oceana County, Michigan, year ending 1879, page 276 entry 16, DGS 004206546; original manuscript image examined 11 October 2026 and original image archived privately. John Auene is the written reading, not proof that Jonas Aurin or Karl Johan Aurén is the same man.","summary":"Father John Auene, born Sweden, occupation farmer, resident Crystal, Michigan; child Jessie born 25 Oct 1879; mother Amelia Auene born New York.","transcription":"FULLTEXT_ORIGINAL: Record 16. Jessie Auene. 25 October 1879, Crystal. Father: John Auene, Sweden, farmer, residence Crystal; mother Amelia Auene, New York, residence Crystal. FULLTEXT_TRANSLATION: [not applicable: English original]"}]});
+DATA.edges.push({a:'jessie_irene_aurin',b:'amelia_l_cotton',confidence:'strong',source:'Oceana original 1879 Jessie birth, 1880 original household, 1899 original marriage'});
+DATA.edges.push({a:'jessie_irene_aurin',b:'john_auene_1879',confidence:'strong',source:'Oceana original 1879 Jessie birth return; John–Jonas equivalence unresolved'});
+
 const nodeById = new Map(DATA.nodes.map(n=>[n.id,n]));
 window.__ATLAS_DATA = DATA;
 window.__ATLAS_NODE_BY_ID = nodeById;
@@ -1264,7 +1272,15 @@ function renderRelationButtons(id){
     const n=nodeById.get(cid); const b=document.createElement('button');
     b.textContent='↓ '+n.name; b.onclick=()=>openNode(cid,true,true); cWrap.appendChild(b);
   }
-  if(!parentIds.length) pWrap.textContent='No further ancestor is currently mapped from this node.';
+  if(!parentIds.length) pWrap.textContent=(id==='john_auene_1879'||id==='amelia_l_cotton')?'Earlier ancestry has not yet been established from original records.':'No further ancestor is currently mapped from this node.';
+  if(id==='jessie_irene_aurin'||id==='john_auene_1879'){
+    const frontier=document.createElement('button');
+    frontier.className='aurin-frontier-link';
+    frontier.textContent='Explore Jonas Aurin identity — research only ↗';
+    frontier.title='Research hypothesis: John Auene and Jonas Aurin may be the same person; Swedish Karl Johan Aurén is not established';
+    frontier.onclick=()=>window.AncestryResearchFrontier?.open('aurin');
+    pWrap.appendChild(frontier);
+  }
   if(!childIds.length) cWrap.textContent='No mapped descendant from this node.';
 }
 function updateTrail(id,append){
@@ -1343,7 +1359,7 @@ function renderEvidence(n){
   if(!ev.length){wrap.innerHTML='<div class="evidence-empty">No source image or document attached to this person yet.</div>';return;}
   const photos=ev.filter(e=>evidenceIsImage(e)&&evidenceHasReadablePreview(e)&&e.sourceLevel!=='photo-link');
   const photoSourceLinks=ev.filter(e=>evidenceIsImage(e)&&e.sourceLevel==='photo-link'&&e.sourcePage);
-  const sourceLinkedRichards=ev.filter(e=>e.kind==='document'&&(e.sourcePage||e.documentUrl)&&((n.id==='richard_francis_skinner'&&e.sourceLevel==='original')||n.id==='jessie_irene_aurin'));
+  const sourceLinkedRichards=ev.filter(e=>e.kind==='document'&&(e.sourcePage||e.documentUrl)&&((n.id==='richard_francis_skinner'&&e.sourceLevel==='original')||['jessie_irene_aurin','amelia_l_cotton','john_auene_1879'].includes(n.id)));
   const galleryRank=e=>{
     // Show Jessie's real 1956 originals immediately, then other local images, then linked records.
     if(n.id==='jessie_irene_aurin'&&/assets\/jessie-aurin\/1956-jessie-(?:alpena-news|spratt-cemetery)/.test(e.full||''))return 0;
@@ -2824,8 +2840,8 @@ resize();
 <script src="biographies/brenay-canada/charles-godfrey-ida-revision-3.8.19.js?v=3.8.22"></script>
 <script src="biographies/webb-branch/webb-story-modules.js?v=1.0.1"></script>
 <script src="biographies/webb-branch/jay-distinctness-revision-3.8.19.js?v=3.8.22"></script>
-<script src="biographies/research-frontiers-data.js?v=3.8.22"></script>
-<script src="research-frontier-3.8.14.js?v=3.8.22"></script>
+<script src="biographies/research-frontiers-data.js?v=20261013-jessie-parent-evidence-frontier-4"></script>
+<script src="research-frontier-3.8.14.js?v=20261013-jessie-parent-evidence-frontier-4"></script>
 <script src="atlas-tour-3.6.0.js?v=3.8.22"></script>
 <script src="tv-mode-3.7.3.js"></script>
 <script src="story-presentation-3.6.0.js"></script>
