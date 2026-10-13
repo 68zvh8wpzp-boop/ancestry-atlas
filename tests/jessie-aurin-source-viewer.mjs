@@ -62,7 +62,7 @@ for(const e of photos){
 }
 assert(html.includes("n.id==='jessie_irene_aurin'"),'Jessie document links must appear in her Documents section');
 assert(html.includes("sourceLinkedRichards.includes(e)"),'Existing Richard linked-source layout must not regress');
-assert(html.includes('jessie-aurin-mobile-biography.js?v=20261013-jessie-1956-records-1'),'Load the revised Jessie evidence module');
+assert(html.includes('jessie-aurin-mobile-biography.js?v=20261013-jessie-1956-gallery-2'),'Load the revised Jessie evidence module');
 const release=entry.match(/iphone-refresh=([A-Za-z0-9-]+)/)?.[1];
 assert(release,'iPhone entry must carry a release token');
 assert(manifest.includes('iphone-refresh='+release),'Installed PWA and root entry must match');
