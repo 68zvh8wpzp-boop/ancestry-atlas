@@ -568,6 +568,9 @@ canvas:active{cursor:grabbing}
 .doc-modal.open .doc-panel{width:min(1050px,100%)}
 .album-modal.viewer-behind{visibility:hidden;pointer-events:none}
 .evidence-strip.documents .evidence-media-thumb img{object-fit:contain;object-position:center}
+/* Keep horizontally scrollable gallery cards anchored within the phone's viewport. */
+#evidenceWrap .evidence-strip{box-sizing:border-box;max-width:100%;scroll-snap-type:x proximity;scroll-padding-inline:8px;overscroll-behavior-x:contain;padding-inline:8px}
+#evidenceWrap .evidence-item{scroll-snap-align:start;flex-shrink:0}
 </style>
 
 <script>
@@ -1341,7 +1344,12 @@ function renderEvidence(n){
   const photos=ev.filter(e=>evidenceIsImage(e)&&evidenceHasReadablePreview(e)&&e.sourceLevel!=='photo-link');
   const photoSourceLinks=ev.filter(e=>evidenceIsImage(e)&&e.sourceLevel==='photo-link'&&e.sourcePage);
   const sourceLinkedRichards=ev.filter(e=>e.kind==='document'&&(e.sourcePage||e.documentUrl)&&((n.id==='richard_francis_skinner'&&e.sourceLevel==='original')||n.id==='jessie_irene_aurin'));
-  const documents=ev.filter(e=>!evidenceIsImage(e)&&(evidenceHasReadablePreview(e)||sourceLinkedRichards.includes(e))).sort((a,b)=>Number(evidenceHasPreview(b))-Number(evidenceHasPreview(a)));
+  const galleryRank=e=>{
+    // Show Jessie's real 1956 originals immediately, then other local images, then linked records.
+    if(n.id==='jessie_irene_aurin'&&/assets\/jessie-aurin\/1956-jessie-(?:alpena-news|spratt-cemetery)/.test(e.full||''))return 0;
+    return evidenceHasReadablePreview(e)?1:2;
+  };
+  const documents=ev.filter(e=>!evidenceIsImage(e)&&(evidenceHasReadablePreview(e)||sourceLinkedRichards.includes(e))).sort((a,b)=>galleryRank(a)-galleryRank(b));
   const recordLeads=ev.filter(e=>!evidenceIsImage(e)&&!documents.includes(e));
   wrap.innerHTML='';
   const addGroup=(label,list,kind)=>{
@@ -1349,6 +1357,12 @@ function renderEvidence(n){
     const title=document.createElement('div');
     title.className='evidence-group-title';
     title.textContent=label;
+    if(list.length>2&&(kind==='documents'||kind==='photos')){
+      const cue=document.createElement('span');
+      cue.textContent='  ·  Swipe sideways for more →';
+      cue.style.cssText='font-size:10px;letter-spacing:0;text-transform:none;color:#91aabf;margin-left:10px;';
+      title.appendChild(cue);
+    }
     title.style.cssText='font-size:11px;letter-spacing:.12em;color:#b9cbd8;margin:8px 0 4px;text-transform:uppercase';
     wrap.appendChild(title);
     const strip=document.createElement('div');
@@ -2843,7 +2857,7 @@ resize();
 <script src="john-peter-mobile-biography.js?v=20261008-4"></script>
 <script src="mary-ann-mobile-biography.js?v=20261009-mary-1"></script>
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v16.js?v=20261009-jessie-1"></script>
-<script src="jessie-aurin-mobile-biography.js?v=20261013-jessie-1956-gallery-2"></script>
+<script src="jessie-aurin-mobile-biography.js?v=20261013-jessie-1956-mobile-gallery-3"></script>
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v15.js?v=20261009-skinner-2"></script>
 <script src="richard-skinner-mobile-biography.js?v=20261011-skinner-8"></script>
 <script src="della-ray-mobile-biography.js?v=20261011-della-1"></script>
