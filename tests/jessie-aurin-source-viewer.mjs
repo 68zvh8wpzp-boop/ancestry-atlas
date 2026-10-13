@@ -23,6 +23,27 @@ for(let n=0;n<featuredTitles.length;n++){
 }
 assert(html.includes('galleryRank(a)-galleryRank(b)'),'Show genuine 1956 media first in the Documents carousel');
 assert(html.includes('Swipe sideways for more'),'Swipe affordance required on phone');
+// First original 1879 birth-return parents can be navigated; disputed names remain separate.
+const atlasGraphStart=html.indexOf('const DATA = ')+('const DATA = ').length;
+const atlasGraphEnd=html.indexOf(';\n\n/* Ammon evidence',atlasGraphStart);
+assert(atlasGraphStart>10&&atlasGraphEnd>atlasGraphStart,'Canonical graph exists');
+const familyGraph=JSON.parse(html.slice(atlasGraphStart,atlasGraphEnd));
+const addStart=html.indexOf('// Jessie birth-return ancestry:');
+const addEnd=html.indexOf('const nodeById = new Map(',addStart);
+assert(addStart>0&&addEnd>addStart,'Jessie evidence-gated node insertion must precede navigation maps');
+vm.runInNewContext(html.slice(addStart,addEnd),{DATA:familyGraph},{timeout:3000});
+const mother=familyGraph.nodes.find(x=>x.id==='amelia_l_cotton');
+const father=familyGraph.nodes.find(x=>x.id==='john_auene_1879');
+assert(mother?.confidence==='strong'&&father?.confidence==='strong','Both parents recorded on original 1879 birth must be surfable');
+const jessieParents=familyGraph.edges.filter(e=>e.a==='jessie_irene_aurin');
+assert.equal(jessieParents.length,2,'Jessie has exactly the two independently supported birth-register parents');
+assert.deepEqual(jessieParents.map(e=>e.b).sort(),['amelia_l_cotton','john_auene_1879']);
+assert(jessieParents.every(e=>e.confidence==='strong'),'Parent links can only reflect original-record evidence');
+assert(!familyGraph.nodes.some(n=>/jonas_aurin|karl_johan_auren/i.test(n.id)),'Unproved alternative identities must not be promoted to tree people');
+assert(html.includes("summary.textContent='Research Frontier: Jonas Aurin identity (unproved)'"),'Clearly labeled optional research disclosure is required');
+assert(html.includes("No further ancestor is currently mapped from this node."),'Ordinary stop text remains for unknown unrelated endpoints');
+assert(html.includes('Do not merge Karl Johan Aurén'),'Paternal Swedish identity conflicts must be explicit');
+assert(html.includes('Return of Births')||father.evidence.some(e=>e.sourceReference?.includes('Return of Births')),'Original parental evidence citation must remain');
 const docs=p.evidence.filter(e=>e.kind==='document');
 const photos=p.evidence.filter(e=>e.kind==='photo');
 assert.equal(photos.length,3,'Keep the three distinct installed family photos; do not duplicate the old group scene');
