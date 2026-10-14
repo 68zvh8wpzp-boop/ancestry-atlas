@@ -314,4 +314,61 @@ const additionalMedia = [
 person.evidence = (person.evidence || []).filter(item => !additionalMedia.some(media => media.title === item.title || (item.full && media.full === item.full))).concat(additionalMedia);
 const homePhoto = {"kind":"photo","title":"Charles and Marian outside their home","date":"1941","place":"Sandpoint, Idaho","thumb":"assets/marian-skinner/photo-37.jpg","full":"assets/marian-skinner/photo-37.jpg","originalAsset":"assets/marian-skinner/photo-37.jpg","sourcePage":"https://www.familysearch.org/en/tree/person/memories/KWC1-XFX","summary":"Charles and Marian beside a vehicle outside their home. The place and year come from the contributor.","provenance":"Grandma & Grandpa Brenay056.jpg; DeEdra Breckenridge, 13 October 2024; preserved unchanged. SHA256 60f9d761d7159ecac31a76ecba6a2c744ef01fd2931608245cdb964435fafc96.","transcription":"FULLTEXT_ORIGINAL:\n[partially visible number plate: illegible]\n\nFULLTEXT_TRANSLATION\nNot applicable — unclear numerals not expanded.","previewStatus":"pending-surface-verification"};
 person.evidence = (person.evidence || []).filter(item => item.full !== homePhoto.full && item.title !== homePhoto.title).concat(homePhoto);
+const childhoodPhotos = [
+  {
+    "kind": "photo",
+    "title": "Jessie and Marian Skinner",
+    "date": "Date uncertain",
+    "place": "Michigan",
+    "thumb": "assets/jessie-aurin/jessie-and-marian-skinner.jpg",
+    "full": "assets/jessie-aurin/jessie-and-marian-skinner.jpg",
+    "sourcePage": "https://www.familysearch.org/en/memories/memory/230107475",
+    "provenance": "DeEdra Breckenridge; 2025-10-13; 0057_a-Enhanced.jpg. Contributor repair/enhancement preserved unchanged.",
+    "summary": "Jessie stands beside her daughter Marian outside a brick house. The photograph’s date is uncertain.",
+    "transcription": "FULLTEXT_ORIGINAL: [no text present]\nFULLTEXT_TRANSLATION: [not applicable]",
+    "translation": "[not applicable]",
+    "original_text": "[no text present]",
+    "personId": "marian_skinner",
+    "name": "Marian Beulah Skinner Brenay",
+    "years": "1903–1996",
+    "branch": "Skinner / Aurin",
+    "originalAsset": "assets/jessie-aurin/jessie-and-marian-skinner.jpg",
+    "previewStatus": "pending-surface-verification"
+  },
+  {
+    "kind": "photo",
+    "title": "Richard and Jessie Skinner with their children",
+    "date": "About 1906",
+    "place": "Michigan",
+    "thumb": "assets/jessie-aurin/richard-jessie-family-c1906.jpg",
+    "full": "assets/jessie-aurin/richard-jessie-family-c1906.jpg",
+    "sourcePage": "https://www.familysearch.org/en/memories/memory/230097058",
+    "provenance": "DeEdra Breckenridge; 2025-10-13; 0053_a-Repaired-Enhanced.jpg. Contributor repair/enhancement preserved unchanged.",
+    "summary": "Richard and Jessie Skinner with three young children, approximately 1906. The family caption identifies Clifford, Marian and Ellen.",
+    "transcription": "FULLTEXT_ORIGINAL: [no text present]\nFULLTEXT_TRANSLATION: [not applicable]",
+    "translation": "[not applicable]",
+    "original_text": "[no text present]",
+    "personId": "marian_skinner",
+    "name": "Marian Beulah Skinner Brenay",
+    "years": "1903–1996",
+    "branch": "Skinner / Aurin",
+    "originalAsset": "assets/jessie-aurin/richard-jessie-family-c1906.jpg",
+    "previewStatus": "pending-surface-verification"
+  }
+];
+person.evidence = (person.evidence || []).filter(item => !childhoodPhotos.some(photo => photo.full === item.full)).concat(childhoodPhotos);
+const storyScenes = [
+  {src:'assets/jessie-aurin/richard-jessie-family-c1906.jpg',title:'Marian’s childhood family',caption:'Richard and Jessie with their children, about 1906; identified in the family caption.',triggerParagraph:0,visualType:'family-photo'},
+  {src:'assets/jessie-aurin/jessie-and-marian-skinner.jpg',title:'Marian and her mother',caption:'Marian beside Jessie outside a brick house; date uncertain.',triggerParagraph:1,visualType:'family-photo'},
+  {src:'assets/marian-skinner/photo-24.jpg',title:'Marian as a young woman',caption:'A studio portrait, dated approximately 1925 by its contributor.',triggerParagraph:3,visualType:'family-photo'},
+  {src:'assets/marian-skinner/photo-31.jpg',title:'Marian and Charles in Sandpoint',caption:'The print bears the place and year, Sandpoint 1942.',triggerParagraph:8,visualType:'family-photo'},
+  {src:'assets/charles-albert/charles-marian-50th-anniversary.jpg',title:'Fifty years of marriage',caption:'Marian and Charles, Mesa, 1970.',triggerParagraph:9,visualType:'family-photo'}
+];
+person.storyScenes = storyScenes;
+if (typeof TOUR_MEDIA !== 'undefined') {
+  TOUR_MEDIA.marian_skinner = Object.assign({}, TOUR_MEDIA.marian_skinner || {}, {
+    transcript: biography, scenes: storyScenes, audio: null, audioCandidates: [],
+    moduleVersion: '20261014-marian-2', storyReady: true
+  });
+}
 })();
