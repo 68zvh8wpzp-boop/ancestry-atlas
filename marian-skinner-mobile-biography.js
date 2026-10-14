@@ -8,6 +8,9 @@ const context = "Marian’s early homes lay in Michigan’s forest and farming c
 person.biography = biography;
 person.note = biography;
 person.context = context;
+person.CONTEXT = context;
+person.place = 'Michigan → American West → Summerfield, Florida';
+if (person.hold) person.hold = Object.assign({}, person.hold, {label: '1903 birth registration'});
 if (typeof GUIDE_PROFILES !== 'undefined') {
   GUIDE_PROFILES.marian_skinner = Object.assign({}, GUIDE_PROFILES.marian_skinner || {}, {
     life: biography,
