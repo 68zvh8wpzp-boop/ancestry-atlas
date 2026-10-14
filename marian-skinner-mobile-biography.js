@@ -312,4 +312,6 @@ const additionalMedia = [
   }
 ];
 person.evidence = (person.evidence || []).filter(item => !additionalMedia.some(media => media.title === item.title || (item.full && media.full === item.full))).concat(additionalMedia);
+const homePhoto = {"kind":"photo","title":"Charles and Marian outside their home","date":"1941","place":"Sandpoint, Idaho","thumb":"assets/marian-skinner/photo-37.jpg","full":"assets/marian-skinner/photo-37.jpg","originalAsset":"assets/marian-skinner/photo-37.jpg","sourcePage":"https://www.familysearch.org/en/tree/person/memories/KWC1-XFX","summary":"Charles and Marian beside a vehicle outside their home. The place and year come from the contributor.","provenance":"Grandma & Grandpa Brenay056.jpg; DeEdra Breckenridge, 13 October 2024; preserved unchanged. SHA256 60f9d761d7159ecac31a76ecba6a2c744ef01fd2931608245cdb964435fafc96.","transcription":"FULLTEXT_ORIGINAL:\n[partially visible number plate: illegible]\n\nFULLTEXT_TRANSLATION\nNot applicable — unclear numerals not expanded.","previewStatus":"pending-surface-verification"};
+person.evidence = (person.evidence || []).filter(item => item.full !== homePhoto.full && item.title !== homePhoto.title).concat(homePhoto);
 })();
