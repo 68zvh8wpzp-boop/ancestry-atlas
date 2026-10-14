@@ -15,4 +15,63 @@ if (typeof GUIDE_PROFILES !== 'undefined') {
     birthPlace: 'Colfax, Michigan, United States'
   });
 }
+const letters = [
+  {
+    "kind": "document",
+    "title": "Letters from Grandma Brenay",
+    "date": "17 January 1988",
+    "place": "Utah; exact address not stated",
+    "thumb": "assets/ammon-docs-preview/letters-from-grandma-brenay-page-1.jpg",
+    "full": "assets/ammon-docs-preview/letters-from-grandma-brenay-page-1.jpg",
+    "sourcePage": "https://www.familysearch.org/en/memories/memory/238454116",
+    "originalAsset": "assets/marian-skinner/letters-original.pdf",
+    "summary": "Marian writes to her children about winter, family visits and housing plans. Four pages contain two letters. The second letter does not state a year.",
+    "provenance": "Grandma Brenay.pdf; DeEdra Breckenridge, 17 March 2026. Preserved unchanged four-page original; page previews rendered for readability.",
+    "previewStatus": "pending-surface-verification",
+    "transcription": "FULLTEXT_ORIGINAL:\n[Page 1]\nJan 17, 1988\n\nDear children All.\nBeleive me as we look Out\nthe Window we know it is\nWinter time here.\nHow ever we have enjoyed\nthe winter So far I have kept\nQuite Well no Colds or Sore throat\nIke is having Sore throat So\nis Janie. Both have trouble with\ntheir backs. Their Dr Said get\noff that Water bed and so they\nhave So hope they will be better\nThe kids Charlie, Shantel +\nErich have had their bouts\nwith Sore throats + Colds but\nnot So it slowed them down -\nany.\nWe are living in a good\nWard here. they look After one\nanother more than most Wards\nI have lived in.\nThey are a noisy bunch So\nthis Month has been stressing\nreverence in the chapel and I\nmust Say in the chapel its\nSelf in Sacrement meeting at least\nThey have improved 100%\n\n[Page 2]\nMartha + David Came to Visit\nMartha's kids for Christmas and\nthey Stayed with us a Couple nights\nboth Coming up and going back to\nmesa.\nAmmon + Mary have bought\na house here. they really like it\nhere They got a good deal on\nthe house\nThe house Ike wanted to buy in\nManti has not Cleared the title So I\ndont know if Ike will take it or\nnot it Would be Mar. before we\nwould know if the title Can be or\nwill be Cleared. Ikes offer on the\nplace was up 17 Jan. So he is\ndebating if he Should look for another\none - there were Several we all liked.\nI am Well and as the Saying.\ngoes. - In good Spirit\nHope and pray every thing is\ngoing Well with You + Yours\n\nLove mom.\n\n[Page 3]\nDear Marion + All.\nHere it is the 25 Jan. time is going\nwont be long until Glenn + Virginia\nWill be home\nwe have had some pretty good.\nSnow Storms Most of the [weeds?] how\never are bare utah never lets the Snow\nStay on the roads Very long.\nI am taking the Weather here\nJust fine while Ike, Janie, Erich + Shantel\nare all having a bad time with Colds\nand Sore throats even Ike.\nThe house didnt Clear title the\n17 of Jan. Sister Wisdom is mad at her\nReal estate agent She figured he Should\nof Cleared it for her and there was no\nway he could do it (that) She had to\ndo. So Ike isnt obligated to take that\nhouse any more but he Can re-negotiate\nterms with her if he so desires and\nshe very much wants him to.\nHowever Ike is going to look\naround Some more before he Settles for\nany thing\nCharles is still here Working for\nor with Ike he is thinking of going\nback to School and learn a trade in\n\n[Page 4]\nelectronis he has Checked and that would\nbe a good trade for him, he just\nisnt Cut Out to be a good Carpet\ninstaller nor is Erich.\nErich has been off his drugs Since\nhe has lived with Ike but he dont\nSeem to Want to Quite Smoking, nor\ndoes Charles they just Stop and Start\nagain which indicates they just dont\nWant to Quit.\nJanie is in bed with her Cold\nYesterday + to-day, the home teachers\nCame and gave her a blessing and\nshe feels better to-day but a long ways\nfrom being Out of the Woods So to Speak.\nWe had Ward Conference Yesterday\nand Stake Conference is Coming up.\n14 feb. this Mo. in Our Ward they have\nbeen Working on being more reverent\nin the Chapel. they have improved a\nlot - you know I Cant understand the\nloud laughter and [fridle?] remarks one\nhears now days in Our adult class\nrooms. one day in Our Sunday School\nClass some one Said something the class\nConsidered Very funny one Sister So for\ngot her Self she Started Clapping her\nhands - So you See they needed to be\ntaught to be reverent. Hope all is Well\nLove mom\n\nFULLTEXT_TRANSLATION\nNot applicable — English."
+  },
+  {
+    "kind": "document",
+    "title": "Letters from Grandma Brenay — page 2",
+    "date": "17 January 1988",
+    "place": "Utah; exact address not stated",
+    "thumb": "assets/marian-skinner/letters-2.jpg",
+    "full": "assets/marian-skinner/letters-2.jpg",
+    "sourcePage": "https://www.familysearch.org/en/memories/memory/238454116",
+    "originalAsset": "assets/marian-skinner/letters-original.pdf",
+    "summary": "Page 2 of Marian’s two handwritten January letters.",
+    "provenance": "Grandma Brenay.pdf; DeEdra Breckenridge, 17 March 2026. Preserved unchanged four-page original; page previews rendered for readability.",
+    "previewStatus": "pending-surface-verification",
+    "transcription": "FULLTEXT_ORIGINAL:\nMartha + David Came to Visit\nMartha's kids for Christmas and\nthey Stayed with us a Couple nights\nboth Coming up and going back to\nmesa.\nAmmon + Mary have bought\na house here. they really like it\nhere They got a good deal on\nthe house\nThe house Ike wanted to buy in\nManti has not Cleared the title So I\ndont know if Ike will take it or\nnot it Would be Mar. before we\nwould know if the title Can be or\nwill be Cleared. Ikes offer on the\nplace was up 17 Jan. So he is\ndebating if he Should look for another\none - there were Several we all liked.\nI am Well and as the Saying.\ngoes. - In good Spirit\nHope and pray every thing is\ngoing Well with You + Yours\n\nLove mom.\n\nFULLTEXT_TRANSLATION\nNot applicable — English."
+  },
+  {
+    "kind": "document",
+    "title": "Letters from Grandma Brenay — page 3",
+    "date": "25 January; year not written",
+    "place": "Utah; exact address not stated",
+    "thumb": "assets/marian-skinner/letters-3.jpg",
+    "full": "assets/marian-skinner/letters-3.jpg",
+    "sourcePage": "https://www.familysearch.org/en/memories/memory/238454116",
+    "originalAsset": "assets/marian-skinner/letters-original.pdf",
+    "summary": "Page 3 of Marian’s two handwritten January letters.",
+    "provenance": "Grandma Brenay.pdf; DeEdra Breckenridge, 17 March 2026. Preserved unchanged four-page original; page previews rendered for readability.",
+    "previewStatus": "pending-surface-verification",
+    "transcription": "FULLTEXT_ORIGINAL:\nDear Marion + All.\nHere it is the 25 Jan. time is going\nwont be long until Glenn + Virginia\nWill be home\nwe have had some pretty good.\nSnow Storms Most of the [weeds?] how\never are bare utah never lets the Snow\nStay on the roads Very long.\nI am taking the Weather here\nJust fine while Ike, Janie, Erich + Shantel\nare all having a bad time with Colds\nand Sore throats even Ike.\nThe house didnt Clear title the\n17 of Jan. Sister Wisdom is mad at her\nReal estate agent She figured he Should\nof Cleared it for her and there was no\nway he could do it (that) She had to\ndo. So Ike isnt obligated to take that\nhouse any more but he Can re-negotiate\nterms with her if he so desires and\nshe very much wants him to.\nHowever Ike is going to look\naround Some more before he Settles for\nany thing\nCharles is still here Working for\nor with Ike he is thinking of going\nback to School and learn a trade in\n\nFULLTEXT_TRANSLATION\nNot applicable — English."
+  },
+  {
+    "kind": "document",
+    "title": "Letters from Grandma Brenay — page 4",
+    "date": "25 January; year not written",
+    "place": "Utah; exact address not stated",
+    "thumb": "assets/marian-skinner/letters-4.jpg",
+    "full": "assets/marian-skinner/letters-4.jpg",
+    "sourcePage": "https://www.familysearch.org/en/memories/memory/238454116",
+    "originalAsset": "assets/marian-skinner/letters-original.pdf",
+    "summary": "Page 4 of Marian’s two handwritten January letters.",
+    "provenance": "Grandma Brenay.pdf; DeEdra Breckenridge, 17 March 2026. Preserved unchanged four-page original; page previews rendered for readability.",
+    "previewStatus": "pending-surface-verification",
+    "transcription": "FULLTEXT_ORIGINAL:\nelectronis he has Checked and that would\nbe a good trade for him, he just\nisnt Cut Out to be a good Carpet\ninstaller nor is Erich.\nErich has been off his drugs Since\nhe has lived with Ike but he dont\nSeem to Want to Quite Smoking, nor\ndoes Charles they just Stop and Start\nagain which indicates they just dont\nWant to Quit.\nJanie is in bed with her Cold\nYesterday + to-day, the home teachers\nCame and gave her a blessing and\nshe feels better to-day but a long ways\nfrom being Out of the Woods So to Speak.\nWe had Ward Conference Yesterday\nand Stake Conference is Coming up.\n14 feb. this Mo. in Our Ward they have\nbeen Working on being more reverent\nin the Chapel. they have improved a\nlot - you know I Cant understand the\nloud laughter and [fridle?] remarks one\nhears now days in Our adult class\nrooms. one day in Our Sunday School\nClass some one Said something the class\nConsidered Very funny one Sister So for\ngot her Self she Started Clapping her\nhands - So you See they needed to be\ntaught to be reverent. Hope all is Well\nLove mom\n\nFULLTEXT_TRANSLATION\nNot applicable — English."
+  }
+];
+person.evidence = (person.evidence || []).filter(item => !letters.some(page => page.title === item.title)).concat(letters);
 })();
