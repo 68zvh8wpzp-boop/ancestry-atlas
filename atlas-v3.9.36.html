@@ -1173,6 +1173,8 @@ function buildMobileTreeNeighborhood(id,maxNodes=10){
   const parents=parentMap.get(id)||[];
   const children=childMap.get(id)||[];
   const partners=coParentIds(id);
+  // Reserve immediate parents before a large sibling/child group uses the budget.
+  parents.forEach(push);
   // Phone family view always reserves a concise route back toward descendants
   // before allocating the rest of the budget to earlier ancestors. This keeps
   // a selected mother or grandmother from becoming a one-way navigation trap.
@@ -1196,6 +1198,8 @@ function buildLineageBranch(id,maxNodes=22){
   const out=[],seen=new Set();
   const push=x=>{if(x&&nodeById.has(x)&&!seen.has(x)&&out.length<maxNodes){seen.add(x);out.push(x);return true}return false};
   push(id);
+  // Every bounded branch must retain a visible route to the next generation up.
+  (parentMap.get(id)||[]).forEach(push);
   // Preserve the direct descendant route all the way to the modern anchor.
   let down=[id],depth=0;
   while(down.length&&out.length<maxNodes&&depth<8){
