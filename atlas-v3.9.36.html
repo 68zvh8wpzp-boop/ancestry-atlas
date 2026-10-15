@@ -2118,7 +2118,7 @@ function openNode(id, recenter=false, appendTrail=false){
   card.querySelector('h3').textContent=n.name;
   card.querySelector('.meta').textContent=[n.years,n.place,n.branch].filter(Boolean).join(' • ');
   card.querySelectorAll('.dynamic-status').forEach(x=>x.remove());
-  card.querySelector('p').textContent=['mary_ann','jessie_irene_aurin','richard_francis_skinner','della_ray','marian_skinner','wilhelm_brunne'].includes(n.id) ? (n.CONTEXT || '') : n.note;
+  card.querySelector('p').textContent=['mary_ann','jessie_irene_aurin','richard_francis_skinner','della_ray','marian_skinner','wilhelm_brunne','johanne_weller'].includes(n.id) ? (n.CONTEXT || '') : n.note;
   const repeatedBiography = ['charles_godfrey','ida_mae','john_peter'].includes(n.id) && typeof GUIDE_PROFILES!=='undefined' && n.note===GUIDE_PROFILES[n.id]?.life;
   card.querySelector('p').hidden=repeatedBiography;
   card.querySelector('p').previousElementSibling.hidden=repeatedBiography;
@@ -2944,8 +2944,10 @@ body.tour-active #mobileAncestorRoute,body.aa-overlay-open #mobileAncestorRoute{
 })();
 </script>
 
+<script src="johanna-weller-mobile-biography.js?v=20261015-johanna-1"></script>
 </body>
 </html>
+
 
 
 
