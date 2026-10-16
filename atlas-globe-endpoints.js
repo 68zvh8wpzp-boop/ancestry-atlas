@@ -22,8 +22,6 @@ const additions=[
  event('jessie_irene_aurin','Jessie Irene Aurin / Aurian','canada','born','25 October 1879','Crystal Township; representative township point','Approved Jessie Aurin biography; 1879 original Michigan birth return')]},
  {id:'spratt_alpena_mi',name:'Spratt, Alpena County, Michigan, USA',lng:-83.74804,lat:45.00862,precision:'hamlet',events:[
  event('jessie_irene_aurin','Jessie Irene Aurin / Aurian','canada','died','5 March 1956','Spratt hamlet; Spratt Cemetery is burial location','Approved Jessie Aurin biography and March 1956 obituary/headstone research')]},
- {id:'linden_missouri_region',name:'Linden, Missouri, USA (historical)',lng:-93.07,lat:37.2,precision:'state approximate',representativePin:true,locationStatus:'provisional',regionNote:'Historical Linden, Missouri birth attribution. Precise locality requires further validation; point is intentionally approximate.',events:[
- event('edward_milo_jr','Edward Milo Webb Jr.','webb','born','8 March 1847','Missouri historic town attribution · coordinate approximate','Atlas v3.9.37 person note; exact location still under investigation')]},
  {id:'missouri_state_death',name:'Missouri, USA',lng:-92.5,lat:38.5,precision:'state approximate',representativePin:true,locationStatus:'provisional',regionNote:'Only Missouri as a state is reported for Russell Hill death, not Richmond or any other exact town. Point is not an exact death site.',events:[
  event('russell_hill','Colonel Russell Hill','hill','died','1899 (reported)','Missouri only · exact death locality and year need primary confirmation','Approved Russell Hill biography: remembered to have died in Missouri in 1899; burial at Richmond is not evidence of death city')]}
 ];
