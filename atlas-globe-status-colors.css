@@ -29,3 +29,25 @@
 #globeJourneyMode:focus{outline:2px solid #b8dafa;outline-offset:1px}
 .journey-note{font-size:10px;color:#b2c9dc;line-height:1.38;margin:6px 0 0}
 @media(max-width:720px){.journey-mode-label{font-size:10px}.journey-note{font-size:9px;margin-top:4px}#globeJourneyMode{min-height:32px;font-size:10px;padding:6px 20px 6px 8px}}
+
+
+/* Compact globe legend/control bar. Expanding preserves all existing filters. */
+.globe-controls-content[hidden]{display:none!important}
+.toolbar-heading{align-items:center;gap:8px}
+.toolbar-heading strong{min-width:0;font-size:17px}
+.toolbar-heading #placeCount{flex:1;min-width:60px;font-size:10px}
+.toolbar-toggle{flex:none;display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:34px;border:1px solid #7195b2;border-radius:999px;background:#15354e;color:#f4f9fb;padding:5px 11px;font-size:11px;font-weight:700;white-space:nowrap}
+.toolbar-toggle:focus-visible{outline:2px solid #e2f3ff;outline-offset:2px}
+.toolbar-heading .toolbar-toggle span{min-width:0!important;display:inline;font-size:17px!important;color:inherit!important;line-height:1!important}
+.globe-toolbar.is-collapsed{max-height:none;overflow:hidden;padding:10px 13px}
+.globe-toolbar.is-collapsed .toolbar-heading{margin:0;align-items:center;justify-content:space-between}
+.globe-toolbar.is-collapsed .toolbar-heading strong{font-size:15px}
+.globe-toolbar.is-collapsed .toolbar-heading #placeCount{display:none}
+@media(max-width:720px){
+ .globe-toolbar.is-collapsed{top:8px;left:8px;width:calc(100vw - 16px);border-radius:12px;padding:8px 12px;min-height:49px}
+ .globe-toolbar.is-collapsed .toolbar-heading{min-height:30px}
+ .globe-toolbar.is-collapsed .toolbar-heading strong{font-size:14px}
+ .globe-toolbar .toolbar-heading #placeCount{min-width:50px}
+ .globe-toolbar .toolbar-toggle{min-height:30px;padding:4px 10px;font-size:11px}
+ .toolbar-minimized #globeMap .maplibregl-ctrl-top-right{top:72px;right:8px}
+}
