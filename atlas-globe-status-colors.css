@@ -15,4 +15,4 @@
 #globeMap .maplibregl-ctrl-top-right{top:310px;right:8px}
 .pin-legend{margin-top:8px;gap:5px 9px;font-size:9px}
 .research-toggle{margin-top:7px;font-size:11px}
-}
+}\n/* Keep birth/death lines optional, and provide a mobile-friendly control. */\n.journeys-toggle{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-top:9px;font-size:12px;line-height:1.35;color:#f0e4d0;cursor:pointer}\n.journeys-toggle input{width:17px;height:17px;flex:none;accent-color:#e3c38d}\n.journeys-toggle span{font-size:10px;color:#b9cbd4}\n@media(max-width:720px){.journeys-toggle{font-size:11px;margin-top:7px}.journeys-toggle span{font-size:9px}}\n
