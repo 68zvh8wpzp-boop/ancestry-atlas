@@ -14,7 +14,8 @@
 <link rel="stylesheet" href="./atlas-globe-status-colors.css?v=20261010-10-karlstad">
 <script defer src="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js"></script>
 <script defer src="./atlas-globe-data.js?v=20261010-11-quebec"></script>
-<script defer src="./atlas-globe.js?v=20261010-11-quebec"></script>
+<script defer src="./atlas-globe-endpoints.js?v=20261016-birth-death-1"></script>
+<script defer src="./atlas-globe.js?v=20261016-geodesic-pinheads-1"></script>
 </head>
 <body>
 <div class="globe-shell">
@@ -30,7 +31,7 @@
     <div class="toolbar-heading"><strong>Family branches</strong><span id="placeCount">Loading locations…</span></div>
     <div id="globeBranchFilters" class="filters" role="group" aria-label="Filter by family branch"></div>
     <div class="events-row"><span>Show</span><div id="globeEventFilters" class="event-filters" role="group" aria-label="Filter by life event"></div></div>
-    <div class="pin-legend" role="group" aria-label="Map pin meanings">
+    <div class="pin-legend" role="group" aria-label="Round pinhead colors">
       <span><i class="legend-dot legend-established" aria-hidden="true"></i>Established</span>
       <span><i class="legend-dot legend-provisional" aria-hidden="true"></i>Provisional</span>
       <span><i class="legend-dot legend-hypothesis" aria-hidden="true"></i>Research lead</span>
@@ -39,6 +40,7 @@
       <input id="globeResearchToggle" type="checkbox" checked>
       Show research leads <span id="researchCount">(3)</span>
     </label>
+    <label class="journeys-toggle" for="globeJourneysToggle"><input id="globeJourneysToggle" type="checkbox" checked> Dotted birth-to-death paths <span>(different states / countries)</span></label>
     <label for="globeSearch" class="sr-only">Search family places or people</label>
     <input id="globeSearch" type="search" spellcheck="false" autocomplete="off" placeholder="Search a person or place…">
     <div id="globeSearchResults" class="search-results" aria-live="polite"></div>
