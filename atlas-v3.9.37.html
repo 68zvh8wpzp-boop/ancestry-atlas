@@ -1384,13 +1384,13 @@ function renderEvidence(n){
   if(!ev.length){wrap.innerHTML='<div class="evidence-empty">No source image or document attached to this person yet.</div>';return;}
   const photos=ev.filter(e=>evidenceIsImage(e)&&evidenceHasReadablePreview(e)&&e.sourceLevel!=='photo-link');
   const photoSourceLinks=ev.filter(e=>evidenceIsImage(e)&&e.sourceLevel==='photo-link'&&e.sourcePage);
-  const sourceLinkedRichards=ev.filter(e=>e.kind==='document'&&(e.sourcePage||e.documentUrl)&&((n.id==='richard_francis_skinner'&&e.sourceLevel==='original')||['jessie_irene_aurin','amelia_l_cotton','john_auene_1879'].includes(n.id)));
+  // Source links without saved media never become document-gallery tiles.
   const galleryRank=e=>{
     // Show Jessie's real 1956 originals immediately, then other local images, then linked records.
     if(n.id==='jessie_irene_aurin'&&/assets\/jessie-aurin\/1956-jessie-(?:alpena-news|spratt-cemetery)/.test(e.full||''))return 0;
     return evidenceHasReadablePreview(e)?1:2;
   };
-  const documents=ev.filter(e=>!evidenceIsImage(e)&&(evidenceHasReadablePreview(e)||sourceLinkedRichards.includes(e))).sort((a,b)=>galleryRank(a)-galleryRank(b));
+  const documents=ev.filter(e=>!evidenceIsImage(e)&&evidenceHasReadablePreview(e)).sort((a,b)=>galleryRank(a)-galleryRank(b));
   const recordLeads=ev.filter(e=>!evidenceIsImage(e)&&!documents.includes(e));
   wrap.innerHTML='';
   const addGroup=(label,list,kind)=>{
@@ -1434,10 +1434,66 @@ function renderEvidence(n){
     });
     wrap.appendChild(strip);
   };
+  if(!documents.length && !photos.length){
+    const noMedia=document.createElement('p');
+    noMedia.className='evidence-empty';
+    noMedia.textContent='No actual image files have been saved for this person yet. Source references are listed separately below.';
+    wrap.appendChild(noMedia);
+  }
   addGroup('DOCUMENTS ('+documents.length+')',documents,'documents');
-  addGroup('RECORD CITATIONS ('+recordLeads.length+')',recordLeads,'record-citations');
   addGroup('PHOTOS ('+photos.length+')',photos,'photos');
-  addGroup('PHOTO SOURCE LINKS ('+photoSourceLinks.length+')',photoSourceLinks,'photo-source-links');
+  // Keep source links available without misrepresenting them as captured images.
+  const references=[...recordLeads,...photoSourceLinks];
+  if(references.length){
+    const section=document.createElement('section');
+    section.className='source-references';
+    section.setAttribute('aria-label','Sources and research references');
+    const heading=document.createElement('h4');
+    heading.textContent='SOURCES & RESEARCH ('+references.length+')';
+    section.appendChild(heading);
+    const help=document.createElement('p');
+    help.textContent='These citations and external records are not photographs or document scans saved in the Atlas.';
+    help.className='source-references-explainer';
+    section.appendChild(help);
+    references.forEach((e,index)=>{
+      const item=document.createElement('details');
+      item.className='source-reference';
+      const heading=document.createElement('summary');
+      const label=familyFacingEvidenceTitle(e)||e.title||'Research reference';
+      heading.textContent=label+(e.date?' · '+e.date:'');
+      item.appendChild(heading);
+      const note=document.createElement('div');
+      note.className='source-reference-body';
+      if(e.summary){
+        const description=document.createElement('p');
+        description.textContent=e.summary;
+        note.appendChild(description);
+      }
+      if(e.provenance){
+        const cite=document.createElement('p');
+        cite.className='source-reference-provenance';
+        cite.textContent='Citation: '+e.provenance;
+        note.appendChild(cite);
+      }
+      const url=e.sourcePage||e.documentUrl;
+      if(url&&/^https?:\/\//i.test(url)){
+        const link=document.createElement('a');
+        link.href=url;
+        link.target='_blank';
+        link.rel='noopener noreferrer';
+        link.textContent='View source at archive ↗';
+        note.appendChild(link);
+      }
+      if(e.previewStatus){
+        const status=document.createElement('small');
+        status.textContent=e.previewStatus;
+        note.appendChild(status);
+      }
+      item.appendChild(note);
+      section.appendChild(item);
+    });
+    wrap.appendChild(section);
+  }
 }
 let atlasViewerPointers=new Map();
 let atlasViewerGesture=null;
@@ -3070,6 +3126,19 @@ body.tour-active #mobileAncestorRoute,body.aa-overlay-open #mobileAncestorRoute{
 <style>
 /* iPhone PWA status-bar inset: title and Close must be below the status bar. */
 @media(max-width:800px){#card{top:max(58px,calc(env(safe-area-inset-top) + 10px));bottom:max(82px,calc(env(safe-area-inset-bottom) + 76px));scroll-padding-top:12px}}
+</style>
+<style>
+/* Source references are references, not fabricated gallery thumbnails. */
+.source-references{margin:15px 0 16px;border-top:1px solid #2c4556;padding-top:12px}
+.source-references h4{font-size:12px;letter-spacing:.12em;font-weight:600;color:#b8cddc;margin:0 0 6px}
+.source-references-explainer{font-size:12px;color:#9fb1c2;margin:4px 0 8px;line-height:1.45}
+.source-reference{border-bottom:1px solid #2c3f4d;padding:10px 0}
+.source-reference summary{cursor:pointer;font-size:13px;line-height:1.45;color:#e6f0f6;overflow-wrap:anywhere}
+.source-reference-body{padding:8px 0 4px 8px;font-size:12px;line-height:1.5;color:#b5c5d2}
+.source-reference-body p{margin:0 0 8px}
+.source-reference-provenance{color:#8fa6ba}
+.source-reference-body a{display:inline-block;margin:0 0 7px;color:#bcdaf6;text-decoration:underline}
+.source-reference-body small{display:block;font-size:11px;color:#90a7b8}
 </style>
 </body>
 </html>
