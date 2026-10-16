@@ -21,3 +21,11 @@
 .journeys-toggle input{width:17px;height:17px;flex:none;accent-color:#e3c38d}
 .journeys-toggle span{font-size:10px;color:#b9cbd4}
 @media(max-width:720px){.journeys-toggle{font-size:11px;margin-top:7px}.journeys-toggle span{font-size:9px}}
+
+
+/* Compact mobile selector for globe-following navy life paths. */
+.journey-mode-label{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:7px;color:#d9e8fa;font-size:11px;font-weight:640}
+#globeJourneyMode{max-width:76%;width:100%;min-width:0;border:1px solid #87a9c8;border-radius:9px;padding:8px 28px 8px 10px;background:#122d50;color:#f8fbff;min-height:34px;font-size:11px}
+#globeJourneyMode:focus{outline:2px solid #b8dafa;outline-offset:1px}
+.journey-note{font-size:10px;color:#b2c9dc;line-height:1.38;margin:6px 0 0}
+@media(max-width:720px){.journey-mode-label{font-size:10px}.journey-note{font-size:9px;margin-top:4px}#globeJourneyMode{min-height:32px;font-size:10px;padding:6px 20px 6px 8px}}
