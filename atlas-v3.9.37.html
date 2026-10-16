@@ -3066,6 +3066,10 @@ body.tour-active #mobileAncestorRoute,body.aa-overlay-open #mobileAncestorRoute{
 #docModal.open{z-index:250}
 </style>
 
+<style>
+/* iPhone PWA status-bar inset: title and Close must be below the status bar. */
+@media(max-width:800px){#card{top:max(58px,calc(env(safe-area-inset-top) + 10px));bottom:max(82px,calc(env(safe-area-inset-bottom) + 76px));scroll-padding-top:12px}}
+</style>
 </body>
 </html>
 
