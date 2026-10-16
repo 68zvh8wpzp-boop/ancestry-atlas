@@ -18,8 +18,10 @@ const titles={born:'Born',lived:'Lived',died:'Died'};
 // Native globe symbols clip at the horizon. Do not use overlay markers.
 const PIN_SOURCE='atlas-family-places',PIN_LAYER='atlas-red-place-pins',PIN_HIT_LAYER='atlas-red-pin-targets',PIN_IMAGE='atlas-red-pin';
 const PIN_BLUE='atlas-blue-provisional-pin',PIN_YELLOW='atlas-yellow-research-pin';
+const JOURNEY_SOURCE='atlas-journey-lines',JOURNEY_LAYER='atlas-dotted-journeys',JOURNEY_FOCUS='atlas-highlighted-journeys';
 const HYP_SOURCE='atlas-research-leads',HYP_LAYER='atlas-yellow-research-layer',HYP_HIT_LAYER='atlas-yellow-research-targets';
 let showResearch=true;
+let showJourneys=true;
 let map=null;
 let chosen=null;
 function eventsOf(place){return place.events.filter(e=>branchEnabled.has(e.branch)&&eventEnabled.has(e.type));}
@@ -46,22 +48,75 @@ function researchFeatures(){
  }))};
 }
 function makePinImage(fill){
- const canvas=document.createElement('canvas');canvas.width=44;canvas.height=64;
- const ctx=canvas.getContext('2d');if(!ctx)throw Error('Canvas pin image could not be generated');
+ const canvas=document.createElement('canvas');canvas.width=40;canvas.height=40;
+ const ctx=canvas.getContext('2d');if(!ctx)throw Error('Canvas pinhead image unavailable');
  ctx.scale(2,2);
- ctx.shadowColor='rgba(5,18,27,.65)';ctx.shadowBlur=2;ctx.shadowOffsetY=1;
- ctx.beginPath();
- ctx.moveTo(11,30);
- ctx.bezierCurveTo(8.7,25.2,2.5,18.8,2.5,11.5);
- ctx.bezierCurveTo(2.5,6.2,6.3,2,11,2);
- ctx.bezierCurveTo(15.7,2,19.5,6.2,19.5,11.5);
- ctx.bezierCurveTo(19.5,18.8,13.3,25.2,11,30);
- ctx.closePath();ctx.fillStyle=fill;ctx.strokeStyle='#fff6e9';ctx.lineWidth=1.2;ctx.fill();ctx.stroke();
- ctx.shadowColor='transparent';ctx.shadowBlur=0;ctx.shadowOffsetY=0;
- ctx.beginPath();ctx.arc(11,11,3.35,0,Math.PI*2);ctx.fillStyle='#fff8ef';ctx.fill();
+ const x=10,y=10,r=6.5;
+ ctx.shadowColor='rgba(0,0,0,.7)';ctx.shadowBlur=2.4;ctx.shadowOffsetY=1.5;
+ ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);
+ const sphere=ctx.createRadialGradient(x-2.4,y-2.6,.25,x+.7,y+.9,8);
+ sphere.addColorStop(0,'#fffefa');sphere.addColorStop(.13,'#fff3e8');sphere.addColorStop(.26,fill);
+ sphere.addColorStop(.76,fill);sphere.addColorStop(1,'#172531');
+ ctx.fillStyle=sphere;ctx.fill();ctx.shadowColor='transparent';
+ ctx.strokeStyle='rgba(255,255,255,.85)';ctx.lineWidth=.75;ctx.stroke();
+ ctx.beginPath();ctx.ellipse(x-2.5,y-2.7,1.75,.95,-.5,0,Math.PI*2);
+ ctx.fillStyle='rgba(255,255,255,.75)';ctx.fill();
  return ctx.getImageData(0,0,canvas.width,canvas.height);
 }
-function closePanel(){chosen=null;panel.hidden=true;}
+// Dense spherical interpolation makes every journey follow the globe, not a flat map.
+function geodesic(from,to){
+ const d=Math.PI/180,r=180/Math.PI;
+ const vector=p=>{const a=p.lat*d,b=p.lng*d;return [Math.cos(a)*Math.cos(b),Math.cos(a)*Math.sin(b),Math.sin(a)];};
+ const a=vector(from),b=vector(to);
+ const theta=Math.acos(Math.max(-1,Math.min(1,a[0]*b[0]+a[1]*b[1]+a[2]*b[2])));
+ if(theta<.00001)return null;
+ const n=Math.max(24,Math.ceil(theta/(1.25*d))),sin=Math.sin(theta);
+ const segments=[[]];let prev=null;
+ for(let i=0;i<=n;i++){
+  const t=i/n,u=Math.sin((1-t)*theta)/sin,v=Math.sin(t*theta)/sin;
+  const x=u*a[0]+v*b[0],y=u*a[1]+v*b[1],z=u*a[2]+v*b[2];
+  const p=[Math.atan2(y,x)*r,Math.atan2(z,Math.hypot(x,y))*r];
+  if(prev&&Math.abs(prev[0]-p[0])>180){
+   const edge=prev[0]>=0?180:-180,adjusted=p[0]+(edge>0?360:-360);
+   const fraction=(edge-prev[0])/(adjusted-prev[0]);
+   const lat=prev[1]+fraction*(p[1]-prev[1]);
+   segments[segments.length-1].push([edge,lat]);
+   segments.push([[-edge,lat]]);
+  }
+  segments[segments.length-1].push(p);prev=p;
+ }
+ return {type:'MultiLineString',coordinates:segments.filter(x=>x.length>1)};
+}
+function administrativeRegion(place){
+ const parts=place.name.split(',').map(s=>s.trim().replace(/\\s*\\(.*?\\)\\s*/g,''));
+ const country=parts[parts.length-1].toLowerCase();
+ if(['usa','united states','canada','mexico'].includes(country))
+  return country+':'+(parts.length>1?parts[parts.length-2].toLowerCase():'unknown');
+ return country;
+}
+function journeyFeatures(){
+ const people=new Map();
+ for(const place of visiblePlaces())for(const event of eventsOf(place)){
+  if(event.type!=='born'&&event.type!=='died')continue;
+  if(!people.has(event.personId))people.set(event.personId,{name:event.name,branch:event.branch});
+  const person=people.get(event.personId),previous=person[event.type];
+  if(!previous||(previous.representativePin&&!place.representativePin))person[event.type]=place;
+ }
+ const features=[];
+ for(const [id,p] of people){
+  if(!p.born||!p.died||administrativeRegion(p.born)===administrativeRegion(p.died))continue;
+  const geometry=geodesic(p.born,p.died);if(!geometry)continue;
+  features.push({type:'Feature',properties:{personId:id,name:p.name,from:p.born.name,to:p.died.name,branch:p.branch,approximate:!!(p.born.representativePin||p.died.representativePin)},geometry});
+ }
+ return {type:'FeatureCollection',features:showJourneys?features:[]};
+}
+function updateRouteFocus(){
+ if(!map||!map.getLayer(JOURNEY_FOCUS))return;
+ const place=data.places.find(p=>p.id===chosen);
+ const people=place?[...new Set(eventsOf(place).map(e=>e.personId))]:[];
+ map.setFilter(JOURNEY_FOCUS,['in',['get','personId'],['literal',people]]);
+}
+function closePanel(){chosen=null;panel.hidden=true;updateRouteFocus();}
 function announceCounts(){
  const places=visiblePlaces(),research=visibleResearch();
  countNode.textContent=places.length+' places · '+uniquePeople(places)+' people'+(research.length?' · '+research.length+' leads':'');
@@ -80,7 +135,7 @@ if(research){
  const heading=element('div','research-lead-title',research.confidence);
  const explanation=element('p','person-place-desc',research.summary);
  const caution=element('p','person-place-region',research.qualification);
- peopleNode.append(heading,explanation,caution);
+ peopleNode.append(heading,explanation,caution);updateRouteFocus();
  if(research.relatedPersonId){
   const link=element('a','person-place','View connected Atlas ancestor: '+research.relatedPersonLabel+' →');
   link.href='./atlas-v3.9.36.html?atlas-person='+encodeURIComponent(research.relatedPersonId);
@@ -129,7 +184,7 @@ link.append(detail);
 }
 peopleNode.append(link);
 }
-panel.hidden=false;
+panel.hidden=false;updateRouteFocus();
 }
 function selectPlace(place,{fly=true}={}){
 chosen=place.id;
@@ -146,6 +201,7 @@ function selectResearch(lead,{fly=true}={}){
 function updateMarkers(){
  if(map&&map.getSource(PIN_SOURCE))map.getSource(PIN_SOURCE).setData(pinFeatures());
  if(map&&map.getSource(HYP_SOURCE))map.getSource(HYP_SOURCE).setData(researchFeatures());
+ if(map&&map.getSource(JOURNEY_SOURCE))map.getSource(JOURNEY_SOURCE).setData(journeyFeatures());
  announceCounts();renderPanel();
 }
 const filterRoot=document.getElementById('globeBranchFilters');
@@ -195,6 +251,8 @@ function searchNow(){
  if(!matching.length&&!possible.length)matchesNode.append(element('div','search-item','No matching family places or research leads'));
 }
 search.addEventListener('input',searchNow);
+const journeysToggle=document.getElementById('globeJourneysToggle');
+if(journeysToggle){showJourneys=journeysToggle.checked;journeysToggle.addEventListener('change',()=>{showJourneys=journeysToggle.checked;updateMarkers();});}
 const researchToggle=document.getElementById('globeResearchToggle');
 if(researchToggle){showResearch=researchToggle.checked;researchToggle.addEventListener('change',()=>{
  showResearch=researchToggle.checked;updateMarkers();searchNow();
@@ -224,18 +282,29 @@ map.on('load',()=>{
  map.addImage(PIN_YELLOW,makePinImage('#e6b331'),{pixelRatio:2});
  map.addSource(PIN_SOURCE,{type:'geojson',data:pinFeatures()});
  map.addSource(HYP_SOURCE,{type:'geojson',data:researchFeatures()});
+ map.addSource(JOURNEY_SOURCE,{type:'geojson',data:journeyFeatures()});
+ // Draw beneath pinheads; MapLibre globe projection clips the far-side curves.
+ map.addLayer({id:JOURNEY_LAYER,type:'line',source:JOURNEY_SOURCE,
+  layout:{'line-cap':'round','line-join':'round'},
+  paint:{'line-color':'#eadbc3','line-width':['interpolate',['linear'],['zoom'],0,1.5,4,2.2,9,2.5],
+   'line-dasharray':[.65,2.7],'line-opacity':.55}});
+ map.addLayer({id:JOURNEY_FOCUS,type:'line',source:JOURNEY_SOURCE,
+  filter:['in',['get','personId'],['literal',[]]],
+  layout:{'line-cap':'round','line-join':'round'},
+  paint:{'line-color':'#fff1c8','line-width':['interpolate',['linear'],['zoom'],0,2.2,4,3.2,9,3.6],
+   'line-dasharray':[.7,2.2],'line-opacity':.97}});
  // Map-native hit targets remain invisible on the globe and aid iPhone taps.
  map.addLayer({id:PIN_HIT_LAYER,type:'circle',source:PIN_SOURCE,paint:{'circle-radius':15,'circle-color':'#d83b38','circle-opacity':0}});
  map.addLayer({id:HYP_HIT_LAYER,type:'circle',source:HYP_SOURCE,paint:{'circle-radius':15,'circle-color':'#e6b331','circle-opacity':0}});
  map.addLayer({id:PIN_LAYER,type:'symbol',source:PIN_SOURCE,layout:{
   'icon-image':['match',['get','status'],'provisional',PIN_BLUE,PIN_IMAGE],
-  'icon-anchor':'bottom',
-  'icon-size':['interpolate',['linear'],['zoom'],0,0.7,2,0.82,5,1],
+  'icon-anchor':'center',
+  'icon-size':['interpolate',['linear'],['zoom'],0,0.7,2,0.85,5,1],
   'icon-allow-overlap':true,'icon-ignore-placement':true
  }});
  map.addLayer({id:HYP_LAYER,type:'symbol',source:HYP_SOURCE,layout:{
-  'icon-image':PIN_YELLOW,'icon-anchor':'bottom',
-  'icon-size':['interpolate',['linear'],['zoom'],0,0.7,2,0.82,5,1],
+  'icon-image':PIN_YELLOW,'icon-anchor':'center',
+  'icon-size':['interpolate',['linear'],['zoom'],0,0.7,2,0.85,5,1],
   'icon-allow-overlap':true,'icon-ignore-placement':true
  }});
  updateMarkers();status.hidden=true;
