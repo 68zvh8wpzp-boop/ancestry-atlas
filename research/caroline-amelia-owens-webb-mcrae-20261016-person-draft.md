@@ -39,3 +39,19 @@ The overland route from Iowa to Utah in **1852** crossed a dangerous plains envi
 
 ### Approval status
 **Draft saved for later person-page editing/approval; do not mark done.** User specifically requires full images/transcription/citations and iPhone app verification after web publishing. Preserve the existing ancestor page unmodified until signoff and original-media integration.
+
+## Material NEW ORIGINAL-ERA PERSON RECORD: Nauvoo Relief Society minutes, 12 May 1842
+
+**Joseph Smith Papers** official critical edition digitizes the Female Relief Society of Nauvoo Minute Book, original **handwritten p. [45]** of the **minutes of 12 May 1842**, Nauvoo, Hancock County, Illinois. Exact focused section https://www.josephsmithpapers.org/paper-summary/minutes-12-may-1842/3 ; full minute-book page https://www.josephsmithpapers.org/paper-summary/nauvoo-relief-society-minute-book/68 ; original handwriting **Eliza R. Snow**, deposited Church History Library, minute-book document ID **7238**, section ID **10419**. Exact line transcribed **"Amelia C. [Caroline Amelia] Webb"** (editorial scholarly expansion **[Caroline Amelia]**, not original writing). The handwritten original lists **"Amelia C. Webb"**, second column on p.[45], about 3rd entry. Meeting opens on p.[43] with announcement that names were **"presented to the Society and were unanimously receiv'd"**; hence this establishes **admission to membership**, not a charitable activity or physical attendance by Caroline that day. First page https://www.josephsmithpapers.org/paper-summary/minutes-12-may-1842/1 ; intermediate p.[44] /2 and p.[45] /3.
+
+**Date peculiarity:** Original minutes heading at p.[43] is **"Lodge Room, May 13th. [12th]"**; critical edition formally dates meeting **12 May 1842**. Some compiled membership indexes say May13 using uncorrected header; record both faithfully, use scholarly preferred date with caveat if exact day matters.
+
+**Original vs digital-capture status:** A contemporary original manuscript in a high-quality critical edition was READ in complete scholarly transcription with page and meeting context. Download link identified for page45: https://www.josephsmithpapers.org/bc-jsp/content/jsp/images/7238/7238_ms3424_rsm_045_download.jpg (JSP-minutes-12-may-1842-45.jpg); web click was cache-miss, container downloader FAILED. **No JPEG bytes captured or visually inspected at full resolution**, only official online manuscript transcription and descriptive record. Capture held for future GUI browser/Work. Cite this original through critical edition without calling image captured.
+
+**Suggested single-sentence biography addition:** “At about twenty, Caroline was among the women received into Nauvoo’s newly formed Relief Society on 12 May 1842; the contemporary minutes name her ‘Amelia C. Webb.’” Focus on *her* membership, not broad religion. Preserve original source under documents, not generic context image.
+
+**Ambiguous adjacent Webb:** Same minute book p.[112] mentions **"Mrs Webb said she would take her in"**, but could be another Webb woman (Hannah Webb appears p.[78] and others are possible). **Do not claim that this benevolent statement concerns Caroline** without uniquely identifying her.
+
+**Separate 1895 obituary status:** Surveyed Fillmore newspaper *Millard Progress* 1894–1895, University Utah newspaper-index leads and broader obituary queries around **1–14 Sep 1895**, but no independently opened contemporary Caroline obituary or funeral original. Existing 1895 funeral account remains a **descendant-provided transcription**, not inspected original. Avoid declaring comprehensive negative.
+
+**Person status:** New strong documented primary-era personal event; **no source-image capture**, no Atlas code deployment, biography approval, iPhone validation, FamilySearch edit, paid order or email action. Retain all earlier findings and uncertainties.
