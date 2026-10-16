@@ -11,11 +11,11 @@
 <title>Family Geography · Ancestry Atlas</title>
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css">
 <link rel="stylesheet" href="./atlas-globe.css?v=20261010-10-karlstad">
-<link rel="stylesheet" href="./atlas-globe-status-colors.css?v=20261016-navy-life-1">
+<link rel="stylesheet" href="./atlas-globe-status-colors.css?v=20261016-mobile-compact-2">
 <script defer src="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js"></script>
 <script defer src="./atlas-globe-data.js?v=20261010-11-quebec"></script>
 <script defer src="./atlas-globe-endpoints.js?v=20261016-birth-death-1"></script>
-<script defer src="./atlas-globe.js?v=20261016-full-life-navy-1"></script>
+<script defer src="./atlas-globe.js?v=20261016-mobile-compact-2"></script>
 </head>
 <body>
 <div class="globe-shell">
@@ -28,7 +28,11 @@
   <div id="globeMap" role="application" aria-label="Interactive political globe of family birth, residence and death locations"></div>
   <div id="mapStatus" class="map-status" aria-live="polite">Preparing the globe…</div>
   <div class="globe-toolbar">
-    <div class="toolbar-heading"><strong>Family branches</strong><span id="placeCount">Loading locations…</span></div>
+    <div class="toolbar-heading">
+      <strong>Family branches</strong><span id="placeCount">Loading locations…</span>
+      <button id="toggleGlobeToolbar" class="toolbar-toggle" type="button" aria-expanded="true" aria-controls="globeControlsContent">Hide <span aria-hidden="true">⌃</span></button>
+    </div>
+    <div id="globeControlsContent" class="globe-controls-content">
     <div id="globeBranchFilters" class="filters" role="group" aria-label="Filter by family branch"></div>
     <div class="events-row"><span>Show</span><div id="globeEventFilters" class="event-filters" role="group" aria-label="Filter by life event"></div></div>
     <div class="pin-legend" role="group" aria-label="Round pinhead colors">
@@ -52,6 +56,7 @@
     <input id="globeSearch" type="search" spellcheck="false" autocomplete="off" placeholder="Search a person or place…">
     <div id="globeSearchResults" class="search-results" aria-live="polite"></div>
     <p class="toolbar-hint">Drag to spin · Pinch or scroll to zoom · Select a pin for family stories</p>
+    </div>
   </div>
   <aside id="globePlacePanel" class="place-panel" aria-label="People connected to this location" aria-live="polite" hidden>
     <div class="place-heading"><div><span id="placeTypeLabel" class="eyebrow">Family place</span><h2 id="placeTitle"></h2><p id="placeMeta"></p></div><button id="closePlacePanel" class="close-panel" type="button" aria-label="Close place details">×</button></div>
