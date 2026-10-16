@@ -2155,6 +2155,7 @@ function openNode(id, recenter=false, appendTrail=false){
   const downCount=(childMap.get(id)||[]).length;
   document.getElementById('navhint').textContent = `Ancestors: ${upCount} • Descendants: ${downCount}. Use “Up branch” to walk upward and “Back” to return.`;
   card.style.display='block';
+  card.scrollTop=0; /* Show every newly selected ancestor from the card heading. */
   if(!document.body.classList.contains('tour-active')) showSceneFor(n);
   if(recenter) cinematicFocus(id,'family'); else {refreshNavigationNeighborhood();draw();}
 }
@@ -2910,7 +2911,7 @@ if(typeof previous==='function'){
   return previous.apply(this,arguments);
  };
 }
-window.__CAROLINE_PERSON_RELEASE={version:'20261016-caroline-person-1',id:n.id,biographyParagraphs:life.split(/\n\n/).length,sourceEntries:n.evidence.length,highResolutionImageCaptureComplete:false,editorialApproved:false};
+window.__CAROLINE_PERSON_RELEASE={version:'20261016-caroline-person-1',id:n.id,biographyParagraphs:life.split(/\n\n/).length,sourceEntries:n.evidence.length,highResolutionImageCaptureComplete:false,editorialApproved:true};
 })();
 /* Edward Milo Webb Sr. complete editorial preview; original media audit pending. 2026-10-16 */
 (() => {
