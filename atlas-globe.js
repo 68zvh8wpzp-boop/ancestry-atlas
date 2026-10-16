@@ -119,7 +119,8 @@ function updateRouteFocus(){
 function closePanel(){chosen=null;panel.hidden=true;updateRouteFocus();}
 function announceCounts(){
  const places=visiblePlaces(),research=visibleResearch();
- countNode.textContent=places.length+' places · '+uniquePeople(places)+' people'+(research.length?' · '+research.length+' leads':'');
+ const journeyCount=journeyFeatures().features.length;
+ countNode.textContent=places.length+' places · '+uniquePeople(places)+' people'+(journeyCount?' · '+journeyCount+' paths':'')+(research.length?' · '+research.length+' leads':'');
  const rc=document.getElementById('researchCount');if(rc)rc.textContent='('+(data.hypotheses||[]).length+')';
  emptyNode.hidden=places.length>0||research.length>0;
 }
@@ -138,7 +139,7 @@ if(research){
  peopleNode.append(heading,explanation,caution);updateRouteFocus();
  if(research.relatedPersonId){
   const link=element('a','person-place','View connected Atlas ancestor: '+research.relatedPersonLabel+' →');
-  link.href='./atlas-v3.9.36.html?atlas-person='+encodeURIComponent(research.relatedPersonId);
+  link.href='./atlas-v3.9.37.html?atlas-person='+encodeURIComponent(research.relatedPersonId);
   peopleNode.append(link);
  }
  if(research.sourceUrl){
