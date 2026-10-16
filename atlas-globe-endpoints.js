@@ -22,6 +22,12 @@ const additions=[
  event('jessie_irene_aurin','Jessie Irene Aurin / Aurian','canada','born','25 October 1879','Crystal Township; representative township point','Approved Jessie Aurin biography; 1879 original Michigan birth return')]},
  {id:'spratt_alpena_mi',name:'Spratt, Alpena County, Michigan, USA',lng:-83.74804,lat:45.00862,precision:'hamlet',events:[
  event('jessie_irene_aurin','Jessie Irene Aurin / Aurian','canada','died','5 March 1956','Spratt hamlet; Spratt Cemetery is burial location','Approved Jessie Aurin biography and March 1956 obituary/headstone research')]},
+ {id:'murray_ut',name:'Murray, Utah, USA',lng:-111.887,lat:40.6669,precision:'city',events:[
+ event('edward_milo_jr','Edward Milo Webb Jr.','webb','died','11 September 1921 (supported, disputed)','Utah death-index location; one institutional profile conflicts on year','Approved Webb branch biography; Utah death-certificate index and family history')]},
+ {id:'vandalia_mo',name:'Vandalia, Missouri, USA',lng:-91.4885,lat:39.3109,precision:'city',events:[
+ event('thomas_d','Thomas D. Dunbar','hill','died','16 July 1897','Vandalia, Audrain County','Approved Thomas D. Dunbar biography, source and life chronology')]},
+ {id:'platte_nebraska_region',name:'Platte River corridor, present-day Nebraska, USA',lng:-100.1,lat:41.13,precision:'corridor approximate',representativePin:true,locationStatus:'provisional',regionNote:'Edward Milo Webb Sr. died beside the Platte River on the 1852 migration west. This is a REPRESENTATIVE point along a long river corridor; exact death position is unknown. Nebraska Territory had not yet been organized in 1852.',events:[
+ event('edward_milo_sr','Edward Milo Webb Sr.','webb','died','31 July 1852','Present-day Nebraska-area Platte River crossing · approximate corridor, NOT a known gravesite','Approved Webb branch 1852 overland biography; river-route location reported, exact death site unproved')]},
  {id:'missouri_state_death',name:'Missouri, USA',lng:-92.5,lat:38.5,precision:'state approximate',representativePin:true,locationStatus:'provisional',regionNote:'Only Missouri as a state is reported for Russell Hill death, not Richmond or any other exact town. Point is not an exact death site.',events:[
  event('russell_hill','Colonel Russell Hill','hill','died','1899 (reported)','Missouri only · exact death locality and year need primary confirmation','Approved Russell Hill biography: remembered to have died in Missouri in 1899; burial at Richmond is not evidence of death city')]}
 ];
@@ -33,6 +39,17 @@ function mergePlace(place){
  }
 }
 for(const place of additions)mergePlace(place);
+const linked=[
+ ['loudouncounty',event('william_weedon','William Weedon / Weeden Dunbar','hill','born','8 March 1787','Loudoun County, Virginia','Approved William Dunbar biography')],
+ ['boonecounty',event('william_weedon','William Weedon / Weeden Dunbar','hill','died','11 August 1877','Boone County, Missouri; grave on John Dunbar Farm not precisely located','Approved William Dunbar biography and vital dates')],
+ ['madisoncounty',event('rev_thomas','Thomas Dunbar','hill','died','31 August / 1 September 1855','Madison County, Kentucky, at son John’s home; date conflict preserved','Approved Revolutionary-era Thomas Dunbar biography and pension obituary')],
+ ['fillmore_ut',event('caroline_owens','Caroline Amelia Owens','webb','died','1 September 1895','Fillmore, Utah; buried there 3 September','Approved Caroline Owens person page 2026-10-16 biography')]
+];
+for(const [placeId,entry] of linked){const p=data.places.find(x=>x.id===placeId);if(p&&!p.events.some(e=>e.personId===entry.personId&&e.type===entry.type))p.events.push(entry);}
+const state=data.places.find(p=>p.id==='missouri_state_death');
+if(state&&!state.events.some(e=>e.personId==='edward_milo_jr'&&e.type==='born')){
+ state.events.push(event('edward_milo_jr','Edward Milo Webb Jr.','webb','born','8 March 1847','Linden, Missouri reported; exact historic locality not geocoded, state-level pin only','Atlas v3.9.37 Edward Milo Webb Jr. note; no asserted town coordinates'));
+}
 const germany=data.places.find(p=>p.id==='region_germany');
 if(germany&&!germany.events.some(e=>e.personId==='charles_godfrey'&&e.type==='born')){
  germany.events.push(event('charles_godfrey','Charles Godfrey / Gottfried Brenay (Brunne)','canada','born','January 1874 (approximate)','Germany only · exact German birthplace not established','Approved Charles Godfrey biography; German origin and naturalization evidence'));
