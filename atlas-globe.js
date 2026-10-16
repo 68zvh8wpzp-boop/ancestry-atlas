@@ -88,7 +88,7 @@ function geodesic(from,to){
  return {type:'MultiLineString',coordinates:segments.filter(x=>x.length>1)};
 }
 function administrativeRegion(place){
- const parts=place.name.split(',').map(s=>s.trim().replace(/\\s*\\(.*?\\)\\s*/g,''));
+ const parts=place.name.split(',').map(s=>s.trim().replace(/\s*\(.*?\)\s*/g,''));
  const country=parts[parts.length-1].toLowerCase();
  if(['usa','united states','canada','mexico'].includes(country))
   return country+':'+(parts.length>1?parts[parts.length-2].toLowerCase():'unknown');
