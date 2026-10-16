@@ -395,7 +395,8 @@ if(researchToggle){showResearch=researchToggle.checked;researchToggle.addEventLi
 });}
 document.getElementById('closePlacePanel').addEventListener('click',closePanel);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden)document.getElementById('closePlacePanel').click();});
-const home=()=>{if(map)map.flyTo({center:[-42,40],zoom:1.05,pitch:0,bearing:0,essential:true,duration:1400});};
+const defaultWorldZoom=window.matchMedia?.('(max-width:720px)').matches?1.55:1.05;
+const home=()=>{if(map)map.flyTo({center:[-42,40],zoom:defaultWorldZoom,pitch:0,bearing:0,essential:true,duration:1400});};
 document.getElementById('resetGlobe').addEventListener('click',home);
 function loadMap(){
 if(!window.maplibregl){status.textContent='The map engine could not load. Check your connection and reload this experience.';return;}
@@ -408,7 +409,7 @@ version:8,
 sources:{'political':{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],tileSize:256,minzoom:0,maxzoom:19,attribution:'© OpenStreetMap contributors'}},
 layers:[{id:'political-basemap',type:'raster',source:'political'}]
 },
-center:[-42,40],zoom:1.55,minZoom:0.5,maxZoom:15,pitch:0,maxPitch:45,antialias:true
+center:[-42,40],zoom:defaultWorldZoom,minZoom:0.5,maxZoom:15,pitch:0,maxPitch:45,antialias:true
 });
 map.on('style.load',()=>{map.setProjection({type:'globe'});});
 map.addControl(new maplibregl.NavigationControl({showCompass:true,showZoom:true}),'top-right');
