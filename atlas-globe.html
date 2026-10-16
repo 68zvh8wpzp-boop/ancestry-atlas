@@ -11,15 +11,16 @@
 <title>Family Geography · Ancestry Atlas</title>
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css">
 <link rel="stylesheet" href="./atlas-globe.css?v=20261010-10-karlstad">
-<link rel="stylesheet" href="./atlas-globe-status-colors.css?v=20261010-10-karlstad">
+<link rel="stylesheet" href="./atlas-globe-status-colors.css?v=20261016-journey-toggle-1">
 <script defer src="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js"></script>
 <script defer src="./atlas-globe-data.js?v=20261010-11-quebec"></script>
-<script defer src="./atlas-globe.js?v=20261010-11-quebec"></script>
+<script defer src="./atlas-globe-endpoints.js?v=20261016-birth-death-1"></script>
+<script defer src="./atlas-globe.js?v=20261016-geodesic-pinheads-1"></script>
 </head>
 <body>
 <div class="globe-shell">
 <header class="globe-header">
- <a class="back-link" href="./atlas-v3.9.36.html" aria-label="Back to the Ancestry Atlas main page"><span aria-hidden="true">←</span> Atlas</a>
+ <a class="back-link" href="./atlas-v3.9.37.html" aria-label="Back to the Ancestry Atlas main page"><span aria-hidden="true">←</span> Atlas</a>
  <div class="globe-heading"><div class="eyebrow">Ancestry Atlas · An experience</div><h1>Family Geography</h1><p>The places we called home</p></div>
  <button id="resetGlobe" class="quiet-button" type="button" title="Return to world view">◎ <span>World view</span></button>
 </header>
@@ -30,7 +31,7 @@
     <div class="toolbar-heading"><strong>Family branches</strong><span id="placeCount">Loading locations…</span></div>
     <div id="globeBranchFilters" class="filters" role="group" aria-label="Filter by family branch"></div>
     <div class="events-row"><span>Show</span><div id="globeEventFilters" class="event-filters" role="group" aria-label="Filter by life event"></div></div>
-    <div class="pin-legend" role="group" aria-label="Map pin meanings">
+    <div class="pin-legend" role="group" aria-label="Round pinhead colors">
       <span><i class="legend-dot legend-established" aria-hidden="true"></i>Established</span>
       <span><i class="legend-dot legend-provisional" aria-hidden="true"></i>Provisional</span>
       <span><i class="legend-dot legend-hypothesis" aria-hidden="true"></i>Research lead</span>
@@ -39,6 +40,7 @@
       <input id="globeResearchToggle" type="checkbox" checked>
       Show research leads <span id="researchCount">(3)</span>
     </label>
+    <label class="journeys-toggle" for="globeJourneysToggle"><input id="globeJourneysToggle" type="checkbox" checked> Dotted birth-to-death paths <span>(different states / countries)</span></label>
     <label for="globeSearch" class="sr-only">Search family places or people</label>
     <input id="globeSearch" type="search" spellcheck="false" autocomplete="off" placeholder="Search a person or place…">
     <div id="globeSearchResults" class="search-results" aria-live="polite"></div>
@@ -49,7 +51,7 @@
     <div id="placePeople" class="place-people"></div>
   </aside>
   <div id="globeEmpty" class="empty-state" hidden>No places match these filters. Select another branch or life event.</div>
-  <div class="map-caption">Born · Lived · Died only <span aria-hidden="true">•</span> Historical localities may have approximate positions</div>
+  <div class="map-caption">Born · Lived · Died only <span aria-hidden="true">•</span> Dotted paths follow the globe <span aria-hidden="true">•</span> Some locations are approximate</div>
 </main>
 </div>
 </body>
