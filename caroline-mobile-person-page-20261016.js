@@ -1,4 +1,4 @@
-/* Caroline Amelia Owens Webb McRae — actual mobile person-page release, 2026-10-16. Editorial preview, pending user approval. */
+/* Caroline Amelia Owens Webb McRae — actual mobile person-page release, 2026-10-16. User-approved biography; media audit pending. */
 (() => {
 'use strict';
 if(typeof DATA==='undefined'||typeof GUIDE_PROFILES==='undefined')return;
@@ -59,5 +59,5 @@ if(typeof previous==='function'){
   return previous.apply(this,arguments);
  };
 }
-window.__CAROLINE_PERSON_RELEASE={version:'20261016-caroline-person-1',id:n.id,biographyParagraphs:life.split(/\n\n/).length,sourceEntries:n.evidence.length,highResolutionImageCaptureComplete:false,editorialApproved:false};
+window.__CAROLINE_PERSON_RELEASE={version:'20261016-caroline-person-1',id:n.id,biographyParagraphs:life.split(/\n\n/).length,sourceEntries:n.evidence.length,highResolutionImageCaptureComplete:false,editorialApproved:true};
 })();
