@@ -22,3 +22,6 @@
 
 ## Current Atlas status
 Existing Louise biography published provisionally with **DOCUMENTS(1) held** as external original record link, not a readable packaged original. Existing web hold status accurate. No new photo/document uploaded, no genealogy link upgraded, no new biography or final page publication in this pass. All requests/records/merges/correspondence/payments **unchanged**, email NOT accessed.
+
+## BAnQ collection access verification (16 October 2026)
+Official collection page https://numerique.banq.qc.ca/collections/registres-etat-civil confirms holdings of Québec baptisms, marriages and burials through **1925**. Its **Accédez** link leads to a dynamic search URL that could not be fetched from this browser (restricted URL), so no individual St-Michel/Sherbrooke 1846 result, page image or download was obtained. Treat official general catalogue as a possible retrieval route only; previous exact FamilySearch image URL remains the only specific original locator.
