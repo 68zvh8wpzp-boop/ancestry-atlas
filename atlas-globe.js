@@ -100,7 +100,7 @@ function administrativeRegion(place){
 // do not silently turn "20th century" or "childhood" into an exact year.
 function approximateYear(value,birthYear){
  const valueText=String(value||'').trim().toLowerCase();
- const years=[...valueText.matchAll(/\b(?:1[5-9]\d{2}|20\d{2})\b/g)].map(x=>Number(x[0]));
+ const years=[...valueText.matchAll(/\b(?:1[5-9]\d{2}|20\d{2})(?=s\b|\b)/g)].map(x=>Number(x[0]));
  if(years.length){
   let year=years[0];
   if(new RegExp('\\b'+year+'s\\b').test(valueText)){
