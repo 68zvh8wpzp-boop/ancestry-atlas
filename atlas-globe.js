@@ -26,6 +26,25 @@ let showJourneys=true;
 let journeyMode='full';
 let map=null;
 let chosen=null;
+// The globe toolbar is a compact header on phones, expandable on demand.
+const toolbar=document.querySelector('.globe-toolbar');
+const toolbarContent=document.getElementById('globeControlsContent');
+const toolbarToggle=document.getElementById('toggleGlobeToolbar');
+const globeMain=document.getElementById('globeMain');
+function setToolbarCollapsed(collapsed){
+ if(!toolbar||!toolbarContent||!toolbarToggle)return;
+ toolbar.classList.toggle('is-collapsed',collapsed);
+ globeMain?.classList.toggle('toolbar-minimized',collapsed);
+ toolbarContent.hidden=collapsed;
+ toolbarToggle.setAttribute('aria-expanded',String(!collapsed));
+ toolbarToggle.innerHTML=collapsed?'Show controls <span aria-hidden="true">⌄</span>':'Hide <span aria-hidden="true">⌃</span>';
+ toolbarToggle.setAttribute('aria-label',collapsed?'Expand map controls':'Collapse map controls');
+ if(collapsed)toolbar.scrollTop=0;
+}
+if(toolbar&&toolbarToggle&&toolbarContent){
+ toolbarToggle.addEventListener('click',()=>setToolbarCollapsed(!toolbar.classList.contains('is-collapsed')));
+ setToolbarCollapsed(!!(window.matchMedia&&window.matchMedia('(max-width:720px)').matches));
+}
 function eventsOf(place){return place.events.filter(e=>branchEnabled.has(e.branch)&&eventEnabled.has(e.type));}
 function visiblePlaces(){return data.places.filter(p=>eventsOf(p).length);}
 function uniquePeople(list){return new Set(list.flatMap(p=>eventsOf(p).map(e=>e.personId))).size;}
