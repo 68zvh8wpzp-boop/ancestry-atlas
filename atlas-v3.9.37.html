@@ -842,7 +842,7 @@ window.addEventListener('error',function(e){
 
   <div id="hud">Ancestry Atlas • drag left/right to rotate, up/down to move • scroll to zoom • search below</div>
   <div id="proofNotice">Light is evidence: bright = established; dimmer = supported; dusk = provisional; shadow = frontier. The Webb proof frontier currently sits at James Webb Jr. → James Webb + Elizabeth Douglas.</div><div id="timeline">Present → 1900s → 1800s → 1700s → 1600s → 1500s</div>
-  <div id="card"><button id="close">×</button><div id="personHeader"><div id="portraitWrap" class="portrait-wrap"><img id="portraitImg" class="portrait-img" alt="Historical portrait"><div id="portraitCaption" class="portrait-caption"></div></div><div class="person-headtext"><h3></h3><div class="meta"></div></div></div><div class="label">Context</div><p></p><div class="label">Additional genealogical details</div><div id="extraInfo" class="extra"></div><div class="label">Images / documents</div><div id="evidenceWrap"></div><div id="trail">Trail: current node</div><div class="relation-title">Choose an ancestor to surf upward</div><div id="parentButtons" class="relation-buttons"></div><div class="relation-title">Return toward descendants</div><div id="childButtons" class="relation-buttons"></div><div class="button-row"><button id="centerNode">Center on node</button><button id="goParent">Next ancestor ↑</button><button id="goChild">Back ↓</button></div><div class="button-row"><button id="zoomPersonBtn">Person view</button><button id="zoomFamilyBtn">Family view</button><button id="zoomBranchBtn">Branch view</button><button id="zoomAtlasBtn">Full atlas</button></div><div class="navhint" id="navhint">Choose a named parent above to follow a specific branch. Each selection recenters the map on that ancestor.</div><span class="badge"></span></div>
+  <div id="card"><button id="close">×</button><div id="personHeader"><div id="portraitWrap" class="portrait-wrap"><img id="portraitImg" class="portrait-img" alt="Historical portrait"><div id="portraitCaption" class="portrait-caption"></div></div><div class="person-headtext"><h3></h3><div class="meta"></div></div></div><div class="label">Context</div><p></p><div class="label">Additional genealogical details</div><div id="extraInfo" class="extra"></div><div class="label">Images / documents</div><div id="evidenceWrap"></div><div class="label" id="sourceReferencesLabel" style="display:none">Sources & research</div><div id="sourceReferences"></div><div id="trail">Trail: current node</div><div class="relation-title">Choose an ancestor to surf upward</div><div id="parentButtons" class="relation-buttons"></div><div class="relation-title">Return toward descendants</div><div id="childButtons" class="relation-buttons"></div><div class="button-row"><button id="centerNode">Center on node</button><button id="goParent">Next ancestor ↑</button><button id="goChild">Back ↓</button></div><div class="button-row"><button id="zoomPersonBtn">Person view</button><button id="zoomFamilyBtn">Family view</button><button id="zoomBranchBtn">Branch view</button><button id="zoomAtlasBtn">Full atlas</button></div><div class="navhint" id="navhint">Choose a named parent above to follow a specific branch. Each selection recenters the map on that ancestor.</div><span class="badge"></span></div>
 
 <div class="family-toolbar">
   <button id="homeLanding">Start screen</button>
@@ -1372,6 +1372,10 @@ function evidenceIsImage(e){
 }
 function renderEvidence(n){
   const wrap=document.getElementById('evidenceWrap');
+  const sourceWrap=document.getElementById('sourceReferences');
+  const sourceLabel=document.getElementById('sourceReferencesLabel');
+  sourceWrap.replaceChildren();
+  sourceLabel.style.display='none';
   const ev=n.evidence||[];
   const ammonPreviewByTitle={
     'Bringing Mom and Dad Home':'assets/ammon-docs-preview/bringing-mom-and-dad-home-page-1.jpg',
@@ -1448,9 +1452,8 @@ function renderEvidence(n){
     const section=document.createElement('section');
     section.className='source-references';
     section.setAttribute('aria-label','Sources and research references');
-    const heading=document.createElement('h4');
-    heading.textContent='SOURCES & RESEARCH ('+references.length+')';
-    section.appendChild(heading);
+    sourceLabel.textContent='Sources & research ('+references.length+')';
+    sourceLabel.style.display='block';
     const help=document.createElement('p');
     help.textContent='These citations and external records are not photographs or document scans saved in the Atlas.';
     help.className='source-references-explainer';
@@ -1492,7 +1495,7 @@ function renderEvidence(n){
       item.appendChild(note);
       section.appendChild(item);
     });
-    wrap.appendChild(section);
+    sourceWrap.appendChild(section);
   }
 }
 let atlasViewerPointers=new Map();
