@@ -19,9 +19,11 @@ const titles={born:'Born',lived:'Lived',died:'Died'};
 const PIN_SOURCE='atlas-family-places',PIN_LAYER='atlas-red-place-pins',PIN_HIT_LAYER='atlas-red-pin-targets',PIN_IMAGE='atlas-red-pin';
 const PIN_BLUE='atlas-blue-provisional-pin',PIN_YELLOW='atlas-yellow-research-pin';
 const JOURNEY_SOURCE='atlas-journey-lines',JOURNEY_LAYER='atlas-dotted-journeys',JOURNEY_FOCUS='atlas-highlighted-journeys';
+const JOURNEY_HALO='atlas-navy-journey-halo',JOURNEY_FOCUS_HALO='atlas-selected-journey-halo';
 const HYP_SOURCE='atlas-research-leads',HYP_LAYER='atlas-yellow-research-layer',HYP_HIT_LAYER='atlas-yellow-research-targets';
 let showResearch=true;
 let showJourneys=true;
+let journeyMode='full';
 let map=null;
 let chosen=null;
 function eventsOf(place){return place.events.filter(e=>branchEnabled.has(e.branch)&&eventEnabled.has(e.type));}
@@ -94,33 +96,112 @@ function administrativeRegion(place){
   return country+':'+(parts.length>1?parts[parts.length-2].toLowerCase():'unknown');
  return country;
 }
+// The Atlas provides a range of date precisions. Keep broad ranges approximate;
+// do not silently turn "20th century" or "childhood" into an exact year.
+function approximateYear(value,birthYear){
+ const valueText=String(value||'').trim().toLowerCase();
+ const years=[...valueText.matchAll(/\b(?:1[5-9]\d{2}|20\d{2})\b/g)].map(x=>Number(x[0]));
+ if(years.length){
+  let year=years[0];
+  if(new RegExp('\\b'+year+'s\\b').test(valueText)){
+   year+=valueText.includes('late')?8:valueText.includes('early')?2:5;
+  }
+  return year;
+ }
+ const century=valueText.match(/\b(1[5-9]|20)(?:st|nd|rd|th)[- ]*(?:century|c\.)/);
+ if(century){
+  const base=(Number(century[1])-1)*100;
+  return base+(valueText.includes('early')?20:valueText.includes('late')?80:50);
+ }
+ if(valueText.includes('childhood')&&Number.isFinite(birthYear))return birthYear+8;
+ return null;
+}
+function angularDistance(a,b){
+ const r=Math.PI/180,lat1=a.lat*r,lat2=b.lat*r,delta=(a.lng-b.lng)*r;
+ return Math.acos(Math.max(-1,Math.min(1,Math.sin(lat1)*Math.sin(lat2)+Math.cos(lat1)*Math.cos(lat2)*Math.cos(delta))));
+}
 function journeyFeatures(){
+ if(!showJourneys)return {type:'FeatureCollection',features:[]};
  const people=new Map();
  for(const place of visiblePlaces())for(const event of eventsOf(place)){
-  if(event.type!=='born'&&event.type!=='died')continue;
-  if(!people.has(event.personId))people.set(event.personId,{name:event.name,branch:event.branch});
-  const person=people.get(event.personId),previous=person[event.type];
-  if(!previous||(previous.representativePin&&!place.representativePin))person[event.type]=place;
+  let person=people.get(event.personId);
+  if(!person){person={name:event.name,branch:event.branch,places:new Map()};people.set(event.personId,person);}
+  if(!person.places.has(place.id))person.places.set(place.id,{place,events:[]});
+  person.places.get(place.id).events.push(event);
  }
  const features=[];
- for(const [id,p] of people){
-  if(!p.born||!p.died||administrativeRegion(p.born)===administrativeRegion(p.died))continue;
-  const geometry=geodesic(p.born,p.died);if(!geometry)continue;
-  features.push({type:'Feature',properties:{personId:id,name:p.name,from:p.born.name,to:p.died.name,branch:p.branch,approximate:!!(p.born.representativePin||p.died.representativePin)},geometry});
+ function addLeg(id,person,from,to,chronologyKnown,kind){
+  if(!from||!to||from.place.id===to.place.id)return;
+  const geom=geodesic(from.place,to.place);
+  if(!geom)return;
+  features.push({type:'Feature',properties:{
+   personId:id,name:person.name,branch:person.branch,from:from.place.name,to:to.place.name,
+   kind,chronologyKnown,approximate:!!(from.place.representativePin||to.place.representativePin),
+   fromType:from.type,toType:to.type
+  },geometry:geom});
  }
- return {type:'FeatureCollection',features:showJourneys?features:[]};
+ for(const [id,person] of people){
+  const locations=[...person.places.values()];
+  const birth=locations.find(stop=>stop.events.some(e=>e.type==='born'));
+  const birthYear=birth?approximateYear(birth.events.find(e=>e.type==='born').when):null;
+  const stops=locations.map(item=>{
+   const kinds=new Set(item.events.map(e=>e.type));
+   const type=kinds.has('born')?'born':kinds.has('died')?'died':'lived';
+   const times=item.events.map(e=>approximateYear(e.when,birthYear)).filter(Number.isFinite);
+   const typedEvent=item.events.find(e=>e.type===type);
+   const typedYear=typedEvent?approximateYear(typedEvent.when,birthYear):null;
+   return {place:item.place,events:item.events,type,
+    year:Number.isFinite(typedYear)?typedYear:(times.length?Math.min(...times):null)};
+  });
+  if(journeyMode==='endpoints'){
+   const a=stops.find(stop=>stop.type==='born');
+   const b=stops.find(stop=>stop.type==='died');
+   if(a&&b&&administrativeRegion(a.place)!==administrativeRegion(b.place))addLeg(id,person,a,b,true,'birth-death');
+   continue;
+  }
+  const dated=stops.filter(s=>Number.isFinite(s.year));
+  const undated=stops.filter(s=>!Number.isFinite(s.year));
+  // Dated moves are ordered by evidence, not the iteration order of source places.
+  dated.sort((a,b)=>{
+   if(a.type==='born'&&b.type!=='born')return -1;
+   if(b.type==='born'&&a.type!=='born')return 1;
+   if(a.type==='died'&&b.type!=='died')return 1;
+   if(b.type==='died'&&a.type!=='died')return -1;
+   return a.year-b.year||(a.place.id<b.place.id?-1:1);
+  });
+  for(let i=1;i<dated.length;i++)addLeg(id,person,dated[i-1],dated[i],true,'full-life');
+  // Where no calendar order is established, include residence links without
+  // inventing a migration sequence: join each undated stop to the nearest
+  // already plotted stop, marking the link as non-chronological.
+  const connected=dated.slice();
+  if(!connected.length&&undated.length)connected.push(undated.shift());
+  while(undated.length&&connected.length){
+   let chosen=null,best=Infinity;
+   for(let i=0;i<undated.length;i++)for(const target of connected){
+    const distance=angularDistance(undated[i].place,target.place);
+    if(distance<best){best=distance;chosen={i,target};}
+   }
+   if(!chosen)break;
+   const candidate=undated.splice(chosen.i,1)[0];
+   addLeg(id,person,chosen.target,candidate,false,'full-life');
+   connected.push(candidate);
+  }
+ }
+ return {type:'FeatureCollection',features};
 }
 function updateRouteFocus(){
  if(!map||!map.getLayer(JOURNEY_FOCUS))return;
  const place=data.places.find(p=>p.id===chosen);
  const people=place?[...new Set(eventsOf(place).map(e=>e.personId))]:[];
- map.setFilter(JOURNEY_FOCUS,['in',['get','personId'],['literal',people]]);
+ const filter=['in',['get','personId'],['literal',people]];
+ map.setFilter(JOURNEY_FOCUS,filter);
+ if(map.getLayer(JOURNEY_FOCUS_HALO))map.setFilter(JOURNEY_FOCUS_HALO,filter);
 }
 function closePanel(){chosen=null;panel.hidden=true;updateRouteFocus();}
 function announceCounts(){
  const places=visiblePlaces(),research=visibleResearch();
  const journeyCount=journeyFeatures().features.length;
- countNode.textContent=places.length+' places · '+uniquePeople(places)+' people'+(journeyCount?' · '+journeyCount+' paths':'')+(research.length?' · '+research.length+' leads':'');
+ countNode.textContent=places.length+' places · '+uniquePeople(places)+' people'+(journeyCount?' · '+journeyCount+' route legs':'')+(research.length?' · '+research.length+' leads':'');
  const rc=document.getElementById('researchCount');if(rc)rc.textContent='('+(data.hypotheses||[]).length+')';
  emptyNode.hidden=places.length>0||research.length>0;
 }
@@ -165,7 +246,7 @@ for(const item of list){if(!groups.has(item.personId))groups.set(item.personId,[
 for(const items of groups.values()){
 const first=items[0];
 const link=element('a','person-place');
-link.href='./atlas-v3.9.36.html?atlas-person='+encodeURIComponent(first.personId);
+link.href='./atlas-v3.9.37.html?atlas-person='+encodeURIComponent(first.personId);
 link.title='View '+first.name+' in the Ancestry Atlas tree';
 const row=element('div','person-place-head');
 const label=element('strong');const dot=element('span','person-branch');dot.style.background=color(first.branch);label.append(dot,document.createTextNode(first.name));
@@ -252,6 +333,8 @@ function searchNow(){
  if(!matching.length&&!possible.length)matchesNode.append(element('div','search-item','No matching family places or research leads'));
 }
 search.addEventListener('input',searchNow);
+const journeyModeControl=document.getElementById('globeJourneyMode');
+if(journeyModeControl){journeyMode=journeyModeControl.value||'full';journeyModeControl.addEventListener('change',()=>{journeyMode=journeyModeControl.value||'full';updateMarkers();});}
 const journeysToggle=document.getElementById('globeJourneysToggle');
 if(journeysToggle){showJourneys=journeysToggle.checked;journeysToggle.addEventListener('change',()=>{showJourneys=journeysToggle.checked;updateMarkers();});}
 const researchToggle=document.getElementById('globeResearchToggle');
@@ -285,15 +368,24 @@ map.on('load',()=>{
  map.addSource(HYP_SOURCE,{type:'geojson',data:researchFeatures()});
  map.addSource(JOURNEY_SOURCE,{type:'geojson',data:journeyFeatures()});
  // Draw beneath pinheads; MapLibre globe projection clips the far-side curves.
+ // Bright dotted outline keeps dark navy routes legible against land AND ocean.
+ map.addLayer({id:JOURNEY_HALO,type:'line',source:JOURNEY_SOURCE,
+  layout:{'line-cap':'round','line-join':'round'},
+  paint:{'line-color':'#e5f2ff','line-width':['interpolate',['linear'],['zoom'],0,3.6,3,4.7,8,5.3],
+   'line-dasharray':[1.2,1.65],'line-opacity':.9}});
  map.addLayer({id:JOURNEY_LAYER,type:'line',source:JOURNEY_SOURCE,
   layout:{'line-cap':'round','line-join':'round'},
-  paint:{'line-color':'#eadbc3','line-width':['interpolate',['linear'],['zoom'],0,1.5,4,2.2,9,2.5],
-   'line-dasharray':[.65,2.7],'line-opacity':.55}});
- map.addLayer({id:JOURNEY_FOCUS,type:'line',source:JOURNEY_SOURCE,
-  filter:['in',['get','personId'],['literal',[]]],
+  paint:{'line-color':'#123c7b','line-width':['interpolate',['linear'],['zoom'],0,2.35,3,3.0,8,3.6],
+   'line-dasharray':[1.2,1.65],'line-opacity':.98}});
+ const selectedFilter=['in',['get','personId'],['literal',[]]];
+ map.addLayer({id:JOURNEY_FOCUS_HALO,type:'line',source:JOURNEY_SOURCE,filter:selectedFilter,
   layout:{'line-cap':'round','line-join':'round'},
-  paint:{'line-color':'#fff1c8','line-width':['interpolate',['linear'],['zoom'],0,2.2,4,3.2,9,3.6],
-   'line-dasharray':[.7,2.2],'line-opacity':.97}});
+  paint:{'line-color':'#edf8ff','line-width':['interpolate',['linear'],['zoom'],0,5.2,3,6.0,8,7],
+   'line-dasharray':[1.2,1.65],'line-opacity':.99}});
+ map.addLayer({id:JOURNEY_FOCUS,type:'line',source:JOURNEY_SOURCE,filter:selectedFilter,
+  layout:{'line-cap':'round','line-join':'round'},
+  paint:{'line-color':'#0b3274','line-width':['interpolate',['linear'],['zoom'],0,3.45,3,4.15,8,5],
+   'line-dasharray':[1.2,1.65],'line-opacity':1}});
  // Map-native hit targets remain invisible on the globe and aid iPhone taps.
  map.addLayer({id:PIN_HIT_LAYER,type:'circle',source:PIN_SOURCE,paint:{'circle-radius':15,'circle-color':'#d83b38','circle-opacity':0}});
  map.addLayer({id:HYP_HIT_LAYER,type:'circle',source:HYP_SOURCE,paint:{'circle-radius':15,'circle-color':'#e6b331','circle-opacity':0}});
