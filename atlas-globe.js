@@ -26,6 +26,39 @@ let showJourneys=true;
 let journeyMode='full';
 let map=null;
 let chosen=null;
+// On iOS, viewport and browser chrome often finish settling after MapLibre
+// first measures the canvas. A stale drawing-buffer height clips the sphere
+// along a horizontal edge while map controls still fill the viewport.
+let resizeFrame=0;
+let globeObserver=null;
+function fitGlobeCanvas(){
+ if(!map||!mapNode.isConnected)return;
+ const rect=mapNode.getBoundingClientRect();
+ if(rect.width<1||rect.height<1)return;
+ map.resize();
+}
+function queueGlobeCanvasFit(){
+ if(!map)return;
+ if(typeof requestAnimationFrame!=='function'){fitGlobeCanvas();return;}
+ if(resizeFrame)cancelAnimationFrame(resizeFrame);
+ resizeFrame=requestAnimationFrame(()=>{resizeFrame=0;fitGlobeCanvas();});
+}
+function watchGlobeSize(){
+ if(typeof ResizeObserver!=='undefined'){
+  globeObserver=new ResizeObserver(queueGlobeCanvasFit);
+  globeObserver.observe(mapNode);
+  globeObserver.observe(globeMain);
+ }
+ window.addEventListener('resize',queueGlobeCanvasFit,{passive:true});
+ window.addEventListener('orientationchange',queueGlobeCanvasFit,{passive:true});
+ if(window.visualViewport)window.visualViewport.addEventListener('resize',queueGlobeCanvasFit,{passive:true});
+ // Web fonts, browser toolbars and iOS viewport sizing can settle after first paint.
+ // Force one initial sizing pass and two guarded follow-ups without a redraw loop.
+ queueGlobeCanvasFit();
+ setTimeout(queueGlobeCanvasFit,180);
+ setTimeout(queueGlobeCanvasFit,900);
+ if(document.fonts?.ready)document.fonts.ready.then(queueGlobeCanvasFit);
+}
 // The globe toolbar is a compact header on phones, expandable on demand.
 const toolbar=document.querySelector('.globe-toolbar');
 const toolbarContent=document.getElementById('globeControlsContent');
@@ -362,7 +395,8 @@ if(researchToggle){showResearch=researchToggle.checked;researchToggle.addEventLi
 });}
 document.getElementById('closePlacePanel').addEventListener('click',closePanel);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden)document.getElementById('closePlacePanel').click();});
-const home=()=>{if(map)map.flyTo({center:[-42,40],zoom:1.05,pitch:0,bearing:0,essential:true,duration:1400});};
+const defaultWorldZoom=window.matchMedia?.('(max-width:720px)').matches?1.55:1.05;
+const home=()=>{if(map)map.flyTo({center:[-42,40],zoom:defaultWorldZoom,pitch:0,bearing:0,essential:true,duration:1400});};
 document.getElementById('resetGlobe').addEventListener('click',home);
 function loadMap(){
 if(!window.maplibregl){status.textContent='The map engine could not load. Check your connection and reload this experience.';return;}
@@ -375,10 +409,11 @@ version:8,
 sources:{'political':{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],tileSize:256,minzoom:0,maxzoom:19,attribution:'© OpenStreetMap contributors'}},
 layers:[{id:'political-basemap',type:'raster',source:'political'}]
 },
-center:[-42,40],zoom:1.05,minZoom:0.5,maxZoom:15,pitch:0,maxPitch:45,antialias:true
+center:[-42,40],zoom:defaultWorldZoom,minZoom:0.5,maxZoom:15,pitch:0,maxPitch:45,antialias:true
 });
 map.on('style.load',()=>{map.setProjection({type:'globe'});});
 map.addControl(new maplibregl.NavigationControl({showCompass:true,showZoom:true}),'top-right');
+watchGlobeSize();
 map.on('load',()=>{
  map.addImage(PIN_IMAGE,makePinImage('#d83b38'),{pixelRatio:2});
  map.addImage(PIN_BLUE,makePinImage('#387bc0'),{pixelRatio:2});
@@ -420,6 +455,8 @@ map.on('load',()=>{
   'icon-allow-overlap':true,'icon-ignore-placement':true
  }});
  updateMarkers();status.hidden=true;
+ // Re-measure once all WebGL layers have been installed and layout has settled.
+ queueGlobeCanvasFit();
  const id=new URLSearchParams(location.search).get('person');
  if(id){const p=data.places.find(p=>p.events.some(e=>e.personId===id));if(p)selectPlace(p);}
 });
