@@ -619,12 +619,17 @@
         "fs:MH27-B42",
         "fs:source:MMHN-TN6"
       ],
-      "status": "examined",
+      "status": "saved",
       "evidence": "github:research/edward-jr-1860-census-review-20261017.md",
-      "originalRefs": [],
-      "note": "Original visually inspected 17 October 2026; paired target-household transcription preserved. Possible double enumeration documented. Full-resolution image acquisition and complete-page transcription still pending; no new census gallery card.",
+      "originalRefs": [
+        "library:file_000000002dbc81fdabc0ccebd8072850"
+      ],
+      "note": "Matched original public NARA microfilm facsimile captured17October2026; target-household transcription paired with English explanation. Full-page transcription and uncertain line13name remain pending. No repeat original search needed.",
       "originalUrls": [
         "https://www.familysearch.org/ark:/61903/3:1:33SQ-GBS8-9G45"
+      ],
+      "publicPreviewRefs": [
+        "github:assets/edward-webb-jr/edward-jr-1860-owens-reader.jpg"
       ]
     },
     {
@@ -635,12 +640,17 @@
         "fs:MH27-BY3",
         "fs:source:S6BS-6XP"
       ],
-      "status": "examined",
+      "status": "saved",
       "evidence": "github:research/edward-jr-1860-census-review-20261017.md",
-      "originalRefs": [],
-      "note": "Original visually inspected 17 October 2026; paired target-household transcription preserved. Possible double enumeration documented. Full-resolution image acquisition and complete-page transcription still pending; no new census gallery card.",
+      "originalRefs": [
+        "library:file_000000003d8081fdb4340b9f66e2092a"
+      ],
+      "note": "Matched original public NARA microfilm facsimile captured17October2026; target-household transcription paired with English explanation. Full-page transcription and uncertain line13name remain pending. No repeat original search needed.",
       "originalUrls": [
         "https://www.familysearch.org/ark:/61903/3:1:33S7-9BS8-9G9T"
+      ],
+      "publicPreviewRefs": [
+        "github:assets/edward-webb-jr/edward-jr-1860-mcrae-reader.jpg"
       ]
     }
   ],
@@ -657,17 +667,17 @@
       "id": "edward-jr-1860-original",
       "recordId": "edward-jr-1860-owens-census",
       "owner": "work",
-      "action": "capture-original",
+      "action": "transcribe-original",
       "state": "paused",
-      "novelty": "Original already visually examined; acquire verified original image bytes, not another index review. First JPG transfer failed; avoid repeating completed household inspection."
+      "novelty": "Both originals captured and target households transcribed. Only remaining objective is complete-page transcription beyond these households and unresolved line13name; do not reacquire scans."
     },
     {
       "id": "edward-jr-1860-mcrae-original",
       "recordId": "edward-jr-1860-mcrae-census",
       "owner": "work",
-      "action": "capture-original",
+      "action": "transcribe-original",
       "state": "paused",
-      "novelty": "Original already visually examined; acquire verified original image bytes, not another index review. First JPG transfer failed; avoid repeating completed household inspection."
+      "novelty": "Both originals captured and target households transcribed. Only remaining objective is complete-page transcription beyond these households and unresolved line13name; do not reacquire scans."
     }
   ],
   "coverage": {

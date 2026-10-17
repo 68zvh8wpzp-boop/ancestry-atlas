@@ -1,3 +1,5 @@
+> Update, 17 October 2026: both original-page facsimiles are now captured from Internet Archive, populationschedu1314unix, leaves172 and185, and visually matched to FamilySearch pages101 and114. Earlier failed-transfer notes below are historical. Full-page transcription remains pending; the13 target-household rows are transcribed below.
+
 # Edward Milo Webb Jr.: 1860 census original review
 
 Person: KVPR-ZP3 / edward_milo_jr. Examined 17 October 2026.
@@ -80,3 +82,7 @@ Two distinct pages list an Edward M., age 13, born Missouri, marked as attending
 ### Audit state
 
 Both originals: catalogued and visually inspected. Saved full-resolution originals: 0 in this pass. Newly packaged/deployed census cards: 0. The failed first JPG transfer is not a captured document; thumbnails/screenshots are not being passed off as full-resolution originals. All 13 target-household rows have paired original/English explanation; the uncertain line-13 name remains unresolved. Full-page transcripts and image acquisition remain pending. No FamilySearch changes, approved narration changes, or iPhone verification were performed.
+
+Captured owens: https://archive.org/download/populationschedu1314unix/page/n172.jpg ; 7192×8992; 5008037bytes; SHA256 1f38f03bb3cfbb894791232fa5d23edde01a2d1fa0f6a9183f7d5baf97d8a34b.
+
+Captured mcrae: https://archive.org/download/populationschedu1314unix/page/n185.jpg ; 7160×9104; 5200196bytes; SHA256 19866dc525065431e424be1bd85f7d56099bf03d39c4be5951ed7cae1d0e6b73.
