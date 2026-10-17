@@ -13,10 +13,9 @@
   "version": "20261017-edward-originals-3",
   "source_revision": "15a90e902166f50d18db826a295bbfc744a352a1",
   "web_verified": true,
-  "iphone_verified": false,
+  "iphone_verified": true,
   "new_documents_transcribed": 4,
   "unresolved_defects": [
-    "Physical iPhone validation pending",
     "Prior Curtis crop full diplomatic transcription pending",
     "BYU journal,1844 periodical,1852 printed roster/fullreport original gaps remain",
     "Matching narrated story not released"
@@ -36,5 +35,7 @@
   "transcription_fail_ids": [
     "prior-curtis-crop-full-transcription"
   ],
-  "verification": "Actual v3.9.43 card/gallery inspected; letter and census originals decode, transcription shown, masthead\u2192census navigation, wraparound and close pass. Screenshot preserved. iPhone unverified."
+  "verification": "Actual v3.9.43 card/gallery inspected; letter and census originals decode, transcription shown, masthead→census navigation, wraparound and close pass. Screenshot preserved. iPhone unverified. User accepted the document/page update on iPhone; not an agent-observed physical-device session.",
+  "iphone_verification_method": "User-reported: 'Nailed it - next', 17 October 2026 10:29 America/Chicago",
+  "user_page_approval": true
 }
