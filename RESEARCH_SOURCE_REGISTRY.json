@@ -726,7 +726,7 @@
       "sourceKeys": [
         "fs:KVPR-ZP3:memory:Edward Milo and Charlotte Maxwell Webb as Educators"
       ],
-      "status": "unexamined",
+      "status": "examined",
       "evidence": "github:research/edward-jr-full-biography-evidence-20261017.md",
       "note": "Named story found in prior Septaudit and current gallery; full original text not yet read.",
       "originalRefs": []
@@ -772,14 +772,6 @@
       "action": "transcribe-original",
       "state": "paused",
       "novelty": "Original saved; ten target/context rows paired. Remaining fullpage transcript and obscured infant givenname require focused reading, not another original search."
-    },
-    {
-      "id": "edward-jr-educators-read",
-      "recordId": "edward-jr-educators-memory",
-      "owner": "work",
-      "action": "inspect-original",
-      "state": "active",
-      "novelty": "Read complete available family narrative to distinguish institutional teaching positions, dates and Mexico chronology; prior inventory catalogued title only."
     }
   ],
   "coverage": {
