@@ -652,6 +652,27 @@
       "publicPreviewRefs": [
         "github:assets/edward-webb-jr/edward-jr-1860-mcrae-reader.jpg"
       ]
+    },
+    {
+      "id": "edward-jr-1870-robinson-census",
+      "personId": "KVPR-ZP3",
+      "event": "census",
+      "sourceKeys": [
+        "fs:MNCT-HM2",
+        "fs:source:MMHN-TBQ"
+      ],
+      "status": "saved",
+      "evidence": "github:research/edward-jr-1870-census-review-20261017.md",
+      "originalRefs": [
+        "library:file_000000002be882308975db0ce3e600f3"
+      ],
+      "note": "Original captured and four-person target household transcribed17October2026. E.M.Webb23 schoolteacher inFillmore24June1870; Ellen16samegroup,no relationship column. Literacy marks preserved without illiteracy inference.",
+      "originalUrls": [
+        "https://archive.org/download/populationschedu1611unit/page/n20.jpg"
+      ],
+      "publicPreviewRefs": [
+        "github:assets/edward-webb-jr/edward-jr-1870-reader.jpg"
+      ]
     }
   ],
   "tasks": [
@@ -678,11 +699,19 @@
       "action": "transcribe-original",
       "state": "paused",
       "novelty": "Both originals captured and target households transcribed. Only remaining objective is complete-page transcription beyond these households and unresolved line13name; do not reacquire scans."
+    },
+    {
+      "id": "edward-jr-1870-original",
+      "recordId": "edward-jr-1870-robinson-census",
+      "owner": "work",
+      "action": "transcribe-original",
+      "state": "paused",
+      "novelty": "Original saved; target fourperson household transcribed. Remaining task is full-page transcription and enumerator-surname/mark-convention clarification, not another original search."
     }
   ],
   "coverage": {
     "kind": "selected-records-only",
-    "coveredRecords": 44,
+    "coveredRecords": 45,
     "allAncestorOriginalsAudited": false,
     "note": "Missing register entry is UNKNOWN, never proof that an original has not been examined. Backfill from historical audits and FamilySearch Media before proposing work."
   }
