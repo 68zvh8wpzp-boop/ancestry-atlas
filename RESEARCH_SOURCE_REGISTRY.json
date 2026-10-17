@@ -730,6 +730,42 @@
       "evidence": "github:research/edward-jr-full-biography-evidence-20261017.md",
       "note": "Named story found in prior Septaudit and current gallery; full original text not yet read.",
       "originalRefs": []
+    },
+    {
+      "id": "edward-jr-ellen-family-photo",
+      "personId": "KVPR-ZP3",
+      "event": "family-photo",
+      "sourceKeys": [
+        "fs:KVPR-ZP3:memory:Edward Milo & Ellen Ashman Webb - children Milo, Abby, Carrie, Frank, Hattie, Dorus, Irene, Cordelia"
+      ],
+      "status": "unexamined",
+      "evidence": "github:research/edward-jr-full-biography-evidence-20261017.md",
+      "originalRefs": [],
+      "note": "Gallery title catalogued in current and prior inventory. Existing deployed person gallery has no matching family photograph; full image identity, text, duplicate and capture audit now required."
+    },
+    {
+      "id": "edward-jr-charlotte-family-photo",
+      "personId": "KVPR-ZP3",
+      "event": "family-photo",
+      "sourceKeys": [
+        "fs:KVPR-ZP3:memory:Charlotte Martha Maxwell Webb - children Louie, Lee, Estelle"
+      ],
+      "status": "unexamined",
+      "evidence": "github:research/edward-jr-full-biography-evidence-20261017.md",
+      "originalRefs": [],
+      "note": "Gallery title catalogued in current and prior inventory. Existing deployed person gallery has no matching family photograph; full image identity, text, duplicate and capture audit now required."
+    },
+    {
+      "id": "edward-jr-brothers-photo",
+      "personId": "KVPR-ZP3",
+      "event": "family-photo",
+      "sourceKeys": [
+        "fs:KVPR-ZP3:memory:Webb Brothers- Edward Milo Webb Jr & Francis Adelbert Webb"
+      ],
+      "status": "unexamined",
+      "evidence": "github:research/edward-jr-full-biography-evidence-20261017.md",
+      "originalRefs": [],
+      "note": "Gallery title catalogued in current and prior inventory. Existing deployed person gallery has no matching family photograph; full image identity, text, duplicate and capture audit now required."
     }
   ],
   "tasks": [
@@ -772,6 +808,30 @@
       "action": "transcribe-original",
       "state": "paused",
       "novelty": "Original saved; ten target/context rows paired. Remaining fullpage transcript and obscured infant givenname require focused reading, not another original search."
+    },
+    {
+      "id": "edward-jr-ellen-family-photo-inspect",
+      "recordId": "edward-jr-ellen-family-photo",
+      "owner": "work",
+      "action": "inspect-original",
+      "state": "active",
+      "novelty": "Read full image and metadata for family-photo publication: person gallery omitted this named memory; not a repeat census or already preserved photo acquisition."
+    },
+    {
+      "id": "edward-jr-charlotte-family-photo-inspect",
+      "recordId": "edward-jr-charlotte-family-photo",
+      "owner": "work",
+      "action": "inspect-original",
+      "state": "active",
+      "novelty": "Read full image and metadata for family-photo publication: person gallery omitted this named memory; not a repeat census or already preserved photo acquisition."
+    },
+    {
+      "id": "edward-jr-brothers-photo-inspect",
+      "recordId": "edward-jr-brothers-photo",
+      "owner": "work",
+      "action": "inspect-original",
+      "state": "active",
+      "novelty": "Read full image and metadata for family-photo publication: person gallery omitted this named memory; not a repeat census or already preserved photo acquisition."
     }
   ],
   "coverage": {
