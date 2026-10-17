@@ -1,35 +1,53 @@
 {
   "person": "Edward Milo Webb Jr. KVPR-ZP3",
-  "target_surface": "GitHub Pages record gallery and iPhone/PWA",
+  "target_surface": "Edward Jr. Photos gallery, full-size image reader, GitHub Pages and iPhone/PWA",
   "status": "partially verified",
-  "biography_word_count": 62,
-  "bio_policy_passed": false,
+  "biography_word_count": 1245,
+  "bio_policy_passed": true,
   "media_separated": true,
-  "photos_count": 1,
-  "documents_count": 1,
-  "artifact": "atlas-v3.9.45.html",
-  "version": "20261017-edward-jr-death-2",
-  "source_revision": "18fc1c37830ac5fe9b2bc93eba4c4ffb0dc4fdb7",
-  "web_verified": true,
+  "photos_count": 4,
+  "documents_count": 5,
+  "artifact": "atlas-v3.9.52.html",
+  "version": "20261017-jr-family-photos-1",
+  "source_revision": "pending publication",
+  "web_verified": false,
   "iphone_verified": false,
-  "unresolved_defects": [
-    "iPhone validation of new certificate pending",
-    "Full54source original audit pending",
-    "Canonical full approved biography binding and full media inventory not yet audited"
-  ],
   "issue_ids": [
-    "MED-001",
     "BIO-001",
+    "BIO-003",
+    "DEP-001",
+    "CLI-001",
     "QA-001",
     "QA-002"
   ],
-  "evidence_decision": "Original civil certificate confirms11September1921 death; 1924 institutional date superseded for this identity",
-  "original_image_dimensions": [
-    1308,
-    1151
+  "unresolved_defects": [
+    "Remaining 56-source/125-memory original review incomplete",
+    "Irene PDF pages2\u201310 not yet read; attempted download produced no verified file",
+    "Four census-page full transcripts incomplete; portrait transcription metadata not reconciled",
+    "Matching expanded narration recording pending; immutable old audio retained and disabled for new text",
+    "Global legacy package verifier reports inherited audio checksum and version-marker failures; focused biography/source/governance checks pass",
+    "New1245wordbiography iPhonecheck pending; previous screenshot confirmsv50only. GuidedStoryUI didnotadvance beyondtree in browsercheck; transcriptbindingunitpassed, fullUIverificationpending.",
+    "Live new gallery controls and iPhone check pending; browser connection stalled. Ellen family and brothers photographs not captured."
   ],
-  "record_transcription_passed": true,
-  "record_preview_pass_count": 1,
-  "record_transcription_pass_count": 1,
-  "verification": "Actual v3.9.45 card shows certified1921date with no stale caution; original1308\u00d71151image,complete target transcription,English status and Close verified in cloud browser. iPhone not inspected."
+  "named_relationships": {
+    "spouses": [
+      "Ellen Ashman",
+      "Sarah Elizabeth Carling",
+      "Charlotte Martha Maxwell"
+    ],
+    "children": 31
+  },
+  "document_preview_failure_count": 0,
+  "document_preview_failure_ids": [],
+  "document_preview_scope": "Five unchanged document previews inherited from v3.9.50 web verification; no new preview verification claimed",
+  "transcription_translation_failure_count": 4,
+  "transcription_translation_failure_ids": [
+    "jr-1860-owens-full-page-pending",
+    "jr-1860-mcrae-full-page-pending",
+    "jr-1870-full-page-pending",
+    "jr-1880-full-page-pending"
+  ],
+  "verification": "Four photo evidence entries packaged; all four visually inspected with explicit no-text result. Two existing assets reused; two archive PNG originals preserved byte-for-byte. Actual v3.9.52 gallery surface verification pending. Prior v3.9.51 biography/document verification retained only for unchanged surfaces.",
+  "publication_authorization": "User explicitly instructed Publish it. Get it done on17October16:18America/Chicago.",
+  "publication_status": "prepared"
 }
