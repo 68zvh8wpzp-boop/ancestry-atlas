@@ -1,0 +1,2 @@
+/* 1850 census mobile reader: user-reported blank zoom, 17 October 2026. */
+(()=>{const n=DATA.nodes.find(n=>n.id==='edward_milo_sr');if(!n)return;const e=n.evidence.find(e=>(e.full||'').includes('edward-webb-1850-census-household477.jpg'));if(!e)return;e.originalAsset=e.full;e.full=e.thumb='assets/edward-webb-sr/edward-webb-1850-census-reader.jpg';e.provenance+=' Mobile reading copy resized proportionally to 2048 pixels wide; full unmodified original retained separately.';})();
