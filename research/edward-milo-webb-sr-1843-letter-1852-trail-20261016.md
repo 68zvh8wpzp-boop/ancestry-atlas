@@ -176,3 +176,43 @@ The user explicitly responded **“Pass. Let’s proceed.”** after reviewing t
 - Verified the active Atlas v3.9.40 source still includes the search-overlay fix, separate images vs sources sections, and the embedded Edward/Caroline biographies. No live iPhone/individual original-media QA beyond the explicit search pass is inferred.
 - **1850 Missouri census original film identification:** 1850 Clinton County, Missouri federal enumeration is NARA **M432, roll 396** (USGenWeb film inventory https://www.us-census.org/states/missouri/c-mo.htm ). The existing FamilySearch person-index reference for E. M. Webb is **MDZW-ZRW**, household 477, line 18, Clinton Township, Clinton County, direct viewer https://www.familysearch.org/ark:/61903/3:1:S3HY-6Q9Q-JK6?cc=1401638&lang=en . Same specific film/household should be targeted in free Internet Archive NARA roll scan rather than unrelated census PDF. **No original page bytes obtained in this session**.
 - The original 1843 *Times and Seasons* letter is still targeted in volume4 no11, Internet Archive **GR_4156-2 images164–179**, BYU item **NCMP1820-1846 8618**; direct BYU IIIF access yielded inaccessible/cached error. **Do not call an image recovered or recreate a document from a text transcript.** A full-page original remains pending. Distinguish index/source discovery from download. No paid work, email access or FamilySearch edits.
+
+
+## 17 October — ORIGINALS RECOVERED in resumed Work session
+
+Active owner: Work continuation, Edward Milo Webb Sr LLQX-5C3 only. Latest per-person log and deployed-gallery inventory reconciled first: 1843 letter and 1850 census were explicitly uncaptured; existing 1852 manuscript reused, not fetched again. No email, paid service, FamilySearch edits, biography/graph/runtime release or new iPhone claim.
+
+### 1843 newspaper: inspected and saved
+Internet Archive item GR_4156-2 now downloads successfully from this session. Unmodified service-delivered full-page JPEG facsimiles preserved:
+- Printed p166 / leaf169: https://archive.org/download/GR_4156-2/page/n169.jpg ; Library libfile_7e70e8046ee88191a493c861f5a265b8 / file_00000000055481f6bc1c3a254ce147f3 ; local edward-webb-letter-1843-p166.jpg ; SHA256 39fa8d6d71fa3c33052a96f6ed5681d704e76cfdd1ad8afbe03477560a90b1d7.
+- Printed p167 / leaf170: https://archive.org/download/GR_4156-2/page/n170.jpg ; Library libfile_e9c1a97e1a708191be48ed3acd4772da / file_00000000f0fc81f68e2b8ca5be40eee3 ; local edward-webb-letter-1843-p167.jpg ; SHA256 1b69139a21ed540d301e66c1c65346392474a0e07738b3838bce5b7a9ef2fc09.
+- Issue masthead leaf164: https://archive.org/download/GR_4156-2/page/n164.jpg ; Library libfile_5a344aa78c008191ba07dfda8ac55745 / file_00000000a39881f693343ee6034bce4c ; local times-1843-issue-masthead.jpg ; SHA256 a5b4edd68bd385304c302f89c8a4a7334c7d32fa88e90c2e496fa62ddc84f823.
+
+All three images actually visually inspected. Masthead literally shows Vol. IV. No.11, CITY OF NAUVOO, ILL. APRIL 15, 1843; letter on p166 literally dated Nauvoo, April17th,1843. Thus the date discrepancy is in the printed facsimile itself, NOT solely a modern transcription error. Actual printing date/editorial cause remains unresolved. Do not silently repair either date.
+
+Letter starts lower right p166 and continues at top left p167, ending E. M. WEBB. Confirms October3 departure with Elder H.B.Owens, KendallCounty Illinois, Niles, Albion and Comstock; narrative says remained in that section until March7. The preceding religious/polemical text on p166 belongs to JOHN GREENHOW, not Edward. Do not attribute his unrelated claims to Edward. Full diplomatic letter transcription remains pending; OCR retained locally as a drafting aid only, not passed transcription. Original is English; translation not applicable. These are archival printed facsimiles, not Edward's autograph manuscript.
+
+### 1850 census: exact original household recovered, inspected, saved
+NARA M432 roll396, Missouri, ClintonCounty, DistrictNo16 (the original heading says DistrictNo16; do not silently label ClintonTownship as original text), enumerated17October1850. Dwelling477/family477, target begins line18. Full unchanged page: https://archive.org/download/populationschedu0396unix/page/n375.jpg ; browsing https://archive.org/details/populationschedu0396unix/page/n375/mode/1up . Same target as FamilySearch MDZW-ZRW / S3HY-6Q9Q-JK6.
+Library libfile_27c6179e7c008191aa2cea17085b033f / file_00000000a21c81f6a6aaba8332dd5b00 ; local edward-webb-1850-census-household477.jpg, 5,344,937bytes. Original full page, no crop or synthetic replacement.
+
+Reading transcription of target rows (retain initials rather than expanding the original names):
+|Line|Name|Age|Sex|Color|Occupation|Real estate|Birthplace|School within year|
+|---|---|---|---|---|---|---|---|---|
+|18|E M Webb|35|m|W|Carpenter|blank|New York|blank|
+|19|C A Webb|29|f|W|blank|blank|Ohio|blank|
+|20|C A Webb|9|f|W|blank|blank|Illinois|marked|
+|21|M Webb|7|m|W|blank|blank|ditto Illinois|marked|
+|22|Edward Webb|3|m|W|blank|blank|Missouri|blank|
+|23|C A Webb|1|f|W|blank|blank|ditto Missouri|blank|
+|24|A Owens|50|f|W|blank|blank|New York|blank|
+|25|James H Owens|18|m|W|Farmer|blank|Missouri|blank|
+
+No relationships column exists in1850: identity correlation with Caroline/children is supported by the family constellation, not an explicitly written wife/daughter relationship. Do not infer parentage of A Owens or JamesH Owens from co-residence alone. Edward's blank land-value cell does not prove he owned no property. Household477 continues with Owens through line25; do not omit those residents.
+
+Next dwelling/family478 at line26: H B Owens,31,m,W,Mason,Pennsylvania; next rows include SallyAnn (reading),21,f,Kentucky, Byron2,m,Missouri, Silas1/12,m,ditto, and P Lane13,m,Indiana. Exact given names in this adjacent household remain to be checked at enlarged scale before a full diplomatic transcription passes. The H.B.Owens initials match Edward's1843 named travel companion, a useful documentary correlation, NOT independent proof of the companion's full identity or kinship. Census reports Edward35 and carpenter, materially direct occupational evidence.
+
+### Separate gates / resume
+New originals catalogued/captured and visually inspected: letter2pages plus masthead, census1page. None added to live Atlas yet; canonical biography unchanged. Newspaper full diplomatic transcription and final census line-by-line QA remain pending; no media-complete, published or iPhone-verified claim.
+Next: finish those transcriptions, package these actual originals into Edward's Documents while retiring matching source-only references, verify served media and request phone check only after a real release. BYU manuscript journal and full Curtis report remain open; no invented journal shelfmark or diary-death proof.
+Registry backfilled with exact source keys, saved Library file pointers and per-person evidence log; obsolete census acquisition task removed after capture. Structural registry validation and eight intake regression cases pass. Full local path regression cannot pass in this sparse workspace because older unrelated repository assets are not downloaded; do not misrepresent that as missing production assets.
