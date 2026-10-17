@@ -673,6 +673,27 @@
       "publicPreviewRefs": [
         "github:assets/edward-webb-jr/edward-jr-1870-reader.jpg"
       ]
+    },
+    {
+      "id": "edward-jr-1880-census",
+      "personId": "KVPR-ZP3",
+      "event": "census",
+      "sourceKeys": [
+        "fs:MNSV-DGD",
+        "fs:source:MMHN-5TM"
+      ],
+      "status": "saved",
+      "evidence": "github:research/edward-jr-1880-census-review-20261017.md",
+      "originalRefs": [
+        "library:file_00000000f92081fd994215be62629b7d"
+      ],
+      "note": "1880original captured; Edward33Schoolteacher,Ellen26wife and5children explicitly related. SarahE24with2children in preceding separateentry; no census-only crosshouseholdspouseclaim. MotherbirthNYretained vs1921deathcertificateOhio.10rows paired; fullpagepending.",
+      "originalUrls": [
+        "https://archive.org/download/10thcensus1336unit/page/n549.jpg"
+      ],
+      "publicPreviewRefs": [
+        "github:assets/edward-webb-jr/edward-jr-1880-reader.jpg"
+      ]
     }
   ],
   "tasks": [
@@ -707,11 +728,19 @@
       "action": "transcribe-original",
       "state": "paused",
       "novelty": "Original saved; target fourperson household transcribed. Remaining task is full-page transcription and enumerator-surname/mark-convention clarification, not another original search."
+    },
+    {
+      "id": "edward-jr-1880-original",
+      "recordId": "edward-jr-1880-census",
+      "owner": "work",
+      "action": "transcribe-original",
+      "state": "paused",
+      "novelty": "Original saved; ten target/context rows paired. Remaining fullpage transcript and obscured infant givenname require focused reading, not another original search."
     }
   ],
   "coverage": {
     "kind": "selected-records-only",
-    "coveredRecords": 45,
+    "coveredRecords": 46,
     "allAncestorOriginalsAudited": false,
     "note": "Missing register entry is UNKNOWN, never proof that an original has not been examined. Backfill from historical audits and FamilySearch Media before proposing work."
   }
