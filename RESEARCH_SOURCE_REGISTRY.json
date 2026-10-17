@@ -704,7 +704,8 @@
       ],
       "status": "examined",
       "evidence": "github:research/edward-jr-full-biography-evidence-20261017.md",
-      "note": "Available abridged story by daughter Estelle read17October; ending explicitly missing. Three wives/31children; music, theater, domestic routines and Wayne illness recalled. Retrospective family testimony, not civil proof. Backfilled after reading; no repeat acquisition task."
+      "note": "Available abridged story by daughter Estelle read17October; ending explicitly missing. Three wives/31children; music, theater, domestic routines and Wayne illness recalled. Retrospective family testimony, not civil proof. Backfilled after reading; no repeat acquisition task.",
+      "originalRefs": []
     },
     {
       "id": "edward-jr-irene-ten-page-biography",
@@ -713,9 +714,10 @@
       "sourceKeys": [
         "fs:TH-7734-111912-500-80"
       ],
-      "status": "catalogued",
+      "status": "unexamined",
       "evidence": "github:research/edward-jr-full-biography-evidence-20261017.md",
-      "note": "Tenpage PDF by daughter Irene Webb Merrell, contributor CardonWayneM7Nov2021. Only page1 visually read; download yielded no verified file. Missing pages2–10 remain specific target."
+      "note": "Tenpage PDF by daughter Irene Webb Merrell, contributor CardonWayneM7Nov2021. Only page1 visually read; download yielded no verified file. Missing pages2–10 remain specific target.",
+      "originalRefs": []
     },
     {
       "id": "edward-jr-educators-memory",
@@ -724,9 +726,10 @@
       "sourceKeys": [
         "fs:KVPR-ZP3:memory:Edward Milo and Charlotte Maxwell Webb as Educators"
       ],
-      "status": "catalogued",
+      "status": "unexamined",
       "evidence": "github:research/edward-jr-full-biography-evidence-20261017.md",
-      "note": "Named story found in prior Septaudit and current gallery; full original text not yet read."
+      "note": "Named story found in prior Septaudit and current gallery; full original text not yet read.",
+      "originalRefs": []
     }
   ],
   "tasks": [
