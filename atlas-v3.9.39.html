@@ -1386,7 +1386,8 @@ function renderEvidence(n){
     if(preview){if(!e.thumb)e.thumb=preview;if(!e.full)e.full=preview;}
   });
   if(!ev.length){wrap.innerHTML='<div class="evidence-empty">No source image or document attached to this person yet.</div>';return;}
-  const photos=ev.filter(e=>evidenceIsImage(e)&&evidenceHasReadablePreview(e)&&e.sourceLevel!=='photo-link');
+  const photos=ev.filter(e=>e.kind!=='place'&&evidenceIsImage(e)&&evidenceHasReadablePreview(e)&&e.sourceLevel!=='photo-link');
+  const places=ev.filter(e=>e.kind==='place'&&evidenceHasReadablePreview(e));
   const photoSourceLinks=ev.filter(e=>evidenceIsImage(e)&&e.sourceLevel==='photo-link'&&e.sourcePage);
   // Source links without saved media never become document-gallery tiles.
   const galleryRank=e=>{
@@ -1446,6 +1447,7 @@ function renderEvidence(n){
   }
   addGroup('DOCUMENTS ('+documents.length+')',documents,'documents');
   addGroup('PHOTOS ('+photos.length+')',photos,'photos');
+  addGroup('HISTORICAL PLACES ('+places.length+')',places,'places');
   // Keep source links available without misrepresenting them as captured images.
   const references=[...recordLeads,...photoSourceLinks];
   if(references.length){
@@ -2798,10 +2800,13 @@ function buildAlbumItems(){
     }
     (n.evidence||[]).forEach(ev=>{
       const thumb=ev.thumb||ev.full,full=ev.full||ev.thumb;
-      const sourceOnly=!!(ev.sourcePage||ev.documentUrl);
-      if(!sourceOnly&&(!albumAssetIsPackaged(thumb)||!albumAssetIsPackaged(full)))return;
-      const familyPhoto=ev.kind==='photo' || (ev.kind!=='document' && /photo memory|portrait|photograph|birthday|school/i.test((ev.provenance||'')+' '+(ev.title||'')) && !/census|newspaper|announcement|drawing/i.test(ev.title||''));
-      items.push({...ev,kind:familyPhoto?'family':'document',personId:n.id,name:n.name,years:n.years||'',branch:n.branch||'',title:ev.title||('Source image: '+n.name),thumb,full,provenance:ev.provenance||'',summary:ev.summary||'',confidence:ev.confidence||'',date:ev.date||'',place:ev.place||''});
+      // Gallery is reserved for actual photo, document or historical-place media.
+      // Source-only entries belong to Sources & Research, not phantom album tiles.
+      if(!thumb||!full||!albumAssetIsPackaged(thumb)||!albumAssetIsPackaged(full))return;
+      if(ev.sourceLevel==='photo-link')return;
+      const familyPhoto=ev.kind==='photo'||(ev.kind==='image' && /portrait|family photo/i.test(ev.title||''));
+      const albumKind=ev.kind==='place'?'place':(familyPhoto?'family':'document');
+      items.push({...ev,kind:albumKind,personId:n.id,name:n.name,years:n.years||'',branch:n.branch||'',title:ev.title||('Source image: '+n.name),thumb,full,provenance:ev.provenance||'',summary:ev.summary||'',confidence:ev.confidence||'',date:ev.date||'',place:ev.place||''});
     });
   });
   // Completed/approved biography photographs are part of the family album too.
