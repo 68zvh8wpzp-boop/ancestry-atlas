@@ -1,0 +1,18 @@
+1850 United States census — Schedule I, Free Inhabitants
+District No 16, Clinton County, Missouri
+Enumerated 17 October 1850; dwelling 477, family 477
+Columns below: line; name; age; sex; color; occupation; real estate; birthplace; school within year.
+18; E M Webb; 35; m; W; Carpenter; [blank]; New York; [blank]
+19; C A Webb; 29; f; W; [blank]; [blank]; Ohio; [blank]
+20; C A Webb; 9; f; W; [blank]; [blank]; Illinois; [marked]
+21; M Webb; 7; m; W; [blank]; [blank]; [ditto: Illinois]; [marked]
+22; Edward Webb; 3; m; W; [blank]; [blank]; Missouri; [blank]
+23; C A Webb; 1; f; W; [blank]; [blank]; [ditto: Missouri]; [blank]
+24; A Owens; 50; f; W; [blank]; [blank]; New York; [blank]
+25; James H Owens; 18; m; W; Farmer; [blank]; Missouri; [blank]
+
+Other target-household columns (married within year, adults unable to read/write, and disability/pauper/convict notation) are blank. W transcribes the original white-category marks; names and initials are not expanded. Ditto marks are indicated in brackets. The 1850 schedule does not state household relationships.
+
+Adjacent context, line 26, new dwelling/family 478:
+H B Owens; 31; m; W; Mason; [blank]; Pennsylvania.
+This matches the initials of Edward's named 1843 traveling companion; the census alone does not establish that person's full identity or kinship.

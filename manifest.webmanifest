@@ -2,7 +2,7 @@
   "name": "Ancestry Atlas",
   "short_name": "Ancestry Atlas",
   "description": "A guided audio-visual family history atlas.",
-  "start_url": "./atlas-v3.9.41.html?iphone-refresh=20261017-edward-media-audit-1",
+  "start_url": "./atlas-v3.9.42.html?iphone-refresh=20261017-edward-originals-2",
   "scope": "./",
   "display": "fullscreen",
   "display_override": [
@@ -13,3 +13,4 @@
   "background_color": "#020609",
   "theme_color": "#020609"
 }
+
