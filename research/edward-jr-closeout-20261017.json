@@ -1,0 +1,35 @@
+{
+  "person": "Edward Milo Webb Jr. KVPR-ZP3",
+  "target_surface": "GitHub Pages record gallery and iPhone/PWA",
+  "status": "partially verified",
+  "biography_word_count": 62,
+  "bio_policy_passed": false,
+  "media_separated": true,
+  "photos_count": 1,
+  "documents_count": 1,
+  "artifact": "atlas-v3.9.45.html",
+  "version": "20261017-edward-jr-death-2",
+  "source_revision": "18fc1c37830ac5fe9b2bc93eba4c4ffb0dc4fdb7",
+  "web_verified": true,
+  "iphone_verified": false,
+  "unresolved_defects": [
+    "iPhone validation of new certificate pending",
+    "Full54source original audit pending",
+    "Canonical full approved biography binding and full media inventory not yet audited"
+  ],
+  "issue_ids": [
+    "MED-001",
+    "BIO-001",
+    "QA-001",
+    "QA-002"
+  ],
+  "evidence_decision": "Original civil certificate confirms11September1921 death; 1924 institutional date superseded for this identity",
+  "original_image_dimensions": [
+    1308,
+    1151
+  ],
+  "record_transcription_passed": true,
+  "record_preview_pass_count": 1,
+  "record_transcription_pass_count": 1,
+  "verification": "Actual v3.9.45 card shows certified1921date with no stale caution; original1308\u00d71151image,complete target transcription,English status and Close verified in cloud browser. iPhone not inspected."
+}
