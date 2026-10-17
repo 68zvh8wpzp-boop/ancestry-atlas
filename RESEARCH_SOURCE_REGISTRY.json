@@ -167,7 +167,7 @@
       "originalRefs": [
         "library:file_00000000b36081f68dbe6438a2c98735"
       ],
-      "note": "Original Amelia Aurin née Cotton and Smith McConnell marriage entry; previously read, not a novel acquisition."
+      "note": "Original Amelia Aurin n\u00e9e Cotton and Smith McConnell marriage entry; previously read, not a novel acquisition."
     },
     {
       "id": "john-peter-gooley-1880-census",
@@ -267,7 +267,7 @@
       "originalRefs": [
         "library:file_00000000c12881f6911208332ac31120"
       ],
-      "note": "Worcester Charles/Karl Johan Aurén b ~1852–53 married Carolina Hult; WRONG identity for Jonas Michigan b~1843; original inspected and archived; do not attach as ancestor."
+      "note": "Worcester Charles/Karl Johan Aur\u00e9n b ~1852\u201353 married Carolina Hult; WRONG identity for Jonas Michigan b~1843; original inspected and archived; do not attach as ancestor."
     },
     {
       "id": "charles-albert-1897-arnstein-birth-certificate",
@@ -532,7 +532,7 @@
       ],
       "status": "saved",
       "evidence": "github:JESSIE_1956_OBITUARY_HEADSTONE_AND_OCEANA_DEED_ACCESS_2026-10-13.md",
-      "note": "Photo supplied by Alpena Library (credited to Find a Grave), inscription MOTHER JESSIE SKINNER 1897–1956; contradicts 1879 original birth + 1956 obituary. Full JPEG Library preserved, Optimized JPEG of marker now included in public Atlas gallery; source is not a birth certificate; iPhone rendering awaits user confirmation.",
+      "note": "Photo supplied by Alpena Library (credited to Find a Grave), inscription MOTHER JESSIE SKINNER 1897\u20131956; contradicts 1879 original birth + 1956 obituary. Full JPEG Library preserved, Optimized JPEG of marker now included in public Atlas gallery; source is not a birth certificate; iPhone rendering awaits user confirmation.",
       "originalRefs": [
         "library:file_00000000c524820eae7f4cb4a0643358"
       ],
@@ -562,7 +562,7 @@
       ],
       "status": "published",
       "evidence": "github:research/edward-milo-webb-sr-1843-letter-1852-trail-20261016.md",
-      "note": "17 October: original printed pages166–167 visually read and saved, masthead separately saved. Letter17April1843 and masthead15April1843 both confirmed. Full diplomatic transcription pending; not Atlas packaged/published. Published v3.9.43, release source15a90e902166f50d18db826a295bbfc744a352a1; full target transcription and original images verified on live web. Actual iPhone review pending.",
+      "note": "17 October: original printed pages166\u2013167 visually read and saved, masthead separately saved. Letter17April1843 and masthead15April1843 both confirmed. Full diplomatic transcription pending; not Atlas packaged/published. Published v3.9.43, release source15a90e902166f50d18db826a295bbfc744a352a1; full target transcription and original images verified on live web. Actual iPhone review pending.",
       "originalRefs": [
         "library:file_00000000055481f6bc1c3a254ce147f3",
         "library:file_00000000f0fc81f68e2b8ca5be40eee3",
@@ -619,10 +619,29 @@
         "fs:MH27-B42",
         "fs:source:MMHN-TN6"
       ],
-      "status": "unexamined",
-      "evidence": "github:research/edward-milo-webb-jr-death-conflict-20261016.md",
+      "status": "examined",
+      "evidence": "github:research/edward-jr-1860-census-review-20261017.md",
       "originalRefs": [],
-      "note": "17October56sourceinventory:1860citationEdwdMWebb in JasOwenshousehold. Earliergenericcheckpointcataloguedcensuses withoutoriginalreview; no saved1860original in current personmanifest/gallery. Distinct from1850originalalreadycaptured forfather."
+      "note": "Original visually inspected 17 October 2026; paired target-household transcription preserved. Possible double enumeration documented. Full-resolution image acquisition and complete-page transcription still pending; no new census gallery card.",
+      "originalUrls": [
+        "https://www.familysearch.org/ark:/61903/3:1:33SQ-GBS8-9G45"
+      ]
+    },
+    {
+      "id": "edward-jr-1860-mcrae-census",
+      "personId": "KVPR-ZP3",
+      "event": "census",
+      "sourceKeys": [
+        "fs:MH27-BY3",
+        "fs:source:S6BS-6XP"
+      ],
+      "status": "examined",
+      "evidence": "github:research/edward-jr-1860-census-review-20261017.md",
+      "originalRefs": [],
+      "note": "Original visually inspected 17 October 2026; paired target-household transcription preserved. Possible double enumeration documented. Full-resolution image acquisition and complete-page transcription still pending; no new census gallery card.",
+      "originalUrls": [
+        "https://www.familysearch.org/ark:/61903/3:1:33S7-9BS8-9G9T"
+      ]
     }
   ],
   "tasks": [
@@ -638,14 +657,22 @@
       "id": "edward-jr-1860-original",
       "recordId": "edward-jr-1860-owens-census",
       "owner": "work",
-      "action": "inspect-original",
-      "state": "active",
-      "novelty": "Read13yearoldEdward's actual1860household/locality/occupation/schooling to distinguish JasOwensentry from separateEdwdMMcRaecensus attachment; original not documented as examined."
+      "action": "capture-original",
+      "state": "paused",
+      "novelty": "Original already visually examined; acquire verified original image bytes, not another index review. First JPG transfer failed; avoid repeating completed household inspection."
+    },
+    {
+      "id": "edward-jr-1860-mcrae-original",
+      "recordId": "edward-jr-1860-mcrae-census",
+      "owner": "work",
+      "action": "capture-original",
+      "state": "paused",
+      "novelty": "Original already visually examined; acquire verified original image bytes, not another index review. First JPG transfer failed; avoid repeating completed household inspection."
     }
   ],
   "coverage": {
     "kind": "selected-records-only",
-    "coveredRecords": 43,
+    "coveredRecords": 44,
     "allAncestorOriginalsAudited": false,
     "note": "Missing register entry is UNKNOWN, never proof that an original has not been examined. Backfill from historical audits and FamilySearch Media before proposing work."
   }
