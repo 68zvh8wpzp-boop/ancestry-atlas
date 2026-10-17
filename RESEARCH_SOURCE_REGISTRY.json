@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-10-13",
+  "updated": "2026-10-17",
   "records": [
     {
       "id": "alpena-godfrey-naturalization-1917-1921",
@@ -167,7 +167,7 @@
       "originalRefs": [
         "library:file_00000000b36081f68dbe6438a2c98735"
       ],
-      "note": "Original Amelia Aurin née Cotton and Smith McConnell marriage entry; previously read, not a novel acquisition."
+      "note": "Original Amelia Aurin n\u00e9e Cotton and Smith McConnell marriage entry; previously read, not a novel acquisition."
     },
     {
       "id": "john-peter-gooley-1880-census",
@@ -267,7 +267,7 @@
       "originalRefs": [
         "library:file_00000000c12881f6911208332ac31120"
       ],
-      "note": "Worcester Charles/Karl Johan Aurén b ~1852–53 married Carolina Hult; WRONG identity for Jonas Michigan b~1843; original inspected and archived; do not attach as ancestor."
+      "note": "Worcester Charles/Karl Johan Aur\u00e9n b ~1852\u201353 married Carolina Hult; WRONG identity for Jonas Michigan b~1843; original inspected and archived; do not attach as ancestor."
     },
     {
       "id": "charles-albert-1897-arnstein-birth-certificate",
@@ -532,7 +532,7 @@
       ],
       "status": "saved",
       "evidence": "github:JESSIE_1956_OBITUARY_HEADSTONE_AND_OCEANA_DEED_ACCESS_2026-10-13.md",
-      "note": "Photo supplied by Alpena Library (credited to Find a Grave), inscription MOTHER JESSIE SKINNER 1897–1956; contradicts 1879 original birth + 1956 obituary. Full JPEG Library preserved, Optimized JPEG of marker now included in public Atlas gallery; source is not a birth certificate; iPhone rendering awaits user confirmation.",
+      "note": "Photo supplied by Alpena Library (credited to Find a Grave), inscription MOTHER JESSIE SKINNER 1897\u20131956; contradicts 1879 original birth + 1956 obituary. Full JPEG Library preserved, Optimized JPEG of marker now included in public Atlas gallery; source is not a birth certificate; iPhone rendering awaits user confirmation.",
       "originalRefs": [
         "library:file_00000000c524820eae7f4cb4a0643358"
       ],
@@ -551,6 +551,38 @@
       "evidence": "github:JESSIE_1956_OBITUARY_HEADSTONE_AND_OCEANA_DEED_ACCESS_2026-10-13.md",
       "note": "Chief Deputy Gail Schulte offered phone walk-through of online index (231-873-4158; oceana.mi.publicsearch.us). No Aurin deed located, no paid search requested or completed.",
       "originalRefs": []
+    },
+    {
+      "id": "edward-webb-sr-1843-letter",
+      "personId": "LLQX-5C3",
+      "event": "correspondence",
+      "sourceKeys": [
+        "ia:GR_4156-2:169-170",
+        "times-and-seasons:4:11:166-167"
+      ],
+      "status": "saved",
+      "evidence": "github:research/edward-milo-webb-sr-1843-letter-1852-trail-20261016.md",
+      "note": "17 October: original printed pages166\u2013167 visually read and saved, masthead separately saved. Letter17April1843 and masthead15April1843 both confirmed. Full diplomatic transcription pending; not Atlas packaged/published.",
+      "originalRefs": [
+        "library:file_00000000055481f6bc1c3a254ce147f3",
+        "library:file_00000000f0fc81f68e2b8ca5be40eee3",
+        "library:file_00000000a39881f693343ee6034bce4c"
+      ]
+    },
+    {
+      "id": "edward-webb-sr-1850-census",
+      "personId": "LLQX-5C3",
+      "event": "census",
+      "sourceKeys": [
+        "fs:MDZW-ZRW",
+        "nara:M432:396:household477"
+      ],
+      "status": "saved",
+      "evidence": "github:research/edward-milo-webb-sr-1843-letter-1852-trail-20261016.md",
+      "note": "17October original visually inspected and full page saved from IA populationschedu0396unix leaf375: District16 ClintonCounty,17October1850,household477,line18. Edward35carpenterNY,Caroline/children,Owens household context. Detailed transcription in linked research log; Atlas packaging and phone verification pending.",
+      "originalRefs": [
+        "library:file_00000000a21c81f6a6aaba8332dd5b00"
+      ]
     }
   ],
   "tasks": [
@@ -565,7 +597,7 @@
   ],
   "coverage": {
     "kind": "selected-records-only",
-    "coveredRecords": 36,
+    "coveredRecords": 41,
     "allAncestorOriginalsAudited": false,
     "note": "Missing register entry is UNKNOWN, never proof that an original has not been examined. Backfill from historical audits and FamilySearch Media before proposing work."
   }
