@@ -610,6 +610,19 @@
       "publicPreviewRefs": [
         "github:assets/edward-webb-jr/edward-milo-webb-jr-1921-death-original.jpg"
       ]
+    },
+    {
+      "id": "edward-jr-1860-owens-census",
+      "personId": "KVPR-ZP3",
+      "event": "census",
+      "sourceKeys": [
+        "fs:MH27-B42",
+        "fs:source:MMHN-TN6"
+      ],
+      "status": "unexamined",
+      "evidence": "github:research/edward-milo-webb-jr-death-conflict-20261016.md",
+      "originalRefs": [],
+      "note": "17October56sourceinventory:1860citationEdwdMWebb in JasOwenshousehold. Earliergenericcheckpointcataloguedcensuses withoutoriginalreview; no saved1860original in current personmanifest/gallery. Distinct from1850originalalreadycaptured forfather."
     }
   ],
   "tasks": [
@@ -620,11 +633,19 @@
       "action": "inspect-original",
       "novelty": "Original birth register and parental columns not documented as examined in 10 Oct audit",
       "state": "queued"
+    },
+    {
+      "id": "edward-jr-1860-original",
+      "recordId": "edward-jr-1860-owens-census",
+      "owner": "work",
+      "action": "inspect-original",
+      "state": "active",
+      "novelty": "Read13yearoldEdward's actual1860household/locality/occupation/schooling to distinguish JasOwensentry from separateEdwdMMcRaecensus attachment; original not documented as examined."
     }
   ],
   "coverage": {
     "kind": "selected-records-only",
-    "coveredRecords": 42,
+    "coveredRecords": 43,
     "allAncestorOriginalsAudited": false,
     "note": "Missing register entry is UNKNOWN, never proof that an original has not been examined. Backfill from historical audits and FamilySearch Media before proposing work."
   }
