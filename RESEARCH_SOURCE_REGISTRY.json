@@ -591,6 +591,18 @@
       "publicPreviewRefs": [
         "github:assets/edward-webb-sr/edward-webb-1850-census-household477.jpg"
       ]
+    },
+    {
+      "id": "edward-webb-jr-death-certificate",
+      "personId": "KVPR-ZP3",
+      "event": "death",
+      "sourceKeys": [
+        "target:utah:81448:edward-milo-webb-jr:1921-1924"
+      ],
+      "status": "unexamined",
+      "evidence": "github:research/edward-milo-webb-jr-death-conflict-20261016.md",
+      "originalRefs": [],
+      "note": "Reconciled16October per-person log and28August rights manifest. Existing date graphic is project-created comparison, not certificate. Attached1921source was catalogued but original not inspected; primary date/parents/cause unresolved. Search official Utah series81448 without email/cost/tree edits."
     }
   ],
   "tasks": [
@@ -601,11 +613,19 @@
       "action": "inspect-original",
       "novelty": "Original birth register and parental columns not documented as examined in 10 Oct audit",
       "state": "queued"
+    },
+    {
+      "id": "edward-jr-death-original",
+      "recordId": "edward-webb-jr-death-certificate",
+      "owner": "work",
+      "action": "find-record",
+      "state": "active",
+      "novelty": "Locate/read original certificate to resolve11September1921 versus4April1924; latest report explicitly limits prior work to indexed/compiled data and an evidence comparison graphic."
     }
   ],
   "coverage": {
     "kind": "selected-records-only",
-    "coveredRecords": 41,
+    "coveredRecords": 42,
     "allAncestorOriginalsAudited": false,
     "note": "Missing register entry is UNKNOWN, never proof that an original has not been examined. Backfill from historical audits and FamilySearch Media before proposing work."
   }
