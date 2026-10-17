@@ -4,7 +4,7 @@ Person: KVPR-ZP3 / edward_milo_jr. Examined 17 October 2026. No FamilySearch edi
 
 ## Citation
 
-1880 U.S. census, Orderville, Orderville Precinct, Kane County, Utah Territory; ED29; manuscript page19, stamped450C; dwelling138, family171, lines43–49. Adjacent context dwelling137, family170, lines40–42. Header reads June1880, with the enumeration day blank; enumerator Elmer W. Johnson. Received stamp16August1880 is not an enumeration date. NARA T9roll1336. FamilySearch DGS005162568, item6, image60of75; ARK33SQ-GYBJ-62X; indexMNSV-DGD; attachmentMMHN-5TM.
+1880 U.S. census, Orderville, Orderville Precinct, Kane County, Utah Territory; ED29; manuscript page19, stamped450C; dwelling138, family 171, lines43–49. Adjacent context dwelling137, family 170, lines40–42. Header reads June1880, with the enumeration day blank; enumerator Elmer W. Johnson. Received stamp16August1880 is not an enumeration date. NARA T9roll1336. FamilySearch DGS005162568, item6, image60of75; ARK33SQ-GYBJ-62X; indexMNSV-DGD; attachmentMMHN-5TM.
 
 Original facsimile: https://archive.org/download/10thcensus1336unit/page/n549.jpg
 Volume/page: https://archive.org/details/10thcensus1336unit/page/n549/mode/1up
@@ -18,7 +18,7 @@ Internet Archive volume10thcensus1336unit, contributed by Allen County Public Li
 Each original row is immediately followed by an English expansion. Columns: line; name (surname first); color; sex; age; birthmonth if under1; relationship; civil condition; occupation; months unemployed; birthplace; father birthplace; mother birthplace. Ditto marks remain visible and their expansions are labelled. The first person’s relationship cell is blank, although the index calls him Self/Head. No street or house number is supplied on these rows.
 
 Original: 43; Webb Edward M.; W; M; 33; [blank]; [blank]; / [married]; Schoolteacher; 3; Mo; N.Y.; N.Y.
-Translation: Edward M. Webb, 33, male, recorded white, married, schoolteacher; three months unemployed in the census year; born Missouri, both parents reported born New York. Dwelling138, family171 begins here; relationship cell blank. The unemployment figure does not state why he was out of work.
+Translation: Edward M. Webb, 33, male, recorded white, married, schoolteacher; three months unemployed in the census year; born Missouri, both parents reported born New York. Dwelling 138, family 171 begins here; relationship cell blank. The unemployment figure does not state why he was out of work.
 
 Original: 44; — Ellen; W; F; 26; [blank]; Wife; / [married]; Keeping house; [blank]; Eng; Eng; Eng
 Translation: Ellen [Webb], 26, female, recorded white, married, wife, keeping house; born England, both parents reported born England. Surname continued from preceding line.
@@ -36,20 +36,20 @@ Original: 48; — Caroline A.; W; F; 2; [blank]; ” [daughter]; / [single]; [bl
 Translation: Caroline A. [Webb], 2, female, recorded white, single, daughter (ditto); birthplace Utah, father Missouri, mother England by ditto marks. Surname continued.
 
 Original: 49; — Francis J.; W; M; 7/12; Oct; Son; / [single]; [blank]; [blank]; ”; ”; ”
-Translation: Francis J. [Webb], seven months, male, recorded white, single, son; birthmonthOctober; birthplace Utah, father Missouri, mother England by ditto marks. Surname continued. The fractional age and month are preserved rather than replaced by a constructed full birthdate.
+Translation: Francis J. [Webb], seven months, male, recorded white, single, son; birth month October; birthplace Utah, father Missouri, mother England by ditto marks. Surname continued. The fractional age and month are preserved rather than replaced by a constructed full birthdate.
 
 ## Immediately preceding Sarah E. Webb entry
 
-These are separate dwelling137/family170 rows. They are contextual evidence in Edward’s review, not a new standalone person audit. The schedule does not explicitly connect Sarah to Edward as a spouse across households. Existing approved family narratives must be corroborated independently; page adjacency alone proves no such marriage.
+These are separate dwelling137/family 170 rows. They are contextual evidence in Edward’s review, not a new standalone person audit. The schedule does not explicitly connect Sarah to Edward as a spouse across households. Existing approved family narratives must be corroborated independently; page adjacency alone proves no such marriage.
 
 Original: 40; Webb Sarah E.; W; F; 24; [blank]; [blank]; / [married]; Keeping house; [blank]; ” [Utah]; N.Y.; Ill
-Translation: Sarah E. Webb, 24, female, recorded white, married, keeping house; born Utah (ditto from preceding row), father New York, mother Illinois. Dwelling137, family170 begins here; relationship cell blank.
+Translation: Sarah E. Webb, 24, female, recorded white, married, keeping house; born Utah (ditto from preceding row), father New York, mother Illinois. Dwelling 137, family 170 begins here; relationship cell blank.
 
 Original: 41; — Owen A.; W; M; 2; [blank]; Son; / [single]; [blank]; [blank]; ” [Utah]; Mo; Utah
 Translation: Owen A. [Webb], 2, male, recorded white, single, son in Sarah’s entry; born Utah, father Missouri, mother Utah. Surname continued. Father’s name is not supplied here.
 
 Original: 42; — C[illegible] A.; W; F; 5/12; Dec; daughter; / [single]; [blank]; [blank]; ”; ”; ”
-Translation: Female infant with partly obscured given name and middle initial A., five months, single, daughter in Sarah’s entry; birthmonthDecember; born Utah, father Missouri, mother Utah by ditto marks. The given name remains partly obscured.
+Translation: Female infant with partly obscured given name and middle initial A., five months, single, daughter in Sarah’s entry; birth month December; born Utah, father Missouri, mother Utah by ditto marks. The given name remains partly obscured.
 
 ## Other marks and evidence limits
 
