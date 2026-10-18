@@ -1593,7 +1593,7 @@
       "personId": "KWJ8-5XJ",
       "atlasPersonId": "isaac_carling",
       "event": "marriage",
-      "status": "examined",
+      "status": "saved",
       "title": "Isaac Van Wagoner Carling and Asenath Elizabeth Browning marriage notice, Ogden 17 Nov 1854",
       "sourceKeys": [
         "udn:deseret-news:1854-11-23:vol4:no37:page3",
@@ -1602,13 +1602,18 @@
         "historical-event:1854-11-17:ogden:ezra-t-benson"
       ],
       "sourceUrl": "https://newspapers.lib.utah.edu/udn_files/e7/54/e754867dc2a2b533fd0e62e58209eecd3876ed28.pdf",
-      "originalRefs": [],
-      "evidence": "github:research/isaac-carling-tranche-05-1854-contemporary-marriage-announcement-20261018.md",
-      "note": "Tranche 05, 18 October 2026. ORIGINAL 23 Nov 1854 Deseret News vol4 no37 p3 visually inspected via archiveviewer.org/viewer/utah-digital-newspapers/2581309, position2, original single-page PDF linked. MARRIED: at Ogden City 17th inst by Ezra T. Benson, Isaac Van Wagoner Carling of Fillmore City & Asenath Elizabeth Browning of Ogden City. High contemporaneous printed evidence for date/place/officiant. Later 1854 Salt Lake Endowment House locale is contradicted. Separate later sealing not ruled out or proved. PDF source-viewable but transfer to GitHub blocked by container DNS (no local unchanged media). DO NOT assign originalAsset to non-existent file or claim local original captured. Full source-accurate transcription and original PDF link preserved in report.",
-      "researchDetailStatus": "contemporary-original-page-visually-verified-external-pdf-download-blocked",
+      "originalRefs": [
+        "github:assets/isaac-carling/1854-deseret-news-p3-marriage-original.pdf"
+      ],
+      "evidence": "github:assets/isaac-carling/1854-deseret-news-p3-marriage-original.pdf",
+      "note": "Media batch 1 captured 18 October 2026: unchanged 23 Nov 1854 Deseret News vol4 no37 p3 PDF saved to assets/isaac-carling/1854-deseret-news-p3-marriage-original.pdf, 308420 bytes; SHA-256 e8eb7ae86f6e8a7f5a247b6ad0fc3159675df3e948290cff8514a77b4e27d4be. Full-page JPG + enlarged notice PNG are DERIVATIVE VIEWING COPIES, manifest records provenance. Original announcement records Isaac Van Wagoner Carling marrying Asenath Elizabeth Browning in Ogden 17 Nov 1854, officiant Ezra T. Benson. Hosted document gallery included in v3.9.58 code; published gateway verification pending at checkpoint. Separate 1854 Salt Lake Endowment House wedding claim contradicted by original; any later sealing unknown. Former direct-download DNS block overcome via one-shot bounded GitHub Actions runner.",
+      "researchDetailStatus": "unchanged-source-pdf-captured-local-excerpt-and-fullpage-derivatives-stored",
       "externalOriginalLocators": [
         "external:utah-digital-newspapers:issue2581309:page3"
-      ]
+      ],
+      "assetManifest": "github:assets/isaac-carling/1854-marriage-asset-manifest.json",
+      "mediaPreview": "github:assets/isaac-carling/1854-isaac-asenath-marriage-notice-view.png",
+      "pagePreview": "github:assets/isaac-carling/1854-deseret-news-p3-fullpage-view.jpg"
     },
     {
       "id": "isaac-carling-miriam-1857-1859-marriage-age-conflict",
@@ -2245,31 +2250,31 @@
       "id": "KWJ8-5XJ",
       "atlas_id": "isaac_carling",
       "name": "Isaac Van Wagoner Carling",
-      "status": "published-pending-user-iphone-approval",
+      "status": "media-batches-in-progress-pending-user-iphone-approval",
       "started": "2026-10-18",
-      "last_tranche": 15,
+      "last_tranche": 16,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "USER IPHONE ACCEPTANCE ONLY: open v3.9.57 Isaac person page and approve or report a precise defect. No new research or person-page publication tranche unless defect is reported.",
+      "next_tranche": "Media Batch02: seek one DIFFERENT named original (prefer 1911 Utah death certificate, otherwise 1852 Isaac diary autograph); capture file bytes and visual QA before a distinct album update; do not recheck 1854 source or 239 Memories.",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "Atlas v3.9.57 published successfully to GitHub Pages; root index + iPhone manifest route new version, full Isaac biography/two notes/six source links live by deployment workflow; no authentic Isaac photo fabricated; browser/iPhone user QA still pending",
+      "last_tranche_status": "Media Batch01: exact original 1854 Carling/Browning newspaper page PDF captured and SHA256 recorded (308420 bytes), fullpage JPEG and notice-detail PNG derived, album code published as v3.9.58 awaiting GitHub Pages gate.",
       "last_tranche_report": "research/isaac-carling-tranche-15-atlas-v3.9.57-release-20261018.md",
       "exceptions": [
         "1911 Utah original death certificate not captured; series 81448 image access requires interactive browser",
         "Isaac 1852 diary studied through Church History transcript of 1966 family history; autograph page scans not captured",
-        "Asenath 1854 contemporaneous marriage original visually examined in archival PDF, but exact original PDF bytes not copied to GitHub due container DNS; optional distinct sealing register still unverified",
         "Miriam Hobson 1857 marriage/sealing original not yet found; reported birth 1843 places purported 1857 marriage before her 14th birthday; original verification pending.",
         "Miriam Hobson reported Aug1857 wedding (age13 per institutional derivative) conflicts with compiled 1859/age16/Fillmore narrative; original place,date,event type unverified",
         "Specific Orderville co-op store photo in FamilySearch Memories not retrievable unauthenticated; USU 1875 Orderville sketch and BYU MSS512/MSS879 person-specific original pages not yet inspected.",
         "USU UUS_P0143 Box1 Folder15 1875 Isaac Carling-attributed sketch and 3 letters are cataloged but no online pixels/letters linked; a single, unsent reference/reproduction inquiry is prepared; artist/date/rights unverified.",
         "BYU MSS512 has physical Orderville board/departments originals, but no named Isaac folio or online readable page; Huntington MSS MFilm00207 digitized 779-frame comparable original copies have no Isaac-named indexed frame, current binary/interactive access blocked.",
         "1853 Isaac-to-Asenath proposal letter dated 19 June appears in later family-history transcription only; original autograph not inspected. Biography draft saved, not deployed or approved.",
-        "Tranche13: relocation 1875 (1965 descendant arrival testimony) vs 1876 (later Carling family-history departure, ages favor 1876), original exact day not confirmed. Biography now says mid-1870s; preserve both reports."
+        "Tranche13: relocation 1875 (1965 descendant arrival testimony) vs 1876 (later Carling family-history departure, ages favor 1876), original exact day not confirmed. Biography now says mid-1870s; preserve both reports.",
+        "Media Batch01: 1854 marriage ORIGINAL PDF now captured unchanged with SHA256 and two honest derivative viewing images; awaiting actual v3.9.58 Pages deployment/iPhone gallery QA. Other unacquired photos/docs still outstanding."
       ],
-      "publishedVersion": "v3.9.57",
+      "publishedVersion": "v3.9.58",
       "publishedUrl": "https://68zvh8wpzp-boop.github.io/ancestry-atlas/",
       "releaseWorkflow": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/actions/runs/39156145777"
     },
