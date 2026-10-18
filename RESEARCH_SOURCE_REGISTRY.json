@@ -1580,7 +1580,7 @@
       "sourceUrl": "https://rsc.byu.edu/pioneer-women-arizona/w",
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-04-marriages-sarah-evidence-20261018.md",
-      "note": "Tranche05 UPDATE: Nov23 1854 Deseret News vol4 no37 p3 original page (visual read, source PDF linked) states 17 Nov 1854 Ogden City wedding of Isaac Van Wagoner Carling (Fillmore City) to Asenath Elizabeth Browning (Ogden City), OFFICIATED BY EZRA T. BENSON. Original newspaper supersedes compiled Endowment House place story for that wedding. Separate religious sealing has not been verified. Source original PDF transfer blocked (bytes not in GitHub). Miriam Hobson 1857 still needs a distinct contemporary source; Sarah birth based on BYU compiled biography. See specific new newspaper record isaac-carling-asenath-1854-ogden-newspaper-original, Tranche05 report."
+      "note": "Tranche05 UPDATE: Nov23 1854 Deseret News vol4 no37 p3 original page (visual read, source PDF linked) states 17 Nov 1854 Ogden City wedding of Isaac Van Wagoner Carling (Fillmore City) to Asenath Elizabeth Browning (Ogden City), OFFICIATED BY EZRA T. BENSON. Original newspaper supersedes compiled Endowment House place story for that wedding. Separate religious sealing has not been verified. Source original PDF transfer blocked (bytes not in GitHub). Miriam Hobson 1857 still needs a distinct contemporary source; Sarah birth based on BYU compiled biography. See specific new newspaper record isaac-carling-asenath-1854-ogden-newspaper-original, Tranche05 report. TRANCHE06 update: Miriam CHD profile labels age 13 at 1857 wedding, while family compilation narrative inconsistently claims 1859 and age16 and Fillmore home of S.T.Hoot/Hoyt, despite its own heading and other pedigrees saying 1857 in Salt Lake. No 1857 event original. Detailed record isaac-carling-miriam-1857-1859-marriage-age-conflict."
     },
     {
       "id": "isaac-carling-asenath-1854-ogden-newspaper-original",
@@ -1601,6 +1601,24 @@
       ],
       "evidence": "github:research/isaac-carling-tranche-05-1854-contemporary-marriage-announcement-20261018.md",
       "note": "Tranche 05, 18 October 2026. ORIGINAL 23 Nov 1854 Deseret News vol4 no37 p3 visually inspected via archiveviewer.org/viewer/utah-digital-newspapers/2581309, position2, original single-page PDF linked. MARRIED: at Ogden City 17th inst by Ezra T. Benson, Isaac Van Wagoner Carling of Fillmore City & Asenath Elizabeth Browning of Ogden City. High contemporaneous printed evidence for date/place/officiant. Later 1854 Salt Lake Endowment House locale is contradicted. Separate later sealing not ruled out or proved. PDF source-viewable but transfer to GitHub blocked by container DNS (no local unchanged media). DO NOT assign originalAsset to non-existent file or claim local original captured. Full source-accurate transcription and original PDF link preserved in report."
+    },
+    {
+      "id": "isaac-carling-miriam-1857-1859-marriage-age-conflict",
+      "personId": "KWJ8-5XJ",
+      "atlasPersonId": "isaac_carling",
+      "event": "second-marriage-source-reconciliation",
+      "status": "conflicting-derivative-dates-venues-age-original-1857-register-unobtained",
+      "title": "Miriam Elizabeth Hobson / Isaac Carling reported 1857 marriage and age; contradictory family text says 1859",
+      "sourceKeys": [
+        "chdb:miriam-elizabeth-hobson-1843:marriage-1857-08-27",
+        "chdb:PER-6SFMYP8:marriage-miriam",
+        "compiled:IsaacCarlingBiography:1857-v-1859",
+        "family:frankhistory:F1611"
+      ],
+      "sourceUrl": "https://history.churchofjesuschrist.org/chd/individual/miriam-elizabeth-hobson-1843?lang=eng",
+      "originalRefs": [],
+      "evidence": "github:research/isaac-carling-tranche-06-miriam-marriage-age-20261018.md",
+      "note": "18 Oct tranche06: CHD institutional profiles state Miriam Hobson born Aug31 1843, married Isaac Aug27 1857 (explicit age 13), died Jun22 1869. NO contemporary marriage page cited/inspected. Later Isaac Carling family-history manuscript CONTRADICTS ITSELF, saying 1859 Fillmore at beginning, Aug27 1857 at home of 'S.T.Hoot (Hoyt?)' in Fillmore below, describing bride as 16; same compilation's opening/pedigrees call event Aug27 1857 Salt Lake City. If 1857 date + 1843 DOB correct she was 13y11m27d (not 16); 1859 would be roughly 15/16. Place/ceremony type unverified. Compiled Hobson genealogy and Frank family pedigree are derivative; no 1857 original found. No new photo/transcript or FS change. See full report."
     }
   ],
   "tasks": [
@@ -2084,21 +2102,22 @@
       "name": "Isaac Van Wagoner Carling",
       "status": "active",
       "started": "2026-10-18",
-      "last_tranche": 5,
+      "last_tranche": 6,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "Tranche 06: verify 1857 Miriam Elizabeth Hobson marriage/age using one distinct contemporaneous notice/register; no 1854 re-search",
+      "next_tranche": "Tranche 07 one original Isaac-specific Orderville United Order artifact/image, not repeat the restricted 1857 marriage search",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "completed: original contemporary 1854 newspaper marriage notice visually verified; Utah Digital Newspapers original PDF download not copied to repo",
-      "last_tranche_report": "research/isaac-carling-tranche-05-1854-contemporary-marriage-announcement-20261018.md",
+      "last_tranche_status": "closed: substantive contradictory 1857/1859 chronology and 13/16 age source-criticism, 1857 original register still unavailable",
+      "last_tranche_report": "research/isaac-carling-tranche-06-miriam-marriage-age-20261018.md",
       "exceptions": [
         "1911 Utah original death certificate not captured; series 81448 image access requires interactive browser",
         "Isaac 1852 diary studied through Church History transcript of 1966 family history; autograph page scans not captured",
         "Asenath 1854 contemporaneous marriage original visually examined in archival PDF, but exact original PDF bytes not copied to GitHub due container DNS; optional distinct sealing register still unverified",
-        "Miriam Hobson 1857 marriage/sealing original not yet found; reported birth 1843 places purported 1857 marriage before her 14th birthday; original verification pending."
+        "Miriam Hobson 1857 marriage/sealing original not yet found; reported birth 1843 places purported 1857 marriage before her 14th birthday; original verification pending.",
+        "Miriam Hobson reported Aug1857 wedding (age13 per institutional derivative) conflicts with compiled 1859/age16/Fillmore narrative; original place,date,event type unverified"
       ]
     }
   }
