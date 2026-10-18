@@ -1753,6 +1753,23 @@
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-12-picture-pedigree-candidate-final-disposition-20261018.md",
       "note": "18 Oct tranche12: modern multi-person picture pedigree chart (uploader Josie846 Dec4 2022) tags Isaac but no pixel original/inset, photographic provenance, identity or rights. Direct FamilySearch web open timed out; current container DNS cannot resolve site; exact upload filename search yielded no authenticated original. Do not use in Isaac gallery; close candidate, don't repeat. Secondary 1965 family reunion account introduces 11 Aug 1875 Orderville arrival vs other family history 1876; original review queued separately."
+    },
+    {
+      "id": "isaac-carling-tranche13-orderville-move-1875-1876-evidence",
+      "personId": "KWJ8-5XJ",
+      "atlasPersonId": "isaac_carling",
+      "event": "mid-1870s-migration-to-orderville",
+      "status": "conflicting-retrospective-1875-arrival-vs-1876-departure-biography-amended",
+      "title": "Isaac family relocation Fillmore to Orderville, 1875 or 1876 (reported dates conflict)",
+      "sourceKeys": [
+        "family-history:IsaacVanWagonerCarling:departure:1876-08-04",
+        "familysearch:memory:2501673:chamberlain-reunion-1965:arrival:1875-08-11",
+        "github:research/isaac-carling-tranche-13-orderville-1875-1876-chronology-20261018.md"
+      ],
+      "sourceUrl": "https://www.familysearch.org/en/memories/memory/2501673",
+      "originalRefs": [],
+      "evidence": "github:research/isaac-carling-tranche-13-orderville-1875-1876-chronology-20261018.md",
+      "note": "Tranche13 18 Oct: specific compiled Carling family history says Isaac/Asenath left Fillmore 4 Aug 1876 for Orderville and gives Sarah age20 (consistent with 1856 birth in 1876); 1965 Chamberlain reunion quotes granddaughter/descendant Annie as reporting arrived Orderville 11 Aug 1875. Both later writings, share three wagons/lathe/melodeon, perhaps dependent; counts of alleged 16 travelers in 1965 clash with enumerated 14 surviving children in other account. 1876 favored only as working chronology; NO original named contemporary migration/United Order membership entry read. Museum biography revised to 'In the mid-1870s...'. No new media, app publication or FamilySearch mutation."
     }
   ],
   "tasks": [
@@ -2236,16 +2253,16 @@
       "name": "Isaac Van Wagoner Carling",
       "status": "active",
       "started": "2026-10-18",
-      "last_tranche": 12,
+      "last_tranche": 13,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "Tranche 13: reconcile conflicting 11 Aug 1875 vs 1876 Orderville arrival in two already identified derivative histories; correct museum biography draft source wording and commit, one tranche, no further public portrait candidate retry.",
+      "next_tranche": "Tranche 14: one Atlas prepublication person-data/content/media risk audit for Isaac, compare review biography to live app node without looping inaccessible original photos or repeated census work; save exact publish plan, only deploy with editorial/user approval.",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "Picture-pedigree composite candidate excluded as a personal portrait; no original bytes; distinct 1875 vs 1876 arrival-date conflict identified for next factual editorial tranche.",
-      "last_tranche_report": "research/isaac-carling-tranche-12-picture-pedigree-candidate-final-disposition-20261018.md",
+      "last_tranche_status": "source-level 1875 arrival versus 1876 departure comparison complete; mid-1870s wording corrected and committed in research biography; 1876 only working favored chronology",
+      "last_tranche_report": "research/isaac-carling-tranche-13-orderville-1875-1876-chronology-20261018.md",
       "exceptions": [
         "1911 Utah original death certificate not captured; series 81448 image access requires interactive browser",
         "Isaac 1852 diary studied through Church History transcript of 1966 family history; autograph page scans not captured",
@@ -2256,7 +2273,7 @@
         "USU UUS_P0143 Box1 Folder15 1875 Isaac Carling-attributed sketch and 3 letters are cataloged but no online pixels/letters linked; a single, unsent reference/reproduction inquiry is prepared; artist/date/rights unverified.",
         "BYU MSS512 has physical Orderville board/departments originals, but no named Isaac folio or online readable page; Huntington MSS MFilm00207 digitized 779-frame comparable original copies have no Isaac-named indexed frame, current binary/interactive access blocked.",
         "1853 Isaac-to-Asenath proposal letter dated 19 June appears in later family-history transcription only; original autograph not inspected. Biography draft saved, not deployed or approved.",
-        "Tranche12: FamilySearch Memory164147651 is modern picture-pedigree composite; rejected as an Isaac person-photo. Original individual portrait unverified and unavailable absent authenticated viewer; DO NOT retry current public metadata path. Newly found 1965 family reunion testimony dates 1875 Orderville move vs Carling compilation 1876."
+        "Tranche13: relocation 1875 (1965 descendant arrival testimony) vs 1876 (later Carling family-history departure, ages favor 1876), original exact day not confirmed. Biography now says mid-1870s; preserve both reports."
       ]
     }
   }
