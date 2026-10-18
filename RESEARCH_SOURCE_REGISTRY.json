@@ -1547,8 +1547,9 @@
       "evidence": "github:research/isaac-carling-tranche-02-death-certificate-attempt-20261018.md",
       "originalRefs": [],
       "sourceUrl": "https://archives.utah.gov/research/index-death/",
-      "note": "Tranche 02 18 Oct: targeted original-image retrieval attempted Utah Archives name index, series81448 CONTENTdm digital viewer, FamilySearch 1904-1966 partner collection, and container direct HTTPS. No individual certificate ID or viewable original returned: name index needs interactive form, CONTENTdm viewer returned JavaScript Required; FamilySearch collection only exposed general search, container failed DNS. DO NOT claim death certificate transcription, cause/informant/parents or original capture. Death date 1911-05-24 supported by institutional summary/derivative index only. No repeat public index sweep. Resume ONLY when signed-in/interactive browser can open original. See recorded report.",
-      "researchDetailStatus": "original-access-blocked"
+      "note": "Tranche 02 18 Oct: targeted original-image retrieval attempted Utah Archives name index, series81448 CONTENTdm digital viewer, FamilySearch 1904-1966 partner collection, and container direct HTTPS. No individual certificate ID or viewable original returned: name index needs interactive form, CONTENTdm viewer returned JavaScript Required; FamilySearch collection only exposed general search, container failed DNS. DO NOT claim death certificate transcription, cause/informant/parents or original capture. Death date 1911-05-24 supported by institutional summary/derivative index only. No repeat public index sweep. Resume ONLY when signed-in/interactive browser can open original. See recorded report. Media Batch03 new official Series81448 folder-inventory discovery: https://archives.utah.gov/research/inventories/series/81448/ lists 1911 Kane County folder Box20/Folder21 ONLY Jan–Feb, not 24 May1911. Absence of later Kane 1911 folder is a scoped coverage gap; original death paper COULD be missing, delayed, another county, or separately held. Do NOT assert inexistence or store fabricated image. Different source: 1924 daughter Asenath's genuine original civil certificate captured, separate registry id.",
+      "researchDetailStatus": "1911-Kane-official-collection-coverage-only-Jan-Feb-May-death-original-not-located",
+      "lastFollowupDate": "2026-10-18"
     },
     {
       "id": "isaac-carling-1852-diary-transcript",
@@ -1854,6 +1855,26 @@
       "assetManifest": "github:assets/isaac-carling/orderville-townscape-circa-1900-usu-plate548x-manifest.json",
       "note": "Media Batch02: Utah State University Extension RRA Plate548X circa1900 town photograph, original print Church Archives P-1093-12, photographer not named. Unchanged 1500x1000 published institution JPEG 348849 bytes saved, SHA256 4f258b39f84019be837736bb4050f1247a6dfcad19c5e63f2bd9ab7e72808f6f. Image is an authentic historical PLACE view only; Isaac's face/identity NOT established. Gallery under historical places, not portrait. Item page rights not explicit; no assertion of user-owned original print.",
       "researchDetailStatus": "historical-context-photo-web-JPEG-captured-person-not-identified"
+    },
+    {
+      "id": "isaac-carling-daughter-asenath-1924-death-registered-parentage-scan",
+      "personId": "KWJ8-5XJ",
+      "atlasPersonId": "isaac_carling",
+      "event": "parentage-corroboration-via-daughter-1924-state-death-certificate",
+      "status": "saved",
+      "title": "Asenath Emeline Carling Spencer Utah death certificate 15 May 1924, names Isaac Vanwagoner Carling as father",
+      "sourceKeys": [
+        "utah:81448:kane:1924-05-15:asenath-emeline-carling-spencer:death",
+        "spencer-family:public-records:6182216.jpg"
+      ],
+      "sourceUrl": "https://icspencerfamily.weebly.com/howard-orson-spencer-family-public-records.html",
+      "originalRefs": [
+        "github:assets/isaac-carling/1924-asenath-emeline-carling-spencer-death-certificate-source.jpg"
+      ],
+      "evidence": "github:assets/isaac-carling/1924-asenath-emeline-carling-spencer-death-certificate-source.jpg",
+      "assetManifest": "github:assets/isaac-carling/1924-asenath-emeline-carling-spencer-death-certificate-manifest.json",
+      "researchDetailStatus": "source-captured-1924-daughter-civil-record-576px-not-isaac-own-1911-certificate",
+      "note": "Media Batch03 18 Oct 2026: original 1924 Utah state-issued certificate of Asenath Emeline CARLING SPENCER (Isaac's DAUGHTER) visually read and saved unchanged from genealogy site's web JPEG, 576x518px, 196665 bytes SHA256 88a70e481e7b3bf94205815d2a2b3bf053589efee615514d5fd479d640499fc0. Lists father Isaac Vanwagoner Carling, born New York, mother Asenath E Browning, death May15 1924 Kane County. Reproduction at family site; original archive paper/master not acquired. Never refer to as Isaac's 1911 death certificate; one source image only, not portrait."
     }
   ],
   "tasks": [
@@ -2272,18 +2293,17 @@
       "name": "Isaac Van Wagoner Carling",
       "status": "media-batches-in-progress-pending-user-iphone-approval",
       "started": "2026-10-18",
-      "last_tranche": 17,
+      "last_tranche": 18,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "Media Batch03: capture ONE 1911 Kane County Utah original death certificate (series 81448 / FamilySearch 1747615) from verifiable original image, or close exact access block once; then diary original only if a discrete new source.",
+      "next_tranche": "Media Batch04: exact 1852 Isaac Carling autograph-diary original manuscript custody check, not re-read already analyzed published Mortenson transcription; only capture if authentic image found, else one closed blocker and next distinct source.",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "Media Batch02: ca1900 USU Orderville institutional JPEG (1500x1000) captured untouched, checksum/custody documented, integrated into v3.9.59 as historical PLACE photo, NOT authenticated Isaac portrait. Personal portrait total zero.",
-      "last_tranche_report": "research/isaac-carling-media-batch-02-orderville-photo-20261018.md",
+      "last_tranche_status": "Media Batch03: Utah Archives Series81448 catalog lists Kane 1911 only Jan–Feb (Isaac died May). Exact Isaac 1911 original unresolved; independent daughter Asenath Emeline Carling Spencer 15May1924 Utah state certificate image captured unchanged (576x518 JPEG, checksum), gallery released in v3.9.60 awaiting GitHub Pages and user QA.",
+      "last_tranche_report": "research/isaac-carling-media-batch-03-utah-kane-1911-gap-and-1924-daughter-certificate-20261018.md",
       "exceptions": [
-        "1911 Utah original death certificate not captured; series 81448 image access requires interactive browser",
         "Isaac 1852 diary studied through Church History transcript of 1966 family history; autograph page scans not captured",
         "Miriam Hobson 1857 marriage/sealing original not yet found; reported birth 1843 places purported 1857 marriage before her 14th birthday; original verification pending.",
         "Miriam Hobson reported Aug1857 wedding (age13 per institutional derivative) conflicts with compiled 1859/age16/Fillmore narrative; original place,date,event type unverified",
@@ -2292,9 +2312,10 @@
         "BYU MSS512 has physical Orderville board/departments originals, but no named Isaac folio or online readable page; Huntington MSS MFilm00207 digitized 779-frame comparable original copies have no Isaac-named indexed frame, current binary/interactive access blocked.",
         "1853 Isaac-to-Asenath proposal letter dated 19 June appears in later family-history transcription only; original autograph not inspected. Biography draft saved, not deployed or approved.",
         "Tranche13: relocation 1875 (1965 descendant arrival testimony) vs 1876 (later Carling family-history departure, ages favor 1876), original exact day not confirmed. Biography now says mid-1870s; preserve both reports.",
-        "Media Batch02: period Orderville town photograph circa1900 captured from USU RRA Plate548X, Church Archives P-1093-12. Authenticated Isaac portrait still zero; UofUtah numbered photo 15652 has ©2012 all-rights-reserved so not copied; Utah death certificate/1852 autograph remain pending."
+        "Media Batch02: period Orderville town photograph circa1900 captured from USU RRA Plate548X, Church Archives P-1093-12. Authenticated Isaac portrait still zero; UofUtah numbered photo 15652 has ©2012 all-rights-reserved so not copied; Utah death certificate/1852 autograph remain pending.",
+        "Media Batch03: official Utah 1911 Kane Series81448 inventory folder only Jan–Feb, so reported May24 Isaac death not covered; no Isaac original cert captured. Daughter Asenath Emeline's separate 1924 original civil-record image downloaded from family site as 576x518 web copy and embedded for parentage; archive-master not held."
       ],
-      "publishedVersion": "v3.9.59",
+      "publishedVersion": "v3.9.60",
       "publishedUrl": "https://68zvh8wpzp-boop.github.io/ancestry-atlas/",
       "releaseWorkflow": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/actions/runs/39156145777"
     },
