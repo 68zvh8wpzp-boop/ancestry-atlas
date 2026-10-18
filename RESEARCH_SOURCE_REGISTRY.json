@@ -742,12 +742,13 @@
       "sourceKeys": [
         "fs:KVPR-ZP3:memory:Charlotte Martha Maxwell Webb - children Louie, Lee, Estelle"
       ],
-      "status": "covered-by-published-original",
+      "status": "published",
       "evidence": "github:assets/edward-webb-jr/charlotte-children-1891-original.png",
       "originalRefs": [
         "github:assets/edward-webb-jr/charlotte-children-1891-original.png"
       ],
-      "note": "The Charlotte-with-children photographic subject/caption (1891, left to right Lee, Estelle, Louie) is already published in the 8-photo Edward Jr Atlas gallery as jr-charlotte-1891, with preserved BYU original image asset and source credit to Thomas, Uncertain Sanctuary, p.54. Confirmed from v3.9.56 source + BYU public original 18 Oct. This DOES NOT prove that a separately titled FamilySearch Memory has identical pixels; source FamilySearch version was not authenticated or independently viewed. Do not recapture same BYU photo; reopen only for an actually distinct FamilySearch image."
+      "note": "The Charlotte-with-children photographic subject/caption (1891, left to right Lee, Estelle, Louie) is already published in the 8-photo Edward Jr Atlas gallery as jr-charlotte-1891, with preserved BYU original image asset and source credit to Thomas, Uncertain Sanctuary, p.54. Confirmed from v3.9.56 source + BYU public original 18 Oct. This DOES NOT prove that a separately titled FamilySearch Memory has identical pixels; source FamilySearch version was not authenticated or independently viewed. Do not recapture same BYU photo; reopen only for an actually distinct FamilySearch image.",
+      "researchDetailStatus": "covered-by-published-original"
     },
     {
       "id": "edward-jr-brothers-photo",
@@ -1492,7 +1493,7 @@
       "id": "edward-jr-june-cherie-webb-oral-history-2010",
       "personId": "KVPR-ZP3",
       "event": "oral-history",
-      "status": "processed-catalog-audio-unheard",
+      "status": "partial",
       "sourceKeys": [
         "azmemory:item:162667",
         "azmemory:audio:Webb, June and Cherie Part 1.mp3"
@@ -1509,13 +1510,14 @@
       "duration": "00:26:54",
       "evidence": "github:research/edward-jr-june-cherie-oral-history-processed-20261018.md",
       "originalRefs": [],
-      "note": "Part1 of two-part June and Cherie Webb oral history, 2010, 26:54. Source catalog and family-lineage claims cross-checked to independent obituary and Irene Merrell biography. The archive abstract contains IMPOSSIBLE attribution of Nauvoo blacksmith work to Edward Jr (born 1847 after Nauvoo migration). Retrospective 1912/1920s narratives about younger generations not imported as Jr's life events. Audio unplayed (host 403); in copyright. See processed report. Part2 now tracked separately."
+      "note": "Part1 of two-part June and Cherie Webb oral history, 2010, 26:54. Source catalog and family-lineage claims cross-checked to independent obituary and Irene Merrell biography. The archive abstract contains IMPOSSIBLE attribution of Nauvoo blacksmith work to Edward Jr (born 1847 after Nauvoo migration). Retrospective 1912/1920s narratives about younger generations not imported as Jr's life events. Audio unplayed (host 403); in copyright. See processed report. Part2 now tracked separately.",
+      "researchDetailStatus": "processed-catalog-audio-unheard"
     },
     {
       "id": "edward-jr-june-cherie-webb-oral-history-2010-part2",
       "personId": "KVPR-ZP3",
       "event": "oral-history",
-      "status": "located-catalog-audio-unheard",
+      "status": "indexed",
       "title": "Webb Family Oral History, Part 2/2",
       "sourceKeys": [
         "azmemory:item:162668",
@@ -1527,14 +1529,15 @@
       "indexedFileSize": "26.5 MB",
       "evidence": "github:research/edward-jr-june-cherie-oral-history-processed-20261018.md",
       "originalRefs": [],
-      "note": "Part2 was missing from Atlas research registry. Indexed official Arizona Memory Project record identified 18 October 2026. Its audio, duration, and descriptive narrative were NOT retrieved. Do not infer Part2 contents, transcript, duration or download URL. In-copyright related oral-history series; user iPhone closeout need not wait for inaccessible primary audio."
+      "note": "Part2 was missing from Atlas research registry. Indexed official Arizona Memory Project record identified 18 October 2026. Its audio, duration, and descriptive narrative were NOT retrieved. Do not infer Part2 contents, transcript, duration or download URL. In-copyright related oral-history series; user iPhone closeout need not wait for inaccessible primary audio.",
+      "researchDetailStatus": "located-catalog-audio-unheard"
     },
     {
       "id": "isaac-carling-1911-death-original-gate",
       "personId": "KWJ8-5XJ",
       "atlasPersonId": "isaac_carling",
       "event": "death",
-      "status": "original-access-blocked",
+      "status": "blocked",
       "sourceKeys": [
         "chdb:PER-6SFMYP8",
         "utah:series81448:1911:kane",
@@ -1544,14 +1547,15 @@
       "evidence": "github:research/isaac-carling-tranche-02-death-certificate-attempt-20261018.md",
       "originalRefs": [],
       "sourceUrl": "https://archives.utah.gov/research/index-death/",
-      "note": "Tranche 02 18 Oct: targeted original-image retrieval attempted Utah Archives name index, series81448 CONTENTdm digital viewer, FamilySearch 1904-1966 partner collection, and container direct HTTPS. No individual certificate ID or viewable original returned: name index needs interactive form, CONTENTdm viewer returned JavaScript Required; FamilySearch collection only exposed general search, container failed DNS. DO NOT claim death certificate transcription, cause/informant/parents or original capture. Death date 1911-05-24 supported by institutional summary/derivative index only. No repeat public index sweep. Resume ONLY when signed-in/interactive browser can open original. See recorded report."
+      "note": "Tranche 02 18 Oct: targeted original-image retrieval attempted Utah Archives name index, series81448 CONTENTdm digital viewer, FamilySearch 1904-1966 partner collection, and container direct HTTPS. No individual certificate ID or viewable original returned: name index needs interactive form, CONTENTdm viewer returned JavaScript Required; FamilySearch collection only exposed general search, container failed DNS. DO NOT claim death certificate transcription, cause/informant/parents or original capture. Death date 1911-05-24 supported by institutional summary/derivative index only. No repeat public index sweep. Resume ONLY when signed-in/interactive browser can open original. See recorded report.",
+      "researchDetailStatus": "original-access-blocked"
     },
     {
       "id": "isaac-carling-1852-diary-transcript",
       "personId": "KWJ8-5XJ",
       "atlasPersonId": "isaac_carling",
       "event": "1852-migration-first-person-diary",
-      "status": "official-published-transcript-reviewed-original-manuscript-not-captured",
+      "status": "partial",
       "title": "Isaac V. Carling [Diary], 1852 June 30–September 30, transcribed in Elda Mortenson, Isaac V. Carling Family History, v.1 pp.48–55",
       "sourceKeys": [
         "chdb:transcript:carling-isaac-v-diary-in-elda-mortenson",
@@ -1561,14 +1565,15 @@
       "sourceUrl": "https://history.churchofjesuschrist.org/chd/transcript?lang=eng&name=transcript-for-carling-isaac-v-diary-in-elda-mortenson-comp-isaac-v-carling",
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-03-1852-diary-analysis-20261018.md",
-      "note": "Tranche03 18Oct2026: official complete published diary transcription visually read online, not the autograph manuscript. June30 departure with father John, 1852 stepmother Ann Green (birth mother Emeline Keaton d1844), Abraham, Catherine/Kate; July8 Miller company organization; Sept9 South Pass, Sept29 Isaac in Salt Lake City, wagon company Sept30. Official company profile administratively ends Sep10, not Isaac's physical arrival. Diary August1 says passed Curtis' Company, strongly plausibly Uriah Curtis with later son-in-law Edward Milo Webb Jr age5 after his father died July31; NO meeting inferred. Note sister-in-law term may be retrospective, July31 missing official online version but present other family copy. Preserve source variations. No original page JPG/PDF, no claim manuscript transcribed by assistant, no Atlas publication yet."
+      "note": "Tranche03 18Oct2026: official complete published diary transcription visually read online, not the autograph manuscript. June30 departure with father John, 1852 stepmother Ann Green (birth mother Emeline Keaton d1844), Abraham, Catherine/Kate; July8 Miller company organization; Sept9 South Pass, Sept29 Isaac in Salt Lake City, wagon company Sept30. Official company profile administratively ends Sep10, not Isaac's physical arrival. Diary August1 says passed Curtis' Company, strongly plausibly Uriah Curtis with later son-in-law Edward Milo Webb Jr age5 after his father died July31; NO meeting inferred. Note sister-in-law term may be retrospective, July31 missing official online version but present other family copy. Preserve source variations. No original page JPG/PDF, no claim manuscript transcribed by assistant, no Atlas publication yet.",
+      "researchDetailStatus": "official-published-transcript-reviewed-original-manuscript-not-captured"
     },
     {
       "id": "isaac-carling-marriages-sarah-1854-1857-original-gate",
       "personId": "KWJ8-5XJ",
       "atlasPersonId": "isaac_carling",
       "event": "family-marriage-parentage",
-      "status": "asenath-marriage-contemporaneously-confirmed-separate-sealing-undetermined-miriam-original-pending",
+      "status": "partial",
       "title": "Isaac Van Wagoner Carling + Asenath Browning 1854; Miriam Hobson 1857; Sarah Elizabeth 1856",
       "sourceKeys": [
         "fs:KWJ8-5XJ:marriage:1854-11-17",
@@ -1580,14 +1585,15 @@
       "sourceUrl": "https://rsc.byu.edu/pioneer-women-arizona/w",
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-04-marriages-sarah-evidence-20261018.md",
-      "note": "Tranche05 UPDATE: Nov23 1854 Deseret News vol4 no37 p3 original page (visual read, source PDF linked) states 17 Nov 1854 Ogden City wedding of Isaac Van Wagoner Carling (Fillmore City) to Asenath Elizabeth Browning (Ogden City), OFFICIATED BY EZRA T. BENSON. Original newspaper supersedes compiled Endowment House place story for that wedding. Separate religious sealing has not been verified. Source original PDF transfer blocked (bytes not in GitHub). Miriam Hobson 1857 still needs a distinct contemporary source; Sarah birth based on BYU compiled biography. See specific new newspaper record isaac-carling-asenath-1854-ogden-newspaper-original, Tranche05 report. TRANCHE06 update: Miriam CHD profile labels age 13 at 1857 wedding, while family compilation narrative inconsistently claims 1859 and age16 and Fillmore home of S.T.Hoot/Hoyt, despite its own heading and other pedigrees saying 1857 in Salt Lake. No 1857 event original. Detailed record isaac-carling-miriam-1857-1859-marriage-age-conflict."
+      "note": "Tranche05 UPDATE: Nov23 1854 Deseret News vol4 no37 p3 original page (visual read, source PDF linked) states 17 Nov 1854 Ogden City wedding of Isaac Van Wagoner Carling (Fillmore City) to Asenath Elizabeth Browning (Ogden City), OFFICIATED BY EZRA T. BENSON. Original newspaper supersedes compiled Endowment House place story for that wedding. Separate religious sealing has not been verified. Source original PDF transfer blocked (bytes not in GitHub). Miriam Hobson 1857 still needs a distinct contemporary source; Sarah birth based on BYU compiled biography. See specific new newspaper record isaac-carling-asenath-1854-ogden-newspaper-original, Tranche05 report. TRANCHE06 update: Miriam CHD profile labels age 13 at 1857 wedding, while family compilation narrative inconsistently claims 1859 and age16 and Fillmore home of S.T.Hoot/Hoyt, despite its own heading and other pedigrees saying 1857 in Salt Lake. No 1857 event original. Detailed record isaac-carling-miriam-1857-1859-marriage-age-conflict.",
+      "researchDetailStatus": "asenath-marriage-contemporaneously-confirmed-separate-sealing-undetermined-miriam-original-pending"
     },
     {
       "id": "isaac-carling-asenath-1854-ogden-newspaper-original",
       "personId": "KWJ8-5XJ",
       "atlasPersonId": "isaac_carling",
       "event": "marriage",
-      "status": "contemporary-original-page-visually-verified-external-pdf-download-blocked",
+      "status": "examined",
       "title": "Isaac Van Wagoner Carling and Asenath Elizabeth Browning marriage notice, Ogden 17 Nov 1854",
       "sourceKeys": [
         "udn:deseret-news:1854-11-23:vol4:no37:page3",
@@ -1596,18 +1602,20 @@
         "historical-event:1854-11-17:ogden:ezra-t-benson"
       ],
       "sourceUrl": "https://newspapers.lib.utah.edu/udn_files/e7/54/e754867dc2a2b533fd0e62e58209eecd3876ed28.pdf",
-      "originalRefs": [
-        "external:utah-digital-newspapers:issue2581309:page3"
-      ],
+      "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-05-1854-contemporary-marriage-announcement-20261018.md",
-      "note": "Tranche 05, 18 October 2026. ORIGINAL 23 Nov 1854 Deseret News vol4 no37 p3 visually inspected via archiveviewer.org/viewer/utah-digital-newspapers/2581309, position2, original single-page PDF linked. MARRIED: at Ogden City 17th inst by Ezra T. Benson, Isaac Van Wagoner Carling of Fillmore City & Asenath Elizabeth Browning of Ogden City. High contemporaneous printed evidence for date/place/officiant. Later 1854 Salt Lake Endowment House locale is contradicted. Separate later sealing not ruled out or proved. PDF source-viewable but transfer to GitHub blocked by container DNS (no local unchanged media). DO NOT assign originalAsset to non-existent file or claim local original captured. Full source-accurate transcription and original PDF link preserved in report."
+      "note": "Tranche 05, 18 October 2026. ORIGINAL 23 Nov 1854 Deseret News vol4 no37 p3 visually inspected via archiveviewer.org/viewer/utah-digital-newspapers/2581309, position2, original single-page PDF linked. MARRIED: at Ogden City 17th inst by Ezra T. Benson, Isaac Van Wagoner Carling of Fillmore City & Asenath Elizabeth Browning of Ogden City. High contemporaneous printed evidence for date/place/officiant. Later 1854 Salt Lake Endowment House locale is contradicted. Separate later sealing not ruled out or proved. PDF source-viewable but transfer to GitHub blocked by container DNS (no local unchanged media). DO NOT assign originalAsset to non-existent file or claim local original captured. Full source-accurate transcription and original PDF link preserved in report.",
+      "researchDetailStatus": "contemporary-original-page-visually-verified-external-pdf-download-blocked",
+      "externalOriginalLocators": [
+        "external:utah-digital-newspapers:issue2581309:page3"
+      ]
     },
     {
       "id": "isaac-carling-miriam-1857-1859-marriage-age-conflict",
       "personId": "KWJ8-5XJ",
       "atlasPersonId": "isaac_carling",
       "event": "second-marriage-source-reconciliation",
-      "status": "conflicting-derivative-dates-venues-age-original-1857-register-unobtained",
+      "status": "partial",
       "title": "Miriam Elizabeth Hobson / Isaac Carling reported 1857 marriage and age; contradictory family text says 1859",
       "sourceKeys": [
         "chdb:miriam-elizabeth-hobson-1843:marriage-1857-08-27",
@@ -1618,7 +1626,8 @@
       "sourceUrl": "https://history.churchofjesuschrist.org/chd/individual/miriam-elizabeth-hobson-1843?lang=eng",
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-06-miriam-marriage-age-20261018.md",
-      "note": "18 Oct tranche06: CHD institutional profiles state Miriam Hobson born Aug31 1843, married Isaac Aug27 1857 (explicit age 13), died Jun22 1869. NO contemporary marriage page cited/inspected. Later Isaac Carling family-history manuscript CONTRADICTS ITSELF, saying 1859 Fillmore at beginning, Aug27 1857 at home of 'S.T.Hoot (Hoyt?)' in Fillmore below, describing bride as 16; same compilation's opening/pedigrees call event Aug27 1857 Salt Lake City. If 1857 date + 1843 DOB correct she was 13y11m27d (not 16); 1859 would be roughly 15/16. Place/ceremony type unverified. Compiled Hobson genealogy and Frank family pedigree are derivative; no 1857 original found. No new photo/transcript or FS change. See full report."
+      "note": "18 Oct tranche06: CHD institutional profiles state Miriam Hobson born Aug31 1843, married Isaac Aug27 1857 (explicit age 13), died Jun22 1869. NO contemporary marriage page cited/inspected. Later Isaac Carling family-history manuscript CONTRADICTS ITSELF, saying 1859 Fillmore at beginning, Aug27 1857 at home of 'S.T.Hoot (Hoyt?)' in Fillmore below, describing bride as 16; same compilation's opening/pedigrees call event Aug27 1857 Salt Lake City. If 1857 date + 1843 DOB correct she was 13y11m27d (not 16); 1859 would be roughly 15/16. Place/ceremony type unverified. Compiled Hobson genealogy and Frank family pedigree are derivative; no 1857 original found. No new photo/transcript or FS change. See full report.",
+      "researchDetailStatus": "conflicting-derivative-dates-venues-age-original-1857-register-unobtained"
     },
     {
       "id": "isaac-carling-order-1875-sketch-usu-original-gate",
@@ -1626,7 +1635,7 @@
       "atlasPersonId": "isaac_carling",
       "event": "historic-illustration",
       "title": "Isaac V Carling attributed Orderville sketch 1875, copy prints and color transparencies",
-      "status": "confirmed-archive-catalog-only-original-offline-reproduction-request-needed",
+      "status": "blocked",
       "sourceKeys": [
         "usu:UUS_P0143:box1:folder15:item1:15:01-06",
         "archive:usu:1875:Isaac-V-Carling-sketch"
@@ -1634,7 +1643,8 @@
       "sourceUrl": "https://usu-clone.libraryhost.com/repositories/2/archival_objects/286117",
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-08-1875-order-sketch-custody-20261018.md",
-      "note": "Tranche 08 18 Oct: USU ArchivesSpace item UUS_P0143 Box1 Folder15 identifiers 1:15:01-06 CONFIRMED: copy prints, four transparencies and three explanatory letters cataloged under Isaac V Carling 1875 sketch of Orderville. Item page contains NO digital image/letters link; open to public research physically. Artist, autograph, caption, original 1875 date and letters are NOT visually verified, original bytes not captured. New independent Utah State History 'Orderville, Utah p.1' photo15652 (ARK 87278/s6b2859f) depicts labelled communal buildings but does NOT credit Isaac and is NOT demonstrably same as USU sketch; digital image rights reserved. Specific unsent USU inquiry and citation in new Tranche08 report. No further public catalogue cycling."
+      "note": "Tranche 08 18 Oct: USU ArchivesSpace item UUS_P0143 Box1 Folder15 identifiers 1:15:01-06 CONFIRMED: copy prints, four transparencies and three explanatory letters cataloged under Isaac V Carling 1875 sketch of Orderville. Item page contains NO digital image/letters link; open to public research physically. Artist, autograph, caption, original 1875 date and letters are NOT visually verified, original bytes not captured. New independent Utah State History 'Orderville, Utah p.1' photo15652 (ARK 87278/s6b2859f) depicts labelled communal buildings but does NOT credit Isaac and is NOT demonstrably same as USU sketch; digital image rights reserved. Specific unsent USU inquiry and citation in new Tranche08 report. No further public catalogue cycling.",
+      "researchDetailStatus": "confirmed-archive-catalog-only-original-offline-reproduction-request-needed"
     },
     {
       "id": "isaac-carling-orderville-ward-board-originals-mss512",
@@ -1642,15 +1652,16 @@
       "atlasPersonId": "isaac_carling",
       "event": "United-Order-civic-work",
       "title": "Orderville Ward United Order board and departmental original handwritten record books, 1874–1896",
-      "status": "confirmed-two-folder-original-collection-person-entry-uninspected-interactive-access-needed",
+      "status": "blocked",
       "sourceKeys": [
-        "byu:MSS512:1974-1896:board-minutes",
+        "byu:MSS512:1874-1896:board-minutes",
         "byu:OrdervilleWard:MSS512"
       ],
       "sourceUrl": "https://archives.lib.byu.edu/repositories/ltpsc/resources/upb_mss512",
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-09-orderville-board-originals-access-20261018.md",
-      "note": "Tranche09 18Oct: BYU MSS512 original 1874-1896 board minutes, membership/department records confirmed in exactly Folder1 + Folder2, catalog open to public research. Current web open BYU direct = 403 and NO folio/named Isaac Carling reference or pixels available; cannot original-confirm first vice president, 1877 bishopric, carpenter-shop foreman, co-op store with sons. One specific archivist item request drafted but UNSENT, no fee/email. Independent digitized 779-frame Huntington Bleak microfilm MSS MFilm00207 contains OTHER original Orderville director lists and 1875-76 member rolls; no Isaac-named frame indexed/inspected, do NOT conflate with MSS512. USHS Bleak papers Box2 Folders4-5 courtesy copy alternative. More in new report."
+      "note": "Tranche09 18Oct: BYU MSS512 original 1874-1896 board minutes, membership/department records confirmed in exactly Folder1 + Folder2, catalog open to public research. Current web open BYU direct = 403 and NO folio/named Isaac Carling reference or pixels available; cannot original-confirm first vice president, 1877 bishopric, carpenter-shop foreman, co-op store with sons. One specific archivist item request drafted but UNSENT, no fee/email. Independent digitized 779-frame Huntington Bleak microfilm MSS MFilm00207 contains OTHER original Orderville director lists and 1875-76 member rolls; no Isaac-named frame indexed/inspected, do NOT conflate with MSS512. USHS Bleak papers Box2 Folders4-5 courtesy copy alternative. More in new report.",
+      "researchDetailStatus": "confirmed-two-folder-original-collection-person-entry-uninspected-interactive-access-needed"
     },
     {
       "id": "isaac-carling-orderville-united-order-accounts-mss879",
@@ -1658,7 +1669,7 @@
       "atlasPersonId": "isaac_carling",
       "event": "United-Order-economics",
       "title": "Orderville United Order original handwritten merchandise ledger and stock books, 1877–1895",
-      "status": "primary-collection-located-person-specific-entry-unexamined",
+      "status": "indexed",
       "sourceKeys": [
         "byu:MSS879:1877-ledger",
         "byu:MSS879:1881-1886-stock"
@@ -1666,14 +1677,15 @@
       "sourceUrl": "https://archives.lib.byu.edu/repositories/14/resources/5653",
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-07-orderville-originals-20261018.md",
-      "note": "3 BYU handwritten volumes: Feb–Sep1877 merchandise sales, 1881–86 stock certificates, 1894–95 sales. Original physical books open for research; no pages viewed and no Isaac entry confirmed. Distinct from MSS512 and family-history claims."
+      "note": "3 BYU handwritten volumes: Feb–Sep1877 merchandise sales, 1881–86 stock certificates, 1894–95 sales. Original physical books open for research; no pages viewed and no Isaac entry confirmed. Distinct from MSS512 and family-history claims.",
+      "researchDetailStatus": "primary-collection-located-person-specific-entry-unexamined"
     },
     {
       "id": "isaac-carling-order-utahstatehistory-numbered-settlement-image",
       "personId": "KWJ8-5XJ",
       "atlasPersonId": "isaac_carling",
       "event": "Orderville-historical-context-image",
-      "status": "digitized-image-catalog-and-preview-reviewed-no-Isaac-attribution",
+      "status": "examined",
       "title": "Orderville, Utah p.1 — ten numbered United Order community structures",
       "sourceKeys": [
         "utahstatehistory:photo15652",
@@ -1681,11 +1693,13 @@
         "ark:87278/s6b2859f"
       ],
       "sourceUrl": "https://collections.lib.utah.edu/ark:/87278/s6b2859f",
-      "originalRefs": [
-        "external:collections.lib.utah.edu:ark87278/s6b2859f"
-      ],
+      "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-08-1875-order-sketch-custody-20261018.md",
-      "note": "Separate published 8x10 photograph of numbered settlement plan, Utah State History photo15652; digital preview visibly inspected: relief society,dining hall,big house,blacksmith shop,carpenter shop,commissary,order office/shoe shop,dwellings,stables,fields. NO artist/date attribution for sketch, NO link proving it is 1875 USU UUS_P0143 Carling-attributed item. This is historical context ONLY, no evidence Isaac made it. Utah State Historical Society digital image ©2012 rights reserved; not downloaded or republished into Atlas. Its catalogue mentions Orderville settlement established 1875; that's not the photograph's date."
+      "note": "Separate published 8x10 photograph of numbered settlement plan, Utah State History photo15652; digital preview visibly inspected: relief society,dining hall,big house,blacksmith shop,carpenter shop,commissary,order office/shoe shop,dwellings,stables,fields. NO artist/date attribution for sketch, NO link proving it is 1875 USU UUS_P0143 Carling-attributed item. This is historical context ONLY, no evidence Isaac made it. Utah State Historical Society digital image ©2012 rights reserved; not downloaded or republished into Atlas. Its catalogue mentions Orderville settlement established 1875; that's not the photograph's date.",
+      "researchDetailStatus": "digitized-image-catalog-and-preview-reviewed-no-Isaac-attribution",
+      "externalOriginalLocators": [
+        "external:collections.lib.utah.edu:ark87278/s6b2859f"
+      ]
     },
     {
       "id": "isaac-carling-order-bleak-boards-digitized-huntington",
@@ -1693,7 +1707,7 @@
       "atlasPersonId": "isaac_carling",
       "event": "United-Order-board-and-membership-records",
       "title": "James G. Bleak Historical Memoranda of Southern Mission, 779-frame digital microfilm including Orderville board director rosters",
-      "status": "independent-digitized-primary-source-located-no-Isaac-specific-frame-read",
+      "status": "indexed",
       "sourceKeys": [
         "huntington:MSS-MFilm-00207",
         "huntington:p16003coll15:13715",
@@ -1702,7 +1716,8 @@
       "sourceUrl": "https://www.huntington.org/collections/lib-p16003coll15-13715",
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-09-orderville-board-originals-access-20261018.md",
-      "note": "Huntington digitizes 779-frame microfilm of James G Bleak originals (1950 courtesy copy); its archive summary says Orderville United Order Articles, board of directors names, 1875-76 membership departure/joined lists, 1879 statements, plus broader southern Utah material. NOT BYU MSS512 and no named Carling frame, exact original manuscript folio, signature or director designation verified. Browser image viewer may help in Work; avoid 779 unindexed frames full sweep. USHS physical Bleak papers Box2Folders4-5 'Orderville United Order' are courtesy copies. Full report."
+      "note": "Huntington digitizes 779-frame microfilm of James G Bleak originals (1950 courtesy copy); its archive summary says Orderville United Order Articles, board of directors names, 1875-76 membership departure/joined lists, 1879 statements, plus broader southern Utah material. NOT BYU MSS512 and no named Carling frame, exact original manuscript folio, signature or director designation verified. Browser image viewer may help in Work; avoid 779 unindexed frames full sweep. USHS physical Bleak papers Box2Folders4-5 'Orderville United Order' are courtesy copies. Full report.",
+      "researchDetailStatus": "independent-digitized-primary-source-located-no-Isaac-specific-frame-read"
     },
     {
       "id": "isaac-carling-museum-biography-tranche10-reviewed-source-synthesis",
@@ -1710,17 +1725,20 @@
       "atlasPersonId": "isaac_carling",
       "event": "person-biography-source-synthesis",
       "title": "Isaac Van Wagoner Carling reviewable museum biography and separate Orderville context (Tranche 10)",
-      "status": "saved-research-draft-not-published",
+      "status": "partial",
       "sourceKeys": [
         "github:research/isaac-carling-tranche-10-museum-biography-review-20261018.md",
-        "udn:deseret-news:1854-11-23:vol4:no37:page3",
-        "chdb:transcript:carling-isaac-v-diary-in-elda-mortenson",
         "compiled:isaac-carling:1853-06-19-proposal-letter-transcription"
       ],
       "sourceUrl": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/blob/main/research/isaac-carling-tranche-10-museum-biography-review-20261018.md",
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-10-museum-biography-review-20261018.md",
-      "note": "18 Oct2026 Tranche10: third-person museum biography, separate Orderville and 1852 crossing notes, 12+4 family roster and evidence ledger drafted and GitHub committed. Uses original 1854 newspaper visually checked in Tranche05, official published attribution to 1852 diary (not autograph), retrospective work/music/botanical traditions and 1876 relocation (not newly proved original). Newly noted 19 June 1853 Isaac-to-Asenath proposal letter solely in family-history transcription, no original letter pixels. Board titles/Miriam marriage date/USU artist/certificate original uncertain. NO deployed biography, media capture, user approval or changed FS tree."
+      "note": "18 Oct2026 Tranche10: third-person museum biography, separate Orderville and 1852 crossing notes, 12+4 family roster and evidence ledger drafted and GitHub committed. Uses original 1854 newspaper visually checked in Tranche05, official published attribution to 1852 diary (not autograph), retrospective work/music/botanical traditions and 1876 relocation (not newly proved original). Newly noted 19 June 1853 Isaac-to-Asenath proposal letter solely in family-history transcription, no original letter pixels. Board titles/Miriam marriage date/USU artist/certificate original uncertain. NO deployed biography, media capture, user approval or changed FS tree.",
+      "researchDetailStatus": "saved-research-draft-not-published",
+      "linkedSourceKeys": [
+        "udn:deseret-news:1854-11-23:vol4:no37:page3",
+        "chdb:transcript:carling-isaac-v-diary-in-elda-mortenson"
+      ]
     },
     {
       "id": "isaac-carling-visual-164147651-pedigree-access-gate",
@@ -1728,7 +1746,7 @@
       "atlasPersonId": "isaac_carling",
       "event": "historical-photograph-candidate-access",
       "title": "Isaac Van Wagoner Carling tagged on Lyle George Porter Picture Pedigree Chart, FamilySearch Memory 164147651",
-      "status": "person-tag-metadata-only-composite-original-pixels-identity-unverified",
+      "status": "indexed",
       "sourceKeys": [
         "familysearch:memory:164147651",
         "fs:memory:164147651:filename:504559_1655086t279j263i4v1ob6_A.jpg"
@@ -1736,7 +1754,8 @@
       "sourceUrl": "https://www.familysearch.org/en/memories/memory/164147651",
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-11-photo-candidate-access-20261018.md",
-      "note": "Tranche11 18 Oct2026: exact person-tagged public FamilySearch memory for a modern picture-pedigree chart, contributor Josie846, contributed Dec4 2022; Isaac and Asenath among many tagged. Actual image/inset unavailable in web text/current container (timeout/DNS), no claim Isaac appears visually, no camera original, author/date/resolution/permission. DO NOT add portrait/gallery. Separate already known crowd photo memory166185359 not rechecked. Next exact Work signed-in view of memory164147651, inspect original individual inset if present and provenance; avoid 239 item sweep."
+      "note": "Tranche11 18 Oct2026: exact person-tagged public FamilySearch memory for a modern picture-pedigree chart, contributor Josie846, contributed Dec4 2022; Isaac and Asenath among many tagged. Actual image/inset unavailable in web text/current container (timeout/DNS), no claim Isaac appears visually, no camera original, author/date/resolution/permission. DO NOT add portrait/gallery. Separate already known crowd photo memory166185359 not rechecked. Next exact Work signed-in view of memory164147651, inspect original individual inset if present and provenance; avoid 239 item sweep.",
+      "researchDetailStatus": "person-tag-metadata-only-composite-original-pixels-identity-unverified"
     },
     {
       "id": "isaac-carling-tranche12-portrait-chart-excluded-original-photo-not-accessed",
@@ -1744,22 +1763,25 @@
       "atlasPersonId": "isaac_carling",
       "event": "historical-photo-candidate-final-assessment",
       "title": "Picture pedigree chart tagged Isaac — excluded from personal portrait gallery; original photographic inset unavailable",
-      "status": "closed-not-portrait-unverified-original-photo-unretrieved",
+      "status": "partial",
       "sourceKeys": [
-        "familysearch:memory:164147651",
         "github:research/isaac-carling-tranche-12-picture-pedigree-candidate-final-disposition-20261018.md"
       ],
       "sourceUrl": "https://www.familysearch.org/en/memories/memory/164147651",
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-12-picture-pedigree-candidate-final-disposition-20261018.md",
-      "note": "18 Oct tranche12: modern multi-person picture pedigree chart (uploader Josie846 Dec4 2022) tags Isaac but no pixel original/inset, photographic provenance, identity or rights. Direct FamilySearch web open timed out; current container DNS cannot resolve site; exact upload filename search yielded no authenticated original. Do not use in Isaac gallery; close candidate, don't repeat. Secondary 1965 family reunion account introduces 11 Aug 1875 Orderville arrival vs other family history 1876; original review queued separately."
+      "note": "18 Oct tranche12: modern multi-person picture pedigree chart (uploader Josie846 Dec4 2022) tags Isaac but no pixel original/inset, photographic provenance, identity or rights. Direct FamilySearch web open timed out; current container DNS cannot resolve site; exact upload filename search yielded no authenticated original. Do not use in Isaac gallery; close candidate, don't repeat. Secondary 1965 family reunion account introduces 11 Aug 1875 Orderville arrival vs other family history 1876; original review queued separately.",
+      "researchDetailStatus": "closed-not-portrait-unverified-original-photo-unretrieved",
+      "linkedSourceKeys": [
+        "familysearch:memory:164147651"
+      ]
     },
     {
       "id": "isaac-carling-tranche13-orderville-move-1875-1876-evidence",
       "personId": "KWJ8-5XJ",
       "atlasPersonId": "isaac_carling",
       "event": "mid-1870s-migration-to-orderville",
-      "status": "conflicting-retrospective-1875-arrival-vs-1876-departure-biography-amended",
+      "status": "partial",
       "title": "Isaac family relocation Fillmore to Orderville, 1875 or 1876 (reported dates conflict)",
       "sourceKeys": [
         "family-history:IsaacVanWagonerCarling:departure:1876-08-04",
@@ -1769,14 +1791,15 @@
       "sourceUrl": "https://www.familysearch.org/en/memories/memory/2501673",
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-13-orderville-1875-1876-chronology-20261018.md",
-      "note": "Tranche13 18 Oct: specific compiled Carling family history says Isaac/Asenath left Fillmore 4 Aug 1876 for Orderville and gives Sarah age20 (consistent with 1856 birth in 1876); 1965 Chamberlain reunion quotes granddaughter/descendant Annie as reporting arrived Orderville 11 Aug 1875. Both later writings, share three wagons/lathe/melodeon, perhaps dependent; counts of alleged 16 travelers in 1965 clash with enumerated 14 surviving children in other account. 1876 favored only as working chronology; NO original named contemporary migration/United Order membership entry read. Museum biography revised to 'In the mid-1870s...'. No new media, app publication or FamilySearch mutation."
+      "note": "Tranche13 18 Oct: specific compiled Carling family history says Isaac/Asenath left Fillmore 4 Aug 1876 for Orderville and gives Sarah age20 (consistent with 1856 birth in 1876); 1965 Chamberlain reunion quotes granddaughter/descendant Annie as reporting arrived Orderville 11 Aug 1875. Both later writings, share three wagons/lathe/melodeon, perhaps dependent; counts of alleged 16 travelers in 1965 clash with enumerated 14 surviving children in other account. 1876 favored only as working chronology; NO original named contemporary migration/United Order membership entry read. Museum biography revised to 'In the mid-1870s...'. No new media, app publication or FamilySearch mutation.",
+      "researchDetailStatus": "conflicting-retrospective-1875-arrival-vs-1876-departure-biography-amended"
     },
     {
       "id": "isaac-carling-tranche14-prepublication-staged-person-overlay",
       "personId": "KWJ8-5XJ",
       "atlasPersonId": "isaac_carling",
       "event": "person-page-prepublication-implementation",
-      "status": "source-weighted-person-overlay-staged-not-live",
+      "status": "partial",
       "title": "Isaac Carling museum Biography, historicalNotes and external source references — staged Atlas overlay",
       "sourceKeys": [
         "github:isaac-carling-mobile-biography-staged.js",
@@ -1785,7 +1808,8 @@
       "sourceUrl": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/blob/main/isaac-carling-mobile-biography-staged.js",
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-14-atlas-prepublication-content-audit-20261018.md",
-      "note": "18 Oct Tranche14: inspected actual index.html redirect -> atlas-v3.9.56 and inline DATA entry for Isaac showing only short U.S. note, no GUIDE_PROFILES life / portrait / gallery. Created tested staged overlay (3,717-char actual biography, 2 historicalNotes, 6 source link-only evidence; no original image). JavaScript parser and repeated two-execution emulated runtime checks passed. Staged module NOT loaded into live HTML, no app release/iPhone acceptance; next Tranche15 single version bump and live rendering QA. No FamilySearch/email/fees."
+      "note": "18 Oct Tranche14: inspected actual index.html redirect -> atlas-v3.9.56 and inline DATA entry for Isaac showing only short U.S. note, no GUIDE_PROFILES life / portrait / gallery. Created tested staged overlay (3,717-char actual biography, 2 historicalNotes, 6 source link-only evidence; no original image). JavaScript parser and repeated two-execution emulated runtime checks passed. Staged module NOT loaded into live HTML, no app release/iPhone acceptance; next Tranche15 single version bump and live rendering QA. No FamilySearch/email/fees.",
+      "researchDetailStatus": "source-weighted-person-overlay-staged-not-live"
     }
   ],
   "tasks": [
@@ -1796,71 +1820,6 @@
       "action": "inspect-original",
       "novelty": "Original birth register and parental columns not documented as examined in 10 Oct audit",
       "state": "queued"
-    },
-    {
-      "id": "edward-jr-1860-original",
-      "recordId": "edward-jr-1860-owens-census",
-      "owner": "work",
-      "action": "transcribe-original",
-      "state": "closed",
-      "novelty": "COMPLETE FOR EDWARD JR CLOSEOUT: Both original 1860 pages preserved and complete page transcriptions saved on 18 Oct 2026 (commit 16da4884). Research sufficient; do not revisit unconnected census people.",
-      "closure_reason": "Both original 1860 pages preserved and complete page transcriptions saved on 18 Oct 2026 (commit 16da4884). Research sufficient; do not revisit unconnected census people.",
-      "closure_date": "2026-10-18",
-      "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription."
-    },
-    {
-      "id": "edward-jr-1860-mcrae-original",
-      "recordId": "edward-jr-1860-mcrae-census",
-      "owner": "work",
-      "action": "transcribe-original",
-      "state": "closed",
-      "novelty": "COMPLETE FOR EDWARD JR CLOSEOUT: Both original 1860 pages preserved and complete page transcriptions saved on 18 Oct 2026 (commit 16da4884). Research sufficient; do not revisit unconnected census people.",
-      "closure_reason": "Both original 1860 pages preserved and complete page transcriptions saved on 18 Oct 2026 (commit 16da4884). Research sufficient; do not revisit unconnected census people.",
-      "closure_date": "2026-10-18",
-      "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription."
-    },
-    {
-      "id": "edward-jr-1870-original",
-      "recordId": "edward-jr-1870-robinson-census",
-      "owner": "work",
-      "action": "transcribe-original",
-      "state": "closed",
-      "novelty": "COMPLETE FOR EDWARD JR CLOSEOUT: Original and four-person target household published. Forty-line working transcription and discrepant readings already reviewed; remaining uncertain unrelated names documented. No additional 1870 pass is justified.",
-      "closure_reason": "Original and four-person target household published. Forty-line working transcription and discrepant readings already reviewed; remaining uncertain unrelated names documented. No additional 1870 pass is justified.",
-      "closure_date": "2026-10-18",
-      "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription."
-    },
-    {
-      "id": "edward-jr-1880-original",
-      "recordId": "edward-jr-1880-census",
-      "owner": "work",
-      "action": "transcribe-original",
-      "state": "closed",
-      "novelty": "COMPLETE FOR EDWARD JR CLOSEOUT: Original and ten material Webb/Sarah entries and additional columns reviewed; uncertainty on line42 'Gr daughter' retained. Unrelated remainder of page is not a closeout blocker.",
-      "closure_reason": "Original and ten material Webb/Sarah entries and additional columns reviewed; uncertainty on line42 'Gr daughter' retained. Unrelated remainder of page is not a closeout blocker.",
-      "closure_date": "2026-10-18",
-      "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription."
-    },
-    {
-      "id": "edward-jr-charlotte-family-photo-inspect",
-      "recordId": "edward-jr-charlotte-family-photo",
-      "owner": "work",
-      "action": "inspect-original",
-      "state": "closed",
-      "novelty": "CLOSED AS DUPLICATE GALLEY CLAIM. Published Charlotte group original already represented, no second capture justified. Distinct FS version not ruled out.",
-      "closure_date": "2026-10-18",
-      "closure_reason": "Photo with exact published Charlotte-and-three-children caption already appears as jr-charlotte-1891 in Atlas v3.9.56. Duplicate gallery omission claim disproved. Identity of separate FS Memory image unverified; review only if an authenticated distinct image emerges."
-    },
-    {
-      "id": "edward-jr-1920-transcript",
-      "recordId": "edward-jr-1920-census",
-      "owner": "work",
-      "action": "transcribe-original",
-      "state": "closed",
-      "novelty": "COMPLETE FOR EDWARD JR CLOSEOUT: Original and Edward, Ellen, Harriet Alice and Lois four-person household reviewed and original documentary reader included in published v3.9.55/56. Full unrelated page transcription is unnecessary.",
-      "closure_reason": "Original and Edward, Ellen, Harriet Alice and Lois four-person household reviewed and original documentary reader included in published v3.9.55/56. Full unrelated page transcription is unnecessary.",
-      "closure_date": "2026-10-18",
-      "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription."
     },
     {
       "id": "edward-jr-attached-mmkk-378-available-level-review",
@@ -2292,6 +2251,79 @@
         "Tranche13: relocation 1875 (1965 descendant arrival testimony) vs 1876 (later Carling family-history departure, ages favor 1876), original exact day not confirmed. Biography now says mid-1870s; preserve both reports.",
         "Tranche14: Isaac prepublication overlay was saved in root isaac-carling-mobile-biography-staged.js but atlas-v3.9.56.html and index.html remain unchanged. No new media originals; run actual release/browser QA before inviting iPhone acceptance."
       ]
-    }
+    },
+    "archivedClosedTasks": [
+      {
+        "id": "edward-jr-1860-original",
+        "recordId": "edward-jr-1860-owens-census",
+        "owner": "work",
+        "action": "transcribe-original",
+        "state": "closed",
+        "novelty": "COMPLETE FOR EDWARD JR CLOSEOUT: Both original 1860 pages preserved and complete page transcriptions saved on 18 Oct 2026 (commit 16da4884). Research sufficient; do not revisit unconnected census people.",
+        "closure_reason": "Both original 1860 pages preserved and complete page transcriptions saved on 18 Oct 2026 (commit 16da4884). Research sufficient; do not revisit unconnected census people.",
+        "closure_date": "2026-10-18",
+        "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription.",
+        "archiveReason": "completed before Tranche 15; excluded from open task queue while preserving full prior fields"
+      },
+      {
+        "id": "edward-jr-1860-mcrae-original",
+        "recordId": "edward-jr-1860-mcrae-census",
+        "owner": "work",
+        "action": "transcribe-original",
+        "state": "closed",
+        "novelty": "COMPLETE FOR EDWARD JR CLOSEOUT: Both original 1860 pages preserved and complete page transcriptions saved on 18 Oct 2026 (commit 16da4884). Research sufficient; do not revisit unconnected census people.",
+        "closure_reason": "Both original 1860 pages preserved and complete page transcriptions saved on 18 Oct 2026 (commit 16da4884). Research sufficient; do not revisit unconnected census people.",
+        "closure_date": "2026-10-18",
+        "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription.",
+        "archiveReason": "completed before Tranche 15; excluded from open task queue while preserving full prior fields"
+      },
+      {
+        "id": "edward-jr-1870-original",
+        "recordId": "edward-jr-1870-robinson-census",
+        "owner": "work",
+        "action": "transcribe-original",
+        "state": "closed",
+        "novelty": "COMPLETE FOR EDWARD JR CLOSEOUT: Original and four-person target household published. Forty-line working transcription and discrepant readings already reviewed; remaining uncertain unrelated names documented. No additional 1870 pass is justified.",
+        "closure_reason": "Original and four-person target household published. Forty-line working transcription and discrepant readings already reviewed; remaining uncertain unrelated names documented. No additional 1870 pass is justified.",
+        "closure_date": "2026-10-18",
+        "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription.",
+        "archiveReason": "completed before Tranche 15; excluded from open task queue while preserving full prior fields"
+      },
+      {
+        "id": "edward-jr-1880-original",
+        "recordId": "edward-jr-1880-census",
+        "owner": "work",
+        "action": "transcribe-original",
+        "state": "closed",
+        "novelty": "COMPLETE FOR EDWARD JR CLOSEOUT: Original and ten material Webb/Sarah entries and additional columns reviewed; uncertainty on line42 'Gr daughter' retained. Unrelated remainder of page is not a closeout blocker.",
+        "closure_reason": "Original and ten material Webb/Sarah entries and additional columns reviewed; uncertainty on line42 'Gr daughter' retained. Unrelated remainder of page is not a closeout blocker.",
+        "closure_date": "2026-10-18",
+        "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription.",
+        "archiveReason": "completed before Tranche 15; excluded from open task queue while preserving full prior fields"
+      },
+      {
+        "id": "edward-jr-charlotte-family-photo-inspect",
+        "recordId": "edward-jr-charlotte-family-photo",
+        "owner": "work",
+        "action": "inspect-original",
+        "state": "closed",
+        "novelty": "CLOSED AS DUPLICATE GALLEY CLAIM. Published Charlotte group original already represented, no second capture justified. Distinct FS version not ruled out.",
+        "closure_date": "2026-10-18",
+        "closure_reason": "Photo with exact published Charlotte-and-three-children caption already appears as jr-charlotte-1891 in Atlas v3.9.56. Duplicate gallery omission claim disproved. Identity of separate FS Memory image unverified; review only if an authenticated distinct image emerges.",
+        "archiveReason": "completed before Tranche 15; excluded from open task queue while preserving full prior fields"
+      },
+      {
+        "id": "edward-jr-1920-transcript",
+        "recordId": "edward-jr-1920-census",
+        "owner": "work",
+        "action": "transcribe-original",
+        "state": "closed",
+        "novelty": "COMPLETE FOR EDWARD JR CLOSEOUT: Original and Edward, Ellen, Harriet Alice and Lois four-person household reviewed and original documentary reader included in published v3.9.55/56. Full unrelated page transcription is unnecessary.",
+        "closure_reason": "Original and Edward, Ellen, Harriet Alice and Lois four-person household reviewed and original documentary reader included in published v3.9.55/56. Full unrelated page transcription is unnecessary.",
+        "closure_date": "2026-10-18",
+        "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription.",
+        "archiveReason": "completed before Tranche 15; excluded from open task queue while preserving full prior fields"
+      }
+    ]
   }
 }
