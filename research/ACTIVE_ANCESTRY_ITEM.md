@@ -1,29 +1,30 @@
-# ANCESTRY ATLAS — PERSON WORK CHECKPOINT
+# ACTIVE ANCESTRY PERSON — Isaac Van Wagoner Carling
 
 **Updated:** 18 October 2026
-**Status:** **NO ACTIVE PERSON — previous subject approved and closed.**
-**Next prepared candidate:** Isaac Van Wagoner Carling (`isaac_carling`, FamilySearch `KWJ8-5XJ`). Do not begin his full revamp without the user's instruction; prior person-page audit exists.
+**Only active person:** **Isaac Van Wagoner Carling** (1831–1911), FamilySearch `KWJ8-5XJ`; Atlas `isaac_carling`. User ordered **work in discrete tranches**. Complete one clearly bounded tranche, save evidence/registry/checkpoint, then stop rather than changing subjects or repeating scans.
 
-## Edward Milo Webb Jr. — CLOSED, USER APPROVED
+## Approved prior person — do not reopen by default
+**Edward Milo Webb Jr.** (FamilySearch `KVPR-ZP3`, Atlas `edward_milo_jr`) was **approved by the user** on 18 October 2026 (their reply “Approved!”). Published v3.9.56; closure and named archival access exceptions saved in `research/edward-jr-iphone-approval-closeout-20261018.md`, commit `9475f0f7f8277ddef17f1b25ad34f7cfc154179c`. Completed original page inventories and photo galleries stay closed unless genuine new evidence changes his biography.
 
-- Person: Edward Milo Webb Jr. (`edward_milo_jr`, FamilySearch `KVPR-ZP3`).
-- Deployed version at acceptance: [v3.9.56](https://68zvh8wpzp-boop.github.io/ancestry-atlas/atlas-v3.9.56.html?person=edward_milo_jr).
-- **18 October 2026 user replied “Approved!”** to request to check the biography, eight photos, nine documents and Story on their iPhone; record as user-reported acceptance, not assistant-operated mobile browser test.
-- Approval and closure record: `research/edward-jr-iphone-approval-closeout-20261018.md` (commit `9475f0f7f8277ddef17f1b25ad34f7cfc154179c`).
-- 1,294-word canonical biography; three spouses and 31 children named; eight authentic photographs and nine documents; ten-page Irene Webb Merrell original/transcription reader; two-page Lois Webb Spanish civil birth original/translation reader; 1860/1870/1880/1920 evidence; 1921 death original and funeral notice. Latest published version is unchanged v3.9.56; no new deployment was necessary.
-- QA: `research/edward-jr-v3.9.56-publication-qa-20261018.json` and `research/edward-jr-publication-qa-20261018.json`. Source checks passed, but assistant did not independently operate the live browser; user supplied device approval.
-- **Source exceptions preserved:** 125 FamilySearch Memories not all audited for distinct originals due to authenticated access; two June/Cherie Webb oral-history parts cataloged but not heard; matching long biography narration unavailable and intentionally unset; the reader data does not establish original pixel-decode verification for every large asset. These exceptions do not revoke user approval. All still explicitly visible in closeout file.
-- **DO NOT RETREAD** completed censuses, Irene/Lois transcription, already captured photographs, or chronology disputes without a named materially new primary source or specific user-reported defect.
+## Pre-existing Isaac audit — DON'T REPEAT
+26 September 2026 authenticated FamilySearch person-page audit in Library file `familysearch-101-audit-checkpoint-2026-09-25.md` at heading `26 September 2026 — Isaac Van Wagoner Carling — FamilySearch KWJ8-5XJ` (approx. lines 1181–1190). It inventoried **83 attached sources**, **239 Memories**, name variants, both documented current-tree marriages, children, parents, 1852 migration, 1900 Orderville photo and diary source titles. This was a page inventory and *not* full photographic high-resolution capture or full original transcription. Reusable handoff `research/isaac-carling-existing-research-handoff-20261018.md`, commit `083e050e3f6dc8ab9cb469c750fd780a5eea36bd`.
 
-## Isaac Van Wagoner Carling — RESEARCHED, NOT COMPLETED
+## Tranche 01 — DEATH/BURIAL SOURCE RECONCILIATION SAVED
+Completed 18 October 2026. Exact report: `research/isaac-carling-tranche-01-death-burial-20261018.md`, commit `e5b7f4c1f3ba5193d6adee66cba656f401a97b5c`. Registered source status in `RESEARCH_SOURCE_REGISTRY.json`, commit `86a2cfc39baf40d099faac3df87fbdb59812471a`.
+- **24 May 1911 death** corroborated by Church History Biographical Database (RID `PER-6SFMYP8`) and derived Kane County death index. Birth **30 Nov 1831**, hence **79 years old** (79y 5m 24d), not eighty completed.
+- **Orderville, Kane County, Utah** reported as death place; **25 May 1911 Orderville Cemetery** burial in earlier FamilySearch tree and secondary compiled family history. No headstone photo or original certificate inspected in this tranche; no exact plot assigned.
+- The source for *kidney trouble* is a later reproduced report attributed to the `Kane County News`, not an examined certificate or verified original newspaper. Do not promote into death-certificate fact. A precise time of death is not secure. Do not confuse this man with later Isaac W. Carling d. 1938.
+- Utah state death certificate is obtainable in principle in **Utah Archives series 81448**, but the actual **1911 Kane County certificate scan, file number and source-original transcription have NOT yet been captured**. Official index webpage did not return individual original image through this interface. Secondary FHL film **2229364** is a provisional 1911 Kane locator.
+- Tranche 01 is closed for **date/custody reconciliation only**, not proof that a photographic original has been added to the person gallery. No new public release made.
 
-- Already in Atlas as `isaac_carling`; prior *authenticated person-page survey* done 26 September 2026; FamilySearch `KWJ8-5XJ`.
-- Earlier audit covers **83 attached sources, 239 Memories**, source categories and marriage/parentage/biographical leads. It is in Library file `familysearch-101-audit-checkpoint-2026-09-25.md`, heading `26 September 2026 — Isaac Van Wagoner Carling` (roughly lines 1181–1190).
-- Facts/working tree: born 30 November 1831, Ulster County, New York; died 24 May 1911 in Orderville, Utah. Wife Asenath Elizabeth Browning; another recorded wife Miriam Elizabeth Hobson. Daughter Sarah Elizabeth Carling → Edward Milo Webb Jr.'s family.
-- **Do not repeat 83-source inventory/239-memory name sweep.** No standalone original-certified biography, complete high-resolution media capture, person release, or iPhone approval has been established.
-- Next-person handoff with exact source and gaps: `research/isaac-carling-existing-research-handoff-20261018.md` (commit `083e050e3f6dc8ab9cb469c750fd780a5eea36bd`).
-- Await user's explicit choice to begin Isaac's distinct-source audit, while honoring one person at a time and the historical-note/transcription/third-person biography/mobile-validation standards.
+## Exactly ONE next tranche
+**Tranche 02: targeted retrieval of Isaac's ORIGINAL 1911 death certificate**, in Utah State Archives series 81448 or its FamilySearch partner scans. Look only for this certificate, using exact name, Kane County, 24 May 1911, and 1911 film browse; do not redo general index research. If accessed, capture the unaltered full-resolution image, record its individual archival citation and transcribe every field with uncertain readings explicitly flagged. If not accessible in a focused pass, document the specific impediment once and move the following tranche to the preserved **1852 Isaac Carling firsthand diary** for substantive narrative; no repeated 1911 research loop. Do not change ancestor mid-tranche.
 
-## Global operating rules
+## Future phases — only when queued
+1. Verify direct Sara/Sarah Elizabeth parentage and the two wives against material original records. Do not mix posthumous temple sealing with real-life marriage or add extra spouses without evidence.
+2. Audit *distinct* historically relevant photos and documents from the 239 Memories, not 239 items by default, with originals and exact captions. Use signed-in Work browser if required.
+3. One grounded third-person museum biography centered on Isaac's own work and experiences, his 1852 journey, life in Fillmore and Orderville, plural-marriage context, and his age at death. Broader context in distinct special notes, not repeated in bio.
+4. One consolidated Atlas release; user approval on iPhone before marking Isaac done.
 
-Review prior work and known originals **before** each new tranche. Save original image plus source citation and diplomatic text/translation where appropriate; no invented originals/kinship. No user email access without one-task authorization. No FamilySearch changes, fees or duplicate recaptures. Use actual iPhone verification before calling future persons approved.
+## Governance
+No email access, FamilySearch tree edits, payment, speculative kinship, invented image or falsely completed original. Work one person / one tranche, save/checkpoint, then stop. Approved Edward Jr remains closed.
