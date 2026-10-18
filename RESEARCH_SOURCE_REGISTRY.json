@@ -1487,6 +1487,29 @@
         "github:assets/edward-webb-jr/milo-webb-1900-deed-original.jpg"
       ],
       "note": "Original read, DGS007945586image830,bookp449,JesseN.SmithtoMiloWebb,30March1900. IdentityJrvsIII unresolved; do not promote into biography. Exactfulltranscription pending."
+    },
+    {
+      "id": "edward-jr-june-cherie-webb-oral-history-2010",
+      "personId": "KVPR-ZP3",
+      "event": "oral-history",
+      "status": "located-audio-unheard",
+      "sourceKeys": [
+        "azmemory:item:162667",
+        "azmemory:audio:Webb, June and Cherie Part 1.mp3"
+      ],
+      "sourceUrl": "https://azmemory.azlibrary.gov/nodes/view/162667",
+      "title": "Webb Family Oral History, Part 1/2",
+      "interviewees": [
+        "June Webb",
+        "Cherie Webb"
+      ],
+      "interviewer": "Joyce McBride",
+      "repository": "Arizona Memory Project; contributing institution Pinetop-Lakeside Historical Society Museum",
+      "catalogDate": "2010-03-20",
+      "duration": "00:26:54",
+      "evidence": "external:azmemory:item:162667",
+      "originalRefs": [],
+      "note": "Genuinely new archival audio lead (not among existing Atlas source registry/photos) discovered 18 Oct 2026. June Webb is described as Edward Milo Webb Jr.'s grandson; indexed interview discusses Mexico-colony exit and Pinedale/Wagon Wheel family sawmill. Audio file was not accessed or listened to: original host web fetch returned 403 and container lacked internet. CATALOG DESCRIPTION ERRONEOUSLY says grandfather Edward Milo Webb Jr. was a blacksmith in Nauvoo at 1840s migration although he was born 1847. That episode, if reliable, concerns Edward Sr. or other Webbs; never put into Jr bio. In copyright; keep citation/link only, no redistribution or reproduction without permission. Do not count as verified photo/document or user-approved audio."
     }
   ],
   "tasks": [
@@ -1947,6 +1970,13 @@
       "publication": "Both readers already linked in atlas-v3.9.56.html",
       "technical_limit": "Static repository consistency only; user iPhone verification remains outstanding",
       "provenance": "research/edward-jr-irene-lois-duplicate-prevention-audit-20261018.json"
+    },
+    "edward_jr_memories_access_gate": {
+      "date": "2026-10-18",
+      "source": "https://www.familysearch.org/en/tree/person/memories/KVPR-ZP3",
+      "status": "blocked-unauthenticated",
+      "observed": "Public FamilySearch Memories page could not be read by current web source (returned inaccessible). Other public name search found no verifiably new, distinct personal photograph after comparison to the eight existing gallery assets. No 125-item memory audit claim.",
+      "action": "Use signed-in Work Cloud Browser (with user-provided authentication) to inspect remaining Memories, only for truly distinct relevant images. Avoid additional generic public photo searches until access exists."
     }
   }
 }
