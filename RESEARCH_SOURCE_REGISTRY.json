@@ -1737,6 +1737,22 @@
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-11-photo-candidate-access-20261018.md",
       "note": "Tranche11 18 Oct2026: exact person-tagged public FamilySearch memory for a modern picture-pedigree chart, contributor Josie846, contributed Dec4 2022; Isaac and Asenath among many tagged. Actual image/inset unavailable in web text/current container (timeout/DNS), no claim Isaac appears visually, no camera original, author/date/resolution/permission. DO NOT add portrait/gallery. Separate already known crowd photo memory166185359 not rechecked. Next exact Work signed-in view of memory164147651, inspect original individual inset if present and provenance; avoid 239 item sweep."
+    },
+    {
+      "id": "isaac-carling-tranche12-portrait-chart-excluded-original-photo-not-accessed",
+      "personId": "KWJ8-5XJ",
+      "atlasPersonId": "isaac_carling",
+      "event": "historical-photo-candidate-final-assessment",
+      "title": "Picture pedigree chart tagged Isaac — excluded from personal portrait gallery; original photographic inset unavailable",
+      "status": "closed-not-portrait-unverified-original-photo-unretrieved",
+      "sourceKeys": [
+        "familysearch:memory:164147651",
+        "github:research/isaac-carling-tranche-12-picture-pedigree-candidate-final-disposition-20261018.md"
+      ],
+      "sourceUrl": "https://www.familysearch.org/en/memories/memory/164147651",
+      "originalRefs": [],
+      "evidence": "github:research/isaac-carling-tranche-12-picture-pedigree-candidate-final-disposition-20261018.md",
+      "note": "18 Oct tranche12: modern multi-person picture pedigree chart (uploader Josie846 Dec4 2022) tags Isaac but no pixel original/inset, photographic provenance, identity or rights. Direct FamilySearch web open timed out; current container DNS cannot resolve site; exact upload filename search yielded no authenticated original. Do not use in Isaac gallery; close candidate, don't repeat. Secondary 1965 family reunion account introduces 11 Aug 1875 Orderville arrival vs other family history 1876; original review queued separately."
     }
   ],
   "tasks": [
@@ -2220,16 +2236,16 @@
       "name": "Isaac Van Wagoner Carling",
       "status": "active",
       "started": "2026-10-18",
-      "last_tranche": 11,
+      "last_tranche": 12,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "Tranche 12: open exact FamilySearch Memory 164147651 in user-authorized signed-in Work browser or original accessible export; inspect whether there is a genuinely attributable Isaac photographic image and find its source original or reject; no mass memory sweep",
+      "next_tranche": "Tranche 13: reconcile conflicting 11 Aug 1875 vs 1876 Orderville arrival in two already identified derivative histories; correct museum biography draft source wording and commit, one tranche, no further public portrait candidate retry.",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "metadata-only one named composite photo candidate found; actual Isaac portrait not authenticated or captured; image remains access-blocked",
-      "last_tranche_report": "research/isaac-carling-tranche-11-photo-candidate-access-20261018.md",
+      "last_tranche_status": "Picture-pedigree composite candidate excluded as a personal portrait; no original bytes; distinct 1875 vs 1876 arrival-date conflict identified for next factual editorial tranche.",
+      "last_tranche_report": "research/isaac-carling-tranche-12-picture-pedigree-candidate-final-disposition-20261018.md",
       "exceptions": [
         "1911 Utah original death certificate not captured; series 81448 image access requires interactive browser",
         "Isaac 1852 diary studied through Church History transcript of 1966 family history; autograph page scans not captured",
@@ -2240,7 +2256,7 @@
         "USU UUS_P0143 Box1 Folder15 1875 Isaac Carling-attributed sketch and 3 letters are cataloged but no online pixels/letters linked; a single, unsent reference/reproduction inquiry is prepared; artist/date/rights unverified.",
         "BYU MSS512 has physical Orderville board/departments originals, but no named Isaac folio or online readable page; Huntington MSS MFilm00207 digitized 779-frame comparable original copies have no Isaac-named indexed frame, current binary/interactive access blocked.",
         "1853 Isaac-to-Asenath proposal letter dated 19 June appears in later family-history transcription only; original autograph not inspected. Biography draft saved, not deployed or approved.",
-        "Tranche11 FamilySearch Memory 164147651 tagged picture-pedigree composite: metadata preserved but no actual Isaac-named original photographic pixels or usage rights obtained (signed-in browser/DNS access limit)."
+        "Tranche12: FamilySearch Memory164147651 is modern picture-pedigree composite; rejected as an Isaac person-photo. Original individual portrait unverified and unavailable absent authenticated viewer; DO NOT retry current public metadata path. Newly found 1965 family reunion testimony dates 1875 Orderville move vs Carling compilation 1876."
       ]
     }
   }
