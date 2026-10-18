@@ -1,0 +1,97 @@
+{
+  "report_id": "edward-jr-v3.9.56-publication-qa-20261018",
+  "date": "2026-10-18",
+  "person": {
+    "name": "Edward Milo Webb Jr.",
+    "fs_id": "KVPR-ZP3",
+    "atlas_id": "edward_milo_jr"
+  },
+  "target": {
+    "release": "atlas-v3.9.56.html",
+    "direct_url": "https://68zvh8wpzp-boop.github.io/ancestry-atlas/atlas-v3.9.56.html?person=edward_milo_jr",
+    "source_sha": "eab0338420a809ce01c888c831038d2ff33800fa"
+  },
+  "overall": "SOURCE_AND_REPOSITORY_QA_PASS; LIVE_BROWSER_AND_IPHONE_QA_NOT_RUN",
+  "completed": [
+    {
+      "gate": "HTML page present, correct release and person route",
+      "status": "PASS",
+      "evidence": "Versioned 399560-character HTML source exists; DOCTYPE, 'v3.9.56', edward_milo_jr DATA node, URLSearchParams(person), deep-link action selectPersonSearchResult(person) all present"
+    },
+    {
+      "gate": "Embedded JavaScript syntax",
+      "status": "PASS",
+      "evidence": "All 17 inline script bodies compiled successfully as JavaScript functions; 0 syntax errors. This does not demonstrate actual DOM/runtime execution."
+    },
+    {
+      "gate": "External JavaScript module file existence",
+      "status": "PASS",
+      "evidence": "All 46 script src paths from the page verified as existing GitHub repository files. Loading and browser execution still untested."
+    },
+    {
+      "gate": "Canonical biography",
+      "status": "PASS",
+      "evidence": "1294 words in canonical life text, 17 paragraphs. Canonical BIOGRAPHY and biography fields assigned from same variable, GUIDE_PROFILES.edward_milo_jr.life assigned same text. CONTEXT separately assigned; three wives named. Audio set null rather than wrongly claiming synchronized narration."
+    },
+    {
+      "gate": "Photo gallery source inventory",
+      "status": "PASS",
+      "evidence": "Eight distinct jr- photo IDs included with corresponding source asset paths. All eight GitHub files exist. Seven of eight retrieved bytes with correct JPG/PNG magic; one large original returned sha metadata without bytes via current connector."
+    },
+    {
+      "gate": "Document gallery source inventory",
+      "status": "PASS",
+      "evidence": "Nine distinct document titles in inline evidence scripts; all nine corresponding preview/original paths exist. Three returned inspectable JPEG/PNG bytes with expected magic; six large images metadata only. This is path existence, NOT full decode/rendering."
+    },
+    {
+      "gate": "Nested document-reader assets",
+      "status": "PASS",
+      "evidence": "The ten Irene page images, both Lois original pages, linked biography PDF and funeral PDF, and both reader HTML files all exist in repository. Earlier transcript-to-reader matching verified for 10 Irene pages with 444 line pairs; Lois reader contains Spanish original and English translation."
+    },
+    {
+      "gate": "DOM wiring for reader and album controls",
+      "status": "PASS_SOURCE_ONLY",
+      "evidence": "IDs card,evidenceWrap,docModal,docImage,docPdf,openAlbumBtn,openStoryBtn,landing,albumViewerNav,albumPrev,albumNext all exist; renderEvidence and openEvidence functions defined. Not tested by actual taps."
+    },
+    {
+      "gate": "Original source preservation",
+      "status": "PASS_SOURCE_ONLY",
+      "evidence": "Source-level document reader paths point to original PDF/JPEG/PNG and corresponding metadata, and retain marked transcription uncertainties. No new original found/created in this QA."
+    }
+  ],
+  "blocked": [
+    {
+      "gate": "Actual live GitHub Pages load",
+      "status": "NOT_VERIFIED",
+      "reason": "web open on target URL and site root failed; container HTTPS request failed DNS name resolution. These do not prove the site is offline. No accessible cloud/browser navigation tool in this chat."
+    },
+    {
+      "gate": "All photo/document images visually decode in browser",
+      "status": "NOT_VERIFIED",
+      "reason": "Seven large gallery images had valid GitHub blob sha metadata but binary body unavailable through connector; a real browser is necessary to ensure visual decoding on iPhone."
+    },
+    {
+      "gate": "Real Story/album/doc navigation and iPhone presentation",
+      "status": "NOT_VERIFIED",
+      "reason": "No interactive browser session. Previous Work reports successful releases, but no fresh end-to-end QA here."
+    },
+    {
+      "gate": "Audio narration synchronization",
+      "status": "INTENTIONAL_EXCEPTION",
+      "reason": "Canonical 1294-word biography assigned as transcript; matched audio explicitly set null and 'matching recording pending'; do not claim full synchronized audio."
+    },
+    {
+      "gate": "125 FamilySearch memories independent audit",
+      "status": "DOCUMENTED_EXCEPTION",
+      "reason": "No signed-in FamilySearch browser access. Eight actual images verified in repository, not entire 125 Memories collection. Should not restart already completed census/readers."
+    }
+  ],
+  "decision": "No code change or new release justified by repository/static audit. Not yet entitled to declare FINAL ALL DONE. Next single user action: open v3.9.56 on iPhone, inspect full person entry, 8 photos, 9 docs and Story; report pass/fail. Fix any actual observed defect only, then close person with documented original-access exceptions.",
+  "audit_constraints": "This is source/repository QA and cannot substitute for live deployment/iPhone validation. Do not present PASS_SOURCE_ONLY as live pass.",
+  "references": [
+    "research/ACTIVE_ANCESTRY_ITEM.md",
+    "research/edward-jr-eight-published-photos-check-20261018.json",
+    "research/edward-jr-irene-lois-duplicate-prevention-audit-20261018.json",
+    "research/edward-jr-june-cherie-oral-history-processed-20261018.md"
+  ]
+}
