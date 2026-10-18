@@ -6,10 +6,10 @@
   "bio_policy_passed": true,
   "media_separated": true,
   "photos_count": 8,
-  "documents_count": 8,
-  "artifact": "atlas-v3.9.55.html",
-  "version": "20261018-jr-original-documents-2",
-  "source_revision": "a310e889012d13bfefbb6a19c69ec715f33ab6b4",
+  "documents_count": 9,
+  "artifact": "atlas-v3.9.56.html",
+  "version": "20261018-jr-original-notice-1",
+  "source_revision": "3bf15bcf9c906c8555c28ed6dee3df657737325b",
   "web_verified": true,
   "iphone_verified": false,
   "issue_ids": [
@@ -37,7 +37,7 @@
   },
   "document_preview_failure_count": 0,
   "document_preview_failure_ids": [],
-  "document_preview_scope": "Eight gallery documents. Three new original previews and both standalone readers inspected live; ten-page reader page10 and both birth-page images decoded. Five prior previews retained.",
+  "document_preview_scope": "Nine document cards. New460\u00d7130originalnotice bitmap/readable transcription/PDFlinks inspectedlive;Previous\u21921920/Next\u2192notice/Close passed. Eightearlierdocumentpreviews retained fromv55verification.",
   "transcription_translation_failure_count": 5,
   "transcription_translation_failure_ids": [
     "jr-1860-owens-full-page-pending",
@@ -46,7 +46,8 @@
     "jr-1880-full-page-pending",
     "jr-1920-full-page-pending"
   ],
-  "verification": "v3.9.55 live shows PHOTOS8/DOCUMENTS8 and canonical1294word biography naming3wives/31children. Irene full originalPDF/read-all-pages links, all10transcriptpages, Lois Spanish/English and2originalpages,1920household transcription inspected. Story starts at Edward, full canonical biography shown by Hide slideshow, historicalportrait and brothers/Ellen-family advancement inspected. Story now has8actualphotos+2originaldocuments. Served399449byteHTML matches source exactly, SHA256634f4efba763b3e1b33bb312ebbdc1d8cda16de85c84b192eb0e6ba3308fe3a6. Deployment39124087043 and sourcegate39124087109 success. ActualiPhone unavailable.",
+  "verification": "Actualv56cardshows8photos/9documents. Originalfuneralnoticeprintage74,address538GermaniaStreet;pairedEnglishN/AtranscriptionandoriginalPDFvisible.63inline scriptsparse;109recordregistrygatezeroerrors;14negativeregressionsand8intaketestspass. Deployment39127520591andsourcegate39127520552SUCCESS. SecureFamilySearchsign-inverifiedonsigned-inEdwardpage;priorauthenticationblockercleared. NoactualiPhoneverification.",
   "publication_authorization": "User explicitly instructed Publish it. Get it done on17October16:18America/Chicago.",
-  "publication_status": "deployed and web-verified; overall person audit partially verified"
+  "publication_status": "deployed and web-verified; overall person audit partially verified",
+  "authentication": "Connected: secureusername/passwordsubmitted, actualsigned-inEdward56sourcespageverified18October2026. No credentials recorded."
 }

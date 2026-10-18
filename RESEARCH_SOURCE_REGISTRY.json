@@ -1431,10 +1431,10 @@
       "sourceKeys": [
         "fs:source:WNSW-WZ9"
       ],
-      "status": "indexed",
+      "status": "partial",
       "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
       "originalRefs": [],
-      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. + AddE. Milo Webb, \"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\""
+      "note": "Completeavailableindex inspected18October2026;explicitImageUnavailable. PhoebeWebb1907Snowflake,3June1916baptism,CR3758/b2241/f0001;E.MiloandPhoebeFreemanalsolisted. AdditionalE.MiloWebbroleunclear;norelationadopted."
     },
     {
       "id": "edward-jr-attached-wfcm-g6l",
@@ -1537,14 +1537,6 @@
       "novelty": "Read full image and metadata for family-photo publication: person gallery omitted this named memory; not a repeat census or already preserved photo acquisition. Original memory review pending; browser connection stalled. Distinct public BYU photographs handled separately; do not assume memory duplication."
     },
     {
-      "id": "edward-jr-irene-full-transcript",
-      "recordId": "edward-jr-irene-biography",
-      "owner": "work",
-      "action": "transcribe-original",
-      "state": "active",
-      "novelty": "Pages2-10 of tenpage PDF not previously inspected; now captured original requires full reading and transcription for the remaining person audit."
-    },
-    {
       "id": "edward-jr-1920-transcript",
       "recordId": "edward-jr-1920-census",
       "owner": "work",
@@ -1553,12 +1545,356 @@
       "novelty": "Captured final census original; target household read but full-page paired transcription remains to be completed."
     },
     {
-      "id": "edward-jr-lois-birth-transcript",
-      "recordId": "edward-jr-lois-1898-birth",
+      "id": "edward-jr-attached-mmkk-378-available-level-review",
+      "recordId": "edward-jr-attached-mmkk-378",
       "owner": "work",
-      "action": "transcribe-original",
-      "state": "active",
-      "novelty": "Two-page original captured; exact Spanish transcription and immediate English translation required before document publication."
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9ftm-ph9-available-level-review",
+      "recordId": "edward-jr-attached-9ftm-ph9",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-m976-897-available-level-review",
+      "recordId": "edward-jr-attached-m976-897",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9vsp-2dn-available-level-review",
+      "recordId": "edward-jr-attached-9vsp-2dn",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9lyx-dxz-available-level-review",
+      "recordId": "edward-jr-attached-9lyx-dxz",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-sl3s-62g-available-level-review",
+      "recordId": "edward-jr-attached-sl3s-62g",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9tw6-c4n-available-level-review",
+      "recordId": "edward-jr-attached-9tw6-c4n",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-7qqn-wzy-available-level-review",
+      "recordId": "edward-jr-attached-7qqn-wzy",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-7qqn-czp-available-level-review",
+      "recordId": "edward-jr-attached-7qqn-czp",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-whbk-1gj-available-level-review",
+      "recordId": "edward-jr-attached-whbk-1gj",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9xrk-f5v-available-level-review",
+      "recordId": "edward-jr-attached-9xrk-f5v",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-swt8-lyw-available-level-review",
+      "recordId": "edward-jr-attached-swt8-lyw",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9x9b-w3k-available-level-review",
+      "recordId": "edward-jr-attached-9x9b-w3k",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9vsp-k9b-available-level-review",
+      "recordId": "edward-jr-attached-9vsp-k9b",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9kvz-74y-available-level-review",
+      "recordId": "edward-jr-attached-9kvz-74y",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-mmmn-w55-available-level-review",
+      "recordId": "edward-jr-attached-mmmn-w55",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-mmkk-37n-available-level-review",
+      "recordId": "edward-jr-attached-mmkk-37n",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9ftm-p4v-available-level-review",
+      "recordId": "edward-jr-attached-9ftm-p4v",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-3jf9-g93-available-level-review",
+      "recordId": "edward-jr-attached-3jf9-g93",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9z61-l61-available-level-review",
+      "recordId": "edward-jr-attached-9z61-l61",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9z61-lnv-available-level-review",
+      "recordId": "edward-jr-attached-9z61-lnv",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-m99r-9lx-available-level-review",
+      "recordId": "edward-jr-attached-m99r-9lx",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-s3x5-fys-available-level-review",
+      "recordId": "edward-jr-attached-s3x5-fys",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-s6bs-wcw-available-level-review",
+      "recordId": "edward-jr-attached-s6bs-wcw",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-s6bs-wls-available-level-review",
+      "recordId": "edward-jr-attached-s6bs-wls",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9z8p-2rt-available-level-review",
+      "recordId": "edward-jr-attached-9z8p-2rt",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9vkx-xl4-available-level-review",
+      "recordId": "edward-jr-attached-9vkx-xl4",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-3dld-np8-available-level-review",
+      "recordId": "edward-jr-attached-3dld-np8",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9tw6-csg-available-level-review",
+      "recordId": "edward-jr-attached-9tw6-csg",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-q7gg-4dl-available-level-review",
+      "recordId": "edward-jr-attached-q7gg-4dl",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-q7gg-h7s-available-level-review",
+      "recordId": "edward-jr-attached-q7gg-h7s",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9tw6-cwl-available-level-review",
+      "recordId": "edward-jr-attached-9tw6-cwl",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9v3z-ldd-available-level-review",
+      "recordId": "edward-jr-attached-9v3z-ldd",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9z61-ll3-available-level-review",
+      "recordId": "edward-jr-attached-9z61-ll3",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9z8p-2vt-available-level-review",
+      "recordId": "edward-jr-attached-9z8p-2vt",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-q7gg-h1k-available-level-review",
+      "recordId": "edward-jr-attached-q7gg-h1k",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9z61-lvx-available-level-review",
+      "recordId": "edward-jr-attached-9z61-lvx",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-9n9s-vcq-available-level-review",
+      "recordId": "edward-jr-attached-9n9s-vcq",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-q7gg-wn3-available-level-review",
+      "recordId": "edward-jr-attached-q7gg-wn3",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-msjt-qyt-available-level-review",
+      "recordId": "edward-jr-attached-msjt-qyt",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-msp7-h2q-available-level-review",
+      "recordId": "edward-jr-attached-msp7-h2q",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-7q6c-lnh-available-level-review",
+      "recordId": "edward-jr-attached-7q6c-lnh",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-wwvq-y7c-available-level-review",
+      "recordId": "edward-jr-attached-wwvq-y7c",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
+    },
+    {
+      "id": "edward-jr-attached-7h8q-n6c-available-level-review",
+      "recordId": "edward-jr-attached-7h8q-n6c",
+      "owner": "work",
+      "state": "queued",
+      "action": "audit-sources",
+      "novelty": "Complete original/repository follow-up for this specifically inventoried attached source; index or citation alone has not been treated as original inspection."
     }
   ],
   "coverage": {
