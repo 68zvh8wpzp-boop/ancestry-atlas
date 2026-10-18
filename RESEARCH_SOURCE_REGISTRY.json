@@ -1626,15 +1626,15 @@
       "atlasPersonId": "isaac_carling",
       "event": "historic-illustration",
       "title": "Isaac V Carling attributed Orderville sketch 1875, copy prints and color transparencies",
-      "status": "archive-item-located-original-visual-not-inspected",
+      "status": "confirmed-archive-catalog-only-original-offline-reproduction-request-needed",
       "sourceKeys": [
         "usu:UUS_P0143:box1:folder15:item1:15:01-06",
         "archive:usu:1875:Isaac-V-Carling-sketch"
       ],
       "sourceUrl": "https://usu-clone.libraryhost.com/repositories/2/archival_objects/286117",
       "originalRefs": [],
-      "evidence": "github:research/isaac-carling-tranche-07-orderville-originals-20261018.md",
-      "note": "18 Oct Tranche07: exact USU Claridge Family photo collection item, Box1 Folder15 item1:15:01-06, titled 1875 Isaac V. Carling sketch of Orderville. Catalog describes 3 items 4 transparencies 3 explanatory letters; physical copy prints, original author/primary sketch unverified, no pixels opened/downloaded. One focused item-level visual access task next; no fabricated originalAsset."
+      "evidence": "github:research/isaac-carling-tranche-08-1875-order-sketch-custody-20261018.md",
+      "note": "Tranche 08 18 Oct: USU ArchivesSpace item UUS_P0143 Box1 Folder15 identifiers 1:15:01-06 CONFIRMED: copy prints, four transparencies and three explanatory letters cataloged under Isaac V Carling 1875 sketch of Orderville. Item page contains NO digital image/letters link; open to public research physically. Artist, autograph, caption, original 1875 date and letters are NOT visually verified, original bytes not captured. New independent Utah State History 'Orderville, Utah p.1' photo15652 (ARK 87278/s6b2859f) depicts labelled communal buildings but does NOT credit Isaac and is NOT demonstrably same as USU sketch; digital image rights reserved. Specific unsent USU inquiry and citation in new Tranche08 report. No further public catalogue cycling."
     },
     {
       "id": "isaac-carling-orderville-ward-board-originals-mss512",
@@ -1667,6 +1667,25 @@
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-07-orderville-originals-20261018.md",
       "note": "3 BYU handwritten volumes: Feb–Sep1877 merchandise sales, 1881–86 stock certificates, 1894–95 sales. Original physical books open for research; no pages viewed and no Isaac entry confirmed. Distinct from MSS512 and family-history claims."
+    },
+    {
+      "id": "isaac-carling-order-utahstatehistory-numbered-settlement-image",
+      "personId": "KWJ8-5XJ",
+      "atlasPersonId": "isaac_carling",
+      "event": "Orderville-historical-context-image",
+      "status": "digitized-image-catalog-and-preview-reviewed-no-Isaac-attribution",
+      "title": "Orderville, Utah p.1 — ten numbered United Order community structures",
+      "sourceKeys": [
+        "utahstatehistory:photo15652",
+        "marriott:digital:item453397",
+        "ark:87278/s6b2859f"
+      ],
+      "sourceUrl": "https://collections.lib.utah.edu/ark:/87278/s6b2859f",
+      "originalRefs": [
+        "external:collections.lib.utah.edu:ark87278/s6b2859f"
+      ],
+      "evidence": "github:research/isaac-carling-tranche-08-1875-order-sketch-custody-20261018.md",
+      "note": "Separate published 8x10 photograph of numbered settlement plan, Utah State History photo15652; digital preview visibly inspected: relief society,dining hall,big house,blacksmith shop,carpenter shop,commissary,order office/shoe shop,dwellings,stables,fields. NO artist/date attribution for sketch, NO link proving it is 1875 USU UUS_P0143 Carling-attributed item. This is historical context ONLY, no evidence Isaac made it. Utah State Historical Society digital image ©2012 rights reserved; not downloaded or republished into Atlas. Its catalogue mentions Orderville settlement established 1875; that's not the photograph's date."
     }
   ],
   "tasks": [
@@ -2150,23 +2169,24 @@
       "name": "Isaac Van Wagoner Carling",
       "status": "active",
       "started": "2026-10-18",
-      "last_tranche": 7,
+      "last_tranche": 8,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "Tranche 08: examine specific 1875 Isaac V. Carling-attributed Orderville sketch USU UUS_P0143 Box1 Folder15 item1:15:01-06 and explanatory letters; capture if accessible, otherwise named blocker",
+      "next_tranche": "Tranche 09: one BYU MSS 512 Orderville original board/department minute-book page for Isaac-specific carpentry/co-op participation; no rerun USU sketch catalog",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "completed provenance-only: USU 1875 Isaac-attributed Orderville sketch and BYU original record collections located; NO image/manuscript pages obtained",
-      "last_tranche_report": "research/isaac-carling-tranche-07-orderville-originals-20261018.md",
+      "last_tranche_status": "closed: verified USU sketch item shelfmark and letter count, but original pixels/letters are non-digitally accessible via public catalog; separate historic Orderville settlement-view provenance preserved",
+      "last_tranche_report": "research/isaac-carling-tranche-08-1875-order-sketch-custody-20261018.md",
       "exceptions": [
         "1911 Utah original death certificate not captured; series 81448 image access requires interactive browser",
         "Isaac 1852 diary studied through Church History transcript of 1966 family history; autograph page scans not captured",
         "Asenath 1854 contemporaneous marriage original visually examined in archival PDF, but exact original PDF bytes not copied to GitHub due container DNS; optional distinct sealing register still unverified",
         "Miriam Hobson 1857 marriage/sealing original not yet found; reported birth 1843 places purported 1857 marriage before her 14th birthday; original verification pending.",
         "Miriam Hobson reported Aug1857 wedding (age13 per institutional derivative) conflicts with compiled 1859/age16/Fillmore narrative; original place,date,event type unverified",
-        "Specific Orderville co-op store photo in FamilySearch Memories not retrievable unauthenticated; USU 1875 Orderville sketch and BYU MSS512/MSS879 person-specific original pages not yet inspected."
+        "Specific Orderville co-op store photo in FamilySearch Memories not retrievable unauthenticated; USU 1875 Orderville sketch and BYU MSS512/MSS879 person-specific original pages not yet inspected.",
+        "USU UUS_P0143 Box1 Folder15 1875 Isaac Carling-attributed sketch and 3 letters are cataloged but no online pixels/letters linked; a single, unsent reference/reproduction inquiry is prepared; artist/date/rights unverified."
       ]
     }
   }
