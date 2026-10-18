@@ -3247,6 +3247,9 @@ window.__EDWARD_JR_BIOGRAPHY={version:'20261017-jr-full-biography-1',wordCount:l
 
 (()=>{document.addEventListener('click',event=>{const button=event.target.closest?.('#openStoryBtn,#mobileTreeStory');if(!button||typeof selected==='undefined'||selected!=='edward_milo_jr')return;const index=typeof BRANCH_TOURS!=='undefined'?BRANCH_TOURS.webb?.steps?.findIndex(s=>s.id==='edward_milo_jr'):-1;if(index<0||!window.AncestryTour?.begin)return;event.preventDefault();event.stopImmediatePropagation();window.AncestryTour.begin('webb',index);},true);})();
 </script>
+<script>
+(()=>{if(typeof TOUR_MEDIA==='undefined')return;const n=DATA.nodes.find(n=>n.id==='edward_milo_jr'),m=TOUR_MEDIA.edward_milo_jr;if(!n||!m)return;const photos=(n.evidence||[]).filter(e=>e.kind==='photo');const triggers=[0,7,8,8,1,6,14,17];m.scenes=photos.map((e,i)=>({src:e.full,title:e.title,caption:e.summary||e.title,source:'Historical family photograph',triggerParagraph:triggers[i]??14,visualType:'photograph'}));m.scenes.push({src:'assets/edward-webb-jr/edward-ellen-1920-original.jpg',title:'Edward and Ellen’s household in 1920',caption:'Edward and Ellen are listed with daughters Harriet Alice and Lois, both schoolteachers, in Fort Lowell Precinct, Arizona.',source:'1920 United States census, ED 80, sheet 3A, lines 34–37',triggerParagraph:16,visualType:'document'},{src:'assets/edward-webb-jr/edward-milo-webb-jr-1921-death-original.jpg',title:'Death in Murray, Utah',caption:'Edward died on 11 September 1921. His certificate records burial at Holladay Cemetery the next day.',source:'Utah death certificate, 1921',triggerParagraph:17,visualType:'document'});m.scenes.sort((a,b)=>a.triggerParagraph-b.triggerParagraph);})();
+</script>
 </body>
 </html>
 
