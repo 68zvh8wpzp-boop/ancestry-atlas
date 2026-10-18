@@ -1,0 +1,40 @@
+{
+  "source_id": "SWT8-NJG",
+  "person": "KVPR-ZP3",
+  "inspection_date": "2026-10-18",
+  "status": "original examined and preserved",
+  "citation": "Salt Lake Telegram, 12 September 1921, page12, Notices, Deaths and Funerals; Utah Digital Newspapers, article19671489, ARK87278/s6fb69j5/19671489.",
+  "source_index": "https://www.familysearch.org/ark:/61903/1:1:QVSN-35GX",
+  "original": "https://newspapers.lib.utah.edu/details?id=19671489",
+  "original_pdf": "assets/edward-webb-jr/edward-1921-newspaper-notice-original.pdf",
+  "same_pixel_extraction": "assets/edward-webb-jr/edward-1921-newspaper-notice-original.png",
+  "pixel_dimensions": [
+    460,
+    130
+  ],
+  "pairs": [
+    {
+      "original": "NOTICES",
+      "translation": "[not applicable: English original]"
+    },
+    {
+      "original": "DEATHS AND FUNERALS.",
+      "translation": "[not applicable: English original]"
+    },
+    {
+      "original": "Edward Milo Webb, 74, 538 Germania",
+      "translation": "[not applicable: English original]"
+    },
+    {
+      "original": "street, Murray. Services held today.",
+      "translation": "[not applicable: English original]"
+    }
+  ],
+  "findings": [
+    "Printed age is74, not indexed71; removes the apparent birth1850 conflict introduced by the index.",
+    "Notice lists538GermaniaStreet,Murray; services held on publication date12September1921.",
+    "Repository calls this page12; index display SaltLakeTelegram6 is not adopted as page number."
+  ],
+  "rights": "Repository metadata: No Copyright - United States (NoC-US).",
+  "next_action": "Package readable original clipping in Documents; preserve index discrepancy in evidence."
+}
