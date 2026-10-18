@@ -30,6 +30,9 @@ function amend(id,changes){
   if(e)Object.assign(e,changes);
   return e;
 }
+amend('isaac-1854-marriage-full-newspaper-page',{
+  summary:"Full-page viewing image of the Deseret News issue containing Isaac and Asenath's 1854 marriage announcement. This tile and the enlarged-notice tile both lead to the SAME preserved archival PDF.",
+});
 amend('isaac-1852-diary-published',{
   summary:"Isaac's 1852 trail journal survives in a published transcription from the later Carling family history. It describes daily travel, repairs and encounters on the westward route. The handwritten manuscript itself has not been located.",
 });
