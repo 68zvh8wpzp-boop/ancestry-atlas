@@ -1950,6 +1950,24 @@
       "evidence": "github:research/webb-tranche-01-1773-saybrook-third-church-chester-record-correction-20261018.md",
       "researchDetailStatus": "derivative-1896-marriage-transcription-verified-correct-third-church-chester-no-original-manuscript-identity-unresolved",
       "note": "First resumed Webb tranche 18Oct2026: independently re-read Bailey Early Connecticut Marriages 1896 2ndBook printed 89–90; 1773 James Webb–Elizabeth Douglas event is indexed in THIRD Congregational Church Saybrook NOW CHESTER (founded1742), not Old Saybrook FIRST Congregational. Church historical original may have been lost; no 1773 image or father ID. CT State Library official Chester town guide films 0005554 and 1008328, CSL344/457, L'Hommedieu copy 1759–1835; historical copied volume not necessarily autograph. Existing 1777 James Webb Jr KWJ1-P2V's parentage from marriage unproven; 1733 vs1754 candidate confusions retained. No Atlas/tree edits, no censuses, no fees/emails. More in evidence report."
+    },
+    {
+      "id": "webb-tranche02-chester-third-church-microfilm-access-20261018",
+      "personId": "KWJ1-P2V",
+      "atlasPersonId": "james_webb_jr",
+      "event": "1773-marriage-1777-baptism-film-original-access-attempt",
+      "status": "blocked",
+      "title": "Chester Third Church records 1759–1835, FamilySearch films 0005554/1008328: direct image access blocked, original not inspected",
+      "sourceKeys": [
+        "ctsl:chester-congregational-lhommedieu:film0005554:viewer-access-2026-10-18",
+        "ctsl:chester-congregational-lhommedieu:film1008328:viewer-access-2026-10-18",
+        "familysearch:catalog:koha19954:church-index-signin-gate:2026-10-18"
+      ],
+      "sourceUrl": "https://cdm15019.contentdm.oclc.org/digital/api/collection/p128501coll2/id/458942/download",
+      "originalRefs": [],
+      "evidence": "github:research/webb-tranche-02-chester-church-films-access-audit-20261018.md",
+      "researchDetailStatus": "CT-State-Library-church-copy-films-verified-familysearch-dynamic-signin-and-web-film-URL-block-no-page-obtained",
+      "note": "Webb tranche02 one bounded original attempt: official CT State Library guide confirms Chester Congregational copied church records 1759-1835 CSL344/457, FS films 0005554,1008328. FamilySearch catalog dynamic JS and login gate, direct film URLs inaccessible; Church Records Index catalog koha19954 redirects to sign-in. Zero 1773 original handwritten marriage leaves and zero 1774-1780 baptismal frames inspected; 1777 James Webb Jr parentage not established, no absence inference. CT Library church index contains only 1/4 holdings, slips may identify original volume/page if available. No fee/email/FamilySearch updates; next one distinct record class, no repeat catalog loops."
     }
   ],
   "tasks": [
@@ -2368,16 +2386,19 @@
       "name": "James Webb Jr.",
       "status": "active-parentage-proof-frontier-research-only",
       "started": "2026-10-18",
-      "last_tranche": 1,
-      "last_tranche_report": "research/webb-tranche-01-1773-saybrook-third-church-chester-record-correction-20261018.md",
-      "last_tranche_status": "Corrected 1773 James Webb–Elizabeth Douglas marriage source to Third Congregational Church Saybrook now Chester, not First Old Saybrook; official CT State Library copy films 0005554/1008328 identified. Identity of groom, parentage to James Jr b1777 and 1773 manuscript still UNPROVEN; no live Atlas genealogy edit.",
-      "next_tranche": "Webb Tranche02: ONE original/copy access attempt Chester Third Congregational 1759–1835 FHL film 0005554 or 1008328 for 1773 James Webb–Elizabeth Douglas line and baptism circa 1777. Save exact DGS/image and note source type if accessible, otherwise log distinct barrier once; no census repeats.",
+      "last_tranche": 2,
+      "last_tranche_report": "research/webb-tranche-02-chester-church-films-access-audit-20261018.md",
+      "last_tranche_status": "Chester Third Church 1759–1835 L'Hommedieu copied FS films 0005554 and 1008328 officially confirmed but image browsing inaccessible (JS dynamic/catalog login, direct film URLs unrenderable). CT Church Records index slip link koha19954 sign-in gate. No 1773 original/1777 baptism page or surname-specific parentage proven. Source-only access exception registered.",
+      "next_tranche": "Webb Tranche03: one targeted parentage discriminator distinct from blocked films: try CT State Library church event slip abstract for Chester/Saybrook James Webb c1777 with exact original folio if publicly accessible; otherwise ONE period land/probate person-specific source, no repeated film or census loop. Save one evidence-ledger/registry/checkpoint and stop.",
       "previous_person": {
         "id": "KWJ8-5XJ",
         "name": "Isaac Van Wagoner Carling",
         "status": "closed-user-approved"
       },
-      "guardrails": "One Webb direct person at a time, one tranche then save/commit/stop; do not reopen completed Edward Jr/Sr censuses or existing Isaac research, no FamilySearch writes, fees or email."
+      "guardrails": "One Webb direct person at a time, one tranche then save/commit/stop; do not reopen completed Edward Jr/Sr censuses or existing Isaac research, no FamilySearch writes, fees or email.",
+      "accessExceptions": [
+        "Tranche02 Chester film 0005554/1008328 and Church Records index koha19954 require dynamic authenticated FamilySearch/image access not available here; no original 1773 marriage / c1777 baptism image reviewed; do not infer missing birth evidence."
+      ]
     },
     "archivedClosedTasks": [
       {
