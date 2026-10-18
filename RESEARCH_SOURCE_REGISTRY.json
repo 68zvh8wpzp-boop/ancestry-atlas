@@ -1899,6 +1899,23 @@
       "evidence": "github:research/isaac-carling-media-batch-05-1855-consecration-deed-original-locator-20261018.md",
       "researchDetailStatus": "retrospective-document-transcript-verified-archive-collection-located-isaac-specific-original-unverified",
       "note": "Media Batch05 18 Oct: family-copy transcript cites Isaac V Carling Fillmore transfer to Brigham Young trustee in trust, acknowledgment 17 Apr 1855 by Millard County Probate Judge Thomas R King, witnesses Lovell/Catlin/Robison, $441 estimated property. NOT an inspected original nor verified autograph/signature. New official archive candidates Church History Library CR5 53 Consecration deeds 1854-1867 (collection URL above), BYU L Tom Perry MSS SC1320 Brigham Young property deeds 1855-57. BYU MSS3905 is Utah County wrong locale. Millard electronic public lookup data only, image subscription $1000 and historical images may not be online; Utah Millard grantor index starts1871, FS common deed collection1867. Item number/page/scan unlocated; zero new image tiles. No email/access/payment. Review report linked."
+    },
+    {
+      "id": "isaac-carling-tranche21-final-preapproval-v3.9.62",
+      "personId": "KWJ8-5XJ",
+      "atlasPersonId": "isaac_carling",
+      "event": "person-page-binary-and-presentation-qa",
+      "status": "examined",
+      "title": "Isaac Carling v3.9.62 published person media integrity and final museum presentation checks",
+      "sourceKeys": [
+        "github:research/isaac-carling-tranche-21-final-preapproval-qa-20261018.md",
+        "atlas:isaac_carling:release:v3.9.62:final-preapproval"
+      ],
+      "evidence": "github:research/isaac-carling-tranche-21-final-preapproval-qa-20261018.md",
+      "originalRefs": [],
+      "sourceUrl": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/blob/main/research/isaac-carling-tranche-21-final-preapproval-qa-20261018.md",
+      "researchDetailStatus": "automated-original-SHA256-and-person-render-data-pass; human-iPhone-acceptance-pending",
+      "note": "Tranche21 18Oct2026: audited final release v3.9.62, current actual PDF & 2 JPEG original web files SHA256 exact; 3 doc image tiles from 2 different sources, 1 contextual Orderville place image, 6 other links, 2 notes and museum biography. Fixed editorial leakage/false old source fallback/duplicate historical note on repeat load; GitHub CI run 39165001697 SUCCESS after prior failure caught note duplication. No personal portrait; 1852 autograph/1911 Isaac cert/1855 original deed and Miriam marriage unresolved, documented exceptions, do not restart. User on-device acceptance needed. This is a QA/source audit, not another captured primary record."
     }
   ],
   "tasks": [
@@ -2315,18 +2332,18 @@
       "id": "KWJ8-5XJ",
       "atlas_id": "isaac_carling",
       "name": "Isaac Van Wagoner Carling",
-      "status": "media-batches-in-progress-pending-user-iphone-approval",
+      "status": "awaiting-user-iphone-approval",
       "started": "2026-10-18",
-      "last_tranche": 20,
+      "last_tranche": 21,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "One final Isaac Atlas closeout quality audit: verify on-disk media assets and live app counts, freeze inaccessible portrait/1852 autograph/1911 death cert/1855 consecration folio as discrete exceptions; only then invite user iPhone validation. No broad resweeps.",
+      "next_tranche": "No additional research tranche by default. User iPhone acceptance of Isaac v3.9.62 required: confirm biography, 2 historical notes, documents/places and tap/swipe, PDF opens. If a concrete UI defect, fix that only; on explicit 'Isaac approved', mark person closed and advance to next direct ancestor. No repeat archival loops.",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "Media Batch05: 17 Apr1855 Millard consecration deed only verified in retrospective family transcript; identified CHL CR5 53 and BYU MSS SC1320 as original-document candidate holdings. Isaac-specific image/signature or book/page NOT found; no fake gallery tile or payment. Original archive lookup can be a named exception.",
-      "last_tranche_report": "research/isaac-carling-media-batch-05-1855-consecration-deed-original-locator-20261018.md",
+      "last_tranche_status": "Complete Tranche21 final preapproval checks passed in CI run39165001697; published v3.9.62 has museum-safe biography, two notes, 3 document tiles (one 1854 PDF with two viewing images + daughter 1924 state cert web-copy), 1 legitimate Orderville historical place photograph, 6 source-only refs. All original binary SHA-256 and local paths verified; no personal portrait. Waiting for user iPhone acceptance.",
+      "last_tranche_report": "research/isaac-carling-tranche-21-final-preapproval-qa-20261018.md",
       "exceptions": [
         "Miriam Hobson 1857 marriage/sealing original not yet found; reported birth 1843 places purported 1857 marriage before her 14th birthday; original verification pending.",
         "Miriam Hobson reported Aug1857 wedding (age13 per institutional derivative) conflicts with compiled 1859/age16/Fillmore narrative; original place,date,event type unverified",
@@ -2338,11 +2355,12 @@
         "Media Batch02: period Orderville town photograph circa1900 captured from USU RRA Plate548X, Church Archives P-1093-12. Authenticated Isaac portrait still zero; UofUtah numbered photo 15652 has ©2012 all-rights-reserved so not copied; Utah death certificate/1852 autograph remain pending.",
         "Media Batch03: official Utah 1911 Kane Series81448 inventory folder only Jan–Feb, so reported May24 Isaac death not covered; no Isaac original cert captured. Daughter Asenath Emeline's separate 1924 original civil-record image downloaded from family site as 576x518 web copy and embedded for parentage; archive-master not held.",
         "Media Batch04: FamilySearch digitized 1966 printed Carling family history v1 item 101134/194973_01 (pp48–55 diary) located; Church History official transcription quotes this PRINT book. Original 1852 handwriting's survival/custody/accession remains UNVERIFIED and no pixels copied. Copyright warning on digital book; Atlas uses SOURCE-only link.",
-        "Media Batch05: Isaac's 1855 Millard consecration deed signed/acknowledged by Thomas R King is quoted retrospectively, but no original signature verified; likely CHL CR5 53 or BYU MSS SC1320, no item-level folio/image or reproduction rights located. County portal original historical images paywalled/incomplete; do not pay. One narrowly-scoped CHL archivist lookup may resolve."
+        "Media Batch05: Isaac's 1855 Millard consecration deed signed/acknowledged by Thomas R King is quoted retrospectively, but no original signature verified; likely CHL CR5 53 or BYU MSS SC1320, no item-level folio/image or reproduction rights located. County portal original historical images paywalled/incomplete; do not pay. One narrowly-scoped CHL archivist lookup may resolve.",
+        "Tranche21 preapproval: verified original media files hashes and gallery mappings; no individual Isaac portrait; 1852 handwritten diary, Isaac 1911 death certificate and 1855 deed original still not found; Miriam date disputed. Original photo claim excluded. These are documented historical preservation limits, not blockers to an otherwise complete best-available-source page."
       ],
-      "publishedVersion": "v3.9.61",
+      "publishedVersion": "v3.9.62",
       "publishedUrl": "https://68zvh8wpzp-boop.github.io/ancestry-atlas/",
-      "releaseWorkflow": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/actions/runs/39156145777"
+      "releaseWorkflow": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/actions/runs/39165001758"
     },
     "archivedClosedTasks": [
       {
