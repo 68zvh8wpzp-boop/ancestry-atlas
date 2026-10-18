@@ -9,8 +9,16 @@
 - The couple's relation to OUR **James Webb Jr. born ca1777, died 1845, KWJ1-P2V** remains **unproven**. Different James Webb men b1733 vs b1754 are documented conflation hazards. No premature candidate parent assignment or live Atlas tree mutation.
 - No photo/document original newly captured, no census retread, and no email, fees or FamilySearch editing.
 
-## Exactly ONE next research tranche — WEBB TRANCHE 02
-Examine the **Chester Third Church** copy or digitized film `0005554` / `1008328` for **9 Dec 1773 Webb–Douglas marriage entry** and, if its scope permits, **1774–1780 baptism/family membership** distinguishing a James b1777. Save a real image and exact film/folio only if actually viewed; otherwise record one concrete access limit without restarting the same broad searches. After this discrete tranche, checkpoint and STOP.
+## Webb Tranche 02 — COMPLETE (FILM/CHURCH INDEX ACCESS BOUNDARY RECORDED)
+**Research report:** `research/webb-tranche-02-chester-church-films-access-audit-20261018.md` (GitHub commit `16c62685366b47966a437059095b863ac5301720`); registry record `webb-tranche02-chester-third-church-microfilm-access-20261018` (commit `7c21ebf23f4dbc84b6690a1b960bd1063d1d9a8c`).
+- Verified the Connecticut State Library official **Chester Third Church L'Hommedieu copied Congregational records, 1759–1835**, CSL344/457, FS microfilms **0005554** and **1008328**, and distinct 1741–1928 run `0003919`. This is period **collection coverage** only, not evidence of a Webb entry.
+- Specific attempts to use FamilySearch film URLs/catalog-results by microfilm identifier produced inaccessible URL or JavaScript-only catalog; official CT Library **Church Records Index** link redirected to FamilySearch **koha:19954 Sign In**. **No actual manuscript/copy page, 1773 marriage image or 1777 baptism record was viewed**, no image ID/folio manufactured.
+- CT State Library estimates church slip index covers ~**one-quarter** of its church holdings; if indexed, slips may specify town/church/volume/page. **No slip actually examined for Webb**. A negative slip search would not prove the marriage or baptism nonexistent.
+- The 1773 groom James Webb cannot yet be matched to the father of our **James Webb Jr. (1777–1845)**. Two same-name genealogical candidate families kept separate. No public Atlas page, parent relationship or confidence changed. No email/fees/FamilySearch editing, repeated censuses or duplicate marriage transcript.
+- This tranche produced the explicitly requested **source access result, saved report and registry/checkpoint**, not a false breakthrough. Subsequent work **must not retry identical blocked URLs**.
+
+## Exactly ONE next research tranche — WEBB TRANCHE 03
+Seek **ONE** exact alternative parentage discriminator: an indexed CT State Library Chester/Saybrook church event slip identifying a c1777 James Webb baptism and its original volume/page, if accessible without the same login block; otherwise examine ONE specified late-eighteenth-century land or probate record naming a candidate parent, son and locality. Save an original image only when its actual pixels are inspected; never claim unrelated 1754/1733 Webb family matches prove the link. Log one result and STOP, no general census loop.
 
 ## Archived previously active person — Isaac Van Wagoner Carling (closed user-approved)
 
