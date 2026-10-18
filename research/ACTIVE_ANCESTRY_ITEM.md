@@ -17,8 +17,15 @@
 - The 1773 groom James Webb cannot yet be matched to the father of our **James Webb Jr. (1777–1845)**. Two same-name genealogical candidate families kept separate. No public Atlas page, parent relationship or confidence changed. No email/fees/FamilySearch editing, repeated censuses or duplicate marriage transcript.
 - This tranche produced the explicitly requested **source access result, saved report and registry/checkpoint**, not a false breakthrough. Subsequent work **must not retry identical blocked URLs**.
 
-## Exactly ONE next research tranche — WEBB TRANCHE 03
-Seek **ONE** exact alternative parentage discriminator: an indexed CT State Library Chester/Saybrook church event slip identifying a c1777 James Webb baptism and its original volume/page, if accessible without the same login block; otherwise examine ONE specified late-eighteenth-century land or probate record naming a candidate parent, son and locality. Save an original image only when its actual pixels are inspected; never claim unrelated 1754/1733 Webb family matches prove the link. Log one result and STOP, no general census loop.
+## Webb Tranche 03 — COMPLETE; CANDIDATE-SPECIFIC PROBATE INDEX NEGATIVE ONLY
+**Saved report:** `research/webb-tranche-03-albany-1823-will-index-candidate-discriminator-20261018.md`, commit `ca39e2b3df3a76e672bc1fdf09966f5147cef6d1`; registry source `webb-tranche03-albany-1823-candidate-james1754-will-book-index-test-20261018`, commit `3a834aeea8219de15ce7ac847a5ef9aa6e91134b`.
+- **One alternative proof source class checked, not same blocked Chester films:** the *DIFFERENT* James Webb **b1754/d reportedly Oct1823 in Rensselaerville, Albany, NY** (`LHSH-TKQ`, a *candidate* for the 1773 Webb–Douglas groom) was tested against published Albany Surrogate's Court **Will Book testator indexes vol5 (1817–1823)** and **vol6 (1823–1832)**. Both alphabetic transcriptions have **NO WEBB TESTATOR ENTRY**, thus no candidate will book/page was obtained. Publisher New Horizons Genealogy/Jeffrey Tooley; originals unviewed.
+- **Strict scope:** This is not evidence that the 1754 individual was not a father, did not die in 1823, lacked estate papers, died intestate, or was/was not our James Jr's parent. Wills are different from letters of administration; volumes may omit other jurisdictions, unfiled/late wills and transcription variations. No original probate image, parent link or visual tile captured.
+- New distinct official custodian source: Albany County official historical guide lists **Surrogate Court index to wills AND letters of administration (1787–1845)** plus 1800–1840 filed papers. Those ORIGINAL classes should be searched by name before another generic chronology.
+- **No repeat** CT Church Sign In gate, 1773 marriage printed item, 1845 obituary, completed Edwards' censuses, email, paid searches or changes to FamilySearch/Atlas.
+
+## Exactly ONE next research tranche — WEBB TRANCHE 04
+Check the **Albany County Surrogate's Court 1787–1845 letters-of-administration INDEX** for a `James Webb` associated with **Rensselaerville ca1823–1826**. If an actual candidate record appears, cite exact index entry and seek one specific estate packet naming relatives. If index isn't accessible, log one concrete barrier and choose a different precise source class next, not will-book volume 5/6 again. **Stop at end of tranche and checkpoint.**
 
 ## Archived previously active person — Isaac Van Wagoner Carling (closed user-approved)
 
