@@ -1501,32 +1501,44 @@
       "recordId": "edward-jr-1860-owens-census",
       "owner": "work",
       "action": "transcribe-original",
-      "state": "paused",
-      "novelty": "Both originals captured and target households transcribed. Only remaining objective is complete-page transcription beyond these households and unresolved line13name; do not reacquire scans."
+      "state": "closed",
+      "novelty": "COMPLETE FOR EDWARD JR CLOSEOUT: Both original 1860 pages preserved and complete page transcriptions saved on 18 Oct 2026 (commit 16da4884). Research sufficient; do not revisit unconnected census people.",
+      "closure_reason": "Both original 1860 pages preserved and complete page transcriptions saved on 18 Oct 2026 (commit 16da4884). Research sufficient; do not revisit unconnected census people.",
+      "closure_date": "2026-10-18",
+      "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription."
     },
     {
       "id": "edward-jr-1860-mcrae-original",
       "recordId": "edward-jr-1860-mcrae-census",
       "owner": "work",
       "action": "transcribe-original",
-      "state": "paused",
-      "novelty": "Both originals captured and target households transcribed. Only remaining objective is complete-page transcription beyond these households and unresolved line13name; do not reacquire scans."
+      "state": "closed",
+      "novelty": "COMPLETE FOR EDWARD JR CLOSEOUT: Both original 1860 pages preserved and complete page transcriptions saved on 18 Oct 2026 (commit 16da4884). Research sufficient; do not revisit unconnected census people.",
+      "closure_reason": "Both original 1860 pages preserved and complete page transcriptions saved on 18 Oct 2026 (commit 16da4884). Research sufficient; do not revisit unconnected census people.",
+      "closure_date": "2026-10-18",
+      "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription."
     },
     {
       "id": "edward-jr-1870-original",
       "recordId": "edward-jr-1870-robinson-census",
       "owner": "work",
       "action": "transcribe-original",
-      "state": "paused",
-      "novelty": "Original saved; target fourperson household transcribed. Remaining task is full-page transcription and enumerator-surname/mark-convention clarification, not another original search."
+      "state": "closed",
+      "novelty": "COMPLETE FOR EDWARD JR CLOSEOUT: Original and four-person target household published. Forty-line working transcription and discrepant readings already reviewed; remaining uncertain unrelated names documented. No additional 1870 pass is justified.",
+      "closure_reason": "Original and four-person target household published. Forty-line working transcription and discrepant readings already reviewed; remaining uncertain unrelated names documented. No additional 1870 pass is justified.",
+      "closure_date": "2026-10-18",
+      "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription."
     },
     {
       "id": "edward-jr-1880-original",
       "recordId": "edward-jr-1880-census",
       "owner": "work",
       "action": "transcribe-original",
-      "state": "paused",
-      "novelty": "Original re-read 18 Oct: rows40–49 full target/adjacent column review complete; anomalous line42 'Gr daughter' recorded. The remaining 40 unrelated page rows are only provisional; retain obscure infant name as exception, do not rescan or infer genealogy. See canonical 1880 JSON + source-review addendum."
+      "state": "closed",
+      "novelty": "COMPLETE FOR EDWARD JR CLOSEOUT: Original and ten material Webb/Sarah entries and additional columns reviewed; uncertainty on line42 'Gr daughter' retained. Unrelated remainder of page is not a closeout blocker.",
+      "closure_reason": "Original and ten material Webb/Sarah entries and additional columns reviewed; uncertainty on line42 'Gr daughter' retained. Unrelated remainder of page is not a closeout blocker.",
+      "closure_date": "2026-10-18",
+      "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription."
     },
     {
       "id": "edward-jr-charlotte-family-photo-inspect",
@@ -1541,8 +1553,11 @@
       "recordId": "edward-jr-1920-census",
       "owner": "work",
       "action": "transcribe-original",
-      "state": "active",
-      "novelty": "Captured final census original; target household read but full-page paired transcription remains to be completed."
+      "state": "closed",
+      "novelty": "COMPLETE FOR EDWARD JR CLOSEOUT: Original and Edward, Ellen, Harriet Alice and Lois four-person household reviewed and original documentary reader included in published v3.9.55/56. Full unrelated page transcription is unnecessary.",
+      "closure_reason": "Original and Edward, Ellen, Harriet Alice and Lois four-person household reviewed and original documentary reader included in published v3.9.55/56. Full unrelated page transcription is unnecessary.",
+      "closure_date": "2026-10-18",
+      "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription."
     },
     {
       "id": "edward-jr-attached-mmkk-378-available-level-review",
@@ -1902,5 +1917,18 @@
     "coveredRecords": 61,
     "allAncestorOriginalsAudited": false,
     "note": "Missing register entry is UNKNOWN, never proof that an original has not been examined. Backfill from historical audits and FamilySearch Media before proposing work."
+  },
+  "governance": {
+    "edward_jr_census_freeze": {
+      "date": "2026-10-18",
+      "reason": "The 1860,1870,1880 and1920 census originals were repeatedly reviewed. User flagged circular work. Mark all five Edward Jr census-original tasks closed. No full-page transcription of unrelated residents as a person-page requirement.",
+      "changed_task_count": 5,
+      "next_person_closeout_priorities": [
+        "Finish non-census originals that actually affect the person: Irene Merrell ten-page biography transcription and Lois 1898 two-page Mexico civil birth original, if still required.",
+        "Audit distinct authentic photographs/memories without revisiting captured material.",
+        "Publish, verify, and obtain user iPhone approval."
+      ],
+      "exception": "Evidence materially affects an unresolved identity or conflicts with a recorded claim."
+    }
   }
 }
