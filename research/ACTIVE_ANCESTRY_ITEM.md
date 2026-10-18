@@ -1,57 +1,29 @@
-# ACTIVE ANCESTRY PERSON — Edward Milo Webb Jr. (LOCKED)
+# ANCESTRY ATLAS — PERSON WORK CHECKPOINT
 
-Last checked 18 October 2026. FamilySearch person `KVPR-ZP3`; Atlas `edward_milo_jr`.
+**Updated:** 18 October 2026
+**Status:** **NO ACTIVE PERSON — previous subject approved and closed.**
+**Next prepared candidate:** Isaac Van Wagoner Carling (`isaac_carling`, FamilySearch `KWJ8-5XJ`). Do not begin his full revamp without the user's instruction; prior person-page audit exists.
 
-## Objective
-Finish this person's existing museum-standard Atlas page, making no additional busywork. Do not move to another ancestor before user iPhone verification. Only one discrete task at a time.
+## Edward Milo Webb Jr. — CLOSED, USER APPROVED
 
-## Latest published release
-`atlas-v3.9.56.html` (8 historical photographs, 9 documents, 1,294-word canonical biography, 3 spouses and 31 children represented). Source and previous Work checks report a successful publication. Repository/source review is NOT a new live or iPhone test.
+- Person: Edward Milo Webb Jr. (`edward_milo_jr`, FamilySearch `KVPR-ZP3`).
+- Deployed version at acceptance: [v3.9.56](https://68zvh8wpzp-boop.github.io/ancestry-atlas/atlas-v3.9.56.html?person=edward_milo_jr).
+- **18 October 2026 user replied “Approved!”** to request to check the biography, eight photos, nine documents and Story on their iPhone; record as user-reported acceptance, not assistant-operated mobile browser test.
+- Approval and closure record: `research/edward-jr-iphone-approval-closeout-20261018.md` (commit `9475f0f7f8277ddef17f1b25ad34f7cfc154179c`).
+- 1,294-word canonical biography; three spouses and 31 children named; eight authentic photographs and nine documents; ten-page Irene Webb Merrell original/transcription reader; two-page Lois Webb Spanish civil birth original/translation reader; 1860/1870/1880/1920 evidence; 1921 death original and funeral notice. Latest published version is unchanged v3.9.56; no new deployment was necessary.
+- QA: `research/edward-jr-v3.9.56-publication-qa-20261018.json` and `research/edward-jr-publication-qa-20261018.json`. Source checks passed, but assistant did not independently operate the live browser; user supplied device approval.
+- **Source exceptions preserved:** 125 FamilySearch Memories not all audited for distinct originals due to authenticated access; two June/Cherie Webb oral-history parts cataloged but not heard; matching long biography narration unavailable and intentionally unset; the reader data does not establish original pixel-decode verification for every large asset. These exceptions do not revoke user approval. All still explicitly visible in closeout file.
+- **DO NOT RETREAD** completed censuses, Irene/Lois transcription, already captured photographs, or chronology disputes without a named materially new primary source or specific user-reported defect.
 
-## Already done — DO NOT RESTART
-- **All census rework stopped.** 1860 (two originals), 1870, 1880, and 1920 have relevant Edward-household evidence captured and published. The five census tasks are CLOSED in `RESEARCH_SOURCE_REGISTRY.json`, commit `f8467f0cbed4770932e14a94f6db6819f5a6b2d3`. Full diplomatic transcription of unrelated neighbors is not a person-page requirement. Reopen only for a *named material contradiction*.
-- **1870 uncertainty properly saved**, 10 of 22 discrepant-line reviews resolved; 12 remain flagged without guessed names. Canonical `research/edward-jr-census-full-pages/1870-canonical-working-merged.json`; commit `b37f1fedbc0bda6711dc5d7eeff52608226cf88a`.
-- **1880 materially relevant rows 40–49 reviewed.** Sarah and Edward were enumerated in separate households; the infant by Sarah bears apparent `Gr daughter`, not proven biological descent. Canonical `research/edward-jr-census-full-pages/1880-orderville.json`; commit `ebcf5ff6b1dcbc8c68027d3194e3f8b432aabf4b`.
-- **Irene Webb Merrell’s 10-page PDF biography IS DONE AND PUBLISHED.** Ten saved page text files, 444 original/English-not-applicable pairs, 10 original page images and a direct 10-page reader in v3.9.56. All published reader transcript blocks exactly match their saved page texts after normalizing HTML/trailing newlines. Do not OCR or transcribe again. Pixel-perfect PDF review was not repeated in this chat; don't misstate source validation.
-- **Lois Webb’s 1898 two-page Mexican civil birth entry IS DONE AND PUBLISHED.** Two original image links, Spanish transcription and English translation in `assets/edward-webb-jr/lois-birth-reader.html`, linked from v3.9.56. A.M. T[illegible]ey is the presenting witness/declarant, not the mother. Mother named Ella Webb; father's Iowa birthplace on this source conflicts with his Missouri birthplace elsewhere. Do not silently harmonize records or redo this translation.
-- Both text-reader publication checks saved in `research/edward-jr-irene-lois-duplicate-prevention-audit-20261018.json`, commit `cc5027c4a3f7565077f669b7ecda3738b3f11554`. Canonical registry marked both `published`, commit `58d1cad9fdb32f903e660d7d41ca3640050e12a4`.
-- **56 attached sources inventoried and categorized**, `research/edward-jr-56-source-disposition-20261018.json`. They are NOT 56 individually examined original images. Secondary/duplicates and posthumous records should not be forcibly expanded into separate galleries. No FamilySearch edits.
+## Isaac Van Wagoner Carling — RESEARCHED, NOT COMPLETED
 
-## 18 October — published photo duplication check saved
-Charlotte Webb with Lee, Estelle, and Louie (1891) is **already published** in the Edward Jr gallery as `jr-charlotte-1891` with retained photo `assets/edward-webb-jr/charlotte-children-1891-original.png`, cited to BYU's archival reproduction. The stale "missing Charlotte family photo" task was closed (registry commit `fbf0b93f6be7c7d11927c1c96a3ba80e4f055428`). This does **not** establish that a separately titled FamilySearch Memory contains the identical bitmap; check that only if an actually distinct original surfaces.
-Eight published historical photograph sources are enumerated in `research/edward-jr-eight-published-photos-check-20261018.json` (commit `439ac4c235ab749c1b775da336ba95cde433eb34`). Do NOT search or recapture these eight by title.
+- Already in Atlas as `isaac_carling`; prior *authenticated person-page survey* done 26 September 2026; FamilySearch `KWJ8-5XJ`.
+- Earlier audit covers **83 attached sources, 239 Memories**, source categories and marriage/parentage/biographical leads. It is in Library file `familysearch-101-audit-checkpoint-2026-09-25.md`, heading `26 September 2026 — Isaac Van Wagoner Carling` (roughly lines 1181–1190).
+- Facts/working tree: born 30 November 1831, Ulster County, New York; died 24 May 1911 in Orderville, Utah. Wife Asenath Elizabeth Browning; another recorded wife Miriam Elizabeth Hobson. Daughter Sarah Elizabeth Carling → Edward Milo Webb Jr.'s family.
+- **Do not repeat 83-source inventory/239-memory name sweep.** No standalone original-certified biography, complete high-resolution media capture, person release, or iPhone approval has been established.
+- Next-person handoff with exact source and gaps: `research/isaac-carling-existing-research-handoff-20261018.md` (commit `083e050e3f6dc8ab9cb469c750fd780a5eea36bd`).
+- Await user's explicit choice to begin Isaac's distinct-source audit, while honoring one person at a time and the historical-note/transcription/third-person biography/mobile-validation standards.
 
-## 18 October — first distinct-source pass / FamilySearch photo access blocker
-- No accessible, authentically distinct *new portrait or family photograph* was located in this public-only pass. The person Memories UI for `KVPR-ZP3` was inaccessible in the web source without a signed-in FamilySearch browser. Do not falsely claim the 125 memories were audited; do not launch the same public photo search again without a new access path. Eight published historical photographs remain the only validated collection count; no new photo published.
-- **Genuinely new catalogued research source:** Arizona Memory Project `Webb Family Oral History, Part 1/2`, June and Cherie Webb interviewed by Joyce McBride, catalog date 20 March 2010, duration 26:54, Pinetop-Lakeside Historical Society Museum; https://azmemory.azlibrary.gov/nodes/view/162667. Registry record `edward-jr-june-cherie-webb-oral-history-2010`, saved commit `5ce5182c3c4fc9f84726d02336e8a917c010ce73`. Audio not heard; original archive not directly fetchable (403); copyright restricts reproduction. **Do not repeat a catalog error**: its summary describes Milo Jr as a Nauvoo blacksmith, which is impossible for someone born in 1847 and likely conflates him with Milo Sr. Only verified documentary statements enter biography.
-- No new app release or photo was created by this pass. Existing Iris/Lois/photo/census content not reopened.
+## Global operating rules
 
-## 18 October — June/Cherie oral-history source processing SAVED
-- Newly identified **both** Arizona Memory Project audio catalog items: Part 1 (object `162667`, catalog says 26:54) and previously missing Part 2 (object `162668`, `Webb, June and Cherie Part 2.mp3`, 26.5 MB). A single source-critical review records full catalog provenance, generation/chronology discrepancies, rights and access limits: `research/edward-jr-june-cherie-oral-history-processed-20261018.md` (commit `7e2b929e18e0475e6252a3c9e8cedfd8b336cd81`). Both registered in `RESEARCH_SOURCE_REGISTRY.json` (commit `ee7f01f548c32887264f196b63c7ff466cf70840`).
-- June Webb independently corroborated as son of **Jonathan Henry and Della Ray Webb** by his March 2022 obituary. “Webbville” and family sawmill are **descendant** context; a posthumous decades-later narrative, **not** something Edward Jr. did himself. Archive's Nauvoo-blacksmith attribution to Edward Jr is chronologically impossible (born 1847), and its Villa attribution is unverified; **neither goes into Jr biography**.
-- The official audio files remain **unheard/untranscribed** (direct item 403 and unavailable container DNS); both in-copyright. No invented audio summaries or exact quotations. Historical material already covered by Irene’s 10-page transcript was not recopied.
-- A **new** Navajo County Library archival photo of 1940s `Webb Sawmill Crew` (photo403, credited named participants including **Jay Webb** and **June Webb**) was found, along with a separate Lakeside schoolchildren photo (photo486, caption lists Inez Prather, identity not established). Both **DEFERRED** for the respective descendants' audits, not added to Milo Jr's eight-photo gallery because he died in 1921. Exact original URLs and conservative identity cautions are in the review report.
-- Static v3.9.56 source pass at 18 Oct confirms eight published photo IDs, available `Irene` and `Lois` reader references, census reference, original PDF link, document viewer and album controls. **This is not live browser rendering or iPhone approval.** The newly located oral-history catalog is NOT in the app: it is an unlistened research lead, not falsely marked as published.
-
-## 18 October — v3.9.56 bounded publication QA SAVED
-- QA report: `research/edward-jr-v3.9.56-publication-qa-20261018.json` (commit `bedeb4edaea2310de273a446f73c6a8506db8c18`).
-- **Repository/source check PASSED:** HTML version/direct-person route, 17 inline JS script blocks compile without errors, 46 external JS files present, 1294-word/17-paragraph canonical biography consistent with GUIDE_PROFILES, 8 distinct published photo paths and 9 document paths exist, both Irene/Lois readers and their nested images/PDFs exist. Essential album/Story/document viewer IDs and handler definitions present. Seven large image bodies could not be returned by connector; this is **asset existence, NOT visual browser decode**.
-- **Live navigation is NOT passed:** public web fetch unable to open GitHub Pages; direct container request had DNS failure. No current cloud browser was available to click gallery, scroll or decode all media. These access failures do **not** establish that the live site is down. No code defect found in the checked source; no new release necessary. Matching full-biography audio remains intentionally unset.
-- **The next gate is an actual iPhone check by the user.** Do not re-review censuses, Irene, Lois, Charlotte photo or repeat photo discovery. Inaccessible FamilySearch Memories and unplayed oral history are documented exceptions, not evidence that the source page is absent.
-
-## 18 October — FINAL PUBLICATION QA (ITEM 1) SAVED
-- `research/edward-jr-publication-qa-20261018.json` commit `1a963b51fbe0a4495014f9979612d1c69b4a1510`. **14/14 static source checks passed**, main `index.html` and PWA `manifest.webmanifest` target v3.9.56; all 8 photographic original paths and all 9 core document original paths exist in the repository; Irene reader has 10 original page references and Lois 2 original register page references. Direct `?person=edward_milo_jr` selection route, card/Story canonical biography assignment, media viewer buttons, swipe navigation, mobile CSS and full-document reader URLs are all present. Some large GitHub binary paths returned SHA but withheld bytes, so pixel decoding of every asset was not shown.
-- **Live serving / physical iPhone test still UNVERIFIED**, not declared passed. Web page fetch returned inaccessible in the web tool; container's GitHub DNS unavailable. This may be an environment restriction, not proof of an outage. Source/structural pass is NOT real mobile-functional QA.
-- Nothing needed changing in release code. No new release and no revisit of census, Irene, Lois, or eight already-known images. Milo Jr remains open pending actual device check and source exceptions.
-
-## Exactly one next discrete task
-**User iPhone test — only the first check:** Open `https://68zvh8wpzp-boop.github.io/ancestry-atlas/atlas-v3.9.56.html?person=edward_milo_jr` on their iPhone. Confirm Milo Jr's profile loads and that the gallery shows **PHOTOS (8)** and **DOCUMENTS (9)**. Ask for pass/fail or one screenshot if failed. On pass, test one document reader and Story in subsequent separate steps. DO NOT retread source research. Final family person approval is still pending.
-
-## Pending overall closeout gates
-- Audit *distinct materially relevant* photographs and records among the 125 FamilySearch Memories. Do not assume 125 unique new media, or re-review already preserved photos simply to check boxes. Authenticated browser access for unseen originals may require Work mode.
-- Reconcile authentic gallery thumbnails, accurate captions, 9 existing documents, source links, canonical card/Story text and controls. Publish **once** when there is real new content, rather than a release for every bookkeeping change.
-- Audio: leave previously approved recording unchanged unless a narration tool is genuinely available. An outdated recording must never be labeled synchronized with the expanded bio.
-- User's **real iPhone verification** is required before final person approval. Static GitHub checks or prior web tests cannot substitute.
-
-## Rules
-No email access, FamilySearch/FamilyTree changes, payments, speculative kinship, fabricated source images, or unsupported publication claims. Log sources already checked. Save a concise result for each discrete task, then select one next task rather than cycling.
+Review prior work and known originals **before** each new tranche. Save original image plus source citation and diplomatic text/translation where appropriate; no invented originals/kinship. No user email access without one-task authorization. No FamilySearch changes, fees or duplicate recaptures. Use actual iPhone verification before calling future persons approved.
