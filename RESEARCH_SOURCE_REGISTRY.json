@@ -1809,7 +1809,26 @@
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-14-atlas-prepublication-content-audit-20261018.md",
       "note": "18 Oct Tranche14: inspected actual index.html redirect -> atlas-v3.9.56 and inline DATA entry for Isaac showing only short U.S. note, no GUIDE_PROFILES life / portrait / gallery. Created tested staged overlay (3,717-char actual biography, 2 historicalNotes, 6 source link-only evidence; no original image). JavaScript parser and repeated two-execution emulated runtime checks passed. Staged module NOT loaded into live HTML, no app release/iPhone acceptance; next Tranche15 single version bump and live rendering QA. No FamilySearch/email/fees.",
-      "researchDetailStatus": "source-weighted-person-overlay-staged-not-live"
+      "researchDetailStatus": "source-weighted-person-overlay-staged-not-live",
+      "stagingDisposition": "integrated-into-atlas-v3.9.57-via-production-module-on-2026-10-18",
+      "publicationRecordId": "isaac-carling-atlas-v3.9.57-release-20261018"
+    },
+    {
+      "id": "isaac-carling-atlas-v3.9.57-release-20261018",
+      "personId": "KWJ8-5XJ",
+      "atlasPersonId": "isaac_carling",
+      "event": "person-page-atlas-release",
+      "status": "examined",
+      "researchDetailStatus": "website-published-from-source-controlled-person-overlay-awaiting-user-iphone-review",
+      "title": "Ancestry Atlas v3.9.57 — Isaac Van Wagoner Carling page released",
+      "sourceKeys": [
+        "github:atlas-v3.9.57.html",
+        "release:isaac-carling:v3.9.57:20261018"
+      ],
+      "sourceUrl": "https://68zvh8wpzp-boop.github.io/ancestry-atlas/",
+      "originalRefs": [],
+      "evidence": "github:research/isaac-carling-tranche-15-atlas-v3.9.57-release-20261018.md",
+      "note": "18 Oct 2026: real GitHub Pages deployment succeeded via Actions run 39156145777, commit f984601b. index.html and manifest both point to atlas-v3.9.57.html with iphone-refresh token; production Isaac JS overlay loaded near end of released page; six link-only references and two historical notes, full biography, zero fabricated media. Static/emulated runtime QA passed. User has NOT validated on iPhone. Previously unavailable originals remain named research exceptions."
     }
   ],
   "tasks": [
@@ -2226,18 +2245,18 @@
       "id": "KWJ8-5XJ",
       "atlas_id": "isaac_carling",
       "name": "Isaac Van Wagoner Carling",
-      "status": "active",
+      "status": "published-pending-user-iphone-approval",
       "started": "2026-10-18",
-      "last_tranche": 14,
+      "last_tranche": 15,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "Tranche 15: single actual Atlas release with source-true Isaac staged overlay, update index.html redirect/cache, check source cards and biography in app, then user iPhone review; no more source-loop tasks",
+      "next_tranche": "USER IPHONE ACCEPTANCE ONLY: open v3.9.57 Isaac person page and approve or report a precise defect. No new research or person-page publication tranche unless defect is reported.",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "live v3.9.56 Isaac only short note; source-weighted biography overlay implemented, syntax/data-runtime tested, and GitHub staged but NOT linked/deployed; 6 source references, 2 separate historical notes, zero false photos",
-      "last_tranche_report": "research/isaac-carling-tranche-14-atlas-prepublication-content-audit-20261018.md",
+      "last_tranche_status": "Atlas v3.9.57 published successfully to GitHub Pages; root index + iPhone manifest route new version, full Isaac biography/two notes/six source links live by deployment workflow; no authentic Isaac photo fabricated; browser/iPhone user QA still pending",
+      "last_tranche_report": "research/isaac-carling-tranche-15-atlas-v3.9.57-release-20261018.md",
       "exceptions": [
         "1911 Utah original death certificate not captured; series 81448 image access requires interactive browser",
         "Isaac 1852 diary studied through Church History transcript of 1966 family history; autograph page scans not captured",
@@ -2248,9 +2267,11 @@
         "USU UUS_P0143 Box1 Folder15 1875 Isaac Carling-attributed sketch and 3 letters are cataloged but no online pixels/letters linked; a single, unsent reference/reproduction inquiry is prepared; artist/date/rights unverified.",
         "BYU MSS512 has physical Orderville board/departments originals, but no named Isaac folio or online readable page; Huntington MSS MFilm00207 digitized 779-frame comparable original copies have no Isaac-named indexed frame, current binary/interactive access blocked.",
         "1853 Isaac-to-Asenath proposal letter dated 19 June appears in later family-history transcription only; original autograph not inspected. Biography draft saved, not deployed or approved.",
-        "Tranche13: relocation 1875 (1965 descendant arrival testimony) vs 1876 (later Carling family-history departure, ages favor 1876), original exact day not confirmed. Biography now says mid-1870s; preserve both reports.",
-        "Tranche14: Isaac prepublication overlay was saved in root isaac-carling-mobile-biography-staged.js but atlas-v3.9.56.html and index.html remain unchanged. No new media originals; run actual release/browser QA before inviting iPhone acceptance."
-      ]
+        "Tranche13: relocation 1875 (1965 descendant arrival testimony) vs 1876 (later Carling family-history departure, ages favor 1876), original exact day not confirmed. Biography now says mid-1870s; preserve both reports."
+      ],
+      "publishedVersion": "v3.9.57",
+      "publishedUrl": "https://68zvh8wpzp-boop.github.io/ancestry-atlas/",
+      "releaseWorkflow": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/actions/runs/39156145777"
     },
     "archivedClosedTasks": [
       {
@@ -2323,6 +2344,16 @@
         "closure_date": "2026-10-18",
         "reopen_only_for": "Specific new evidence materially changing Edward Milo Webb Jr.'s own identity, family relationship, birth/death or another important conclusion; no generic full-page transcription.",
         "archiveReason": "completed before Tranche 15; excluded from open task queue while preserving full prior fields"
+      }
+    ],
+    "resolvedDeployExceptions": [
+      {
+        "person": "isaac_carling",
+        "version": "v3.9.57",
+        "issue": "Source registry invalid detailed statuses, duplicate source keys, invalid external originalRefs; PWA manifest stale",
+        "resolved": "Semantic statuses normalized preserving details, closed tasks archived, manifest synced, and Pages deployment successful",
+        "runId": 39156145777,
+        "date": "2026-10-18"
       }
     ]
   }
