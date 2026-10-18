@@ -1,0 +1,526 @@
+{
+  "title": "1870 Fillmore U.S. census p.7, whole-sheet left-column review",
+  "person": "Edward Milo Webb Jr.",
+  "subject_row": 21,
+  "source": {
+    "original": "library:file_000000002be882308975db0ce3e600f3",
+    "public": "https://archive.org/download/populationschedu1611unit/page/n20.jpg",
+    "familysearch": "https://www.familysearch.org/ark:/61903/3:1:S3HY-XHRQ-RJG",
+    "nara": "M593, roll 1611",
+    "enumeration": "24 June 1870; Fillmore, Millard County, Utah Territory"
+  },
+  "method": "Direct visual examination of stored 6696×9266 original and enlarged name/occupation/birthplace crops; preserve unclear letters without invented surname/relationship. This is an intermediate whole-page LEFT-FIELDS working transcription, not a complete 20-column original transcription.",
+  "field_order": [
+    "line",
+    "name as written or conservative reading",
+    "age",
+    "sex",
+    "color",
+    "occupation",
+    "real estate",
+    "personal estate",
+    "birthplace"
+  ],
+  "row_groups": [
+    {
+      "first": 1,
+      "last": 6,
+      "note": "Household continues from previous sheet; no dwelling/family value supplied on these lines."
+    },
+    {
+      "first": 7,
+      "last": 8,
+      "dwelling": 51,
+      "family": 49
+    },
+    {
+      "first": 9,
+      "last": 12,
+      "dwelling": 52,
+      "family": 50
+    },
+    {
+      "first": 13,
+      "last": 19,
+      "dwelling": 53,
+      "family": 51
+    },
+    {
+      "first": 20,
+      "last": 23,
+      "dwelling": 54,
+      "family": 52
+    },
+    {
+      "first": 24,
+      "last": 27,
+      "dwelling": 55,
+      "family": 53
+    },
+    {
+      "first": 28,
+      "last": 33,
+      "dwelling": 56,
+      "family": 54
+    },
+    {
+      "first": 34,
+      "last": 34,
+      "note": "Unused separator row."
+    },
+    {
+      "first": 35,
+      "last": 40,
+      "dwelling": 57,
+      "family": 55
+    }
+  ],
+  "rows": [
+    {
+      "line": 1,
+      "name": "Carling Alice",
+      "age": "7",
+      "sex": "F",
+      "color": "W",
+      "occupation": "At Home",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah"
+    },
+    {
+      "line": 2,
+      "name": "— Catherine",
+      "age": "5",
+      "sex": "F",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 3,
+      "name": "— Lydia M",
+      "age": "4",
+      "sex": "F",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 4,
+      "name": "— Martha",
+      "age": "3",
+      "sex": "F",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 5,
+      "name": "— Isaac",
+      "age": "1",
+      "sex": "M",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 6,
+      "name": "— Phoebe",
+      "age": "8/12",
+      "sex": "F",
+      "color": "W",
+      "occupation": "",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 7,
+      "name": "Carling Ann",
+      "age": "65",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Keeping House",
+      "realEstate": "170",
+      "personalEstate": "160",
+      "birthplace": "England"
+    },
+    {
+      "line": 8,
+      "name": "Melville Mary J [initial uncertain]",
+      "age": "15",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Domestic",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah"
+    },
+    {
+      "line": 9,
+      "name": "Richmond Elizth",
+      "age": "63",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Keeping House",
+      "realEstate": "175",
+      "personalEstate": "100",
+      "birthplace": "England"
+    },
+    {
+      "line": 10,
+      "name": "Truscott Neal [surname uncertain]",
+      "age": "44 [reading uncertain]",
+      "sex": "M",
+      "color": "W",
+      "occupation": "Farmer",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "[overwritten; uncertain]"
+    },
+    {
+      "line": 11,
+      "name": "— Eliza A",
+      "age": "6",
+      "sex": "F",
+      "color": "W",
+      "occupation": "At School",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah"
+    },
+    {
+      "line": 12,
+      "name": "Dusen Flet... [uncertain]",
+      "age": "13",
+      "sex": "F",
+      "color": "W",
+      "occupation": "At School",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Missouri"
+    },
+    {
+      "line": 13,
+      "name": "Warner Dorus",
+      "age": "32",
+      "sex": "M",
+      "color": "W",
+      "occupation": "Farmer",
+      "realEstate": "400",
+      "personalEstate": "1500",
+      "birthplace": "N.Y."
+    },
+    {
+      "line": 14,
+      "name": "— Cordelia",
+      "age": "29",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Keeping House",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Ill."
+    },
+    {
+      "line": 15,
+      "name": "— Amelia",
+      "age": "11",
+      "sex": "F",
+      "color": "W",
+      "occupation": "At School",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah"
+    },
+    {
+      "line": 16,
+      "name": "— Delilah",
+      "age": "9",
+      "sex": "F",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 17,
+      "name": "— Edwin [reading uncertain]",
+      "age": "7",
+      "sex": "F [as marked; uncertain]",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 18,
+      "name": "— Milo",
+      "age": "5",
+      "sex": "M",
+      "color": "W",
+      "occupation": "At Home",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 19,
+      "name": "— Marcellus",
+      "age": "3",
+      "sex": "M",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 20,
+      "name": "Robinson Charles",
+      "age": "33",
+      "sex": "M",
+      "color": "W",
+      "occupation": "Brickmaker",
+      "realEstate": "100",
+      "personalEstate": "250",
+      "birthplace": "Ill."
+    },
+    {
+      "line": 21,
+      "name": "Webb E. M.",
+      "age": "23",
+      "sex": "M",
+      "color": "W",
+      "occupation": "School Teachr",
+      "realEstate": "50",
+      "personalEstate": "",
+      "birthplace": "Missouri"
+    },
+    {
+      "line": 22,
+      "name": "Warner Orange",
+      "age": "23",
+      "sex": "M",
+      "color": "W",
+      "occupation": "Farm Labor",
+      "realEstate": "",
+      "personalEstate": "275",
+      "birthplace": "Iowa"
+    },
+    {
+      "line": 23,
+      "name": "Webb Ellen",
+      "age": "16",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Keeping House",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Eng."
+    },
+    {
+      "line": 24,
+      "name": "Webb Marcellus",
+      "age": "27",
+      "sex": "M",
+      "color": "W",
+      "occupation": "Farm Labor",
+      "realEstate": "",
+      "personalEstate": "300",
+      "birthplace": "Ill."
+    },
+    {
+      "line": 25,
+      "name": "— Sarah M",
+      "age": "19",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Keeping House",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah"
+    },
+    {
+      "line": 26,
+      "name": "— Clara O",
+      "age": "1",
+      "sex": "F",
+      "color": "W",
+      "occupation": "At Home",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 27,
+      "name": "— Marietta",
+      "age": "1/12",
+      "sex": "F",
+      "color": "W",
+      "occupation": "",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 28,
+      "name": "Paine William [surname uncertain]",
+      "age": "31",
+      "sex": "M",
+      "color": "W",
+      "occupation": "Farmer",
+      "realEstate": "5500 [first digit uncertain]",
+      "personalEstate": "375",
+      "birthplace": "[overwritten, uncertain]"
+    },
+    {
+      "line": 29,
+      "name": "— Laura [reading uncertain]",
+      "age": "21",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Keeping House",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Ohio"
+    },
+    {
+      "line": 30,
+      "name": "— Lena [reading uncertain]",
+      "age": "6",
+      "sex": "F",
+      "color": "W",
+      "occupation": "At School",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah"
+    },
+    {
+      "line": 31,
+      "name": "— Lot S [reading uncertain]",
+      "age": "4",
+      "sex": "M",
+      "color": "W",
+      "occupation": "At Home",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 32,
+      "name": "— Louisa",
+      "age": "2",
+      "sex": "F",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 33,
+      "name": "— Laura [reading uncertain]",
+      "age": "1/12",
+      "sex": "F",
+      "color": "W",
+      "occupation": "",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 34,
+      "name": "[blank]",
+      "age": "",
+      "sex": "",
+      "color": "",
+      "occupation": "",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": ""
+    },
+    {
+      "line": 35,
+      "name": "Meril Claud [reading uncertain]",
+      "age": "29",
+      "sex": "M",
+      "color": "W",
+      "occupation": "Telegraph Clerk",
+      "realEstate": "300",
+      "personalEstate": "200",
+      "birthplace": "Connecticut"
+    },
+    {
+      "line": 36,
+      "name": "— Bethelda [reading uncertain]",
+      "age": "25",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Keeping House",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Ill."
+    },
+    {
+      "line": 37,
+      "name": "— Leila",
+      "age": "6",
+      "sex": "F",
+      "color": "W",
+      "occupation": "At School",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah"
+    },
+    {
+      "line": 38,
+      "name": "— George O",
+      "age": "4",
+      "sex": "M",
+      "color": "W",
+      "occupation": "At Home",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 39,
+      "name": "— Alice",
+      "age": "2",
+      "sex": "F",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    },
+    {
+      "line": 40,
+      "name": "— Mande [reading uncertain]",
+      "age": "3/12",
+      "sex": "F",
+      "color": "W",
+      "occupation": "",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)"
+    }
+  ],
+  "remaining": [
+    "Detailed transcription/reconciliation for marked columns 11–20 and corrections to flagged uncertain readings from original zoom.",
+    "Validate ambiguous dwelling family-number overwrites in margins.",
+    "Generate complete reader with full original and English-not-applicable translation notation; do not replace published target-household reader yet."
+  ],
+  "preserve": "No identities/relationships inferred from household adjacency; x-like literacy marks are preserved without an illiteracy assertion."
+}
