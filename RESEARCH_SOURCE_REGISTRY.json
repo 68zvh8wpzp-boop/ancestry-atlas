@@ -827,12 +827,12 @@
         "fs:memory:136111371",
         "fs:storage:TH-7734-111912-500-80"
       ],
-      "status": "saved",
-      "evidence": "github:research/edward-jr-irene-transcription-pairs-20261018.json",
+      "status": "published",
+      "evidence": "github:research/edward-jr-irene-lois-duplicate-prevention-audit-20261018.json",
       "originalRefs": [
         "github:assets/edward-webb-jr/irene-merrell-biography-original.pdf"
       ],
-      "note": "All ten pages visually read; original PDF and unchanged JPEG streams retained; full page-by-page transcription and English not-applicable line pairs published in v3.9.55. Chronology and overtyping uncertainties retained."
+      "note": "All 10 PDF pages previously transcribed (444 nonempty English-original/translation-not-applicable line pairs) and published with 10 original page images and full original PDF reader in v3.9.55/56. Reader transcriptions match saved page-01..10 texts exactly after HTML entity/trailing newline normalization. Original PDF was not freshly visually reexamined in Oct18 QA, see duplicate-prevention audit. Existing original chronology contradictions preserved; DO NOT retranscribe without named evidence correction."
     },
     {
       "id": "edward-jr-1920-census",
@@ -886,13 +886,13 @@
         "fs:ark:3:1:33SQ-G5WB-NBZ",
         "fs:source:S6BS-7FL"
       ],
-      "status": "saved",
-      "evidence": "github:research/edward-jr-continuation-20261017.md",
+      "status": "published",
+      "evidence": "github:research/edward-jr-irene-lois-duplicate-prevention-audit-20261018.json",
       "originalRefs": [
         "github:assets/edward-webb-jr/lois-1898-birth-original.jpg",
         "github:assets/edward-webb-jr/lois-1898-birth-continuation-original.jpg"
       ],
-      "note": "Both original pages captured and target No153 visually read. Presenter A.M.Termey is not mother; mother written Ella Webb. Exact paired transcript pending. Father Iowa birthplace conflicts with other evidence; preserve as written."
+      "note": "Two source register pages and sequential original images, full Spanish entry and full English translation ALREADY published via assets/edward-webb-jr/lois-birth-reader.html in v3.9.55/56; checked reader/source paths Oct18. A.M. T[illegible]ey presenter is not Ella Webb. Mother Ella England; father E.M. Webb birth reported Iowa conflicts other Missouri evidence. DO NOT repeat translation without named error. No new source-pixel reading in this gate."
     },
     {
       "id": "edward-jr-attached-mmkk-378",
@@ -1929,6 +1929,20 @@
         "Publish, verify, and obtain user iPhone approval."
       ],
       "exception": "Evidence materially affects an unresolved identity or conflicts with a recorded claim."
+    },
+    "edward_jr_completed_text_readers": {
+      "date": "2026-10-18",
+      "status": "closed",
+      "irene_pages": 10,
+      "irene_line_pairs": 444,
+      "lois_image_pages": 2,
+      "lois_languages": [
+        "Spanish original",
+        "English translation"
+      ],
+      "publication": "Both readers already linked in atlas-v3.9.56.html",
+      "technical_limit": "Static repository consistency only; user iPhone verification remains outstanding",
+      "provenance": "research/edward-jr-irene-lois-duplicate-prevention-audit-20261018.json"
     }
   }
 }
