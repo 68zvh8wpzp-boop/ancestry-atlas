@@ -1,0 +1,74 @@
+{
+  "title": "Edward Milo Webb Jr. — publication and transcription gate audit (Irene Merrell and Lois Webb)",
+  "date": "2026-10-18",
+  "person_id": "KVPR-ZP3",
+  "context": "Audit to prevent repeated already-completed transcription; no new FamilySearch edit or deployment.",
+  "irene": {
+    "status": "CLOSED FOR TRANSCRIPTION/PUBLICATION, independent live iPhone check still pending",
+    "original_pdf_path": "assets/edward-webb-jr/irene-merrell-biography-original.pdf",
+    "original_pdf_git_sha": "2f2e98713f90e25a4b108396beee0183663bc361",
+    "printed_source": "Irene Webb Merrell 10-page PDF from FamilySearch Memory 136111371 (TH-7734-111912-500-80)",
+    "saved_pages": [
+      "research/edward-jr-irene-transcript/page-01.txt",
+      "research/edward-jr-irene-transcript/page-02.txt",
+      "research/edward-jr-irene-transcript/page-03.txt",
+      "research/edward-jr-irene-transcript/page-04.txt",
+      "research/edward-jr-irene-transcript/page-05.txt",
+      "research/edward-jr-irene-transcript/page-06.txt",
+      "research/edward-jr-irene-transcript/page-07.txt",
+      "research/edward-jr-irene-transcript/page-08.txt",
+      "research/edward-jr-irene-transcript/page-09.txt",
+      "research/edward-jr-irene-transcript/page-10.txt"
+    ],
+    "page_image_pattern": "assets/edward-webb-jr/irene-pages/original-page-01.jpg through original-page-10.jpg",
+    "page_reader": "assets/edward-webb-jr/irene-biography-reader.html",
+    "line_pairs": "research/edward-jr-irene-transcription-pairs-20261018.json",
+    "line_pair_count": 444,
+    "per_page_count": [
+      42,
+      43,
+      44,
+      46,
+      48,
+      42,
+      45,
+      45,
+      44,
+      45
+    ],
+    "checks": [
+      "All ten page-01..10.txt files exist in GitHub.",
+      "The already-published reader has exactly 10 page sections and 10 corresponding image references.",
+      "Every reader <pre> block matches the corresponding preserved page transcript after HTML entity decoding and trailing-newline normalization.",
+      "All 444 original/translation pairs have nonempty fields; English originals explicitly mark translation not applicable.",
+      "Atlas v3.9.56 includes direct readerUrl and preserved PDF originalAsset."
+    ],
+    "limits": [
+      "The PDF binary and original page pixel rendering could not be retrieved through the current GitHub text connector, so this audit verifies existing files and reader consistency, not a fresh character-by-character visual proof from the PDF.",
+      "The source narrative contains internal chronology conflicts, notably printed page 7 / PDF page 8 places an 1893 event before a stated June 1891 departure, while narrating a twelve-year interruption after 1886. Original wording remains unchanged.",
+      "Summary on PDF page 1 credits Edward's mother as his earliest teacher; detailed page 2 credits grandmother Owens; original discrepancy preserved.",
+      "Do not treat Irene’s family recollection alone as independent vital-record proof."
+    ],
+    "recommendation": "DO NOT RETRANSCRIBE OR RECREATE IRENE READER. Audit complete at available structural/source-text level."
+  },
+  "lois": {
+    "status": "CLOSED FOR TRANSCRIPTION/PUBLICATION; independent original-pixel line review not repeated",
+    "reader": "assets/edward-webb-jr/lois-birth-reader.html",
+    "first_image": "assets/edward-webb-jr/lois-1898-birth-original.jpg",
+    "second_image": "assets/edward-webb-jr/lois-1898-birth-continuation-original.jpg",
+    "checks": [
+      "Existing reader links the two preserved original register image assets in correct sequence.",
+      "Existing reader contains a Spanish 'Original entry' transcription block and English translation block.",
+      "Both original archival ARKs are linked; Atlas v3.9.56 already includes the readerUrl.",
+      "Original record describes presenter A.M. T[illegible]ey as separate married male, not the mother.",
+      "Record explicitly identifies mother Ella Webb from England and reports father E.M. Webb born Iowa, unlike separate evidence of Missouri birth. Conflicting source statements retained."
+    ],
+    "recommendation": "DO NOT REPEAT SPANISH TRANSCRIPTION OR TRANSLATION WITHOUT A PARTICULAR ERROR REPORT."
+  },
+  "publication": {
+    "live_release": "atlas-v3.9.56.html",
+    "source_check": "Reader paths are wired in the versioned source",
+    "claim_limit": "Static code checks do not establish live served deployment or iPhone user acceptance. No new release made."
+  },
+  "next_only": "Material person-page gallery completeness: reconcile 8 actual photos with all distinct *relevant* FamilySearch Memories, prioritize the known Charlotte Maxwell family photograph missing from saved original inventory; signed-in source browser needed for unseen items. Do not broadly reopen all 125 memories unless access and novelty are established."
+}
