@@ -6,11 +6,11 @@
   "bio_policy_passed": true,
   "media_separated": true,
   "photos_count": 8,
-  "documents_count": 5,
-  "artifact": "atlas-v3.9.54.html",
-  "version": "20261018-jr-eight-family-photos-1",
-  "source_revision": "f6c3860a8b65c17bc88d2c1baf5bf2ae157fe86f",
-  "web_verified": true,
+  "documents_count": 8,
+  "artifact": "atlas-v3.9.55.html",
+  "version": "20261018-jr-original-documents-1",
+  "source_revision": "pending",
+  "web_verified": false,
   "iphone_verified": false,
   "issue_ids": [
     "BIO-001",
@@ -21,13 +21,12 @@
     "QA-002"
   ],
   "unresolved_defects": [
-    "Full source/memory audit remains incomplete; source list reconciled as51attached plus5suggested rows.",
-    "Ten-page Irene PDF read and preserved; exact full transcription pending.",
-    "Four earlier census full-page transcripts and new1920census full-page transcript pending.",
-    "Lois1898birth two-page original captured/read; exact Spanish/English paired transcription pending before document gallery publication.",
-    "Matching expanded narration recording pending; immutable old audio remains disabled for expanded text.",
-    "Global inherited audio checksum/version-marker failures remain; focused governance and Richard/Jessie checks pass.",
-    "iPhone verification of current revision unavailable; full GuidedStory UI check pending."
+    "Full source/memory audit remains incomplete: 56 attached sources (51 dated and 5 undated); prior suggested-row classification was incorrect.",
+    "Five census full-page transcripts remain open; published household transcriptions do not replace full-page work.",
+    "Matching expanded Fable narration recording unavailable; approved existing audio preserved.",
+    "Inherited global audio checksum/version-marker failures remain.",
+    "Actual iPhone verification unavailable.",
+    "New readers and Story route await live surface verification."
   ],
   "named_relationships": {
     "spouses": [
@@ -39,18 +38,16 @@
   },
   "document_preview_failure_count": 0,
   "document_preview_failure_ids": [],
-  "document_preview_scope": "Five unchanged document previews inherited from v3.9.50 web verification; no new preview verification claimed",
-  "transcription_translation_failure_count": 7,
+  "document_preview_scope": "Eight packaged previews; new three await live inspection.",
+  "transcription_translation_failure_count": 5,
   "transcription_translation_failure_ids": [
     "jr-1860-owens-full-page-pending",
     "jr-1860-mcrae-full-page-pending",
     "jr-1870-full-page-pending",
     "jr-1880-full-page-pending",
-    "jr-irene-full-transcript",
-    "jr-1920-full-page-pending",
-    "jr-lois-1898-transcript"
+    "jr-1920-full-page-pending"
   ],
-  "verification": "Actual v54 page shows full corrected1294word biography, all31namedchildren, PHOTOS8/DOCUMENTS5. All13 thumbnails decoded. Both new original readers decoded1500x1518 and1365x910; captions, source/original links and text inspection pairs visible. Next daughters to fourgenerations and Close back to full card passed. Six newly captured source assets served byte-identical to local originals. All three deployment/source workflows succeeded. iPhone unverified. Overall audit remains partial.",
+  "verification": "Local syntax, links and Story direct-entry checks passed. Live verification pending.",
   "publication_authorization": "User explicitly instructed Publish it. Get it done on17October16:18America/Chicago.",
-  "publication_status": "deployed and web-verified"
+  "publication_status": "packaged; deployment and live verification pending"
 }

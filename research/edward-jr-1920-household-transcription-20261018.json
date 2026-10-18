@@ -1,0 +1,38 @@
+{
+  "scope": "Target household lines 34\u201337, not all 50 lines of the page.",
+  "pairs": [
+    {
+      "original": "[1920 census; Fort Lowell Precinct, Pima, Arizona; ED 80; sheet 3A; January 14\u201315]",
+      "translation": "[not applicable: English original]"
+    },
+    {
+      "original": "[Line | street | dwelling | family | name | relationship | tenure | sex | color | age | marital status | immigration | naturalization | naturalization year | read | write | birthplace | father birthplace | mother birthplace | English | occupation | industry | worker class]",
+      "translation": "[not applicable: English original]"
+    },
+    {
+      "original": "34 | FM | 38 | 40 | Webb Edward M | Head | R | M | W | 73 | M | [blank] | [blank] | [blank] | yes | yes | Missouri | New York | Illinois | yes | Farming | Farm | O.A.",
+      "translation": "[not applicable: English original]"
+    },
+    {
+      "original": "35 | \u201d | [blank] | [blank] | \u2014 Ellen | Wife | [blank] | F | W | 65 | M | 1864 | nat | 1870 | yes | yes | England / English | England / English | England / English | yes | none | [blank] | [blank]",
+      "translation": "[not applicable: English original]"
+    },
+    {
+      "original": "36 | \u201d | [blank] | [blank] | \u2014 Harriet Alice | Daughter | [blank] | F | W | 34 | S | [blank] | [blank] | [blank] | yes | yes | Utah | Missouri | England / English | yes | School Teacher | Rural School | W",
+      "translation": "[not applicable: English original]"
+    },
+    {
+      "original": "37 | \u201d | [blank] | [blank] | \u2014 Lois | Daughter | [blank] | F | W | 20 | S | [blank] | [blank] | [blank] | yes | yes | Mexico | Missouri | England / English | yes | School Teacher | School | W",
+      "translation": "[not applicable: English original]"
+    },
+    {
+      "original": "[House number, mortgage, school attendance, and farm schedule fields blank in these four lines. Foreign mother tongues as shown; native-born tongue fields blank.]",
+      "translation": "[not applicable: English original]"
+    }
+  ],
+  "cautions": [
+    "Edward is written 73, not silently changed to his calculated age 72.",
+    "The crossed-out enumeration district is replaced by 80.",
+    "Full-page transcription remains open."
+  ]
+}
