@@ -1703,6 +1703,24 @@
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-09-orderville-board-originals-access-20261018.md",
       "note": "Huntington digitizes 779-frame microfilm of James G Bleak originals (1950 courtesy copy); its archive summary says Orderville United Order Articles, board of directors names, 1875-76 membership departure/joined lists, 1879 statements, plus broader southern Utah material. NOT BYU MSS512 and no named Carling frame, exact original manuscript folio, signature or director designation verified. Browser image viewer may help in Work; avoid 779 unindexed frames full sweep. USHS physical Bleak papers Box2Folders4-5 'Orderville United Order' are courtesy copies. Full report."
+    },
+    {
+      "id": "isaac-carling-museum-biography-tranche10-reviewed-source-synthesis",
+      "personId": "KWJ8-5XJ",
+      "atlasPersonId": "isaac_carling",
+      "event": "person-biography-source-synthesis",
+      "title": "Isaac Van Wagoner Carling reviewable museum biography and separate Orderville context (Tranche 10)",
+      "status": "saved-research-draft-not-published",
+      "sourceKeys": [
+        "github:research/isaac-carling-tranche-10-museum-biography-review-20261018.md",
+        "udn:deseret-news:1854-11-23:vol4:no37:page3",
+        "chdb:transcript:carling-isaac-v-diary-in-elda-mortenson",
+        "compiled:isaac-carling:1853-06-19-proposal-letter-transcription"
+      ],
+      "sourceUrl": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/blob/main/research/isaac-carling-tranche-10-museum-biography-review-20261018.md",
+      "originalRefs": [],
+      "evidence": "github:research/isaac-carling-tranche-10-museum-biography-review-20261018.md",
+      "note": "18 Oct2026 Tranche10: third-person museum biography, separate Orderville and 1852 crossing notes, 12+4 family roster and evidence ledger drafted and GitHub committed. Uses original 1854 newspaper visually checked in Tranche05, official published attribution to 1852 diary (not autograph), retrospective work/music/botanical traditions and 1876 relocation (not newly proved original). Newly noted 19 June 1853 Isaac-to-Asenath proposal letter solely in family-history transcription, no original letter pixels. Board titles/Miriam marriage date/USU artist/certificate original uncertain. NO deployed biography, media capture, user approval or changed FS tree."
     }
   ],
   "tasks": [
@@ -2186,16 +2204,16 @@
       "name": "Isaac Van Wagoner Carling",
       "status": "active",
       "started": "2026-10-18",
-      "last_tranche": 9,
+      "last_tranche": 10,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "Tranche 10: synthesize Isaac source-weighted third-person museum biography and distinct Orderville context in a saved draft, no publish until editorial/iPhone approval",
+      "next_tranche": "Tranche 11: one authentic high-value Isaac period portrait/photograph from already inventoried FamilySearch Memories; inspect actual image and attribution, preserve highest permitted resolution with museum caption or record precise access exception. Do not repeat 239-memory/source inventory.",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "source-access boundary: BYU MSS512 two-folder originals not available as named images; distinct fully digitized Huntington primary-board roster reel located but Isaac entry uninspected",
-      "last_tranche_report": "research/isaac-carling-tranche-09-orderville-board-originals-access-20261018.md",
+      "last_tranche_status": "finished source-weighted museum biography and separate historical context saved for review; not published, 1853 proposal letter only in later transcription",
+      "last_tranche_report": "research/isaac-carling-tranche-10-museum-biography-review-20261018.md",
       "exceptions": [
         "1911 Utah original death certificate not captured; series 81448 image access requires interactive browser",
         "Isaac 1852 diary studied through Church History transcript of 1966 family history; autograph page scans not captured",
@@ -2204,7 +2222,8 @@
         "Miriam Hobson reported Aug1857 wedding (age13 per institutional derivative) conflicts with compiled 1859/age16/Fillmore narrative; original place,date,event type unverified",
         "Specific Orderville co-op store photo in FamilySearch Memories not retrievable unauthenticated; USU 1875 Orderville sketch and BYU MSS512/MSS879 person-specific original pages not yet inspected.",
         "USU UUS_P0143 Box1 Folder15 1875 Isaac Carling-attributed sketch and 3 letters are cataloged but no online pixels/letters linked; a single, unsent reference/reproduction inquiry is prepared; artist/date/rights unverified.",
-        "BYU MSS512 has physical Orderville board/departments originals, but no named Isaac folio or online readable page; Huntington MSS MFilm00207 digitized 779-frame comparable original copies have no Isaac-named indexed frame, current binary/interactive access blocked."
+        "BYU MSS512 has physical Orderville board/departments originals, but no named Isaac folio or online readable page; Huntington MSS MFilm00207 digitized 779-frame comparable original copies have no Isaac-named indexed frame, current binary/interactive access blocked.",
+        "1853 Isaac-to-Asenath proposal letter dated 19 June appears in later family-history transcription only; original autograph not inspected. Biography draft saved, not deployed or approved."
       ]
     }
   }
