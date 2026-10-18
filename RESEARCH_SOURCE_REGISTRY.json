@@ -1968,6 +1968,24 @@
       "evidence": "github:research/webb-tranche-02-chester-church-films-access-audit-20261018.md",
       "researchDetailStatus": "CT-State-Library-church-copy-films-verified-familysearch-dynamic-signin-and-web-film-URL-block-no-page-obtained",
       "note": "Webb tranche02 one bounded original attempt: official CT State Library guide confirms Chester Congregational copied church records 1759-1835 CSL344/457, FS films 0005554,1008328. FamilySearch catalog dynamic JS and login gate, direct film URLs inaccessible; Church Records Index catalog koha19954 redirects to sign-in. Zero 1773 original handwritten marriage leaves and zero 1774-1780 baptismal frames inspected; 1777 James Webb Jr parentage not established, no absence inference. CT Library church index contains only 1/4 holdings, slips may identify original volume/page if available. No fee/email/FamilySearch updates; next one distinct record class, no repeat catalog loops."
+    },
+    {
+      "id": "webb-tranche03-albany-1823-candidate-james1754-will-book-index-test-20261018",
+      "personId": "KWJ1-P2V",
+      "atlasPersonId": "james_webb_jr",
+      "event": "competing-same-name-father-candidate-1823-albany-probate-will-index-test",
+      "status": "examined",
+      "title": "Albany NY will-book testator indexes vol5 1817–1823 and vol6 1823–1832 do not index James Webb; original will/estate unknown",
+      "sourceKeys": [
+        "albany:surrogate:will-book-testators-index:vol5:1817-1823:webb-lookup-20261018",
+        "albany:surrogate:will-book-testators-index:vol6:1823-1832:webb-lookup-20261018",
+        "albany:historical-holdings:surrogate-admin-index:1787-1845:collection-only"
+      ],
+      "sourceUrl": "https://mail.newhorizonsgenealogicalservices.com/ny-genealogy/albany-county/albany_county_new_york_will_index_vol-5.htm",
+      "originalRefs": [],
+      "evidence": "github:research/webb-tranche-03-albany-1823-will-index-candidate-discriminator-20261018.md",
+      "researchDetailStatus": "secondary-full-will-testator-volume5-6-indexes-inspected-absence-only-no-original-specific-estate-identified",
+      "note": "Tranche03 one disambiguation test for different candidate James Webb born1754 died purportedly Oct1823 Rensselaerville Albany NY FS LHSH-TKQ, not direct ancestor James Webb Jr KWJ1-P2V. Published New Horizons Genealogy transcriptions of Albany Surrogate Will Book testator indexes volumes 5 (1817-23) and 6 (1823-32) contain no WEBB entries (whole alphabetized lists and text-find). Strictly does NOT rule out intestate administration, another county, other date, missing/mistranscribed index, or fatherhood. No period probate original image seen. Albany County guide documents separate original administration/will name index 1787–1845; next test that ADMINISTRATION index around 1823-26 only. No approval or genealogy graph edits."
     }
   ],
   "tasks": [
@@ -2386,10 +2404,10 @@
       "name": "James Webb Jr.",
       "status": "active-parentage-proof-frontier-research-only",
       "started": "2026-10-18",
-      "last_tranche": 2,
-      "last_tranche_report": "research/webb-tranche-02-chester-church-films-access-audit-20261018.md",
-      "last_tranche_status": "Chester Third Church 1759–1835 L'Hommedieu copied FS films 0005554 and 1008328 officially confirmed but image browsing inaccessible (JS dynamic/catalog login, direct film URLs unrenderable). CT Church Records index slip link koha19954 sign-in gate. No 1773 original/1777 baptism page or surname-specific parentage proven. Source-only access exception registered.",
-      "next_tranche": "Webb Tranche03: one targeted parentage discriminator distinct from blocked films: try CT State Library church event slip abstract for Chester/Saybrook James Webb c1777 with exact original folio if publicly accessible; otherwise ONE period land/probate person-specific source, no repeated film or census loop. Save one evidence-ledger/registry/checkpoint and stop.",
+      "last_tranche": 3,
+      "last_tranche_report": "research/webb-tranche-03-albany-1823-will-index-candidate-discriminator-20261018.md",
+      "last_tranche_status": "Examined two published Albany Surrogate testator index volumes covering 1817–1832 for competing James Webb b1754/d1823 Rensselaerville; neither indexes Webb, hence no will book/page found (not evidence of absence of estate, will, death or parentage). Specific county 1787–1845 Surrogate administration index identified as different source class; no original image acquired.",
+      "next_tranche": "Webb Tranche04: ONE named lookup in Albany County Surrogate Court 1787–1845 index to letters of administration for James Webb of Rensselaerville ca1823–1826; save exact entry/folio if found or log precise access limit once. Do not re-search will books 5/6 or Chester film login, censuses, or 1845 death.",
       "previous_person": {
         "id": "KWJ8-5XJ",
         "name": "Isaac Van Wagoner Carling",
