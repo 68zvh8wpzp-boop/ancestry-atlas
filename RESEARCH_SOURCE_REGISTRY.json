@@ -1642,15 +1642,15 @@
       "atlasPersonId": "isaac_carling",
       "event": "United-Order-civic-work",
       "title": "Orderville Ward United Order board and departmental original handwritten record books, 1874–1896",
-      "status": "primary-collection-located-person-specific-entry-unexamined",
+      "status": "confirmed-two-folder-original-collection-person-entry-uninspected-interactive-access-needed",
       "sourceKeys": [
         "byu:MSS512:1974-1896:board-minutes",
         "byu:OrdervilleWard:MSS512"
       ],
       "sourceUrl": "https://archives.lib.byu.edu/repositories/ltpsc/resources/upb_mss512",
       "originalRefs": [],
-      "evidence": "github:research/isaac-carling-tranche-07-orderville-originals-20261018.md",
-      "note": "BYU L Tom Perry Special Collections original meeting minutes, member lists, departmental histories, letters and financial report dated 1874–1896, open public research. Tranche07 located catalog only. NO assertion Isaac appears in original manuscript, nor carpenter shop/Co-op work verified in board entry. Folder1/2 URLs in report. Original-person manuscript inspection required."
+      "evidence": "github:research/isaac-carling-tranche-09-orderville-board-originals-access-20261018.md",
+      "note": "Tranche09 18Oct: BYU MSS512 original 1874-1896 board minutes, membership/department records confirmed in exactly Folder1 + Folder2, catalog open to public research. Current web open BYU direct = 403 and NO folio/named Isaac Carling reference or pixels available; cannot original-confirm first vice president, 1877 bishopric, carpenter-shop foreman, co-op store with sons. One specific archivist item request drafted but UNSENT, no fee/email. Independent digitized 779-frame Huntington Bleak microfilm MSS MFilm00207 contains OTHER original Orderville director lists and 1875-76 member rolls; no Isaac-named frame indexed/inspected, do NOT conflate with MSS512. USHS Bleak papers Box2 Folders4-5 courtesy copy alternative. More in new report."
     },
     {
       "id": "isaac-carling-orderville-united-order-accounts-mss879",
@@ -1686,6 +1686,23 @@
       ],
       "evidence": "github:research/isaac-carling-tranche-08-1875-order-sketch-custody-20261018.md",
       "note": "Separate published 8x10 photograph of numbered settlement plan, Utah State History photo15652; digital preview visibly inspected: relief society,dining hall,big house,blacksmith shop,carpenter shop,commissary,order office/shoe shop,dwellings,stables,fields. NO artist/date attribution for sketch, NO link proving it is 1875 USU UUS_P0143 Carling-attributed item. This is historical context ONLY, no evidence Isaac made it. Utah State Historical Society digital image ©2012 rights reserved; not downloaded or republished into Atlas. Its catalogue mentions Orderville settlement established 1875; that's not the photograph's date."
+    },
+    {
+      "id": "isaac-carling-order-bleak-boards-digitized-huntington",
+      "personId": "KWJ8-5XJ",
+      "atlasPersonId": "isaac_carling",
+      "event": "United-Order-board-and-membership-records",
+      "title": "James G. Bleak Historical Memoranda of Southern Mission, 779-frame digital microfilm including Orderville board director rosters",
+      "status": "independent-digitized-primary-source-located-no-Isaac-specific-frame-read",
+      "sourceKeys": [
+        "huntington:MSS-MFilm-00207",
+        "huntington:p16003coll15:13715",
+        "us-history:James-Godson-Bleak:box2:folders4-5"
+      ],
+      "sourceUrl": "https://www.huntington.org/collections/lib-p16003coll15-13715",
+      "originalRefs": [],
+      "evidence": "github:research/isaac-carling-tranche-09-orderville-board-originals-access-20261018.md",
+      "note": "Huntington digitizes 779-frame microfilm of James G Bleak originals (1950 courtesy copy); its archive summary says Orderville United Order Articles, board of directors names, 1875-76 membership departure/joined lists, 1879 statements, plus broader southern Utah material. NOT BYU MSS512 and no named Carling frame, exact original manuscript folio, signature or director designation verified. Browser image viewer may help in Work; avoid 779 unindexed frames full sweep. USHS physical Bleak papers Box2Folders4-5 'Orderville United Order' are courtesy copies. Full report."
     }
   ],
   "tasks": [
@@ -2169,16 +2186,16 @@
       "name": "Isaac Van Wagoner Carling",
       "status": "active",
       "started": "2026-10-18",
-      "last_tranche": 8,
+      "last_tranche": 9,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "Tranche 09: one BYU MSS 512 Orderville original board/department minute-book page for Isaac-specific carpentry/co-op participation; no rerun USU sketch catalog",
+      "next_tranche": "Tranche 10: synthesize Isaac source-weighted third-person museum biography and distinct Orderville context in a saved draft, no publish until editorial/iPhone approval",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "closed: verified USU sketch item shelfmark and letter count, but original pixels/letters are non-digitally accessible via public catalog; separate historic Orderville settlement-view provenance preserved",
-      "last_tranche_report": "research/isaac-carling-tranche-08-1875-order-sketch-custody-20261018.md",
+      "last_tranche_status": "source-access boundary: BYU MSS512 two-folder originals not available as named images; distinct fully digitized Huntington primary-board roster reel located but Isaac entry uninspected",
+      "last_tranche_report": "research/isaac-carling-tranche-09-orderville-board-originals-access-20261018.md",
       "exceptions": [
         "1911 Utah original death certificate not captured; series 81448 image access requires interactive browser",
         "Isaac 1852 diary studied through Church History transcript of 1966 family history; autograph page scans not captured",
@@ -2186,7 +2203,8 @@
         "Miriam Hobson 1857 marriage/sealing original not yet found; reported birth 1843 places purported 1857 marriage before her 14th birthday; original verification pending.",
         "Miriam Hobson reported Aug1857 wedding (age13 per institutional derivative) conflicts with compiled 1859/age16/Fillmore narrative; original place,date,event type unverified",
         "Specific Orderville co-op store photo in FamilySearch Memories not retrievable unauthenticated; USU 1875 Orderville sketch and BYU MSS512/MSS879 person-specific original pages not yet inspected.",
-        "USU UUS_P0143 Box1 Folder15 1875 Isaac Carling-attributed sketch and 3 letters are cataloged but no online pixels/letters linked; a single, unsent reference/reproduction inquiry is prepared; artist/date/rights unverified."
+        "USU UUS_P0143 Box1 Folder15 1875 Isaac Carling-attributed sketch and 3 letters are cataloged but no online pixels/letters linked; a single, unsent reference/reproduction inquiry is prepared; artist/date/rights unverified.",
+        "BYU MSS512 has physical Orderville board/departments originals, but no named Isaac folio or online readable page; Huntington MSS MFilm00207 digitized 779-frame comparable original copies have no Isaac-named indexed frame, current binary/interactive access blocked."
       ]
     }
   }
