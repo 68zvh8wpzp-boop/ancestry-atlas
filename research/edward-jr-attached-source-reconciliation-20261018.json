@@ -8,282 +8,1474 @@
     {
       "id": "MMKK-378",
       "title": "1847Legacy NFS Source: Edward Milo Webb Jr - Church record: Blessing record or certificate",
-      "dated": true
+      "dated": true,
+      "links": [],
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9FTM-PH9",
       "title": "1847Millennium File",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "http://search.ancestry.com/cgi-bin/sse.dll?db=millind&h=10884227&ti=0&indiv=try&gss=pt",
+          "url": "http://search.ancestry.com/cgi-bin/sse.dll?db=millind&h=10884227&ti=0&indiv=try&gss=pt"
+        }
+      ],
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "M976-897",
       "title": "1847Membership of The Church of Jesus Christ of Latter-day Saints, 1830-1848",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "http://search.ancestry.com/cgi-bin/sse.dll?db=LDSVitalMembership1830-1848&indiv=try&h=95092",
+          "url": "http://search.ancestry.com/cgi-bin/sse.dll?db=LDSVitalMembership1830-1848&indiv=try&h=95092"
+        }
+      ],
+      "citation": "\"Membership of The Church of Jesus Christ of Latter-day Saints, 1830-1848 - AncestryInstitution.com.\" Membership of The Church of Jesus Christ of Latter-day Saints, 1830-1848 - AncestryInstitution.com. N.p., n.d. Web. 05 Jun. 2014..",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9VSP-2DN",
       "title": "1850Edmond Webb in household of E M Webb, \"United States Census, 1850\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:MDZW-ZRZ",
+          "url": "https://familysearch.org/ark:/61903/1:1:MDZW-ZRZ?lang=en"
+        },
+        {
+          "text": "EDIT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:S3HY-6Q9Q-JK6?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMDZW-ZRZ&action=view&lang=en"
+        },
+        {
+          "text": "E M Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MDZW-ZRW?lang=en"
+        },
+        {
+          "text": "C A Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MDZW-ZR4?lang=en"
+        },
+        {
+          "text": "C M Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MDZW-ZRH?lang=en"
+        },
+        {
+          "text": "M Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MDZW-ZRC?lang=en"
+        },
+        {
+          "text": "C A Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MDZW-ZR8?lang=en"
+        },
+        {
+          "text": "A Owens",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MDZW-ZRD?lang=en"
+        },
+        {
+          "text": "James C Owens",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MDZW-ZR6?lang=en"
+        },
+        {
+          "text": "",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:S3HY-6Q9Q-JK6?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMDZW-ZRZ&action=view&cc=1401638&lang=en"
+        },
+        {
+          "text": "VIEW ORIGINAL DOCUMENT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:S3HY-6Q9Q-JK6?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMDZW-ZRZ&action=view&cc=1401638&lang=en"
+        }
+      ],
+      "citation": "\"United States, Census, 1850\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:MDZW-ZRZ : Sat Jan 11 14:43:16 UTC 2025), Edmond Webb in entry for E M Webb, 1850.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9LYX-DXZ",
       "title": "1852Edward Milo Webb, \"Utah Mormon Pioneer Overland Travel Database, 1847-1868\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:QL8S-GDSF",
+          "url": "https://familysearch.org/ark:/61903/1:1:QL8S-GDSF?lang=en"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        }
+      ],
+      "citation": "\"Utah, Mormon Pioneer Overland Travel Database, 1847-1868\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:QL8S-GDSF : Wed Feb 19 20:20:07 UTC 2025), Edward Milo Webb.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "MMHN-TN6",
       "title": "1860Edwd M Webb in household of Jas Owens, \"United States Census, 1860\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:MH27-B42",
+          "url": "https://familysearch.org/ark:/61903/1:1:MH27-B42?lang=en"
+        },
+        {
+          "text": "EDIT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:33SQ-GBS8-9G45?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMH27-B42&action=view&lang=en"
+        },
+        {
+          "text": "Jas Owens",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MH27-B4N?lang=en"
+        },
+        {
+          "text": "Abigail C Owens",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MH27-B4J?lang=en"
+        },
+        {
+          "text": "Lucretia Owens",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MH27-B4V?lang=en"
+        },
+        {
+          "text": "Jas C Owens",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MH27-B4K?lang=en"
+        },
+        {
+          "text": "",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:33SQ-GBS8-9G45?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMH27-B42&action=view&cc=1473181&lang=en"
+        },
+        {
+          "text": "VIEW ORIGINAL DOCUMENT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:33SQ-GBS8-9G45?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMH27-B42&action=view&cc=1473181&lang=en"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        }
+      ],
+      "citation": "\"United States, Census, 1860\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:MH27-B42 : Tue Oct 28 18:40:41 UTC 2025), Edwd M Webb in entry for Jas Owens, 1860.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "S6BS-6XP",
       "title": "1860Edwd M Mc Rae, \"United States, Census, 1860\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:MH27-BY3",
+          "url": "https://familysearch.org/ark:/61903/1:1:MH27-BY3?lang=en"
+        },
+        {
+          "text": "EDIT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:33S7-9BS8-9G9T?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMH27-BY3&action=view&lang=en"
+        },
+        {
+          "text": "Caroline A Mc Rae",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MH27-BY9?lang=en"
+        },
+        {
+          "text": "Mecelis H Mc Rae",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MH27-BYS?lang=en"
+        },
+        {
+          "text": "Caroline A Mc Rae",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MH27-BYQ?lang=en"
+        },
+        {
+          "text": "Adelbert Mc Rae",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MH27-BY7?lang=en"
+        },
+        {
+          "text": "Albert Mc Rae",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MH27-BYW?lang=en"
+        },
+        {
+          "text": "Estella Mc Rae",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MH27-BY4?lang=en"
+        },
+        {
+          "text": "Deloss Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MH27-BYH?lang=en"
+        },
+        {
+          "text": "",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:33S7-9BS8-9G9T?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMH27-BY3&action=view&cc=1473181&lang=en"
+        },
+        {
+          "text": "VIEW ORIGINAL DOCUMENT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:33S7-9BS8-9G9T?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMH27-BY3&action=view&cc=1473181&lang=en"
+        }
+      ],
+      "citation": "\"United States, Census, 1860\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:MH27-BY3 : Tue Oct 28 18:37:55 UTC 2025), Edwd M Mc Rae in entry for Caroline A Mc Rae, 1860.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "MMHN-TBQ",
       "title": "1870E M Webb in household of Charles Robinson, \"United States Census, 1870\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:MNCT-HM2",
+          "url": "https://familysearch.org/ark:/61903/1:1:MNCT-HM2?lang=en"
+        },
+        {
+          "text": "EDIT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:S3HY-XHRQ-RJG?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMNCT-HM2&action=view&lang=en"
+        },
+        {
+          "text": "Charles Robinson",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MNCT-HMK?lang=en"
+        },
+        {
+          "text": "Charles Robinson",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MNCT-HMK?lang=en"
+        },
+        {
+          "text": "The U.S. National Archives and Records Administration (NARA)",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MNCT-HMK?lang=en"
+        },
+        {
+          "text": "Orange Warner",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MNCT-HML?lang=en"
+        },
+        {
+          "text": "Ellen Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MNCT-HMG?lang=en"
+        },
+        {
+          "text": "",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:S3HY-XHRQ-RJG?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMNCT-HM2&action=view&cc=1438024&lang=en"
+        },
+        {
+          "text": "VIEW ORIGINAL DOCUMENT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:S3HY-XHRQ-RJG?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMNCT-HM2&action=view&cc=1438024&lang=en"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        }
+      ],
+      "citation": "\"United States, Census, 1870\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:MNCT-HM2 : Mon Jan 20 05:40:20 UTC 2025), E M Webb in entry for Charles Robinson, 1870.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "MMHN-5TM",
       "title": "1880Edward M Webb, \"United States Census, 1880\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:MNSV-DGD",
+          "url": "https://familysearch.org/ark:/61903/1:1:MNSV-DGD?lang=en"
+        },
+        {
+          "text": "EDIT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:33SQ-GYBJ-62X?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMNSV-DGD&action=view&lang=en"
+        },
+        {
+          "text": "Caroline A. Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MNSV-DGJ?lang=en"
+        },
+        {
+          "text": "Ellen A. Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MNSV-DGN?lang=en"
+        },
+        {
+          "text": "Ellen Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MNSV-DG6?lang=en"
+        },
+        {
+          "text": "Edward M. Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MNSV-DGF?lang=en"
+        },
+        {
+          "text": "Francis J. Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MNSV-DGV?lang=en"
+        },
+        {
+          "text": "Abigail A. Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:MNSV-DGX?lang=en"
+        },
+        {
+          "text": "",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:33SQ-GYBJ-62X?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMNSV-DGD&action=view&cc=1417683&lang=en"
+        },
+        {
+          "text": "VIEW ORIGINAL DOCUMENT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:33SQ-GYBJ-62X?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMNSV-DGD&action=view&cc=1417683&lang=en"
+        },
+        {
+          "text": "Edward Milo Webb",
+          "url": "https://www.familysearch.org/en/tree/person/LHKH-557"
+        },
+        {
+          "text": "Ellen Ashman",
+          "url": "https://www.familysearch.org/en/tree/person/KWCK-948"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        }
+      ],
+      "citation": "\"United States, Census, 1880\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:MNSV-DGD : Wed Sep 09 14:49:42 UTC 2026), Edward M. Webb, 1880.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "SL3S-62G",
       "title": "1891Edward Milo Webb, \"Arizona, Birth Certificates and Indexes, 1855-1940\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:Z4VW-71W2",
+          "url": "https://familysearch.org/ark:/61903/1:1:Z4VW-71W2?lang=en"
+        },
+        {
+          "text": "Laura Martha Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:Z4VW-713Z?lang=en"
+        },
+        {
+          "text": "EDIT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSZL-S3JW-1?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AZ4VW-71W2&action=view&lang=en"
+        },
+        {
+          "text": "Laura Martha Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:Z4VW-713Z?lang=en"
+        },
+        {
+          "text": "Laura Martha Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:Z4VW-713Z?lang=en"
+        },
+        {
+          "text": "Sara Elisabeth Carling",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:Z4VW-71ZM?lang=en"
+        },
+        {
+          "text": "",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSZL-S3JW-1?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AZ4VW-71W2&action=view&cc=3740251&lang=en"
+        },
+        {
+          "text": "VIEW ORIGINAL DOCUMENT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSZL-S3JW-1?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AZ4VW-71W2&action=view&cc=3740251&lang=en"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        }
+      ],
+      "citation": "\"Arizona, Birth Certificates and Indexes, 1855-1940\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:Z4VW-71W2 : Wed Jan 29 17:28:28 UTC 2025), Edward Milo Webb in entry for Laura Martha Webb, 22 Nov 1891.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9TW6-C4N",
       "title": "1893Arizona, County Marriage Records, 1865-1972",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "http://search.ancestry.com/collections/60873/records/346455",
+          "url": "http://search.ancestry.com/collections/60873/records/346455"
+        }
+      ],
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "7QQN-WZY",
       "title": "1893Edward * Webb, \"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:6PBD-BCZR",
+          "url": "https://familysearch.org/ark:/61903/1:1:6PBD-BCZR?lang=en"
+        },
+        {
+          "text": "Edward Arits Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:6PBD-BCZ5?lang=en"
+        },
+        {
+          "text": "Ellen Ashman",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:6PBD-BCZT?lang=en"
+        },
+        {
+          "text": "Edward Arits Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:6PBD-BCZ5?lang=en"
+        },
+        {
+          "text": "Edward Arits Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:6PBD-BCZ5?lang=en"
+        },
+        {
+          "text": "Robinson",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:6PBD-BCZY?lang=en"
+        },
+        {
+          "text": "David H Cannon",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:6PBD-BCZB?lang=en"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        }
+      ],
+      "citation": "\"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:6PBD-BCZR : Thu Mar 26 19:03:38 UTC 2026), Edward * Webb in entry for Edward Arits Webb.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "7QQN-CZP",
       "title": "1893Edward M Webb, \"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:62FL-2QGG",
+          "url": "https://familysearch.org/ark:/61903/1:1:62FL-2QGG?lang=en"
+        },
+        {
+          "text": "Edward Milo Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:62FL-2QGL?lang=en"
+        },
+        {
+          "text": "Edward Milo Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:62FL-2QGL?lang=en"
+        },
+        {
+          "text": "Edward Milo Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:62FL-2QGL?lang=en"
+        },
+        {
+          "text": "Ellen Ashmond",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:62FL-2QGP?lang=en"
+        },
+        {
+          "text": "Robinson",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:62FL-2QG5?lang=en"
+        },
+        {
+          "text": "David H Cannon",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:62FL-2QGR?lang=en"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        }
+      ],
+      "citation": "\"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:62FL-2QGG : Sun Sep 13 00:18:36 UTC 2026), Edward M Webb in entry for Edward Milo Webb.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "WHBK-1GJ",
       "title": "1893E M Webb, \"Arizona, County Marriages, 1871-1964\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:QG16-R6TC",
+          "url": "https://familysearch.org/ark:/61903/1:1:QG16-R6TC?lang=en"
+        },
+        {
+          "text": "Milo Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:QG16-R6TW?lang=en"
+        },
+        {
+          "text": "EDIT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:3QS7-9981-WJCH?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AQG16-R6TC&action=view&lang=en"
+        },
+        {
+          "text": "Milo Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:QG16-R6TW?lang=en"
+        },
+        {
+          "text": "Milo Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:QG16-R6TW?lang=en"
+        },
+        {
+          "text": "Phebe Freeman",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:QG16-R6T8?lang=en"
+        },
+        {
+          "text": "Phebe Freeman",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:QG16-R6T8?lang=en"
+        },
+        {
+          "text": "J W Freeman",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:QG16-R6TX?lang=en"
+        },
+        {
+          "text": "",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:3QS7-9981-WJCH?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AQG16-R6TC&action=view&cc=2185173&lang=en"
+        },
+        {
+          "text": "VIEW ORIGINAL DOCUMENT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:3QS7-9981-WJCH?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AQG16-R6TC&action=view&cc=2185173&lang=en"
+        }
+      ],
+      "citation": "\"Arizona, County Marriages, 1871-1964\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:QG16-R6TC : Fri Mar 08 01:06:12 UTC 2024), E M Webb in entry for Milo Webb and Phebe Freeman, 24 August 1893.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "S6BS-7FL",
-      "title": "1898e M Webb, \"M\u00e9xico, Chihuahua, Registro Civil, 1861-1997\"",
-      "dated": true
+      "title": "1898e M Webb, \"México, Chihuahua, Registro Civil, 1861-1997\"",
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:QGCK-GHJ7",
+          "url": "https://familysearch.org/ark:/61903/1:1:QGCK-GHJ7?lang=en"
+        },
+        {
+          "text": "Lois Webb Termey",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:QGCK-GHJ9?lang=en"
+        },
+        {
+          "text": "EDIT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:33SQ-G5WB-NBZ?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AQGCK-GHJ7&action=view&lang=en"
+        },
+        {
+          "text": "a M Termey",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:QGCK-GHJH?lang=en"
+        },
+        {
+          "text": "Lois Webb Termey",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:QGCK-GHJ9?lang=en"
+        },
+        {
+          "text": "Lois Webb Termey",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:QGCK-GHJ9?lang=en"
+        },
+        {
+          "text": "",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:33SQ-G5WB-NBZ?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AQGCK-GHJ7&action=view&cc=1922462&lang=en"
+        },
+        {
+          "text": "VIEW ORIGINAL DOCUMENT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:33SQ-G5WB-NBZ?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AQGCK-GHJ7&action=view&cc=1922462&lang=en"
+        }
+      ],
+      "citation": "\"México, Chihuahua, Registro Civil, 1861-1997\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:QGCK-GHJ7 : Tue Mar 11 01:09:16 UTC 2025), e M Webb in entry for Lois Webb Termey, 14 de diciembre de 1898.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9XRK-F5V",
       "title": "1913Edward Milo Webb in entry for Edwd Milo Webb Jr, \"Early Mormon Missionary Database\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:QKDW-BL1P",
+          "url": "https://familysearch.org/ark:/61903/1:1:QKDW-BL1P?lang=en"
+        },
+        {
+          "text": "Edwd Milo Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:QKDW-BL1G?lang=en"
+        },
+        {
+          "text": "Edwd Milo Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:QKDW-BL1G?lang=en"
+        },
+        {
+          "text": "Edwd Milo Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:QKDW-BL1G?lang=en"
+        },
+        {
+          "text": "Ellen Ashman",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:QKDW-BL15?lang=en"
+        },
+        {
+          "text": "Joseph Robinson",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:W9JQ-WRW2?lang=en"
+        },
+        {
+          "text": "Samuel F Smith",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:W9JZ-D5ZM?lang=en"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        }
+      ],
+      "citation": "\"The Church of Jesus Christ of Latter-day Saints, Missionary Registers (Worldwide), 1860-1937\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:QKDW-BL1P : Tue Mar 11 16:29:03 UTC 2025), Edward Milo Webb in entry for Edwd Milo Webb, 1913.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "SWT8-LYW",
       "title": "1917Edward Milo Webb, \"Arizona Deaths, 1870-1963\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:FLK7-Y7S",
+          "url": "https://familysearch.org/ark:/61903/1:1:FLK7-Y7S?lang=en"
+        },
+        {
+          "text": "Edward Milo Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:FLK7-Y79?lang=en"
+        },
+        {
+          "text": "EDIT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:S3HT-DR5S-5ZC?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AFLK7-Y7S&action=view&lang=en"
+        },
+        {
+          "text": "Edward Milo Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:FLK7-Y79?lang=en"
+        },
+        {
+          "text": "Edward Milo Webb",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:FLK7-Y79?lang=en"
+        },
+        {
+          "text": "Ann Ashman",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:FLK7-Y73?lang=en"
+        },
+        {
+          "text": "",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:S3HT-DR5S-5ZC?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AFLK7-Y7S&action=view&cc=1534450&lang=en"
+        },
+        {
+          "text": "VIEW ORIGINAL DOCUMENT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:S3HT-DR5S-5ZC?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AFLK7-Y7S&action=view&cc=1534450&lang=en"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        }
+      ],
+      "citation": "\"Arizona Deaths, 1870-1963\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:FLK7-Y7S : Sun Jan 19 09:03:32 UTC 2025), Edward Milo Webb in entry for Edward Milo Webb, 1917.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "M99R-9YN",
       "title": "1920Edward M Webb, \"United States Census, 1920\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:MCRP-R2R",
+          "url": "https://familysearch.org/ark:/61903/1:1:MCRP-R2R?lang=en"
+        },
+        {
+          "text": "EDIT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:33S7-9R68-GVX?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMCRP-R2R&action=view&lang=en"
+        },
+        {
+          "text": "",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:33S7-9R68-GVX?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMCRP-R2R&action=view&cc=1488411&lang=en"
+        },
+        {
+          "text": "VIEW ORIGINAL DOCUMENT",
+          "url": "https://www.familysearch.org/ark:/61903/3:1:33S7-9R68-GVX?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMCRP-R2R&action=view&cc=1488411&lang=en"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        }
+      ],
+      "citation": "\"United States, Census, 1920\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:MCRP-R2R : Sat Oct 10 05:12:43 UTC 2026), Edward M Webb, 1920.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9X9B-W3K",
       "title": "1921Photograph of Grave of Edward Milo Webb, Jr. in Holladay Cemetery, Holladay, UT",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "",
+          "url": "https://www.familysearch.org/en/photos/artifacts/23056689"
+        }
+      ],
+      "citation": "Holladay Cemetery, Holladay UT near marker 6E 12S",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9VSP-K9B",
       "title": "1921Edward Milo Webb, \"Find A Grave Index\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:QVLQ-1Y94",
+          "url": "https://familysearch.org/ark:/61903/1:1:QVLQ-1Y94?lang=en"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        }
+      ],
+      "citation": "\"Find a Grave Index\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:QVLQ-1Y94 : Sat Oct 03 04:50:36 UTC 2026), Edward Milo Webb, II.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9KVZ-74Y",
       "title": "1921Edward Milo Webb, \"BillionGraves Index\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:QV91-KV9Q",
+          "url": "https://familysearch.org/ark:/61903/1:1:QV91-KV9Q?lang=en"
+        },
+        {
+          "text": "Edward Milo Webb",
+          "url": "https://www.familysearch.org/en/tree/person/LHKH-557"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        }
+      ],
+      "citation": "\"BillionGraves Index\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:QV91-KV9Q : Tue Oct 06 18:56:19 UTC 2026), Father Edward Milo Webb.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "MMMN-W55",
       "title": "1921Edward Milo Webb, \"Billion Graves Index\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:K76M-HP5",
+          "url": "https://familysearch.org/ark:/61903/1:1:K76M-HP5?lang=en"
+        },
+        {
+          "text": "VIEW CURRENT RECORD",
+          "url": "https://familysearch.org/ark:/61903/1:1:QV91-KV9Q?lang=en"
+        }
+      ],
+      "citation": "\"BillionGraves Index,\" database, FamilySearch (https://familysearch.org/ark:/61903/1:1:K76M-HP5 : 28 November 2017), Edward Milo Webb, died 11 Sep 1921; citing BillionGraves (http://www.billiongraves.com : 2012), Burial at , .",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "MMKK-37N",
       "title": "1921Legacy NFS Source: Edward Milo Webb Jr - death",
-      "dated": true
+      "dated": true,
+      "links": [],
+      "citation": "OneWorldTree, Ancestry.com, - Provo, UT, USA: The Generations Network, Inc.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9FTM-P4V",
       "title": "1921Utah Death Index, 1905-1951",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "http://search.ancestry.com/cgi-bin/sse.dll?db=utahdeathindex&h=82355&ti=0&indiv=try&gss=pt",
+          "url": "http://search.ancestry.com/cgi-bin/sse.dll?db=utahdeathindex&h=82355&ti=0&indiv=try&gss=pt"
+        }
+      ],
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "MMMJ-KDC",
       "title": "1921Edward Milo Webb (b.1847), \"Utah Death Certificates, 1904-1956\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:XZGV-SQV",
+          "url": "https://familysearch.org/ark:/61903/1:1:XZGV-SQV?lang=en"
+        }
+      ],
+      "citation": "\"Utah, Death Certificates, 1904-1966\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:XZGV-SQV : Mon Feb 03 19:06:45 UTC 2025), Edward Milo Webb, 11 Sep 1921.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "3JF9-G93",
       "title": "1921Edward M Webb, \"Utah, Cemetery Abstracts\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:QLL6-J853",
+          "url": "https://familysearch.org/ark:/61903/1:1:QLL6-J853?lang=en"
+        }
+      ],
+      "citation": "\"Utah, Cemetery Abstracts\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:QLL6-J853 : Wed Mar 25 00:46:41 UTC 2026), Edward M Webb, 11 Sep 1921.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "SWT8-NJG",
       "title": "1921Edward Milo Webb, \"Utah, Obituaries from Utah Newspapers, 1850-2005\"",
-      "dated": true
+      "dated": true,
+      "review_status": "original examined",
+      "evidence": "research/edward-jr-obituary-original-review-20261018.json",
+      "finding": "Printed74; index71 wrong.538GermaniaStreet,Murray. Originalpage12.",
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:QVSN-35GX",
+          "url": "https://familysearch.org/ark:/61903/1:1:QVSN-35GX?lang=en"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        },
+        {
+          "text": "Edward Milo Webb Jr.",
+          "url": "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+        }
+      ],
+      "citation": "\"Utah, Obituaries from Utah Newspapers, 1850-2005\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:QVSN-35GX : Tue Mar 11 16:22:44 UTC 2025), Edward Milo Webb, 12 Sep 1921."
     },
     {
       "id": "9Z61-L61",
       "title": "1924Edward Milo Webb in entry for Harriett Alice Webb, \"Utah, Salt Lake County Death Records, 1849-1949\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:NQ4L-3V1",
+          "url": "https://familysearch.org/ark:/61903/1:1:NQ4L-3V1?lang=en"
+        }
+      ],
+      "citation": "\"Utah, Salt Lake County Death Records, 1849-1949\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:NQ4L-3V1 : Sat Mar 09 23:01:31 UTC 2024), Edward Milo Webb in entry for Harriett Alice Webb, 16 Aug 1924.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9Z61-LNV",
       "title": "1924Edward Milo Webb in entry for Harriett Alice Webb, \"Utah Death Certificates, 1904-1956\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:XZGL-MQN",
+          "url": "https://familysearch.org/ark:/61903/1:1:XZGL-MQN?lang=en"
+        }
+      ],
+      "citation": "\"Utah, Death Certificates, 1904-1966\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:XZGL-MQN : Mon Feb 03 19:08:54 UTC 2025), Edward Milo Webb in entry for Harriett Alice Webb, 16 Aug 1924.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "M99R-9LX",
       "title": "1924Edward Milo Webb in entry for Harriett Alice Webb, \"Utah, Deaths and Burials, 1888-1946\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:F854-MX7",
+          "url": "https://familysearch.org/ark:/61903/1:1:F854-MX7?lang=en"
+        }
+      ],
+      "citation": "\"Utah, Deaths and Burials, 1888-1946\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:F854-MX7 : Fri Oct 16 14:31:02 UTC 2026), Edward Milo Webb in entry for Harriett Alice Webb, 17 August 1924.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "S3X5-FYS",
       "title": "1925Edward Milo Webb in entry for Lois Webb, \"Utah, Missionary Department Missionary Registers, 1860-1937\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:QKDW-1T4N",
+          "url": "https://familysearch.org/ark:/61903/1:1:QKDW-1T4N?lang=en"
+        }
+      ],
+      "citation": "\"The Church of Jesus Christ of Latter-day Saints, Missionary Registers (Worldwide), 1860-1937\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:QKDW-1T4N : Tue Mar 11 16:34:52 UTC 2025), Edward Milo Webb in entry for Lois Webb, 1925.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "S6BS-WCW",
       "title": "1925E. M. Webb, \"Utah, County Marriages, 1871-1941\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:KSP9-6NC",
+          "url": "https://familysearch.org/ark:/61903/1:1:KSP9-6NC?lang=en"
+        }
+      ],
+      "citation": "\"Utah, County Marriages, 1871-1941\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:KSP9-6NC : Thu Sep 19 19:09:58 UTC 2024), E. M. Webb in entry for Charles William Merrell and Irene Adell Webb, 05 Jan 1925.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "S6BS-WLS",
       "title": "1925E. M. Webb, \"Utah, Marriages, 1887-1935\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:F8PM-VDH",
+          "url": "https://familysearch.org/ark:/61903/1:1:F8PM-VDH?lang=en"
+        }
+      ],
+      "citation": "\"Utah, Marriages, 1887-1935\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:F8PM-VDH : Fri Oct 16 13:52:36 UTC 2026), E. M. Webb in entry for Charles William Merrell, 5 January 1925.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9Z8P-2RT",
       "title": "1926Edward M. Webb in entry for James Levi Webb, \"Arizona, Deaths, 1870-1951\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:FLVB-FRC",
+          "url": "https://familysearch.org/ark:/61903/1:1:FLVB-FRC?lang=en"
+        }
+      ],
+      "citation": "\"Arizona Deaths, 1870-1963\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:FLVB-FRC : Sat Jan 18 05:14:05 UTC 2025), Edward M. Webb in entry for James Levi Webb, 28 Oct 1926.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9VKX-XL4",
       "title": "1926Edward M Webb in entry for James Levi Webb, \"Arizona, Maricopa, Mesa City Cemetery Records, 1885-1960\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:Q2RZ-CS9Y",
+          "url": "https://familysearch.org/ark:/61903/1:1:Q2RZ-CS9Y?lang=en"
+        }
+      ],
+      "citation": "\"Arizona, Maricopa, Mesa, City Cemetery Records, 1885-1960\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:Q2RZ-CS9Y : Tue Aug 27 20:34:49 UTC 2024), Edward M Webb in entry for James Levi Webb, 29 Oct 1926.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9VSP-LDL",
       "title": "1928Edward Milo Webb in entry for Ellen Ashman Webb, \"Utah Death Certificates, 1904-1964\"",
-      "dated": true
+      "dated": true,
+      "review_status": "original examined; download contract restricted",
+      "evidence": "research/edward-jr-spouse-original-review-20261018.json",
+      "finding": "ExplicitwidowofEdwardMiloWebb,SchoolTeacher;LoisWebbinformant. Certificatehasfield/indexconflicts;noEllenfactsupdated.",
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:XZGT-NQR",
+          "url": "https://familysearch.org/ark:/61903/1:1:XZGT-NQR?lang=en"
+        }
+      ],
+      "citation": "\"Utah, Death Certificates, 1904-1966\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:XZGT-NQR : Mon Feb 03 19:12:21 UTC 2025), Edward Milo Webb in entry for Ellen Ashman Webb, 18 Nov 1928."
     },
     {
       "id": "3DLD-NP8",
       "title": "1930Charlotte Maxwell Webb, \"The Church of Jesus Christ of Latter-day Saints, Church Census Records (Worldwide), 1914-1960\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:8S39-SGW2",
+          "url": "https://familysearch.org/ark:/61903/1:1:8S39-SGW2?lang=en"
+        }
+      ],
+      "citation": "\"The Church of Jesus Christ of Latter-day Saints, Church Census Records (Worldwide), 1914-1960\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:8S39-SGW2 : Mon Mar 30 07:16:09 UTC 2026), Charlotte Maxwell Webb, 1930.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9TW6-CSG",
       "title": "1931Ed M Webb in entry for Marion K Johnson and Lois Webb, \"Utah, County Marriages, 1887-1940\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:Q2MB-SD2M",
+          "url": "https://familysearch.org/ark:/61903/1:1:Q2MB-SD2M?lang=en"
+        }
+      ],
+      "citation": "\"Utah, County Marriages, 1887-1940\", database, FamilySearch (https://familysearch.org/pal:/MM9.1.1/Q2MB-SD2M : 2 February 2016), Ed M Webb in entry for Marion K Johnson and Lois Webb, 1931.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "Q7GG-4DL",
       "title": "1937Edward M Webb, \"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:6KWV-M3ZH",
+          "url": "https://familysearch.org/ark:/61903/1:1:6KWV-M3ZH?lang=en"
+        }
+      ],
+      "citation": "\"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:6KWV-M3ZH : Fri Jul 03 08:15:01 UTC 2026), Edward M Webb in entry for Owen Adelbert Webb.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "Q7GG-H7S",
       "title": "1938Edward M Webb, \"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:6KWJ-B1MM",
+          "url": "https://familysearch.org/ark:/61903/1:1:6KWJ-B1MM?lang=en"
+        }
+      ],
+      "citation": "\"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:6KWJ-B1MM : Tue Jun 30 20:48:01 UTC 2026), Edward M Webb in entry for Harvey Webb.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9TW6-CWL",
       "title": "1940Edward Milo Webb in entry for Eliza May Webb Millet, \"Arizona, Deaths, 1870-1951\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:FLNJ-14S",
+          "url": "https://familysearch.org/ark:/61903/1:1:FLNJ-14S?lang=en"
+        }
+      ],
+      "citation": "\"Arizona Deaths, 1870-1951,\" database with images, FamilySearch (https://familysearch.org/pal:/MM9.1.1/FLNJ-14S : 12 December 2014), Edward Milo Webb in entry for Eliza May Webb Millet, 1940; citing Mesa, Maricopa, Arizona, reference , Department of Librar",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9V3Z-LDD",
       "title": "1943Edward M. Webb in entry for Charlotte Maxwell Webb, \"New Mexico Deaths, 1889-1945\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:FLB3-MJM",
+          "url": "https://familysearch.org/ark:/61903/1:1:FLB3-MJM?lang=en"
+        }
+      ],
+      "citation": "\"New Mexico, Deaths, 1889-1945\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:FLB3-MJM : Thu Feb 27 18:03:54 UTC 2025), Edward M. Webb in entry for Charlotte Maxwell Webb, 05 May 1943.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9Z61-LL3",
       "title": "1947Edward Milo Webb in entry for Abigail Ann Hatch, \"Arizona, Deaths, 1870-1951\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:FLJD-TJ1",
+          "url": "https://familysearch.org/ark:/61903/1:1:FLJD-TJ1?lang=en"
+        }
+      ],
+      "citation": "\"Arizona Deaths, 1870-1963\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:FLJD-TJ1 : Sat Jul 13 22:51:03 UTC 2024), Edward Milo Webb in entry for Abigail Ann Hatch, 1947.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9Z8P-2VT",
       "title": "1948Edward Milo Webb in entry for Harvey Nelson Webb, \"Arizona, Deaths, 1870-1951\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:FLJ8-QZS",
+          "url": "https://familysearch.org/ark:/61903/1:1:FLJ8-QZS?lang=en"
+        }
+      ],
+      "citation": "\"Arizona Deaths, 1870-1963\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:FLJ8-QZS : Tue Jan 21 11:24:07 UTC 2025), Edward Milo Webb in entry for Harvey Nelson Webb, 1948.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "Q7GG-H1K",
       "title": "1953Edward M Webb, \"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:6KWB-MQMY",
+          "url": "https://familysearch.org/ark:/61903/1:1:6KWB-MQMY?lang=en"
+        }
+      ],
+      "citation": "\"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:6KWB-MQMY : Sat Jul 04 09:24:21 UTC 2026), Edward M Webb in entry for Irene Adelewebb Webb.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9Z61-LVX",
       "title": "1956Edward Milo Webb in entry for Lois Webb Johnson, \"Utah Death Certificates, 1904-1956\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:XZP5-BVB",
+          "url": "https://familysearch.org/ark:/61903/1:1:XZP5-BVB?lang=en"
+        }
+      ],
+      "citation": "\"Utah, Death Certificates, 1904-1966\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:XZP5-BVB : Thu Nov 13 23:37:36 UTC 2025), Edward Milo Webb in entry for Lois Webb Johnson, 05 Jan 1956.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "9N9S-VCQ",
       "title": "1966The ancestry of Edward Milo Webb & his wife Ellen Ashman",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/search/catalog/770717?availability=Family%20History%20Library",
+          "url": "https://familysearch.org/en/search/catalog/770717?availability=Family%20History%20Library"
+        }
+      ],
+      "citation": "Family History Library - Salt Lake City, UT\n929.273 W381",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "Q7GG-WN3",
       "title": "1970Edward M Webb, \"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:6KWG-HCH3",
+          "url": "https://familysearch.org/ark:/61903/1:1:6KWG-HCH3?lang=en"
+        }
+      ],
+      "citation": "\"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:6KWG-HCH3 : Fri Jul 03 18:45:02 UTC 2026), Edward M Webb in entry for Lucretia W Brewer.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "MSJT-QYT",
       "title": "1980Webb in entry for Isabel Webb Brewer, \"California, Death Index, 1940-1997\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:VGB4-RGV",
+          "url": "https://familysearch.org/ark:/61903/1:1:VGB4-RGV?lang=en"
+        }
+      ],
+      "citation": "\"California, Death Index, 1940-1997\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:VGB4-RGV : Tue Feb 25 16:37:58 UTC 2025), Webb in entry for Isabel Webb Brewer, 01 Feb 1980.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "MSP7-H2Q",
       "title": "1982Webb in entry for Estelle Webb Thomas, \"California, Death Index, 1940-1997\"",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:VG19-HZ3",
+          "url": "https://familysearch.org/ark:/61903/1:1:VG19-HZ3?lang=en"
+        }
+      ],
+      "citation": "\"California, Death Index, 1940-1997\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:VG19-HZ3 : Tue Feb 25 17:04:18 UTC 2025), Webb in entry for Estelle Webb Thomas, 02 Nov 1982.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "7Q6C-LNH",
       "title": "2001Arizona's Honeymoon Trail Mormon Wagon Roads",
-      "dated": true
+      "dated": true,
+      "links": [
+        {
+          "text": "",
+          "url": "https://www.familysearch.org/en/photos/artifacts/206675644"
+        }
+      ],
+      "citation": "Cox Printing Company\n135 South Mesa Drive\nMesa, Arizona 85210\n480-833-2000",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "WNSW-WZ9",
       "title": "+ AddE. Milo Webb, \"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\"",
-      "dated": false
+      "dated": false,
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:6L7F-CQMF",
+          "url": "https://familysearch.org/ark:/61903/1:1:6L7F-CQMF?lang=en"
+        }
+      ],
+      "citation": "\"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:6L7F-CQMF : Thu Mar 26 23:17:59 UTC 2026), E. Milo Webb in entry for Phoebe Webb.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "WFCM-G6L",
       "title": "+ AddEdward M Webb, \"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\"",
-      "dated": false
+      "dated": false,
+      "review_status": "complete available index examined; original unavailable",
+      "record": "https://www.familysearch.org/ark:/61903/1:1:6DBT-83YH",
+      "finding": "Baptism30April1849,SaltLake,indexnamesEdwardMWebbandJohnYoung; CR3758/b6109/f0001; currentUIexplicitImageUnavailable. Age2ifJr; possibleotherEdward/conflation. Do notadoptbaptismdate.",
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/1:1:6DBT-83YH",
+          "url": "https://familysearch.org/ark:/61903/1:1:6DBT-83YH?lang=en"
+        },
+        {
+          "text": "John Young",
+          "url": "https://www.familysearch.org/ark:/61903/1:1:6DBT-83YC?lang=en"
+        }
+      ],
+      "citation": "\"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\", FamilySearch (https://www.familysearch.org/ark:/61903/1:1:6DBT-83YH : Sun Sep 13 05:43:12 UTC 2026), Edward M Webb."
     },
     {
       "id": "WWVQ-Y7C",
       "title": "+ AddEdward Milo Webb, Jr.",
-      "dated": false
+      "dated": false,
+      "links": [
+        {
+          "text": "http://history.churchofjesuschrist.org/chd/individual/edward-milo-webb-jr-1847",
+          "url": "http://history.churchofjesuschrist.org/chd/individual/edward-milo-webb-jr-1847"
+        }
+      ],
+      "citation": "Church History Individual - Edward Milo Webb, Jr.",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "7H8Q-N6C",
       "title": "+ AddEdward Milo Webb, 'Membership of The Church of Jesus Christ of Latter-day Saints, 1830 - 1848' on MyHeritage",
-      "dated": false
+      "dated": false,
+      "links": [],
+      "citation": "Membership of The Church of Jesus Christ of Latter-day Saints, 1830 - 1848\nMyHeritage.com [online database], MyHeritage Ltd.\nEdward Milo Webb & Ellen Ashman",
+      "review_status": "source details inventoried; original review not yet reconciled"
     },
     {
       "id": "Q3Y9-GSS",
       "title": "+ AddDeeds, 1893-1921, indexes, 1885-1923 (Navajo County, Arizona)",
-      "dated": false
+      "dated": false,
+      "review_status": "original examined; identity unresolved",
+      "original": "https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSZL-DQ4Y-V",
+      "asset": "assets/edward-webb-jr/milo-webb-1900-deed-original.jpg",
+      "finding": "DGS007945586image830of929,bookp449. JesseN.SmithtoMiloWebb,Snowflake,30March1900,21acresmoreorless. Noage,parent,spouseorJr/IIIidentifier. Do notadoptasEdwardJrpropertywithoutcorrelation. Textretainscorrected1899/1900dates.",
+      "links": [
+        {
+          "text": "https://familysearch.org/ark:/61903/3:1:3Q9M-CSZL-DQ4Y-V",
+          "url": "https://familysearch.org/ark:/61903/3:1:3Q9M-CSZL-DQ4Y-V?lang=en"
+        },
+        {
+          "text": "View the original document.",
+          "url": "https://familysearch.org/ark:/61903/3:1:3Q9M-CSZL-DQ4Y-V?lang=en"
+        }
+      ]
     }
-  ]
+  ],
+  "authentication": "Secure sign-in submitted and actual signed-in account/person sources page verified18October2026. Prior sign-in blocker cleared.",
+  "captured_panel_count": 56,
+  "captured_panel_scope": "Rendered detail/citation panels, with some index sections still collapsed; no original-review pass inferred."
 }

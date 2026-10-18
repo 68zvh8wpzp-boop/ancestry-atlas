@@ -599,7 +599,8 @@
       "sourceKeys": [
         "utah:81448:2259133:0001168",
         "utah:1921:death:1361",
-        "utah:index:IDX208420082362"
+        "utah:index:IDX208420082362",
+        "fs:source:MMMJ-KDC"
       ],
       "status": "published",
       "evidence": "github:research/edward-milo-webb-jr-death-conflict-20261016.md",
@@ -838,7 +839,8 @@
       "personId": "KVPR-ZP3",
       "event": "census",
       "sourceKeys": [
-        "fs:ark:1:1:MCRP-R2R"
+        "fs:ark:1:1:MCRP-R2R",
+        "fs:source:M99R-9YN"
       ],
       "status": "saved",
       "evidence": "github:research/edward-jr-continuation-20261017.md",
@@ -881,7 +883,8 @@
       "event": "child-birth",
       "sourceKeys": [
         "fs:ark:1:1:QGCK-GHJ7",
-        "fs:ark:3:1:33SQ-G5WB-NBZ"
+        "fs:ark:3:1:33SQ-G5WB-NBZ",
+        "fs:source:S6BS-7FL"
       ],
       "status": "saved",
       "evidence": "github:research/edward-jr-continuation-20261017.md",
@@ -890,6 +893,598 @@
         "github:assets/edward-webb-jr/lois-1898-birth-continuation-original.jpg"
       ],
       "note": "Both original pages captured and target No153 visually read. Presenter A.M.Termey is not mother; mother written Ella Webb. Exact paired transcript pending. Father Iowa birthplace conflicts with other evidence; preserve as written."
+    },
+    {
+      "id": "edward-jr-attached-mmkk-378",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:MMKK-378"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1847Legacy NFS Source: Edward Milo Webb Jr - Church record: Blessing record or certificate"
+    },
+    {
+      "id": "edward-jr-attached-9ftm-ph9",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9FTM-PH9"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1847Millennium File"
+    },
+    {
+      "id": "edward-jr-attached-m976-897",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:M976-897"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1847Membership of The Church of Jesus Christ of Latter-day Saints, 1830-1848"
+    },
+    {
+      "id": "edward-jr-attached-9vsp-2dn",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9VSP-2DN"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1850Edmond Webb in household of E M Webb, \"United States Census, 1850\""
+    },
+    {
+      "id": "edward-jr-attached-9lyx-dxz",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9LYX-DXZ"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1852Edward Milo Webb, \"Utah Mormon Pioneer Overland Travel Database, 1847-1868\""
+    },
+    {
+      "id": "edward-jr-attached-sl3s-62g",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:SL3S-62G"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1891Edward Milo Webb, \"Arizona, Birth Certificates and Indexes, 1855-1940\""
+    },
+    {
+      "id": "edward-jr-attached-9tw6-c4n",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9TW6-C4N"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1893Arizona, County Marriage Records, 1865-1972"
+    },
+    {
+      "id": "edward-jr-attached-7qqn-wzy",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:7QQN-WZY"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1893Edward * Webb, \"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\""
+    },
+    {
+      "id": "edward-jr-attached-7qqn-czp",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:7QQN-CZP"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1893Edward M Webb, \"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\""
+    },
+    {
+      "id": "edward-jr-attached-whbk-1gj",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:WHBK-1GJ"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1893E M Webb, \"Arizona, County Marriages, 1871-1964\""
+    },
+    {
+      "id": "edward-jr-attached-9xrk-f5v",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9XRK-F5V"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1913Edward Milo Webb in entry for Edwd Milo Webb Jr, \"Early Mormon Missionary Database\""
+    },
+    {
+      "id": "edward-jr-attached-swt8-lyw",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:SWT8-LYW"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1917Edward Milo Webb, \"Arizona Deaths, 1870-1963\""
+    },
+    {
+      "id": "edward-jr-attached-9x9b-w3k",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9X9B-W3K"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1921Photograph of Grave of Edward Milo Webb, Jr. in Holladay Cemetery, Holladay, UT"
+    },
+    {
+      "id": "edward-jr-attached-9vsp-k9b",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9VSP-K9B"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1921Edward Milo Webb, \"Find A Grave Index\""
+    },
+    {
+      "id": "edward-jr-attached-9kvz-74y",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9KVZ-74Y"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1921Edward Milo Webb, \"BillionGraves Index\""
+    },
+    {
+      "id": "edward-jr-attached-mmmn-w55",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:MMMN-W55"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1921Edward Milo Webb, \"Billion Graves Index\""
+    },
+    {
+      "id": "edward-jr-attached-mmkk-37n",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:MMKK-37N"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1921Legacy NFS Source: Edward Milo Webb Jr - death"
+    },
+    {
+      "id": "edward-jr-attached-9ftm-p4v",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9FTM-P4V"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1921Utah Death Index, 1905-1951"
+    },
+    {
+      "id": "edward-jr-attached-3jf9-g93",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:3JF9-G93"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1921Edward M Webb, \"Utah, Cemetery Abstracts\""
+    },
+    {
+      "id": "edward-jr-attached-swt8-njg",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:SWT8-NJG"
+      ],
+      "status": "saved",
+      "evidence": "github:research/edward-jr-obituary-original-review-20261018.json",
+      "originalRefs": [
+        "github:assets/edward-webb-jr/edward-1921-newspaper-notice-original.pdf"
+      ],
+      "note": "Original funeral notice read in full, printedage74 resolves indexed71; address538GermaniaStreetMurray. FullclippingtranscriptionpairedEnglishN/A."
+    },
+    {
+      "id": "edward-jr-attached-9z61-l61",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9Z61-L61"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1924Edward Milo Webb in entry for Harriett Alice Webb, \"Utah, Salt Lake County Death Records, 1849-1949\""
+    },
+    {
+      "id": "edward-jr-attached-9z61-lnv",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9Z61-LNV"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1924Edward Milo Webb in entry for Harriett Alice Webb, \"Utah Death Certificates, 1904-1956\""
+    },
+    {
+      "id": "edward-jr-attached-m99r-9lx",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:M99R-9LX"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1924Edward Milo Webb in entry for Harriett Alice Webb, \"Utah, Deaths and Burials, 1888-1946\""
+    },
+    {
+      "id": "edward-jr-attached-s3x5-fys",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:S3X5-FYS"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1925Edward Milo Webb in entry for Lois Webb, \"Utah, Missionary Department Missionary Registers, 1860-1937\""
+    },
+    {
+      "id": "edward-jr-attached-s6bs-wcw",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:S6BS-WCW"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1925E. M. Webb, \"Utah, County Marriages, 1871-1941\""
+    },
+    {
+      "id": "edward-jr-attached-s6bs-wls",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:S6BS-WLS"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1925E. M. Webb, \"Utah, Marriages, 1887-1935\""
+    },
+    {
+      "id": "edward-jr-attached-9z8p-2rt",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9Z8P-2RT"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1926Edward M. Webb in entry for James Levi Webb, \"Arizona, Deaths, 1870-1951\""
+    },
+    {
+      "id": "edward-jr-attached-9vkx-xl4",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9VKX-XL4"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1926Edward M Webb in entry for James Levi Webb, \"Arizona, Maricopa, Mesa City Cemetery Records, 1885-1960\""
+    },
+    {
+      "id": "edward-jr-attached-9vsp-ldl",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9VSP-LDL"
+      ],
+      "status": "examined",
+      "evidence": "github:research/edward-jr-spouse-original-review-20261018.json",
+      "originalRefs": [],
+      "note": "Original visually examined at readable zoom. WidowofEdwardMiloWebb,schoolteacher,Loisinformant. Downloadcontractdisabled;nosavedoriginalclaim. Date/parentbirthplace conflicts recorded separately. Full exacttranscript pending before any newdocumentcard."
+    },
+    {
+      "id": "edward-jr-attached-3dld-np8",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:3DLD-NP8"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1930Charlotte Maxwell Webb, \"The Church of Jesus Christ of Latter-day Saints, Church Census Records (Worldwide), 1914-1960\""
+    },
+    {
+      "id": "edward-jr-attached-9tw6-csg",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9TW6-CSG"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1931Ed M Webb in entry for Marion K Johnson and Lois Webb, \"Utah, County Marriages, 1887-1940\""
+    },
+    {
+      "id": "edward-jr-attached-q7gg-4dl",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:Q7GG-4DL"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1937Edward M Webb, \"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\""
+    },
+    {
+      "id": "edward-jr-attached-q7gg-h7s",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:Q7GG-H7S"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1938Edward M Webb, \"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\""
+    },
+    {
+      "id": "edward-jr-attached-9tw6-cwl",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9TW6-CWL"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1940Edward Milo Webb in entry for Eliza May Webb Millet, \"Arizona, Deaths, 1870-1951\""
+    },
+    {
+      "id": "edward-jr-attached-9v3z-ldd",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9V3Z-LDD"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1943Edward M. Webb in entry for Charlotte Maxwell Webb, \"New Mexico Deaths, 1889-1945\""
+    },
+    {
+      "id": "edward-jr-attached-9z61-ll3",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9Z61-LL3"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1947Edward Milo Webb in entry for Abigail Ann Hatch, \"Arizona, Deaths, 1870-1951\""
+    },
+    {
+      "id": "edward-jr-attached-9z8p-2vt",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9Z8P-2VT"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1948Edward Milo Webb in entry for Harvey Nelson Webb, \"Arizona, Deaths, 1870-1951\""
+    },
+    {
+      "id": "edward-jr-attached-q7gg-h1k",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:Q7GG-H1K"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1953Edward M Webb, \"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\""
+    },
+    {
+      "id": "edward-jr-attached-9z61-lvx",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9Z61-LVX"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1956Edward Milo Webb in entry for Lois Webb Johnson, \"Utah Death Certificates, 1904-1956\""
+    },
+    {
+      "id": "edward-jr-attached-9n9s-vcq",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:9N9S-VCQ"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1966The ancestry of Edward Milo Webb & his wife Ellen Ashman"
+    },
+    {
+      "id": "edward-jr-attached-q7gg-wn3",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:Q7GG-WN3"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1970Edward M Webb, \"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\""
+    },
+    {
+      "id": "edward-jr-attached-msjt-qyt",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:MSJT-QYT"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1980Webb in entry for Isabel Webb Brewer, \"California, Death Index, 1940-1997\""
+    },
+    {
+      "id": "edward-jr-attached-msp7-h2q",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:MSP7-H2Q"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 1982Webb in entry for Estelle Webb Thomas, \"California, Death Index, 1940-1997\""
+    },
+    {
+      "id": "edward-jr-attached-7q6c-lnh",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:7Q6C-LNH"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. 2001Arizona's Honeymoon Trail Mormon Wagon Roads"
+    },
+    {
+      "id": "edward-jr-attached-wnsw-wz9",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:WNSW-WZ9"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. + AddE. Milo Webb, \"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\""
+    },
+    {
+      "id": "edward-jr-attached-wfcm-g6l",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:WFCM-G6L"
+      ],
+      "status": "partial",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Completeavailableindex examined,6DBT-83YH,30April1849baptism,SaltLake,CR3758/b6109/f0001; UIexplicitImageUnavailable. Age2ifJr:possibleconflation;donotadoptdate."
+    },
+    {
+      "id": "edward-jr-attached-wwvq-y7c",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:WWVQ-Y7C"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. + AddEdward Milo Webb, Jr."
+    },
+    {
+      "id": "edward-jr-attached-7h8q-n6c",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:7H8Q-N6C"
+      ],
+      "status": "indexed",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [],
+      "note": "Attached source row and available source/index details inventoried. Original examination is a separate gate. + AddEdward Milo Webb, 'Membership of The Church of Jesus Christ of Latter-day Saints, 1830 - 1848' on MyHeritage"
+    },
+    {
+      "id": "edward-jr-attached-q3y9-gss",
+      "personId": "KVPR-ZP3",
+      "event": "attached-source-review",
+      "sourceKeys": [
+        "fs:source:Q3Y9-GSS"
+      ],
+      "status": "partial",
+      "evidence": "github:research/edward-jr-attached-source-reconciliation-20261018.json",
+      "originalRefs": [
+        "github:assets/edward-webb-jr/milo-webb-1900-deed-original.jpg"
+      ],
+      "note": "Original read, DGS007945586image830,bookp449,JesseN.SmithtoMiloWebb,30March1900. IdentityJrvsIII unresolved; do not promote into biography. Exactfulltranscription pending."
     }
   ],
   "tasks": [
