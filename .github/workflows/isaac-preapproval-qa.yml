@@ -1,0 +1,21 @@
+name: Verify Isaac original-media checksums and v3.9.62 museum content
+on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/isaac-preapproval-qa.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-isaac:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Check out exact released Atlas
+        uses: actions/checkout@v4
+      - name: Verify Isaac biography, gallery identity and original binary SHA-256 digests
+        run: node tests/isaac-preapproval-release.mjs
+      - name: Verify shared research governance is valid
+        run: |
+          node research-source-gate.mjs
+          node tests/research-source-gate.mjs
