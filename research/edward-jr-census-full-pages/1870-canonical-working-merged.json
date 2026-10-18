@@ -1,0 +1,1216 @@
+{
+  "source": "1870 U.S. census, Fillmore, Millard County, Utah Territory, p.7 stamped338, enumerated 24 June 1870, NARA M593 roll1611",
+  "original": "https://archive.org/download/populationschedu1611unit/page/n20.jpg",
+  "person": "Edward Milo Webb Jr. (line 21)",
+  "state": "One working source reading, merged from concurrent 18 Oct full-page reviews. Marked uncertainties not resolved by voting between transcriptions. Original still required for uncertain readings. Not a final literal all-columns pass.",
+  "core_fields_primary": "research/edward-jr-census-full-pages/1870-robinson-left-fields-review.json",
+  "supplemental_fields_source": "research/edward-jr-census-full-pages/1870-fillmore.json",
+  "uncertainty_note": "Competing entries are explicitly preserved in readingAlternatives. Names of unrelated people are never imported into Atlas relationships. No new source or person created.",
+  "count": 40,
+  "alternatives": [
+    {
+      "line": 1,
+      "alternatives": {
+        "name": [
+          "Carling Alice",
+          "Carling Olive"
+        ]
+      }
+    },
+    {
+      "line": 5,
+      "alternatives": {
+        "name": [
+          "— Isaac",
+          "— Jesse"
+        ]
+      }
+    },
+    {
+      "line": 6,
+      "alternatives": {
+        "age": [
+          "8/12",
+          "2/12"
+        ]
+      }
+    },
+    {
+      "line": 7,
+      "alternatives": {
+        "realEstate": [
+          "170",
+          "175"
+        ],
+        "personalEstate": [
+          "160",
+          "100"
+        ]
+      }
+    },
+    {
+      "line": 9,
+      "alternatives": {
+        "birthplace": [
+          "England",
+          "Eng."
+        ]
+      }
+    },
+    {
+      "line": 10,
+      "alternatives": {
+        "name": [
+          "Truscott Neal [surname uncertain]",
+          "French W S [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 11,
+      "alternatives": {
+        "name": [
+          "— Eliza A",
+          "— Eliza W"
+        ]
+      }
+    },
+    {
+      "line": 12,
+      "alternatives": {
+        "name": [
+          "Dusen Flet... [uncertain]",
+          "Dusen El[illegible] [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 13,
+      "alternatives": {
+        "name": [
+          "Warner Dorus",
+          "Warner Doras [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 14,
+      "alternatives": {
+        "name": [
+          "— Cordelia",
+          "— Cudelia [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 16,
+      "alternatives": {
+        "name": [
+          "— Delilah",
+          "— Delila [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 17,
+      "alternatives": {
+        "name": [
+          "— Edwin [reading uncertain]",
+          "— Elaine [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 19,
+      "alternatives": {
+        "name": [
+          "— Marcellus",
+          "— Mercellas [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 24,
+      "alternatives": {
+        "name": [
+          "Webb Marcellus",
+          "Webb Merellas [reading uncertain]"
+        ],
+        "personalEstate": [
+          "300",
+          "200"
+        ]
+      }
+    },
+    {
+      "line": 27,
+      "alternatives": {
+        "name": [
+          "— Marietta",
+          "— Mariette"
+        ]
+      }
+    },
+    {
+      "line": 28,
+      "alternatives": {
+        "name": [
+          "Paine William [surname uncertain]",
+          "Parne William [surname uncertain]"
+        ],
+        "personalEstate": [
+          "375",
+          "325"
+        ]
+      }
+    },
+    {
+      "line": 30,
+      "alternatives": {
+        "name": [
+          "— Lena [reading uncertain]",
+          "— Luna [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 32,
+      "alternatives": {
+        "name": [
+          "— Louisa",
+          "— Laura [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 33,
+      "alternatives": {
+        "name": [
+          "— Laura [reading uncertain]",
+          "— Luna [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 35,
+      "alternatives": {
+        "name": [
+          "Meril Claud [reading uncertain]",
+          "Meril Clarence [surname/given uncertain]"
+        ],
+        "occupation": [
+          "Telegraph Clerk",
+          "Telegraph Operat[or]"
+        ]
+      }
+    },
+    {
+      "line": 38,
+      "alternatives": {
+        "name": [
+          "— George O",
+          "— George A"
+        ]
+      }
+    },
+    {
+      "line": 40,
+      "alternatives": {
+        "age": [
+          "3/12",
+          "2/12"
+        ]
+      }
+    }
+  ],
+  "rows": [
+    {
+      "line": 1,
+      "name": "Carling Alice",
+      "age": "7",
+      "sex": "F",
+      "color": "W",
+      "occupation": "At Home",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "Carling Alice",
+          "Carling Olive"
+        ]
+      }
+    },
+    {
+      "line": 2,
+      "name": "— Catherine",
+      "age": "5",
+      "sex": "F",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 3,
+      "name": "— Lydia M",
+      "age": "4",
+      "sex": "F",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 4,
+      "name": "— Martha",
+      "age": "3",
+      "sex": "F",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 5,
+      "name": "— Isaac",
+      "age": "1",
+      "sex": "M",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "— Isaac",
+          "— Jesse"
+        ]
+      }
+    },
+    {
+      "line": 6,
+      "name": "— Phoebe",
+      "age": "8/12",
+      "sex": "F",
+      "color": "W",
+      "occupation": "",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "Apr [reading uncertain]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "age": [
+          "8/12",
+          "2/12"
+        ]
+      }
+    },
+    {
+      "line": 7,
+      "name": "Carling Ann",
+      "age": "65",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Keeping House",
+      "realEstate": "170",
+      "personalEstate": "160",
+      "birthplace": "England",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "/ /",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "realEstate": [
+          "170",
+          "175"
+        ],
+        "personalEstate": [
+          "160",
+          "100"
+        ]
+      }
+    },
+    {
+      "line": 8,
+      "name": "Melville Mary J [initial uncertain]",
+      "age": "15",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Domestic",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "/",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 9,
+      "name": "Richmond Elizth",
+      "age": "63",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Keeping House",
+      "realEstate": "175",
+      "personalEstate": "100",
+      "birthplace": "England",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "/ /",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "birthplace": [
+          "England",
+          "Eng."
+        ]
+      }
+    },
+    {
+      "line": 10,
+      "name": "Truscott Neal [surname uncertain]",
+      "age": "44 [reading uncertain]",
+      "sex": "M",
+      "color": "W",
+      "occupation": "Farmer",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "[overwritten; uncertain]",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "/",
+        "canReadAndWriteMarks": "/ /",
+        "disability": "[blank]",
+        "citizenOver21Mark": "/",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "Truscott Neal [surname uncertain]",
+          "French W S [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 11,
+      "name": "— Eliza A",
+      "age": "6",
+      "sex": "F",
+      "color": "W",
+      "occupation": "At School",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "/",
+        "canReadAndWriteMarks": "X [blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "— Eliza A",
+          "— Eliza W"
+        ]
+      }
+    },
+    {
+      "line": 12,
+      "name": "Dusen Flet... [uncertain]",
+      "age": "13",
+      "sex": "F",
+      "color": "W",
+      "occupation": "At School",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Missouri",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "/ /",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "/",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "Dusen Flet... [uncertain]",
+          "Dusen El[illegible] [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 13,
+      "name": "Warner Dorus",
+      "age": "32",
+      "sex": "M",
+      "color": "W",
+      "occupation": "Farmer",
+      "realEstate": "400",
+      "personalEstate": "1500",
+      "birthplace": "N.Y.",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "/",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "Warner Dorus",
+          "Warner Doras [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 14,
+      "name": "— Cordelia",
+      "age": "29",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Keeping House",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Ill.",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "— Cordelia",
+          "— Cudelia [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 15,
+      "name": "— Amelia",
+      "age": "11",
+      "sex": "F",
+      "color": "W",
+      "occupation": "At School",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "/",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 16,
+      "name": "— Delilah",
+      "age": "9",
+      "sex": "F",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "/",
+        "canReadAndWriteMarks": "X [blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "— Delilah",
+          "— Delila [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 17,
+      "name": "— Edwin [reading uncertain]",
+      "age": "7",
+      "sex": "F [as marked; uncertain]",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "/",
+        "canReadAndWriteMarks": "X [blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "— Edwin [reading uncertain]",
+          "— Elaine [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 18,
+      "name": "— Milo",
+      "age": "5",
+      "sex": "M",
+      "color": "W",
+      "occupation": "At Home",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 19,
+      "name": "— Marcellus",
+      "age": "3",
+      "sex": "M",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "— Marcellus",
+          "— Mercellas [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 20,
+      "name": "Robinson Charles",
+      "age": "33",
+      "sex": "M",
+      "color": "W",
+      "occupation": "Brickmaker",
+      "realEstate": "100",
+      "personalEstate": "250",
+      "birthplace": "Ill.",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "/",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 21,
+      "name": "Webb E. M.",
+      "age": "23",
+      "sex": "M",
+      "color": "W",
+      "occupation": "School Teachr",
+      "realEstate": "50",
+      "personalEstate": "",
+      "birthplace": "Missouri",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "/",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "/",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 22,
+      "name": "Warner Orange",
+      "age": "23",
+      "sex": "M",
+      "color": "W",
+      "occupation": "Farm Labor",
+      "realEstate": "",
+      "personalEstate": "275",
+      "birthplace": "Iowa",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "/",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "/",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 23,
+      "name": "Webb Ellen",
+      "age": "16",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Keeping House",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Eng.",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "/ /",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "/",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 24,
+      "name": "Webb Marcellus",
+      "age": "27",
+      "sex": "M",
+      "color": "W",
+      "occupation": "Farm Labor",
+      "realEstate": "",
+      "personalEstate": "300",
+      "birthplace": "Ill.",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "/ /",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "/",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "Webb Marcellus",
+          "Webb Merellas [reading uncertain]"
+        ],
+        "personalEstate": [
+          "300",
+          "200"
+        ]
+      }
+    },
+    {
+      "line": 25,
+      "name": "— Sarah M",
+      "age": "19",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Keeping House",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "/ /",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 26,
+      "name": "— Clara O",
+      "age": "1",
+      "sex": "F",
+      "color": "W",
+      "occupation": "At Home",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 27,
+      "name": "— Marietta",
+      "age": "1/12",
+      "sex": "F",
+      "color": "W",
+      "occupation": "",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "May [reading uncertain]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "— Marietta",
+          "— Mariette"
+        ]
+      }
+    },
+    {
+      "line": 28,
+      "name": "Paine William [surname uncertain]",
+      "age": "31",
+      "sex": "M",
+      "color": "W",
+      "occupation": "Farmer",
+      "realEstate": "5500 [first digit uncertain]",
+      "personalEstate": "375",
+      "birthplace": "[overwritten, uncertain]",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "/",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "Paine William [surname uncertain]",
+          "Parne William [surname uncertain]"
+        ],
+        "personalEstate": [
+          "375",
+          "325"
+        ]
+      }
+    },
+    {
+      "line": 29,
+      "name": "— Laura [reading uncertain]",
+      "age": "21",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Keeping House",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Ohio",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 30,
+      "name": "— Lena [reading uncertain]",
+      "age": "6",
+      "sex": "F",
+      "color": "W",
+      "occupation": "At School",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "/",
+        "canReadAndWriteMarks": "X [blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "— Lena [reading uncertain]",
+          "— Luna [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 31,
+      "name": "— Lot S [reading uncertain]",
+      "age": "4",
+      "sex": "M",
+      "color": "W",
+      "occupation": "At Home",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 32,
+      "name": "— Louisa",
+      "age": "2",
+      "sex": "F",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "— Louisa",
+          "— Laura [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 33,
+      "name": "— Laura [reading uncertain]",
+      "age": "1/12",
+      "sex": "F",
+      "color": "W",
+      "occupation": "",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "Jul [reading uncertain]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "— Laura [reading uncertain]",
+          "— Luna [reading uncertain]"
+        ]
+      }
+    },
+    {
+      "line": 34,
+      "name": "[blank]",
+      "age": "",
+      "sex": "",
+      "color": "",
+      "occupation": "",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 35,
+      "name": "Meril Claud [reading uncertain]",
+      "age": "29",
+      "sex": "M",
+      "color": "W",
+      "occupation": "Telegraph Clerk",
+      "realEstate": "300",
+      "personalEstate": "200",
+      "birthplace": "Connecticut",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "/",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "Meril Claud [reading uncertain]",
+          "Meril Clarence [surname/given uncertain]"
+        ],
+        "occupation": [
+          "Telegraph Clerk",
+          "Telegraph Operat[or]"
+        ]
+      }
+    },
+    {
+      "line": 36,
+      "name": "— Bethelda [reading uncertain]",
+      "age": "25",
+      "sex": "F",
+      "color": "W",
+      "occupation": "Keeping House",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Ill.",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "X X",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 37,
+      "name": "— Leila",
+      "age": "6",
+      "sex": "F",
+      "color": "W",
+      "occupation": "At School",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "/",
+        "canReadAndWriteMarks": "X [blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 38,
+      "name": "— George O",
+      "age": "4",
+      "sex": "M",
+      "color": "W",
+      "occupation": "At Home",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "name": [
+          "— George O",
+          "— George A"
+        ]
+      }
+    },
+    {
+      "line": 39,
+      "name": "— Alice",
+      "age": "2",
+      "sex": "F",
+      "color": "W",
+      "occupation": "ditto",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "[blank]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      }
+    },
+    {
+      "line": 40,
+      "name": "— Mande [reading uncertain]",
+      "age": "3/12",
+      "sex": "F",
+      "color": "W",
+      "occupation": "",
+      "realEstate": "",
+      "personalEstate": "",
+      "birthplace": "Utah (ditto)",
+      "nonTargetSupplementalMarksProvisional": {
+        "foreignParentMarks": "[blank]/[blank]",
+        "birthMonth": "Jul [reading uncertain]",
+        "marriageMonth": "[blank]",
+        "schoolMark": "[blank]",
+        "canReadAndWriteMarks": "[blank]/[blank]",
+        "disability": "[blank]",
+        "citizenOver21Mark": "[blank]",
+        "voteDeniedMark": "[blank]"
+      },
+      "readingAlternatives": {
+        "age": [
+          "3/12",
+          "2/12"
+        ]
+      }
+    }
+  ]
+}
