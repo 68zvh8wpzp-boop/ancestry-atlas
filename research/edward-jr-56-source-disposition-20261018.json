@@ -1,0 +1,1060 @@
+{
+  "person": "Edward Milo Webb Jr. (1847–1921)",
+  "person_id": "KVPR-ZP3",
+  "scope": "Exact 56 attached sources, frozen as of 18 Oct 2026. No FamilySearch modifications.",
+  "warning": "A source-panel title/index and an original image are not interchangeable. This classification reuses existing reviewed evidence only; it is NOT an additional 56-original inspection and does not mark person complete.",
+  "reconciled_source_count": 56,
+  "classification_counts": {
+    "compiled-duplicate-or-secondary": 14,
+    "direct-census-lead": 1,
+    "direct-pioneer-index": 1,
+    "preserved-original": 8,
+    "direct-evidence-lead": 7,
+    "identity-review": 1,
+    "grave-photograph": 1,
+    "posthumous-child-death": 3,
+    "posthumous-family-context": 13,
+    "posthumous-marriage-context": 2,
+    "posthumous-index-context": 4,
+    "unspecified-attachment": 1
+  },
+  "remaining_original_work": [
+    "Full-page census transcription of 1870, 1880, 1920 from already saved original images; both 1860 pages completed.",
+    "Original/continuation examination for distinct material life-event leads not resolved by source titles.",
+    "Memory audit of 125 items is a separate inventory and is not claimed done by this 56-source ledger.",
+    "Full person-gallery check and iPhone validation require own gates."
+  ],
+  "sources": [
+    {
+      "index": 1,
+      "id": "MMKK-378",
+      "title": "1847Legacy NFS Source: Edward Milo Webb Jr - Church record: Blessing record or certificate",
+      "category": "compiled-duplicate-or-secondary",
+      "evidence_level": "Catalog/index-level, not a viewed contemporary original",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-mmkk-378",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add another duplicate image card; retain specific citation and use only to locate a unique primary original or clarify a material claim.",
+      "source_links": []
+    },
+    {
+      "index": 2,
+      "id": "9FTM-PH9",
+      "title": "1847Millennium File",
+      "category": "compiled-duplicate-or-secondary",
+      "evidence_level": "Catalog/index-level, not a viewed contemporary original",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9ftm-ph9",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add another duplicate image card; retain specific citation and use only to locate a unique primary original or clarify a material claim.",
+      "source_links": []
+    },
+    {
+      "index": 3,
+      "id": "M976-897",
+      "title": "1847Membership of The Church of Jesus Christ of Latter-day Saints, 1830-1848",
+      "category": "compiled-duplicate-or-secondary",
+      "evidence_level": "Catalog/index-level, not a viewed contemporary original",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-m976-897",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add another duplicate image card; retain specific citation and use only to locate a unique primary original or clarify a material claim.",
+      "source_links": []
+    },
+    {
+      "index": 4,
+      "id": "9VSP-2DN",
+      "title": "1850Edmond Webb in household of E M Webb, \"United States Census, 1850\"",
+      "category": "direct-census-lead",
+      "evidence_level": "1850 household index; original review under father's audit does not automatically establish Edward Jr's page source completion",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9vsp-2dn",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Link unique 1850 page image if verified; do not repeat other ancestor's research.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:MDZW-ZRZ?lang=en",
+        "https://www.familysearch.org/ark:/61903/3:1:S3HY-6Q9Q-JK6?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMDZW-ZRZ&action=view&lang=en"
+      ]
+    },
+    {
+      "index": 5,
+      "id": "9LYX-DXZ",
+      "title": "1852Edward Milo Webb, \"Utah Mormon Pioneer Overland Travel Database, 1847-1868\"",
+      "category": "direct-pioneer-index",
+      "evidence_level": "Database citation; original Curtis emigrant-company report separately preserved",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9lyx-dxz",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Point to original 1852 company report, avoid treating compiled database as an original document.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:QL8S-GDSF?lang=en",
+        "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+      ]
+    },
+    {
+      "index": 6,
+      "id": "MMHN-TN6",
+      "title": "1860Edwd M Webb in household of Jas Owens, \"United States Census, 1860\"",
+      "category": "preserved-original",
+      "evidence_level": "Original captured; full page transcribed 18 Oct 2026",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-1860-owens-census",
+          "status": "saved",
+          "originalRefs": [
+            "library:file_000000002dbc81fdabc0ccebd8072850"
+          ]
+        }
+      ],
+      "action": "Use preserved full-page transcription; no reacquisition",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:MH27-B42?lang=en",
+        "https://www.familysearch.org/ark:/61903/3:1:33SQ-GBS8-9G45?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMH27-B42&action=view&lang=en"
+      ]
+    },
+    {
+      "index": 7,
+      "id": "S6BS-6XP",
+      "title": "1860Edwd M Mc Rae, \"United States, Census, 1860\"",
+      "category": "preserved-original",
+      "evidence_level": "Original captured; full page transcribed 18 Oct 2026",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-1860-mcrae-census",
+          "status": "saved",
+          "originalRefs": [
+            "library:file_000000003d8081fdb4340b9f66e2092a"
+          ]
+        }
+      ],
+      "action": "Use preserved full-page transcription; no reacquisition",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:MH27-BY3?lang=en",
+        "https://www.familysearch.org/ark:/61903/3:1:33S7-9BS8-9G9T?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMH27-BY3&action=view&lang=en"
+      ]
+    },
+    {
+      "index": 8,
+      "id": "MMHN-TBQ",
+      "title": "1870E M Webb in household of Charles Robinson, \"United States Census, 1870\"",
+      "category": "preserved-original",
+      "evidence_level": "Original captured; target household read; full page still incomplete",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-1870-robinson-census",
+          "status": "saved",
+          "originalRefs": [
+            "library:file_000000002be882308975db0ce3e600f3"
+          ]
+        }
+      ],
+      "action": "Finish whole-page transcription from retained original; no reacquisition",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:MNCT-HM2?lang=en",
+        "https://www.familysearch.org/ark:/61903/3:1:S3HY-XHRQ-RJG?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMNCT-HM2&action=view&lang=en"
+      ]
+    },
+    {
+      "index": 9,
+      "id": "MMHN-5TM",
+      "title": "1880Edward M Webb, \"United States Census, 1880\"",
+      "category": "preserved-original",
+      "evidence_level": "Original captured; target household read; full page still incomplete",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-1880-census",
+          "status": "saved",
+          "originalRefs": [
+            "library:file_00000000f92081fd994215be62629b7d"
+          ]
+        }
+      ],
+      "action": "Finish whole-page transcription from retained original; no reacquisition",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:MNSV-DGD?lang=en",
+        "https://www.familysearch.org/ark:/61903/3:1:33SQ-GYBJ-62X?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMNSV-DGD&action=view&lang=en"
+      ]
+    },
+    {
+      "index": 10,
+      "id": "SL3S-62G",
+      "title": "1891Edward Milo Webb, \"Arizona, Birth Certificates and Indexes, 1855-1940\"",
+      "category": "compiled-duplicate-or-secondary",
+      "evidence_level": "Catalog/index-level, not a viewed contemporary original",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-sl3s-62g",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add another duplicate image card; retain specific citation and use only to locate a unique primary original or clarify a material claim.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:Z4VW-71W2?lang=en",
+        "https://www.familysearch.org/ark:/61903/1:1:Z4VW-713Z?lang=en"
+      ]
+    },
+    {
+      "index": 11,
+      "id": "9TW6-C4N",
+      "title": "1893Arizona, County Marriage Records, 1865-1972",
+      "category": "direct-evidence-lead",
+      "evidence_level": "source/index only; original not independently reviewed in this reconciliation",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9tw6-c4n",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Retain as candidate; check the original only if the record can establish a material fact about Edward.",
+      "source_links": []
+    },
+    {
+      "index": 12,
+      "id": "7QQN-WZY",
+      "title": "1893Edward * Webb, \"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\"",
+      "category": "direct-evidence-lead",
+      "evidence_level": "source/index only; original not independently reviewed in this reconciliation",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-7qqn-wzy",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Retain as candidate; check the original only if the record can establish a material fact about Edward.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:6PBD-BCZR?lang=en",
+        "https://www.familysearch.org/ark:/61903/1:1:6PBD-BCZ5?lang=en"
+      ]
+    },
+    {
+      "index": 13,
+      "id": "7QQN-CZP",
+      "title": "1893Edward M Webb, \"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\"",
+      "category": "direct-evidence-lead",
+      "evidence_level": "source/index only; original not independently reviewed in this reconciliation",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-7qqn-czp",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Retain as candidate; check the original only if the record can establish a material fact about Edward.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:62FL-2QGG?lang=en",
+        "https://www.familysearch.org/ark:/61903/1:1:62FL-2QGL?lang=en"
+      ]
+    },
+    {
+      "index": 14,
+      "id": "WHBK-1GJ",
+      "title": "1893E M Webb, \"Arizona, County Marriages, 1871-1964\"",
+      "category": "direct-evidence-lead",
+      "evidence_level": "source/index only; original not independently reviewed in this reconciliation",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-whbk-1gj",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Retain as candidate; check the original only if the record can establish a material fact about Edward.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:QG16-R6TC?lang=en",
+        "https://www.familysearch.org/ark:/61903/1:1:QG16-R6TW?lang=en"
+      ]
+    },
+    {
+      "index": 15,
+      "id": "S6BS-7FL",
+      "title": "1898e M Webb, \"México, Chihuahua, Registro Civil, 1861-1997\"",
+      "category": "preserved-original",
+      "evidence_level": "Original retained / pertinent text reviewed; consult linked review for exact transcription coverage",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-lois-1898-birth",
+          "status": "saved",
+          "originalRefs": [
+            "github:assets/edward-webb-jr/lois-1898-birth-original.jpg",
+            "github:assets/edward-webb-jr/lois-1898-birth-continuation-original.jpg"
+          ]
+        }
+      ],
+      "action": "Retain already captured artifact; verify reader and transcription against original before final closeout",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:QGCK-GHJ7?lang=en",
+        "https://www.familysearch.org/ark:/61903/1:1:QGCK-GHJ9?lang=en"
+      ]
+    },
+    {
+      "index": 16,
+      "id": "9XRK-F5V",
+      "title": "1913Edward Milo Webb in entry for Edwd Milo Webb Jr, \"Early Mormon Missionary Database\"",
+      "category": "direct-evidence-lead",
+      "evidence_level": "source/index only; original not independently reviewed in this reconciliation",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9xrk-f5v",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Retain as candidate; check the original only if the record can establish a material fact about Edward.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:QKDW-BL1P?lang=en",
+        "https://www.familysearch.org/ark:/61903/1:1:QKDW-BL1G?lang=en"
+      ]
+    },
+    {
+      "index": 17,
+      "id": "SWT8-LYW",
+      "title": "1917Edward Milo Webb, \"Arizona Deaths, 1870-1963\"",
+      "category": "identity-review",
+      "evidence_level": "1917 Arizona deaths source title ambiguous against 1921 verified Utah death",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-swt8-lyw",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not assign 1917 death to Edward without inspecting actual subject, likely parent reference.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:FLK7-Y7S?lang=en",
+        "https://www.familysearch.org/ark:/61903/1:1:FLK7-Y79?lang=en"
+      ]
+    },
+    {
+      "index": 18,
+      "id": "M99R-9YN",
+      "title": "1920Edward M Webb, \"United States Census, 1920\"",
+      "category": "preserved-original",
+      "evidence_level": "Original captured; target household read; full page still incomplete",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-1920-census",
+          "status": "saved",
+          "originalRefs": [
+            "github:assets/edward-webb-jr/edward-ellen-1920-original.jpg"
+          ]
+        }
+      ],
+      "action": "Finish whole-page transcription from retained original; no reacquisition",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:MCRP-R2R?lang=en",
+        "https://www.familysearch.org/ark:/61903/3:1:33S7-9R68-GVX?view=index&personArk=%2Fark%3A%2F61903%2F1%3A1%3AMCRP-R2R&action=view&lang=en"
+      ]
+    },
+    {
+      "index": 19,
+      "id": "9X9B-W3K",
+      "title": "1921Photograph of Grave of Edward Milo Webb, Jr. in Holladay Cemetery, Holladay, UT",
+      "category": "grave-photograph",
+      "evidence_level": "Photo citation inventoried; pixel-level original review/capture not established",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9x9b-w3k",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Inspect image, copyright and tombstone text; add distinct photo if authentic and not already among eight photos.",
+      "source_links": [
+        "https://www.familysearch.org/en/photos/artifacts/23056689"
+      ]
+    },
+    {
+      "index": 20,
+      "id": "9VSP-K9B",
+      "title": "1921Edward Milo Webb, \"Find A Grave Index\"",
+      "category": "compiled-duplicate-or-secondary",
+      "evidence_level": "Catalog/index-level, not a viewed contemporary original",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9vsp-k9b",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add another duplicate image card; retain specific citation and use only to locate a unique primary original or clarify a material claim.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:QVLQ-1Y94?lang=en",
+        "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+      ]
+    },
+    {
+      "index": 21,
+      "id": "9KVZ-74Y",
+      "title": "1921Edward Milo Webb, \"BillionGraves Index\"",
+      "category": "compiled-duplicate-or-secondary",
+      "evidence_level": "Catalog/index-level, not a viewed contemporary original",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9kvz-74y",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add another duplicate image card; retain specific citation and use only to locate a unique primary original or clarify a material claim.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:QV91-KV9Q?lang=en",
+        "https://www.familysearch.org/en/tree/person/LHKH-557"
+      ]
+    },
+    {
+      "index": 22,
+      "id": "MMMN-W55",
+      "title": "1921Edward Milo Webb, \"Billion Graves Index\"",
+      "category": "compiled-duplicate-or-secondary",
+      "evidence_level": "Catalog/index-level, not a viewed contemporary original",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-mmmn-w55",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add another duplicate image card; retain specific citation and use only to locate a unique primary original or clarify a material claim.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:K76M-HP5?lang=en",
+        "https://familysearch.org/ark:/61903/1:1:QV91-KV9Q?lang=en"
+      ]
+    },
+    {
+      "index": 23,
+      "id": "MMKK-37N",
+      "title": "1921Legacy NFS Source: Edward Milo Webb Jr - death",
+      "category": "compiled-duplicate-or-secondary",
+      "evidence_level": "Catalog/index-level, not a viewed contemporary original",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-mmkk-37n",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add another duplicate image card; retain specific citation and use only to locate a unique primary original or clarify a material claim.",
+      "source_links": []
+    },
+    {
+      "index": 24,
+      "id": "9FTM-P4V",
+      "title": "1921Utah Death Index, 1905-1951",
+      "category": "compiled-duplicate-or-secondary",
+      "evidence_level": "Catalog/index-level, not a viewed contemporary original",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9ftm-p4v",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add another duplicate image card; retain specific citation and use only to locate a unique primary original or clarify a material claim.",
+      "source_links": []
+    },
+    {
+      "index": 25,
+      "id": "MMMJ-KDC",
+      "title": "1921Edward Milo Webb (b.1847), \"Utah Death Certificates, 1904-1956\"",
+      "category": "preserved-original",
+      "evidence_level": "Original retained / pertinent text reviewed; consult linked review for exact transcription coverage",
+      "atlas_registry": [
+        {
+          "id": "edward-webb-jr-death-certificate",
+          "status": "published",
+          "originalRefs": [
+            "library:file_000000004da481f6b9e411c9d60c30fc"
+          ]
+        }
+      ],
+      "action": "Retain already captured artifact; verify reader and transcription against original before final closeout",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:XZGV-SQV?lang=en"
+      ]
+    },
+    {
+      "index": 26,
+      "id": "3JF9-G93",
+      "title": "1921Edward M Webb, \"Utah, Cemetery Abstracts\"",
+      "category": "compiled-duplicate-or-secondary",
+      "evidence_level": "Catalog/index-level, not a viewed contemporary original",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-3jf9-g93",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add another duplicate image card; retain specific citation and use only to locate a unique primary original or clarify a material claim.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:QLL6-J853?lang=en"
+      ]
+    },
+    {
+      "index": 27,
+      "id": "SWT8-NJG",
+      "title": "1921Edward Milo Webb, \"Utah, Obituaries from Utah Newspapers, 1850-2005\"",
+      "category": "preserved-original",
+      "evidence_level": "Original retained / pertinent text reviewed; consult linked review for exact transcription coverage",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-swt8-njg",
+          "status": "saved",
+          "originalRefs": [
+            "github:assets/edward-webb-jr/edward-1921-newspaper-notice-original.pdf"
+          ]
+        }
+      ],
+      "action": "Retain already captured artifact; verify reader and transcription against original before final closeout",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:QVSN-35GX?lang=en",
+        "https://www.familysearch.org/en/tree/person/KVPR-ZP3"
+      ]
+    },
+    {
+      "index": 28,
+      "id": "9Z61-L61",
+      "title": "1924Edward Milo Webb in entry for Harriett Alice Webb, \"Utah, Salt Lake County Death Records, 1849-1949\"",
+      "category": "posthumous-child-death",
+      "evidence_level": "1924 Harriett Alice record names Edward as parent; not Edward's death date",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9z61-l61",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Keep child's death separate from Edward's 1921 original certificate; use only parent association.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:NQ4L-3V1?lang=en"
+      ]
+    },
+    {
+      "index": 29,
+      "id": "9Z61-LNV",
+      "title": "1924Edward Milo Webb in entry for Harriett Alice Webb, \"Utah Death Certificates, 1904-1956\"",
+      "category": "posthumous-child-death",
+      "evidence_level": "1924 Harriett Alice record names Edward as parent; not Edward's death date",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9z61-lnv",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Keep child's death separate from Edward's 1921 original certificate; use only parent association.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:XZGL-MQN?lang=en"
+      ]
+    },
+    {
+      "index": 30,
+      "id": "M99R-9LX",
+      "title": "1924Edward Milo Webb in entry for Harriett Alice Webb, \"Utah, Deaths and Burials, 1888-1946\"",
+      "category": "posthumous-child-death",
+      "evidence_level": "1924 Harriett Alice record names Edward as parent; not Edward's death date",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-m99r-9lx",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Keep child's death separate from Edward's 1921 original certificate; use only parent association.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:F854-MX7?lang=en"
+      ]
+    },
+    {
+      "index": 31,
+      "id": "S3X5-FYS",
+      "title": "1925Edward Milo Webb in entry for Lois Webb, \"Utah, Missionary Department Missionary Registers, 1860-1937\"",
+      "category": "posthumous-family-context",
+      "evidence_level": "An attached later record; not evidence that Edward was alive on the record date",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-s3x5-fys",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Record as parent/reference only if relationship adds distinctive evidence; do not treat as Edward life event or obtain duplicate child originals by default.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:QKDW-1T4N?lang=en"
+      ]
+    },
+    {
+      "index": 32,
+      "id": "S6BS-WCW",
+      "title": "1925E. M. Webb, \"Utah, County Marriages, 1871-1941\"",
+      "category": "posthumous-marriage-context",
+      "evidence_level": "1925 marriage citation after Edward died 1921",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-s6bs-wcw",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Retain only as family member's wedding, not Edward's marriage; inspect names if needed.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:KSP9-6NC?lang=en"
+      ]
+    },
+    {
+      "index": 33,
+      "id": "S6BS-WLS",
+      "title": "1925E. M. Webb, \"Utah, Marriages, 1887-1935\"",
+      "category": "posthumous-marriage-context",
+      "evidence_level": "1925 marriage citation after Edward died 1921",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-s6bs-wls",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Retain only as family member's wedding, not Edward's marriage; inspect names if needed.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:F8PM-VDH?lang=en"
+      ]
+    },
+    {
+      "index": 34,
+      "id": "9Z8P-2RT",
+      "title": "1926Edward M. Webb in entry for James Levi Webb, \"Arizona, Deaths, 1870-1951\"",
+      "category": "posthumous-family-context",
+      "evidence_level": "Recorded after Edward's documented 1921 death",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9z8p-2rt",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Check linked child's/spouse's name, no false extension of Edward's life. Retain as family-context citation only.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:FLVB-FRC?lang=en"
+      ]
+    },
+    {
+      "index": 35,
+      "id": "9VKX-XL4",
+      "title": "1926Edward M Webb in entry for James Levi Webb, \"Arizona, Maricopa, Mesa City Cemetery Records, 1885-1960\"",
+      "category": "posthumous-family-context",
+      "evidence_level": "An attached later record; not evidence that Edward was alive on the record date",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9vkx-xl4",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Record as parent/reference only if relationship adds distinctive evidence; do not treat as Edward life event or obtain duplicate child originals by default.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:Q2RZ-CS9Y?lang=en"
+      ]
+    },
+    {
+      "index": 36,
+      "id": "9VSP-LDL",
+      "title": "1928Edward Milo Webb in entry for Ellen Ashman Webb, \"Utah Death Certificates, 1904-1964\"",
+      "category": "posthumous-family-context",
+      "evidence_level": "An attached later record; not evidence that Edward was alive on the record date",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9vsp-ldl",
+          "status": "examined",
+          "originalRefs": []
+        }
+      ],
+      "action": "Record as parent/reference only if relationship adds distinctive evidence; do not treat as Edward life event or obtain duplicate child originals by default.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:XZGT-NQR?lang=en"
+      ]
+    },
+    {
+      "index": 37,
+      "id": "3DLD-NP8",
+      "title": "1930Charlotte Maxwell Webb, \"The Church of Jesus Christ of Latter-day Saints, Church Census Records (Worldwide), 1914-1960\"",
+      "category": "posthumous-family-context",
+      "evidence_level": "Recorded after Edward's documented 1921 death",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-3dld-np8",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Check linked child's/spouse's name, no false extension of Edward's life. Retain as family-context citation only.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:8S39-SGW2?lang=en"
+      ]
+    },
+    {
+      "index": 38,
+      "id": "9TW6-CSG",
+      "title": "1931Ed M Webb in entry for Marion K Johnson and Lois Webb, \"Utah, County Marriages, 1887-1940\"",
+      "category": "posthumous-family-context",
+      "evidence_level": "An attached later record; not evidence that Edward was alive on the record date",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9tw6-csg",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Record as parent/reference only if relationship adds distinctive evidence; do not treat as Edward life event or obtain duplicate child originals by default.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:Q2MB-SD2M?lang=en"
+      ]
+    },
+    {
+      "index": 39,
+      "id": "Q7GG-4DL",
+      "title": "1937Edward M Webb, \"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\"",
+      "category": "posthumous-index-context",
+      "evidence_level": "Later index bearing Edward's name, identity and exact original unverified",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-q7gg-4dl",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add as Edward's own Social Security record (d. 1921); retain only for documented parent relationship/identity evidence.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:6KWV-M3ZH?lang=en"
+      ]
+    },
+    {
+      "index": 40,
+      "id": "Q7GG-H7S",
+      "title": "1938Edward M Webb, \"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\"",
+      "category": "posthumous-index-context",
+      "evidence_level": "Later index bearing Edward's name, identity and exact original unverified",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-q7gg-h7s",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add as Edward's own Social Security record (d. 1921); retain only for documented parent relationship/identity evidence.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:6KWJ-B1MM?lang=en"
+      ]
+    },
+    {
+      "index": 41,
+      "id": "9TW6-CWL",
+      "title": "1940Edward Milo Webb in entry for Eliza May Webb Millet, \"Arizona, Deaths, 1870-1951\"",
+      "category": "posthumous-family-context",
+      "evidence_level": "An attached later record; not evidence that Edward was alive on the record date",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9tw6-cwl",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Record as parent/reference only if relationship adds distinctive evidence; do not treat as Edward life event or obtain duplicate child originals by default.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:FLNJ-14S?lang=en"
+      ]
+    },
+    {
+      "index": 42,
+      "id": "9V3Z-LDD",
+      "title": "1943Edward M. Webb in entry for Charlotte Maxwell Webb, \"New Mexico Deaths, 1889-1945\"",
+      "category": "posthumous-family-context",
+      "evidence_level": "Recorded after Edward's documented 1921 death",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9v3z-ldd",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Check linked child's/spouse's name, no false extension of Edward's life. Retain as family-context citation only.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:FLB3-MJM?lang=en"
+      ]
+    },
+    {
+      "index": 43,
+      "id": "9Z61-LL3",
+      "title": "1947Edward Milo Webb in entry for Abigail Ann Hatch, \"Arizona, Deaths, 1870-1951\"",
+      "category": "posthumous-family-context",
+      "evidence_level": "An attached later record; not evidence that Edward was alive on the record date",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9z61-ll3",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Record as parent/reference only if relationship adds distinctive evidence; do not treat as Edward life event or obtain duplicate child originals by default.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:FLJD-TJ1?lang=en"
+      ]
+    },
+    {
+      "index": 44,
+      "id": "9Z8P-2VT",
+      "title": "1948Edward Milo Webb in entry for Harvey Nelson Webb, \"Arizona, Deaths, 1870-1951\"",
+      "category": "posthumous-family-context",
+      "evidence_level": "An attached later record; not evidence that Edward was alive on the record date",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9z8p-2vt",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Record as parent/reference only if relationship adds distinctive evidence; do not treat as Edward life event or obtain duplicate child originals by default.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:FLJ8-QZS?lang=en"
+      ]
+    },
+    {
+      "index": 45,
+      "id": "Q7GG-H1K",
+      "title": "1953Edward M Webb, \"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\"",
+      "category": "posthumous-index-context",
+      "evidence_level": "Later index bearing Edward's name, identity and exact original unverified",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-q7gg-h1k",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add as Edward's own Social Security record (d. 1921); retain only for documented parent relationship/identity evidence.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:6KWB-MQMY?lang=en"
+      ]
+    },
+    {
+      "index": 46,
+      "id": "9Z61-LVX",
+      "title": "1956Edward Milo Webb in entry for Lois Webb Johnson, \"Utah Death Certificates, 1904-1956\"",
+      "category": "posthumous-family-context",
+      "evidence_level": "An attached later record; not evidence that Edward was alive on the record date",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9z61-lvx",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Record as parent/reference only if relationship adds distinctive evidence; do not treat as Edward life event or obtain duplicate child originals by default.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:XZP5-BVB?lang=en"
+      ]
+    },
+    {
+      "index": 47,
+      "id": "9N9S-VCQ",
+      "title": "1966The ancestry of Edward Milo Webb & his wife Ellen Ashman",
+      "category": "compiled-duplicate-or-secondary",
+      "evidence_level": "Catalog/index-level, not a viewed contemporary original",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-9n9s-vcq",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add another duplicate image card; retain specific citation and use only to locate a unique primary original or clarify a material claim.",
+      "source_links": [
+        "https://familysearch.org/en/search/catalog/770717?availability=Family%20History%20Library"
+      ]
+    },
+    {
+      "index": 48,
+      "id": "Q7GG-WN3",
+      "title": "1970Edward M Webb, \"United States, Social Security Numerical Identification Files (NUMIDENT), 1936-2007\"",
+      "category": "posthumous-index-context",
+      "evidence_level": "Later index bearing Edward's name, identity and exact original unverified",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-q7gg-wn3",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add as Edward's own Social Security record (d. 1921); retain only for documented parent relationship/identity evidence.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:6KWG-HCH3?lang=en"
+      ]
+    },
+    {
+      "index": 49,
+      "id": "MSJT-QYT",
+      "title": "1980Webb in entry for Isabel Webb Brewer, \"California, Death Index, 1940-1997\"",
+      "category": "posthumous-family-context",
+      "evidence_level": "An attached later record; not evidence that Edward was alive on the record date",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-msjt-qyt",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Record as parent/reference only if relationship adds distinctive evidence; do not treat as Edward life event or obtain duplicate child originals by default.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:VGB4-RGV?lang=en"
+      ]
+    },
+    {
+      "index": 50,
+      "id": "MSP7-H2Q",
+      "title": "1982Webb in entry for Estelle Webb Thomas, \"California, Death Index, 1940-1997\"",
+      "category": "posthumous-family-context",
+      "evidence_level": "An attached later record; not evidence that Edward was alive on the record date",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-msp7-h2q",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Record as parent/reference only if relationship adds distinctive evidence; do not treat as Edward life event or obtain duplicate child originals by default.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:VG19-HZ3?lang=en"
+      ]
+    },
+    {
+      "index": 51,
+      "id": "7Q6C-LNH",
+      "title": "2001Arizona's Honeymoon Trail Mormon Wagon Roads",
+      "category": "compiled-duplicate-or-secondary",
+      "evidence_level": "Catalog/index-level, not a viewed contemporary original",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-7q6c-lnh",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add another duplicate image card; retain specific citation and use only to locate a unique primary original or clarify a material claim.",
+      "source_links": [
+        "https://www.familysearch.org/en/photos/artifacts/206675644"
+      ]
+    },
+    {
+      "index": 52,
+      "id": "WNSW-WZ9",
+      "title": "+ AddE. Milo Webb, \"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\"",
+      "category": "direct-evidence-lead",
+      "evidence_level": "source/index only; original not independently reviewed in this reconciliation",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-wnsw-wz9",
+          "status": "partial",
+          "originalRefs": []
+        }
+      ],
+      "action": "Retain as candidate; check the original only if the record can establish a material fact about Edward.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:6L7F-CQMF?lang=en"
+      ]
+    },
+    {
+      "index": 53,
+      "id": "WFCM-G6L",
+      "title": "+ AddEdward M Webb, \"The Church of Jesus Christ of Latter-day Saints, Record of Members (Worldwide), 1836-1970\"",
+      "category": "direct-evidence-lead",
+      "evidence_level": "source/index only; original not independently reviewed in this reconciliation",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-wfcm-g6l",
+          "status": "partial",
+          "originalRefs": []
+        }
+      ],
+      "action": "Retain as candidate; check the original only if the record can establish a material fact about Edward.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/1:1:6DBT-83YH?lang=en",
+        "https://www.familysearch.org/ark:/61903/1:1:6DBT-83YC?lang=en"
+      ]
+    },
+    {
+      "index": 54,
+      "id": "WWVQ-Y7C",
+      "title": "+ AddEdward Milo Webb, Jr.",
+      "category": "unspecified-attachment",
+      "evidence_level": "Title alone not an original",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-wwvq-y7c",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Inspect metadata only if unique and relevant; do not count as an original photo/document.",
+      "source_links": []
+    },
+    {
+      "index": 55,
+      "id": "7H8Q-N6C",
+      "title": "+ AddEdward Milo Webb, 'Membership of The Church of Jesus Christ of Latter-day Saints, 1830 - 1848' on MyHeritage",
+      "category": "compiled-duplicate-or-secondary",
+      "evidence_level": "Catalog/index-level, not a viewed contemporary original",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-7h8q-n6c",
+          "status": "indexed",
+          "originalRefs": []
+        }
+      ],
+      "action": "Do not add another duplicate image card; retain specific citation and use only to locate a unique primary original or clarify a material claim.",
+      "source_links": []
+    },
+    {
+      "index": 56,
+      "id": "Q3Y9-GSS",
+      "title": "+ AddDeeds, 1893-1921, indexes, 1885-1923 (Navajo County, Arizona)",
+      "category": "compiled-duplicate-or-secondary",
+      "evidence_level": "Catalog/index-level, not a viewed contemporary original",
+      "atlas_registry": [
+        {
+          "id": "edward-jr-attached-q3y9-gss",
+          "status": "partial",
+          "originalRefs": [
+            "github:assets/edward-webb-jr/milo-webb-1900-deed-original.jpg"
+          ]
+        }
+      ],
+      "action": "Do not add another duplicate image card; retain specific citation and use only to locate a unique primary original or clarify a material claim.",
+      "source_links": [
+        "https://familysearch.org/ark:/61903/3:1:3Q9M-CSZL-DQ4Y-V?lang=en",
+        "https://familysearch.org/ark:/61903/3:1:3Q9M-CSZL-DQ4Y-V?lang=en"
+      ]
+    }
+  ]
+}
