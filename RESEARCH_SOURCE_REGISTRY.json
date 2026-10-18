@@ -1561,13 +1561,19 @@
       "sourceKeys": [
         "chdb:transcript:carling-isaac-v-diary-in-elda-mortenson",
         "chdb:PER-6SFMYP8:1852-migration",
-        "bibliography:Mortenson:CarlingFamilyHistory:v1:48-55"
+        "bibliography:Mortenson:CarlingFamilyHistory:v1:48-55",
+        "familysearch:digital-book:194973_01:mortenson-carling-family-history-v1:48-55"
       ],
       "sourceUrl": "https://history.churchofjesuschrist.org/chd/transcript?lang=eng&name=transcript-for-carling-isaac-v-diary-in-elda-mortenson-comp-isaac-v-carling",
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-03-1852-diary-analysis-20261018.md",
-      "note": "Tranche03 18Oct2026: official complete published diary transcription visually read online, not the autograph manuscript. June30 departure with father John, 1852 stepmother Ann Green (birth mother Emeline Keaton d1844), Abraham, Catherine/Kate; July8 Miller company organization; Sept9 South Pass, Sept29 Isaac in Salt Lake City, wagon company Sept30. Official company profile administratively ends Sep10, not Isaac's physical arrival. Diary August1 says passed Curtis' Company, strongly plausibly Uriah Curtis with later son-in-law Edward Milo Webb Jr age5 after his father died July31; NO meeting inferred. Note sister-in-law term may be retrospective, July31 missing official online version but present other family copy. Preserve source variations. No original page JPG/PDF, no claim manuscript transcribed by assistant, no Atlas publication yet.",
-      "researchDetailStatus": "official-published-transcript-reviewed-original-manuscript-not-captured"
+      "note": "Tranche03 18Oct2026: official complete published diary transcription visually read online, not the autograph manuscript. June30 departure with father John, 1852 stepmother Ann Green (birth mother Emeline Keaton d1844), Abraham, Catherine/Kate; July8 Miller company organization; Sept9 South Pass, Sept29 Isaac in Salt Lake City, wagon company Sept30. Official company profile administratively ends Sep10, not Isaac's physical arrival. Diary August1 says passed Curtis' Company, strongly plausibly Uriah Curtis with later son-in-law Edward Milo Webb Jr age5 after his father died July31; NO meeting inferred. Note sister-in-law term may be retrospective, July31 missing official online version but present other family copy. Preserve source variations. No original page JPG/PDF, no claim manuscript transcribed by assistant, no Atlas publication yet. Media Batch04 source audit: FamilySearch Digital Library now identifies and catalogs DIGITAL SCAN OF LATER PUBLISHED Mortenson family history vol1 (item 101134, image-book identifier 194973_01, 636 digital pp, holding printed copy at BYU–Idaho McKay Library). Official Church History transcript is explicitly FROM Mortenson vol1 pp48–55. No identified 1852 manuscript autograph shelfmark / repository / pixel. Copyright caution: only FamilySearch BOOK LINK added to Atlas source references, not downloaded book pages or claimed original diary JPG. Full report github:research/isaac-carling-media-batch-04-1852-diary-autograph-custody-20261018.md.",
+      "researchDetailStatus": "1952-diary-attributed-1852-entry-dated; official-transcript-and-1966-digitized-print-book-verified-original-autograph-unlocated",
+      "digitalPublishedVolumeUrl": "https://www.familysearch.org/library/books/records/item/101134-isaac-v-carling-family-history",
+      "digitalPublishedVolumeId": "194973_01",
+      "digitalPublishedVolumeCustody": "David O. McKay Library, BYU–Idaho (PRINTED FAMILY HISTORY, not autograph diary)",
+      "manuscriptAutographStatus": "unlocated-no-repository-or-image-verified",
+      "lastSourceProvenanceAudit": "2026-10-18"
     },
     {
       "id": "isaac-carling-marriages-sarah-1854-1857-original-gate",
@@ -2293,18 +2299,17 @@
       "name": "Isaac Van Wagoner Carling",
       "status": "media-batches-in-progress-pending-user-iphone-approval",
       "started": "2026-10-18",
-      "last_tranche": 18,
+      "last_tranche": 19,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "Media Batch04: exact 1852 Isaac Carling autograph-diary original manuscript custody check, not re-read already analyzed published Mortenson transcription; only capture if authentic image found, else one closed blocker and next distinct source.",
+      "next_tranche": "Media Batch05: pursue ONE distinct 17 Apr 1855 Isaac V Carling Millard County original United Order consecration/property trust deed signed/acknowledged Thomas R King. Require actual book/instrument/archival original and citation before media gallery; no diary, census, or portrait-composite reloop.",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "Media Batch03: Utah Archives Series81448 catalog lists Kane 1911 only Jan–Feb (Isaac died May). Exact Isaac 1911 original unresolved; independent daughter Asenath Emeline Carling Spencer 15May1924 Utah state certificate image captured unchanged (576x518 JPEG, checksum), gallery released in v3.9.60 awaiting GitHub Pages and user QA.",
-      "last_tranche_report": "research/isaac-carling-media-batch-03-utah-kane-1911-gap-and-1924-daughter-certificate-20261018.md",
+      "last_tranche_status": "Media Batch04: Isaac 1852 autograph diary manuscript unlocated/unverified; new exact FamilySearch digitized 1966 printed volume1 identifier 194973_01 pp48-55 located and linked honestly as source-only. NO manuscript image counted. Atlas v3.9.61 code committed; deployment still requires workflow verification.",
+      "last_tranche_report": "research/isaac-carling-media-batch-04-1852-diary-autograph-custody-20261018.md",
       "exceptions": [
-        "Isaac 1852 diary studied through Church History transcript of 1966 family history; autograph page scans not captured",
         "Miriam Hobson 1857 marriage/sealing original not yet found; reported birth 1843 places purported 1857 marriage before her 14th birthday; original verification pending.",
         "Miriam Hobson reported Aug1857 wedding (age13 per institutional derivative) conflicts with compiled 1859/age16/Fillmore narrative; original place,date,event type unverified",
         "Specific Orderville co-op store photo in FamilySearch Memories not retrievable unauthenticated; USU 1875 Orderville sketch and BYU MSS512/MSS879 person-specific original pages not yet inspected.",
@@ -2313,9 +2318,10 @@
         "1853 Isaac-to-Asenath proposal letter dated 19 June appears in later family-history transcription only; original autograph not inspected. Biography draft saved, not deployed or approved.",
         "Tranche13: relocation 1875 (1965 descendant arrival testimony) vs 1876 (later Carling family-history departure, ages favor 1876), original exact day not confirmed. Biography now says mid-1870s; preserve both reports.",
         "Media Batch02: period Orderville town photograph circa1900 captured from USU RRA Plate548X, Church Archives P-1093-12. Authenticated Isaac portrait still zero; UofUtah numbered photo 15652 has ©2012 all-rights-reserved so not copied; Utah death certificate/1852 autograph remain pending.",
-        "Media Batch03: official Utah 1911 Kane Series81448 inventory folder only Jan–Feb, so reported May24 Isaac death not covered; no Isaac original cert captured. Daughter Asenath Emeline's separate 1924 original civil-record image downloaded from family site as 576x518 web copy and embedded for parentage; archive-master not held."
+        "Media Batch03: official Utah 1911 Kane Series81448 inventory folder only Jan–Feb, so reported May24 Isaac death not covered; no Isaac original cert captured. Daughter Asenath Emeline's separate 1924 original civil-record image downloaded from family site as 576x518 web copy and embedded for parentage; archive-master not held.",
+        "Media Batch04: FamilySearch digitized 1966 printed Carling family history v1 item 101134/194973_01 (pp48–55 diary) located; Church History official transcription quotes this PRINT book. Original 1852 handwriting's survival/custody/accession remains UNVERIFIED and no pixels copied. Copyright warning on digital book; Atlas uses SOURCE-only link."
       ],
-      "publishedVersion": "v3.9.60",
+      "publishedVersion": "v3.9.61",
       "publishedUrl": "https://68zvh8wpzp-boop.github.io/ancestry-atlas/",
       "releaseWorkflow": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/actions/runs/39156145777"
     },
