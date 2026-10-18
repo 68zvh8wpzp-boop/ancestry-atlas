@@ -1,0 +1,35 @@
+name: Capture 1924 Asenath Carling Spencer death certificate scan (one batch)
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/capture-carling-daughter-1924-death-certificate.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: capture-carling-daughter-1924-certificate
+  cancel-in-progress: false
+jobs:
+  preserve-one-certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install image format verifier
+        run: python3 -m pip install --disable-pip-version-check Pillow
+      - name: Download and verify daughter's 1924 civil certificate
+        run: python3 scripts/capture-carling-daughter-1924-death-certificate.py
+      - name: Commit unchanged hosted certificate scan and provenance manifest
+        run: |
+          set -eu
+          git config user.name "ancestry-atlas-archive-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/isaac-carling/1924-asenath-emeline-carling-spencer-death-certificate-source.jpg
+          git add assets/isaac-carling/1924-asenath-emeline-carling-spencer-death-certificate-manifest.json
+          if git diff --cached --quiet; then
+            echo "Already preserved exact unchanged scan and manifest."
+            exit 0
+          fi
+          git commit -m "Preserve Asenath Emeline Carling Spencer original 1924 death certificate scan"
+          git push origin HEAD:main
