@@ -48,8 +48,8 @@ Translation: Sarah E. Webb, 24, female, recorded white, married, keeping house; 
 Original: 41; — Owen A.; W; M; 2; [blank]; Son; / [single]; [blank]; [blank]; ” [Utah]; Mo; Utah
 Translation: Owen A. [Webb], 2, male, recorded white, single, son in Sarah’s entry; born Utah, father Missouri, mother Utah. Surname continued. Father’s name is not supplied here.
 
-Original: 42; — C[illegible] A.; W; F; 5/12; Dec; daughter; / [single]; [blank]; [blank]; ”; ”; ”
-Translation: Female infant with partly obscured given name and middle initial A., five months, single, daughter in Sarah’s entry; birth month December; born Utah, father Missouri, mother Utah by ditto marks. The given name remains partly obscured.
+Original (18 October re-read): 42; — C[partly illegible] A.; W; F; 5/12; Dec; Gr daughter [abbreviated; appears to mean granddaughter]; / [single]; [faint overwritten occupation mark, unreadable]; [unreadable mark]; ” [Utah]; Mo; ” [Utah]
+Translation (18 October re-read): A five-month-old girl born in December with a partly obscured given name and ending initial A. The relationship appears to read 'Gr daughter', NOT simply daughter. If intended to mean granddaughter, that designation is chronologically unusual for Sarah E. Webb, who is recorded as age 24. It is retained exactly as a caution, not adopted as a verified biological relationship. Birthplaces are reported as Utah, father Missouri, mother Utah; overwritten occupation/months-unemployed marks are not interpreted.
 
 ## Other marks and evidence limits
 
@@ -62,3 +62,11 @@ Edward’s mother is reported born New York here. His1921deathcertificate names 
 Original captured;10target/context rows transcribed, partial given-name uncertainty retained. Approved narration/audio and underlying FamilySearch tree unchanged. No full-person-audit or iPhone-verification claim.
 
 Unmodified original: 7528×8824; 5728587bytes; SHA256 978d8682eea11e51e5d7794f97045a647e6221ee3b68afdb1fe0b96b6897a475.
+
+## 18 October 2026 — original-column verification, rows 40–49
+
+All ten rows of Sarah E. Webb's separate entry (dwelling 137 / family 170, lines 40–42) and Edward M. Webb's entry (dwelling 138 / family 171, lines 43–49) reexamined on the same intact 7,528×8,824 JPEG; SHA-256 `978d8682eea11e51e5d7794f97045a647e6221ee3b68afdb1fe0b96b6897a475`. Exact mark/column results recorded in `research/edward-jr-census-full-pages/1880-orderville.json` under `verified_target_and_adjacent_full_columns`, commit `ebcf5ff6b1dcbc8c68027d3194e3f8b432aabf4b`.
+
+**Correction:** line 42's relationship appears as `Gr daughter`, abbreviated in original, not simply `daughter`. The girl is recorded as 5/12 with December in the birth-month column; given name partly obscured. No biological granddaughter assignment or normalized child identity follows from this anomalous entry. Line 43 confirms Edward, 33, schoolteacher, `3` months unemployed; a faint slash in his health area is not evidence of a specific illness. Lines 45–46 have school-attendance slashes; no illiteracy inference for younger children whose columns were not asked. Edward's mother born N.Y. remains in conflict with later death-certificate Ohio information. Approved narration and published page unchanged.
+
+**Gate:** The ten materially relevant rows have had their recorded columns checked, with explicit uncertainties. The other 40 original-page rows remain provisional and are not represented as a completed exact full-page diplomatic transcript. No FamilySearch edits or new people added.
