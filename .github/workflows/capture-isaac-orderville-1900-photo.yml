@@ -1,0 +1,33 @@
+name: Preserve Isaac Orderville 1900 historical photo (one-time)
+on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/capture-isaac-orderville-1900-photo.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: isaac-orderville-1900-image-preservation
+  cancel-in-progress: false
+jobs:
+  capture-one-photo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install photo validation
+        run: python3 -m pip install --disable-pip-version-check Pillow
+      - name: Capture institution JPEG unchanged and validate picture
+        run: python3 scripts/capture-isaac-orderville-1900-photo.py
+      - name: Commit preserved image and exact museum provenance
+        run: |
+          set -eu
+          git config user.name "ancestry-atlas-archive-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/isaac-carling/orderville-townscape-circa-1900-usu-plate548x-original-web.jpg assets/isaac-carling/orderville-townscape-circa-1900-usu-plate548x-manifest.json
+          if git diff --cached --quiet; then
+            echo "Exact institution JPEG already present, no repeat capture commit."
+            exit 0
+          fi
+          git commit -m "Preserve USU ca1900 Orderville historic townscape as context, not Isaac portrait"
+          git push origin HEAD:main
