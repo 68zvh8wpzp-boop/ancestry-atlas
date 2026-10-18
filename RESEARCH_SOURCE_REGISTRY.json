@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-10-17",
+  "updated": "2026-10-18",
   "records": [
     {
       "id": "alpena-godfrey-naturalization-1917-1921",
@@ -828,6 +828,79 @@
         "github:assets/edward-webb-jr/charlotte-maxwell-portrait-original.png"
       ],
       "note": "BYU Religious Studies Center, Pioneer Women of Arizona, W; CHARLOTTE_MAXWELL_WEBB.png. Published archive image preserved without modification. Inspected: no visible text. Original bytes retained; scheduled for v3.9.52 gallery."
+    },
+    {
+      "id": "edward-jr-irene-biography",
+      "personId": "KVPR-ZP3",
+      "event": "biography",
+      "sourceKeys": [
+        "fs:memory:136111371",
+        "fs:storage:TH-7734-111912-500-80"
+      ],
+      "status": "saved",
+      "evidence": "github:research/edward-jr-continuation-20261017.md",
+      "originalRefs": [
+        "github:assets/edward-webb-jr/irene-merrell-biography-original.pdf"
+      ],
+      "note": "All ten pages visually read. Original preserved. Exact full transcription remains pending; education summary/detail discrepancy recorded."
+    },
+    {
+      "id": "edward-jr-1920-census",
+      "personId": "KVPR-ZP3",
+      "event": "census",
+      "sourceKeys": [
+        "fs:ark:1:1:MCRP-R2R"
+      ],
+      "status": "saved",
+      "evidence": "github:research/edward-jr-continuation-20261017.md",
+      "originalRefs": [
+        "github:assets/edward-webb-jr/edward-ellen-1920-original.jpg"
+      ],
+      "note": "Full original captured; target lines 34\u201337 visually read. Full-page transcription and publication preview pending."
+    },
+    {
+      "id": "edward-jr-daughters-photo",
+      "personId": "KVPR-ZP3",
+      "event": "family-photo",
+      "sourceKeys": [
+        "fs:memory:14651798"
+      ],
+      "status": "saved",
+      "evidence": "github:research/edward-jr-continuation-20261017.md",
+      "originalRefs": [
+        "github:assets/edward-webb-jr/edward-with-daughters-original.png"
+      ],
+      "note": "Full original inspected; no image text. Seven daughters; only five named tags, positions not assigned. Prepared for eight-photo gallery."
+    },
+    {
+      "id": "edward-jr-four-generations-photo",
+      "personId": "KVPR-ZP3",
+      "event": "family-photo",
+      "sourceKeys": [
+        "fs:memory:1697658"
+      ],
+      "status": "saved",
+      "evidence": "github:research/edward-jr-continuation-20261017.md",
+      "originalRefs": [
+        "github:assets/edward-webb-jr/edward-four-generations-original.jpg"
+      ],
+      "note": "Full original inspected; handwritten 60 transcribed with translation. Four generations identified by attributed family comment, not all sons."
+    },
+    {
+      "id": "edward-jr-lois-1898-birth",
+      "personId": "KVPR-ZP3",
+      "event": "child-birth",
+      "sourceKeys": [
+        "fs:ark:1:1:QGCK-GHJ7",
+        "fs:ark:3:1:33SQ-G5WB-NBZ"
+      ],
+      "status": "saved",
+      "evidence": "github:research/edward-jr-continuation-20261017.md",
+      "originalRefs": [
+        "github:assets/edward-webb-jr/lois-1898-birth-original.jpg",
+        "github:assets/edward-webb-jr/lois-1898-birth-continuation-original.jpg"
+      ],
+      "note": "Both original pages captured and target No153 visually read. Presenter A.M.Termey is not mother; mother written Ella Webb. Exact paired transcript pending. Father Iowa birthplace conflicts with other evidence; preserve as written."
     }
   ],
   "tasks": [
@@ -878,11 +951,35 @@
       "action": "inspect-original",
       "state": "paused",
       "novelty": "Read full image and metadata for family-photo publication: person gallery omitted this named memory; not a repeat census or already preserved photo acquisition. Original memory review pending; browser connection stalled. Distinct public BYU photographs handled separately; do not assume memory duplication."
+    },
+    {
+      "id": "edward-jr-irene-full-transcript",
+      "recordId": "edward-jr-irene-biography",
+      "owner": "work",
+      "action": "transcribe-original",
+      "state": "active",
+      "novelty": "Pages2-10 of tenpage PDF not previously inspected; now captured original requires full reading and transcription for the remaining person audit."
+    },
+    {
+      "id": "edward-jr-1920-transcript",
+      "recordId": "edward-jr-1920-census",
+      "owner": "work",
+      "action": "transcribe-original",
+      "state": "active",
+      "novelty": "Captured final census original; target household read but full-page paired transcription remains to be completed."
+    },
+    {
+      "id": "edward-jr-lois-birth-transcript",
+      "recordId": "edward-jr-lois-1898-birth",
+      "owner": "work",
+      "action": "transcribe-original",
+      "state": "active",
+      "novelty": "Two-page original captured; exact Spanish transcription and immediate English translation required before document publication."
     }
   ],
   "coverage": {
     "kind": "selected-records-only",
-    "coveredRecords": 56,
+    "coveredRecords": 61,
     "allAncestorOriginalsAudited": false,
     "note": "Missing register entry is UNKNOWN, never proof that an original has not been examined. Backfill from historical audits and FamilySearch Media before proposing work."
   }
