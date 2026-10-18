@@ -1922,7 +1922,7 @@
       "personId": "KWJ8-5XJ",
       "atlasPersonId": "isaac_carling",
       "event": "user-accepted-museum-biography-and-original-media-audit",
-      "status": "published",
+      "status": "examined",
       "title": "User approved Isaac Van Wagoner Carling's v3.9.62 museum page; next parents John Carling and Emeline Keaton",
       "sourceKeys": [
         "github:research/isaac-carling-user-approved-parent-handoff-20261018.md",
@@ -1931,7 +1931,8 @@
       "sourceUrl": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/blob/main/research/isaac-carling-user-approved-parent-handoff-20261018.md",
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-user-approved-parent-handoff-20261018.md",
-      "note": "Explicit user approval received 2026-10-18, no remaining user iPhone review requirement for Isaac. Close all Isaac current-person research by default. Parent identities in published 1831 biography: father John Carling, biological mother Emeline Keaton, stepmother Ann Green. John and Emeline do not yet have their own live Atlas graph nodes; stage John Carling as next individual person with no invented vital dates or FamilySearch identifier; Emeline after John. Preserve former uncertainties without reopening Isaac unless separately requested."
+      "note": "Explicit user approval received 2026-10-18, no remaining user iPhone review requirement for Isaac. Close all Isaac current-person research by default. Parent identities in published 1831 biography: father John Carling, biological mother Emeline Keaton, stepmother Ann Green. John and Emeline do not yet have their own live Atlas graph nodes; stage John Carling as next individual person with no invented vital dates or FamilySearch identifier; Emeline after John. Preserve former uncertainties without reopening Isaac unless separately requested. Schema correction: 'examined' is correct status for user approval governance item, since the record is NOT an original archival artifact; v3.9.62 app release remains published, and separate source/media records retain their actual 'saved' status.",
+      "researchDetailStatus": "user-approved-published-museum-page-not-an-original-archival-source"
     }
   ],
   "tasks": [
