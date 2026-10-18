@@ -1721,6 +1721,22 @@
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-10-museum-biography-review-20261018.md",
       "note": "18 Oct2026 Tranche10: third-person museum biography, separate Orderville and 1852 crossing notes, 12+4 family roster and evidence ledger drafted and GitHub committed. Uses original 1854 newspaper visually checked in Tranche05, official published attribution to 1852 diary (not autograph), retrospective work/music/botanical traditions and 1876 relocation (not newly proved original). Newly noted 19 June 1853 Isaac-to-Asenath proposal letter solely in family-history transcription, no original letter pixels. Board titles/Miriam marriage date/USU artist/certificate original uncertain. NO deployed biography, media capture, user approval or changed FS tree."
+    },
+    {
+      "id": "isaac-carling-visual-164147651-pedigree-access-gate",
+      "personId": "KWJ8-5XJ",
+      "atlasPersonId": "isaac_carling",
+      "event": "historical-photograph-candidate-access",
+      "title": "Isaac Van Wagoner Carling tagged on Lyle George Porter Picture Pedigree Chart, FamilySearch Memory 164147651",
+      "status": "person-tag-metadata-only-composite-original-pixels-identity-unverified",
+      "sourceKeys": [
+        "familysearch:memory:164147651",
+        "fs:memory:164147651:filename:504559_1655086t279j263i4v1ob6_A.jpg"
+      ],
+      "sourceUrl": "https://www.familysearch.org/en/memories/memory/164147651",
+      "originalRefs": [],
+      "evidence": "github:research/isaac-carling-tranche-11-photo-candidate-access-20261018.md",
+      "note": "Tranche11 18 Oct2026: exact person-tagged public FamilySearch memory for a modern picture-pedigree chart, contributor Josie846, contributed Dec4 2022; Isaac and Asenath among many tagged. Actual image/inset unavailable in web text/current container (timeout/DNS), no claim Isaac appears visually, no camera original, author/date/resolution/permission. DO NOT add portrait/gallery. Separate already known crowd photo memory166185359 not rechecked. Next exact Work signed-in view of memory164147651, inspect original individual inset if present and provenance; avoid 239 item sweep."
     }
   ],
   "tasks": [
@@ -2204,16 +2220,16 @@
       "name": "Isaac Van Wagoner Carling",
       "status": "active",
       "started": "2026-10-18",
-      "last_tranche": 10,
+      "last_tranche": 11,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "Tranche 11: one authentic high-value Isaac period portrait/photograph from already inventoried FamilySearch Memories; inspect actual image and attribution, preserve highest permitted resolution with museum caption or record precise access exception. Do not repeat 239-memory/source inventory.",
+      "next_tranche": "Tranche 12: open exact FamilySearch Memory 164147651 in user-authorized signed-in Work browser or original accessible export; inspect whether there is a genuinely attributable Isaac photographic image and find its source original or reject; no mass memory sweep",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "finished source-weighted museum biography and separate historical context saved for review; not published, 1853 proposal letter only in later transcription",
-      "last_tranche_report": "research/isaac-carling-tranche-10-museum-biography-review-20261018.md",
+      "last_tranche_status": "metadata-only one named composite photo candidate found; actual Isaac portrait not authenticated or captured; image remains access-blocked",
+      "last_tranche_report": "research/isaac-carling-tranche-11-photo-candidate-access-20261018.md",
       "exceptions": [
         "1911 Utah original death certificate not captured; series 81448 image access requires interactive browser",
         "Isaac 1852 diary studied through Church History transcript of 1966 family history; autograph page scans not captured",
@@ -2223,7 +2239,8 @@
         "Specific Orderville co-op store photo in FamilySearch Memories not retrievable unauthenticated; USU 1875 Orderville sketch and BYU MSS512/MSS879 person-specific original pages not yet inspected.",
         "USU UUS_P0143 Box1 Folder15 1875 Isaac Carling-attributed sketch and 3 letters are cataloged but no online pixels/letters linked; a single, unsent reference/reproduction inquiry is prepared; artist/date/rights unverified.",
         "BYU MSS512 has physical Orderville board/departments originals, but no named Isaac folio or online readable page; Huntington MSS MFilm00207 digitized 779-frame comparable original copies have no Isaac-named indexed frame, current binary/interactive access blocked.",
-        "1853 Isaac-to-Asenath proposal letter dated 19 June appears in later family-history transcription only; original autograph not inspected. Biography draft saved, not deployed or approved."
+        "1853 Isaac-to-Asenath proposal letter dated 19 June appears in later family-history transcription only; original autograph not inspected. Biography draft saved, not deployed or approved.",
+        "Tranche11 FamilySearch Memory 164147651 tagged picture-pedigree composite: metadata preserved but no actual Isaac-named original photographic pixels or usage rights obtained (signed-in browser/DNS access limit)."
       ]
     }
   }
