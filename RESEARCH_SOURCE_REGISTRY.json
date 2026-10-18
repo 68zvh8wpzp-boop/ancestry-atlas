@@ -1545,6 +1545,23 @@
       "originalRefs": [],
       "sourceUrl": "https://archives.utah.gov/research/index-death/",
       "note": "Tranche 02 18 Oct: targeted original-image retrieval attempted Utah Archives name index, series81448 CONTENTdm digital viewer, FamilySearch 1904-1966 partner collection, and container direct HTTPS. No individual certificate ID or viewable original returned: name index needs interactive form, CONTENTdm viewer returned JavaScript Required; FamilySearch collection only exposed general search, container failed DNS. DO NOT claim death certificate transcription, cause/informant/parents or original capture. Death date 1911-05-24 supported by institutional summary/derivative index only. No repeat public index sweep. Resume ONLY when signed-in/interactive browser can open original. See recorded report."
+    },
+    {
+      "id": "isaac-carling-1852-diary-transcript",
+      "personId": "KWJ8-5XJ",
+      "atlasPersonId": "isaac_carling",
+      "event": "1852-migration-first-person-diary",
+      "status": "official-published-transcript-reviewed-original-manuscript-not-captured",
+      "title": "Isaac V. Carling [Diary], 1852 June 30–September 30, transcribed in Elda Mortenson, Isaac V. Carling Family History, v.1 pp.48–55",
+      "sourceKeys": [
+        "chdb:transcript:carling-isaac-v-diary-in-elda-mortenson",
+        "chdb:PER-6SFMYP8:1852-migration",
+        "bibliography:Mortenson:CarlingFamilyHistory:v1:48-55"
+      ],
+      "sourceUrl": "https://history.churchofjesuschrist.org/chd/transcript?lang=eng&name=transcript-for-carling-isaac-v-diary-in-elda-mortenson-comp-isaac-v-carling",
+      "originalRefs": [],
+      "evidence": "github:research/isaac-carling-tranche-03-1852-diary-analysis-20261018.md",
+      "note": "Tranche03 18Oct2026: official complete published diary transcription visually read online, not the autograph manuscript. June30 departure with father John, 1852 stepmother Ann Green (birth mother Emeline Keaton d1844), Abraham, Catherine/Kate; July8 Miller company organization; Sept9 South Pass, Sept29 Isaac in Salt Lake City, wagon company Sept30. Official company profile administratively ends Sep10, not Isaac's physical arrival. Diary August1 says passed Curtis' Company, strongly plausibly Uriah Curtis with later son-in-law Edward Milo Webb Jr age5 after his father died July31; NO meeting inferred. Note sister-in-law term may be retrospective, July31 missing official online version but present other family copy. Preserve source variations. No original page JPG/PDF, no claim manuscript transcribed by assistant, no Atlas publication yet."
     }
   ],
   "tasks": [
@@ -2028,18 +2045,19 @@
       "name": "Isaac Van Wagoner Carling",
       "status": "active",
       "started": "2026-10-18",
-      "last_tranche": 2,
+      "last_tranche": 3,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "Tranche 03: original or institutional transcript of Isaac V. Carling 1852 diary, CHD identifies vol. 1 pp. 48–55; no repeated 1911 death-certificate index work",
+      "next_tranche": "Tranche 04: one original Isaac Carling wife/family record validating Sarah Elizabeth and/or 1854 Asenath / 1857 Miriam marriage; no retread of census or 239 memories",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "closed with documented original-image access blocker",
-      "last_tranche_report": "research/isaac-carling-tranche-02-death-certificate-attempt-20261018.md",
+      "last_tranche_status": "institutional complete published diary transcription reviewed; source-critical analysis committed; original manuscript not obtained",
+      "last_tranche_report": "research/isaac-carling-tranche-03-1852-diary-analysis-20261018.md",
       "exceptions": [
-        "1911 Utah original death certificate not captured; series 81448 image access requires interactive browser"
+        "1911 Utah original death certificate not captured; series 81448 image access requires interactive browser",
+        "Isaac 1852 diary studied through Church History transcript of 1966 family history; autograph page scans not captured"
       ]
     }
   }
