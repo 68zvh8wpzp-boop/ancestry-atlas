@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-18",
+  "person": "Edward Milo Webb Jr.",
+  "personId": "KVPR-ZP3",
+  "scope": "Static source manifest of the eight actually included photographs in atlas-v3.9.56.html. No live-device/gallery rendering claim and no new original image binary download.",
+  "count": 8,
+  "photos": [
+    {
+      "id": "jr-portrait",
+      "title": "Edward Milo Webb Jr.",
+      "asset": "biographies/webb-branch/people/edward_milo_jr/assets/edward_milo_jr_portrait.jpg",
+      "notes": "archival portrait"
+    },
+    {
+      "id": "jr-sarah-1891",
+      "title": "Sarah Elizabeth Carling Webb and five children",
+      "asset": "biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_sarah_children_1891_family_use.png",
+      "notes": "BYU/family-use 1891"
+    },
+    {
+      "id": "jr-charlotte-1891",
+      "title": "Charlotte Maxwell Webb and three children",
+      "asset": "assets/edward-webb-jr/charlotte-children-1891-original.png",
+      "notes": "1891 image credited to Thomas, Uncertain Sanctuary, p.54; Lee, Estelle, Louie"
+    },
+    {
+      "id": "jr-charlotte-portrait",
+      "title": "Charlotte Maxwell Webb",
+      "asset": "assets/edward-webb-jr/charlotte-maxwell-portrait-original.png",
+      "notes": "BYU image"
+    },
+    {
+      "id": "jr-ellen-family",
+      "title": "Ellen Ashman Webb with eight children",
+      "asset": "assets/edward-webb-jr/ellen-eight-children-original.jpg",
+      "notes": "FamilySearch Memory 121459883; individual positions unconfirmed"
+    },
+    {
+      "id": "jr-brothers",
+      "title": "Edward Milo Webb Jr. and Francis Adelbert Webb",
+      "asset": "assets/edward-webb-jr/edward-francis-brothers-original.png",
+      "notes": "FamilySearch Memory 75272439; standing identity attributed"
+    },
+    {
+      "id": "jr-daughters",
+      "title": "Edward Milo Webb Jr. with seven daughters",
+      "asset": "assets/edward-webb-jr/edward-with-daughters-original.png",
+      "notes": "FamilySearch Memory 14651798; two positions unassigned"
+    },
+    {
+      "id": "jr-four-generations",
+      "title": "Four generations of Edward Milo Webb",
+      "asset": "assets/edward-webb-jr/edward-four-generations-original.jpg",
+      "notes": "FamilySearch Memory 1697658; identification attributed to comment"
+    }
+  ],
+  "charlotte_duplicate_resolution": {
+    "reported_missing_title": "Charlotte Martha Maxwell Webb - children Louie, Lee, Estelle",
+    "published_gallery_id": "jr-charlotte-1891",
+    "published_original": "assets/edward-webb-jr/charlotte-children-1891-original.png",
+    "independent_public_credit": "https://rsc.byu.edu/pioneer-women-arizona/w",
+    "public_bitmap": "https://rsc.byu.edu/sites/default/files/pub_content/image/8256/CHARLOTTE_WEBB.png",
+    "outcome": "Gallery photo was ALREADY published: do not capture/republish duplicate. A particular FamilySearch memory with the same title has not been individually compared pixel-for-pixel, so a distinct version remains possible and should be handled only if actually observed."
+  },
+  "next": "Authenticate FamilySearch and inspect ONE genuinely uncaptured, relevant Memory at a time, not the 8 already published and not all 125 on assumption of novelty.",
+  "limitations": [
+    "The app photo assets are referenced and present in the repository but this turn did not decode all eight binary assets.",
+    "Live rendered controls and user iPhone validation remain separate.",
+    "No FamilySearch Memories content was edited."
+  ]
+}
