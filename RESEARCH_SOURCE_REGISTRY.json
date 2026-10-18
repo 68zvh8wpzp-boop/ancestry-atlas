@@ -1834,6 +1834,26 @@
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-15-atlas-v3.9.57-release-20261018.md",
       "note": "18 Oct 2026: real GitHub Pages deployment succeeded via Actions run 39156145777, commit f984601b. index.html and manifest both point to atlas-v3.9.57.html with iphone-refresh token; production Isaac JS overlay loaded near end of released page; six link-only references and two historical notes, full biography, zero fabricated media. Static/emulated runtime QA passed. User has NOT validated on iPhone. Previously unavailable originals remain named research exceptions."
+    },
+    {
+      "id": "isaac-carling-orderville-1900-usu-rra-period-place-photo",
+      "personId": "KWJ8-5XJ",
+      "atlasPersonId": "isaac_carling",
+      "event": "historic-place-photography",
+      "status": "saved",
+      "title": "Orderville, Utah, circa 1900 — historic townscape, USU RRA Plate 548X",
+      "sourceKeys": [
+        "usu:rra:orderville:plate548x:historic-photo:1900",
+        "church-archives:photo:P-1093-12:orderville"
+      ],
+      "sourceUrl": "https://extension.usu.edu/rra/photos/orderville-utah-2",
+      "originalRefs": [
+        "github:assets/isaac-carling/orderville-townscape-circa-1900-usu-plate548x-original-web.jpg"
+      ],
+      "evidence": "github:assets/isaac-carling/orderville-townscape-circa-1900-usu-plate548x-original-web.jpg",
+      "assetManifest": "github:assets/isaac-carling/orderville-townscape-circa-1900-usu-plate548x-manifest.json",
+      "note": "Media Batch02: Utah State University Extension RRA Plate548X circa1900 town photograph, original print Church Archives P-1093-12, photographer not named. Unchanged 1500x1000 published institution JPEG 348849 bytes saved, SHA256 4f258b39f84019be837736bb4050f1247a6dfcad19c5e63f2bd9ab7e72808f6f. Image is an authentic historical PLACE view only; Isaac's face/identity NOT established. Gallery under historical places, not portrait. Item page rights not explicit; no assertion of user-owned original print.",
+      "researchDetailStatus": "historical-context-photo-web-JPEG-captured-person-not-identified"
     }
   ],
   "tasks": [
@@ -2252,16 +2272,16 @@
       "name": "Isaac Van Wagoner Carling",
       "status": "media-batches-in-progress-pending-user-iphone-approval",
       "started": "2026-10-18",
-      "last_tranche": 16,
+      "last_tranche": 17,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "Media Batch02: seek one DIFFERENT named original (prefer 1911 Utah death certificate, otherwise 1852 Isaac diary autograph); capture file bytes and visual QA before a distinct album update; do not recheck 1854 source or 239 Memories.",
+      "next_tranche": "Media Batch03: capture ONE 1911 Kane County Utah original death certificate (series 81448 / FamilySearch 1747615) from verifiable original image, or close exact access block once; then diary original only if a discrete new source.",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "Media Batch01: exact original 1854 Carling/Browning newspaper page PDF captured and SHA256 recorded (308420 bytes), fullpage JPEG and notice-detail PNG derived, album code published as v3.9.58 awaiting GitHub Pages gate.",
-      "last_tranche_report": "research/isaac-carling-tranche-15-atlas-v3.9.57-release-20261018.md",
+      "last_tranche_status": "Media Batch02: ca1900 USU Orderville institutional JPEG (1500x1000) captured untouched, checksum/custody documented, integrated into v3.9.59 as historical PLACE photo, NOT authenticated Isaac portrait. Personal portrait total zero.",
+      "last_tranche_report": "research/isaac-carling-media-batch-02-orderville-photo-20261018.md",
       "exceptions": [
         "1911 Utah original death certificate not captured; series 81448 image access requires interactive browser",
         "Isaac 1852 diary studied through Church History transcript of 1966 family history; autograph page scans not captured",
@@ -2272,9 +2292,9 @@
         "BYU MSS512 has physical Orderville board/departments originals, but no named Isaac folio or online readable page; Huntington MSS MFilm00207 digitized 779-frame comparable original copies have no Isaac-named indexed frame, current binary/interactive access blocked.",
         "1853 Isaac-to-Asenath proposal letter dated 19 June appears in later family-history transcription only; original autograph not inspected. Biography draft saved, not deployed or approved.",
         "Tranche13: relocation 1875 (1965 descendant arrival testimony) vs 1876 (later Carling family-history departure, ages favor 1876), original exact day not confirmed. Biography now says mid-1870s; preserve both reports.",
-        "Media Batch01: 1854 marriage ORIGINAL PDF now captured unchanged with SHA256 and two honest derivative viewing images; awaiting actual v3.9.58 Pages deployment/iPhone gallery QA. Other unacquired photos/docs still outstanding."
+        "Media Batch02: period Orderville town photograph circa1900 captured from USU RRA Plate548X, Church Archives P-1093-12. Authenticated Isaac portrait still zero; UofUtah numbered photo 15652 has ©2012 all-rights-reserved so not copied; Utah death certificate/1852 autograph remain pending."
       ],
-      "publishedVersion": "v3.9.58",
+      "publishedVersion": "v3.9.59",
       "publishedUrl": "https://68zvh8wpzp-boop.github.io/ancestry-atlas/",
       "releaseWorkflow": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/actions/runs/39156145777"
     },
