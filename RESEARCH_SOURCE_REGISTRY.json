@@ -688,7 +688,7 @@
       "originalRefs": [
         "library:file_00000000f92081fd994215be62629b7d"
       ],
-      "note": "1880original captured; Edward33Schoolteacher,Ellen26wife and5children explicitly related. SarahE24with2children in preceding separateentry; no census-only crosshouseholdspouseclaim. MotherbirthNYretained vs1921deathcertificateOhio.10rows paired; fullpagepending.",
+      "note": "1880 original intact and ten target/adjacent rows 40–49 verified 18 Oct. Edward 33 schoolteacher, 3 months unemployed; Ellen 26 explicitly wife, five named children. Separate Sarah E. 24 household records Owen A. as Son and an infant whose relationship appears 'Gr daughter' (chronologically anomalous); her exact given name/kinship unresolved. Do not infer Sarah-Edward spouse or infant parentage solely from census. Mother birthplace NY conflicts with 1921 certificate Ohio. Other 40 original rows remain provisional.",
       "originalUrls": [
         "https://archive.org/download/10thcensus1336unit/page/n549.jpg"
       ],
@@ -1526,7 +1526,7 @@
       "owner": "work",
       "action": "transcribe-original",
       "state": "paused",
-      "novelty": "Original saved; ten target/context rows paired. Remaining fullpage transcript and obscured infant givenname require focused reading, not another original search."
+      "novelty": "Original re-read 18 Oct: rows40–49 full target/adjacent column review complete; anomalous line42 'Gr daughter' recorded. The remaining 40 unrelated page rows are only provisional; retain obscure infant name as exception, do not rescan or infer genealogy. See canonical 1880 JSON + source-review addendum."
     },
     {
       "id": "edward-jr-charlotte-family-photo-inspect",
