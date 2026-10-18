@@ -24,6 +24,17 @@ if(Array.isArray(p.historicalNotes)){
   if(order&&Array.isArray(order.paragraphs)&&order.paragraphs.length>1)
     order.paragraphs[1]="The cooperative economic system was distinct from plural marriage and from an individual's church calling. Family recollections place Isaac's carpentry and painting in the setting of Orderville's workshops, although his precise administrative titles are less certain.";
 }
+// Prior biography module merges by its legacy title on each load. Once the
+// museum title is updated, a subsequent load could append a second copy.
+// Normalize and deduplicate stable titles so iPhone refresh remains safe.
+if(Array.isArray(p.historicalNotes)){
+ const seen=new Set();
+ p.historicalNotes=p.historicalNotes.filter(note=>{
+   const key=String(note.title||'');
+   if(seen.has(key))return false;
+   seen.add(key);return true;
+ });
+}
 const ev=p.evidence||[];
 function amend(id,changes){
   const e=ev.find(x=>x.id===id);
