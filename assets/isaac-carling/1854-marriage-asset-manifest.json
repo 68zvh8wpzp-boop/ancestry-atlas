@@ -1,0 +1,20 @@
+{
+  "subject": "Isaac Van Wagoner Carling and Asenath Elizabeth Browning marriage notice",
+  "publication": "Deseret News",
+  "issue_date": "1854-11-23",
+  "volume": "4",
+  "issue": "37",
+  "page": "3",
+  "event_date": "1854-11-17",
+  "event_place": "Ogden City, Utah Territory",
+  "officiant": "Ezra T. Benson",
+  "original_pdf": "1854-deseret-news-p3-marriage-original.pdf",
+  "original_url": "https://newspapers.lib.utah.edu/udn_files/e7/54/e754867dc2a2b533fd0e62e58209eecd3876ed28.pdf",
+  "original_sha256": "e8eb7ae86f6e8a7f5a247b6ad0fc3159675df3e948290cff8514a77b4e27d4be",
+  "original_bytes": 308420,
+  "source_page": "https://archiveviewer.org/viewer/utah-digital-newspapers/2581309",
+  "fullpage_rendition": "1854-deseret-news-p3-fullpage-view.jpg",
+  "magnified_notice_excerpt": "1854-isaac-asenath-marriage-notice-view.png",
+  "excerpt_crop_type": "derivative-view-crop; automatic tonal contrast, not source-original",
+  "verification_note": "PDF identified by original issue/page plus text-layer presence of Carling/Isaac; screenshot previously inspected. Post-capture human visual QA needed to verify crop contains legible entire notice."
+}
