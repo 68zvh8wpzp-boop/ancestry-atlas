@@ -1,7 +1,22 @@
-# ACTIVE ANCESTRY PERSON — Isaac Van Wagoner Carling
+# ACTIVE ANCESTRY PERSON — James Webb Jr. (1777–1845)
+
+**Current workstream:** direct paternal **Webb** line, FamilySearch `KWJ1-P2V`, Atlas `james_webb_jr`. **Activated 18 October 2026 after user explicitly requested a return to Webb, one tranche at a time.** This is a **parentage-proof research frontier**, not permission to rewrite the existing Atlas father/son relationships without an original. Isaac Van Wagoner Carling is CLOSED user-approved; John Carling → Emeline Keaton queue is safely PAUSED. Edward Milo Webb Jr. and previously approved Edward Sr. media/censuses are FROZEN.
+
+## Current Webb Tranche 01 — COMPLETE, SOURCES SAVED
+**Report:** `research/webb-tranche-01-1773-saybrook-third-church-chester-record-correction-20261018.md` (commit `746eaf6e2983d07080e151e36d6522ed724926d9`); registry item `webb-tranche01-1773-third-congregational-chester-attribution-20261018`.
+- **Verified attribution correction:** James Webb and Elizabeth Douglas 9 Dec 1773 marriage belongs to **Third Congregational Church of old Saybrook**, now **Chester, Connecticut**, not the First Congregational Church in today's Old Saybrook. This follows Bailey's scanned 1896 Second Book printed pp89–90; the text is **a copy/derivative**.
+- Third Church's main historical marriage records were reported mostly lost. The Connecticut State Library's Chester town guide specifies surviving later `L'Hommedieu` copied records for 1759–1835, official **CSL #344/#457, films 0005554 / 1008328**. These are **correctly scoped** and **NOT inspected original 1773 handwriting**.
+- The couple's relation to OUR **James Webb Jr. born ca1777, died 1845, KWJ1-P2V** remains **unproven**. Different James Webb men b1733 vs b1754 are documented conflation hazards. No premature candidate parent assignment or live Atlas tree mutation.
+- No photo/document original newly captured, no census retread, and no email, fees or FamilySearch editing.
+
+## Exactly ONE next research tranche — WEBB TRANCHE 02
+Examine the **Chester Third Church** copy or digitized film `0005554` / `1008328` for **9 Dec 1773 Webb–Douglas marriage entry** and, if its scope permits, **1774–1780 baptism/family membership** distinguishing a James b1777. Save a real image and exact film/folio only if actually viewed; otherwise record one concrete access limit without restarting the same broad searches. After this discrete tranche, checkpoint and STOP.
+
+## Archived previously active person — Isaac Van Wagoner Carling (closed user-approved)
+
 
 **Updated:** 18 October 2026
-**Only active person:** **Isaac Van Wagoner Carling** (1831–1911), FamilySearch `KWJ8-5XJ`; Atlas `isaac_carling`. User ordered **work in discrete tranches**. Complete one clearly bounded tranche, save evidence/registry/checkpoint, then stop rather than changing subjects or repeating scans.
+**Previously active (now CLOSED/user-approved):** **Isaac Van Wagoner Carling** (1831–1911), FamilySearch `KWJ8-5XJ`, Atlas `isaac_carling`. The following historical Isaac work log is retained for audit, **not the current work queue**.
 
 ## Approved prior person — do not reopen by default
 **Edward Milo Webb Jr.** (FamilySearch `KVPR-ZP3`, Atlas `edward_milo_jr`) was **approved by the user** on 18 October 2026 (their reply “Approved!”). Published v3.9.56; closure and named archival access exceptions saved in `research/edward-jr-iphone-approval-closeout-20261018.md`, commit `9475f0f7f8277ddef17f1b25ad34f7cfc154179c`. Completed original page inventories and photo galleries stay closed unless genuine new evidence changes his biography.
@@ -182,7 +197,7 @@ Completed **18 October 2026**. Full source-critical report `research/isaac-carli
 - Neither parent has a dedicated live Atlas person node or upward parent edge yet, so this is a **new person-review scope**. No made-up years, FamilySearch IDs or graph nodes have been created.
 - Isaac's full page passed its CI and media QA; no new screenshot, document or Atlas version necessary just to close the research approval. Pending original documents and non-identified portrait preserved as evidence exceptions, **not** a reason to reopen Isaac.
 
-## Exactly ONE next research person — JOHN CARLING
+## PAUSED Carling-person queue — JOHN CARLING, then EMELINE KEATON (not active)
 Treat **John Carling (father of Isaac Van Wagoner Carling)** as the first queued new direct ancestor. Begin with existing FamilySearch/original-record provenance and the 1852 family diary; establish his verified vital timeline, spouses (Emeline Keaton; later Ann Green), correct locations, ancestors, original images and biography in separate bounded tranches. **Do not start with guessed birth/death dates or invent a FamilySearch PID**. Research/publish John, seek user iPhone approval, then move to **Emeline Keaton** as the next queued person. No concurrent duplicate sweep.
 
 ## Future phases — only when queued
