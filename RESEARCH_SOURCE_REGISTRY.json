@@ -1534,17 +1534,17 @@
       "personId": "KWJ8-5XJ",
       "atlasPersonId": "isaac_carling",
       "event": "death",
-      "status": "date-corroborated-original-scan-pending",
+      "status": "original-access-blocked",
       "sourceKeys": [
         "chdb:PER-6SFMYP8",
         "utah:series81448:1911:kane",
         "fs:collection1747615"
       ],
       "title": "Isaac Van Wagoner Carling death, 24 May 1911 — Utah certificate original pending",
-      "evidence": "github:research/isaac-carling-tranche-01-death-burial-20261018.md",
+      "evidence": "github:research/isaac-carling-tranche-02-death-certificate-attempt-20261018.md",
       "originalRefs": [],
       "sourceUrl": "https://archives.utah.gov/research/index-death/",
-      "note": "Source-based first tranche 18 Oct. 1911-05-24 death in Church History Biographical Database and Kane County index. Place Orderville and burial 1911-05-25 in established tree+compiled family history. 1911 death certificate (Utah Archives series 81448) actual scan/certificate ID not yet obtained; original Kane County News clipping also not seen. Family-history kidney-trouble statement derivative only; exact time disputed. Historic parent Isaac (1831–1911) is not later Isaac W Carling (1894–1938). Do not recapture all secondary index records. User requested one tranche at a time."
+      "note": "Tranche 02 18 Oct: targeted original-image retrieval attempted Utah Archives name index, series81448 CONTENTdm digital viewer, FamilySearch 1904-1966 partner collection, and container direct HTTPS. No individual certificate ID or viewable original returned: name index needs interactive form, CONTENTdm viewer returned JavaScript Required; FamilySearch collection only exposed general search, container failed DNS. DO NOT claim death certificate transcription, cause/informant/parents or original capture. Death date 1911-05-24 supported by institutional summary/derivative index only. No repeat public index sweep. Resume ONLY when signed-in/interactive browser can open original. See recorded report."
     }
   ],
   "tasks": [
@@ -2028,14 +2028,19 @@
       "name": "Isaac Van Wagoner Carling",
       "status": "active",
       "started": "2026-10-18",
-      "last_tranche": 1,
+      "last_tranche": 2,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "single attempt to retrieve official 1911 Utah Kane County original death certificate without repeating index searches",
-      "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework"
+      "next_tranche": "Tranche 03: original or institutional transcript of Isaac V. Carling 1852 diary, CHD identifies vol. 1 pp. 48–55; no repeated 1911 death-certificate index work",
+      "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
+      "last_tranche_status": "closed with documented original-image access blocker",
+      "last_tranche_report": "research/isaac-carling-tranche-02-death-certificate-attempt-20261018.md",
+      "exceptions": [
+        "1911 Utah original death certificate not captured; series 81448 image access requires interactive browser"
+      ]
     }
   }
 }
