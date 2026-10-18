@@ -1916,6 +1916,22 @@
       "sourceUrl": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/blob/main/research/isaac-carling-tranche-21-final-preapproval-qa-20261018.md",
       "researchDetailStatus": "automated-original-SHA256-and-person-render-data-pass; human-iPhone-acceptance-pending",
       "note": "Tranche21 18Oct2026: audited final release v3.9.62, current actual PDF & 2 JPEG original web files SHA256 exact; 3 doc image tiles from 2 different sources, 1 contextual Orderville place image, 6 other links, 2 notes and museum biography. Fixed editorial leakage/false old source fallback/duplicate historical note on repeat load; GitHub CI run 39165001697 SUCCESS after prior failure caught note duplication. No personal portrait; 1852 autograph/1911 Isaac cert/1855 original deed and Miriam marriage unresolved, documented exceptions, do not restart. User on-device acceptance needed. This is a QA/source audit, not another captured primary record."
+    },
+    {
+      "id": "isaac-carling-user-approved-parent-handoff-20261018",
+      "personId": "KWJ8-5XJ",
+      "atlasPersonId": "isaac_carling",
+      "event": "user-accepted-museum-biography-and-original-media-audit",
+      "status": "published",
+      "title": "User approved Isaac Van Wagoner Carling's v3.9.62 museum page; next parents John Carling and Emeline Keaton",
+      "sourceKeys": [
+        "github:research/isaac-carling-user-approved-parent-handoff-20261018.md",
+        "atlas:isaac_carling:user-approved:2026-10-18"
+      ],
+      "sourceUrl": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/blob/main/research/isaac-carling-user-approved-parent-handoff-20261018.md",
+      "originalRefs": [],
+      "evidence": "github:research/isaac-carling-user-approved-parent-handoff-20261018.md",
+      "note": "Explicit user approval received 2026-10-18, no remaining user iPhone review requirement for Isaac. Close all Isaac current-person research by default. Parent identities in published 1831 biography: father John Carling, biological mother Emeline Keaton, stepmother Ann Green. John and Emeline do not yet have their own live Atlas graph nodes; stage John Carling as next individual person with no invented vital dates or FamilySearch identifier; Emeline after John. Preserve former uncertainties without reopening Isaac unless separately requested."
     }
   ],
   "tasks": [
@@ -2332,7 +2348,7 @@
       "id": "KWJ8-5XJ",
       "atlas_id": "isaac_carling",
       "name": "Isaac Van Wagoner Carling",
-      "status": "awaiting-user-iphone-approval",
+      "status": "closed-user-approved",
       "started": "2026-10-18",
       "last_tranche": 21,
       "previous_person": {
@@ -2340,9 +2356,9 @@
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "No additional research tranche by default. User iPhone acceptance of Isaac v3.9.62 required: confirm biography, 2 historical notes, documents/places and tap/swipe, PDF opens. If a concrete UI defect, fix that only; on explicit 'Isaac approved', mark person closed and advance to next direct ancestor. No repeat archival loops.",
+      "next_tranche": "None — user approved and closed; do not reopen unless a new specific source/defect is provided.",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "Complete Tranche21 final preapproval checks passed in CI run39165001697; published v3.9.62 has museum-safe biography, two notes, 3 document tiles (one 1854 PDF with two viewing images + daughter 1924 state cert web-copy), 1 legitimate Orderville historical place photograph, 6 source-only refs. All original binary SHA-256 and local paths verified; no personal portrait. Waiting for user iPhone acceptance.",
+      "last_tranche_status": "Tranche21 source and gallery integrity QA PASS, v3.9.62 published and explicitly approved by user 18 Oct 2026; research person closed. Father John Carling and biological mother Emeline Keaton are next unbuilt direct ancestors; Ann Green was stepmother.",
       "last_tranche_report": "research/isaac-carling-tranche-21-final-preapproval-qa-20261018.md",
       "exceptions": [
         "Miriam Hobson 1857 marriage/sealing original not yet found; reported birth 1843 places purported 1857 marriage before her 14th birthday; original verification pending.",
@@ -2360,7 +2376,11 @@
       ],
       "publishedVersion": "v3.9.62",
       "publishedUrl": "https://68zvh8wpzp-boop.github.io/ancestry-atlas/",
-      "releaseWorkflow": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/actions/runs/39165001758"
+      "releaseWorkflow": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/actions/runs/39165001758",
+      "approved_at": "2026-10-18",
+      "approval_statement": "Approved now who were his parents?",
+      "closed_at": "2026-10-18",
+      "closeout_report": "research/isaac-carling-user-approved-parent-handoff-20261018.md"
     },
     "archivedClosedTasks": [
       {
@@ -2444,6 +2464,21 @@
         "runId": 39156145777,
         "date": "2026-10-18"
       }
-    ]
+    ],
+    "next_person": {
+      "name": "John Carling",
+      "relation": "father of Isaac Van Wagoner Carling",
+      "atlas_id": null,
+      "familysearch_id": null,
+      "status": "queued-provisional-no-invented-identifier",
+      "research_rule": "One person at a time; check any existing original/FamilySearch person before building an Atlas profile; then Emeline Keaton."
+    },
+    "following_person": {
+      "name": "Emeline Keaton",
+      "relation": "biological mother of Isaac Van Wagoner Carling",
+      "status": "queued-after-John",
+      "atlas_id": null,
+      "familysearch_id": null
+    }
   }
 }
