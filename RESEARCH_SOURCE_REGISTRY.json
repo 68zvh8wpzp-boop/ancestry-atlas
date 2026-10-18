@@ -736,12 +736,15 @@
       "personId": "KVPR-ZP3",
       "event": "family-photo",
       "sourceKeys": [
-        "fs:KVPR-ZP3:memory:Edward Milo & Ellen Ashman Webb - children Milo, Abby, Carrie, Frank, Hattie, Dorus, Irene, Cordelia"
+        "fs:KVPR-ZP3:memory:Edward Milo & Ellen Ashman Webb - children Milo, Abby, Carrie, Frank, Hattie, Dorus, Irene, Cordelia",
+        "fs:memory:121459883"
       ],
-      "status": "unexamined",
-      "evidence": "github:research/edward-jr-full-biography-evidence-20261017.md",
-      "originalRefs": [],
-      "note": "Gallery title catalogued in current and prior inventory. Existing deployed person gallery has no matching family photograph; full image identity, text, duplicate and capture audit now required."
+      "status": "saved",
+      "evidence": "github:research/edward-jr-family-photos-final-20261017.md",
+      "originalRefs": [
+        "github:assets/edward-webb-jr/ellen-eight-children-original.jpg"
+      ],
+      "note": "FamilySearch memory121459883; contributed by LAAnderson,16February2021. Full uploaded JPEG preserved. Source title includes Edward Milo and Ellen; visible group is Ellen with eight children, not nine children or an adult Edward Jr. Individual child positions not independently assigned. Full image inspected: no visible text; v53 gallery packaged."
     },
     {
       "id": "edward-jr-charlotte-family-photo",
@@ -760,12 +763,15 @@
       "personId": "KVPR-ZP3",
       "event": "family-photo",
       "sourceKeys": [
-        "fs:KVPR-ZP3:memory:Webb Brothers- Edward Milo Webb Jr & Francis Adelbert Webb"
+        "fs:KVPR-ZP3:memory:Webb Brothers- Edward Milo Webb Jr & Francis Adelbert Webb",
+        "fs:memory:75272439"
       ],
-      "status": "unexamined",
-      "evidence": "github:research/edward-jr-full-biography-evidence-20261017.md",
-      "originalRefs": [],
-      "note": "Gallery title catalogued in current and prior inventory. Existing deployed person gallery has no matching family photograph; full image identity, text, duplicate and capture audit now required."
+      "status": "saved",
+      "evidence": "github:research/edward-jr-family-photos-final-20261017.md",
+      "originalRefs": [
+        "github:assets/edward-webb-jr/edward-francis-brothers-original.png"
+      ],
+      "note": "FamilySearch memory75272439; contributed by Clark, Flora Rose1,21January2019; upload Screen Shot2019-01-21at3.00.11PM.png. KMcBrideParson1 comment23June2019 identifies standing man as Francis Adelbert. Untouched uploaded PNG preserved. Full image inspected: no visible text; v53 gallery packaged."
     },
     {
       "id": "jr-portrait-gallery",
@@ -866,24 +872,8 @@
       "novelty": "Original saved; ten target/context rows paired. Remaining fullpage transcript and obscured infant givenname require focused reading, not another original search."
     },
     {
-      "id": "edward-jr-ellen-family-photo-inspect",
-      "recordId": "edward-jr-ellen-family-photo",
-      "owner": "work",
-      "action": "inspect-original",
-      "state": "paused",
-      "novelty": "Read full image and metadata for family-photo publication: person gallery omitted this named memory; not a repeat census or already preserved photo acquisition. Original memory review pending; browser connection stalled. Distinct public BYU photographs handled separately; do not assume memory duplication."
-    },
-    {
       "id": "edward-jr-charlotte-family-photo-inspect",
       "recordId": "edward-jr-charlotte-family-photo",
-      "owner": "work",
-      "action": "inspect-original",
-      "state": "paused",
-      "novelty": "Read full image and metadata for family-photo publication: person gallery omitted this named memory; not a repeat census or already preserved photo acquisition. Original memory review pending; browser connection stalled. Distinct public BYU photographs handled separately; do not assume memory duplication."
-    },
-    {
-      "id": "edward-jr-brothers-photo-inspect",
-      "recordId": "edward-jr-brothers-photo",
       "owner": "work",
       "action": "inspect-original",
       "state": "paused",

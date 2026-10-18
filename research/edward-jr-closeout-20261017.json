@@ -5,10 +5,10 @@
   "biography_word_count": 1245,
   "bio_policy_passed": true,
   "media_separated": true,
-  "photos_count": 4,
+  "photos_count": 6,
   "documents_count": 5,
-  "artifact": "atlas-v3.9.52.html",
-  "version": "20261017-jr-family-photos-1",
+  "artifact": "atlas-v3.9.53.html",
+  "version": "20261017-jr-family-photos-final-1",
   "source_revision": "pending publication",
   "web_verified": false,
   "iphone_verified": false,
@@ -27,7 +27,7 @@
     "Matching expanded narration recording pending; immutable old audio retained and disabled for new text",
     "Global legacy package verifier reports inherited audio checksum and version-marker failures; focused biography/source/governance checks pass",
     "New1245wordbiography iPhonecheck pending; previous screenshot confirmsv50only. GuidedStoryUI didnotadvance beyondtree in browsercheck; transcriptbindingunitpassed, fullUIverificationpending.",
-    "Live new gallery controls and iPhone check pending; browser connection stalled. Ellen family and brothers photographs not captured."
+    "New six-photo gallery/iPhone verification pending; full125memory audit still partial."
   ],
   "named_relationships": {
     "spouses": [
@@ -47,7 +47,7 @@
     "jr-1870-full-page-pending",
     "jr-1880-full-page-pending"
   ],
-  "verification": "Four photo evidence entries packaged; all four visually inspected with explicit no-text result. Two existing assets reused; two archive PNG originals preserved byte-for-byte. Actual v3.9.52 gallery surface verification pending. Prior v3.9.51 biography/document verification retained only for unchanged surfaces.",
+  "verification": "Two missing original photos captured and inspected; six gallery photos with no-text pairs. v52 gallery actual web inspection passed prior turn. v53 live inspection pending.",
   "publication_authorization": "User explicitly instructed Publish it. Get it done on17October16:18America/Chicago.",
   "publication_status": "prepared"
 }
