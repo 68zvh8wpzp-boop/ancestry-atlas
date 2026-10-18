@@ -1,0 +1,39 @@
+name: Preserve Isaac 1854 marriage newspaper original (one-time batch)
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/capture-isaac-1854-marriage.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: capture-isaac-1854-marriage-original
+  cancel-in-progress: false
+jobs:
+  preserve-one-original:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Install PDF renderer and JPEG preview support
+        run: python3 -m pip install --disable-pip-version-check pymupdf Pillow
+      - name: Download the 23 November 1854 original; verify and render viewing images
+        run: python3 scripts/capture-isaac-1854-marriage-original.py
+      - name: Commit unchanged original PDF, page JPG, excerpt PNG and source manifest
+        run: |
+          set -eu
+          git config user.name "ancestry-atlas-archive-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/isaac-carling/1854-deseret-news-p3-marriage-original.pdf
+          git add assets/isaac-carling/1854-deseret-news-p3-fullpage-view.jpg
+          git add assets/isaac-carling/1854-isaac-asenath-marriage-notice-view.png
+          git add assets/isaac-carling/1854-marriage-asset-manifest.json
+          if git diff --cached --quiet; then
+            echo "Already captured and unchanged. No repeat commit."
+            exit 0
+          fi
+          git commit -m "Capture exact 1854 Isaac-Asenath original Deseret News PDF and source-labelled views"
+          git push origin HEAD:main
