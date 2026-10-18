@@ -9,8 +9,8 @@
   "documents_count": 5,
   "artifact": "atlas-v3.9.54.html",
   "version": "20261018-jr-eight-family-photos-1",
-  "source_revision": "pending publication",
-  "web_verified": false,
+  "source_revision": "f6c3860a8b65c17bc88d2c1baf5bf2ae157fe86f",
+  "web_verified": true,
   "iphone_verified": false,
   "issue_ids": [
     "BIO-001",
@@ -50,7 +50,7 @@
     "jr-1920-full-page-pending",
     "jr-lois-1898-transcript"
   ],
-  "verification": "Eight photo assets exist with inspection/transcription pairs. Inline scripts parse, canonical biography surfaces agree, source gate and focused regression checks pass. Live v54 verification pending.",
+  "verification": "Actual v54 page shows full corrected1294word biography, all31namedchildren, PHOTOS8/DOCUMENTS5. All13 thumbnails decoded. Both new original readers decoded1500x1518 and1365x910; captions, source/original links and text inspection pairs visible. Next daughters to fourgenerations and Close back to full card passed. Six newly captured source assets served byte-identical to local originals. All three deployment/source workflows succeeded. iPhone unverified. Overall audit remains partial.",
   "publication_authorization": "User explicitly instructed Publish it. Get it done on17October16:18America/Chicago.",
-  "publication_status": "prepared"
+  "publication_status": "deployed and web-verified"
 }

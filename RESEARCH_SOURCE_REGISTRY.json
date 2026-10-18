@@ -865,12 +865,12 @@
       "sourceKeys": [
         "fs:memory:14651798"
       ],
-      "status": "saved",
+      "status": "published",
       "evidence": "github:research/edward-jr-continuation-20261017.md",
       "originalRefs": [
         "github:assets/edward-webb-jr/edward-with-daughters-original.png"
       ],
-      "note": "Full original inspected; no image text. Seven daughters; only five named tags, positions not assigned. Prepared for eight-photo gallery."
+      "note": "Full original inspected; no image text. Seven daughters; only five named tags, positions not assigned. Prepared for eight-photo gallery. Published and actual web reader verified in v3.9.54; iPhone unverified."
     },
     {
       "id": "edward-jr-four-generations-photo",
@@ -879,12 +879,12 @@
       "sourceKeys": [
         "fs:memory:1697658"
       ],
-      "status": "saved",
+      "status": "published",
       "evidence": "github:research/edward-jr-continuation-20261017.md",
       "originalRefs": [
         "github:assets/edward-webb-jr/edward-four-generations-original.jpg"
       ],
-      "note": "Full original inspected; handwritten 60 transcribed with translation. Four generations identified by attributed family comment, not all sons."
+      "note": "Full original inspected; handwritten 60 transcribed with translation. Four generations identified by attributed family comment, not all sons. Published and actual web reader verified in v3.9.54; iPhone unverified."
     },
     {
       "id": "edward-jr-lois-1898-birth",

@@ -42,3 +42,7 @@ FamilySearch indexed QGCK-GHJ7/QGCK-GHJ9; source S6BS-7FL. Casas Grandes civil r
 ## v3.9.54 publication package
 
 Eight actual photographs, five existing documents. Two additional photos have inspected original/no-text or number60 transcription pairs, exact source links and unchanged original assets. Canonical education paragraph corrected from detailed Irene account; later-life account includes Tucson/Binghamton/Pinedale and 6June1920 anniversary, attributed to Irene. Four new documentary originals (ten-page PDF,1920census,two Lois pages) preserved for research; not added as untranscribed gallery cards. Overall source audit and iPhone remain incomplete.
+
+## Actual publication verification
+
+v3.9.54 source f6c3860a8b65c17bc88d2c1baf5bf2ae157fe86f. Deploy39092026863, sourcegate39092026739, dynamicPages39092026210 all succeeded. Live card has PHOTOS8/DOCUMENTS5 and corrected1294word biography; all13thumbs decode. Both new readers/captions/transcription pairs/source+original links inspected. Next daughters to fourgenerations and Close back to biography passed. All six newly preserved originals served byte-identical to local assets. Screenshot proof scratchonly. Full audit, seven transcription tasks, matching narration and iPhone remain incomplete.
