@@ -2,7 +2,7 @@
   "source": "1870 U.S. census, Fillmore, Millard County, Utah Territory, p.7 stamped338, enumerated 24 June 1870, NARA M593 roll1611",
   "original": "https://archive.org/download/populationschedu1611unit/page/n20.jpg",
   "person": "Edward Milo Webb Jr. (line 21)",
-  "state": "One working source reading, merged from concurrent 18 Oct full-page reviews. Marked uncertainties not resolved by voting between transcriptions. Original still required for uncertain readings. Not a final literal all-columns pass.",
+  "state": "Conflicts reviewed, not all deciphered; original household verified, 22 discrepant row readings adjudicated with transparent uncertainties.",
   "core_fields_primary": "research/edward-jr-census-full-pages/1870-robinson-left-fields-review.json",
   "supplemental_fields_source": "research/edward-jr-census-full-pages/1870-fillmore.json",
   "uncertainty_note": "Competing entries are explicitly preserved in readingAlternatives. Names of unrelated people are never imported into Atlas relationships. No new source or person created.",
@@ -10,223 +10,259 @@
   "alternatives": [
     {
       "line": 1,
-      "alternatives": {
-        "name": [
-          "Carling Alice",
-          "Carling Olive"
-        ]
+      "status": "uncertain",
+      "note": "The given name appears similar to Olive in the original, but the initial strokes overlap and Alice cannot be eliminated.",
+      "selectedReading": {
+        "name": "Carling Olive [provisional; Alice also proposed]"
+      },
+      "priorReadings": {
+        "name": "Carling Alice"
       }
     },
     {
       "line": 5,
-      "alternatives": {
-        "name": [
-          "— Isaac",
-          "— Jesse"
-        ]
+      "status": "resolved",
+      "note": "The first-name strokes and final c are consistent with Isaac rather than Jesse.",
+      "selectedReading": {
+        "name": "— Isaac"
+      },
+      "priorReadings": {
+        "name": "— Isaac"
       }
     },
     {
       "line": 6,
-      "alternatives": {
-        "age": [
-          "8/12",
-          "2/12"
-        ]
+      "status": "resolved",
+      "note": "Numerator on original reads 2; denominator 12.",
+      "selectedReading": {
+        "age": "2/12"
+      },
+      "priorReadings": {
+        "age": "8/12"
       }
     },
     {
       "line": 7,
-      "alternatives": {
-        "realEstate": [
-          "170",
-          "175"
-        ],
-        "personalEstate": [
-          "160",
-          "100"
-        ]
+      "status": "resolved",
+      "note": "Original entry reads 175 real estate and 160 personal estate; last digits rechecked.",
+      "selectedReading": {
+        "realEstate": "175",
+        "personalEstate": "160"
+      },
+      "priorReadings": {
+        "realEstate": "170",
+        "personalEstate": "160"
       }
     },
     {
       "line": 9,
-      "alternatives": {
-        "birthplace": [
-          "England",
-          "Eng."
-        ]
+      "status": "resolved",
+      "note": "Abbreviated written birthplace is Eng.; expansion England is interpretive, not literal.",
+      "selectedReading": {
+        "birthplace": "Eng."
+      },
+      "priorReadings": {
+        "birthplace": "England"
       }
     },
     {
       "line": 10,
-      "alternatives": {
-        "name": [
-          "Truscott Neal [surname uncertain]",
-          "French W S [reading uncertain]"
-        ]
+      "status": "uncertain",
+      "note": "Ink, overwriting, and tightly connected letters do not allow a secure surname or given-name reading.",
+      "selectedReading": {
+        "name": "Truscott Neal [surname/given uncertain]"
+      },
+      "priorReadings": {
+        "name": "Truscott Neal [surname uncertain]"
       }
     },
     {
       "line": 11,
-      "alternatives": {
-        "name": [
-          "— Eliza A",
-          "— Eliza W"
-        ]
+      "status": "uncertain",
+      "note": "The small final initial resembles W more than A, but ambiguous.",
+      "selectedReading": {
+        "name": "— Eliza [middle initial uncertain, resembles W]"
+      },
+      "priorReadings": {
+        "name": "— Eliza A"
       }
     },
     {
       "line": 12,
-      "alternatives": {
-        "name": [
-          "Dusen Flet... [uncertain]",
-          "Dusen El[illegible] [reading uncertain]"
-        ]
+      "status": "uncertain",
+      "note": "The surname and final given-name characters remain too compressed for a trustworthy literal reading.",
+      "selectedReading": {
+        "name": "Dusen Flet[illegible] [provisional]"
+      },
+      "priorReadings": {
+        "name": "Dusen Flet... [uncertain]"
       }
     },
     {
       "line": 13,
-      "alternatives": {
-        "name": [
-          "Warner Dorus",
-          "Warner Doras [reading uncertain]"
-        ]
+      "status": "uncertain",
+      "note": "The vowel stroke in the first name remains ambiguous.",
+      "selectedReading": {
+        "name": "Warner Doras/Dorus [uncertain]"
+      },
+      "priorReadings": {
+        "name": "Warner Dorus"
       }
     },
     {
       "line": 14,
-      "alternatives": {
-        "name": [
-          "— Cordelia",
-          "— Cudelia [reading uncertain]"
-        ]
+      "status": "resolved",
+      "note": "Expanded original clearly shows Cordelia rather than Cudelia.",
+      "selectedReading": {
+        "name": "— Cordelia"
+      },
+      "priorReadings": {
+        "name": "— Cordelia"
       }
     },
     {
       "line": 16,
-      "alternatives": {
-        "name": [
-          "— Delilah",
-          "— Delila [reading uncertain]"
-        ]
+      "status": "resolved",
+      "note": "The written ending includes a final h-like stroke; retain Delilah.",
+      "selectedReading": {
+        "name": "— Delilah"
+      },
+      "priorReadings": {
+        "name": "— Delilah"
       }
     },
     {
       "line": 17,
-      "alternatives": {
-        "name": [
-          "— Edwin [reading uncertain]",
-          "— Elaine [reading uncertain]"
-        ]
+      "status": "uncertain",
+      "note": "Letter sequence cannot be read confidently; the sex column indicates female, so Edwin must not be imposed.",
+      "selectedReading": {
+        "name": "— Eldine/Edwin/Elaine [uncertain]"
+      },
+      "priorReadings": {
+        "name": "— Edwin [reading uncertain]"
       }
     },
     {
       "line": 19,
-      "alternatives": {
-        "name": [
-          "— Marcellus",
-          "— Mercellas [reading uncertain]"
-        ]
+      "status": "uncertain",
+      "note": "Appears similar to Mercellas; spelling does not securely establish a canonical forename.",
+      "selectedReading": {
+        "name": "— Mercellas [lettering uncertain; no normalized Marcellus claim]"
+      },
+      "priorReadings": {
+        "name": "— Marcellus"
       }
     },
     {
       "line": 24,
-      "alternatives": {
-        "name": [
-          "Webb Marcellus",
-          "Webb Merellas [reading uncertain]"
-        ],
-        "personalEstate": [
-          "300",
-          "200"
-        ]
+      "status": "uncertain",
+      "note": "The original shows age 27, male, occupation farm laborer, birthplace Illinois and $200 personal estate; handwritten given name remains uncertain and this shared surname does not prove kinship to Edward Jr.",
+      "selectedReading": {
+        "name": "Webb Merellas [lettering uncertain; not asserted Marcellus]",
+        "personalEstate": "200"
+      },
+      "priorReadings": {
+        "name": "Webb Marcellus",
+        "personalEstate": "300"
       }
     },
     {
       "line": 27,
-      "alternatives": {
-        "name": [
-          "— Marietta",
-          "— Mariette"
-        ]
+      "status": "resolved",
+      "note": "Final written stroke favors Mariette over Marietta.",
+      "selectedReading": {
+        "name": "— Mariette"
+      },
+      "priorReadings": {
+        "name": "— Marietta"
       }
     },
     {
       "line": 28,
-      "alternatives": {
-        "name": [
-          "Paine William [surname uncertain]",
-          "Parne William [surname uncertain]"
-        ],
-        "personalEstate": [
-          "375",
-          "325"
-        ]
+      "status": "uncertain",
+      "note": "William and 375 personal estate legible. Surname vowel/r strokes are ambiguous.",
+      "selectedReading": {
+        "name": "Paine/Parne William [surname uncertain]",
+        "personalEstate": "375"
+      },
+      "priorReadings": {
+        "name": "Paine William [surname uncertain]",
+        "personalEstate": "375"
       }
     },
     {
       "line": 30,
-      "alternatives": {
-        "name": [
-          "— Lena [reading uncertain]",
-          "— Luna [reading uncertain]"
-        ]
+      "status": "uncertain",
+      "note": "Middle vowel cannot be read securely; do not select a normalized name.",
+      "selectedReading": {
+        "name": "— Lena/Luna [uncertain]"
+      },
+      "priorReadings": {
+        "name": "— Lena [reading uncertain]"
       }
     },
     {
       "line": 32,
-      "alternatives": {
-        "name": [
-          "— Louisa",
-          "— Laura [reading uncertain]"
-        ]
+      "status": "resolved",
+      "note": "Original written sequence visibly supports Louisa rather than Laura.",
+      "selectedReading": {
+        "name": "— Louisa"
+      },
+      "priorReadings": {
+        "name": "— Louisa"
       }
     },
     {
       "line": 33,
-      "alternatives": {
-        "name": [
-          "— Laura [reading uncertain]",
-          "— Luna [reading uncertain]"
-        ]
+      "status": "uncertain",
+      "note": "Given-name internal lettering overlaps; no confident selection.",
+      "selectedReading": {
+        "name": "— Luna/Laura [uncertain]"
+      },
+      "priorReadings": {
+        "name": "— Laura [reading uncertain]"
       }
     },
     {
       "line": 35,
-      "alternatives": {
-        "name": [
-          "Meril Claud [reading uncertain]",
-          "Meril Clarence [surname/given uncertain]"
-        ],
-        "occupation": [
-          "Telegraph Clerk",
-          "Telegraph Operat[or]"
-        ]
+      "status": "uncertain",
+      "note": "Both given name and telegraph employment suffix have unresolved letter shapes, so no full occupation is inferred.",
+      "selectedReading": {
+        "name": "Meril Claud/Clarence [uncertain]",
+        "occupation": "Telegraph [occupation suffix uncertain]"
+      },
+      "priorReadings": {
+        "name": "Meril Claud [reading uncertain]",
+        "occupation": "Telegraph Clerk"
       }
     },
     {
       "line": 38,
-      "alternatives": {
-        "name": [
-          "— George O",
-          "— George A"
-        ]
+      "status": "resolved",
+      "note": "The recorded middle initial resembles O, not A.",
+      "selectedReading": {
+        "name": "— George O"
+      },
+      "priorReadings": {
+        "name": "— George O"
       }
     },
     {
       "line": 40,
-      "alternatives": {
-        "age": [
-          "3/12",
-          "2/12"
-        ]
+      "status": "resolved",
+      "note": "Numerator legible as 2 above denominator 12.",
+      "selectedReading": {
+        "age": "2/12"
+      },
+      "priorReadings": {
+        "age": "3/12"
       }
     }
   ],
   "rows": [
     {
       "line": 1,
-      "name": "Carling Alice",
+      "name": "Carling Olive [provisional; Alice also proposed]",
       "age": "7",
       "sex": "F",
       "color": "W",
@@ -249,6 +285,15 @@
           "Carling Alice",
           "Carling Olive"
         ]
+      },
+      "adjudication": {
+        "status": "uncertain",
+        "originalExamined": true,
+        "detail": "The given name appears similar to Olive in the original, but the initial strokes overlap and Alice cannot be eliminated.",
+        "priorReadings": {
+          "name": "Carling Alice"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
@@ -339,12 +384,21 @@
           "— Isaac",
           "— Jesse"
         ]
+      },
+      "adjudication": {
+        "status": "resolved",
+        "originalExamined": true,
+        "detail": "The first-name strokes and final c are consistent with Isaac rather than Jesse.",
+        "priorReadings": {
+          "name": "— Isaac"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
       "line": 6,
       "name": "— Phoebe",
-      "age": "8/12",
+      "age": "2/12",
       "sex": "F",
       "color": "W",
       "occupation": "",
@@ -366,6 +420,15 @@
           "8/12",
           "2/12"
         ]
+      },
+      "adjudication": {
+        "status": "resolved",
+        "originalExamined": true,
+        "detail": "Numerator on original reads 2; denominator 12.",
+        "priorReadings": {
+          "age": "8/12"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
@@ -375,7 +438,7 @@
       "sex": "F",
       "color": "W",
       "occupation": "Keeping House",
-      "realEstate": "170",
+      "realEstate": "175",
       "personalEstate": "160",
       "birthplace": "England",
       "nonTargetSupplementalMarksProvisional": {
@@ -397,6 +460,16 @@
           "160",
           "100"
         ]
+      },
+      "adjudication": {
+        "status": "resolved",
+        "originalExamined": true,
+        "detail": "Original entry reads 175 real estate and 160 personal estate; last digits rechecked.",
+        "priorReadings": {
+          "realEstate": "170",
+          "personalEstate": "160"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
@@ -429,7 +502,7 @@
       "occupation": "Keeping House",
       "realEstate": "175",
       "personalEstate": "100",
-      "birthplace": "England",
+      "birthplace": "Eng.",
       "nonTargetSupplementalMarksProvisional": {
         "foreignParentMarks": "/ /",
         "birthMonth": "[blank]",
@@ -445,11 +518,20 @@
           "England",
           "Eng."
         ]
+      },
+      "adjudication": {
+        "status": "resolved",
+        "originalExamined": true,
+        "detail": "Abbreviated written birthplace is Eng.; expansion England is interpretive, not literal.",
+        "priorReadings": {
+          "birthplace": "England"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
       "line": 10,
-      "name": "Truscott Neal [surname uncertain]",
+      "name": "Truscott Neal [surname/given uncertain]",
       "age": "44 [reading uncertain]",
       "sex": "M",
       "color": "W",
@@ -472,11 +554,20 @@
           "Truscott Neal [surname uncertain]",
           "French W S [reading uncertain]"
         ]
+      },
+      "adjudication": {
+        "status": "uncertain",
+        "originalExamined": true,
+        "detail": "Ink, overwriting, and tightly connected letters do not allow a secure surname or given-name reading.",
+        "priorReadings": {
+          "name": "Truscott Neal [surname uncertain]"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
       "line": 11,
-      "name": "— Eliza A",
+      "name": "— Eliza [middle initial uncertain, resembles W]",
       "age": "6",
       "sex": "F",
       "color": "W",
@@ -499,11 +590,20 @@
           "— Eliza A",
           "— Eliza W"
         ]
+      },
+      "adjudication": {
+        "status": "uncertain",
+        "originalExamined": true,
+        "detail": "The small final initial resembles W more than A, but ambiguous.",
+        "priorReadings": {
+          "name": "— Eliza A"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
       "line": 12,
-      "name": "Dusen Flet... [uncertain]",
+      "name": "Dusen Flet[illegible] [provisional]",
       "age": "13",
       "sex": "F",
       "color": "W",
@@ -526,11 +626,20 @@
           "Dusen Flet... [uncertain]",
           "Dusen El[illegible] [reading uncertain]"
         ]
+      },
+      "adjudication": {
+        "status": "uncertain",
+        "originalExamined": true,
+        "detail": "The surname and final given-name characters remain too compressed for a trustworthy literal reading.",
+        "priorReadings": {
+          "name": "Dusen Flet... [uncertain]"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
       "line": 13,
-      "name": "Warner Dorus",
+      "name": "Warner Doras/Dorus [uncertain]",
       "age": "32",
       "sex": "M",
       "color": "W",
@@ -553,6 +662,15 @@
           "Warner Dorus",
           "Warner Doras [reading uncertain]"
         ]
+      },
+      "adjudication": {
+        "status": "uncertain",
+        "originalExamined": true,
+        "detail": "The vowel stroke in the first name remains ambiguous.",
+        "priorReadings": {
+          "name": "Warner Dorus"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
@@ -580,6 +698,15 @@
           "— Cordelia",
           "— Cudelia [reading uncertain]"
         ]
+      },
+      "adjudication": {
+        "status": "resolved",
+        "originalExamined": true,
+        "detail": "Expanded original clearly shows Cordelia rather than Cudelia.",
+        "priorReadings": {
+          "name": "— Cordelia"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
@@ -628,11 +755,20 @@
           "— Delilah",
           "— Delila [reading uncertain]"
         ]
+      },
+      "adjudication": {
+        "status": "resolved",
+        "originalExamined": true,
+        "detail": "The written ending includes a final h-like stroke; retain Delilah.",
+        "priorReadings": {
+          "name": "— Delilah"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
       "line": 17,
-      "name": "— Edwin [reading uncertain]",
+      "name": "— Eldine/Edwin/Elaine [uncertain]",
       "age": "7",
       "sex": "F [as marked; uncertain]",
       "color": "W",
@@ -655,6 +791,15 @@
           "— Edwin [reading uncertain]",
           "— Elaine [reading uncertain]"
         ]
+      },
+      "adjudication": {
+        "status": "uncertain",
+        "originalExamined": true,
+        "detail": "Letter sequence cannot be read confidently; the sex column indicates female, so Edwin must not be imposed.",
+        "priorReadings": {
+          "name": "— Edwin [reading uncertain]"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
@@ -680,7 +825,7 @@
     },
     {
       "line": 19,
-      "name": "— Marcellus",
+      "name": "— Mercellas [lettering uncertain; no normalized Marcellus claim]",
       "age": "3",
       "sex": "M",
       "color": "W",
@@ -703,6 +848,15 @@
           "— Marcellus",
           "— Mercellas [reading uncertain]"
         ]
+      },
+      "adjudication": {
+        "status": "uncertain",
+        "originalExamined": true,
+        "detail": "Appears similar to Mercellas; spelling does not securely establish a canonical forename.",
+        "priorReadings": {
+          "name": "— Marcellus"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
@@ -791,13 +945,13 @@
     },
     {
       "line": 24,
-      "name": "Webb Marcellus",
+      "name": "Webb Merellas [lettering uncertain; not asserted Marcellus]",
       "age": "27",
       "sex": "M",
       "color": "W",
       "occupation": "Farm Labor",
       "realEstate": "",
-      "personalEstate": "300",
+      "personalEstate": "200",
       "birthplace": "Ill.",
       "nonTargetSupplementalMarksProvisional": {
         "foreignParentMarks": "/ /",
@@ -818,6 +972,16 @@
           "300",
           "200"
         ]
+      },
+      "adjudication": {
+        "status": "uncertain",
+        "originalExamined": true,
+        "detail": "The original shows age 27, male, occupation farm laborer, birthplace Illinois and $200 personal estate; handwritten given name remains uncertain and this shared surname does not prove kinship to Edward Jr.",
+        "priorReadings": {
+          "name": "Webb Marcellus",
+          "personalEstate": "300"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
@@ -864,7 +1028,7 @@
     },
     {
       "line": 27,
-      "name": "— Marietta",
+      "name": "— Mariette",
       "age": "1/12",
       "sex": "F",
       "color": "W",
@@ -887,11 +1051,20 @@
           "— Marietta",
           "— Mariette"
         ]
+      },
+      "adjudication": {
+        "status": "resolved",
+        "originalExamined": true,
+        "detail": "Final written stroke favors Mariette over Marietta.",
+        "priorReadings": {
+          "name": "— Marietta"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
       "line": 28,
-      "name": "Paine William [surname uncertain]",
+      "name": "Paine/Parne William [surname uncertain]",
       "age": "31",
       "sex": "M",
       "color": "W",
@@ -918,6 +1091,16 @@
           "375",
           "325"
         ]
+      },
+      "adjudication": {
+        "status": "uncertain",
+        "originalExamined": true,
+        "detail": "William and 375 personal estate legible. Surname vowel/r strokes are ambiguous.",
+        "priorReadings": {
+          "name": "Paine William [surname uncertain]",
+          "personalEstate": "375"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
@@ -943,7 +1126,7 @@
     },
     {
       "line": 30,
-      "name": "— Lena [reading uncertain]",
+      "name": "— Lena/Luna [uncertain]",
       "age": "6",
       "sex": "F",
       "color": "W",
@@ -966,6 +1149,15 @@
           "— Lena [reading uncertain]",
           "— Luna [reading uncertain]"
         ]
+      },
+      "adjudication": {
+        "status": "uncertain",
+        "originalExamined": true,
+        "detail": "Middle vowel cannot be read securely; do not select a normalized name.",
+        "priorReadings": {
+          "name": "— Lena [reading uncertain]"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
@@ -1014,11 +1206,20 @@
           "— Louisa",
           "— Laura [reading uncertain]"
         ]
+      },
+      "adjudication": {
+        "status": "resolved",
+        "originalExamined": true,
+        "detail": "Original written sequence visibly supports Louisa rather than Laura.",
+        "priorReadings": {
+          "name": "— Louisa"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
       "line": 33,
-      "name": "— Laura [reading uncertain]",
+      "name": "— Luna/Laura [uncertain]",
       "age": "1/12",
       "sex": "F",
       "color": "W",
@@ -1041,6 +1242,15 @@
           "— Laura [reading uncertain]",
           "— Luna [reading uncertain]"
         ]
+      },
+      "adjudication": {
+        "status": "uncertain",
+        "originalExamined": true,
+        "detail": "Given-name internal lettering overlaps; no confident selection.",
+        "priorReadings": {
+          "name": "— Laura [reading uncertain]"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
@@ -1066,11 +1276,11 @@
     },
     {
       "line": 35,
-      "name": "Meril Claud [reading uncertain]",
+      "name": "Meril Claud/Clarence [uncertain]",
       "age": "29",
       "sex": "M",
       "color": "W",
-      "occupation": "Telegraph Clerk",
+      "occupation": "Telegraph [occupation suffix uncertain]",
       "realEstate": "300",
       "personalEstate": "200",
       "birthplace": "Connecticut",
@@ -1093,6 +1303,16 @@
           "Telegraph Clerk",
           "Telegraph Operat[or]"
         ]
+      },
+      "adjudication": {
+        "status": "uncertain",
+        "originalExamined": true,
+        "detail": "Both given name and telegraph employment suffix have unresolved letter shapes, so no full occupation is inferred.",
+        "priorReadings": {
+          "name": "Meril Claud [reading uncertain]",
+          "occupation": "Telegraph Clerk"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
@@ -1162,6 +1382,15 @@
           "— George O",
           "— George A"
         ]
+      },
+      "adjudication": {
+        "status": "resolved",
+        "originalExamined": true,
+        "detail": "The recorded middle initial resembles O, not A.",
+        "priorReadings": {
+          "name": "— George O"
+        },
+        "reviewDate": "2026-10-18"
       }
     },
     {
@@ -1188,7 +1417,7 @@
     {
       "line": 40,
       "name": "— Mande [reading uncertain]",
-      "age": "3/12",
+      "age": "2/12",
       "sex": "F",
       "color": "W",
       "occupation": "",
@@ -1210,7 +1439,25 @@
           "3/12",
           "2/12"
         ]
+      },
+      "adjudication": {
+        "status": "resolved",
+        "originalExamined": true,
+        "detail": "Numerator legible as 2 above denominator 12.",
+        "priorReadings": {
+          "age": "3/12"
+        },
+        "reviewDate": "2026-10-18"
       }
     }
-  ]
+  ],
+  "reviewState": {
+    "scope": "Adjudication of all 22 divergent core-column line readings in the two 18 October working transcriptions, checked visually against already-preserved original. Nothing outside the listed lines was newly verified.",
+    "reviewDate": "2026-10-18",
+    "reviewedDiscrepantRows": 22,
+    "resolvedRows": 10,
+    "retainedUncertaintyRows": 12,
+    "criticalResult": "Edward Jr line 21 remains unambiguous: Webb E. M., age 23, schoolteacher, Missouri born, $50 real property. Adjacent line 24 is another Webb named Merellas/Mercellas [uncertain], 27, farm laborer, Illinois born, $200 personal property. No undocumented kinship claim.",
+    "remainingScope": "Supplemental columns outside original household not independently perfected. Still require a full exact diplomatic pass only if essential; no new scan acquisition. Do not import unrelated names to the person tree."
+  }
 }
