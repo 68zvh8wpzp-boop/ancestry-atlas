@@ -1492,7 +1492,7 @@
       "id": "edward-jr-june-cherie-webb-oral-history-2010",
       "personId": "KVPR-ZP3",
       "event": "oral-history",
-      "status": "located-audio-unheard",
+      "status": "processed-catalog-audio-unheard",
       "sourceKeys": [
         "azmemory:item:162667",
         "azmemory:audio:Webb, June and Cherie Part 1.mp3"
@@ -1507,9 +1507,27 @@
       "repository": "Arizona Memory Project; contributing institution Pinetop-Lakeside Historical Society Museum",
       "catalogDate": "2010-03-20",
       "duration": "00:26:54",
-      "evidence": "external:azmemory:item:162667",
+      "evidence": "github:research/edward-jr-june-cherie-oral-history-processed-20261018.md",
       "originalRefs": [],
-      "note": "Genuinely new archival audio lead (not among existing Atlas source registry/photos) discovered 18 Oct 2026. June Webb is described as Edward Milo Webb Jr.'s grandson; indexed interview discusses Mexico-colony exit and Pinedale/Wagon Wheel family sawmill. Audio file was not accessed or listened to: original host web fetch returned 403 and container lacked internet. CATALOG DESCRIPTION ERRONEOUSLY says grandfather Edward Milo Webb Jr. was a blacksmith in Nauvoo at 1840s migration although he was born 1847. That episode, if reliable, concerns Edward Sr. or other Webbs; never put into Jr bio. In copyright; keep citation/link only, no redistribution or reproduction without permission. Do not count as verified photo/document or user-approved audio."
+      "note": "Part1 of two-part June and Cherie Webb oral history, 2010, 26:54. Source catalog and family-lineage claims cross-checked to independent obituary and Irene Merrell biography. The archive abstract contains IMPOSSIBLE attribution of Nauvoo blacksmith work to Edward Jr (born 1847 after Nauvoo migration). Retrospective 1912/1920s narratives about younger generations not imported as Jr's life events. Audio unplayed (host 403); in copyright. See processed report. Part2 now tracked separately."
+    },
+    {
+      "id": "edward-jr-june-cherie-webb-oral-history-2010-part2",
+      "personId": "KVPR-ZP3",
+      "event": "oral-history",
+      "status": "located-catalog-audio-unheard",
+      "title": "Webb Family Oral History, Part 2/2",
+      "sourceKeys": [
+        "azmemory:item:162668",
+        "azmemory:audio:Webb, June and Cherie Part 2.mp3"
+      ],
+      "sourceUrl": "https://azmemory.azlibrary.gov/nodes/view/162668",
+      "repository": "Arizona Memory Project; associated June and Cherie Webb interview; Pinetop-Lakeside Historical Society Museum (Part 1 custody; Part 2 relationship from linked title)",
+      "catalogedFilename": "Webb, June and Cherie Part 2.mp3",
+      "indexedFileSize": "26.5 MB",
+      "evidence": "github:research/edward-jr-june-cherie-oral-history-processed-20261018.md",
+      "originalRefs": [],
+      "note": "Part2 was missing from Atlas research registry. Indexed official Arizona Memory Project record identified 18 October 2026. Its audio, duration, and descriptive narrative were NOT retrieved. Do not infer Part2 contents, transcript, duration or download URL. In-copyright related oral-history series; user iPhone closeout need not wait for inaccessible primary audio."
     }
   ],
   "tasks": [
@@ -1977,6 +1995,15 @@
       "status": "blocked-unauthenticated",
       "observed": "Public FamilySearch Memories page could not be read by current web source (returned inaccessible). Other public name search found no verifiably new, distinct personal photograph after comparison to the eight existing gallery assets. No 125-item memory audit claim.",
       "action": "Use signed-in Work Cloud Browser (with user-provided authentication) to inspect remaining Memories, only for truly distinct relevant images. Avoid additional generic public photo searches until access exists."
+    },
+    "edward_jr_oral_history_processed": {
+      "date": "2026-10-18",
+      "report": "research/edward-jr-june-cherie-oral-history-processed-20261018.md",
+      "part1": "azmemory:item:162667",
+      "part2": "azmemory:item:162668",
+      "audio_status": "not listened; archive item URLs 403, container could not fetch",
+      "source_criticism": "Nauvoo blacksmith attributions in part1 catalog abstract ruled out for Edward Jr, do not replace with claims about Edward Sr without original evidence.",
+      "app_impact": "No new photo, transcript, or biographical claim published. Gallery unchanged. Deferred sawmill photo belongs to direct descendant audits, not Edward Jr."
     }
   }
 }
