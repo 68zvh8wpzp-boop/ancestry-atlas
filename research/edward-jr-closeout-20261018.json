@@ -8,9 +8,9 @@
   "photos_count": 8,
   "documents_count": 8,
   "artifact": "atlas-v3.9.55.html",
-  "version": "20261018-jr-original-documents-1",
-  "source_revision": "pending",
-  "web_verified": false,
+  "version": "20261018-jr-original-documents-2",
+  "source_revision": "a310e889012d13bfefbb6a19c69ec715f33ab6b4",
+  "web_verified": true,
   "iphone_verified": false,
   "issue_ids": [
     "BIO-001",
@@ -25,8 +25,7 @@
     "Five census full-page transcripts remain open; published household transcriptions do not replace full-page work.",
     "Matching expanded Fable narration recording unavailable; approved existing audio preserved.",
     "Inherited global audio checksum/version-marker failures remain.",
-    "Actual iPhone verification unavailable.",
-    "New readers and Story route await live surface verification."
+    "Actual iPhone verification unavailable."
   ],
   "named_relationships": {
     "spouses": [
@@ -38,7 +37,7 @@
   },
   "document_preview_failure_count": 0,
   "document_preview_failure_ids": [],
-  "document_preview_scope": "Eight packaged previews; new three await live inspection.",
+  "document_preview_scope": "Eight gallery documents. Three new original previews and both standalone readers inspected live; ten-page reader page10 and both birth-page images decoded. Five prior previews retained.",
   "transcription_translation_failure_count": 5,
   "transcription_translation_failure_ids": [
     "jr-1860-owens-full-page-pending",
@@ -47,7 +46,7 @@
     "jr-1880-full-page-pending",
     "jr-1920-full-page-pending"
   ],
-  "verification": "Local syntax, links and Story direct-entry checks passed. Live verification pending.",
+  "verification": "v3.9.55 live shows PHOTOS8/DOCUMENTS8 and canonical1294word biography naming3wives/31children. Irene full originalPDF/read-all-pages links, all10transcriptpages, Lois Spanish/English and2originalpages,1920household transcription inspected. Story starts at Edward, full canonical biography shown by Hide slideshow, historicalportrait and brothers/Ellen-family advancement inspected. Story now has8actualphotos+2originaldocuments. Served399449byteHTML matches source exactly, SHA256634f4efba763b3e1b33bb312ebbdc1d8cda16de85c84b192eb0e6ba3308fe3a6. Deployment39124087043 and sourcegate39124087109 success. ActualiPhone unavailable.",
   "publication_authorization": "User explicitly instructed Publish it. Get it done on17October16:18America/Chicago.",
-  "publication_status": "packaged; deployment and live verification pending"
+  "publication_status": "deployed and web-verified; overall person audit partially verified"
 }
