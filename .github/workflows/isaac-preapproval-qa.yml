@@ -2,7 +2,13 @@ name: Verify Isaac original-media checksums and v3.9.62 museum content
 on:
   push:
     branches: ["main"]
-    paths: [".github/workflows/isaac-preapproval-qa.yml"]
+    paths:
+      - ".github/workflows/isaac-preapproval-qa.yml"
+      - "isaac-carling-final-preapproval-presentation-20261018.js"
+      - "tests/isaac-preapproval-release.mjs"
+      - "atlas-v3.9.62.html"
+      - "index.html"
+      - "manifest.webmanifest"
   workflow_dispatch:
 permissions:
   contents: read
