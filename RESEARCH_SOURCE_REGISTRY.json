@@ -1933,6 +1933,23 @@
       "evidence": "github:research/isaac-carling-user-approved-parent-handoff-20261018.md",
       "note": "Explicit user approval received 2026-10-18, no remaining user iPhone review requirement for Isaac. Close all Isaac current-person research by default. Parent identities in published 1831 biography: father John Carling, biological mother Emeline Keaton, stepmother Ann Green. John and Emeline do not yet have their own live Atlas graph nodes; stage John Carling as next individual person with no invented vital dates or FamilySearch identifier; Emeline after John. Preserve former uncertainties without reopening Isaac unless separately requested. Schema correction: 'examined' is correct status for user approval governance item, since the record is NOT an original archival artifact; v3.9.62 app release remains published, and separate source/media records retain their actual 'saved' status.",
       "researchDetailStatus": "user-approved-published-museum-page-not-an-original-archival-source"
+    },
+    {
+      "id": "webb-tranche01-1773-third-congregational-chester-attribution-20261018",
+      "personId": "KWJ1-P2V",
+      "atlasPersonId": "james_webb_jr",
+      "event": "parentage-proof-target-congregation-correction",
+      "status": "partial",
+      "title": "1773 James Webb–Elizabeth Douglas marriage belongs to Third Church Saybrook (Chester), not Old Saybrook First; parentage of 1777 James unproved",
+      "sourceKeys": [
+        "book:bailey:early-connecticut-marriages:second-book:page90:saybrook-third:1773-12-09:webb-douglas",
+        "ctsl:chester-church:1759-1835:films-0005554-1008328"
+      ],
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Early_Connecticut_marriages_as_found_on_ancient_church_records_prior_to_1800_%28IA_cu31924092205818%29.pdf",
+      "originalRefs": [],
+      "evidence": "github:research/webb-tranche-01-1773-saybrook-third-church-chester-record-correction-20261018.md",
+      "researchDetailStatus": "derivative-1896-marriage-transcription-verified-correct-third-church-chester-no-original-manuscript-identity-unresolved",
+      "note": "First resumed Webb tranche 18Oct2026: independently re-read Bailey Early Connecticut Marriages 1896 2ndBook printed 89–90; 1773 James Webb–Elizabeth Douglas event is indexed in THIRD Congregational Church Saybrook NOW CHESTER (founded1742), not Old Saybrook FIRST Congregational. Church historical original may have been lost; no 1773 image or father ID. CT State Library official Chester town guide films 0005554 and 1008328, CSL344/457, L'Hommedieu copy 1759–1835; historical copied volume not necessarily autograph. Existing 1777 James Webb Jr KWJ1-P2V's parentage from marriage unproven; 1733 vs1754 candidate confusions retained. No Atlas/tree edits, no censuses, no fees/emails. More in evidence report."
     }
   ],
   "tasks": [
@@ -2346,42 +2363,21 @@
       "app_impact": "No new photo, transcript, or biographical claim published. Gallery unchanged. Deferred sawmill photo belongs to direct descendant audits, not Edward Jr."
     },
     "active_person": {
-      "id": "KWJ8-5XJ",
-      "atlas_id": "isaac_carling",
-      "name": "Isaac Van Wagoner Carling",
-      "status": "closed-user-approved",
+      "id": "KWJ1-P2V",
+      "atlas_id": "james_webb_jr",
+      "name": "James Webb Jr.",
+      "status": "active-parentage-proof-frontier-research-only",
       "started": "2026-10-18",
-      "last_tranche": 21,
+      "last_tranche": 1,
+      "last_tranche_report": "research/webb-tranche-01-1773-saybrook-third-church-chester-record-correction-20261018.md",
+      "last_tranche_status": "Corrected 1773 James Webb–Elizabeth Douglas marriage source to Third Congregational Church Saybrook now Chester, not First Old Saybrook; official CT State Library copy films 0005554/1008328 identified. Identity of groom, parentage to James Jr b1777 and 1773 manuscript still UNPROVEN; no live Atlas genealogy edit.",
+      "next_tranche": "Webb Tranche02: ONE original/copy access attempt Chester Third Congregational 1759–1835 FHL film 0005554 or 1008328 for 1773 James Webb–Elizabeth Douglas line and baptism circa 1777. Save exact DGS/image and note source type if accessible, otherwise log distinct barrier once; no census repeats.",
       "previous_person": {
-        "id": "KVPR-ZP3",
-        "name": "Edward Milo Webb Jr.",
+        "id": "KWJ8-5XJ",
+        "name": "Isaac Van Wagoner Carling",
         "status": "closed-user-approved"
       },
-      "next_tranche": "None — user approved and closed; do not reopen unless a new specific source/defect is provided.",
-      "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "Tranche21 source and gallery integrity QA PASS, v3.9.62 published and explicitly approved by user 18 Oct 2026; research person closed. Father John Carling and biological mother Emeline Keaton are next unbuilt direct ancestors; Ann Green was stepmother.",
-      "last_tranche_report": "research/isaac-carling-tranche-21-final-preapproval-qa-20261018.md",
-      "exceptions": [
-        "Miriam Hobson 1857 marriage/sealing original not yet found; reported birth 1843 places purported 1857 marriage before her 14th birthday; original verification pending.",
-        "Miriam Hobson reported Aug1857 wedding (age13 per institutional derivative) conflicts with compiled 1859/age16/Fillmore narrative; original place,date,event type unverified",
-        "Specific Orderville co-op store photo in FamilySearch Memories not retrievable unauthenticated; USU 1875 Orderville sketch and BYU MSS512/MSS879 person-specific original pages not yet inspected.",
-        "USU UUS_P0143 Box1 Folder15 1875 Isaac Carling-attributed sketch and 3 letters are cataloged but no online pixels/letters linked; a single, unsent reference/reproduction inquiry is prepared; artist/date/rights unverified.",
-        "BYU MSS512 has physical Orderville board/departments originals, but no named Isaac folio or online readable page; Huntington MSS MFilm00207 digitized 779-frame comparable original copies have no Isaac-named indexed frame, current binary/interactive access blocked.",
-        "1853 Isaac-to-Asenath proposal letter dated 19 June appears in later family-history transcription only; original autograph not inspected. Biography draft saved, not deployed or approved.",
-        "Tranche13: relocation 1875 (1965 descendant arrival testimony) vs 1876 (later Carling family-history departure, ages favor 1876), original exact day not confirmed. Biography now says mid-1870s; preserve both reports.",
-        "Media Batch02: period Orderville town photograph circa1900 captured from USU RRA Plate548X, Church Archives P-1093-12. Authenticated Isaac portrait still zero; UofUtah numbered photo 15652 has ©2012 all-rights-reserved so not copied; Utah death certificate/1852 autograph remain pending.",
-        "Media Batch03: official Utah 1911 Kane Series81448 inventory folder only Jan–Feb, so reported May24 Isaac death not covered; no Isaac original cert captured. Daughter Asenath Emeline's separate 1924 original civil-record image downloaded from family site as 576x518 web copy and embedded for parentage; archive-master not held.",
-        "Media Batch04: FamilySearch digitized 1966 printed Carling family history v1 item 101134/194973_01 (pp48–55 diary) located; Church History official transcription quotes this PRINT book. Original 1852 handwriting's survival/custody/accession remains UNVERIFIED and no pixels copied. Copyright warning on digital book; Atlas uses SOURCE-only link.",
-        "Media Batch05: Isaac's 1855 Millard consecration deed signed/acknowledged by Thomas R King is quoted retrospectively, but no original signature verified; likely CHL CR5 53 or BYU MSS SC1320, no item-level folio/image or reproduction rights located. County portal original historical images paywalled/incomplete; do not pay. One narrowly-scoped CHL archivist lookup may resolve.",
-        "Tranche21 preapproval: verified original media files hashes and gallery mappings; no individual Isaac portrait; 1852 handwritten diary, Isaac 1911 death certificate and 1855 deed original still not found; Miriam date disputed. Original photo claim excluded. These are documented historical preservation limits, not blockers to an otherwise complete best-available-source page."
-      ],
-      "publishedVersion": "v3.9.62",
-      "publishedUrl": "https://68zvh8wpzp-boop.github.io/ancestry-atlas/",
-      "releaseWorkflow": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/actions/runs/39165001758",
-      "approved_at": "2026-10-18",
-      "approval_statement": "Approved now who were his parents?",
-      "closed_at": "2026-10-18",
-      "closeout_report": "research/isaac-carling-user-approved-parent-handoff-20261018.md"
+      "guardrails": "One Webb direct person at a time, one tranche then save/commit/stop; do not reopen completed Edward Jr/Sr censuses or existing Isaac research, no FamilySearch writes, fees or email."
     },
     "archivedClosedTasks": [
       {
@@ -2466,20 +2462,31 @@
         "date": "2026-10-18"
       }
     ],
-    "next_person": {
-      "name": "John Carling",
-      "relation": "father of Isaac Van Wagoner Carling",
-      "atlas_id": null,
-      "familysearch_id": null,
-      "status": "queued-provisional-no-invented-identifier",
-      "research_rule": "One person at a time; check any existing original/FamilySearch person before building an Atlas profile; then Emeline Keaton."
+    "last_closed_person": {
+      "id": "KWJ8-5XJ",
+      "atlas_id": "isaac_carling",
+      "name": "Isaac Van Wagoner Carling",
+      "status": "closed-user-approved",
+      "approved_at": "2026-10-18",
+      "closeout_report": "research/isaac-carling-user-approved-parent-handoff-20261018.md"
     },
-    "following_person": {
-      "name": "Emeline Keaton",
-      "relation": "biological mother of Isaac Van Wagoner Carling",
-      "status": "queued-after-John",
-      "atlas_id": null,
-      "familysearch_id": null
+    "paused_carling_queue": {
+      "next_person": {
+        "name": "John Carling",
+        "relation": "father of Isaac Van Wagoner Carling",
+        "atlas_id": null,
+        "familysearch_id": null,
+        "status": "queued-provisional-no-invented-identifier",
+        "research_rule": "One person at a time; check any existing original/FamilySearch person before building an Atlas profile; then Emeline Keaton."
+      },
+      "following_person": {
+        "name": "Emeline Keaton",
+        "relation": "biological mother of Isaac Van Wagoner Carling",
+        "status": "queued-after-John",
+        "atlas_id": null,
+        "familysearch_id": null
+      },
+      "status": "paused-by-user-2026-10-18-return-to-webb"
     }
   }
 }
