@@ -742,10 +742,12 @@
       "sourceKeys": [
         "fs:KVPR-ZP3:memory:Charlotte Martha Maxwell Webb - children Louie, Lee, Estelle"
       ],
-      "status": "unexamined",
-      "evidence": "github:research/edward-jr-full-biography-evidence-20261017.md",
-      "originalRefs": [],
-      "note": "Gallery title catalogued in current and prior inventory. Existing deployed person gallery has no matching family photograph; full image identity, text, duplicate and capture audit now required."
+      "status": "covered-by-published-original",
+      "evidence": "github:assets/edward-webb-jr/charlotte-children-1891-original.png",
+      "originalRefs": [
+        "github:assets/edward-webb-jr/charlotte-children-1891-original.png"
+      ],
+      "note": "The Charlotte-with-children photographic subject/caption (1891, left to right Lee, Estelle, Louie) is already published in the 8-photo Edward Jr Atlas gallery as jr-charlotte-1891, with preserved BYU original image asset and source credit to Thomas, Uncertain Sanctuary, p.54. Confirmed from v3.9.56 source + BYU public original 18 Oct. This DOES NOT prove that a separately titled FamilySearch Memory has identical pixels; source FamilySearch version was not authenticated or independently viewed. Do not recapture same BYU photo; reopen only for an actually distinct FamilySearch image."
     },
     {
       "id": "edward-jr-brothers-photo",
@@ -1545,8 +1547,10 @@
       "recordId": "edward-jr-charlotte-family-photo",
       "owner": "work",
       "action": "inspect-original",
-      "state": "paused",
-      "novelty": "Read full image and metadata for family-photo publication: person gallery omitted this named memory; not a repeat census or already preserved photo acquisition. Original memory review pending; browser connection stalled. Distinct public BYU photographs handled separately; do not assume memory duplication."
+      "state": "closed",
+      "novelty": "CLOSED AS DUPLICATE GALLEY CLAIM. Published Charlotte group original already represented, no second capture justified. Distinct FS version not ruled out.",
+      "closure_date": "2026-10-18",
+      "closure_reason": "Photo with exact published Charlotte-and-three-children caption already appears as jr-charlotte-1891 in Atlas v3.9.56. Duplicate gallery omission claim disproved. Identity of separate FS Memory image unverified; review only if an authenticated distinct image emerges."
     },
     {
       "id": "edward-jr-1920-transcript",
