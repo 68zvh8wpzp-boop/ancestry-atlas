@@ -1770,6 +1770,22 @@
       "originalRefs": [],
       "evidence": "github:research/isaac-carling-tranche-13-orderville-1875-1876-chronology-20261018.md",
       "note": "Tranche13 18 Oct: specific compiled Carling family history says Isaac/Asenath left Fillmore 4 Aug 1876 for Orderville and gives Sarah age20 (consistent with 1856 birth in 1876); 1965 Chamberlain reunion quotes granddaughter/descendant Annie as reporting arrived Orderville 11 Aug 1875. Both later writings, share three wagons/lathe/melodeon, perhaps dependent; counts of alleged 16 travelers in 1965 clash with enumerated 14 surviving children in other account. 1876 favored only as working chronology; NO original named contemporary migration/United Order membership entry read. Museum biography revised to 'In the mid-1870s...'. No new media, app publication or FamilySearch mutation."
+    },
+    {
+      "id": "isaac-carling-tranche14-prepublication-staged-person-overlay",
+      "personId": "KWJ8-5XJ",
+      "atlasPersonId": "isaac_carling",
+      "event": "person-page-prepublication-implementation",
+      "status": "source-weighted-person-overlay-staged-not-live",
+      "title": "Isaac Carling museum Biography, historicalNotes and external source references — staged Atlas overlay",
+      "sourceKeys": [
+        "github:isaac-carling-mobile-biography-staged.js",
+        "github:research/isaac-carling-tranche-14-atlas-prepublication-content-audit-20261018.md"
+      ],
+      "sourceUrl": "https://github.com/68zvh8wpzp-boop/ancestry-atlas/blob/main/isaac-carling-mobile-biography-staged.js",
+      "originalRefs": [],
+      "evidence": "github:research/isaac-carling-tranche-14-atlas-prepublication-content-audit-20261018.md",
+      "note": "18 Oct Tranche14: inspected actual index.html redirect -> atlas-v3.9.56 and inline DATA entry for Isaac showing only short U.S. note, no GUIDE_PROFILES life / portrait / gallery. Created tested staged overlay (3,717-char actual biography, 2 historicalNotes, 6 source link-only evidence; no original image). JavaScript parser and repeated two-execution emulated runtime checks passed. Staged module NOT loaded into live HTML, no app release/iPhone acceptance; next Tranche15 single version bump and live rendering QA. No FamilySearch/email/fees."
     }
   ],
   "tasks": [
@@ -2253,16 +2269,16 @@
       "name": "Isaac Van Wagoner Carling",
       "status": "active",
       "started": "2026-10-18",
-      "last_tranche": 13,
+      "last_tranche": 14,
       "previous_person": {
         "id": "KVPR-ZP3",
         "name": "Edward Milo Webb Jr.",
         "status": "closed-user-approved"
       },
-      "next_tranche": "Tranche 14: one Atlas prepublication person-data/content/media risk audit for Isaac, compare review biography to live app node without looping inaccessible original photos or repeated census work; save exact publish plan, only deploy with editorial/user approval.",
+      "next_tranche": "Tranche 15: single actual Atlas release with source-true Isaac staged overlay, update index.html redirect/cache, check source cards and biography in app, then user iPhone review; no more source-loop tasks",
       "rule": "one research tranche then saved checkpoint, no duplicate originals or full census rework",
-      "last_tranche_status": "source-level 1875 arrival versus 1876 departure comparison complete; mid-1870s wording corrected and committed in research biography; 1876 only working favored chronology",
-      "last_tranche_report": "research/isaac-carling-tranche-13-orderville-1875-1876-chronology-20261018.md",
+      "last_tranche_status": "live v3.9.56 Isaac only short note; source-weighted biography overlay implemented, syntax/data-runtime tested, and GitHub staged but NOT linked/deployed; 6 source references, 2 separate historical notes, zero false photos",
+      "last_tranche_report": "research/isaac-carling-tranche-14-atlas-prepublication-content-audit-20261018.md",
       "exceptions": [
         "1911 Utah original death certificate not captured; series 81448 image access requires interactive browser",
         "Isaac 1852 diary studied through Church History transcript of 1966 family history; autograph page scans not captured",
@@ -2273,7 +2289,8 @@
         "USU UUS_P0143 Box1 Folder15 1875 Isaac Carling-attributed sketch and 3 letters are cataloged but no online pixels/letters linked; a single, unsent reference/reproduction inquiry is prepared; artist/date/rights unverified.",
         "BYU MSS512 has physical Orderville board/departments originals, but no named Isaac folio or online readable page; Huntington MSS MFilm00207 digitized 779-frame comparable original copies have no Isaac-named indexed frame, current binary/interactive access blocked.",
         "1853 Isaac-to-Asenath proposal letter dated 19 June appears in later family-history transcription only; original autograph not inspected. Biography draft saved, not deployed or approved.",
-        "Tranche13: relocation 1875 (1965 descendant arrival testimony) vs 1876 (later Carling family-history departure, ages favor 1876), original exact day not confirmed. Biography now says mid-1870s; preserve both reports."
+        "Tranche13: relocation 1875 (1965 descendant arrival testimony) vs 1876 (later Carling family-history departure, ages favor 1876), original exact day not confirmed. Biography now says mid-1870s; preserve both reports.",
+        "Tranche14: Isaac prepublication overlay was saved in root isaac-carling-mobile-biography-staged.js but atlas-v3.9.56.html and index.html remain unchanged. No new media originals; run actual release/browser QA before inviting iPhone acceptance."
       ]
     }
   }
