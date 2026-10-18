@@ -9,8 +9,8 @@
     "scheduleDate": "June 1880 (day blank)",
     "detail": "research/edward-jr-1880-census-review-20261017.md"
   },
-  "method": "Entire original page visually surveyed at 7,528×8,824 pixels. Names, ages, sex, household terms, occupation, birthplaces and parents' birthplaces are provisionally transcribed for every line. The ten Webb/Sarah lines have more rigorous separate originals-and-expansions in the embedded checked ten-line extract. Uncertain readings remain flagged, especially non-target people. Other columns beyond these core fields are not asserted complete.",
-  "completion_status": "partial full-page transcription: 50-line core-column reading complete; non-target secondary columns and uncertain readings remain for a final diplomatic pass",
+  "method": "Entire original page visually surveyed at 7,528×8,824 pixels. Names, ages, sex, household terms, occupation, birthplaces and parents' birthplaces are provisionally transcribed for every line. The ten Webb/Sarah lines have more rigorous separate originals-and-expansions in the embedded checked ten-line extract. Uncertain readings remain flagged, especially non-target people. Other columns beyond these core fields are not asserted complete. 18 October 2026: inspected every visible field in target/adjacent rows 40–49, with a corrected anomalous relationship abbreviation on line 42; recorded exact target-column marks separately.",
+  "completion_status": "1880 target/adjacent rows 40–49 full-column review saved with marked uncertainties; unrelated whole-page rows remain provisional.",
   "exact_target_and_adjacent_transcription_pairs": [
     "Original: 43; Webb Edward M.; W; M; 33; [blank]; [blank]; / [married]; Schoolteacher; 3; Mo; N.Y.; N.Y.",
     "Translation: Edward M. Webb, 33, male, recorded white, married, schoolteacher; three months unemployed in the census year; born Missouri, both parents reported born New York. Dwelling 138, family 171 begins here; relationship cell blank. The unemployment figure does not state why he was out of work.",
@@ -30,8 +30,8 @@
     "Translation: Sarah E. Webb, 24, female, recorded white, married, keeping house; born Utah (ditto from preceding row), father New York, mother Illinois. Dwelling 137, family 170 begins here; relationship cell blank.",
     "Original: 41; — Owen A.; W; M; 2; [blank]; Son; / [single]; [blank]; [blank]; ” [Utah]; Mo; Utah",
     "Translation: Owen A. [Webb], 2, male, recorded white, single, son in Sarah’s entry; born Utah, father Missouri, mother Utah. Surname continued. Father’s name is not supplied here.",
-    "Original: 42; — C[illegible] A.; W; F; 5/12; Dec; daughter; / [single]; [blank]; [blank]; ”; ”; ”",
-    "Translation: Female infant with partly obscured given name and middle initial A., five months, single, daughter in Sarah’s entry; birth month December; born Utah, father Missouri, mother Utah by ditto marks. The given name remains partly obscured."
+    "Original: 42; — C[partially illegible] A.; W; F; 5/12; Dec; Gr daughter [abbreviated, appears to be 'granddaughter']; / [single]; [occupation overwritten or unreadable]; [months unemployed illegible/possibly overwritten mark]; ” [Utah]; Mo; ” [Utah]",
+    "Translation: The entry beneath Sarah E. Webb and Owen A. records a female infant five months old, born in December. The given name is partly obscured, with final initial A. The relationship column appears to read 'Gr daughter' rather than simply 'daughter.' If intended to mean granddaughter it is chronologically unusual for Sarah, listed as 24; this relationship cannot be adopted as biological proof. The birthplace entries appear to be Utah, father Missouri and mother Utah. An indistinct mark near the occupation/unemployment fields is not interpreted as employment or months unemployed."
   ],
   "rows": [
     {
@@ -512,7 +512,7 @@
       "birthplace": "Utah",
       "fatherBirthplace": "N.Y.",
       "motherBirthplace": "Ill.",
-      "reviewScope": "target/adjacent reviewed record"
+      "reviewScope": "target/adjacent original verified (specified columns)"
     },
     {
       "line": 41,
@@ -524,19 +524,19 @@
       "birthplace": "Utah",
       "fatherBirthplace": "Mo",
       "motherBirthplace": "Utah",
-      "reviewScope": "target/adjacent reviewed record"
+      "reviewScope": "target/adjacent original verified (specified columns)"
     },
     {
       "line": 42,
-      "originalName": "— C[illegible] A.",
+      "originalName": "— C[partially illegible] A. [middle letters possibly -therine; not asserted]",
       "sex": "F",
       "age": "5/12",
-      "relationshipAsRecorded": "daughter",
+      "relationshipAsRecorded": "Gr daughter [abbreviation on original; interpretation not proven]",
       "occupation": "[blank]",
       "birthplace": "Utah",
       "fatherBirthplace": "Mo",
       "motherBirthplace": "Utah",
-      "reviewScope": "target/adjacent reviewed record"
+      "reviewScope": "target/adjacent original reviewed; unresolved lettering"
     },
     {
       "line": 43,
@@ -548,7 +548,7 @@
       "birthplace": "Mo",
       "fatherBirthplace": "N.Y.",
       "motherBirthplace": "N.Y.",
-      "reviewScope": "target/adjacent reviewed record"
+      "reviewScope": "target/adjacent original verified (specified columns)"
     },
     {
       "line": 44,
@@ -560,7 +560,7 @@
       "birthplace": "Eng",
       "fatherBirthplace": "Eng",
       "motherBirthplace": "Eng",
-      "reviewScope": "target/adjacent reviewed record"
+      "reviewScope": "target/adjacent original verified (specified columns)"
     },
     {
       "line": 45,
@@ -572,7 +572,7 @@
       "birthplace": "Utah",
       "fatherBirthplace": "Mo",
       "motherBirthplace": "Eng",
-      "reviewScope": "target/adjacent reviewed record"
+      "reviewScope": "target/adjacent original verified (specified columns)"
     },
     {
       "line": 46,
@@ -584,7 +584,7 @@
       "birthplace": "Utah",
       "fatherBirthplace": "Mo",
       "motherBirthplace": "Eng",
-      "reviewScope": "target/adjacent reviewed record"
+      "reviewScope": "target/adjacent original verified (specified columns)"
     },
     {
       "line": 47,
@@ -596,7 +596,7 @@
       "birthplace": "Utah",
       "fatherBirthplace": "Mo",
       "motherBirthplace": "Eng",
-      "reviewScope": "target/adjacent reviewed record"
+      "reviewScope": "target/adjacent original verified (specified columns)"
     },
     {
       "line": 48,
@@ -608,7 +608,7 @@
       "birthplace": "Utah",
       "fatherBirthplace": "Mo",
       "motherBirthplace": "Eng",
-      "reviewScope": "target/adjacent reviewed record"
+      "reviewScope": "target/adjacent original verified (specified columns)"
     },
     {
       "line": 49,
@@ -620,7 +620,7 @@
       "birthplace": "Utah",
       "fatherBirthplace": "Mo",
       "motherBirthplace": "Eng",
-      "reviewScope": "target/adjacent reviewed record"
+      "reviewScope": "target/adjacent original verified (specified columns)"
     },
     {
       "line": 50,
@@ -641,5 +641,227 @@
     "Enumeration day itself is blank. Received 16 Aug 1880 is NOT the enumeration date.",
     "The printed relationship for Edward as the first named person is blank, despite compiled index describing him as head.",
     "No underlying FamilySearch/person identifiers changed. Uncertain context names are not additions to the family tree."
-  ]
+  ],
+  "verified_target_and_adjacent_full_columns": {
+    "review_date": "2026-10-18",
+    "scope": "Rows 40–49, including Sarah E. Webb household and separate Edward M. Webb household; family identity and schooling/health/literacy columns reviewed against unaltered original 7528×8824 image",
+    "original_sha256": "978d8682eea11e51e5d7794f97045a647e6221ee3b68afdb1fe0b96b6897a475",
+    "original_column_principle": "Preserve slash marks as slash marks; do not infer school qualification or disease; 'Gr daughter' not silently replaced with daughter; names genuinely obscured remain obscured.",
+    "column_notes": "Columns on 1880 schedule: dwelling, family, name, color, sex, age, birth month if born that census year, relationship, civil status, occupation, months unemployed, sickness/disability, education, birthplace and parents' birthplaces. Unrecorded fields are blank; under-ten literacy questions are not asked on this schedule.",
+    "rows": [
+      {
+        "line": 40,
+        "household": "137 / 170",
+        "name": "Webb Sarah E.",
+        "age": "24",
+        "sex": "F",
+        "relation": "[blank]",
+        "civilCondition": "married /",
+        "occupation": "Keeping house",
+        "monthsUnemployed": "[blank]",
+        "birthMonth": "[blank]",
+        "health": "[blank]",
+        "attendedSchool": "[blank]",
+        "cannotRead": "[blank]",
+        "cannotWrite": "[blank]",
+        "born": "Utah (ditto)",
+        "father": "N.Y.",
+        "mother": "Ill.",
+        "notes": "Separate dwelling/family from Edward. Married mark does not identify spouse."
+      },
+      {
+        "line": 41,
+        "household": "137 / 170 (continuation)",
+        "name": "— Owen A.",
+        "age": "2",
+        "sex": "M",
+        "relation": "Son",
+        "civilCondition": "single /",
+        "occupation": "[blank]",
+        "monthsUnemployed": "[blank]",
+        "birthMonth": "[blank]",
+        "health": "[blank]",
+        "attendedSchool": "[blank]",
+        "cannotRead": "[not asked: under 10]",
+        "cannotWrite": "[not asked: under 10]",
+        "born": "Utah (ditto)",
+        "father": "Mo",
+        "mother": "Utah",
+        "notes": "Parentage cannot be assigned merely from adjacent census household."
+      },
+      {
+        "line": 42,
+        "household": "137 / 170 (continuation)",
+        "name": "— C[partially illegible] A.",
+        "age": "5/12",
+        "sex": "F",
+        "relation": "Gr daughter [appears; abbreviates granddaughter]",
+        "civilCondition": "single /",
+        "occupation": "[faint overwritten marks; not legible]",
+        "monthsUnemployed": "[unreadable/erasure near field]",
+        "birthMonth": "Dec",
+        "health": "[blank]",
+        "attendedSchool": "[blank]",
+        "cannotRead": "[not asked: under 10]",
+        "cannotWrite": "[not asked: under 10]",
+        "born": "Utah (ditto)",
+        "father": "Mo",
+        "mother": "Utah (ditto)",
+        "notes": "IMPORTANT: original appears 'Gr daughter', not daughter. Sarah is age 24, so do not interpret this as proven biological granddaughter or silently substitute daughter."
+      },
+      {
+        "line": 43,
+        "household": "138 / 171",
+        "name": "Webb Edward M.",
+        "age": "33",
+        "sex": "M",
+        "relation": "[blank]",
+        "civilCondition": "married /",
+        "occupation": "Schoolteacher",
+        "monthsUnemployed": "3",
+        "birthMonth": "[blank]",
+        "health": "faint slash-like mark in disability/sick column, no named condition",
+        "attendedSchool": "[blank]",
+        "cannotRead": "[blank]",
+        "cannotWrite": "[blank]",
+        "born": "Mo",
+        "father": "N.Y.",
+        "mother": "N.Y.",
+        "notes": "Schoolteacher and 3 months unemployed written. Does not establish cause. New York mother birthplace conflicts with 1921 death certificate's Ohio."
+      },
+      {
+        "line": 44,
+        "household": "138 / 171 (continuation)",
+        "name": "— Ellen",
+        "age": "26",
+        "sex": "F",
+        "relation": "Wife",
+        "civilCondition": "married /",
+        "occupation": "Keeping house",
+        "monthsUnemployed": "[blank]",
+        "birthMonth": "[blank]",
+        "health": "[blank]",
+        "attendedSchool": "[blank]",
+        "cannotRead": "[blank]",
+        "cannotWrite": "[blank]",
+        "born": "Eng",
+        "father": "Eng",
+        "mother": "Eng",
+        "notes": "Unlike Sarah's separate dwelling, Ellen is explicitly entered as Wife."
+      },
+      {
+        "line": 45,
+        "household": "138 / 171 (continuation)",
+        "name": "— Abigail A.",
+        "age": "8",
+        "sex": "F",
+        "relation": "daughter",
+        "civilCondition": "single /",
+        "occupation": "[blank]",
+        "monthsUnemployed": "[blank]",
+        "birthMonth": "[blank]",
+        "health": "[blank]",
+        "attendedSchool": "slash /",
+        "cannotRead": "[not asked: under 10]",
+        "cannotWrite": "[not asked: under 10]",
+        "born": "Utah",
+        "father": "Mo",
+        "mother": "Eng (ditto)",
+        "notes": "School mark read; no school name."
+      },
+      {
+        "line": 46,
+        "household": "138 / 171 (continuation)",
+        "name": "— Edward M.",
+        "age": "6",
+        "sex": "M",
+        "relation": "Son",
+        "civilCondition": "single /",
+        "occupation": "[blank]",
+        "monthsUnemployed": "[blank]",
+        "birthMonth": "[blank]",
+        "health": "[blank]",
+        "attendedSchool": "slash /",
+        "cannotRead": "[not asked: under 10]",
+        "cannotWrite": "[not asked: under 10]",
+        "born": "Utah (ditto)",
+        "father": "Mo (ditto)",
+        "mother": "Eng (ditto)",
+        "notes": "School mark read; no school name."
+      },
+      {
+        "line": 47,
+        "household": "138 / 171 (continuation)",
+        "name": "— Ellen A.",
+        "age": "4",
+        "sex": "F",
+        "relation": "daughter",
+        "civilCondition": "single /",
+        "occupation": "[blank]",
+        "monthsUnemployed": "[blank]",
+        "birthMonth": "[blank]",
+        "health": "[blank]",
+        "attendedSchool": "[blank]",
+        "cannotRead": "[not asked: under 10]",
+        "cannotWrite": "[not asked: under 10]",
+        "born": "Utah (ditto)",
+        "father": "Mo (ditto)",
+        "mother": "Eng (ditto)",
+        "notes": "No explicit school-attendance mark."
+      },
+      {
+        "line": 48,
+        "household": "138 / 171 (continuation)",
+        "name": "— Caroline A.",
+        "age": "2",
+        "sex": "F",
+        "relation": "daughter (ditto)",
+        "civilCondition": "single /",
+        "occupation": "[blank]",
+        "monthsUnemployed": "[blank]",
+        "birthMonth": "[blank]",
+        "health": "[blank]",
+        "attendedSchool": "[blank]",
+        "cannotRead": "[not asked: under 10]",
+        "cannotWrite": "[not asked: under 10]",
+        "born": "Utah (ditto)",
+        "father": "Mo (ditto)",
+        "mother": "Eng (ditto)",
+        "notes": "No school-attendance mark."
+      },
+      {
+        "line": 49,
+        "household": "138 / 171 (continuation)",
+        "name": "— Francis J.",
+        "age": "7/12",
+        "sex": "M",
+        "relation": "Son",
+        "civilCondition": "single /",
+        "occupation": "[blank]",
+        "monthsUnemployed": "[blank]",
+        "birthMonth": "Oct",
+        "health": "[blank]",
+        "attendedSchool": "[blank]",
+        "cannotRead": "[not asked: under 10]",
+        "cannotWrite": "[not asked: under 10]",
+        "born": "Utah (ditto)",
+        "father": "Mo (ditto)",
+        "mother": "Eng (ditto)",
+        "notes": "Retain fraction 7/12 and October, do not infer exact birthdate."
+      }
+    ],
+    "resolved_claims": [
+      "Sarah's preceding three-person entry and Edward's seven-person entry are separate dwellings/families.",
+      "Relationship entry on the infant immediately below Sarah looks like 'Gr daughter' (granddaughter abbreviation), contrary to prior transcription. Her true relationship remains unresolved.",
+      "Edward is schoolteacher and has '3' in months-unemployed; no reason given.",
+      "Attendance slashes on Abigail and young Edward, not on younger siblings.",
+      "Edward's mother recorded born N.Y. conflicts death certificate mother Caroline A. Owens born Ohio; preserve both originals."
+    ],
+    "not_claimed": [
+      "Sarah is not explicitly named Edward's spouse by this particular census page.",
+      "Infant on line 42 is not confidently deciphered or placed as a verified child or grandchild.",
+      "The slash-like mark in Edward's health area is not a diagnosis.",
+      "The other 40 rows' full secondary columns are not verified in this tranche."
+    ]
+  }
 }
