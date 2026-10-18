@@ -1,0 +1,86 @@
+{
+  "title": "Edward Milo Webb Jr. — bounded final publication quality assurance",
+  "date": "2026-10-18",
+  "person": "Edward Milo Webb Jr.",
+  "familySearchPersonId": "KVPR-ZP3",
+  "atlasPersonId": "edward_milo_jr",
+  "scope": "ITEM 1 ONLY: static published-source and repository media-reference QA. Not an iPhone pass, nor a claim the public GitHub Pages site successfully rendered.",
+  "release": {
+    "path": "atlas-v3.9.56.html",
+    "sourceSha": "eab0338420a809ce01c888c831038d2ff33800fa",
+    "sourceBytes": 399560,
+    "url": "https://68zvh8wpzp-boop.github.io/ancestry-atlas/atlas-v3.9.56.html?person=edward_milo_jr",
+    "unchanged": true
+  },
+  "staticResults": {
+    "status": "PASS — STRUCTURAL / REPOSITORY FILE EXISTENCE ONLY",
+    "checksPassed": 14,
+    "checksRun": 14,
+    "checks": [
+      "person query route parses ?person= and calls selectPersonSearchResult",
+      "documents and photos appear in distinct media groups",
+      "missing image decode raises visible fallback message rather than a blank view",
+      "swipe handler is wired to previous/next media controls",
+      "close viewer logic is wired",
+      "previous and next button onclick handlers are present",
+      "Story entry control and Tour.begin target route are present",
+      "canonical biography is assigned to both card biography and Story transcript",
+      "Story synchronized prerecorded audio is explicitly disabled pending matching narration",
+      "Story scenes map existing photo evidence",
+      "Story also retains 1920 household and 1921 civil death documentary scenes",
+      "mobile-specific CSS includes viewer and responsive styles",
+      "Irene ten-page readerUrl referenced in Atlas",
+      "Lois two-page bilingual readerUrl referenced in Atlas"
+    ],
+    "mediaReferences": {
+      "photosInAtlas": 8,
+      "photoAssetPathsFoundInRepository": 8,
+      "documentsInAtlas": 9,
+      "primaryDocumentAssetPathsFoundInRepository": 9,
+      "ireneReaderPageSections": 10,
+      "ireneReaderImagePathsFoundInRepository": 10,
+      "loisReaderImages": 2,
+      "loisOriginalRegisterPathsFoundInRepository": 2,
+      "extraOriginalPdfPathsFound": 2,
+      "readerText": "Irene 10 reader transcript blocks matched previously saved page-01..10 txt after HTML-decoding and trailing newline normalization; Lois reader contains Spanish entry and English translation; reconfirmed in previous discrete tranche."
+    },
+    "binaryPayloadLimit": "All 17 principal photo/document paths returned a Git blob SHA. Ten had Base64 payload available in current connector; seven oversized assets returned metadata but no binary content, so they were NOT pixel-decoded. All 14 additional reader photo/page/PDF paths returned a blob SHA; some also withheld binary bytes. Do not report image-decoding success from this.",
+    "launchEntry": {
+      "indexHtmlPath": "index.html",
+      "indexPointsTo": "atlas-v3.9.56.html",
+      "webManifestPath": "manifest.webmanifest",
+      "manifestStartPointsTo": "atlas-v3.9.56.html"
+    },
+    "biographicalDocumentConsistency": "All eight photo IDs, nine core document items, date-resolved death certificate, full Irene PDF, Lois bilingual originals and direct person route remain referenced in static v3.9.56 source. No new biographical assertions added."
+  },
+  "liveResults": {
+    "status": "BLOCKED — NOT PASSED",
+    "attemptedUrls": [
+      "https://68zvh8wpzp-boop.github.io/ancestry-atlas/atlas-v3.9.56.html?person=edward_milo_jr",
+      "https://68zvh8wpzp-boop.github.io/ancestry-atlas/assets/edward-webb-jr/irene-biography-reader.html"
+    ],
+    "observations": "Public web reader reported these GitHub Pages URLs inaccessible. Container direct HTTP request failed DNS resolution for github.io and api.github.com. This does NOT establish the site is actually down: inability to reach it may be specific to these execution environments.",
+    "notValidated": [
+      "live page fetch / full runtime JavaScript execution in a browser",
+      "decoded display of all eight actual photos and nine documents",
+      "touch swipe / close / album interactions on physical iPhone",
+      "service-worker caching / iPhone app cache behavior",
+      "visual clipping, layout, search overlay, navigability on user's device",
+      "matched spoken audio to canonical biography (explicitly unavailable)",
+      "unseen 125 FamilySearch Memories source images (needs authorized signed-in browser)"
+    ]
+  },
+  "scopeDecisions": [
+    "No additional full-page census transcription.",
+    "No retranscription of Irene ten-page biography or Lois bilingual registration.",
+    "No recapture of already published eight photographs, including Charlotte family portrait.",
+    "No unnecessary new Atlas build: existing v3.9.56 still references all correct primary items.",
+    "New June/Cherie oral histories remain cataloged/unheard research leads, not album audio or proven new biographical text."
+  ],
+  "disposition": "STATIC PUBLICATION QA PASSED. REAL LIVE + IPHONE FUNCTIONAL QA UNVERIFIED; NEXT ITEM IS USER IPHONE VALIDATION OF THE EXISTING VERSION. Keep Milo Jr open until user reports pass and source access exception disposition; do not relabel as entirely done.",
+  "nextTask": {
+    "name": "iPhone hands-on version 3.9.56 verification",
+    "oneAtATime": "Ask user to open direct person URL on iPhone, verify it loads and shows eight photo tiles plus nine document tiles. If that passes, follow with reader and Story navigation checks in subsequent discrete turns. Do not demand every check at once.",
+    "url": "https://68zvh8wpzp-boop.github.io/ancestry-atlas/atlas-v3.9.56.html?person=edward_milo_jr"
+  }
+}
