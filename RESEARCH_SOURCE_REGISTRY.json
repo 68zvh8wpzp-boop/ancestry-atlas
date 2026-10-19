@@ -1986,6 +1986,23 @@
       "evidence": "github:research/webb-tranche-03-albany-1823-will-index-candidate-discriminator-20261018.md",
       "researchDetailStatus": "secondary-full-will-testator-volume5-6-indexes-inspected-absence-only-no-original-specific-estate-identified",
       "note": "Tranche03 one disambiguation test for different candidate James Webb born1754 died purportedly Oct1823 Rensselaerville Albany NY FS LHSH-TKQ, not direct ancestor James Webb Jr KWJ1-P2V. Published New Horizons Genealogy transcriptions of Albany Surrogate Will Book testator indexes volumes 5 (1817-23) and 6 (1823-32) contain no WEBB entries (whole alphabetized lists and text-find). Strictly does NOT rule out intestate administration, another county, other date, missing/mistranscribed index, or fatherhood. No period probate original image seen. Albany County guide documents separate original administration/will name index 1787–1845; next test that ADMINISTRATION index around 1823-26 only. No approval or genealogy graph edits."
+    },
+    {
+      "id": "webb-tranche04-1895-albany-administration-1823-index-edition-access",
+      "personId": "KWJ1-P2V",
+      "atlasPersonId": "james_webb_jr",
+      "event": "distinct-albany-letters-of-administration-index-bibliographic-location-and-surname-access",
+      "status": "indexed",
+      "title": "Albany NY 1895 official Wills & Letters of Administration index, administration section 1794–1895; 1823 candidate James Webb surname page NOT read",
+      "sourceKeys": [
+        "albany-surrogate:conway:1895:index-letters-of-administration:1794-1895:edition",
+        "geneanet:book:5458557:premium-full-book-lookup-gate"
+      ],
+      "sourceUrl": "https://en.geneanet.org/library/doc/5458557/index-to-wills-and-to-letters-of-administration-index-to-wills-from-1780-to-dec-1-1895",
+      "originalRefs": [],
+      "evidence": "github:research/webb-tranche-04-albany-1823-letters-administration-index-edition-and-access-20261018.md",
+      "researchDetailStatus": "new-1895-albany-admin-index-identified-1823-covered-but-no-James-Webb-entry-viewed-premium-source",
+      "note": "Tranche04 distinctly NEW record class, not Tranche03 will book indexes: Albany County Surrogate printed 1895 Martin D Conway/J B Lyon book has administration index 1794–1895, includes candidate 1823 time window. NYPL book bibliography confirms ~240 PRINTED pp; Geneanet scan 482 digital images but full reading requires Premium; no surname Webb page or entry inspected. New Horizons separately lists administration vol1 1794–1805, vol2 1805–1810 only, not an 1823 collection. Official Albany County Hall of Records maintains 1787–1845 alphabetic index and printed consolidation, but no individual scan retrieved. Caution NYS J0033 statewide administrations commonly miscataloged Albany. Absolutely NO claim no administration, probate, parentage or estate; no payment, email or person graph changes. Next distinct original-class Otsego County deed grantor/grantee index after duplicate check."
     }
   ],
   "tasks": [
@@ -2404,10 +2421,10 @@
       "name": "James Webb Jr.",
       "status": "active-parentage-proof-frontier-research-only",
       "started": "2026-10-18",
-      "last_tranche": 3,
-      "last_tranche_report": "research/webb-tranche-03-albany-1823-will-index-candidate-discriminator-20261018.md",
-      "last_tranche_status": "Examined two published Albany Surrogate testator index volumes covering 1817–1832 for competing James Webb b1754/d1823 Rensselaerville; neither indexes Webb, hence no will book/page found (not evidence of absence of estate, will, death or parentage). Specific county 1787–1845 Surrogate administration index identified as different source class; no original image acquired.",
-      "next_tranche": "Webb Tranche04: ONE named lookup in Albany County Surrogate Court 1787–1845 index to letters of administration for James Webb of Rensselaerville ca1823–1826; save exact entry/folio if found or log precise access limit once. Do not re-search will books 5/6 or Chester film login, censuses, or 1845 death.",
+      "last_tranche": 4,
+      "last_tranche_report": "research/webb-tranche-04-albany-1823-letters-administration-index-edition-and-access-20261018.md",
+      "last_tranche_status": "NEW source class verified: Albany County 1895 printed letters-of-administration index under Martin D Conway, covering 1794–1895 including 1823. Its surname pages inaccessible through free Geneanet Premium viewer; actual James Webb entry NOT verified. Online free Albany administration volumes end 1810 and cannot be negative evidence for 1823. No repeated Tranche03 will-book index, no Chester sign-in rerun, no genealogy mutation.",
+      "next_tranche": "Webb Tranche05 (DIFFERENT record class): Otsego County New York land grantor/grantee index approx1790–1815 for James Webb; check existing duplicate-governance research first, select ONE actual indexed original volume, inspect if publicly readable; log exact named entry/custody or source-level barrier and stop. Do NOT retry Albany will-book indexes, 1895 Geneanet paywall, Chester films or completed censuses.",
       "previous_person": {
         "id": "KWJ8-5XJ",
         "name": "Isaac Van Wagoner Carling",
@@ -2415,7 +2432,8 @@
       },
       "guardrails": "One Webb direct person at a time, one tranche then save/commit/stop; do not reopen completed Edward Jr/Sr censuses or existing Isaac research, no FamilySearch writes, fees or email.",
       "accessExceptions": [
-        "Tranche02 Chester film 0005554/1008328 and Church Records index koha19954 require dynamic authenticated FamilySearch/image access not available here; no original 1773 marriage / c1777 baptism image reviewed; do not infer missing birth evidence."
+        "Tranche02 Chester film 0005554/1008328 and Church Records index koha19954 require dynamic authenticated FamilySearch/image access not available here; no original 1773 marriage / c1777 baptism image reviewed; do not infer missing birth evidence.",
+        "Tranche04 1895 Albany administration index 1794–1895 located as distinct court book, but no Webb named entry/pages readable free; Geneanet digitization Premium and early free transcribed administration volumes end 1810. No negative index result asserted."
       ]
     },
     "archivedClosedTasks": [
