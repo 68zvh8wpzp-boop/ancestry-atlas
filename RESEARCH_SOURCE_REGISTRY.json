@@ -2038,6 +2038,22 @@
       "evidence": "github:research/webb-tranche-06-otsego-1804-deed-book-K372-original-image-gate-20261019.md",
       "researchDetailStatus": "individual-1804-person-specific-deed-original-not-accessed-FS-otsego-waypoint-500-and-county-paid",
       "note": "Tranche06 original-image access only; NOT repeated tranche05 source discovery. Exact original Otsego County New York Deed Book K p372 (27 Jun 1804 James Webb of Brookfield Chenango ↔ John Welch) sought in FamilySearch NY Land Records collection2078654. Free Browse All waypoint lists Otsego, county link M7HG-YM3:358136101 returned 400 timeout / Something Went Wrong JavaScript required; exact Book K frame/DGS not reached. Separate county SearchIQS published access banner charges $20/day or $50/30 days + $0.50 print, no fees paid; do not infer Book K itself digitized in that system. No original image saved, no verbatim 1804 text, no new kinship or ancestor identity claim. Next tranche distinct Chenango/Brookfield historical tax record 1800-05 only if exact public readable original, not repeated FamilySearch browser error."
+    },
+    {
+      "id": "webb-tranche07-brookfield-chenango-1799-1804-tax-NYSA-B0950-unexamined",
+      "personId": "KWJ1-P2V",
+      "atlasPersonId": "james_webb_jr",
+      "event": "original-period-tax-assessment-series-candidate-for-1804-Webb-of-Brookfield",
+      "status": "indexed",
+      "title": "NY State Archives B0950 1799–1804 Chenango/Brookfield assessment rolls: collection verified, James Webb entry not examined",
+      "sourceKeys": [
+        "nysa:B0950:chenango:brookfield:1799-1804:tax-collection-review-20261019"
+      ],
+      "sourceUrl": "https://www.archives.nysed.gov/research/res_tips_007_taxrolls.shtml",
+      "originalRefs": [],
+      "evidence": "github:research/webb-tranche-07-chenango-brookfield-tax-rolls-B0950-access-20261019.md",
+      "researchDetailStatus": "NYSA-original-series-B0950-identified-no-Brookfield-exact-microfilm-reel-or-James-Webb-tax-entry-accessed",
+      "note": "Tranche07 19Oct2026: distinctly NEW tax-roll original series (not Otsego 1804 Deed Book K:372). New York State Archives B0950 Comptroller Tax Assessment Rolls of Real and Personal Estates 1799–1804, county then town, no person index, on-site microfilm and interlibrary loan. 1804 Brookfield was in Chenango County, later Madison. Ancestry database 6771 digitizes/indexes series, but no free James WEBB tax hit/page validated; NYSA detailed PDF finding aid was HTTP403; no Brookfield reel/year/page established and no 1800–1804 name inference. Tranches01–06 records explicitly frozen. NEXT NEW source class official Madison County Historian Archival Documents Brookfield PDF collection index — do not read yet as separate tranche08."
     }
   ],
   "tasks": [
@@ -2456,10 +2472,10 @@
       "name": "James Webb Jr.",
       "status": "active-parentage-proof-frontier-research-only",
       "started": "2026-10-18",
-      "last_tranche": 6,
-      "last_tranche_report": "research/webb-tranche-06-otsego-1804-deed-book-K372-original-image-gate-20261019.md",
-      "last_tranche_status": "TRANCHE06 original-only access attempt for Otsego NY Deed Book K p372 27Jun1804 (James Webb of Brookfield/John Welch); FamilySearch Otsego county image waypoints fail 400 timeout/JS error; county SearchIQS costs $20 one day, free-only no payment. Original still not obtained; no new independent person-specific facts; anti-repeat ledger freezes duplicate viewer attempts. 1993 abstract from Tranche05 remains the sole readable K372 party statement.",
-      "next_tranche": "Webb Tranche07 DIFFERENT historical record class: one Chenango County/Brookfield c1800–1805 tax-assessment or taxable-land ORIGINAL identifying James Webb of Brookfield, only after confirming a free readable source; alternatively original Otsego Deed K372 via separately authorized interactive FamilySearch Work browser (NOT this failed viewer). No broad census, Chester marriage or Albany repeat.",
+      "last_tranche": 7,
+      "last_tranche_report": "research/webb-tranche-07-chenango-brookfield-tax-rolls-B0950-access-20261019.md",
+      "last_tranche_status": "Tranche07 completed genuinely distinct NY State Archives original 1799–1804 tax assessments B0950 for Chenango County (Brookfield 1798–1806). Verified archival existence, no surname index, direct microfilm/ILL access; Ancestry digitized image edition not publicly checked person-specifically. No Brookfield tax page/James Webb line located or excluded; no identity/parentage proof, original media bytes or Atlas edits. Named source gate not repeated.",
+      "next_tranche": "Webb Tranche08 ONE different FREE source: Madison County Historian official Archival Records page > 'Archival Documents' > Brookfield (PDF). Inspect this specific locally published original-paper index for James Webb and exact dated person-document identifiers; if found pursue ONE verified original. NO NYSA tax catalog repeat, Otsego Book K blocked viewer, Albany 1895 premium, Chester film, census.",
       "previous_person": {
         "id": "KWJ8-5XJ",
         "name": "Isaac Van Wagoner Carling",
@@ -2469,7 +2485,8 @@
       "accessExceptions": [
         "Tranche02 Chester film 0005554/1008328 and Church Records index koha19954 require dynamic authenticated FamilySearch/image access not available here; no original 1773 marriage / c1777 baptism image reviewed; do not infer missing birth evidence.",
         "Tranche04 1895 Albany administration index 1794–1895 located as distinct court book, but no Webb named entry/pages readable free; Geneanet digitization Premium and early free transcribed administration volumes end 1810. No negative index result asserted.",
-        "Tranche06 Otsego Book K p372 1804 original scan not examined: FS New York land record county waypoint Otsego M7HG-YM3:358136101 returned 400/error/JS; Otsego NY SearchIQS $20 one-day/$50 thirty-day paywall. No film ID/book folio image and no permission to spend."
+        "Tranche06 Otsego Book K p372 1804 original scan not examined: FS New York land record county waypoint Otsego M7HG-YM3:358136101 returned 400/error/JS; Otsego NY SearchIQS $20 one-day/$50 thirty-day paywall. No film ID/book folio image and no permission to spend.",
+        "Tranche07 NYSA B0950 1799–1804 Chenango/Brookfield tax rolls exist as microfilm organized county/town, not name-indexed; no county/year original roll sheet or Webb entry accessible in this session. Ancestry indexed images not opened as free evidence; finding aid PDF HTTP403. Frozen absent new free view."
       ]
     },
     "archivedClosedTasks": [
