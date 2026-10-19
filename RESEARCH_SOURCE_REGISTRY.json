@@ -2003,6 +2003,23 @@
       "evidence": "github:research/webb-tranche-04-albany-1823-letters-administration-index-edition-and-access-20261018.md",
       "researchDetailStatus": "new-1895-albany-admin-index-identified-1823-covered-but-no-James-Webb-entry-viewed-premium-source",
       "note": "Tranche04 distinctly NEW record class, not Tranche03 will book indexes: Albany County Surrogate printed 1895 Martin D Conway/J B Lyon book has administration index 1794–1895, includes candidate 1823 time window. NYPL book bibliography confirms ~240 PRINTED pp; Geneanet scan 482 digital images but full reading requires Premium; no surname Webb page or entry inspected. New Horizons separately lists administration vol1 1794–1805, vol2 1805–1810 only, not an 1823 collection. Official Albany County Hall of Records maintains 1787–1845 alphabetic index and printed consolidation, but no individual scan retrieved. Caution NYS J0033 statewide administrations commonly miscataloged Albany. Absolutely NO claim no administration, probate, parentage or estate; no payment, email or person graph changes. Next distinct original-class Otsego County deed grantor/grantee index after duplicate check."
+    },
+    {
+      "id": "webb-tranche05-otsego-book-K372-1804-james-webb-john-welch",
+      "personId": "KWJ1-P2V",
+      "atlasPersonId": "james_webb_jr",
+      "event": "person-naming-period-deed-secondary-abstract-identity-unresolved",
+      "status": "partial",
+      "title": "Otsego County NY Deed Book K:372, 27 June 1804, James Webb of Brookfield NY and grantee John Welch; original still unviewed",
+      "sourceKeys": [
+        "otsego-ny:deed-book-K:page372:1804-06-27:james-webb:john-welch",
+        "occgs:welch-family:1993-jul-sep:page56:otsego:K372"
+      ],
+      "sourceUrl": "https://occgs.com/projects/rescue/family_files/files/WELCH%20Family.pdf",
+      "originalRefs": [],
+      "evidence": "github:research/webb-tranche-05-otsego-1804-james-webb-john-welch-deed-k372-20261018.md",
+      "researchDetailStatus": "new-named-1804-deed-secondary-published-abstract-with-exact-book-page-original-person-identity-unconfirmed",
+      "note": "Tranche05 ANTI-REPEAT confirmed prior Webb tranches and registry had NO book K:372 1804 Otsego deed. Orange County California Genealogical Society rescued Welch Family PDF reprints 1993 Jul–Sep p56 abstract: 'K:372 DATED 6/27/1804 between James WEBB of Brookfield, Chenango County (now Madison) and JOHN WELCH of Town Otsego...$63.75...part Lot#57 Niels Patent...12-3/4 acre'. Same abstract's Welch deed index lists John as GRANTEE at K:372. This is NAME-SPECIFIC original period record locator, not actual 1804 deed manuscript scan. PDF 30MB inaccessible for visual full-page check; excerpt available via search-result text; original not opened. Modern Madison County official creation 1806 confirms dated 1804 locality. Distinguish b1777 James Jr, b1754 James candidate, b1733 James candidate; no identity fatherhood established. NYG&B free enhanced index name-specific direct query unavailable; Otsego clerk SearchIQS posted grantor index starts 1900. Next ONE targeted actual Otsego NY Deed Book K p372 image; not 1773 marriage, 1845 notice or census."
     }
   ],
   "tasks": [
@@ -2421,10 +2438,10 @@
       "name": "James Webb Jr.",
       "status": "active-parentage-proof-frontier-research-only",
       "started": "2026-10-18",
-      "last_tranche": 4,
-      "last_tranche_report": "research/webb-tranche-04-albany-1823-letters-administration-index-edition-and-access-20261018.md",
-      "last_tranche_status": "NEW source class verified: Albany County 1895 printed letters-of-administration index under Martin D Conway, covering 1794–1895 including 1823. Its surname pages inaccessible through free Geneanet Premium viewer; actual James Webb entry NOT verified. Online free Albany administration volumes end 1810 and cannot be negative evidence for 1823. No repeated Tranche03 will-book index, no Chester sign-in rerun, no genealogy mutation.",
-      "next_tranche": "Webb Tranche05 (DIFFERENT record class): Otsego County New York land grantor/grantee index approx1790–1815 for James Webb; check existing duplicate-governance research first, select ONE actual indexed original volume, inspect if publicly readable; log exact named entry/custody or source-level barrier and stop. Do NOT retry Albany will-book indexes, 1895 Geneanet paywall, Chester films or completed censuses.",
+      "last_tranche": 5,
+      "last_tranche_report": "research/webb-tranche-05-otsego-1804-james-webb-john-welch-deed-k372-20261018.md",
+      "last_tranche_status": "MATERIALLY NEW NAME-SPECIFIC DEED CITATION: Otsego NY Deed Book K p372 dated 27Jun1804, published abstract says James WEBB of Brookfield Chenango and John WELCH of Otsego, $63.75, 12¾ acres. Secondary 1993 genealogical extract only; original period book page not viewed; namesake b1777 linkage unproven. Anti-dup ledger confirms no prior K:372. No Atlas genealogical edits.",
+      "next_tranche": "Webb Tranche06: inspect ONE EXACT ORIGINAL page Otsego County NY Deed Book K p372 (plus continuation) 27Jun1804 James Webb of Brookfield ↔ John Welch. Need original source image and book/folio, grantor/grantee, date, wife, signatures, witnesses; use FamilySearch New York Land Records or county archive, if blocked log one precise image access barrier. Do NOT redo abstract or other census/CT marriage/Albany probate searches.",
       "previous_person": {
         "id": "KWJ8-5XJ",
         "name": "Isaac Van Wagoner Carling",
