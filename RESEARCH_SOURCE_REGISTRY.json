@@ -2088,6 +2088,23 @@
       "evidence": "github:research/webb-tranche133-CHS-Saybrook-1656-1834-half-box-collection-provenance-gate-20261031.md",
       "researchDetailStatus": "archivegrid-collection-description-actually-read-original-person-specific-items-not-read",
       "note": "T132 had title only. T133 ArchiveGrid 74277973 directly reads 0.25 linear feet / half-box assembled municipal and legal documents 1656–1834, accession numbers 18476 38139 48376 54439 54449. Only partly digitized; no John Webb, Hannah Davis or 1707 item-level finding and not a verified copy of Saybrook Land Records vol II:208–209. This is NOT proof no Webb items exist. Not direct ancestry evidence. No original page, images, fees or contacts; possible research frontier source warning only."
+    },
+    {
+      "id": "webb-t134-eliza-tenney-weekly-deseret-news-1883-04-18-issue-identifiers",
+      "personId": "KWJ5-C9L",
+      "event": "eliza-tenney-1883-death-notice-publication-original-page-access",
+      "status": "blocked",
+      "title": "Deseret News weekly 18 Apr 1883 v32 no13 p208; two exact issue accession IDs, obituary page unread",
+      "sourceKeys": [
+        "newspaper:deseret-news-weekly:1883-04-18:vol32:no13:p208",
+        "udn:issue:2644480",
+        "byu:desnews3:740654"
+      ],
+      "sourceUrl": "https://newspapers.lib.utah.edu/details?id=2644480",
+      "originalRefs": [],
+      "evidence": "github:research/webb-tranche134-1883-Eliza-Tenney-Deseret-Weekly-two-original-issue-accession-locators-20261031.md",
+      "researchDetailStatus": "indexed-full-weekly-issue-from-byu-and-udn-original-obituary-page-unopened",
+      "note": "Printed newspaper citation previously T56, 1883 death register original seen T57. New T134 exact original issue identifiers Utah Digital Newspapers 2644480 and BYU desnews3/740654 independently aligned to 18 April 1883; web readers cache miss/unavailable. Do NOT claim original notice read, or proof of James b1777's unique Chatham elder father. Favill 1899/1918 genealogy already researched; no duplication. No fee/contact, no Atlas graph/image edit. Detailed file at evidence pointer."
     }
   ],
   "tasks": [
