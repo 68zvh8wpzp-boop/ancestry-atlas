@@ -28,6 +28,13 @@
   add('recordsNeeded',
     'Original Saybrook Land Records IV:340 and accompanying 1731 bond, to test the published wording John Webb → Samuel and Lydia. This belongs to the historical Saybrook cluster until an independent record links it to our 1777 Webb ancestry.'
   );
+  // Tranche 130: source-custody correction only, no ancestry promotion.
+  add('recordsNeeded',
+    'The Deep River Town Clerk is the historical keeper of early Saybrook Colony records (town genealogy page, verified 31 October 2026): https://www.deepriverct.us/380/Genealogical-Research. Its public https://deepriver.ct.publicsearch.us/ portal does not verify a 1707 coverage window; town guidance says online deed images may cost money. Do not treat modern Old Saybrook 1854+ holdings as the original 1707 book or pay to view images.'
+  );
+  add('limitsAndConflicts',
+    'Connecticut State Library newly digitized Deep River [Saybrook] Vital Records 1767–1851 begin too late to reproduce the 1707 Saybrook deeds. A separate Colchester 1697–1729 collection is a different jurisdiction, not proof of Saybrook entries. The 1707 and 1731 historical deed manuscripts have NOT been seen.'
+  );
   f.nextProof='Our direct-line priority remains a contemporary parent-naming original that differentiates James Webb Jr. (born 1777)\'s father from the c1733 Chatham and 1754 Saybrook namesakes. A parallel, more remote Saybrook source test targets Land Records II:208–209 (1707) and IV:340 (1731); original images remain unread. No earlier family is promoted from scholarly quotations alone.';
   globalThis.__ATLAS_WEBB_SAYBROOK1707_T129={
     applied:true,original1707Inspected:false,original1731Inspected:false,
