@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-10-18",
+  "updated": "2026-10-31",
   "records": [
     {
       "id": "alpena-godfrey-naturalization-1917-1921",
@@ -2054,6 +2054,24 @@
       "evidence": "github:research/webb-tranche-07-chenango-brookfield-tax-rolls-B0950-access-20261019.md",
       "researchDetailStatus": "NYSA-original-series-B0950-identified-no-Brookfield-exact-microfilm-reel-or-James-Webb-tax-entry-accessed",
       "note": "Tranche07 19Oct2026: distinctly NEW tax-roll original series (not Otsego 1804 Deed Book K:372). New York State Archives B0950 Comptroller Tax Assessment Rolls of Real and Personal Estates 1799–1804, county then town, no person index, on-site microfilm and interlibrary loan. 1804 Brookfield was in Chenango County, later Madison. Ancestry database 6771 digitizes/indexes series, but no free James WEBB tax hit/page validated; NYSA detailed PDF finding aid was HTTP403; no Brookfield reel/year/page established and no 1800–1804 name inference. Tranches01–06 records explicitly frozen. NEXT NEW source class official Madison County Historian Archival Documents Brookfield PDF collection index — do not read yet as separate tranche08."
+    },
+    {
+      "id": "webb-tranche129-1707-saybrook-volumeII-page208-209-original-access-20261031",
+      "personId": "KWJ1-P2V",
+      "atlasPersonId": "james_webb_jr",
+      "event": "early-Saybrook-1707-candidate-family-land-deed-original-image-access-audit",
+      "status": "partial",
+      "title": "Distinct 1707 Saybrook Land Records II:208–209 — 1945/1946 published excerpts examined, original images unread",
+      "sourceKeys": [
+        "saybrook:land-records:vol2:p208:1707-07-31:john-webb-john-graves",
+        "saybrook:land-records:vol2:p209:1707-07-31:parker-john-webb",
+        "familysearch:catalog:29010:deep-river:1707-saybrook-access-20261031"
+      ],
+      "sourceUrl": "https://www.familysearch.org/en/search/catalog/29010",
+      "originalRefs": [],
+      "evidence": "github:research/webb-tranche129-saybrook-1707-land-records-vol2-access-and-Atlas-frontier-20261031.md",
+      "researchDetailStatus": "secondary-TAG-1945-and-1946-publication-cited-original-records-not-opened-familysearch-deep-river-catalog-signin-gate",
+      "note": "T127/T128 reviewed the 1946/1945 publications and their respective excerpts. T129 tested original-access route: Deep River FS catalog29010 sign-in gate; no verified DGS or image for 1707 Saybrook II:208 John Webb→John Graves/Hannah Davis quoted mother; II:209 distinct Deacon Parker→John Webb parcel. 2021–2022 municipal historic-book scanning RFP is not a public scan. These source assertions do not prove 1777 James Webb Jr ancestry or Gideon→James 1733; no record image, genealogical promotion, spending, Gmail, outreach or FamilySearch writes. Atlas optional Webb research-frontier annotation only."
     }
   ],
   "tasks": [
