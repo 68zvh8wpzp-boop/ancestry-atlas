@@ -2155,6 +2155,21 @@
       "locatorState": "indexed-original-link-retrieval-blocked",
       "note": "Direct site indexes Pension Affidavit Anna Webb, Charles Webb Military Service 1849, but no image/text read. Donald 1979 says Anna and kin Isaac/Sally Dolliver affidavit tied to bounty land, refs76629 and warrant67318; not original-verified. 1835 James death attributed to Charles military record but family says Mayfield/Cuyahoga, grave missing; causes speculative. SAFETY CORRECTION 2026-10-31: user reports jameswebbfamily.org appears like a scam/redirect. Direct page and root 502/error; only old 6+year search cache persists. Not verified as fraud, but current content is untrusted/unavailable. DO NOT direct user to click this domain or download files. Anna Webb 1849 affidavit remains a named item in a cached derivative index, not an inspected archival original. Use a verified official archive instead. No fees or email.",
       "researchDetailStatus": "t136-1849-affidavit-unverified-web-access-user-reported-suspicious-site-do-not-link-or-download"
+    },
+    {
+      "id": "webb-t137-nara-M233-roll21-1840-1846-regular-army-Charles-Webb-target",
+      "personId": "unplaced-charles-webb-anna-scott-hypothesis",
+      "event": "claimed-1845-new-york-regular-army-enlistment-original-roll-identification",
+      "status": "indexed",
+      "title": "NARA M233 Roll21, 1840-June1846 Army enlisted registers; Charles Webb individual entry NOT viewed",
+      "sourceKeys": [
+        "nara:rg94:m233:roll21:1840-jun1846:charles-webb-unverified"
+      ],
+      "sourceUrl": "https://www.archives.gov/files/research/microfilm/m233.pdf",
+      "originalRefs": [],
+      "evidence": "github:research/webb-tranche137-NARA-M233-Roll21-1845-Charles-Webb-and-Mexican-bounty-claim-gate-20261031.md",
+      "researchDetailStatus": "official-series-and-reel-visually-verified-no-person-1845-original-entry-read",
+      "note": "T137 novel NARA official PDF microfilm table VISUALLY CHECKED Roll 21 1840–June1846; derivative account says Charles enlisted 7May1845 NY, not an original-verified assertion. Roll23 separate Jan1847-Jun1849 Mexican enlistments, not suitable for 1845 claimed date. FamilySearch M233 indexed collection 1880762 exists independently of older FS locked colonial/Nauvoo series, but named Charles row not read. NARA regular Army regs distinct from Volunteer CMSR, and 1849 Anna affidavit is an unverified potential RG15 bounty application, NOT a verified Mexican War pension. Historical descendant site remains untrusted and should NOT be linked or suggested; no new genealogical evidence or person/edge promotion."
     }
   ],
   "tasks": [
