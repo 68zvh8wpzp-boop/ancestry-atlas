@@ -49,6 +49,10 @@
   add('recordsNeeded',
     'State Library interlibrary loan is a CONDITIONAL, library-to-library route: https://portal.ct.gov/csl/about/interlibrary-loans---ill . Eligible copies of up to 10 pages are no-charge BY CSL, but the 1707 Saybrook deed copies may be ineligible and a receiving library may assess fees. No request made, no fee approved. Do not ask the user to revisit Deep River 1848+ or FamilySearch restricted images.'
   );
+  // T133 CHS half-box collection: different archival series, NOT the original town volume.
+  add('limitsAndConflicts',
+    'ArchiveGrid identifies the separate Connecticut Historical Society Saybrook town records collection 1656–1834 as only half a box (0.25 linear feet) of assembled deeds, tax, court, and municipal loose papers; five accession numbers 18476 / 38139 / 48376 / 54439 / 54449. This is NOT shown to be the official town land-record Book II. No named Webb or 1707 item was identified from the brief collection description, which is NOT a negative search of the manuscripts. https://researchworks.oclc.org/archivegrid/collection/data/74277973'
+  );
   f.nextProof='Our direct-line priority remains a contemporary parent-naming original that differentiates James Webb Jr. (born 1777)\'s father from the c1733 Chatham and 1754 Saybrook namesakes. A parallel, more remote Saybrook source test targets Land Records II:208–209 (1707) and IV:340 (1731); original images remain unread. No earlier family is promoted from scholarly quotations alone.';
   globalThis.__ATLAS_WEBB_SAYBROOK1707_T129={
     applied:true,original1707Inspected:false,original1731Inspected:false,
