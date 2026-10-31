@@ -2149,11 +2149,12 @@
         "webb:anna-scott:1849:charles-webb-pension-affidavit-family-website",
         "webb:anna-scott:charles-webb:1860:warrant-67318-claim-76629"
       ],
-      "sourceUrl": "https://www.jameswebbfamily.org/webb_genealogical_findings_002.htm",
+      "sourceUrl": "https://www.archives.gov/research/military/army/pensions",
       "originalRefs": [],
       "evidence": "github:research/webb-tranche136-ohio-1835-namesake-1849-affidavit-and-1834-Perry-deed-index-20261031.md",
       "locatorState": "indexed-original-link-retrieval-blocked",
-      "note": "Direct site indexes Pension Affidavit Anna Webb, Charles Webb Military Service 1849, but no image/text read. Donald 1979 says Anna and kin Isaac/Sally Dolliver affidavit tied to bounty land, refs76629 and warrant67318; not original-verified. 1835 James death attributed to Charles military record but family says Mayfield/Cuyahoga, grave missing; causes speculative."
+      "note": "Direct site indexes Pension Affidavit Anna Webb, Charles Webb Military Service 1849, but no image/text read. Donald 1979 says Anna and kin Isaac/Sally Dolliver affidavit tied to bounty land, refs76629 and warrant67318; not original-verified. 1835 James death attributed to Charles military record but family says Mayfield/Cuyahoga, grave missing; causes speculative. SAFETY CORRECTION 2026-10-31: user reports jameswebbfamily.org appears like a scam/redirect. Direct page and root 502/error; only old 6+year search cache persists. Not verified as fraud, but current content is untrusted/unavailable. DO NOT direct user to click this domain or download files. Anna Webb 1849 affidavit remains a named item in a cached derivative index, not an inspected archival original. Use a verified official archive instead. No fees or email.",
+      "researchDetailStatus": "t136-1849-affidavit-unverified-web-access-user-reported-suspicious-site-do-not-link-or-download"
     }
   ],
   "tasks": [
