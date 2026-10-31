@@ -42,6 +42,13 @@
   add('recordsNeeded',
     'Do NOT repeat https://deepriver.ct.publicsearch.us/ for 1707/1731: its online index begins 30 August 1848. Research the HISTORICAL Deep River Town Clerk colonial Saybrook books or Connecticut State Library archival custody; original volume II pp. 208–209 remain unread, and direct ancestry remains unproved.'
   );
+  // T132: Connecticut State Library microfilms and interlibrary loans (no new kinship).
+  add('recordsNeeded',
+    'Connecticut State Library research confirms colonial Connecticut town land-record microfilms are held by the State Library or available through Family History Centers. The exact Saybrook Land II:208-209 film or accessible original has NOT been located. Source: https://libguides.ctstatelibrary.org/hg/maps/landrecords'
+  );
+  add('recordsNeeded',
+    'State Library interlibrary loan is a CONDITIONAL, library-to-library route: https://portal.ct.gov/csl/about/interlibrary-loans---ill . Eligible copies of up to 10 pages are no-charge BY CSL, but the 1707 Saybrook deed copies may be ineligible and a receiving library may assess fees. No request made, no fee approved. Do not ask the user to revisit Deep River 1848+ or FamilySearch restricted images.'
+  );
   f.nextProof='Our direct-line priority remains a contemporary parent-naming original that differentiates James Webb Jr. (born 1777)\'s father from the c1733 Chatham and 1754 Saybrook namesakes. A parallel, more remote Saybrook source test targets Land Records II:208–209 (1707) and IV:340 (1731); original images remain unread. No earlier family is promoted from scholarly quotations alone.';
   globalThis.__ATLAS_WEBB_SAYBROOK1707_T129={
     applied:true,original1707Inspected:false,original1731Inspected:false,
