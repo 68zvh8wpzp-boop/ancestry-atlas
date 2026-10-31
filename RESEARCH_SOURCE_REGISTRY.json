@@ -2122,6 +2122,38 @@
       "evidence": "github:research/webb-tranche135-anna-scott-james-historical-namesake-exclusion-20261031.md",
       "researchDetailStatus": "derivative-1979-book-2006-notes-and-descendant-contributor-sheets-not-original-identity-proof",
       "note": "Webb T135 new no-repeat checked 'Anna Scott' against main three Library ledgers and not previously discussed. Donald D. Webb 1979 family text revised 2006 printed p4 gives namesake born approx1774 died 6Feb1835 Ohio, wife Anna Scott; 1857 Scott letter quoted, autograph and family Bible uninspected. GenWeb Ohio & Michigan family sheets share sources, not independently original. Author himself warns 1804 Brookfield/1808 Manheim James deeds could belong to other namesakes; T116–117 originals not re-reviewed. T118 original James and Hannah Hanover 18Mar1835 contrasts derivative 6Feb death, but original Ohio death remains unread and identity of deed signer direct James b1777 not conclusively established. None of this proves parent 1777 James Jr or promotes a pedigree. Optional Atlas frontier caution only, no graph change."
+    },
+    {
+      "id": "webb-t136-ohio-geauga-perry-1834-book19-p244-p246-deed-index",
+      "personId": "unplaced-james-webb-anna-scott",
+      "event": "1834-perry-lot25-book19-p244-246-exact-deed-folio-locators",
+      "status": "indexed",
+      "title": "Geauga OH Book19:244 Mary Call to James Webb and Book19:246 James Webb Jr to Gideon Moshier, manuscript unread",
+      "sourceKeys": [
+        "geauga:deeds:book19:p244:1834:mary-call-james-webb",
+        "geauga:deeds:book19:p246:1834:james-webb-jr-gideon-moshier"
+      ],
+      "sourceUrl": "https://usgenwebsites.org/OHLake/govt/deeds/ddcall.html",
+      "originalRefs": [],
+      "evidence": "github:research/webb-tranche136-ohio-1835-namesake-1849-affidavit-and-1834-Perry-deed-index-20261031.md",
+      "locatorState": "indexed-original-not-opened",
+      "note": "T136 two separate printed volunteer pre1841 Geauga deed-index rows, both Perry range7 township11 lot25 2 acres; 244 purchase labeled April11, 246 sale Feb14, contradictory chronology unless originals inspected. Historical original film0020238. No manuscript page read and index Jr does not prove identities; Donald Webb 1979 already mentioned Feb14 two acre sale without knowing father vs son."
+    },
+    {
+      "id": "webb-t136-anna-scott-charles-mexican-war-1849-affidavit-locator",
+      "personId": "unplaced-james-webb-anna-scott",
+      "event": "1849-anna-webb-charles-webb-mexican-war-bounty-claim-familial-identity-test",
+      "status": "blocked",
+      "title": "Anna Webb 1849 pension affidavit about son Charles's military service linked on descendants' site, actual original not opened",
+      "sourceKeys": [
+        "webb:anna-scott:1849:charles-webb-pension-affidavit-family-website",
+        "webb:anna-scott:charles-webb:1860:warrant-67318-claim-76629"
+      ],
+      "sourceUrl": "https://www.jameswebbfamily.org/webb_genealogical_findings_002.htm",
+      "originalRefs": [],
+      "evidence": "github:research/webb-tranche136-ohio-1835-namesake-1849-affidavit-and-1834-Perry-deed-index-20261031.md",
+      "locatorState": "indexed-original-link-retrieval-blocked",
+      "note": "Direct site indexes Pension Affidavit Anna Webb, Charles Webb Military Service 1849, but no image/text read. Donald 1979 says Anna and kin Isaac/Sally Dolliver affidavit tied to bounty land, refs76629 and warrant67318; not original-verified. 1835 James death attributed to Charles military record but family says Mayfield/Cuyahoga, grave missing; causes speculative."
     }
   ],
   "tasks": [
