@@ -35,6 +35,13 @@
   add('limitsAndConflicts',
     'Connecticut State Library newly digitized Deep River [Saybrook] Vital Records 1767–1851 begin too late to reproduce the 1707 Saybrook deeds. A separate Colchester 1697–1729 collection is a different jurisdiction, not proof of Saybrook entries. The 1707 and 1731 historical deed manuscripts have NOT been seen.'
   );
+  // Tranche 131: 1848 online portal boundary, confirmed by user Advanced Search screenshot.
+  add('limitsAndConflicts',
+    'User-tested official Deep River Advanced Search starts its recorded-date range at 30 August 1848. The Northeast House Historian Connecticut land-record directory independently lists online Deep River coverage as 8/30/1848–present. Thus the modern online portal is CLOSED as a viable source of the 1707 and 1731 Saybrook deed images; this says nothing about survival of older physical town volumes.'
+  );
+  add('recordsNeeded',
+    'Do NOT repeat https://deepriver.ct.publicsearch.us/ for 1707/1731: its online index begins 30 August 1848. Research the HISTORICAL Deep River Town Clerk colonial Saybrook books or Connecticut State Library archival custody; original volume II pp. 208–209 remain unread, and direct ancestry remains unproved.'
+  );
   f.nextProof='Our direct-line priority remains a contemporary parent-naming original that differentiates James Webb Jr. (born 1777)\'s father from the c1733 Chatham and 1754 Saybrook namesakes. A parallel, more remote Saybrook source test targets Land Records II:208–209 (1707) and IV:340 (1731); original images remain unread. No earlier family is promoted from scholarly quotations alone.';
   globalThis.__ATLAS_WEBB_SAYBROOK1707_T129={
     applied:true,original1707Inspected:false,original1731Inspected:false,
