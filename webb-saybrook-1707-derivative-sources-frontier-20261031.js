@@ -1,0 +1,37 @@
+/* Webb Tranche 129 — 31 October 2026: EARLY SAYBROOK SOURCE-AUDIT ONLY.
+ * Does NOT create people, parent-child edges, or claimed original 1707 images.
+ * Keeps 1777 James Webb Jr. father-identity and older ancestry unresolved.
+ * Harrison E. Webb TAG 22(1):44–47 (1945) and 22(3):200 (1946)
+ * quote different Saybrook Land Records II:209 and II:208 documents.
+ * The 1707 original deed pages are UNREAD in our research.
+ */
+(()=>{
+  'use strict';
+  const f=globalThis.RESEARCH_FRONTIERS?.frontiers?.find(x=>x.branchId==='webb');
+  if(!f||globalThis.__ATLAS_WEBB_SAYBROOK1707_T129?.applied)return;
+  const add=(field,value)=>{
+    if(!Array.isArray(f[field]))f[field]=[];
+    if(!f[field].includes(value))f[field].push(value);
+  };
+  add('evidenceFor',
+    'EARLY SAYBROOK CANDIDATE FAMILY ONLY — Harrison E. Webb, TAG 22(1) (July 1945):44–47, quotes a 22 Apr 1731 Saybrook land deed and bond (IV:340) naming deceased John Webb as father of Samuel and Lydia Webb. These are published quotations, NOT original book images. No demonstrated relationship to our James Webb born 1777.'
+  );
+  add('limitsAndConflicts',
+    'Harrison E. Webb, TAG 22(3) (Jan 1946):200, quotes a 31 July 1707 Saybrook Land Records II:208 John Webb–John Graves deed referring to “my honored mother Hannah Davis, widow.” The original has NOT been inspected; Davis in 1707 is NOT established as her maiden surname. This historical woman is NOT proved to be our direct ancestor.'
+  );
+  add('limitsAndConflicts',
+    'A different same-date 31 July 1707 deed, Deacon William Parker to John Webb (Saybrook II:209), is referenced in TAG 22(1):44 (July 1945). Do not combine volume-II pages 208 and 209 into one deed. The 1707 originals and the 1731 father-naming original remain unread.'
+  );
+  add('recordsNeeded',
+    'Original Saybrook Land Records volume II, pp. 208–209 (two distinct 31 July 1707 deeds). FamilySearch catalog 29010 under Deep River / Saybrook historical land records is a possible locator, but exact volume images remain sign-in gated and have NOT been verified; no fee or other restriction bypass.'
+  );
+  add('recordsNeeded',
+    'Original Saybrook Land Records IV:340 and accompanying 1731 bond, to test the published wording John Webb → Samuel and Lydia. This belongs to the historical Saybrook cluster until an independent record links it to our 1777 Webb ancestry.'
+  );
+  f.nextProof='Our direct-line priority remains a contemporary parent-naming original that differentiates James Webb Jr. (born 1777)\'s father from the c1733 Chatham and 1754 Saybrook namesakes. A parallel, more remote Saybrook source test targets Land Records II:208–209 (1707) and IV:340 (1731); original images remain unread. No earlier family is promoted from scholarly quotations alone.';
+  globalThis.__ATLAS_WEBB_SAYBROOK1707_T129={
+    applied:true,original1707Inspected:false,original1731Inspected:false,
+    directLinePromoted:false,personEdgesChanged:0,
+    sourceReport:'research/webb-tranche129-saybrook-1707-land-records-vol2-access-and-Atlas-frontier-20261031.md'
+  };
+})();
