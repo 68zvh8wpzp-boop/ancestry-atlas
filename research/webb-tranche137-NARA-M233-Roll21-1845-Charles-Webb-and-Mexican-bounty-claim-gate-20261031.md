@@ -1,0 +1,17 @@
+# Webb Tranche 137 — NARA Regular Army M233 Roll 21 and separate Mexican War bounty-land claim
+**31 October 2026. COLLECTION/REEL VERIFIED, NO CHARLES WEBB ORIGINAL READ. $0, no outside correspondence or user action.**
+
+Source report in canonical ChatGPT Library:
+`/Ancestry Atlas/Research/webb-tranche137-NARA-regular-army-M233-roll21-and-Mexican-bounty-claim-correction-2026-10-31.md`
+
+Following T136 user safety warning, **NO visits or user links to the historical unverified descendant domain**. Current three Webb ledgers read, searched for M233 (zero pre-T137 matches). No earlier Saybrook, Nauvoo, East Hampton, NY 1804/1808/1835 deed, or 1979 family narrative re-review.
+
+Official NARA PDF **M233 1798–1914 microfilm schedule**, https://www.archives.gov/files/research/microfilm/m233.pdf FIRST PAGE VISUALLY CHECKED: **ROLL 21 = 1840–June 1846; ROLL 23 = Jan 1847–June 1849 Mexican War enlistments**. Secondary/unauthenticated earlier family narrative alleges Charles Webb enlisted NY **May 7 1845** and died Oct22 1846 Mexico. If that date is correct, **M233 Roll 21** is the right first ORIGINAL RECORD TARGET; no individual entry obtained.
+
+NARA **Regular Army Enlisted Service** document https://www.archives.gov/files/research/military/army/enlisted-records-1789-1914.pdf FIRST PAGE VISUALLY CHECKED. Regular Army enlistments have **no Volunteer CMSR**; enlistment registers can show age, birthplace, enlisted place/date, regiment, occupation, physical description, remarks. Individually alphabetic Regular Army enlistment papers are **not digitized** per guide. Indexed/digitized M233 collection separately confirmed publicly by FamilySearch **1880762** https://www.familysearch.org/en/search/collection/1880762 ; its existence does NOT mean a Charles Webb row is found, publicly readable here, or names his mother.
+
+NARA https://www.archives.gov/research/military/army/pensions says 1847 Mexican War **BOUNTY LAND** eligibility and 1887 Mexican **pensions**; descendant site's earlier 1849 “pension affidavit” label not verified, and actual Anna/Charles document never viewed. RG15 veteran/widow/heir **application** differs from RG49 **surrendered-land-warrant** file. Derivative numbers 76629 (claim) / 67318 (warrant) must NOT be treated as authenticated federal case or patent identification; exact act and acreage unresolved. No fees, NARA orders, external messaging.
+
+Even original Charles 1845 row could verify person/service but **not establish James Webb the father of our 1777 ancestor**. T80 James 1777 father *named* James = derivative STRONGLY SUPPORTED; exact Chatham James c1733 father, Elizabeth Douglas mother, Gideon ancestor links UNPROVEN. Other James Webb/Anna Scott family birth/death claims from later family writings remain unproven original; no original 1835 death or Anna relationship seen. No new ancestor, edge, biographies, photos, or original-media use. Optional Atlas Webb research frontier annotation only.
+
+**Next:** a genuinely readable original individual Charles entry on M233 Roll21 (if accessible freely), or his documented RG15 bounty application with verified identifiers, or far more directly probative original elder-James parent naming; DO NOT restart broad catalog metadata sweeps or send user to restricted FamilySearch images, risky website, fee/payment, Gmail, or travel.
