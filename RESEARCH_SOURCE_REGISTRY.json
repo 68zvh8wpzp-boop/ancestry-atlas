@@ -2105,6 +2105,23 @@
       "evidence": "github:research/webb-tranche134-1883-Eliza-Tenney-Deseret-Weekly-two-original-issue-accession-locators-20261031.md",
       "researchDetailStatus": "indexed-full-weekly-issue-from-byu-and-udn-original-obituary-page-unopened",
       "note": "Printed newspaper citation previously T56, 1883 death register original seen T57. New T134 exact original issue identifiers Utah Digital Newspapers 2644480 and BYU desnews3/740654 independently aligned to 18 April 1883; web readers cache miss/unavailable. Do NOT claim original notice read, or proof of James b1777's unique Chatham elder father. Favill 1899/1918 genealogy already researched; no duplication. No fee/contact, no Atlas graph/image edit. Detailed file at evidence pointer."
+    },
+    {
+      "id": "webb-t135-anna-scott-james-1774-1835-secondary-namesake-deed-attribution",
+      "personId": "unplaced-james-webb-anna-scott",
+      "event": "same-name-family-discrimination-1800-1835",
+      "status": "partial",
+      "title": "Reported James Webb c1774–1835/Anna Scott family in central NY distinct from 1777–1845 James/Betsey/Hannah; derivative research only",
+      "sourceKeys": [
+        "webb-namesake:anna-scott-james:donald-webb:1979-2006",
+        "webb-namesake:anna-scott-james:mi-genweb:david-webb",
+        "webb-namesake:anna-scott-james:oh-genweb:isaac-david"
+      ],
+      "sourceUrl": "https://www.jameswebbfamily.org/jameswebbfamilybydonaldwebb.pdf",
+      "originalRefs": [],
+      "evidence": "github:research/webb-tranche135-anna-scott-james-historical-namesake-exclusion-20261031.md",
+      "researchDetailStatus": "derivative-1979-book-2006-notes-and-descendant-contributor-sheets-not-original-identity-proof",
+      "note": "Webb T135 new no-repeat checked 'Anna Scott' against main three Library ledgers and not previously discussed. Donald D. Webb 1979 family text revised 2006 printed p4 gives namesake born approx1774 died 6Feb1835 Ohio, wife Anna Scott; 1857 Scott letter quoted, autograph and family Bible uninspected. GenWeb Ohio & Michigan family sheets share sources, not independently original. Author himself warns 1804 Brookfield/1808 Manheim James deeds could belong to other namesakes; T116–117 originals not re-reviewed. T118 original James and Hannah Hanover 18Mar1835 contrasts derivative 6Feb death, but original Ohio death remains unread and identity of deed signer direct James b1777 not conclusively established. None of this proves parent 1777 James Jr or promotes a pedigree. Optional Atlas frontier caution only, no graph change."
     }
   ],
   "tasks": [
