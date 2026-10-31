@@ -14,7 +14,7 @@
     if(!frontier[key].includes(value))frontier[key].push(value);
   };
   add('limitsAndConflicts',
-    'New York same-name caution (T135): A separately researched James Webb and Anna Scott family reportedly lived in Herkimer/Oneida and nearby New York c1800–1830; family writers give James c1774–6 February 1835 Ohio and children Isaac (1802), David (1811), William (1819). Our James Webb Jr (1777–1845) is associated with Betsey Favill, then Hannah Griswold. These histories are DERIVATIVE, with some shared citations: do not merge households or confuse either with the elder Chatham/Saybrook father candidates. https://www.jameswebbfamily.org/jameswebbfamilybydonaldwebb.pdf'
+    'New York same-name caution (T135): A separately researched James Webb and Anna Scott family reportedly lived in Herkimer/Oneida and nearby New York c1800–1830; family writers give James c1774–6 February 1835 Ohio and children Isaac (1802), David (1811), William (1819). Our James Webb Jr (1777–1845) is associated with Betsey Favill, then Hannah Griswold. These histories are DERIVATIVE, with some shared citations: do not merge households or confuse either with the elder Chatham/Saybrook father candidates. (1979 family compilation; original unsafe website link intentionally withheld)'
   );
   add('limitsAndConflicts',
     'The 1804 Brookfield and 1808 Manheim James Webb deeds (original images already examined in T116/T117) cannot be placed in either family by surname and New York geography alone. Even the Anna Scott family historian cautioned that he could not identify the grantor as his own James. The March 18, 1835 Hanover James-and-Hannah deed (T118) postdates the rival family’s REPORTED February 6, 1835 death, but that Ohio death date has NOT been original-verified; use it as a proposed discriminator only.'
@@ -31,6 +31,13 @@
   );
   add('recordsNeeded',
     'T136 separate Geauga original-deed retrieval target: Book 19 p244 Mary Call → James Webb (11 April 1834 in index) and p246 James Webb Jr → Gideon Moshier (14 February 1834 in index), Perry Lot25 two acres, historical film0020238. Both are VOLUNTEER INDEX ENTRIES ONLY; do not assume buyer and seller identical or that Jr refers to our James born 1777. Check original execution/recording date discrepancy if freely available.'
+  );
+  // T137: National Archives federal originals; the individual Charles row is NOT yet read.
+  add('recordsNeeded',
+    'T137: Official U.S. National Archives M233 Roll 21 (Regular Army Enlistment Registers, 1840–June 1846) is the exact reel for the secondary-reported 7 May 1845 New York Charles Webb enlistment. Source schedule first page visually checked: https://www.archives.gov/files/research/microfilm/m233.pdf ; separate M233 Roll 23 covers Jan 1847–June 1849. Digital INDEXED NARA M233 series exists at https://www.familysearch.org/en/search/collection/1880762, but an individual Charles entry has NOT been seen, so no verified birth, rank, mother or father can be claimed.'
+  );
+  add('limitsAndConflicts',
+    'T137: Regular Army service uses enlistment registers/papers, NOT Volunteer-soldier CMSRs; the person-specific military entry remains unread. NARA confirms Mexican War BOUNTY LAND available from 1847 but normal pensions only from 1887: the secondary label “Anna Webb 1849 pension affidavit” is UNVERIFIED and could describe a bounty application (RG15), distinct from a surrendered warrant (RG49). No original Anna affidavit, Charles death or elder James 1835 death inspected; do not infer parentage, or click historical descendant-site links.'
   );
   globalThis.__ATLAS_WEBB_ANNA_SCOTT_T135={
     applied:true,version:'2026-10-31-t135',class:'derivative-namesake-caution',
