@@ -1184,15 +1184,17 @@ function buildMobileTreeNeighborhood(id,maxNodes=10){
   push(id);
   const parents=parentMap.get(id)||[];
   const children=childMap.get(id)||[];
-  const partners=unique([...coParentIds(id),...unionPartnerIds(id)]);
-  // Reserve immediate parents before a large sibling/child group uses the budget.
+  const historicalPartners=unionPartnerIds(id);
+  const coParents=coParentIds(id);
+  // Priority within the ten-node phone budget: current person, parents,
+  // at least one descendant, historical spouses, then remaining descendants.
+  // A marriage without mapped children must never disappear under siblings.
   parents.forEach(push);
-  // Phone family view always reserves a concise route back toward descendants
-  // before allocating the rest of the budget to earlier ancestors. This keeps
-  // a selected mother or grandmother from becoming a one-way navigation trap.
-  children.forEach(push);
+  children.slice(0,1).forEach(push);
+  historicalPartners.forEach(push);
+  children.slice(1).forEach(push);
   children.forEach(child=>(childMap.get(child)||[]).forEach(push));
-  partners.forEach(push);
+  coParents.forEach(push);
   let frontier=[...parents], depth=0;
   while(frontier.length && out.length<maxNodes && depth<6){
     const next=[];
