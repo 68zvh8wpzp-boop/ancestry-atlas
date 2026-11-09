@@ -70,6 +70,18 @@ test('mobile and focused family views include historical unions without creating
     assert.ok(ctx.buildLineageBranch(person).has(partner),'branch lost spouse '+person+' → '+partner);
     assert.ok(ctx.buildNavigationNeighborhood(person,'family').has(partner),'focus lost spouse '+person+' → '+partner);
   }
+  // Synthetic high-sibling-count fixture, never written into genealogical data:
+  // a capped iPhone family must retain an existing historical spouse.
+  const originalChildren=ctx.childMap.get('chauncey_webb');
+  try{
+    ctx.childMap.set('chauncey_webb',[
+      'ann_eliza_webb','james_wilford','jamar_webb','elsie_mortensen','della_ray'
+    ]);
+    assert.ok(ctx.buildMobileTreeNeighborhood('chauncey_webb',5).has('eliza_jane_churchill'),
+      'spouse omitted under five-node iPhone family cap');
+  } finally {
+    ctx.childMap.set('chauncey_webb',originalChildren||[]);
+  }
   assert.ok(!p.has('ann_eliza_webb>brigham_young'),'union must not become parent');
   assert.ok(!p.has('chauncey_webb>eliza_jane_churchill'),'union must not become parent');
 });
