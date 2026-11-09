@@ -312,9 +312,19 @@ Virginia’s family memories also include handwritten letters from her grandmoth
       }
     ]
   };
-  if (!DATA.nodes.some(n => n.id === esther.id)) DATA.nodes.push(esther);
+  // Keep the graph's canonical node and the detail-panel lookup the SAME object.
+  // Prior v9 shadowed already-present esther nodes in the lookup without updating DATA.nodes.
+  const existing = DATA.nodes.find(n => n.id === esther.id);
+  if (!existing) DATA.nodes.push(esther);
+  else if (Array.isArray(esther.evidence)) {
+    // Preserve the already approved static identity/confidence/name while attaching
+    // unique source metadata from the historical person-page module.
+    const seen = new Set((existing.evidence || []).map(e => [e.sourcePage || '',e.title || '',e.date || ''].join('|')));
+    const incoming = esther.evidence.filter(e => !seen.has([e.sourcePage || '',e.title || '',e.date || ''].join('|')));
+    existing.evidence = (existing.evidence || []).concat(incoming);
+  }
   const map = window.__ATLAS_NODE_BY_ID;
-  if (map) map.set(esther.id, esther);
+  if (map) map.set(esther.id, existing || esther);
   if (typeof parentMap !== 'undefined' && typeof childMap !== 'undefined') {
     for (const p of ['charles_albert','marian_skinner']) {
       if (!DATA.edges.some(e => e.a === esther.id && e.b === p)) DATA.edges.push({a:esther.id,b:p,confidence:'strong'});
@@ -372,9 +382,19 @@ The written memories attached to Esther’s family preserve more than dates. A r
       }
     ]
   };
-  if (!DATA.nodes.some(n => n.id === joan.id)) DATA.nodes.push(joan);
+  // Keep the graph's canonical node and the detail-panel lookup the SAME object.
+  // Prior v9 shadowed already-present joan nodes in the lookup without updating DATA.nodes.
+  const existing = DATA.nodes.find(n => n.id === joan.id);
+  if (!existing) DATA.nodes.push(joan);
+  else if (Array.isArray(joan.evidence)) {
+    // Preserve the already approved static identity/confidence/name while attaching
+    // unique source metadata from the historical person-page module.
+    const seen = new Set((existing.evidence || []).map(e => [e.sourcePage || '',e.title || '',e.date || ''].join('|')));
+    const incoming = joan.evidence.filter(e => !seen.has([e.sourcePage || '',e.title || '',e.date || ''].join('|')));
+    existing.evidence = (existing.evidence || []).concat(incoming);
+  }
   const map = window.__ATLAS_NODE_BY_ID;
-  if (map) map.set(joan.id, joan);
+  if (map) map.set(joan.id, existing || joan);
   if (typeof parentMap !== 'undefined' && typeof childMap !== 'undefined') {
     for (const p of ['charles_albert','marian_skinner']) {
       if (!DATA.edges.some(e => e.a === joan.id && e.b === p)) DATA.edges.push({a:joan.id,b:p,confidence:'strong'});
@@ -453,9 +473,19 @@ The written memories attached to Esther’s family preserve more than dates. A r
       }
     ]
   };
-  if (!DATA.nodes.some(n => n.id === martha.id)) DATA.nodes.push(martha);
+  // Keep the graph's canonical node and the detail-panel lookup the SAME object.
+  // Prior v9 shadowed already-present martha nodes in the lookup without updating DATA.nodes.
+  const existing = DATA.nodes.find(n => n.id === martha.id);
+  if (!existing) DATA.nodes.push(martha);
+  else if (Array.isArray(martha.evidence)) {
+    // Preserve the already approved static identity/confidence/name while attaching
+    // unique source metadata from the historical person-page module.
+    const seen = new Set((existing.evidence || []).map(e => [e.sourcePage || '',e.title || '',e.date || ''].join('|')));
+    const incoming = martha.evidence.filter(e => !seen.has([e.sourcePage || '',e.title || '',e.date || ''].join('|')));
+    existing.evidence = (existing.evidence || []).concat(incoming);
+  }
   const map = window.__ATLAS_NODE_BY_ID;
-  if (map) map.set(martha.id, martha);
+  if (map) map.set(martha.id, existing || martha);
   if (typeof parentMap !== 'undefined' && typeof childMap !== 'undefined') {
     for (const p of ['charles_albert','marian_skinner']) {
       if (!DATA.edges.some(e => e.a === martha.id && e.b === p)) DATA.edges.push({a:martha.id,b:p,confidence:'strong'});
@@ -523,9 +553,19 @@ The written memories attached to Esther’s family preserve more than dates. A r
       }
     ]
   };
-  if (!DATA.nodes.some(n => n.id === ammon.id)) DATA.nodes.push(ammon);
+  // Keep the graph's canonical node and the detail-panel lookup the SAME object.
+  // Prior v9 shadowed already-present ammon nodes in the lookup without updating DATA.nodes.
+  const existing = DATA.nodes.find(n => n.id === ammon.id);
+  if (!existing) DATA.nodes.push(ammon);
+  else if (Array.isArray(ammon.evidence)) {
+    // Preserve the already approved static identity/confidence/name while attaching
+    // unique source metadata from the historical person-page module.
+    const seen = new Set((existing.evidence || []).map(e => [e.sourcePage || '',e.title || '',e.date || ''].join('|')));
+    const incoming = ammon.evidence.filter(e => !seen.has([e.sourcePage || '',e.title || '',e.date || ''].join('|')));
+    existing.evidence = (existing.evidence || []).concat(incoming);
+  }
   const map = window.__ATLAS_NODE_BY_ID;
-  if (map) map.set(ammon.id, ammon);
+  if (map) map.set(ammon.id, existing || ammon);
   if (typeof parentMap !== 'undefined' && typeof childMap !== 'undefined') {
     for (const p of ['charles_albert','marian_skinner']) {
       if (!DATA.edges.some(e => e.a === ammon.id && e.b === p)) DATA.edges.push({a:ammon.id,b:p,confidence:'strong'});
