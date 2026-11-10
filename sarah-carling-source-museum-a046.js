@@ -30,7 +30,7 @@
     original1873Marriage:'original Endowment House volume identified, image not opened',
     original1949Death:'Arizona public source series confirmed, individual image not captured',
     distinctChildren:'twelve Sarah / fourteen Ellen / five Charlotte from earlier family partition ledger; not all originals inspected',
-    archivalRights:'188? no; 1891 photo derivative, original negative/highest res and permission not independently established',
+    archivalRights:'1891 photo derivative: original negative, higher-resolution master and republication rights not independently established',
     newHistoricalMasterBytes:0,
     fullyCertified:false,
     iphoneValidated:false
