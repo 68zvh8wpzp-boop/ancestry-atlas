@@ -17,7 +17,8 @@ function execute(){
 }
 test('Asenath profile gains biography with source cautions and leaves parent graph intact',()=>{
   const {person,other,DATA,GUIDE_PROFILES}=execute();
-  assert.match(GUIDE_PROFILES.asenath_browning.life,/17 November 1854/);
+  assert.match(GUIDE_PROFILES.asenath_browning.life,/23 November 1854 announced/);
+  assert.match(GUIDE_PROFILES.asenath_browning.life,/17 November by Ezra T\. Benson/);
   assert.match(GUIDE_PROFILES.asenath_browning.life,/Miriam Elizabeth Hobson/);
   assert.match(GUIDE_PROFILES.asenath_browning.life,/precise birthplace remains a question/);
   assert.ok(GUIDE_PROFILES.asenath_browning.life.length>2500);

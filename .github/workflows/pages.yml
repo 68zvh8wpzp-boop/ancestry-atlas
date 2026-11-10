@@ -36,6 +36,25 @@ jobs:
       - name: Verify Jessie Aurin original census and parent-evidence contract
         run: node tests/jessie-aurin-source-viewer.mjs
 
+      - name: Set up Node for all Atlas regression tests
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Set up Python for packaged image validation
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install free image-validation dependency
+        run: python -m pip install --disable-pip-version-check Pillow
+
+      - name: Run all person-page regression tests before publication
+        run: node --test tests/atlas_*.test.mjs
+
+      - name: Run complete packaged-asset and image integrity verifier
+        run: node verify-package.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

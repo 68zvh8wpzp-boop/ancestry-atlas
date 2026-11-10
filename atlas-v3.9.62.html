@@ -642,7 +642,7 @@ window.addEventListener('error',function(e){
       <button type="button" id="startStory" class="story-action">Guided Audio-Visual Family Tour</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v3.9.56 • Edward Milo Webb Jr. • 17 October 2026</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v3.9.62 • Edward Milo Webb Jr. • 17 October 2026</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop first orients you visibly in the tree, then opens the story. Recorded narration is used only when an approved audio file exists.</p>
   </div>
 </div>
@@ -764,7 +764,7 @@ window.addEventListener('error',function(e){
 <div id="app">
 <aside id="controls" class="collapsed">
   <button id="controlsToggle">☰ Controls / legend</button>
-  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.9.37</span></h1>
+  <h1>Ancestry Atlas <span style="font-size:11px;color:#9fb1c2;font-weight:500">v3.9.62</span></h1>
   <div class="sub">Evidence-weighted 3D genealogy atlas. Confidence is visible as light: confirmed branches stay bright; uncertain generations fall progressively into dusk and shadow. Pink marks the single immediate Canadian-citizenship proof document; neon triangles mark other document holds.</div>
 
   <div class="section">
@@ -3260,11 +3260,11 @@ body.tour-active #mobileAncestorRoute,body.aa-overlay-open #mobileAncestorRoute{
   const n=DATA.nodes.find(n=>n.id==='edward_milo_jr');
   if(n)n.note="Edward Milo Webb Jr. was born on 8 March 1847 in Missouri, the son of Edward Milo Webb Sr. and Caroline Amelia Owens. In 1860, a thirteen-year-old Edward appears in two Fillmore households, one with the Owens family and one with Caroline. The 1870 Fillmore census records him as a schoolteacher, aged twenty-three, in the same household as Ellen Webb. By 1880 he was teaching in Orderville, where Ellen is explicitly named as his wife and five children are listed: Abigail A., Edward M., Ellen A., Caroline A. and Francis J. He was also the father of Jonathan Henry Webb by Sarah Elizabeth Carling. Edward died on 11 September 1921 in Murray, Utah, aged seventy-four, from cancer of the stomach. He was buried at Holladay Cemetery the following day.";
   function finishRelease(){
-    document.title='Ancestry Atlas v3.9.56 — Edward Milo Webb Jr.';
+    document.title='Ancestry Atlas v3.9.62 — Edward Milo Webb Jr.';
     const heading=document.querySelector('aside h1');
     if(heading)heading.textContent='Ancestry Atlas v3.9.56';
     const chip=document.querySelector('.build-chip');
-    if(chip)chip.textContent='BUILD v3.9.56 • Edward Milo Webb Jr. • 17 October 2026';
+    if(chip)chip.textContent='BUILD v3.9.62 • Edward Milo Webb Jr. • 17 October 2026';
     const person=new URLSearchParams(location.search).get('person');
     if(person && nodeById.has(person)){
       document.getElementById('landing')?.classList.add('hidden');
