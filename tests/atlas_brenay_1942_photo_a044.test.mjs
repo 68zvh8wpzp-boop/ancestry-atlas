@@ -30,3 +30,11 @@ test('A044: five named child pages reuse existing photo rather than unavailable 
 test('A044: no false assertion that Marian is identified within the caption',()=>{
   assert.ok(!source.includes('other siblings gathered around Charles and Marian.'));
 });
+
+test('A044: direct ancestor Marion also sees the same surviving 1942 photo',()=>{
+  const marion=readFileSync(new URL('marion-atlas-update-2026-09-29.js',root),'utf8');
+  assert.ok(marion.includes("title: '1942 Brenay siblings and father at Sandpoint'"));
+  assert.ok(marion.includes("full: '"+asset+"'"));
+  assert.ok(marion.includes('FamilySearch 1020022.jpg'));
+  assert.ok(marion.includes('Marian (mother) is not separately named'));
+});
