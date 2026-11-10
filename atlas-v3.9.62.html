@@ -1796,10 +1796,10 @@ const GUIDE_PROFILES = {
     birthPlace:'Nauvoo, Hancock County, Illinois',
     townContext:'Ann Eliza Webb was born in Nauvoo in September 1844, soon after Joseph Smith’s death. Her childhood passed through the migration to Utah in 1848 and the evolving plural-family households of the Salt Lake Valley, where her father Chauncey worked as a craftsman.',
     macroContext:'Her public career unfolded amid the national anti-polygamy movement, post–Civil War reform politics and the disputed legal position of plural marriages in Utah Territory.',
-    life:'Ann Eliza Webb was born on 13 September 1844 in Nauvoo, Illinois, to Chauncey Griswold Webb and Eliza Jane Churchill. Her father later entered several plural unions. As a child she crossed the plains with the Latter-day Saint migration to Utah in 1848, where family life and religious institutions shaped her early world. Her first marriage, to James Leech Dee in 1863, produced two children and ended in divorce in December 1865. She entered a plural marriage with Brigham Young on 7 April 1868. Their separation and her suit for divorce and alimony, pursued from 1873 onward, became a widely reported argument over women’s financial rights and the legal recognition of plural marriage. Courts reached different conclusions in the prolonged litigation; an April 1877 ruling rejected the union’s legal validity. Ann Eliza became a traveling critic of plural marriage and published her influential 605-page memoir Wife No. 19 in Hartford in 1875. Its combination of personal memories, vivid accusation and reform advocacy makes it an important firsthand text, but also one that demands source comparison. She revised the book in 1908. She later lived in Colorado and Nevada, and died in Sparks, Nevada, in December 1917. She belonged to the Webb family by birth; her relationship to direct ancestor Edward Milo Webb Sr through their fathers' shared parents is strongly supported in historical family records; the original sibling parentage source and older James Webb frontier remain under review.',
+    life:'Ann Eliza Webb was born on 13 September 1844 in Nauvoo, Illinois, to Chauncey Griswold Webb and Eliza Jane Churchill. Her father later entered several plural unions. As a child she crossed the plains with the Latter-day Saint migration to Utah in 1848, where family life and religious institutions shaped her early world. Her first marriage, to James Leech Dee in 1863, produced two children and ended in divorce in December 1865. She entered a plural marriage with Brigham Young on 7 April 1868. Their separation and her suit for divorce and alimony, pursued from 1873 onward, became a widely reported argument over women’s financial rights and the legal recognition of plural marriage. Courts reached different conclusions in the prolonged litigation; an April 1877 ruling rejected the union’s legal validity. Ann Eliza became a traveling critic of plural marriage and published her influential 605-page memoir Wife No. 19 in Hartford in 1875. Its combination of personal memories, vivid accusation and reform advocacy makes it an important firsthand text, but also one that demands source comparison. She revised the book in 1908. She later lived in Colorado and Nevada, and died in Sparks, Nevada, in December 1917. She belonged to the Webb family by birth. Her father Chauncey Griswold Webb and direct ancestor Edward Milo Webb Sr were brothers according to historical family profiles naming the same parents. Original parent-child records and the older James Webb frontier remain under review.',
     events:[
       {title:'Birth in Nauvoo, 1844',group:'utah',summary:'Born to Chauncey Griswold Webb and Eliza Jane Churchill before the family crossed west'},
-      {title:'Marriage to Brigham Young, 1868',group:'utah',summary:'Entered the plural marriage that would later become the focus of a contested territorial-court case'},
+      {title:'Plural marriage to Brigham Young (date disputed)',group:'utah',summary:'Entered the plural marriage that would later become the focus of a contested territorial-court case'},
       {title:'Public litigation and lectures, 1873–1877',group:'utah',summary:'The legal dispute over divorce and alimony became part of wider national controversy'},
       {title:'Wife No. 19 published, 1875',group:'utah',summary:'Published a 605-page memoir and exposé with Dustin, Gilman & Co. in Hartford'},
       {title:'Revised memoir, 1908',group:'utah',summary:'Issued a revised version of the memoir after decades of public debate'}
@@ -2234,6 +2234,37 @@ function openNode(id, recenter=false, appendTrail=false){
     const anchor=card.querySelector('.full-biography')||card.querySelector('p');
     const notes=n.historicalNotes.map(note=>'<section class="extra dynamic-status historical-note" style="border-color:#bfa56a"><strong>'+escapeHtml(note.title)+'</strong>'+note.paragraphs.map(p=>'<p style="margin:8px 0;line-height:1.6">'+escapeHtml(p)+'</p>').join('')+'<div style="font-size:12px">'+(note.links||[]).map(l=>'<a href="'+escapeHtml(l.url)+'" target="_blank" rel="noopener noreferrer" style="color:#bdd8ef">'+escapeHtml(l.label)+'</a>').join(' · ')+'</div></section>').join('');
     anchor.insertAdjacentHTML('afterend',notes);
+  }
+  // A043: a brief on-selection memoir overview; long, attributed synopsis is opt-in.
+  // A native <details> disclosure works on narrow iPhone screens without another modal.
+  if(n.bookSupplement && id==='ann_eliza_webb'){
+    const b=n.bookSupplement;
+    const chapterLinks=(b.sections||[]).map(section=>{
+      const source=Number.isInteger(section.sourceChapter)?('<a href="https://en.wikisource.org/wiki/Wife_No._19/Chapter_'+section.sourceChapter+'" target="_blank" rel="noopener noreferrer" style="color:#bdd8ef">Read original Chapter '+section.sourceChapter+'</a>'):'';
+      return '<section class="book-chapter-section" style="padding:12px 0;border-bottom:1px solid #37424f">'
+        +'<h4 style="font-size:15px;margin:0 0 5px;color:#f1e4cd;line-height:1.35">'+escapeHtml(section.title)+'</h4>'
+        +'<div style="font-size:12px;color:#bdc4c9;margin-bottom:8px">'+escapeHtml(section.range)+'</div>'
+        +(section.paragraphs||[]).map(p=>'<p style="margin:8px 0;line-height:1.7">'+escapeHtml(p)+'</p>').join('')
+        +(source?'<div style="font-size:12px;margin-top:8px">'+source+'</div>':'')
+        +'</section>';
+    }).join('');
+    const body='<section class="extra dynamic-status book-supplement" aria-label="Wife No. 19 historical book supplement" style="border-color:#bfa56a">'
+      +'<strong>THE BOOK IN HER OWN STORY · WIFE NO. 19</strong>'
+      +'<p style="line-height:1.6;margin:10px 0">'+escapeHtml(b.short)+'</p>'
+      +'<details class="book-long-summary">'
+      +'<summary style="cursor:pointer;display:list-item;min-height:44px;padding:9px 4px;color:#e9dbbe;font-weight:650">Read the substantial book summary · '+(b.sections||[]).length+' parts</summary>'
+      +'<div style="padding:8px 2px 6px">'
+      +'<p style="font-size:12px;color:#cbd4de;line-height:1.55">'+escapeHtml(b.sourceCaution)+'</p>'
+      +chapterLinks
+      +'</div></details>'
+      +'<div style="font-size:12px;line-height:2;margin-top:12px">'
+      +'<a href="'+escapeHtml(b.textPath)+'" download="Wife_No_19_1876_original_OCR.txt" style="color:#bdd8ef">Download complete original-era text (OCR)</a>'
+      +' · <a href="'+escapeHtml(b.summaryPath)+'" download="Wife_No_19_faithful_summary.md" style="color:#bdd8ef">Download summary</a>'
+      +' · <a href="'+escapeHtml(b.proofreadUrl)+'" target="_blank" rel="noopener noreferrer" style="color:#bdd8ef">Read proofread chapters</a>'
+      +' · <a href="'+escapeHtml(b.facsimileUrl)+'" target="_blank" rel="noopener noreferrer" style="color:#bdd8ef">View original pages</a>'
+      +'</div></section>';
+    const anchor=card.querySelector('.full-biography')||card.querySelector('p');
+    anchor.insertAdjacentHTML('afterend',body);
   }
   document.getElementById('extraInfo').innerHTML = buildExtraInfo(id);
   renderPortrait(n);
@@ -3300,6 +3331,7 @@ window.__EDWARD_JR_BIOGRAPHY={version:'20261017-jr-full-biography-1',wordCount:l
 <script src="webb-saybrook-1707-derivative-sources-frontier-20261031.js?v=20261031-t133"></script>
 <!-- Tranche 135: competing New York James Webb/Anna Scott household; derivative caution ONLY -->
 <script src="webb-anna-scott-namesake-frontier-20261031.js?v=20261031-t137"></script>
+<script src="ann-eliza-wife-no19-supplement.js?v=20261109-a043"></script>
 </body>
 </html>
 
