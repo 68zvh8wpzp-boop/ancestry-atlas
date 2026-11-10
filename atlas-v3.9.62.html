@@ -2235,6 +2235,37 @@ function openNode(id, recenter=false, appendTrail=false){
     const notes=n.historicalNotes.map(note=>'<section class="extra dynamic-status historical-note" style="border-color:#bfa56a"><strong>'+escapeHtml(note.title)+'</strong>'+note.paragraphs.map(p=>'<p style="margin:8px 0;line-height:1.6">'+escapeHtml(p)+'</p>').join('')+'<div style="font-size:12px">'+(note.links||[]).map(l=>'<a href="'+escapeHtml(l.url)+'" target="_blank" rel="noopener noreferrer" style="color:#bdd8ef">'+escapeHtml(l.label)+'</a>').join(' · ')+'</div></section>').join('');
     anchor.insertAdjacentHTML('afterend',notes);
   }
+  // A043: a brief on-selection memoir overview; long, attributed synopsis is opt-in.
+  // A native <details> disclosure works on narrow iPhone screens without another modal.
+  if(n.bookSupplement && id==='ann_eliza_webb'){
+    const b=n.bookSupplement;
+    const chapterLinks=(b.sections||[]).map(section=>{
+      const source=Number.isInteger(section.sourceChapter)?('<a href="https://en.wikisource.org/wiki/Wife_No._19/Chapter_'+section.sourceChapter+'" target="_blank" rel="noopener noreferrer" style="color:#bdd8ef">Read original Chapter '+section.sourceChapter+'</a>'):'';
+      return '<section class="book-chapter-section" style="padding:12px 0;border-bottom:1px solid #37424f">'
+        +'<h4 style="font-size:15px;margin:0 0 5px;color:#f1e4cd;line-height:1.35">'+escapeHtml(section.title)+'</h4>'
+        +'<div style="font-size:12px;color:#bdc4c9;margin-bottom:8px">'+escapeHtml(section.range)+'</div>'
+        +(section.paragraphs||[]).map(p=>'<p style="margin:8px 0;line-height:1.7">'+escapeHtml(p)+'</p>').join('')
+        +(source?'<div style="font-size:12px;margin-top:8px">'+source+'</div>':'')
+        +'</section>';
+    }).join('');
+    const body='<section class="extra dynamic-status book-supplement" aria-label="Wife No. 19 historical book supplement" style="border-color:#bfa56a">'
+      +'<strong>THE BOOK IN HER OWN STORY · WIFE NO. 19</strong>'
+      +'<p style="line-height:1.6;margin:10px 0">'+escapeHtml(b.short)+'</p>'
+      +'<details class="book-long-summary">'
+      +'<summary style="cursor:pointer;display:list-item;min-height:44px;padding:9px 4px;color:#e9dbbe;font-weight:650">Read the substantial book summary · '+(b.sections||[]).length+' parts</summary>'
+      +'<div style="padding:8px 2px 6px">'
+      +'<p style="font-size:12px;color:#cbd4de;line-height:1.55">'+escapeHtml(b.sourceCaution)+'</p>'
+      +chapterLinks
+      +'</div></details>'
+      +'<div style="font-size:12px;line-height:2;margin-top:12px">'
+      +'<a href="'+escapeHtml(b.textPath)+'" download="Wife_No_19_1876_original_OCR.txt" style="color:#bdd8ef">Download complete original-era text (OCR)</a>'
+      +' · <a href="'+escapeHtml(b.summaryPath)+'" download="Wife_No_19_faithful_summary.md" style="color:#bdd8ef">Download summary</a>'
+      +' · <a href="'+escapeHtml(b.proofreadUrl)+'" target="_blank" rel="noopener noreferrer" style="color:#bdd8ef">Read proofread chapters</a>'
+      +' · <a href="'+escapeHtml(b.facsimileUrl)+'" target="_blank" rel="noopener noreferrer" style="color:#bdd8ef">View original pages</a>'
+      +'</div></section>';
+    const anchor=card.querySelector('.full-biography')||card.querySelector('p');
+    anchor.insertAdjacentHTML('afterend',body);
+  }
   document.getElementById('extraInfo').innerHTML = buildExtraInfo(id);
   renderPortrait(n);
   renderEvidence(n);
@@ -3300,6 +3331,7 @@ window.__EDWARD_JR_BIOGRAPHY={version:'20261017-jr-full-biography-1',wordCount:l
 <script src="webb-saybrook-1707-derivative-sources-frontier-20261031.js?v=20261031-t133"></script>
 <!-- Tranche 135: competing New York James Webb/Anna Scott household; derivative caution ONLY -->
 <script src="webb-anna-scott-namesake-frontier-20261031.js?v=20261031-t137"></script>
+<script src="ann-eliza-wife-no19-supplement.js?v=20261109-a043"></script>
 </body>
 </html>
 
