@@ -30,6 +30,21 @@
     ['Webb children — about 1951','james_sheldon_with_siblings_c1951.png','Family photograph • preserved Atlas asset']
   ].map(([title, full, provenance]) => ({title, full, thumb:full, provenance, summary:'Family photograph or approved historical context image attached to Marion’s biography.', confidence:'approved Atlas image'}));
 
+  // A044: source-identical local 1942 group image; reuse the authenticated Charles archive
+  // rather than requesting a duplicate of FamilySearch upload 1020022.jpg.
+  photos.push({
+    kind: 'photo',
+    title: '1942 Brenay siblings and father at Sandpoint',
+    thumb: 'assets/charles-albert/charles-family-1942.jpg',
+    full: 'assets/charles-albert/charles-family-1942.jpg',
+    date: '1942', place: 'Sandpoint, Bonner County, Idaho',
+    sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWC1-XF6',
+    provenance: 'FamilySearch 1020022.jpg, contributed by DeEdra Breckenridge 26 January 2025; same existing local file on Charles Albert Brenay biography. Printed source caption transcribed Sandpoint Idaho 1942; photographic negative and higher-resolution master unverified.',
+    summary: 'The family caption identifies Marion seated with Joan and Charles; Virginia, Esther and Joe behind, with Martha and Ammon on the porch. Marian (mother) is not separately named in the contributor caption.',
+    confidence: 'captioned original-era family image, identity per contributor',
+    previewStatus: 'readable'
+  });
+
   const familySearchMemories = 'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW';
   const familySearchPdf = (path) => 'https://sg30p0.familysearch.org/service/records/storage/dascloud/patron/v2/'+path+'/dist.pdf?ctx=ArtCtxPublic';
   const fsDocument = (title, path, date, place, summary, provenance, preview) => {
