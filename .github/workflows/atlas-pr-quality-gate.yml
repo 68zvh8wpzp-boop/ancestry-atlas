@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - review/a046-sarah-photo-and-museum-20261110
+      - review/a047-proof-queue-and-release-qa-20261110
   workflow_dispatch:
 
 permissions:
@@ -25,6 +26,12 @@ jobs:
         run: python -m pip install --disable-pip-version-check Pillow
       - name: Run all staged Atlas person-page regression tests
         run: node --test tests/atlas_*.test.mjs
+      - name: Audit six original Fable recordings without changing bytes
+        if: always()
+        run: |
+          command -v ffprobe
+          command -v ffmpeg
+          node scripts/a048-fable-audio-forensics.mjs
       - name: Validate whole packaged Atlas and image decoders
         run: node verify-package.mjs
       - name: Diagnostic only — show immutable SHA256 values when validation fails
