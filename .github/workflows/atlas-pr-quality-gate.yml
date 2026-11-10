@@ -34,6 +34,19 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg
           node scripts/a048-fable-audio-forensics.mjs
+      - name: Recover Aug 30 previously approved narration in temporary review-output only
+        if: always()
+        run: |
+          git fetch --no-tags --depth=1 origin fa41af02e7a6405a0150a3ba9be3a84391463627
+          node scripts/a048-recover-previous-approved-fable.mjs
+      - name: Archive verified historical audio as a private review candidate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: A048-original-approved-Fable-recovery
+          path: review-output/a048-approved-fable-20260830/
+          if-no-files-found: warn
+          retention-days: 14
       - name: Validate whole packaged Atlas and image decoders
         run: node verify-package.mjs
       - name: Diagnostic only — show immutable SHA256 values when validation fails
