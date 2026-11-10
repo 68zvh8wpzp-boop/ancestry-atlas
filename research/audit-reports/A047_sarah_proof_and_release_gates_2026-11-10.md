@@ -23,3 +23,20 @@
 ## No-repeat / current status
 - Existing 120 audit roster rows remain, 67 distinct tracked source/media targets remain; **no new original document/image bytes, no new certified person page**.
 - No Gmail or other email access, no spending, paid/metered browser sessions, external outreach, FamilySearch account modification or public Atlas merge.
+
+
+## A047 observed automated QA, 10 Nov 2026
+- First PR review run `42918120758`: one **test assertion** failed because A045 checked for the contiguous phrase `17 November 1854` where its correct biography states 23 Nov 1854 newspaper and separately 17 Nov marriage. Test corrected, historical text unaltered.
+- Latest check run `42918742281` after draft version reconciliation: **all staged `tests/atlas_*.test.mjs` passed**, as did all three research governance scripts. `node verify-package.mjs` failed **only the six audio byte-hash differences** below (each reported twice by two independent registries). No new original/media or genealogy claim changed.
+- Staged static consistency correction: `PACKAGE_ASSET_MANIFEST.json` version 3.9.36 → 3.9.62; HTML visible build labels 3.9.56 and 3.9.37 → 3.9.62. This aligns code labels with the already-existing 3.9.62 launch path; it **does not yet update the Home Screen manifest/cache query or deploy**.
+- Audio approval record `approved-audio/fable/APPROVAL.md` explicitly states the six biography-distinctness recordings were approved 31 Aug 2026; GitHub history reports commit `30dc5d05193c12a27a5dd29293a332035798abef` “Promote approved v3.8.19 Fable audio.” However current MP3 bytes do not match the accompanying locked hashes or the review-record JSON hashes; **neither restoration nor re-locking is justified without proving which bytes were approved**. The historic Actions run `33342187526` exposed **zero retrievable artifacts** in the current query. No sound file regenerated, replaced, or downloaded.
+- Actual and locked SHA-256 values, measured on the free GitHub review runner, are **listed solely for forensic comparison**:
+| File | Recorded approved lock | Current repository bytes |
+|---|---|---|
+| `Charles_albert_brenay.mp3` | `6f3e88d00e6f157b34a35b96bc9590188be4cfd24a472249870a1948485278fd` | `86feb4bc550d1db032c8693d1151e2a572532196201eefce8076a7cc072ffd3b` |
+| `Charles_godfrey_brenay.mp3` | `c7ec38a3e2ec36c29c80565145f6799749de376214239f34edf76a26b47d41af` | `aca71e67fe5b0a1bbd275cd4b65bcb295a5af94d58b6e0b51ffc6d46cdecd710` |
+| `Ida_mae_gooley.mp3` | `4ef0e32113c8b9b8a6bbe64539c29fc52cac5ccf9e10d067fb8a79ac3afacb01` | `5af6653132bb6547109e9b1a9a134b90443f91c7b4e14691a751b0e12caa55a5` |
+| `John_peter_gooley.mp3` | `ec238922f2f666c8bffbdb355fb34b26fe6a2f6a68d10c8471a3bf19744ed618` | `89c0f57f2b898a48e799f423bbcad8cfc5aa4994628c238aeef660edfdda89b2` |
+| `Mary_ann_dennis.mp3` | `a67f720da813a3d79b27e0bb38b467fef09bd4f44ed0e5bc19ab5328c685c7de` | `269c0782ef55915c8707cbff04893b279feccb9b01631759205952a3d41d5d00` |
+| `James_wilford_webb.mp3` | `389e088d64cb7e775815c32a7bf7a415161e2d1c9a6811e03c8fc17e1aaf5e53` | `ed065e4ecca58a7a98b3d8fe188a0339199b459ffe6bd3d461788041314e302b` |
+- **Release remains blocked**, and no request has been made to treat a new hash as an approved recording. The QA infrastructure now prevents silent publication of these discrepancies after eventual merge. Next forensic step: compare original approved audio artifacts, if recoverable, with the Aug 31 promoted commit's actual blobs; otherwise ask the owner to review original approval before choosing restoration vs relocking. No paid/metered service, email, or external outreach.
