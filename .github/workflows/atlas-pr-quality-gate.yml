@@ -29,8 +29,10 @@ jobs:
       - name: Audit six original Fable recordings without changing bytes
         if: always()
         run: |
-          command -v ffprobe
-          command -v ffmpeg
+          # GitHub's runner image no longer guarantees ffprobe/ffmpeg.
+          # Official Ubuntu apt packages, no API use and no paid services.
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
           node scripts/a048-fable-audio-forensics.mjs
       - name: Validate whole packaged Atlas and image decoders
         run: node verify-package.mjs
