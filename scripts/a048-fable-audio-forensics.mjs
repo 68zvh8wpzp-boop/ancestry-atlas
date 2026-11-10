@@ -22,7 +22,7 @@ function probeFormat(file){
   catch(e){return {error:'invalid ffprobe JSON: '+e.message}}
 }
 function decodeActualDuration(file){
-  const p=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-i',file,'-vn','-f','null','-','-progress','pipe:1'],{encoding:'utf8',maxBuffer:1000000});
+  const p=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-progress','pipe:1','-i',file,'-vn','-f','null','-'],{encoding:'utf8',maxBuffer:1000000});
   if(p.error)return {error:p.error.message};
   const lines=p.stdout.split(/\r?\n/);
   const t=lines.filter(line=>line.startsWith('out_time_us=')).at(-1);
