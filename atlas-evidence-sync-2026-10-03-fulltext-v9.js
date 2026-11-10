@@ -180,13 +180,15 @@
       {
         kind: 'photo',
         title: 'Charles Albert and Marian Brenay Family',
+        thumb: 'assets/charles-albert/charles-family-1942.jpg',
+        full: 'assets/charles-albert/charles-family-1942.jpg',
         date: '1942',
         place: 'Sandpoint, Bonner, Idaho',
         sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWZ6-H5P',
         provenance: 'FamilySearch memory contributed by DeEdra Breckenridge on 26 January 2025; upload filename 1020022.jpg.',
         summary: 'The family caption identifies the children standing in back as Virginia, Esther, and Joe; sitting in chairs as Marion, Joan, and Charles; and on the porch as Martha and Ammon.',
         confidence: 'captioned family photograph; Virginia is named directly in the contributor description',
-        previewStatus: 'unavailable'
+        previewStatus: 'readable'
       },
       {
         kind: 'photo',
@@ -302,13 +304,15 @@ Virginia’s family memories also include handwritten letters from her grandmoth
       {
         kind: 'photo',
         title: 'Charles Albert and Marian Brenay Family',
+        thumb: 'assets/charles-albert/charles-family-1942.jpg',
+        full: 'assets/charles-albert/charles-family-1942.jpg',
         date: '1942',
         place: 'Sandpoint, Bonner, Idaho',
         sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWZ7-CRV',
         provenance: 'FamilySearch family memory attached across the Brenay sibling pages; contributor DeEdra Breckenridge, 26 January 2025; upload filename 1020022.jpg.',
-        summary: 'The family caption identifies Esther standing in back with Virginia and Joe, with other siblings gathered around Charles and Marian.',
+        summary: 'The family caption identifies Esther standing in back with Virginia and Joe; other named relatives occupy chairs and the porch.',
         confidence: 'captioned family photograph; Esther is named directly in the contributor description',
-        previewStatus: 'unavailable'
+        previewStatus: 'readable'
       }
     ]
   };
@@ -372,13 +376,15 @@ The written memories attached to Esther’s family preserve more than dates. A r
       {
         kind: 'photo',
         title: 'Charles Albert and Marian Brenay Family',
+        thumb: 'assets/charles-albert/charles-family-1942.jpg',
+        full: 'assets/charles-albert/charles-family-1942.jpg',
         date: '1942',
         place: 'Sandpoint, Bonner, Idaho',
         sourcePage: 'https://www.familysearch.org/en/tree/person/memories/LFCL-G8L',
         provenance: 'FamilySearch memory contributed by DeEdra Breckenridge on 26 January 2025; upload filename 1020022.jpg.',
         summary: 'The caption identifies Joan seated in a chair between Marion and Charles, with Virginia, Esther, and Joe standing behind and Martha and Ammon on the porch.',
         confidence: 'captioned family photograph with direct Joan identification',
-        previewStatus: 'unavailable'
+        previewStatus: 'readable'
       }
     ]
   };
@@ -463,13 +469,15 @@ The written memories attached to Esther’s family preserve more than dates. A r
       {
         kind: 'photo',
         title: 'Charles Albert and Marian Brenay Family',
+        thumb: 'assets/charles-albert/charles-family-1942.jpg',
+        full: 'assets/charles-albert/charles-family-1942.jpg',
         date: '1942',
         place: 'Sandpoint, Bonner, Idaho',
         sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWC1-XFC',
         provenance: 'FamilySearch family memory attached across the Brenay sibling pages; contributor DeEdra Breckenridge, 26 January 2025; upload filename 1020022.jpg.',
         summary: 'The caption places Martha on the porch with Ammon; Virginia, Esther, and Joe stand behind, while Marion, Joan, and Charles sit in chairs.',
         confidence: 'captioned family photograph; Martha is named directly in the contributor description',
-        previewStatus: 'unavailable'
+        previewStatus: 'readable'
       }
     ]
   };
@@ -543,13 +551,15 @@ The written memories attached to Esther’s family preserve more than dates. A r
       {
         kind: 'photo',
         title: 'Charles Albert and Marian Brenay Family',
+        thumb: 'assets/charles-albert/charles-family-1942.jpg',
+        full: 'assets/charles-albert/charles-family-1942.jpg',
         date: '1942',
         place: 'Sandpoint, Bonner, Idaho',
         sourcePage: 'https://www.familysearch.org/en/tree/person/memories/KWZX-HGG',
         provenance: 'FamilySearch family memory attached across the Brenay sibling pages; contributor DeEdra Breckenridge, 26 January 2025; upload filename 1020022.jpg.',
         summary: 'The caption places Ammon on the porch with Martha; Virginia, Esther, and Joe stand behind, while Marion, Joan, and Charles sit in chairs.',
         confidence: 'captioned family photograph; Ammon is named directly in the contributor description',
-        previewStatus: 'unavailable'
+        previewStatus: 'readable'
       }
     ]
   };
