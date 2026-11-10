@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - review/a046-sarah-photo-and-museum-20261110
+      - review/a047-proof-queue-and-release-qa-20261110
   workflow_dispatch:
 
 permissions:
