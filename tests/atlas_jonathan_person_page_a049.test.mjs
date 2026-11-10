@@ -1,0 +1,37 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import vm from 'node:vm';
+const root=new URL('../',import.meta.url);
+const html=readFileSync(new URL('atlas-v3.9.62.html',root),'utf8');
+const src=readFileSync(new URL('jonathan-henry-person-page-a049.js',root),'utf8');
+test('A049 person page uses derivative births cautiously; no graph, gallery or narration mutation',()=>{
+ const jon={id:'jonathan_henry',note:'old',portrait:null,evidence:[]};
+ const neighbor={id:'sarah_carling',note:'preserved'};
+ const DATA={nodes:[jon,neighbor],edges:[{a:'jonathan_henry',b:'sarah_carling',confidence:'strong'}]};
+ const GUIDE_PROFILES={};
+ vm.runInNewContext(src,{DATA,GUIDE_PROFILES},{timeout:3000});
+ const bio=GUIDE_PROFILES.jonathan_henry.life;
+ assert.ok(bio.split(/\\s+/).length>=750,'Museum biography substantive');
+ assert.match(bio,/Colonia Morelos/);
+ assert.match(bio,/Thatcher/);
+ assert.match(bio,/1916/);
+ assert.match(bio,/original birth registers/);
+ assert.match(bio,/six sons/i);
+ assert.equal(jon.sourceAudit.fullyCertified,false);
+ assert.equal(jon.sourceAudit.newHistoricalMasterBytes,0);
+ assert.equal(jon.sourceAudit.existingApprovedStoryAndNarrationUnchanged,true);
+ assert.equal(jon.portrait,null);
+ assert.equal(jon.evidence.length,0);
+ assert.equal(neighbor.note,'preserved');
+ assert.equal(DATA.edges.length,1);
+});
+test('A049 is staged only, no live manifest or audio reference altered',()=>{
+ assert.equal((html.match(/jonathan-henry-person-page-a049\\.js\\?v=20261110-a049/g)||[]).length,1);
+ assert.match(html,/biographies\\/webb-branch\\/webb-story-modules\\.js/);
+ const key='const DATA = ',start=html.indexOf(key)+key.length;
+ const data=JSON.parse(html.slice(start,html.indexOf(';\\n',start)));
+ assert.equal(data.nodes.length,109);
+ assert.equal(data.edges.length,111);
+ assert.equal(data.unions.length,4);
+});
