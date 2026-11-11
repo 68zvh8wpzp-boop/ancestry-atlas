@@ -62,3 +62,28 @@ test('A054 reuses existing five packaged photograph/document files and preserves
  assert.match(h.person.historicalNotes[0].paragraphs[0],/12 June 1965/);
  assert.equal(html.split('inez-family-gallery-reuse-a054.js?v=20261111-a054').length-1,1);
 });
+
+
+test('A054 records family-held Sheldon certificate without reading image or changing approved biography',()=>{
+ const src = readFileSync(new URL('sheldon-owned-birth-certificate-ack-a054.js',root),'utf8');
+ const oldText='James Sheldon Webb is documented in the 1950 Arizona federal census. His 1943 birth is supported by an indexed Arizona citation, but the actual certificate image has not yet been retrieved; Snowflake and an earlier St. Johns birthplace description require reconciliation.';
+ const original={id:'james_sheldon',note:oldText,sourceAudit:{originalCensus1950:'existing'},
+  historicalNotes:[{title:'THE SOURCE STATUS OF THE BIRTH, MARRIAGE AND MILITARY RECORDS',
+    paragraphs:['The original birth-certificate image is not yet present in the Atlas. Remaining evidence uncertain.']}]};
+ const DATA={nodes:[original],edges:[]};
+ const GUIDE_PROFILES={james_sheldon:{life:'unchanged approved life biography'}};
+ const ctx=vm.createContext({DATA,GUIDE_PROFILES});
+ vm.runInContext(src,ctx,{timeout:3000});
+ assert.match(original.note,/family reports possessing his birth certificate/);
+ assert.equal(original.sourceAudit.certificateContentsInspected,false);
+ assert.equal(original.sourceAudit.externalRecordAcquisitionNeeded,false);
+ assert.equal(original.sourceAudit.birthPlaceConflictResolved,false);
+ assert.equal(original.sourceAudit.deferredUntilOwnerSupplies,true);
+ assert.match(original.historicalNotes[0].paragraphs[0],/family reports having the original birth certificate/);
+ assert.equal(GUIDE_PROFILES.james_sheldon.life,'unchanged approved life biography');
+ assert.equal(DATA.edges.length,0);
+ const note=original.note;
+ vm.runInContext(src,ctx,{timeout:3000});
+ assert.equal(original.note,note);
+ assert.equal(html.split('sheldon-owned-birth-certificate-ack-a054.js?v=20261111-a054').length-1,1);
+});
