@@ -6,6 +6,7 @@ on:
       - review/a046-sarah-photo-and-museum-20261110
       - review/a047-proof-queue-and-release-qa-20261110
       - review/a049-jonathan-person-page-20261110
+      - review/a051-jay-1950-census-source-20261110
   workflow_dispatch:
 
 permissions:
