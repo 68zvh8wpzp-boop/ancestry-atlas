@@ -9,6 +9,7 @@ on:
       - review/a051-jay-1950-census-source-20261110
       - review/a053-sheldon-document-proof-boundary-20261110
       - review/a054-inez-gallery-restoration-20261111
+      - review/a055-wilhelm-johanne-person-pages-20261111
   workflow_dispatch:
 
 permissions:
