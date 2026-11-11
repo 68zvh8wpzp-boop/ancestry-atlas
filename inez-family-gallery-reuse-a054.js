@@ -81,9 +81,9 @@
     added.push(fileUrl);
   }
   inez.historicalNotes = Array.isArray(inez.historicalNotes) ? inez.historicalNotes : [];
-  if (!inez.historicalNotes.some(n => n.title === 'THE THREE DISTINCT 1965 MARRIAGE DATES')) {
+  if (!inez.historicalNotes.some(n => n.title === 'LICENSE, WEDDING AND SEALING: THREE DISTINCT DATES')) {
     inez.historicalNotes.push({
-      title: 'THE THREE DISTINCT 1965 MARRIAGE DATES',
+      title: 'LICENSE, WEDDING AND SEALING: THREE DISTINCT DATES',
       paragraphs: [
         'Inez’s life-story manuscript describes the couple’s Lakeside wedding on 21 January 1965. A county marriage-affidavit citation displayed under Sheldon Webb refers to a 15 January 1965 license. A distinct preserved photograph bears a 12 June 1965 Mesa date, described in the family narrative as the later religious sealing. These are not interchangeable events or original certificates; the county record image has not been examined in this audit.',
         'The 1965 wedding announcement, two 1965 family images, and two later family pictures were already archived with Sheldon’s source material. This audit reconnects their exact files to Inez’s own gallery without redownloading them. Captions, exact dates, participant identifications, and reproduction rights still require direct source-item confirmation. Her complete, approved memoir-derived life biography and its existing 39 photo captions were deliberately left unchanged.'
