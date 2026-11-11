@@ -23,7 +23,7 @@ test('A056 contemporary 1885 biography is a CANDIDATE clue, not proof of parenta
  const prior={bio:x.n.biography,life:x.GUIDE_PROFILES.thomas_prather.life,
    edges:JSON.stringify(x.DATA.edges),records:x.n.evidence.length};
  vm.runInContext(src,x.context,{timeout:3000});
- assert.equal(x.n.evidence.length,prior.records+1);
+ assert.equal(x.n.evidence.length,prior.records+2);
  const source=x.n.evidence.find(e=>e.a056CandidateNotCertified===true);
  assert.ok(source);
  assert.match(source.title,/CANDIDATE/);
@@ -37,8 +37,17 @@ test('A056 contemporary 1885 biography is a CANDIDATE clue, not proof of parenta
  assert.equal(x.GUIDE_PROFILES.thomas_prather.life,prior.life);
  assert.equal(x.n.biography,prior.bio);
  assert.equal(JSON.stringify(x.DATA.edges),prior.edges);
- assert.equal(x.n.historicalNotes.length,1);
+ assert.equal(x.n.historicalNotes.length,2);
  assert.match(x.n.historicalNotes[0].paragraphs[2],/not separate corroborating witnesses/);
+ const reba=x.n.evidence.find(e=>e.a057RebaNotThomas===true);
+ assert.ok(reba);
+ assert.match(reba.summary,/Reba J. Prather/);
+ assert.match(reba.summary,/does NOT identify the Thomas/);
+ assert.match(reba.provenance,/Original p.371 facsimile not inspected/);
+ assert.equal(x.n.sourceAudit.a057_thomas_parentage_proven,false);
+ assert.equal(x.n.sourceAudit.a057_original_1880_census_inspected,false);
+ assert.equal(x.n.sourceAudit.a057_new_media_bytes,0);
+ assert.match(x.n.historicalNotes[1].title,/THOMAS LINK STILL OPEN/);
  vm.runInContext(src,x.context,{timeout:3000});
  assert.equal(x.n.evidence.length,prior.records+1);
  assert.equal(x.n.historicalNotes.length,1);
