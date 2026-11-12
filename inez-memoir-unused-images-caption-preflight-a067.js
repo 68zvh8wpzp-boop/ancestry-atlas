@@ -69,7 +69,7 @@
    parentAlreadyHasOriginalImage2:true,
    addedExistingOriginalImage44ToInez:true,
    photo44OriginalCaption:'Passport Picture, May, 2023; 77 years young',
-   memoirPagesReviewOriginalsNotAll118:false,
+   all118MemoirPagesSourceImageAudited:false,
    2023PhotoGovernmentPassportRecord:false,
    previousMemoirImagesInAtlas:39,
    priorA054HistoricPhotoReuses:4,
