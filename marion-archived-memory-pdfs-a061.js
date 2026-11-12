@@ -60,6 +60,19 @@
    ration.originalCompleteSixPagePdfLocalPackageVerified=false;
    ration.a061PreservationReconciled=true;
  }
+ const anniversary50=evidence.find(x=>x.kind==='document'&&typeof x.full==='string'&&x.full.includes('TH-7714-165878-331848-94'));
+ if(anniversary50){
+   anniversary50.thumbnailVisualQA20261112='IMAGE DECODES BUT LEFT SIDE OF NEWS CLIPPING IS CROPPED, WORDS CUT OFF; not full original view';
+   anniversary50.previewFullDocumentReadable=false;
+   anniversary50.previewCropDefect='LEFT-EDGE CROP — requires complete article PDF or uncropped source page before archival display certified';
+   anniversary50.a061ThumbnailInspected=true;
+ }
+ for(const x of evidence){
+   if(x.kind==='document'&&typeof x.full==='string'&&x.full.includes('sg30p0.familysearch.org/service/records/storage/dascloud/patron/v2/')){
+     x.thumbnailPixelVisualQACompletedA061=true; // Eight local GitHub JPG previews visually rendered at source resolution.
+     x.thumbnailPixelVisualQAIsNotInstalledIphoneApproval=true;
+   }
+ }
  person.historicalNotes=Array.isArray(person.historicalNotes)?person.historicalNotes:[];
  const title='FAMILY MEMORY DOCUMENTS — RECOVERED COMPLETE COPIES AND OPEN FULL-PAGE GATES (A061)';
  if(!person.historicalNotes.some(x=>x.title===title))person.historicalNotes.push({
@@ -67,7 +80,7 @@
   paragraphs:[
    'An original-file crosscheck recovered three complete FamilySearch-uploaded document scans already kept in the private ancestry Library: Home (three pages), Neat as a Pin (two pages), and Letters from Grandma Brenay (four handwritten pages). Their locally stored PDF files were examined page by page. The two saved Grandma Brenay PDFs are copies of the same four scanned page images, not two independent collections. None of these copies required a new download.',
    'The first Grandma Brenay letter is dated 17 January 1985 and is signed “Mom.” This is family correspondence labeled by the contributor, not a self-signed full legal name identifying Marion Beulah Brenay Webb as author. The earlier family research associates Grandma Brenay with Marion’s mother Marian Beulah Skinner Brenay; do not misattribute these words to Marion without source corroboration.',
-   'Five pages of Marion’s 1938 eighth-grade graduation memory were visually read during the prior September audit, and three distinct pages were preserved as images. The full five-page PDF has not been verified as locally preserved. Six pages of family wartime ration books were also reviewed earlier, but a complete local PDF has not been verified. The 50th anniversary, 40th anniversary, and Young Marion documents likewise still require full-original preservation checks. All eight gallery full-view URLs currently remain external FamilySearch PDF links, so installed iPhone opening and complete Atlas local packaging are NOT certified.'
+   'The 50th-anniversary newspaper-preview JPG is cut off on the left, truncating printed words, so it cannot substitute for a full newspaper clipping. All eight local JPG previews were opened and inspected in this source review, but iPhone display remains unverified. Five pages of Marion’s 1938 eighth-grade graduation memory were visually read during the prior September audit, and three distinct pages were preserved as images. The full five-page PDF has not been verified as locally preserved. Six pages of family wartime ration books were also reviewed earlier, but a complete local PDF has not been verified. The 50th anniversary, 40th anniversary, and Young Marion documents likewise still require full-original preservation checks. All eight gallery full-view URLs currently remain external FamilySearch PDF links, so installed iPhone opening and complete Atlas local packaging are NOT certified.'
   ],
   links:[{label:'FamilySearch — Marion Beulah Brenay Webb memories',url:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW'}]
  });
@@ -83,6 +96,9 @@
   savedGraduationDistinctPageImages:3,
   rationBookSixPagesPreviouslyRead:true,
   remainingCompletePdfOriginalsNotLocallyVerified:5,
+  sourcePreviewImagesVisuallyDecodedA061:8,
+  newspaper50thPreviewLeftCropDiscovered:true,
+  sourcePreviewIphoneImagesCertified:false,
   sourcesStillExternalOnIphone:true,
   userPhoneQA:false,
   newOriginalBytesDownloaded:0,
