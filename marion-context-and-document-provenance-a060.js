@@ -34,6 +34,18 @@
     x.photoOfMarionOrHerFamilyVerified=false;
     x.exactHistoricPhotoCatalogIdentityVerified=false;
     x.originalCaptureDateProven=false;
+    // Explicit visible gallery caption, not merely hidden audit metadata.
+    x.summary='HISTORICAL CONTEXT ONLY — '+caution;
+    x.confidence='Contextual illustration; no identified Marion/Brenay persons or personal event';
+    if(title==='Work and school'){
+      x.exactHistoricPhotoCatalogIdentityVerified=true;
+      x.verifiedRepositoryItem='https://www.loc.gov/item/2017743309/';
+      x.verifiedNegative='LC-DIG-fsa-8a29603';
+      x.verifiedDate='September 1940';
+      x.verifiedCaption='Schoolchildren of Concho, Arizona boarding the bus to go to the high school at St. Johns';
+    } else if(title==='Childhood across the Southwest') {
+      x.unverifiedCatalogIdFromStoryModule='LC-DIG-fsa-8a30947';
+    }
     x.sourceAuditA060=true;
     revised++;
   }
@@ -57,11 +69,12 @@
   if(!n.historicalNotes.some(h=>h.title===title))n.historicalNotes.push({
     title,
     paragraphs:[
-      'This page deliberately combines original-era Webb/Brenay family photographs with historical context pictures. The image titled “Westward in 1925” is from a later documentary photography collection associated with Russell Lee and the Farm Security Administration/Office of War Information (1935–1944), not a photograph of Charles, Marian or their children on the 1925 trip. The images of children and bus boarding likewise do not identify Marion or her own school and classmates. The contextual house picture is not proved to be her actual Saginaw birthplace or home. Their original files remain unchanged; these are visual illustrations, not identity or personal-event evidence.',
+      'This page deliberately combines original-era Webb/Brenay family photographs with historical context pictures. The image titled “Westward in 1925” is from a later documentary photography collection associated with Russell Lee and the Farm Security Administration/Office of War Information (1935–1944), not a photograph of Charles, Marian or their children on the 1925 trip. The image of children does not identify Marion or her family. The bus image is independently identified by the Library of Congress as Russell Lee’s September 1940 photograph of children in Concho, Arizona, boarding a bus to high school in St. Johns (LC-DIG-fsa-8a29603); it does not identify Marion or her classmates. The contextual house picture is not proved to be her actual Saginaw birthplace or home. Their original files remain unchanged; these are visual illustrations, not identity or personal-event evidence.',
       'Eight FamilySearch Memory-document entries currently have working local JPG preview paths in the Atlas repository. Their full-view PDF field instead points to FamilySearch’s external service; those URLs have not been shown to work in the installed iPhone client, and these eight PDFs have not been shown to be bundled as complete local Atlas documents. Local previews cannot certify every page of a multipage PDF. Original document item-ID, full-page capture, and installed-phone open/download checks remain separately open.',
       'The 1942 Sandpoint family portrait is different: a preexisting captioned Webb/Brenay-era photograph already preserved in the Charles Albert album. The user is awaiting Marion Beulah Brenay’s 1923 Michigan birth certificate in the separate citizenship-proof work; no new certificate has been inspected in this audit. The approved biography, parents and children, personal family photographs, and audio/narration have not been rewritten.'
     ],
     links:[
+      {label:'Library of Congress — 1940 Concho–St. Johns school bus photo',url:'https://www.loc.gov/item/2017743309/'},
       {label:'Library of Congress — FSA/OWI black-and-white negatives (1935–1944)',url:'https://www.loc.gov/pictures/collection/fsa/'},
       {label:'Marion FamilySearch memories (source listing)',url:'https://www.familysearch.org/en/tree/person/memories/KWZD-XXW'}
     ]
@@ -72,7 +85,7 @@
     contextTargets:contexts.length,
     matchingContextEntries:revised,
     contextCapturedImagesIndependentlyVisuallyReviewed:4,
-    contextExactLocIdentifiersVerified:0,
+    contextExactLocIdentifiersVerified:1,
     contextualImagesNowMarkedNotProof:true,
     matchingRemotePdfWithLocalJpgPreview:fullPdf.length,
     remotePdfCurrentAccessTestedOnIphone:false,
