@@ -36,6 +36,8 @@ test('A061 3 full Library scans, one partial 1938 graduation, one six-page ratio
  assert.equal(person.sourceAudit.newOriginalBytesDownloaded,0);
  assert.equal(person.sourceAudit.originalMemoryPdfAllEightLocallyPackaged,false);
  assert.equal(person.sourceAudit.userPhoneQA,false);
+ assert.equal(person.sourceAudit.sourcePreviewImagesVisuallyDecodedA061,8);
+ assert.equal(person.sourceAudit.newspaper50thPreviewLeftCropDiscovered,true);
  for(const i of [0,1,2]){
   assert.equal(evidence[i].originalUploadPdfPreservedInPrivateLibrary,true);
   assert.equal(evidence[i].fullPdfPackagedInGitHub,false);
@@ -49,6 +51,9 @@ test('A061 3 full Library scans, one partial 1938 graduation, one six-page ratio
  assert.equal(evidence[3].originalCompleteFivePagePdfLocalPackageVerified,false);
  assert.equal(evidence[4].originalSixMemoryPagesVisuallyReviewedBeforeA061,true);
  for(const i of [5,6,7])assert.equal(evidence[i].archivalOriginalCopyStatus,undefined);
+ assert.equal(evidence[5].previewFullDocumentReadable,false);
+ assert.match(evidence[5].previewCropDefect,/LEFT-EDGE CROP/);
+ assert.equal(evidence.every(x=>x.thumbnailPixelVisualQACompletedA061),true);
  assert.equal(person.biography,'APPROVED');
  assert.equal(JSON.stringify(DATA.edges),oldEdges);
  assert.equal(JSON.stringify(TOUR_MEDIA),oldTour);
