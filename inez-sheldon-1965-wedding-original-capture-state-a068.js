@@ -17,13 +17,7 @@
  * visually identical. May be an original period scan, not proof of a
  * civil recorded marriage or government license.
  *
- * p105 also contains two 2015 personal hospital photographs,
- * embedded image41.jpeg and image42.jpeg (2448x3264 each); exact JPEG
- * bytes saved to PRIVATE Library. Sensitive images withheld from ALL
- * Atlas scripts, notes, face recognition, public album or release pending
- * appropriate family review; refer to them ONLY in private ledger.
- *
- * No approved biography, narration, Story, graph or rendered HTML changes
+ * Additional private family source-image preservation is tracked only in\n * the protected Library research ledger and is omitted from app source.\n *\n * No approved biography, narration, Story, graph or rendered HTML changes
  * beyond sourceAudit metadata for 1965 wedding image capture-state.
  */
 (() => {
