@@ -45,6 +45,9 @@ jobs:
       - name: Verify A084 Mary Weedon proof boundary
         run: node --test tests/atlas-a084-molly-weedon-proof-boundary.test.mjs
 
+      - name: Verify A085 Elizabeth Webb source identity
+        run: node --test tests/atlas-a085-elizabeth-webb-evidence-gates.test.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
