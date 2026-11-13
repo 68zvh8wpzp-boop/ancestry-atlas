@@ -87,6 +87,7 @@
       paragraphs:[
         'A later Clay County history published in 1920 tells the life of attorney Charles H. Coppinger. It identifies his wife Reba J. Prather, born at Moscow and married in 1891, as a daughter of John S. and Lulu (Roberts) Prather. This is a second published account for the Reba/John S./Roberts connection, distinct from the 1885 volume, but it does not make the 1885 list of children into six individually proven vital-record identities.',
         'The two books call Reba’s mother Louella (1885) and Lulu (1920). These may be forms of the same name, but we have not independently verified her original name. Most importantly, neither book states that our Thomas Estil Prather is the Thomas in the 1885 list. A separate named census or vital record is required before adding any parent-child relationship to the Atlas.',
+        'An internal discrepancy in this very same 1920 volume is still unresolved: the John Claude Coppinger biography (about p. 358) calls John S. and Luella (Roberts) Prather both natives of Kentucky, while the Charles H. Coppinger biography (pp. 370–371) identifies the former as native to Kentucky and the latter as native to Clay County, Missouri. These statements are currently known only from two unverified digital transcriptions of the same printed volume, NOT two independent records. Do not silently pick Louella’s birthplace, or use this editorial conflict to infer Thomas Estil’s parentage.',
         'The 1920 printed text has been located and checked through a secondary digital transcription; its original facsimile page and a matching original census image remain to be captured. No portrait, graph relation, approved life biography, narration, or Story scene was changed.'
       ],
       links:[
@@ -102,4 +103,16 @@
   thomas.sourceAudit.a057_thomas_parentage_proven=false;
   thomas.sourceAudit.a057_new_media_bytes=0;
   thomas.sourceAudit.a057_narration_story_biography_unchanged=true;
+  // A071: two contradictory Louella/Lulu birthplace claims INSIDE one 1920 book.
+  thomas.sourceAudit.a071_1920_internal_conflict={
+    source:'W. H. Woodson, History of Clay County, Missouri (1920), two Coppinger biographies, printed around pp.358 and 370–371',
+    reading_basis:'two searchable transcriptions; neither facsimile inspected',
+    passage1:'Reba parent sketch: John S. and Luella (Roberts) Prather both called natives of Kentucky',
+    passage2:'Charles Coppinger sketch: John S. Kentucky, wife Lulu (Roberts) native Clay County Missouri',
+    independence:'one 1920 volume, not two independent sources',
+    birthplace_status:'CONFLICTED — do not promote',
+    ThomasEstilParentage:'UNPROVEN; no graph, family, or vital-record changes',
+    imagesObtained:0,
+    iphoneChecked:false
+  };
 })();
