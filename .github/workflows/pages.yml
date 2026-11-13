@@ -45,6 +45,9 @@ jobs:
       - name: Verify A084 Mary Weedon proof boundary
         run: node --test tests/atlas-a084-molly-weedon-proof-boundary.test.mjs
 
+      - name: Verify A086 Sandersen published source boundary
+        run: node --test tests/atlas-a086-sandersen-published-source-boundary.test.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
