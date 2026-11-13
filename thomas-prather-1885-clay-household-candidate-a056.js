@@ -88,6 +88,7 @@
         'A later Clay County history published in 1920 tells the life of attorney Charles H. Coppinger. It identifies his wife Reba J. Prather, born at Moscow and married in 1891, as a daughter of John S. and Lulu (Roberts) Prather. This is a second published account for the Reba/John S./Roberts connection, distinct from the 1885 volume, but it does not make the 1885 list of children into six individually proven vital-record identities.',
         'The two books call Reba’s mother Louella (1885) and Lulu (1920). These may be forms of the same name, but we have not independently verified her original name. Most importantly, neither book states that our Thomas Estil Prather is the Thomas in the 1885 list. A separate named census or vital record is required before adding any parent-child relationship to the Atlas.',
         'An internal discrepancy in this very same 1920 volume is still unresolved: the John Claude Coppinger biography (about p. 358) calls John S. and Luella (Roberts) Prather both natives of Kentucky, while the Charles H. Coppinger biography (pp. 370–371) identifies the former as native to Kentucky and the latter as native to Clay County, Missouri. These statements are currently known only from two unverified digital transcriptions of the same printed volume, NOT two independent records. Do not silently pick Louella’s birthplace, or use this editorial conflict to infer Thomas Estil’s parentage.',
+        'A second Coppinger biography in this same 1920 volume (John Claude Coppinger, printed about p. 358) reports that John S. Prather died in 1914, his wife Luella died in 1894, and both were buried at Crown Hill Cemetery in Excelsior Springs. This is a concrete lead to search the free Missouri State Archives 1914 original death-certificate database for the father of the 1885 candidate household. The 1920 history remains a retrospective published account; no person-specific civil death image, certificate number, or link to Thomas Estil has yet been viewed.',
         'The 1920 printed text has been located and checked through a secondary digital transcription; its original facsimile page and a matching original census image remain to be captured. No portrait, graph relation, approved life biography, narration, or Story scene was changed.'
       ],
       links:[
@@ -104,6 +105,22 @@
   thomas.sourceAudit.a057_new_media_bytes=0;
   thomas.sourceAudit.a057_narration_story_biography_unchanged=true;
   // A071: two contradictory Louella/Lulu birthplace claims INSIDE one 1920 book.
+  thomas.sourceAudit.a074_candidateJohnSDeath={
+    candidatePerson:'John S. Prather of the 1885 Moscow/Excelsior Springs household; NOT proven father of Thomas Estil',
+    retrospectiveClaimSource:'W. H. Woodson, History of Clay County, Missouri (1920), John Claude Coppinger biography around printed p.358',
+    candidateDied:'1914 according to the 1920 family biography, NOT civil-certified',
+    candidateWife:'Luella/Louella Roberts — reported death 1894 in same passage, NOT civil-certified',
+    burial:'Crown Hill Cemetery, Excelsior Springs — 1920 historical claim, no gravestone original inspected',
+    originalRecordRoute:'https://s1.sos.mo.gov/records/Archives/ArchivesMvc/DeathCertificates/',
+    officialCoverage:'Missouri State Archives online searchable 1910–1975 death-certificate images; free to search',
+    originalDeathRecordInspected:false,
+    certificateNumberLocated:false,
+    identityToInezFatherProven:false,
+    firstMayorClaim:'same 1920 compiled biography, unverified original council/minutes',
+    noParentNodeOrGraphPromotion:true,
+    originalMediaBytesCaptured:0,
+    parentage:'UNPROVEN'
+  };
   thomas.sourceAudit.a071_1920_internal_conflict={
     source:'W. H. Woodson, History of Clay County, Missouri (1920), two Coppinger biographies, printed around pp.358 and 370–371',
     reading_basis:'two searchable transcriptions; neither facsimile inspected',
