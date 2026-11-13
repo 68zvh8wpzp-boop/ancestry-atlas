@@ -36,6 +36,9 @@ jobs:
       - name: Verify Jessie Aurin original census and parent-evidence contract
         run: node tests/jessie-aurin-source-viewer.mjs
 
+      - name: Verify A075 original memoir biography corrections and cache refresh
+        run: node --test tests/atlas-a075-biography-source-release.test.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
