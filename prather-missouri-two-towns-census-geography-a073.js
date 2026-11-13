@@ -23,7 +23,7 @@
   const paragraphs = [
     'In her own illustrated life story (p. 14), Inez Karen Prather Webb remembered a small Missouri town called Pratherville and wondered whether it had been named for her grandfather or great-grandfather. She did not identify the man or county, and this is a family recollection, not a proven naming or parentage record.',
     'Missouri place-name scholarship separates at least two similarly spelled communities. In BOONE County, Nadine Pace’s 1928 place-name study calls Pratherville a settlement named for merchant William Prather. In CLAY County, Anne Atchison’s 1937 study identifies Prathersville in northern Fishing River Township as growing around a mill operated by J. A. Prather around 1870. An 1885 Clay County history describes J. A. as a Presbyterian minister and mill builder. There is no present evidence that William and J. A. were the same man or that either was Inez’s direct ancestor.',
-    'A contemporary 1877 Clay County atlas overview (visually examined) plots Prathersville in Fishing River Township and the different town of Moscow in Gallatin Township. The separate 1885 John S. Prather sketch says he sold merchandise in Moscow from 1879 and moved to Excelsior Springs two years later. Accordingly the unlocated 1880 John S./Louella candidate household should be sought first in the GALLATIN Township/Moscow schedules rather than automatically in Fishing River. The federal 1880 Clay County rolls are NARA T9-681 and T9-682; a documented Gallatin ED 120 example is an area locator, NOT the Prather household or a complete enumeration district assignment.',
+    'A contemporary 1877 Clay County atlas overview (visually examined) plots Prathersville in Fishing River Township and the different town of Moscow in Gallatin Township. The separate 1885 John S. Prather sketch says he sold merchandise in Moscow from 1879 and moved to Excelsior Springs two years later. Accordingly the unlocated 1880 John S./Louella candidate household should be sought first in the GALLATIN Township/Moscow schedules rather than automatically in Fishing River. The federal 1880 Clay County rolls are NARA T9-681 and T9-682; separate descendant-research citations identify unrelated Gallatin Township households in enumeration districts 120 and 121 on roll 681. Those are search starting points ONLY: no ED, page, or household has yet been linked to John S. Prather, and neither example establishes exhaustive Gallatin coverage.',
     'These place references add context and correct a search assumption, but do not identify the Thomas child in the 1885 sketch with Thomas Estil Prather. No parent, grandparent, relationship line, exact residential pin, or new birth claim is justified. The 1877 map is linked to an original PDF; a private unchanged file copy could not be acquired in this review.'
   ];
   for(const id of ['inez_karen','thomas_prather']) {
@@ -43,6 +43,10 @@
         originalMapBytesPreserved:false,
         target1880:'Gallatin township (Moscow), Clay County, Missouri, 1880 census; NARA T9-681/T9-682, exact household ED and sheet unlocated',
         exampleED120IsPratherHousehold:false,
+        exampleED121IsPratherHousehold:false,
+        additionalED121Locator:'Unrelated Evans family, Gallatin Township ED 121, 1880 federal census, roll 681, p.363C, in descendant transcription at https://www.acvancestors.com/g2/p2845.htm; original page NOT viewed',
+        gallatinEnumerationCoverageExhaustivelyChecked:false,
+        prather1880PersonImageFound:false,
         WilliamOrJAProvenDirectAncestor:false,
         ThomasEstilSameAs1885ChildProven:false,
         graphEdgesAdded:0,
