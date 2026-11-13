@@ -15,7 +15,7 @@ test('A075 Inez author-name, age, and age-three original photo caption',()=>{
  vm.runInContext(inez,ctx,{timeout:5000});
  vm.runInContext(inez,ctx,{timeout:5000});
  assert.match(GUIDE_PROFILES.inez_karen.life,/Tootie chose her given name, Inez Karen, after a friend named Inez Fish/);
- assert.match(GUIDE_PROFILES.inez_karen.life,/Her mother Grace gave her the nickname “Snookie”/);
+ assert.match(GUIDE_PROFILES.inez_karen.life,/Her mother Grace gave her the nickname “Snookie,/);
  assert.match(GUIDE_PROFILES.inez_karen.life,/Grace was in her thirties and Thomas in his late sixties/);
  assert.doesNotMatch(GUIDE_PROFILES.inez_karen.life,/Tootie chose the name “Snookie”/);
  assert.equal(DATA.nodes[0].evidence.length,39,'do not add duplicate gallery images');
