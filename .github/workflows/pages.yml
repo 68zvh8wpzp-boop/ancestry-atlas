@@ -42,6 +42,9 @@ jobs:
       - name: Verify A083 Gooley source-quality core record
         run: node --test tests/atlas-a083-gooley-core-birthplace-caveat.test.mjs
 
+      - name: Verify A084 Mary Weedon proof boundary
+        run: node --test tests/atlas-a084-molly-weedon-proof-boundary.test.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
