@@ -46,7 +46,7 @@
         exampleED121IsPratherHousehold:false,
         additionalED121Locator:'Unrelated Evans family, Gallatin Township ED 121, 1880 federal census, roll 681, p.363C, in descendant transcription at https://www.acvancestors.com/g2/p2845.htm; original page NOT viewed',
         gallatinEnumerationCoverageExhaustivelyChecked:false,
-        1880PratherPersonImageFound:false,
+        prather1880PersonImageFound:false,
         WilliamOrJAProvenDirectAncestor:false,
         ThomasEstilSameAs1885ChildProven:false,
         graphEdgesAdded:0,
