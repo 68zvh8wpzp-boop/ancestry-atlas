@@ -1304,6 +1304,39 @@ window.ANCESTRY_GLOBE_DATA = {
       ]
     },
     {
+      "id": "juhlbjerggaard_haarbolle",
+      "name": "Juhlbjerggård (historic Hårbølle farm, Vindebækvej 8), Møn, Denmark",
+      "lng": 12.1928158,
+      "lat": 54.89532812,
+      "precision": "modern address location; historic parcel footprint unverified",
+      "locationStatus": "provisional",
+      "regionNote": "Historic farm parcel 21 matched to the modern site from published sources; neither a contemporary deed nor the 1830s farm-building footprint has been checked. The current house dates to c.1914–1919.",
+      "events": [
+        {
+          "personId": "peder_sandersen",
+          "name": "Peder Sandersen",
+          "branch": "denmark",
+          "type": "lived",
+          "when": "by 1834 to at least 1840 (farm association)",
+          "qualifier": "Historic parcel 21; modern farm-site pin is inferred from later local histories, not the original 1834 home footprint",
+          "evidence": "Blaabjerg (2000), Slægten 21 p57; Kjær-Nielsen (2010), Hårbølle village farm register, matr.21 Juhlbjerg at Vindebækvej 8; 1834/1840 census transcriptions; original tenure document pending",
+          "relationshipConfidence": "supported",
+          "placeEvidenceStatus": "strong secondary cross-identification; historic footprint pending"
+        },
+        {
+          "personId": "ane_kirstine",
+          "name": "Ane Kirstine Jørgensdatter",
+          "branch": "denmark",
+          "type": "lived",
+          "when": "1834–1840 (household association)",
+          "qualifier": "Wife recorded with Peder in 1834 and 1840 Hårbølle census transcriptions; farm parcel identification based on secondary research, not deed",
+          "evidence": "1834/1840 Hårbølle census transcription in Michael Erichsen family page; Blaabjerg 2000 parcel21; Hårbølle local-history farm locator 2010",
+          "relationshipConfidence": "supported",
+          "placeEvidenceStatus": "secondary household and farm association; exact original dwelling unverified"
+        }
+      ]
+    },
+    {
       "id": "harbolle",
       "name": "Hårbølle, Møn, Denmark",
       "lng": 12.17416,
