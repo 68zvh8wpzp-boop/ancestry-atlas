@@ -1,6 +1,6 @@
 /* Atlas globe: direct ancestors and separately identified, optional research-only pins. */
 window.ANCESTRY_GLOBE_DATA = {
-  "version": "2026-10-10-globe-11-quebec-provisional",
+  "version": "2026-11-16-globe-a159-juhlbjerg",
   "sourcesNote": "Only direct ancestors, including provisional links (explicitly labeled), are included. If no reliable city is known, the named country/province/region is pinned at a representative coordinate and clearly flagged as approximate; the marker is NOT evidence of a specific birthtown or home. Research-attribution of region may itself be provisional. Collateral and rejected candidates excluded. Three separately typed research-origin country pins (France/Sweden/Ireland) are optional UI overlays; they are NOT ancestor-person born/lived/died events, are not counted in the 73 direct ancestors or 167 associations, and do not establish any nation's origin as fact. Sweden research lead is placed at Karlstad, Värmland by user request, without asserting a birth, residence or death event there. Established person-place pins red; provisional-only direct-line locations blue; speculative origin research leads yellow.",
   "branches": [
     {
