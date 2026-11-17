@@ -3,6 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<!-- Installed older iPhone shortcuts may still start at this URL.
+     ?legacy=1 intentionally preserves the older view for comparison. -->
+<script>
+(function(){
+  if (!window.matchMedia || !matchMedia("(max-width:800px)").matches) return;
+  if (new URLSearchParams(location.search).get("legacy")==="1") return;
+  location.replace("./atlas-v3.9.63.html"+location.search+location.hash);
+})();
+</script>
 <script>
 (function(){
   if(/[?&]v=(?:3\.8\.21|3\.9\.20|3\.9\.21|3\.9\.22|3\.9\.23|3\.9\.24)(?:&|$)/.test(location.search)){

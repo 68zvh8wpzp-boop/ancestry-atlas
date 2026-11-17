@@ -1,0 +1,59 @@
+/* Ancestry Atlas mobile hybrid navigator v1 — isolated from story and research data. */
+@media(max-width:800px){
+  #mobileTreeLabels,#mobileTreeExpand{display:none!important}
+  #mobileTreeDock{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+  #mobileTreePeople{background:#28465d!important;border-color:#7fadc9!important}
+  #mobileHybridNav[hidden]{display:none!important}
+  #mobileHybridNav{position:fixed;inset:0;z-index:850;display:flex;flex-direction:column;
+    padding-top:env(safe-area-inset-top);background:#07121b;color:#f3f6fa;
+    font-family:Inter,system-ui,-apple-system,Arial,sans-serif;overflow:hidden;overscroll-behavior:contain}
+  body.mh-nav-open #mobileTreeDock,body.mh-nav-open #mobileTreeMenuSheet,
+  body.mh-nav-open #card,body.mh-nav-open #navModeBadge{visibility:hidden!important}
+  .mh-header{padding:14px 16px 10px;border-bottom:1px solid #273e50;background:#0b1a25;flex:0 0 auto}
+  .mh-heading{display:flex;align-items:center;gap:10px;justify-content:space-between}
+  .mh-heading h2{font-size:23px;line-height:1.15;letter-spacing:-.025em;margin:0;color:#f3f6fa}
+  .mh-close{display:flex;align-items:center;justify-content:center;min-width:42px;height:42px;border-radius:50%;font-size:23px;color:#e5f2f9;background:#233747;border:1px solid #45627a;padding:0}
+  .mh-subhead{color:#a9becc;font-size:13px;line-height:1.4;margin:5px 0 0}
+  .mh-scroll{min-height:0;flex:1;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:16px 14px 24px}
+  .mh-search{display:block;width:100%;font-size:16px;min-height:48px;border-radius:13px;background:#182c3c;color:#fff;border:1px solid #5b7890;padding:0 14px;margin:2px 0 14px;outline-offset:3px}
+  .mh-search::placeholder{color:#b5c6d3}
+  .mh-chips{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;margin:0 -14px 16px;padding:0 14px 4px}
+  .mh-chips button{flex:0 0 auto;white-space:nowrap;padding:10px 13px;min-height:42px;
+    border-radius:24px;background:#162b3a;border:1px solid #425d70;color:#c7d6e0;font-size:12px}
+  .mh-chips button[aria-pressed="true"]{background:#d7edfc;border-color:#d7edfc;color:#0d2738;font-weight:700}
+  .mh-count{font-size:12px;color:#aac0d1;margin:10px 2px}
+  .mh-item{display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+    border:1px solid #314b60;border-radius:15px;background:#10212e;color:#f5f8fb;
+    padding:12px;margin:8px 0;min-height:77px}
+  .mh-avatar{flex:0 0 42px;width:42px;height:42px;border-radius:50%;background:#284658;
+    color:#dceefa;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600}
+  .mh-person-copy{min-width:0;display:flex;flex-direction:column;gap:3px;flex:1}
+  .mh-name{font-size:15px;font-weight:700;line-height:1.3;overflow-wrap:anywhere}
+  .mh-detail{font-size:12px;color:#b2c7d6;line-height:1.35;overflow-wrap:anywhere}
+  .mh-chevron{font-size:23px;color:#aecbdc;line-height:1}
+  .mh-section-title{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#a8c6dc;margin:19px 3px 9px}
+  .mh-card{padding:17px 14px;border:1px solid #45617a;background:#132838;border-radius:18px;margin:7px 0 13px}
+  .mh-selected{border:2px solid #acd9f5;background:#183449;box-shadow:0 7px 22px rgba(0,0,0,.19)}
+  .mh-selected .mh-person-title{font-size:20px;line-height:1.23;font-weight:750;color:#fff}
+  .mh-status{font-size:12px;color:#bfd5e5;line-height:1.5}
+  .mh-button-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}
+  .mh-action{min-height:44px;border:1px solid #6d9bb8;background:#2a4b64;color:#f5f9fd;
+    font-size:13px;font-weight:650;border-radius:11px;padding:8px 10px}
+  .mh-action-primary{background:#d8edf9;color:#0d2639;border-color:#d8edf9}
+  .mh-family-list .mh-item{margin:6px 0}
+  .mh-relation-path{display:flex;gap:6px;overflow-x:auto;align-items:center;padding:6px 0 9px;scrollbar-width:none}
+  .mh-path-node{min-width:95px;max-width:150px;flex:0 0 auto;background:#102c3d;
+    border:1px solid #45667e;border-radius:12px;padding:9px;color:#ecf4fa;line-height:1.25;
+    font-size:11px;overflow-wrap:anywhere}
+  .mh-path-arrow{flex:0 0 auto;color:#92adc0;font-size:14px}
+  .mh-note{font-size:12px;color:#a6c0d3;line-height:1.5;padding:10px 2px}
+  .mh-empty{border:1px dashed #42586c;border-radius:12px;padding:13px;color:#b4c6d4;font-size:13px}
+  .mh-bottom{flex:0 0 auto;background:#091a25;border-top:1px solid #314b60;
+    padding:8px 10px calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  .mh-tab{min-height:52px;border-radius:12px;background:transparent;border:1px solid transparent;color:#bbcfdd;
+    display:flex;flex-direction:column;gap:2px;align-items:center;justify-content:center;padding:6px;font-size:11px}
+  .mh-tab span{font-size:19px;line-height:1}
+  .mh-tab[aria-current="page"]{background:#213d51;color:#fff;border-color:#5c859e;font-weight:700}
+  #mobileHybridNav button:focus-visible,#mobileHybridNav input:focus-visible{outline:3px solid #d8eefc;outline-offset:2px}
+}
+@media(min-width:801px){#mobileHybridNav{display:none!important}}
