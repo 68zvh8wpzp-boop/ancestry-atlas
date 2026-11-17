@@ -45,6 +45,9 @@ jobs:
       - name: Verify A084 Mary Weedon proof boundary
         run: node --test tests/atlas-a084-molly-weedon-proof-boundary.test.mjs
 
+      - name: Verify iPhone hybrid navigation and legacy rollback entry
+        run: node --test tests/mobile-hybrid-navigation.test.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
