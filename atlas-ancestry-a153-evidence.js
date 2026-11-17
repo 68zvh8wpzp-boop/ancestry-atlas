@@ -61,6 +61,19 @@
   linkRecord('peder_sandersen', baptism1777);
   linkRecord('peder_sandersen', census1801);
   linkRecord('peder_sandersen', marriage1802);
+  linkRecord('peder_sandersen', {
+    atlasEvidenceId: 'a159-juhlbjerg-parcel21',
+    title: 'Juhlbjerggård — historic Hårbølle farm parcel 21 (mapped candidate)',
+    date: 'by 1834; later identification 2000 / 2010',
+    place: 'Juhlbjerg, Vindebækvej 8, Hårbølle, Møn, Denmark',
+    kind: 'document',
+    sourceLevel: 'index',
+    sourcePage: 'https://slaegtsbibliotek.dk/914001.pdf#page=58',
+    provenance: 'Anton Blaabjerg, "Egmont og Møn," Slægten 21 (2000), printed p57 (PDF p58), identifies Peder Sandersen at Hårbølle matr.nr. 21 by 1834. Jonna Kjær-Nielsen, "Helgåringer i Hårbølle," Fanefjordhistorier (2010, reproducing 1982 Møns Tidende and local farm register), identifies matr. 21 as Juulbjerg/Juhlbjerg, Vindebækvej 8: https://abcdocz.com/doc/3126641/tryk-her . Danske Gårde i Tekst og Billeder, Storstrøms Amt II (early 1990s), "Hjulbjerggård" at the same street address: https://slaegtsbibliotek.dk/922555.pdf . Modern coordinate/address source: https://www.dingeo.dk/adresse/4792-askeby/vindeb%C3%A6kvej-8/ .',
+    summary: 'Strong cross-source identification of Peder’s reported 1834 Hårbølle farm parcel 21 with the historic farm named Juulbjerg/Juhlbjerg (also Hjulbjerggård), now mapped to Vindebækvej 8 at 54.89532812 N, 12.1928158 E. Current building dates from about 1914–1919, not Peder’s lifetime. Historical farmstead footprint, land tenure and exact transfer are not yet confirmed by a contemporary deed or cadastral map; the modern parcel numbering may have changed.',
+    confidence: 'Strong historically matched farm name/parcel/address; original 1830s deed or cadastral map remains uninspected; modern building not an ancestral-era structure.',
+    previewStatus: 'Mapped historic farm-site candidate · sources are published transcriptions and modern address geodata; no original farm image embedded.'
+  });
   linkRecord('levin_madsen', census1787);
   linkRecord('levin_madsen', census1801);
   linkRecord('margrethe_anders', census1787);
@@ -78,7 +91,7 @@
     confidence: 'Original captured; name, age and associated guarantor cross-reference are strongly supported.'
   });
   const peder = byId('peder_sandersen');
-  if (peder) peder.note = 'Father of Helena/Lene Pedersdatter. Fanefjord originals now retained for his 1777 baptism, 1787 and 1801 censuses, and his 9 July 1802 marriage to Ane Kirstine Jørgensdatter. His age in the 1787 census differs from the reported 1777 baptism. The 1792 confirmation and 1846 burial still await original-entry verification.';
+  if (peder) peder.note = 'Father of Helena/Lene Pedersdatter. Fanefjord originals now retained for his 1777 baptism, 1787 and 1801 censuses, and his 9 July 1802 marriage to Ane Kirstine Jørgensdatter. His age in the 1787 census differs from the reported 1777 baptism. A published genealogical study places him on Hårbølle farm parcel 21 by 1834; a separate village history identifies that historic farm as Juhlbjerggård, now Vindebækvej 8 (54.89532812 N, 12.1928158 E). The present farmhouse dates to the early twentieth century and is not his original home. Historic parcel footprint, tenure and the 1792 confirmation and 1846 burial await original verification.';
   const ane = byId('ane_kirstine');
   if (ane) ane.note = 'Mother of Helena/Lene Pedersdatter; her 9 July 1802 marriage to Peder Sandersen is confirmed in the Fanefjord church register, and the 1801 census records an Ane Kirstine in Christen Nielsen\'s household. Proposed parents Jørgen Larsen and Maren Andersdatter remain unproven by an independently inspected baptism.';
 })();

@@ -1,6 +1,6 @@
 /* Atlas globe: direct ancestors and separately identified, optional research-only pins. */
 window.ANCESTRY_GLOBE_DATA = {
-  "version": "2026-10-10-globe-11-quebec-provisional",
+  "version": "2026-11-16-globe-a159-juhlbjerg",
   "sourcesNote": "Only direct ancestors, including provisional links (explicitly labeled), are included. If no reliable city is known, the named country/province/region is pinned at a representative coordinate and clearly flagged as approximate; the marker is NOT evidence of a specific birthtown or home. Research-attribution of region may itself be provisional. Collateral and rejected candidates excluded. Three separately typed research-origin country pins (France/Sweden/Ireland) are optional UI overlays; they are NOT ancestor-person born/lived/died events, are not counted in the 73 direct ancestors or 167 associations, and do not establish any nation's origin as fact. Sweden research lead is placed at Karlstad, Värmland by user request, without asserting a birth, residence or death event there. Established person-place pins red; provisional-only direct-line locations blue; speculative origin research leads yellow.",
   "branches": [
     {
@@ -1300,6 +1300,39 @@ window.ANCESTRY_GLOBE_DATA = {
           "when": "1674",
           "qualifier": "",
           "evidence": "Atlas person graph and family research; see person's source register"
+        }
+      ]
+    },
+    {
+      "id": "juhlbjerggaard_haarbolle",
+      "name": "Juhlbjerggård (historic Hårbølle farm, Vindebækvej 8), Møn, Denmark",
+      "lng": 12.1928158,
+      "lat": 54.89532812,
+      "precision": "modern address location; historic parcel footprint unverified",
+      "locationStatus": "provisional",
+      "regionNote": "Historic farm parcel 21 matched to the modern site from published sources; neither a contemporary deed nor the 1830s farm-building footprint has been checked. The current house dates to c.1914–1919.",
+      "events": [
+        {
+          "personId": "peder_sandersen",
+          "name": "Peder Sandersen",
+          "branch": "denmark",
+          "type": "lived",
+          "when": "by 1834 to at least 1840 (farm association)",
+          "qualifier": "Historic parcel 21; modern farm-site pin is inferred from later local histories, not the original 1834 home footprint",
+          "evidence": "Blaabjerg (2000), Slægten 21 p57; Kjær-Nielsen (2010), Hårbølle village farm register, matr.21 Juhlbjerg at Vindebækvej 8; 1834/1840 census transcriptions; original tenure document pending",
+          "relationshipConfidence": "supported",
+          "placeEvidenceStatus": "strong secondary cross-identification; historic footprint pending"
+        },
+        {
+          "personId": "ane_kirstine",
+          "name": "Ane Kirstine Jørgensdatter",
+          "branch": "denmark",
+          "type": "lived",
+          "when": "1834–1840 (household association)",
+          "qualifier": "Wife recorded with Peder in 1834 and 1840 Hårbølle census transcriptions; farm parcel identification based on secondary research, not deed",
+          "evidence": "1834/1840 Hårbølle census transcription in Michael Erichsen family page; Blaabjerg 2000 parcel21; Hårbølle local-history farm locator 2010",
+          "relationshipConfidence": "supported",
+          "placeEvidenceStatus": "secondary household and farm association; exact original dwelling unverified"
         }
       ]
     },
