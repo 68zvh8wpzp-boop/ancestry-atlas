@@ -87,11 +87,24 @@
     sourceLevel: 'collection',
     sourcePage: 'https://arkivalieronline.rigsarkivet.dk/da/rif/select/7/16489625',
     provenance: 'Danish National Archives, Folketælling 1801, viewer image 30/36, manuscript p.129, household 11; user-provided scan preserved, audit A147. Link leads to the parish census selector, not directly to page 30.',
-    summary: 'Ane Kirstine Jørgensdatter, reported age 23, appears as a servant in the household of Christen Nielsen, whose name recurs as a marriage guarantor in 1802. Identification is supported, but exact full-household transcription remains pending.',
-    confidence: 'Original captured; name, age and associated guarantor cross-reference are strongly supported.'
+    summary: 'Contemporary household no. 11 distinguishes TWO women with the given names Ane Kirstine. Ane Kirstine Christensdatter, age 13, appears among Christen Nielsen and Gyde/Jyde Christophersdatter’s children; Ane Kirstine Jørgensdatter, age 23, is listed among household servants (Tienestefolk). Our ancestor is the 23-year-old servant, NOT the 13-year-old daughter. Christen Nielsen later acted as a guarantor at her 1802 marriage, but this does not establish biological or legal foster parentage. Complete diplomatic transcription of all rows remains pending.',
+    confidence: 'Original scan reviewed (A147/A163) and name collision checked against the independent Damsbo census transcription; distinct ages and household roles strongly supported. The Jørgensdatter parental line is not independently proven.'
+  });
+  linkRecord('ane_kirstine', {
+    atlasEvidenceId: 'a163-ane-precise-date-family-memory-lead',
+    title: 'Ane Kirstine — reported 1778 christening and 1847 death (family-history lead)',
+    date: '13 December 1778 and 12 December 1847 (reported, not verified)',
+    place: 'Fanefjord, Møn, Denmark (to be checked)',
+    kind: 'document',
+    sourceLevel: 'index',
+    sourcePage: 'https://www.familysearch.org/en/memories/memory/87494994/Peder%2BMortensen%2BHelene%2BPedersen',
+    provenance: 'FamilySearch Memories, “Peder Mortensen & Helene Pedersen,” contributed by Martha Jane, compiled family history (not the 1778 or 1847 parish manuscript); text near opening reports Anne Kirstine Jorgensen chr.12/13/1778 and d.12/12/1847.',
+    summary: 'Provides exact date search targets: check December 1778 baptisms in Fanefjord Enesteministerialbog F 1777–1794 for possible daughter of Jørgen; and 12 December 1847 deaths/burials in Fanefjord D 1839–1852 for correct widow and residence. The family history contains other inconsistent dates (including Helena 1806 vs 1808), so no date, place, or parentage is promoted from it.',
+    confidence: 'Secondary family memory only; both specific dates unproven until original register entries and identity are inspected.',
+    previewStatus: 'Unverified family-history reference · NOT an original Danish register image.'
   });
   const peder = byId('peder_sandersen');
   if (peder) peder.note = 'Father of Helena/Lene Pedersdatter. Fanefjord originals now retained for his 1777 baptism, 1787 and 1801 censuses, and his 9 July 1802 marriage to Ane Kirstine Jørgensdatter. His age in the 1787 census differs from the reported 1777 baptism. A published genealogical study places him on Hårbølle farm parcel 21 by 1834; a separate village history identifies that historic farm as Juhlbjerggård, now Vindebækvej 8 (54.89532812 N, 12.1928158 E). The present farmhouse dates to the early twentieth century and is not his original home. Historic parcel footprint and tenure remain unverified; an archived history places a smithy on parcel 25 at the same modern street address. The 1792 confirmation and 1846 burial also await original verification. Separate archival catalog entries associate parcel 25, a smithy, with the same modern address; a historical cadastral sheet is needed to confirm Peder’s dwelling footprint.';
   const ane = byId('ane_kirstine');
-  if (ane) ane.note = 'Mother of Helena/Lene Pedersdatter; her 9 July 1802 marriage to Peder Sandersen is confirmed in the Fanefjord church register, and the 1801 census records an Ane Kirstine in Christen Nielsen\'s household. Proposed parents Jørgen Larsen and Maren Andersdatter remain unproven by an independently inspected baptism.';
+  if (ane) ane.note = 'Mother of Helena/Lene Pedersdatter; original Fanefjord register records her marriage to Peder Sandersen on 9 July 1802. In the 1801 census, Ane Kirstine Jørgensdatter was a servant aged 23 in Christen Nielsen’s household; a separate Ane Kirstine Christensdatter, 13, was a child in that same household. Do not conflate them or infer the older Ane was Christen’s daughter from his 1802 marriage-guarantor role. A family-history memory reports christening 13 Dec 1778 and death 12 Dec 1847; these are currently unverified original-register targets. Proposed parents Jørgen Larsen and Maren Andersdatter are not proven by an inspected baptism.';
 })();
