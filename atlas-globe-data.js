@@ -1310,7 +1310,7 @@ window.ANCESTRY_GLOBE_DATA = {
       "lat": 54.89532812,
       "precision": "modern address location; historic parcel footprint unverified",
       "locationStatus": "provisional",
-      "regionNote": "Historic farm parcel 21 matched to the modern site from published sources; neither a contemporary deed nor the 1830s farm-building footprint has been checked. The current house dates to c.1914–1919.",
+      "regionNote": "Published studies associate Peder with historic parcel 21 and identify Juhlbjerg at the modern address. Historic farm no. 5 covered parcels 21 and 22; a separate smithy history lists parcel 25 at the same modern address. Neither the 1830s house footprint nor parcel boundaries or title is original-verified. Present farmhouse built c.1914–1919.",
       "events": [
         {
           "personId": "peder_sandersen",
@@ -1318,7 +1318,7 @@ window.ANCESTRY_GLOBE_DATA = {
           "branch": "denmark",
           "type": "lived",
           "when": "by 1834 to at least 1840 (farm association)",
-          "qualifier": "Historic parcel 21; modern farm-site pin is inferred from later local histories, not the original 1834 home footprint",
+          "qualifier": "Historic parcel 21 association supported by later studies; modern address is NOT a verified position of Peder’s 1834 farmhouse. Original farm 21+22 subdivided; distinct smithy parcel 25 is also attributed to this street address.",
           "evidence": "Blaabjerg (2000), Slægten 21 p57; Kjær-Nielsen (2010), Hårbølle village farm register, matr.21 Juhlbjerg at Vindebækvej 8; 1834/1840 census transcriptions; original tenure document pending",
           "relationshipConfidence": "supported",
           "placeEvidenceStatus": "strong secondary cross-identification; historic footprint pending"
