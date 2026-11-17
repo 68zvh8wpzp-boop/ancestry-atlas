@@ -97,18 +97,25 @@
     if(rest.includes(q))return 3;
     return 99;
   }
-  function renderPeople(keepInput){
+  function renderPeople(){
     title.textContent="Find people";subtitle.textContent="Search first, then explore one family at a time.";
-    var inputValue=query;content.replaceChildren();
+    content.replaceChildren();
     var search=put(content,element("input","mh-search"));
     search.type="search";search.id="mhSearch";search.autocomplete="off";search.placeholder="Name, place, year or branch";
     search.setAttribute("aria-label","Search ancestors");
-    search.value=inputValue;
+    search.value=query;
     var chipRow=put(content,element("div","mh-chips"));
     chips.forEach(function(ch){
       var b=put(chipRow,element("button","",ch[1]));b.type="button";b.dataset.mhFilter=ch[0];
       b.setAttribute("aria-pressed",String(filter===ch[0]));
     });
+    var results=put(content,element("div"));results.id="mhResults";
+    renderPeopleResults();
+  }
+  function renderPeopleResults(){
+    var results=content.querySelector("#mhResults");
+    if(!results)return;
+    results.replaceChildren();
     var q=clean(query);
     var rows=atlas.nodes.filter(matchesFilter).map(function(n){return {n:n,score:searchScore(n,q),path:routeTo(n.id)};})
       .filter(function(x){return x.score<99;})
@@ -118,14 +125,13 @@
         if(aa!==bb)return aa-bb;
         return namePart(a.n).localeCompare(namePart(b.n));
       });
-    put(content,element("div","mh-count",rows.length+" people found"));
-    if(!rows.length)put(content,element("div","mh-empty","No matching person. Try a different name or clear the branch filter."));
-    rows.slice(0,shown).forEach(function(x){put(content,personButton(x.n.id));});
+    put(results,element("div","mh-count",rows.length+" people found"));
+    if(!rows.length)put(results,element("div","mh-empty","No matching person. Try a different name or clear the branch filter."));
+    rows.slice(0,shown).forEach(function(x){put(results,personButton(x.n.id));});
     if(rows.length>shown){
-      var more=put(content,element("button","mh-action","Show more people"));more.type="button";more.dataset.mhAction="more";
+      var more=put(results,element("button","mh-action","Show more people"));more.type="button";more.dataset.mhAction="more";
       more.style.width="100%";more.style.marginTop="10px";
     }
-    if(keepInput){search.focus();search.setSelectionRange(search.value.length,search.value.length);}
   }
   function section(titleText,ids,emptyText){
     put(content,element("h3","mh-section-title",titleText));
@@ -169,7 +175,7 @@
     if(next==="tree"){openClassic();return;}
     tab=next;root.hidden=false;document.body.classList.add("mh-nav-open");
     root.querySelectorAll("[data-mh-tab]").forEach(function(b){b.setAttribute("aria-current",b.dataset.mhTab===tab?"page":"false");});
-    if(tab==="people")renderPeople(false);else renderFamily();
+    if(tab==="people")renderPeople();else renderFamily();
     scroller.scrollTop=0;
   }
   function close(){root.hidden=true;document.body.classList.remove("mh-nav-open");}
@@ -195,19 +201,18 @@
   root.addEventListener("click",function(e){
     var target=e.target.closest("button");if(!target)return;
     if(target.dataset.mhPerson){focusPerson(target.dataset.mhPerson);return;}
-    if(target.dataset.mhFilter){filter=target.dataset.mhFilter;shown=28;renderPeople(false);return;}
+    if(target.dataset.mhFilter){filter=target.dataset.mhFilter;shown=28;renderPeople();return;}
     if(target.dataset.mhTab){show(target.dataset.mhTab);return;}
     if(target.dataset.mhAction==="close"){close();return;}
     if(target.dataset.mhAction==="profile"){openProfile();return;}
     if(target.dataset.mhAction==="tree"){openClassic();return;}
-    if(target.dataset.mhAction==="more"){shown+=28;var scroll=scroller.scrollTop;renderPeople(false);scroller.scrollTop=scroll;}
+    if(target.dataset.mhAction==="more"){shown+=28;var scroll=scroller.scrollTop;renderPeopleResults();scroller.scrollTop=scroll;}
   });
   root.addEventListener("input",function(e){
     if(e.target.id==="mhSearch"){
       query=e.target.value;shown=28;
       // Preserve focus and keyboard during results refresh on iPhone.
-      var current=document.activeElement;
-      renderPeople(current===e.target);
+      renderPeopleResults();
     }
   });
   document.addEventListener("keydown",function(e){if(e.key==="Escape"&&visible()){close();}});
