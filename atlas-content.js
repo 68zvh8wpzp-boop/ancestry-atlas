@@ -9,4 +9,4 @@ document.write('<script src="atlas-content-base-v3.4.0.js?v=3.9.31"><\/script><s
 document.write('<script src="atlas-globe-launcher.js?v=20261010-1"><\/script>');
 
 /* A153: Peder Sandersen and Fanefjord evidence links (originals preserved in Research Library). */
-document.write('<script src="atlas-ancestry-a153-evidence.js?v=20261116-a159-farm-1"><\/script>');
+document.write('<script src="atlas-ancestry-a153-evidence.js?v=20261116-a160-parcel-1"><\/script>');
