@@ -1136,6 +1136,55 @@ if(jessieSurnameDisplay){
   jessieSurnameDisplay.surnameHypothesis='Likely ancestral spelling: Aurén (research hypothesis). Jessie’s original 1879 Michigan birth return is indexed Auene, with Aurin/Aurene and similar spellings in other Michigan records. Aurén may have been the earlier Swedish family form, but no original Swedish record yet proves that spelling for this Michigan family.';
 }
 
+
+// A218 — repair a skipped Danish generation. Direct source: Stege 1769 original marriage (A185).
+// 1771 baptism / 1784 estate / 1804 marriage / 1834 household originals remain unread.
+// No inferred relationship is represented as original-certified.
+(() => {
+  const n = id => DATA.nodes.find(p => p.id === id);
+  const hasEdge = (a,b) => DATA.edges.some(e => e.a===a && e.b===b);
+  const m = n('mette_jorg');
+  const younger = n('peder_mortensen_1806');
+  if(!m || !younger) throw new Error('A218 Danish lineage audit: missing base ancestor');
+  const wrong = DATA.edges.filter(e => e.a==='peder_mortensen_1806' && e.b==='mette_jorg');
+  if(wrong.length!==1) throw new Error('A218 Danish lineage audit: expected unique skipped-generation edge');
+  DATA.edges = DATA.edges.filter(e => !(e.a==='peder_mortensen_1806' && e.b==='mette_jorg'));
+
+  const proposed = [
+    {id:'morten_pedersen_1771',name:'Morten Pedersen (1771)',years:'1771–1823/24 (death year disputed)',place:'Fanefjord, Møn, Denmark',branch:'Denmark',confidence:'provisional',note:'Probable father of Peder Mortensen born 1806 and reported son of Peder Mortensen who died 1784 and Mette Jørgensdatter. This is supported by 2025 estate-based and 2026 parish-book compiled reconstructions, NOT the unseen original 1771 baptism or 1784 estate. Married Karen Hansdatter in 1804 according to a transcribed parish register. Death year 1823 versus 1824 unverified.',x:-6.3,y:7.55,z:-5.35},
+    {id:'karen_hansdatter_1766',name:'Karen Hansdatter',years:'c. 1766–1839 (unverified)',place:'Fanefjord / Hårbølle, Møn, Denmark',branch:'Denmark',confidence:'provisional',note:'Probable mother of Peder Mortensen born 1806 and spouse of Morten Pedersen (born 1771), based on a derivative 1804 marriage register and 1834 Hårbølle census transcription. The original 1804 marriage, 1806 baptism, and 1834 household pages still require original-image verification.',x:-5.17,y:7.45,z:-5.95},
+    {id:'peder_mortensen_1784',name:'Peder Mortensen (d. 1784)',years:'?–1784',place:'Stege / Fanefjord, Møn, Denmark',branch:'Denmark',confidence:'provisional',note:'A Peder Mortensen married Mette Jørgensdatter at Stege on 9 May 1769, verified by the original church marriage manuscript preserved privately (A185). His identification as father of Morten Pedersen (born 1771), and death in 1784, come from later estate-based family reconstructions; original baptism and 1784 estate still unread. Do not confuse with descendant Peder Mortensen born 1806.',x:-6.3,y:8.95,z:-5.73}
+  ];
+  for(const p of proposed) {
+    if(n(p.id)) throw new Error('A218 Danish lineage audit: an intervening node already exists');
+    DATA.nodes.push(p);
+  }
+  for(const [a,b] of [
+    ['peder_mortensen_1806','morten_pedersen_1771'],
+    ['peder_mortensen_1806','karen_hansdatter_1766'],
+    ['morten_pedersen_1771','peder_mortensen_1784'],
+    ['morten_pedersen_1771','mette_jorg']
+  ]) {
+    if(hasEdge(a,b)) throw new Error('A218 Danish lineage audit: duplicate intermediate parent edge');
+    DATA.edges.push({a,b,confidence:'provisional',source:'2025/2026 Danish compiled family and estate transcriptions; original 1771/1784/1804/1834 entries pending'});
+  }
+  const tentativeMother=DATA.edges.find(e=>e.a==='mette_jorg'&&e.b==='anne_seje');
+  if(tentativeMother){tentativeMother.confidence='provisional';tentativeMother.source='Two competing 1742 baptism hypotheses; original maternity and 1788 probate require verification';}
+  m.confidence='strong';
+  m.note='Original Stege parish register verifies her marriage to an older Peder Mortensen on 9 May 1769, after betrothal 8 March. Secondary estate and family transcriptions suggest their son Morten Pedersen (1771), father of a younger Peder Mortensen (1806); both proposed parent-child links are provisional pending original baptism and estate. Her own 1742 birth and parentage (including proposed Anne Nielsdatter Seje) are disputed between candidate baptism entries. Never treat her as the immediate mother of Peder born 1806.';
+  const card={kind:'document',title:'Peder Mortensen and Mette Jørgensdatter — Stege 1769 original marriage',date:'9 May 1769',sourceLevel:'index',sourcePage:'https://www.familysearch.org/ark:/61903/1:1:FVRZ-XBQ',sourceReference:'Original handwritten Stege parish register 1769, full 5320×3800 manuscript image privately preserved in Ancestry Atlas Research Library as STEGE_1769_PEDER_MORTENSEN_METTE_JORGENSDATTER_FULL_SOURCE_A185.jpg; user-supplied original visually read in Tranche A185. The public FamilySearch link is an index, not a claimed exact image URL. Original does not name either party’s parents or children.',summary:'Original records Wednesday 8 March betrothal and Tuesday 9 May 1769 marriage of Peder Mortensen and Mette Jørgensdatter at Stege. This directly proves the marriage, not the proposed 1771 son or her 1742 parents.'};
+  if(!m.evidence)m.evidence=[];
+  if(!m.evidence.some(e=>e.title===card.title))m.evidence.push(card);
+  const older=n('peder_mortensen_1784');
+  older.evidence=[card];
+  if(!DATA.unions)DATA.unions=[];
+  if(!DATA.unions.some(u=>(u.a==='peder_mortensen_1784'&&u.b==='mette_jorg')||(u.b==='peder_mortensen_1784'&&u.a==='mette_jorg')))
+    DATA.unions.push({a:'peder_mortensen_1784',b:'mette_jorg',label:'marriage',date:'9 May 1769',place:'Stege, Møn, Denmark',confidence:'confirmed',source:'Original 1769 Stege marriage manuscript; privately preserved A185'});
+  const mor=n('morten_pedersen_1771');
+  if(!mor || DATA.edges.some(e=>e.a==='peder_mortensen_1806'&&e.b==='mette_jorg'))
+    throw new Error('A218 Danish lineage audit: generation repair failed');
+})();
+
 const nodeById = new Map(DATA.nodes.map(n=>[n.id,n]));
 window.__ATLAS_DATA = DATA;
 window.__ATLAS_NODE_BY_ID = nodeById;
