@@ -35,7 +35,8 @@ test("explorer supports in-place branches, fan overview, and persistent route",a
   for(const feature of [
     "function collectRows(", "function treeHtml(", "function levelsFor(",
     "function fanSvg(", "function overviewHtml(", "function expandTo(",
-    "function pathFromYou(", "function renderRecentPath(", 'data-pp-action="back"',
+    "function pathFromYou(", "function renderRecentPath(",
+    'var wedge=event.target.closest("[data-pp-fan]")', 'data-pp-action="back"',
     "localStorage.setItem(key", 'data-pp-action="open-profile"'
   ]){
     assert.ok(js.includes(feature),"missing feature "+feature);
