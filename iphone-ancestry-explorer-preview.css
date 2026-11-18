@@ -64,3 +64,9 @@
 @media(min-width:660px){
  #pedigreePrototype .pp-top,#pedigreePrototype .pp-tabs,#pedigreePrototype .pp-main,#pedigreePrototype .pp-bottom{padding-left:max(15px,calc((100vw - 560px)/2));padding-right:max(15px,calc((100vw - 560px)/2));}
 }
+
+#pedigreePrototype .pp-recent{border-top:1px solid #29475d;margin:0 0 9px;padding:6px 2px 3px}
+#pedigreePrototype .pp-recent>span{color:#c2d5e0;font-size:11px;font-weight:650}
+#pedigreePrototype .pp-recent-chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-top:5px;-webkit-overflow-scrolling:touch}
+#pedigreePrototype .pp-recent-chips button{flex:0 0 auto;white-space:nowrap;color:#d7edf9;background:#142c3d;border:1px solid #4b7089;border-radius:9px;min-height:34px;font-size:11px;padding:6px 10px}
+#ppReturnToExplorer[hidden]{display:none!important}
