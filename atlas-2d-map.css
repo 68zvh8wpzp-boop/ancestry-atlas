@@ -1,0 +1,64 @@
+/* Ancestry Atlas: continuous 2-D family journey — isolated prototype. */
+:root{color-scheme:dark;--bg:#07131f;--ink:#f0f6fb;--muted:#a8bfcd;--line:#314b60}
+*{box-sizing:border-box}html,body{width:100%;height:100%;height:100dvh;margin:0;overflow:hidden;background:var(--bg);color:var(--ink);font:15px/1.36 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;-webkit-text-size-adjust:100%}
+button,input{font:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #d0e9ff;outline-offset:2px}
+[hidden]{display:none!important}
+#viewport{position:fixed;inset:0;overflow:hidden;background:var(--bg);touch-action:none}
+#tree{display:block;position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+#topbar{position:fixed;z-index:5;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:calc(12px + env(safe-area-inset-top)) 12px 11px;background:linear-gradient(180deg,rgba(7,18,29,.99),rgba(7,18,29,.92));border-bottom:1px solid rgba(110,145,166,.30);pointer-events:none}
+#brand{min-width:0}
+#brand .eyebrow{font-size:10px;color:#a5bdcc;letter-spacing:.13em;text-transform:uppercase}
+#brand h1{font-size:19px;font-weight:740;letter-spacing:-.5px;line-height:1.16;margin:3px 0 0;white-space:nowrap}
+.toolbar{display:flex;gap:6px;align-items:center;pointer-events:auto;flex:none}
+.tool-btn{min-width:40px;min-height:43px;padding:7px 9px;border:1px solid #4e7188;color:#e8f6fd;background:#1d3548;border-radius:11px;font-size:14px;font-weight:650}
+.tool-btn.emphasis{background:#d8eaf6;border-color:#d8eaf6;color:#0a2738}
+#legend{position:fixed;z-index:3;top:calc(95px + env(safe-area-inset-top));left:12px;max-width:180px;pointer-events:none;display:flex;flex-direction:column;gap:6px;color:#b4c9d8;font-size:11px}
+#legend .hint{padding:7px 9px;border:1px solid rgba(75,112,140,.6);border-radius:10px;background:rgba(8,21,32,.79)}
+#legend .hint strong{color:#f1f8fc}
+#mini-shell{position:fixed;z-index:4;top:calc(95px + env(safe-area-inset-top));right:11px;width:116px;border:1px solid rgba(105,145,172,.6);border-radius:12px;padding:5px;background:rgba(9,26,40,.92);box-shadow:0 8px 30px rgba(0,0,0,.22)}
+#mini-shell .mini-title{color:#b1c9da;text-align:center;font-size:10px;margin-bottom:2px;letter-spacing:.03em}
+#mini{display:block;width:104px;height:81px;touch-action:manipulation;border-radius:6px;cursor:crosshair}
+#mini-caption{text-align:center;color:#a7becb;font-size:10px;margin-top:2px}
+#status{position:fixed;z-index:3;top:calc(195px + env(safe-area-inset-top));right:11px;max-width:150px;background:rgba(8,24,35,.8);border-radius:9px;padding:5px 8px;color:#a8c1d4;font-size:10px;text-align:right;pointer-events:none}
+#card{position:fixed;z-index:5;left:11px;right:11px;bottom:calc(11px + env(safe-area-inset-bottom));border:1px solid #4b7189;border-radius:18px;background:rgba(11,29,44,.96);box-shadow:0 18px 45px rgba(0,0,0,.5);padding:12px 14px 13px;backdrop-filter:blur(10px)}
+#selected-info{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+#selected-label{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#93b9cf;margin-bottom:4px}
+#selected-name{font-size:17px;line-height:1.18;font-weight:760;letter-spacing:-.2px}
+#selected-meta{font-size:11px;color:#bad0dd;margin:5px 0 0;line-height:1.35}
+#selected-state{font-size:10px;color:#99b9ca;line-height:1.35;margin:4px 0 0}
+#selected-right{flex:none;display:flex;flex-direction:column;gap:7px}
+.card-btn{min-height:38px;padding:7px 11px;border:1px solid #749db6;background:#2a4c63;color:#eff8fd;border-radius:10px;font-size:12px;font-weight:690;white-space:nowrap}
+.card-btn.primary{border-color:#d9eef8;background:#d9eef8;color:#0c2a3b}
+#trail{display:flex;align-items:center;gap:5px;overflow:auto;white-space:nowrap;margin-top:12px;padding:1px 0 2px;scrollbar-width:none}
+#trail button{border:1px solid #42677f;background:#152f43;color:#e5f1fa;border-radius:8px;min-height:33px;padding:6px 9px;font-size:11px;flex:none}
+#trail .sep{font-size:12px;color:#8caabd}
+#tip{position:fixed;z-index:2;left:12px;right:12px;bottom:calc(186px + env(safe-area-inset-bottom));text-align:center;pointer-events:none;color:#a5c1d3;font-size:11px;opacity:.9;text-shadow:0 1px 4px #07101b}
+#zoom-buttons{position:fixed;z-index:5;right:11px;bottom:calc(205px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:6px}
+#zoom-buttons button{width:44px;height:44px;border:1px solid #52758e;background:rgba(20,47,65,.95);color:#f3fafe;border-radius:11px;font-size:22px}
+#search-panel{position:fixed;inset:0;z-index:20;background:#081622;display:flex;flex-direction:column;padding:calc(16px + env(safe-area-inset-top)) 15px calc(13px + env(safe-area-inset-bottom))}
+#search-head{display:flex;align-items:center;justify-content:space-between;gap:11px;font-size:20px;font-weight:760}
+#search-head button{min-height:43px;border:1px solid #56788e;background:#203b4f;color:#f0f6fc;border-radius:11px;padding:8px 12px;font-size:13px}
+#search{margin:18px 0 10px;width:100%;height:50px;border:1px solid #7796ad;border-radius:12px;background:#1a3447;color:#fff;padding:10px 14px;font-size:16px}
+#search::placeholder{color:#b4c9d7}
+#search-results{flex:1;overflow:auto;min-height:0;-webkit-overflow-scrolling:touch}
+.search-item{display:block;width:100%;text-align:left;background:#132d40;border:1px solid #375c73;border-radius:12px;color:#f1f7fc;min-height:66px;padding:11px;margin:8px 0}
+.search-item strong{font-size:14px;display:block}
+.search-item small{font-size:11px;color:#b2cad8;display:block;margin-top:5px}
+#search-counter{color:#aec6d5;font-size:12px}
+#biography-pane{position:fixed;inset:0;z-index:30;background:#06121e;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top)}
+#bio-bar{flex:none;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 11px;background:#122d42;border-bottom:1px solid #47708b}
+#bio-title{font-size:14px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#bio-back{min-height:42px;flex:none;border-radius:10px;background:#deedf8;color:#112f42;border:1px solid #deedf8;font-size:13px;font-weight:700;padding:9px 12px}
+#bio-frame{display:block;width:100%;flex:1;border:0;background:#081421}
+#loading-bio{color:#b8cfe0;font-size:12px;padding:10px;background:#0c1f2d}
+@media(max-width:375px){
+ #brand h1{font-size:16px}
+ .tool-btn{min-width:38px;padding:6px 8px}
+ #card{padding:10px 11px}
+ #selected-name{font-size:15px}
+ #mini-shell{width:104px}
+ #mini{width:92px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
