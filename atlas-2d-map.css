@@ -62,3 +62,65 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #d0e9
  #mini{width:92px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* Immediate-family portrait: a quiet, static view; map position remains untouched. */
+#family-panel{
+  position:fixed;inset:0;z-index:25;display:flex;flex-direction:column;
+  background:#071722;color:#e9f3f8;padding-top:env(safe-area-inset-top)
+}
+#family-bar{
+  flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:13px 15px;border-bottom:1px solid #3b5c72;background:#10283b
+}
+.family-kicker{font-size:10px;font-weight:750;letter-spacing:.16em;color:#95b7ca}
+#family-title{font-size:20px;line-height:1.25;margin:3px 0 0;font-weight:750;letter-spacing:-.35px}
+#family-close{flex:none;min-height:44px;border:1px solid #95b5c8;border-radius:10px;background:#deedf8;color:#122e42;padding:8px 12px;font-size:12px;font-weight:740}
+#family-scroll{
+  flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  padding:12px 13px calc(22px + env(safe-area-inset-bottom));
+}
+#family-intro{font-size:12px;line-height:1.5;color:#b7cad8;max-width:570px;margin:1px auto 20px}
+.family-section-title{font-size:10px;letter-spacing:.15em;text-align:center;font-weight:760;color:#b3cbd9;margin:18px 0 10px}
+.family-people{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;
+  width:min(100%,610px);margin:0 auto
+}
+.family-person{
+  min-height:76px;background:#173549;border:1px solid #4a6a7e;border-radius:12px;
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;
+  padding:11px 12px;text-align:left;overflow-wrap:anywhere
+}
+.family-person h3{font-size:13px;font-weight:735;line-height:1.25;margin:0}
+.family-person p{font-size:11px;color:#c0d3df;line-height:1.32;margin:0}
+.family-person .family-branch{font-size:10px;color:#9ab9cb}
+#family-center{display:flex;justify-content:center;max-width:610px;margin:0 auto}
+#family-center .family-person{
+  width:min(100%,345px);min-height:90px;background:#254960;
+  border:2px solid #f3d49e;box-shadow:0 6px 25px rgba(0,0,0,.28);
+  align-items:center;text-align:center
+}
+#family-center .family-person h3{font-size:18px}
+.family-stem{height:18px;width:1px;margin:1px auto;background:linear-gradient(180deg,#83adbf,#f0d096)}
+.family-empty{
+  grid-column:1/-1;text-align:center;font-size:12px;color:#bacfdc;
+  border:1px dashed #526e80;border-radius:11px;background:#122635;padding:14px 11px
+}
+#family-co-parents .family-person{background:#1c3845;border-color:#577683}
+#family-children{padding-bottom:2px}
+#family-footnote{
+  max-width:610px;margin:20px auto 0;padding:11px 13px;
+  color:#bdd1de;font-size:11px;line-height:1.5;
+  border-top:1px solid #355368
+}
+#family-footnote strong{color:#e6f5fc}
+#family-panel .family-warning{color:#e4cc9d}
+@media(min-width:690px){
+  #family-scroll{padding-left:max(25px,calc((100vw - 660px)/2));padding-right:max(25px,calc((100vw - 660px)/2))}
+}
+@media(max-width:374px){
+  #family-bar{padding:11px 10px}
+  #family-title{font-size:17px}
+  .family-person{padding:9px 10px;min-height:72px}
+  .family-person h3{font-size:12px}
+}
