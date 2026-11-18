@@ -48,6 +48,9 @@ jobs:
       - name: Verify iPhone hybrid navigation and legacy rollback entry
         run: node --test tests/mobile-hybrid-navigation.test.mjs
 
+      - name: Verify opt-in iPhone ancestral explorer preview
+        run: node --test tests/iphone-explorer-preview.test.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
