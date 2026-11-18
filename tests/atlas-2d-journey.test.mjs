@@ -13,7 +13,7 @@ test("the new map is standalone; Home Screen app and evidence remain untouched",
   assert.match(JSON.parse(manifest).start_url,/atlas-v3\.9\.63\.html/);
   assert.ok(!entry.includes("atlas-2d-journey-preview.html"));
   assert.ok(!original.includes("atlas-2d-map.js"));
-  for(const name of ["atlas-2d-pedigree-snapshot.js","atlas-2d-layout.js","atlas-2d-map.js","atlas-2d-map.css"]){
+  for(const name of ["atlas-2d-pedigree-snapshot.js","atlas-2d-layout.js","atlas-2d-family.js","atlas-2d-map.js","atlas-2d-map.css"]){
     assert.ok(html.includes(name),"missing asset: "+name);
     assert.ok((await read(name)).length>100);
   }
@@ -81,4 +81,47 @@ test("map code parses and supports real touch gestures, LOD, paths and optional 
   ];
   for(const s of required)assert.ok(js.includes(s),"missing map feature: "+s);
   assert.ok(!js.includes("data.nodes.push")&&!js.includes("data.edges.push"));
+});
+
+
+test("family portrait uses existing relationships, including mapped collateral children",async()=>{
+  const sandbox={window:{}};
+  vm.runInNewContext(await read("atlas-2d-pedigree-snapshot.js"),sandbox);
+  vm.runInNewContext(await read("atlas-2d-family.js"),sandbox);
+  const snap=sandbox.window.ATLAS_2D_PEDIGREE;
+  const family=sandbox.window.Atlas2DFamily.create(snap);
+  const charles=family.family("charles_albert");
+  assert.deepEqual(Array.from(charles.parents.map(p=>p.id)),["charles_godfrey","ida_mae"]);
+  assert.ok(charles.coParents.some(p=>p.id==="marian_skinner"));
+  assert.ok(charles.children.some(p=>p.id==="marion_brenay"));
+  assert.ok(charles.children.some(p=>p.id==="brenay_david"),"Siblings absent from the direct map still appear in nuclear family");
+  assert.ok(charles.children.length>=10);
+  const you=family.family("you");
+  assert.equal(you.parents.length,2);
+  assert.equal(you.children.length,0,"No children are presently mapped, not a claim the person has none");
+  const elizabeth=family.family("elizabeth_webb");
+  assert.equal(elizabeth.person.name,"Elizabeth Dunbar Webb");
+  assert.equal(elizabeth.children.length,0);
+  const ann=family.family("ann_eliza_webb");
+  assert.ok(!ann.parents.some(p=>p.id==="brigham_young"),"Spousal evidence must never be labeled parentage");
+  assert.ok(ann.needsReview);
+});
+
+test("searchable Atlas records include unlinked relatives and research candidates",async()=>{
+  const sandbox={window:{}};
+  vm.runInNewContext(await read("atlas-2d-pedigree-snapshot.js"),sandbox);
+  vm.runInNewContext(await read("atlas-2d-layout.js"),sandbox);
+  const snap=sandbox.window.ATLAS_2D_PEDIGREE;
+  const mapped=sandbox.window.Atlas2DLayout.create(snap,"you");
+  assert.equal(snap.nodes.length,106);
+  assert.equal(mapped.nodes.length,83);
+  const notOnMain=snap.nodes.filter(n=>!mapped.positions.has(n.id));
+  assert.equal(notOnMain.length,23);
+  assert.ok(notOnMain.some(n=>n.id==="elizabeth_webb"));
+  assert.ok(notOnMain.some(n=>n.id==="brenay_david"));
+  assert.ok(notOnMain.some(n=>n.id==="pierre_goulet_1846_candidate"));
+  const js=await read("atlas-2d-map.js");
+  assert.ok(js.includes("data.nodes.filter(function(n)"),"Optional search must include all Atlas people");
+  assert.ok(js.includes("else openFamily(n.id)"),"Out-of-tree results must still open a family portrait");
+  assert.ok(js.includes("if(n.id===selected && cam.s>=.4)openFamily(n.id)"),"Second tap opens static family portrait");
 });
