@@ -116,6 +116,14 @@
       showExplorer();
     }
   }
+  function renderRecentPath(){
+    var ids=visited.filter(function(id,i,arr){return arr.lastIndexOf(id)===i;}).slice(-6);
+    if(ids.length<=1)return "";
+    var buttons=ids.map(function(id){
+      return '<button type="button" data-pp-select="'+safe(id)+'">'+safe(id==="you"?"You":personName(id))+'</button>';
+    }).join("");
+    return '<div class="pp-recent"><span>Recently explored</span><div class="pp-recent-chips">'+buttons+'</div></div>';
+  }
   function renderSelection(){
     var n=byId.get(selected)||byId.get("you");
     var path=pathFromYou(n.id),chain=path?path.map(function(id){
@@ -126,7 +134,7 @@
       '<div class="pp-info-meta">'+safe([degree(n.id),n.years,n.branch].filter(Boolean).join(" · "))+'</div>'+
       '<div class="pp-info-actions"><button type="button" class="pp-mini pp-mini-primary" data-pp-action="open-profile">Person page</button>'+
       '<button type="button" class="pp-mini" data-pp-action="follow-selected">Follow this line</button></div>'+
-      '</section><div class="pp-path" aria-label="Ancestry path">'+chain+'</div>';
+      '</section><div class="pp-path" aria-label="Ancestry path">'+chain+'</div>'+renderRecentPath();
   }
   function collectRows(){
     var rows=[],safety=0;
@@ -148,7 +156,7 @@
     var html='<div class="pp-instruction">Tap <strong>the arrow</strong> to uncover parents; tap <strong>the name</strong> to inspect someone. Open branches stay open as you explore.</div>'+
        '<div class="pp-tools">'+
        '<button type="button" class="pp-tool" data-pp-action="one-more">Unfold one generation</button>'+
-       '<button type="button" class="pp-tool" data-pp-action="collapse">Collapse branches</button></div>'+
+       '<button type="button" class="pp-tool" data-pp-action="collapse">Collapse branches</button><button type="button" class="pp-tool" data-pp-action="back">Previous person</button></div>'+
        '<div class="pp-tree" role="tree" aria-label="Expandable ancestor tree">';
     rows.forEach(function(row){
       var n=byId.get(row.id),p=parentsOf(row.id),open=expanded.has(row.id),isChosen=selected===row.id;
@@ -306,6 +314,7 @@
     if(action==="exit"){hideExplorer();return;}
     if(action==="open-profile"){openPersonPage();return;}
     if(action==="follow-selected"){expandTo(selected);return;}
+    if(action==="back"){if(visited.length>1){visited.pop();selected=visited[visited.length-1];render(true);}return;}
     if(action==="collapse"){expanded=new Set(["you"]);render(true);return;}
     if(action==="fan-home"){fanRoot="you";render(true);return;}
     if(action==="fan-center"){fanRoot=selected;render(false);return;}
