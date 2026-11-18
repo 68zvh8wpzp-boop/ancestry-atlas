@@ -421,26 +421,76 @@ function familySiblingGroup(family){
       +(count+1)+" family members displayed":
     "No sibling linked through a recorded parent in the current Atlas.";
 }
+function renderChildGroups(family){
+  var container=document.getElementById("family-child-groups");
+  container.replaceChildren();
+  if(!family.childGroups.length){
+    var empty=document.createElement("div");
+    empty.className="family-empty";
+    empty.textContent="No children are linked in the current Atlas records. Documented spouses without recorded children require a separate relationship record and are not inferred here.";
+    container.appendChild(empty);return;
+  }
+  family.childGroups.forEach(function(group,index){
+    var section=document.createElement("section");
+    section.className="family-partner-group";
+    var heading=document.createElement("div");
+    heading.className="family-partner-heading";
+    var text=document.createElement("strong");
+    var parentNames=group.otherParents.map(function(p){return p.name;});
+    text.textContent=parentNames.length===1?
+      "With "+parentNames[0]:parentNames.length>1?
+      "With other mapped parents: "+parentNames.join(", "):
+      "Other parent not yet mapped";
+    heading.appendChild(text);
+    var note=document.createElement("small");
+    note.textContent=parentNames.length>1?
+      "Multiple other parents recorded for these children; review the underlying evidence":
+      parentNames.length===1?
+      "Shared parentage recorded · marital status not inferred":
+      "Children linked to this person; the other parent is not recorded";
+    heading.appendChild(note);
+    section.appendChild(heading);
+    var list=document.createElement("div");
+    list.className="family-people family-group-children";
+    group.children.forEach(function(child){list.appendChild(familyTile(child));});
+    section.appendChild(list);
+    var counter=document.createElement("p");
+    counter.className="family-group-count";
+    counter.textContent=group.children.length+" recorded child"+(group.children.length===1?"":"ren")+" in this group";
+    section.appendChild(counter);
+    container.appendChild(section);
+  });
+}
+function showFamilyTab(tab){
+  var own=tab==="own";
+  document.getElementById("family-own-view").hidden=!own;
+  document.getElementById("family-origin-view").hidden=own;
+  document.getElementById("family-tab-own").setAttribute("aria-selected",own?"true":"false");
+  document.getElementById("family-tab-origin").setAttribute("aria-selected",own?"false":"true");
+  document.getElementById("family-intro").textContent=own?
+    "Children are shown in separate groups by their other recorded parent. A common child alone does not establish a marriage.":
+    "Their parents, followed by the selected person highlighted among their recorded siblings.";
+  document.getElementById("family-scroll").scrollTop=0;
+}
+document.getElementById("family-tab-own").addEventListener("click",function(){showFamilyTab("own");});
+document.getElementById("family-tab-origin").addEventListener("click",function(){showFamilyTab("origin");});
 function openFamily(personId){
   var family=familyIndex.family(personId);
   if(!family)return;
   familyLastTrigger=document.activeElement;
   document.getElementById("family-title").textContent=family.person.name;
-  document.getElementById("family-intro").textContent=
-    "The selected person among their siblings, followed by the children recorded for that person. Close to return to the same place in your tree.";
   familyGroup("family-parents",family.parents,"No parents linked in the current Atlas records.");
   familySiblingGroup(family);
-  familyGroup("family-co-parents",family.coParents,"No co-parent of a mapped child is currently linked.");
-  familyGroup("family-children",family.children,"No children linked in the current Atlas records.");
+  renderChildGroups(family);
   var center=document.getElementById("family-center");
   center.replaceChildren();center.appendChild(familyTile(family.person));
   var footnote=document.getElementById("family-footnote");
   var outside=byId.has(personId)?"":" This person is outside the connected direct-ancestor map, but remains available in the wider Atlas.";
   var caution=family.needsReview?" Some collateral relationship edges in this branch need a separate source audit and are not asserted as parentage here.":"";
-  footnote.textContent="Siblings are shown when at least one parent is shared in the Atlas. A shared parent alone does not establish whether someone is a full or half-sibling; only two mapped shared parents are labeled as such. Other parents of recorded children are not automatically confirmed spouses. Missing names do not imply a person had no other family members."+outside+caution;
+  footnote.textContent="These groupings reflect mapped parent-child links, not a list of documented marriages. Historical plural marriages may involve additional spouses, concurrent relationships or children not yet recorded in the Atlas. The full relationship history requires independently sourced spouse/union records. A shared parent alone does not establish whether siblings are full or half-siblings."+outside+caution;
   footnote.className=family.needsReview?"family-warning":"";
+  showFamilyTab(family.childGroups.length?"own":"origin");
   familyPanel.hidden=false;
-  document.getElementById("family-scroll").scrollTop=0;
   document.getElementById("family-close").focus();
 }
 function closeFamily(){
