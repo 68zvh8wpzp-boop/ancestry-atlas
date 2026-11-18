@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#07131f">
 <title>Ancestry Atlas · Living Family Map (2D Preview)</title>
-<link rel="stylesheet" href="./atlas-2d-map.css?v=20261118-siblings-1">
+<link rel="stylesheet" href="./atlas-2d-map.css?v=20261118-households-1">
 </head>
 <body>
 <div id="viewport">
@@ -55,30 +55,31 @@
 </section>
 <section id="family-panel" role="dialog" aria-modal="true" aria-labelledby="family-title" hidden>
   <header id="family-bar">
-    <div>
-      <div class="family-kicker">FAMILY PORTRAIT</div>
-      <h2 id="family-title">Immediate family</h2>
-    </div>
+    <div><div class="family-kicker">FAMILY PORTRAIT</div><h2 id="family-title">Immediate family</h2></div>
     <button id="family-close" type="button">← Back to tree</button>
   </header>
+  <nav id="family-view-tabs" role="tablist" aria-label="Family portrait sections">
+    <button type="button" role="tab" id="family-tab-own" data-family-tab="own" aria-controls="family-own-view" aria-selected="true">Children &amp; partners</button>
+    <button type="button" role="tab" id="family-tab-origin" data-family-tab="origin" aria-controls="family-origin-view" aria-selected="false">Parents &amp; siblings</button>
+  </nav>
   <div id="family-scroll">
-    <p id="family-intro">Two sides of a life: the household someone grew up in, and the family they went on to have. Names here do not navigate.</p>
-    <div class="family-household-heading">FAMILY OF ORIGIN</div>
-    <div class="family-section-title">RECORDED PARENTS</div>
-    <div id="family-parents" class="family-people family-parents"></div>
-    <div class="family-stem" aria-hidden="true"></div>
-    <div class="family-section-title">SELECTED PERSON &amp; SIBLINGS</div>
-    <p id="family-sibling-count" class="family-count-note">Siblings linked through recorded parents</p>
-    <div id="family-siblings" class="family-people family-siblings" aria-label="Selected person alongside their recorded siblings"></div>
-    <div class="family-household-divider" aria-hidden="true"></div>
-    <div class="family-household-heading">THEIR OWN FAMILY</div>
-    <div id="family-center" aria-label="Selected person"></div>
-    <div class="family-section-title">CO-PARENTS</div>
-    <div id="family-co-parents" class="family-people"></div>
-    <div class="family-stem" aria-hidden="true"></div>
-    <div class="family-section-title">CHILDREN</div>
-    <div id="family-children" class="family-people family-children"></div>
-    <p id="family-footnote">Only mapped relationships appear. Co-parent does not by itself establish marriage, and an empty section does not establish that no such relatives existed.</p>
+    <p id="family-intro">Two sides of one life, always one tap apart. Names in these portraits don't navigate.</p>
+    <section id="family-own-view" role="tabpanel" aria-labelledby="family-tab-own">
+      <div class="family-household-heading">THEIR OWN FAMILY</div>
+      <div id="family-center" aria-label="Selected person"></div>
+      <div class="family-section-title">CHILDREN GROUPED BY THEIR OTHER RECORDED PARENT</div>
+      <div id="family-child-groups" class="family-child-groups" aria-label="Children grouped by other recorded parent"></div>
+    </section>
+    <section id="family-origin-view" role="tabpanel" aria-labelledby="family-tab-origin" hidden>
+      <div class="family-household-heading">FAMILY OF ORIGIN</div>
+      <div class="family-section-title">RECORDED PARENTS</div>
+      <div id="family-parents" class="family-people family-parents"></div>
+      <div class="family-stem" aria-hidden="true"></div>
+      <div class="family-section-title">SELECTED PERSON &amp; SIBLINGS</div>
+      <p id="family-sibling-count" class="family-count-note">Siblings linked through recorded parents</p>
+      <div id="family-siblings" class="family-people family-siblings" aria-label="Selected person alongside their recorded siblings"></div>
+    </section>
+    <p id="family-footnote">Only mapped relationships appear. A co-parent is not automatically a spouse, and missing relatives don't imply none existed.</p>
   </div>
 </section>
 <section id="search-panel" role="dialog" aria-modal="true" aria-label="Find an ancestor" hidden>
@@ -97,7 +98,7 @@
 </section>
 <script src="./atlas-2d-pedigree-snapshot.js?v=20261117-1"></script>
 <script src="./atlas-2d-layout.js?v=20261117-1"></script>
-<script src="./atlas-2d-family.js?v=20261118-siblings-1"></script>
-<script src="./atlas-2d-map.js?v=20261118-siblings-1"></script>
+<script src="./atlas-2d-family.js?v=20261118-households-1"></script>
+<script src="./atlas-2d-map.js?v=20261118-households-1"></script>
 </body>
 </html>
