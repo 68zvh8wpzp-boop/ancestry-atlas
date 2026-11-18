@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#07131f">
+<title>Ancestry Atlas · Living Family Map (2D Preview)</title>
+<link rel="stylesheet" href="./atlas-2d-map.css?v=20261117-1">
+</head>
+<body>
+<div id="viewport">
+  <canvas id="tree" tabindex="0" aria-label="Two-dimensional ancestral map. Drag to move through generations, pinch to zoom, or tap a person to follow their lineage."></canvas>
+</div>
+<header id="topbar">
+  <div id="brand">
+    <div class="eyebrow">Ancestry Atlas · Experiment</div>
+    <h1>Family Map</h1>
+  </div>
+  <nav class="toolbar" aria-label="Map controls">
+    <button id="show-search" class="tool-btn" type="button" aria-label="Search for an ancestor" title="Find someone">⌕</button>
+    <button id="back-you" class="tool-btn" type="button" title="Return to You">You</button>
+    <button id="fit-all" class="tool-btn emphasis" type="button" title="Show entire mapped tree">All</button>
+  </nav>
+</header>
+<div id="legend" aria-label="Navigation hint">
+  <div class="hint"><strong>Earlier generations →</strong><br>Drag to wander · pinch to zoom</div>
+</div>
+<div id="mini-shell">
+  <div class="mini-title">YOUR WHOLE TREE</div>
+  <canvas id="mini" aria-label="Overview mini-map. Tap an area to move there." role="button" tabindex="0"></canvas>
+  <div id="mini-caption">Gold box = your view</div>
+</div>
+<div id="status" aria-live="polite">Loading mapped family</div>
+<div id="zoom-buttons" role="group" aria-label="Zoom">
+  <button id="zoom-plus" type="button" aria-label="Zoom in">+</button>
+  <button id="zoom-minus" type="button" aria-label="Zoom out">−</button>
+  <button id="zoom-near" type="button" aria-label="Center on selected person" title="Go to selected person">◎</button>
+</div>
+<div id="tip" aria-hidden="true">The tree stays in view as you explore.</div>
+<section id="card" aria-label="Selected ancestor">
+  <div id="selected-info">
+    <div>
+      <div id="selected-label">YOUR POSITION IN THE FAMILY</div>
+      <div id="selected-name">You</div>
+      <div id="selected-meta">Starting point</div>
+      <div id="selected-state">Mapped family relationships</div>
+    </div>
+    <div id="selected-right">
+      <button id="open-biography" type="button" class="card-btn primary">Life &amp; records</button>
+    </div>
+  </div>
+  <nav id="trail" aria-label="Path to this ancestor"></nav>
+</section>
+<section id="search-panel" role="dialog" aria-modal="true" aria-label="Find an ancestor" hidden>
+  <div id="search-head"><span>Find a person</span><button id="close-search" type="button">Back to map</button></div>
+  <input id="search" type="search" autocomplete="off" placeholder="A name, year, or place…">
+  <div id="search-counter">Or close search and explore the family tree.</div>
+  <div id="search-results"></div>
+</section>
+<section id="biography-pane" role="dialog" aria-modal="true" aria-label="Original Atlas person page" hidden>
+  <div id="bio-bar">
+    <div id="bio-title">Person page</div>
+    <button id="bio-back" type="button">← Back to map</button>
+  </div>
+  <div id="loading-bio">Opening the existing Atlas person page and archival records…</div>
+  <iframe id="bio-frame" title="Existing Atlas biography and evidence" loading="lazy"></iframe>
+</section>
+<script src="./atlas-2d-pedigree-snapshot.js?v=20261117-1"></script>
+<script src="./atlas-2d-layout.js?v=20261117-1"></script>
+<script src="./atlas-2d-map.js?v=20261117-1"></script>
+</body>
+</html>
