@@ -297,6 +297,10 @@
     expanded=new Set(["you"]);fanRoot="you";selected="you";visited=["you"];view="explore";term="";render(false);
   }
   root.addEventListener("click",function(event){
+    var wedge=event.target.closest("[data-pp-fan]");
+    if(wedge && wedge.tagName.toLowerCase()==="path"){
+      remember(wedge.dataset.ppFan);render(true);return;
+    }
     var btn=event.target.closest("button");if(!btn)return;
     if(btn.dataset.ppView){view=btn.dataset.ppView;render(false);return;}
     if(btn.dataset.ppExpand){
