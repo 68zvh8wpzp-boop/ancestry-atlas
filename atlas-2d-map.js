@@ -6,6 +6,7 @@ var data=window.ATLAS_2D_PEDIGREE,lib=window.Atlas2DLayout,familyLib=window.Atla
 if(!data||!lib||!familyLib){document.body.textContent="The Atlas map could not load its family relationships.";return;}
 var layout=lib.create(data,"you"),familyIndex=familyLib.create(data);
 var nodes=layout.nodes,byId=layout.positions,links=layout.links;
+var siblingCounts=new Map(nodes.map(function(n){return [n.id,familyIndex.family(n.id).siblingCount];}));
 var rootParents=layout.parents.get("you")||[];
 var fatherId=rootParents[0],motherId=rootParents[1];
 var canvas=document.getElementById("tree"),ctx=canvas.getContext("2d",{alpha:false});
@@ -91,7 +92,8 @@ function fillInfo(){
   var n=byId.get(selected)||byId.get("you");
   nameEl.textContent=n.name;
   metaEl.textContent=[n.years,n.branch,"Generation "+n.generation].filter(Boolean).join(" · ");
-  stateEl.textContent=showStatus(n);
+  var sibCount=siblingCounts.get(selected)||0;
+  stateEl.textContent=(sibCount?sibCount+" mapped sibling"+(sibCount===1?"":"s")+" · ":"")+showStatus(n);
   trailEl.replaceChildren();
   selectionPath.forEach(function(id,i){
     if(i){var dot=document.createElement("span");dot.className="sep";dot.textContent="›";trailEl.appendChild(dot);}
@@ -208,7 +210,23 @@ function drawNodes(){
       var display=node.id==="you"?"You":node.name;
       ctx.font=titleFont;ctx.fillText(shorten(display,rw-25*s,titleFont),textX,p.y-9*s);
       ctx.fillStyle="#aec9d8";ctx.font=detailFont;
-      ctx.fillText(shorten([node.years,node.branch].filter(Boolean).join(" · "),rw-25*s,detailFont),textX,p.y+13*s);
+      var sibNum=siblingCounts.get(node.id)||0;
+      var badgeText=sibNum?sibNum+" sib":"";
+      var badgeFont=Math.max(10,11*s)+"px system-ui";
+      ctx.font=badgeFont;
+      var badgeW=sibNum?ctx.measureText(badgeText).width+11*s:0;
+      // Reserve room within the existing node card; don't widen its hit target
+      // or alter the spacing between ancestral generations.
+      ctx.font=detailFont;
+      ctx.fillText(shorten([node.years,node.branch].filter(Boolean).join(" · "),rw-25*s-(sibNum?badgeW+8*s:0),detailFont),textX,p.y+13*s);
+      if(sibNum){
+        var badgeH=Math.max(16,17*s),bx=p.x+halfW-badgeW-7*s,by=p.y+halfH-badgeH-5*s;
+        roundRect(ctx,bx,by,badgeW,badgeH,Math.min(7,badgeH/2));
+        ctx.fillStyle="#315968";ctx.fill();
+        ctx.strokeStyle="#8bc4cc";ctx.lineWidth=1;ctx.stroke();
+        ctx.fillStyle="#f5fbfd";ctx.textAlign="center";ctx.textBaseline="middle";
+        ctx.font="700 "+badgeFont;ctx.fillText(badgeText,bx+badgeW/2,by+badgeH/2);
+      }
     }else{
       var short=node.id==="you"?"You":node.name.split(" ").slice(-1)[0];
       var smallFont="700 "+Math.max(10,13*s)+"px system-ui";
@@ -382,14 +400,36 @@ function familyGroup(elementId,people,emptyText){
   }
   people.forEach(function(person){parent.appendChild(familyTile(person));});
 }
+function familySiblingGroup(family){
+  var target=document.getElementById("family-siblings");target.replaceChildren();
+  // Keep the chosen ancestor visibly highlighted within the family of origin.
+  var entries=[{person:family.person,label:"Selected person",chosen:true}].concat(
+    family.siblings.map(function(s){return {person:s.person,label:s.label,chosen:false};})
+  );
+  entries.forEach(function(entry){
+    var tile=familyTile(entry.person);
+    if(entry.chosen)tile.className+=" family-highlight";
+    var note=document.createElement("p");
+    note.className="family-relationship";
+    note.textContent=entry.label;
+    tile.appendChild(note);
+    target.appendChild(tile);
+  });
+  var count=family.siblingCount;
+  document.getElementById("family-sibling-count").textContent=count?
+    count+" sibling"+(count===1?"":"s")+" linked through at least one recorded parent · "
+      +(count+1)+" family members displayed":
+    "No sibling linked through a recorded parent in the current Atlas.";
+}
 function openFamily(personId){
   var family=familyIndex.family(personId);
   if(!family)return;
   familyLastTrigger=document.activeElement;
   document.getElementById("family-title").textContent=family.person.name;
   document.getElementById("family-intro").textContent=
-    "A quiet portrait of the recorded immediate family. Close it to return to the exact same place in your tree.";
+    "The selected person among their siblings, followed by the children recorded for that person. Close to return to the same place in your tree.";
   familyGroup("family-parents",family.parents,"No parents linked in the current Atlas records.");
+  familySiblingGroup(family);
   familyGroup("family-co-parents",family.coParents,"No co-parent of a mapped child is currently linked.");
   familyGroup("family-children",family.children,"No children linked in the current Atlas records.");
   var center=document.getElementById("family-center");
@@ -397,7 +437,7 @@ function openFamily(personId){
   var footnote=document.getElementById("family-footnote");
   var outside=byId.has(personId)?"":" This person is outside the connected direct-ancestor map, but remains available in the wider Atlas.";
   var caution=family.needsReview?" Some collateral relationship edges in this branch need a separate source audit and are not asserted as parentage here.":"";
-  footnote.textContent="Family members shown are those linked by the existing Atlas data. Other parents of recorded children are not automatically confirmed spouses. Missing names do not imply a person had no other family members."+outside+caution;
+  footnote.textContent="Siblings are shown when at least one parent is shared in the Atlas. A shared parent alone does not establish whether someone is a full or half-sibling; only two mapped shared parents are labeled as such. Other parents of recorded children are not automatically confirmed spouses. Missing names do not imply a person had no other family members."+outside+caution;
   footnote.className=family.needsReview?"family-warning":"";
   familyPanel.hidden=false;
   document.getElementById("family-scroll").scrollTop=0;

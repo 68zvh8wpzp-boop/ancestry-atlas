@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#07131f">
 <title>Ancestry Atlas · Living Family Map (2D Preview)</title>
-<link rel="stylesheet" href="./atlas-2d-map.css?v=20261118-1">
+<link rel="stylesheet" href="./atlas-2d-map.css?v=20261118-siblings-1">
 </head>
 <body>
 <div id="viewport">
@@ -47,7 +47,7 @@
       <div id="selected-state">Mapped family relationships</div>
     </div>
     <div id="selected-right">
-      <button id="open-family" type="button" class="card-btn primary" aria-label="View parents, other parents of children, and children of selected person">Family view</button>
+      <button id="open-family" type="button" class="card-btn primary" aria-label="View this person with parents, siblings, co-parents, and children">Family view</button>
       <button id="open-biography" type="button" class="card-btn">Life &amp; records</button>
     </div>
   </div>
@@ -62,10 +62,16 @@
     <button id="family-close" type="button">← Back to tree</button>
   </header>
   <div id="family-scroll">
-    <p id="family-intro">Parents, other parents of mapped children, and children. This is a view only; names are not navigation buttons.</p>
-    <div class="family-section-title">PARENTS</div>
+    <p id="family-intro">Two sides of a life: the household someone grew up in, and the family they went on to have. Names here do not navigate.</p>
+    <div class="family-household-heading">FAMILY OF ORIGIN</div>
+    <div class="family-section-title">RECORDED PARENTS</div>
     <div id="family-parents" class="family-people family-parents"></div>
     <div class="family-stem" aria-hidden="true"></div>
+    <div class="family-section-title">SELECTED PERSON &amp; SIBLINGS</div>
+    <p id="family-sibling-count" class="family-count-note">Siblings linked through recorded parents</p>
+    <div id="family-siblings" class="family-people family-siblings" aria-label="Selected person alongside their recorded siblings"></div>
+    <div class="family-household-divider" aria-hidden="true"></div>
+    <div class="family-household-heading">THEIR OWN FAMILY</div>
     <div id="family-center" aria-label="Selected person"></div>
     <div class="family-section-title">CO-PARENTS</div>
     <div id="family-co-parents" class="family-people"></div>
@@ -91,7 +97,7 @@
 </section>
 <script src="./atlas-2d-pedigree-snapshot.js?v=20261117-1"></script>
 <script src="./atlas-2d-layout.js?v=20261117-1"></script>
-<script src="./atlas-2d-family.js?v=20261118-1"></script>
-<script src="./atlas-2d-map.js?v=20261118-1"></script>
+<script src="./atlas-2d-family.js?v=20261118-siblings-1"></script>
+<script src="./atlas-2d-map.js?v=20261118-siblings-1"></script>
 </body>
 </html>

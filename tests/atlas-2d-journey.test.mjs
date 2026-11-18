@@ -125,3 +125,56 @@ test("searchable Atlas records include unlinked relatives and research candidate
   assert.ok(js.includes("else openFamily(n.id)"),"Out-of-tree results must still open a family portrait");
   assert.ok(js.includes("if(n.id===selected && cam.s>=.4)openFamily(n.id)"),"Second tap opens static family portrait");
 });
+
+
+test("mapped siblings appear once, without inventing unknown half-sibling relationships",async()=>{
+  const sandbox={window:{}};
+  vm.runInNewContext(await read("atlas-2d-pedigree-snapshot.js"),sandbox);
+  vm.runInNewContext(await read("atlas-2d-family.js"),sandbox);
+  const fam=sandbox.window.Atlas2DFamily.create(sandbox.window.ATLAS_2D_PEDIGREE);
+  const marion=fam.family("marion_brenay");
+  assert.equal(marion.siblingCount,10,"Marion has ten currently mapped siblings");
+  assert.equal(marion.siblings.length,10);
+  assert.equal(new Set(marion.siblings.map(s=>s.person.id)).size,10,"shared mothers and fathers must not duplicate siblings");
+  for(const s of marion.siblings){
+    assert.equal(s.label,"Both mapped parents");
+    assert.deepEqual(Array.from(s.sharedParents.map(p=>p.id)),["charles_albert","marian_skinner"]);
+  }
+  assert.equal(fam.family("charles_albert").siblingCount,0,"unknown siblings must not be inferred");
+  assert.equal(fam.family("you").siblingCount,0,"unknown siblings must not be inferred");
+  const fixture={
+    nodes:["me","mom","dad","full","one","other","unknown"].map(id=>({id,name:id})),
+    edges:[
+      {a:"me",b:"mom"},{a:"me",b:"dad"},
+      {a:"full",b:"mom"},{a:"full",b:"dad"},
+      {a:"one",b:"mom"},{a:"one",b:"other"},
+      {a:"unknown",b:"dad"}
+    ]
+  };
+  const index=sandbox.window.Atlas2DFamily.create(fixture);
+  const relatives=index.family("me").siblings;
+  assert.equal(relatives.length,3);
+  assert.equal(relatives.find(s=>s.person.id==="full").label,"Both mapped parents");
+  assert.equal(relatives.find(s=>s.person.id==="one").label,"Shared parent: mom");
+  assert.equal(relatives.find(s=>s.person.id==="unknown").label,"Shared parent: dad");
+  assert.ok(relatives.every(s=>!s.label.includes("half")),"never assert half sibling from an incomplete record");
+});
+
+test("family of origin groups highlight the chosen ancestor while 2D map retains clean direct line",async()=>{
+  const [html,css,js]=await Promise.all([
+    read("atlas-2d-journey-preview.html"),read("atlas-2d-map.css"),read("atlas-2d-map.js")
+  ]);
+  for(const name of ["family-siblings","family-sibling-count","family-parents","family-co-parents","family-children"]){
+    assert.ok(html.includes('id="'+name+'"'),"missing visible family section "+name);
+  }
+  assert.ok(html.indexOf('id="family-parents"')<html.indexOf('id="family-siblings"'));
+  assert.ok(html.indexOf('id="family-siblings"')<html.indexOf('id="family-center"'));
+  assert.ok(html.indexOf('id="family-center"')<html.indexOf('id="family-children"'));
+  assert.ok(html.includes("atlas-2d-family.js?v=20261118-siblings-1"));
+  assert.ok(css.includes(".family-siblings .family-highlight"),"chosen ancestor must remain visually distinct");
+  assert.ok(js.includes("function familySiblingGroup(family)"));
+  assert.ok(js.includes('var siblingCounts=new Map('));
+  assert.ok(js.includes('var badgeText=sibNum?sibNum+" sib":""'),"show readable sibling count on map");
+  assert.ok(js.includes("if(sibNum){"),"no pill when sibling count is unmapped");
+  assert.ok(!js.includes("nodes.push(")&&!js.includes("data.edges.push("));
+});

@@ -26,6 +26,31 @@
       append(parents,edge.a,edge.b);
       append(children,edge.b,edge.a);
     });
+    // Siblings are people sharing one or more explicitly mapped parents.
+    // Two shared parents means "both mapped parents"; a single shared parent
+    // never, by itself, proves that the siblings have different other parents.
+    function siblingsOf(id){
+      var parentIds=parents.get(id)||[];
+      var seen=new Set(),ids=[];
+      parentIds.forEach(function(parentId){
+        (children.get(parentId)||[]).forEach(function(childId){
+          if(childId===id||seen.has(childId))return;
+          seen.add(childId);ids.push(childId);
+        });
+      });
+      return ids.map(function(otherId){
+        var otherParents=parents.get(otherId)||[];
+        var sharedParentIds=parentIds.filter(function(parentId){return otherParents.includes(parentId);});
+        var sharesAllMappedParents=parentIds.length===2&&otherParents.length===2&&sharedParentIds.length===2;
+        return {
+          person:people.get(otherId),
+          sharedParents:sharedParentIds.map(function(p){return people.get(p);}),
+          label:sharesAllMappedParents?"Both mapped parents":sharedParentIds.length===1?
+            "Shared parent: "+people.get(sharedParentIds[0]).name:
+            "Shares "+sharedParentIds.length+" mapped parents"
+        };
+      });
+    }
     function family(id){
       var person=people.get(id);
       if(!person)return null;
@@ -43,12 +68,14 @@
         parents:parentIds.map(function(p){return people.get(p);}),
         coParents:coParentIds.map(function(p){return people.get(p);}),
         children:childIds.map(function(c){return people.get(c);}),
+        siblings:siblingsOf(id),
+        siblingCount:siblingsOf(id).length,
         needsReview:needsReview,
         childCount:childIds.length,
         isCollateral:!!person.collateral
       };
     }
-    return {family:family,hasPerson:function(id){return people.has(id);},people:people,parents:parents,children:children};
+    return {family:family,siblingsOf:siblingsOf,hasPerson:function(id){return people.has(id);},people:people,parents:parents,children:children};
   }
   scope.Atlas2DFamily={create:create};
   if(typeof module!=="undefined"&&module.exports)module.exports={create:create};
