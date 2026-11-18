@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#07131f">
 <title>Ancestry Atlas · Living Family Map (2D Preview)</title>
-<link rel="stylesheet" href="./atlas-2d-map.css?v=20261117-1">
+<link rel="stylesheet" href="./atlas-2d-map.css?v=20261118-1">
 </head>
 <body>
 <div id="viewport">
@@ -47,10 +47,33 @@
       <div id="selected-state">Mapped family relationships</div>
     </div>
     <div id="selected-right">
-      <button id="open-biography" type="button" class="card-btn primary">Life &amp; records</button>
+      <button id="open-family" type="button" class="card-btn primary" aria-label="View parents, other parents of children, and children of selected person">Family view</button>
+      <button id="open-biography" type="button" class="card-btn">Life &amp; records</button>
     </div>
   </div>
   <nav id="trail" aria-label="Path to this ancestor"></nav>
+</section>
+<section id="family-panel" role="dialog" aria-modal="true" aria-labelledby="family-title" hidden>
+  <header id="family-bar">
+    <div>
+      <div class="family-kicker">FAMILY PORTRAIT</div>
+      <h2 id="family-title">Immediate family</h2>
+    </div>
+    <button id="family-close" type="button">← Back to tree</button>
+  </header>
+  <div id="family-scroll">
+    <p id="family-intro">Parents, other parents of mapped children, and children. This is a view only; names are not navigation buttons.</p>
+    <div class="family-section-title">PARENTS</div>
+    <div id="family-parents" class="family-people family-parents"></div>
+    <div class="family-stem" aria-hidden="true"></div>
+    <div id="family-center" aria-label="Selected person"></div>
+    <div class="family-section-title">CO-PARENTS</div>
+    <div id="family-co-parents" class="family-people"></div>
+    <div class="family-stem" aria-hidden="true"></div>
+    <div class="family-section-title">CHILDREN</div>
+    <div id="family-children" class="family-people family-children"></div>
+    <p id="family-footnote">Only mapped relationships appear. Co-parent does not by itself establish marriage, and an empty section does not establish that no such relatives existed.</p>
+  </div>
 </section>
 <section id="search-panel" role="dialog" aria-modal="true" aria-label="Find an ancestor" hidden>
   <div id="search-head"><span>Find a person</span><button id="close-search" type="button">Back to map</button></div>
@@ -68,6 +91,7 @@
 </section>
 <script src="./atlas-2d-pedigree-snapshot.js?v=20261117-1"></script>
 <script src="./atlas-2d-layout.js?v=20261117-1"></script>
-<script src="./atlas-2d-map.js?v=20261117-1"></script>
+<script src="./atlas-2d-family.js?v=20261118-1"></script>
+<script src="./atlas-2d-map.js?v=20261118-1"></script>
 </body>
 </html>
