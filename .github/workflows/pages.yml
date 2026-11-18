@@ -51,6 +51,9 @@ jobs:
       - name: Verify opt-in iPhone ancestral explorer preview
         run: node --test tests/iphone-explorer-preview.test.mjs
 
+      - name: Verify 2-D Atlas source and mobile tree journey
+        run: node --test tests/atlas-2d-journey.test.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
