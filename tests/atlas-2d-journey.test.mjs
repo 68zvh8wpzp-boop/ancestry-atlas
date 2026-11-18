@@ -160,21 +160,45 @@ test("mapped siblings appear once, without inventing unknown half-sibling relati
   assert.ok(relatives.every(s=>!s.label.includes("half")),"never assert half sibling from an incomplete record");
 });
 
-test("family of origin groups highlight the chosen ancestor while 2D map retains clean direct line",async()=>{
-  const [html,css,js]=await Promise.all([
-    read("atlas-2d-journey-preview.html"),read("atlas-2d-map.css"),read("atlas-2d-map.js")
-  ]);
-  for(const name of ["family-siblings","family-sibling-count","family-parents","family-co-parents","family-children"]){
-    assert.ok(html.includes('id="'+name+'"'),"missing visible family section "+name);
+test("family tabs keep children visible without scrolling through siblings",async()=>{
+  const [html,css,js]=await Promise.all([read("atlas-2d-journey-preview.html"),read("atlas-2d-map.css"),read("atlas-2d-map.js")]);
+  for(const name of ["family-siblings","family-sibling-count","family-parents","family-center","family-child-groups","family-tab-own","family-tab-origin","family-own-view","family-origin-view"]){
+    assert.ok(html.includes('id="'+name+'"'),"missing family section "+name);
   }
-  assert.ok(html.indexOf('id="family-parents"')<html.indexOf('id="family-siblings"'));
-  assert.ok(html.indexOf('id="family-siblings"')<html.indexOf('id="family-center"'));
-  assert.ok(html.indexOf('id="family-center"')<html.indexOf('id="family-children"'));
-  assert.ok(html.includes("atlas-2d-family.js?v=20261118-siblings-1"));
-  assert.ok(css.includes(".family-siblings .family-highlight"),"chosen ancestor must remain visually distinct");
-  assert.ok(js.includes("function familySiblingGroup(family)"));
+  assert.ok(html.indexOf('id="family-view-tabs"')<html.indexOf('id="family-scroll"'),"Tabs stay above scrolling list");
+  assert.ok(html.includes("atlas-2d-family.js?v=20261118-households-1"));
+  assert.ok(css.includes(".family-siblings .family-highlight"));
+  assert.ok(css.includes('#family-view-tabs button[aria-selected="true"]'));
+  for(const fn of ["familySiblingGroup","renderChildGroups","showFamilyTab","openFamily"]){
+    assert.ok(js.includes("function "+fn+"("));
+  }
+  assert.ok(js.includes('showFamilyTab(family.childGroups.length?"own":"origin")'),"Open on children when any are mapped");
   assert.ok(js.includes('var siblingCounts=new Map('));
-  assert.ok(js.includes('var badgeText=sibNum?sibNum+" sib":""'),"show readable sibling count on map");
-  assert.ok(js.includes("if(sibNum){"),"no pill when sibling count is unmapped");
+  assert.ok(js.includes('var badgeText=sibNum?sibNum+" sib":""'));
   assert.ok(!js.includes("nodes.push(")&&!js.includes("data.edges.push("));
+});
+test("multiple co-parent groups stay distinct and never invent a marriage",async()=>{
+  const sandbox={window:{}};
+  vm.runInNewContext(await read("atlas-2d-pedigree-snapshot.js"),sandbox);
+  vm.runInNewContext(await read("atlas-2d-family.js"),sandbox);
+  const index=sandbox.window.Atlas2DFamily.create(sandbox.window.ATLAS_2D_PEDIGREE);
+  const marion=index.family("marion_brenay");
+  assert.equal(marion.childGroups.length,1);
+  assert.deepEqual(Array.from(marion.childGroups[0].otherParents.map(p=>p.id)),["james_wilford"]);
+  assert.deepEqual(Array.from(marion.childGroups[0].children.map(p=>p.id)),["jamar_webb","james_sheldon"]);
+  const charles=index.family("charles_albert");
+  assert.equal(charles.childGroups.length,1);
+  assert.equal(charles.childGroups[0].children.length,11);
+  assert.deepEqual(Array.from(charles.childGroups[0].otherParents.map(p=>p.id)),["marian_skinner"]);
+  const fixture={nodes:["p","a","b","c1","c2","c3","c4","c5"].map(id=>({id,name:id})),
+    edges:[{a:"c1",b:"p"},{a:"c1",b:"a"},{a:"c2",b:"p"},{a:"c2",b:"b"},
+      {a:"c3",b:"p"},{a:"c3",b:"a"},{a:"c4",b:"p"},{a:"c5",b:"p"},{a:"c5",b:"b"}]};
+  const sample=sandbox.window.Atlas2DFamily.create(fixture).family("p");
+  assert.equal(sample.children.length,5);
+  assert.equal(sample.childGroups.length,3);
+  const groups=new Map(Array.from(sample.childGroups).map(g=>[g.otherParents.map(x=>x.id).join(",")||"unknown",g.children.map(x=>x.id)]));
+  assert.deepEqual(Array.from(groups.get("a")),["c1","c3"]);
+  assert.deepEqual(Array.from(groups.get("b")),["c2","c5"]);
+  assert.deepEqual(Array.from(groups.get("unknown")),["c4"]);
+  assert.equal(Array.from(sample.childGroups).flatMap(g=>Array.from(g.children)).length,5);
 });

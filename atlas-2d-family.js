@@ -62,6 +62,19 @@
           if(p!==id && !coParentIds.includes(p))coParentIds.push(p);
         });
       });
+      // Partition children by the exact set of their other mapped parents.
+      // This supports multiple contemporaneous family groups without assuming
+      // that a shared child documents a marriage or that every spouse had children.
+      var grouped=new Map();
+      childIds.forEach(function(childId){
+        var otherIds=Array.from(new Set(parents.get(childId)||[])).filter(function(p){return p!==id;}).sort();
+        var key=otherIds.length?otherIds.join("|"):"__no_other_parent_mapped__";
+        if(!grouped.has(key)){
+          grouped.set(key,{id:key,otherParents:otherIds.map(function(p){return people.get(p);}),children:[],parentageNeedsReview:otherIds.length>1});
+        }
+        grouped.get(key).children.push(people.get(childId));
+      });
+      var childGroups=Array.from(grouped.values());
       var needsReview=["chauncey_webb","ann_eliza_webb","brigham_young","eliza_jane_churchill"].includes(id);
       return {
         person:person,
@@ -70,6 +83,7 @@
         children:childIds.map(function(c){return people.get(c);}),
         siblings:siblingsOf(id),
         siblingCount:siblingsOf(id).length,
+        childGroups:childGroups,
         needsReview:needsReview,
         childCount:childIds.length,
         isCollateral:!!person.collateral
