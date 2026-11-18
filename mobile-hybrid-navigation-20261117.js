@@ -188,7 +188,8 @@
       else if(typeof openNode==="function")openNode(id,true,true);
       var card=document.getElementById("card");
       if(card)card.style.display="none";
-      if(typeof draw==="function")draw();
+      if(typeof setNodeView==="function") setNodeView("atlas");
+      else if(typeof draw==="function") draw();
     }catch(err){console.error("Classic tree navigation unavailable",err);}
   }
   function openProfile(){
