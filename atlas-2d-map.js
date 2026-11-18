@@ -2,9 +2,9 @@
    This prototype never changes the archival node/edge records. */
 (function(){
 "use strict";
-var data=window.ATLAS_2D_PEDIGREE,lib=window.Atlas2DLayout;
-if(!data||!lib){document.body.textContent="The Atlas map could not load its family relationships.";return;}
-var layout=lib.create(data,"you");
+var data=window.ATLAS_2D_PEDIGREE,lib=window.Atlas2DLayout,familyLib=window.Atlas2DFamily;
+if(!data||!lib||!familyLib){document.body.textContent="The Atlas map could not load its family relationships.";return;}
+var layout=lib.create(data,"you"),familyIndex=familyLib.create(data);
 var nodes=layout.nodes,byId=layout.positions,links=layout.links;
 var rootParents=layout.parents.get("you")||[];
 var fatherId=rootParents[0],motherId=rootParents[1];
@@ -292,10 +292,10 @@ function endGesture(e){
      && performance.now()-gesture.startTime<550){
     var n=hit(p.x,p.y);
     if(n){
-      var current=lastTap.time>0 && (performance.now()-lastTap.time)<380 &&
-        Math.hypot(p.x-lastTap.x,p.y-lastTap.y)<25;
-      focus(n.id,cam.s<.7,true);
-      if(current&&selected===n.id)zoomAt(1.24,p.x,p.y,180);
+      // The first tap selects and recenters. Tap the same readable node again
+      // for its stationary immediate-family portrait, without moving the map.
+      if(n.id===selected && cam.s>=.4)openFamily(n.id);
+      else focus(n.id,cam.s<.7,true);
       lastTap={time:performance.now(),x:p.x,y:p.y};
     }
   }
@@ -336,7 +336,7 @@ function normalize(text){return String(text||"").normalize("NFKD").replace(/[\u0
 function searchNow(){
   searchResults.replaceChildren();
   var query=normalize(searchInput.value);
-  var matches=query?nodes.filter(function(n){
+  var matches=query?data.nodes.filter(function(n){
     return normalize([n.name,n.years,n.place,n.branch].join(" ")).includes(query);
   }).sort(function(a,b){
     var aa=normalize(a.name),bb=normalize(b.name);
@@ -344,13 +344,13 @@ function searchNow(){
     var pb=bb===query?0:bb.startsWith(query)?1:bb.includes(query)?2:3;
     return pa-pb||a.name.localeCompare(b.name);
   }):[];
-  document.getElementById("search-counter").textContent=query?matches.length+" matches in mapped ancestry":"Search is optional: drag the map to discover a branch instead.";
+  document.getElementById("search-counter").textContent=query?matches.length+" matches in all "+data.nodes.length+" Atlas records":"Search all "+data.nodes.length+" Atlas records, or close this panel to explore the connected tree.";
   matches.slice(0,60).forEach(function(n){
     var b=document.createElement("button");b.className="search-item";b.type="button";
     var strong=document.createElement("strong");strong.textContent=n.name;b.appendChild(strong);
-    var small=document.createElement("small");small.textContent=[n.years,n.branch,"Generation "+n.generation].filter(Boolean).join(" · ");
+    var small=document.createElement("small");small.textContent=[n.years,n.branch,byId.has(n.id)?"On the direct tree":"Unlinked or collateral record"].filter(Boolean).join(" · ");
     b.appendChild(small);
-    b.onclick=function(){searchPanel.hidden=true;searchInput.blur();focus(n.id,true,true);};
+    b.onclick=function(){searchPanel.hidden=true;searchInput.blur();if(byId.has(n.id))focus(n.id,true,true);else openFamily(n.id);};
     searchResults.appendChild(b);
   });
 }
@@ -360,6 +360,55 @@ document.getElementById("show-search").addEventListener("click",showSearch);
 document.getElementById("close-search").addEventListener("click",closeSearch);
 searchInput.addEventListener("input",searchNow);
 searchInput.addEventListener("keydown",function(e){if(e.key==="Escape")closeSearch();});
+var familyPanel=document.getElementById("family-panel");
+var familyLastTrigger=null;
+function familyTile(person){
+  var tile=document.createElement("div");tile.className="family-person";
+  var name=document.createElement("h3");name.textContent=person.name;tile.appendChild(name);
+  if(person.years){
+    var years=document.createElement("p");years.textContent=person.years;tile.appendChild(years);
+  }
+  if(person.branch){
+    var branch=document.createElement("p");branch.className="family-branch";branch.textContent=person.branch;tile.appendChild(branch);
+  }
+  return tile;
+}
+function familyGroup(elementId,people,emptyText){
+  var parent=document.getElementById(elementId);
+  parent.replaceChildren();
+  if(!people.length){
+    var empty=document.createElement("div");empty.className="family-empty";empty.textContent=emptyText;parent.appendChild(empty);
+    return;
+  }
+  people.forEach(function(person){parent.appendChild(familyTile(person));});
+}
+function openFamily(personId){
+  var family=familyIndex.family(personId);
+  if(!family)return;
+  familyLastTrigger=document.activeElement;
+  document.getElementById("family-title").textContent=family.person.name;
+  document.getElementById("family-intro").textContent=
+    "A quiet portrait of the recorded immediate family. Close it to return to the exact same place in your tree.";
+  familyGroup("family-parents",family.parents,"No parents linked in the current Atlas records.");
+  familyGroup("family-co-parents",family.coParents,"No co-parent of a mapped child is currently linked.");
+  familyGroup("family-children",family.children,"No children linked in the current Atlas records.");
+  var center=document.getElementById("family-center");
+  center.replaceChildren();center.appendChild(familyTile(family.person));
+  var footnote=document.getElementById("family-footnote");
+  var outside=byId.has(personId)?"":" This person is outside the connected direct-ancestor map, but remains available in the wider Atlas.";
+  var caution=family.needsReview?" Some collateral relationship edges in this branch need a separate source audit and are not asserted as parentage here.":"";
+  footnote.textContent="Family members shown are those linked by the existing Atlas data. Other parents of recorded children are not automatically confirmed spouses. Missing names do not imply a person had no other family members."+outside+caution;
+  footnote.className=family.needsReview?"family-warning":"";
+  familyPanel.hidden=false;
+  document.getElementById("family-scroll").scrollTop=0;
+  document.getElementById("family-close").focus();
+}
+function closeFamily(){
+  familyPanel.hidden=true;
+  if(familyLastTrigger&&typeof familyLastTrigger.focus==="function")familyLastTrigger.focus();
+  familyLastTrigger=null;
+}
+document.getElementById("family-close").addEventListener("click",closeFamily);
 var biographyPane=document.getElementById("biography-pane"),bioFrame=document.getElementById("bio-frame");
 function openBiography(){
   biographyPane.hidden=false;
@@ -377,13 +426,15 @@ function openBiography(){
   };
   bioFrame.src="./atlas-v3.9.63.html?from=two-dimensional-map&cache=20261117-2";
 }
+document.getElementById("open-family").addEventListener("click",function(){openFamily(selected);});
 document.getElementById("open-biography").addEventListener("click",openBiography);
 document.getElementById("bio-back").addEventListener("click",function(){
   biographyPane.hidden=true;bioFrame.onload=null;bioFrame.src="about:blank";
   render();
 });
 window.addEventListener("keydown",function(e){
-  if(e.key==="Escape"){if(!biographyPane.hidden){document.getElementById("bio-back").click();}
+  if(e.key==="Escape"){if(!familyPanel.hidden)closeFamily();
+    else if(!biographyPane.hidden){document.getElementById("bio-back").click();}
     else if(!searchPanel.hidden)closeSearch();}
 });
 window.addEventListener("resize",measureCanvas);
@@ -393,6 +444,7 @@ window.Atlas2DJourney={
   select:function(id){focus(id,true,true);},
   fit:fitAll,
   home:resetToYou,
-  getState:function(){return {selected:selected,scale:cam.s,cameraX:cam.x,cameraY:cam.y,nodes:nodes.length,links:links.length};}
+  family:function(id){openFamily(id||selected);},
+  getState:function(){return {selected:selected,scale:cam.s,cameraX:cam.x,cameraY:cam.y,nodes:nodes.length,links:links.length,allRecords:data.nodes.length};}
 };
 })();
