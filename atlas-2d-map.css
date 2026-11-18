@@ -154,3 +154,36 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #d0e9
   max-width:610px;margin:23px auto 22px
 }
 #family-siblings{padding-bottom:3px}
+
+/* Two readily accessible family perspectives; no long sibling scroll before children. */
+#family-view-tabs{
+  flex:none;display:grid;grid-template-columns:1fr 1fr;gap:7px;
+  padding:9px 12px;background:#102738;border-bottom:1px solid #365670
+}
+#family-view-tabs button{
+  min-height:48px;padding:9px 8px;border-radius:10px;border:1px solid #587a8e;
+  color:#d8e9f3;background:#193749;font-size:12px;font-weight:720
+}
+#family-view-tabs button[aria-selected="true"]{
+  color:#0c2a3a;border-color:#e0edf6;background:#e0edf6
+}
+#family-own-view,#family-origin-view{width:100%}
+.family-child-groups{max-width:610px;margin:0 auto}
+.family-partner-group{
+  background:#102b3c;border:1px solid #4e7187;border-radius:14px;
+  padding:12px;margin:10px 0 15px
+}
+.family-partner-heading{margin-bottom:12px}
+.family-partner-heading strong{display:block;font-size:15px;color:#f3f9ff;line-height:1.35}
+.family-partner-heading small{display:block;color:#afd0de;font-size:11px;margin-top:5px;line-height:1.4}
+.family-group-children{margin:0;max-width:none}
+.family-group-children .family-person{background:#234456}
+.family-group-count{font-size:11px;color:#b5cad7;margin:10px 2px 0}
+#family-own-view #family-center{margin:7px auto 18px}
+#family-own-view #family-center .family-person{min-height:76px}
+#family-origin-view .family-household-heading{margin-top:5px}
+@media(max-width:375px){
+ #family-view-tabs{padding:7px 9px;gap:6px}
+ #family-view-tabs button{font-size:11px}
+ .family-partner-group{padding:10px}
+}
