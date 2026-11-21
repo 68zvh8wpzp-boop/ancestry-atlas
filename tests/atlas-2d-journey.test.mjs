@@ -4,14 +4,15 @@ import {test} from "node:test";
 import vm from "node:vm";
 const read=path=>readFile(new URL("../"+path,import.meta.url),"utf8");
 
-test("the new map is standalone; Home Screen app and evidence remain untouched",async()=>{
+test("the Home Screen app links to the separate map with a return route",async()=>{
   const [entry,manifest,html,original]=await Promise.all([
     read("index.html"),read("manifest.webmanifest"),
     read("atlas-2d-journey-preview.html"),read("atlas-v3.9.63.html")
   ]);
   assert.match(entry,/atlas-v3\.9\.63\.html/);
   assert.match(JSON.parse(manifest).start_url,/atlas-v3\.9\.63\.html/);
-  assert.ok(!entry.includes("atlas-2d-journey-preview.html"));
+  assert.match(original,/href="\.\/atlas-2d-journey-preview\.html/);
+  assert.match(html,/href="\.\/atlas-v3\.9\.63\.html/);
   assert.ok(!original.includes("atlas-2d-map.js"));
   for(const name of ["atlas-2d-pedigree-snapshot.js","atlas-2d-layout.js","atlas-2d-family.js","atlas-2d-map.js","atlas-2d-map.css"]){
     assert.ok(html.includes(name),"missing asset: "+name);

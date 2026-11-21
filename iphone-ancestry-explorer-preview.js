@@ -2,9 +2,10 @@
    Reads the original Atlas's mapped relationships. Does not mutate genealogical evidence. */
 (function(){
   "use strict";
+  var launch=document.getElementById("startAncestorExplorer");
   var data=window.__ATLAS_DATA;
   if(!data || !Array.isArray(data.nodes) || !Array.isArray(data.edges)){
-    console.error("Explorer preview: Atlas genealogy records unavailable.");
+    console.error("Ancestor Explorer: Atlas genealogy records unavailable.");
     return;
   }
   var byId=new Map(data.nodes.map(function(n){return [n.id,n];}));
@@ -62,8 +63,8 @@
   root.setAttribute("aria-label","iPhone family explorer prototype");
   root.innerHTML=
     '<header class="pp-top">'+
-       '<div class="pp-heading"><div class="pp-title">Explore your ancestry</div><button type="button" class="pp-exit" data-pp-action="exit">Original Atlas ↗</button></div>'+
-       '<p class="pp-subtitle">iPhone experiment · unfold your family without losing your place</p>'+
+       '<div class="pp-heading"><div class="pp-title">Explore your ancestry</div><button type="button" class="pp-exit" data-pp-action="exit">3D Atlas</button></div>'+
+       '<p class="pp-subtitle">Tap an arrow to expand a branch.</p>'+
     '</header>'+
     '<nav class="pp-tabs" aria-label="Explore ancestors">'+
        '<button type="button" class="pp-tab" data-pp-view="explore">Explore tree</button>'+
@@ -71,7 +72,7 @@
        '<button type="button" class="pp-tab" data-pp-view="find">Find person</button>'+
     '</nav>'+
     '<main id="ppMain" class="pp-main" tabindex="-1"></main>'+
-    '<footer class="pp-bottom"><span>Prototype · genealogy unchanged</span><button type="button" data-pp-action="reset">Start from You</button></footer>';
+    '<footer class="pp-bottom"><button type="button" data-pp-action="reset">Start from You</button></footer>';
   document.body.appendChild(root);
   main=root.querySelector("#ppMain");
   returnBtn=document.createElement("button");
@@ -81,9 +82,7 @@
   returnBtn.style.cssText="position:fixed;z-index:12000;top:max(9px,env(safe-area-inset-top));right:10px;min-height:44px;padding:9px 13px;border:1px solid #98bcd2;border-radius:12px;background:#0d3149;color:#eefaff;font:700 13px system-ui";
   returnBtn.hidden=true;document.body.appendChild(returnBtn);
   returnBtn.onclick=function(){showExplorer();};
-  // Keep the original Atlas's landing screen out of the way in this standalone preview.
   var originalLanding=document.getElementById("landing");
-  originalLanding?.classList.add("hidden");
   function save(){
     try{
       localStorage.setItem(key,JSON.stringify({expanded:Array.from(expanded),selected:selected,fanRoot:fanRoot,view:view,visited:visited.slice(-16)}));
@@ -342,8 +341,11 @@
       remember(event.target.dataset.ppFan);render(true);
     }
   });
-  document.body.classList.add("pp-preview-open");
-  render(false);
+  root.hidden=true;
+  launch?.addEventListener("click",showExplorer);
+  if(!launch || new URLSearchParams(location.search).get("view")==="ancestors"){
+    showExplorer();
+  }
   window.AncestryAtlasPedigreePreview={
     open:showExplorer,
     reset:reset,

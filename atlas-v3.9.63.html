@@ -598,6 +598,10 @@ window.addEventListener('error',function(e){
 </style>
 <style>.doc-transcription .transcription-pair{white-space:pre-wrap}</style>
   <link rel="stylesheet" href="mobile-hybrid-navigation-20261117.css?v=20261117-1">
+<link rel="stylesheet" href="iphone-ancestry-explorer-preview.css?v=20261117-1">
+<style>
+.landing-actions .family-map-link{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid #526a7e;border-radius:10px;color:#eef6fc;text-decoration:none;font-size:14px}
+</style>
 </head>
 <body>
 
@@ -639,11 +643,13 @@ window.addEventListener('error',function(e){
     
     
 <div class="landing-actions">
+      <button type="button" id="startAncestorExplorer">Ancestor Explorer</button>
+      <a class="family-map-link" href="./atlas-2d-journey-preview.html?v=20261121-ancestry-navigation-v1">2D Family Map</a>
       <button type="button" id="startExplore" class="primary-action" onclick="document.getElementById('landing').classList.add('hidden');return false;">Explore the Atlas</button>
       <button type="button" id="startStory" class="story-action">Guided Audio-Visual Family Tour</button>
       <button type="button" id="startAlbum">Family Album</button>
     </div>
-    <div class="build-chip">BUILD v3.9.56 • Edward Milo Webb Jr. • 17 October 2026</div><div id="runtimeNotice"></div>
+    <div class="build-chip">BUILD v3.9.63 • Ancestry navigation</div><div id="runtimeNotice"></div>
     <p class="small" style="margin-top:16px">This file can be shared directly and opened in a modern browser. Guided museum tours cover Canada, Webb, Dunbar, and Denmark. Each stop first orients you visibly in the tree, then opens the story. Recorded narration is used only when an approved audio file exists.</p>
   </div>
 </div>
@@ -3262,7 +3268,7 @@ body.tour-active #mobileAncestorRoute,body.aa-overlay-open #mobileAncestorRoute{
     const heading=document.querySelector('aside h1');
     if(heading)heading.textContent='Ancestry Atlas v3.9.56';
     const chip=document.querySelector('.build-chip');
-    if(chip)chip.textContent='BUILD v3.9.56 • Edward Milo Webb Jr. • 17 October 2026';
+    if(chip)chip.textContent='BUILD v3.9.63 • Ancestry navigation';
     const person=new URLSearchParams(location.search).get('person');
     if(person && nodeById.has(person)){
       document.getElementById('landing')?.classList.add('hidden');
@@ -3331,6 +3337,7 @@ window.__EDWARD_JR_BIOGRAPHY={version:'20261017-jr-full-biography-1',wordCount:l
 <script src="webb-anna-scott-namesake-frontier-20261031.js?v=20261031-t137"></script>
 <!-- Isolated iPhone navigation experiment: original canvas tree and data retained -->
 <script src="mobile-hybrid-navigation-20261117.js?v=20261117-2"></script>
+<script src="iphone-ancestry-explorer-preview.js?v=20261121-ancestry-navigation-v1"></script>
 </body>
 </html>
 
