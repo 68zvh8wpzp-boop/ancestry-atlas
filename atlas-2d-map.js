@@ -514,7 +514,7 @@ function openBiography(){
     }catch(error){console.warn("Original Atlas person page navigation",error);}
     document.getElementById("loading-bio").hidden=true;
   };
-  bioFrame.src="./atlas-v3.9.63.html?from=two-dimensional-map&cache=20261117-2";
+  bioFrame.src="./atlas-v3.9.63.html?iphone-refresh=20261121-ancestry-navigation-v1&from=two-dimensional-map";
 }
 document.getElementById("open-family").addEventListener("click",function(){openFamily(selected);});
 document.getElementById("open-biography").addEventListener("click",openBiography);
