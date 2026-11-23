@@ -105,3 +105,27 @@ body:has(#aaPersonFamilySections) #card .relation-title:has(+ #childButtons){dis
 #family-panel .family-person-action:focus-visible{outline:2px solid #efc787;outline-offset:2px}
 #card #aaPersonFamilySections .aa-family-related-track{box-sizing:border-box;width:100%;max-width:100%}
 #card #aaPersonFamilySections .aa-family-related-section h4{font-size:16px}
+
+/* A deliberate illustrated absence-of-photo treatment: antique cameo, not a likeness. */
+.aa-family-photo.aa-photo-unavailable{
+ background:radial-gradient(ellipse at 50% 35%,#365762,#0a2330 77%);
+ border-color:rgba(224,188,122,.64)
+}
+.aa-family-photo .aa-archival-cameo{
+ display:block;width:100%;height:100%;object-fit:cover;object-position:50% 43%;
+ filter:none!important;opacity:1
+}
+#aaPersonFamilySections .aa-family-photo.aa-photo-unavailable,
+#family-panel .aa-family-photo.aa-photo-unavailable{
+ box-shadow:inset 0 0 0 1px rgba(208,176,114,.28)
+}
+.aa-family-photo.aa-photo-small .aa-archival-cameo{
+ object-fit:cover;object-position:center 34%;width:100%;height:100%
+}
+#portraitWrap .portrait-img[src*="atlas-anonymous-cameo-20261123.svg"]{
+ object-fit:cover!important;object-position:50% 35%!important;
+ filter:none!important
+}
+#portraitWrap:has(.portrait-img[src*="atlas-anonymous-cameo-20261123.svg"]) .portrait-caption{
+ color:#d9c9a2!important;font-style:italic
+}

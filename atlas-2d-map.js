@@ -204,6 +204,11 @@ function drawEdges(){
 }
 // Only load preidentified person portraits. Missing images keep a neutral bust icon.
 var portraits=window.ATLAS_2D_PORTRAITS||{},portraitCache=new Map();
+// One decorative anonymous illustration is shared by all unpictured persons.
+// It is NOT a historical likeness or additional photograph.
+var atlasAnonymousCameo=new Image();
+atlasAnonymousCameo.onload=function(){render();};
+atlasAnonymousCameo.src="./assets/atlas-anonymous-cameo-20261123.svg";
 Object.keys(portraits).forEach(function(id){
   var person=portraits[id];
   if(!byId.has(id)||!person?.url)return;
@@ -258,10 +263,19 @@ function drawPortraitOrBust(id,x,y,width,height){
       try{ctx.drawImage(img,x+(width-scaledW)/2,y+(height-scaledH)/2,scaledW,scaledH);}catch(_){}
     }
   }else{
-    // Generic bust outline: absence of a portrait does not imply identity.
-    ctx.strokeStyle="#aec7d5";ctx.lineWidth=Math.max(1,1.6*cam.s);
-    ctx.beginPath();ctx.arc(x+width/2,y+height*.35,width*.19,0,Math.PI*2);ctx.stroke();
-    ctx.beginPath();ctx.ellipse(x+width/2,y+height*.95,width*.37,height*.23,0,Math.PI,2*Math.PI);ctx.stroke();
+    // Museum cameo is decorative only, not a proposed or AI-generated likeness.
+    if(atlasAnonymousCameo.complete&&atlasAnonymousCameo.naturalWidth>0){
+      var iw=atlasAnonymousCameo.naturalWidth,ih=atlasAnonymousCameo.naturalHeight;
+      var scale=Math.max(width/iw,height/ih);
+      ctx.drawImage(atlasAnonymousCameo,x+(width-iw*scale)/2,y+(height-ih*scale)/2,iw*scale,ih*scale);
+    }else{
+      // Offline/failure backup: recognizable medallion, not a faint stick-figure.
+      var mx=x+width/2,my=y+height*.46,r=Math.min(width*.36,height*.43);
+      ctx.fillStyle="#d6bc85";ctx.beginPath();ctx.ellipse(mx,my,r*.85,r,0,0,2*Math.PI);ctx.fill();
+      ctx.fillStyle="#18323d";ctx.beginPath();ctx.ellipse(mx,my,r*.74,r*.89,0,0,2*Math.PI);ctx.fill();
+      ctx.fillStyle="#c6ae83";ctx.beginPath();ctx.ellipse(mx,my-r*.23,r*.24,r*.28,0,0,2*Math.PI);ctx.fill();
+      ctx.beginPath();ctx.ellipse(mx,my+r*.58,r*.53,r*.35,0,Math.PI,2*Math.PI);ctx.fill();
+    }
   }
   ctx.restore();
 }

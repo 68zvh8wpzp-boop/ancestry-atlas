@@ -64,9 +64,9 @@ test("PWA and main globe renderer have fresh installed-app cache tokens",async()
   read("index.html"),read("manifest.webmanifest"),read("atlas-v3.9.63.html"),
   read("atlas-2d-journey-preview.html"),read("atlas-four-doors-20261123.js")
  ]);
- for(const x of [index,JSON.parse(manifest).start_url,main,nav])assert.match(x,/20261123-globe-route-focus-v2/);
- assert.match(tree,/atlas-2d-map\.js\?v=20261123-globe-route-focus-v2/);
- assert.match(main,/atlas-geographic-globe-20261122\.js\?v=20261123-globe-route-focus-v2/);
+ for(const x of [index,JSON.parse(manifest).start_url,main,nav])assert.match(x,/20261123-archival-cameo-v1/);
+ assert.match(tree,/atlas-2d-map\.js\?v=20261123-archival-cameo-v1/);
+ assert.match(main,/atlas-geographic-globe-20261122\.js\?v=20261123-archival-cameo-v1/);
 });
 
 test("origin and destination changes rotate the globe to a spherical midpoint without asserting migration",async()=>{
@@ -85,4 +85,30 @@ test("origin and destination changes rotate the globe to a spherical midpoint wi
  const routes=sandbox.window.AtlasGeoPlaces.build(records.nodes,{}).routes;
  assert.ok(routes.some(r=>r.personId==="charles_albert"&&r.from==="arnstein"&&r.to==="arizona"));
  assert.ok(routes.every(r=>r.claim.includes("migration unverified")));
+});
+
+test("no-photo fallback is an identifiable archival cameo rather than a weak generic bust",async()=>{
+ const [art,familyUI,familyCSS,treeJS,personHTML,treeHTML,mainManifest]=await Promise.all([
+  read("assets/atlas-anonymous-cameo-20261123.svg"),read("atlas-family-portrait-ui-20261123.js"),
+  read("atlas-family-portrait-ui-20261123.css"),read("atlas-2d-map.js"),
+  read("atlas-v3.9.63.html"),read("atlas-2d-journey-preview.html"),
+  read("manifest.webmanifest")
+ ]);
+ assert.match(art,/<svg xmlns="http:\/\/www\.w3\.org\/2000\/svg" viewBox="0 0 320 380"/);
+ assert.match(art,/NO VERIFIED/);
+ assert.match(art,/PORTRAIT/);
+ assert.match(art,/not a historical photograph or depiction/);
+ assert.match(art,/linearGradient/);
+ assert.match(art,/ellipse/);
+ assert.doesNotThrow(()=>new vm.Script(familyUI));
+ assert.doesNotThrow(()=>new vm.Script(treeJS));
+ assert.match(familyUI,/cameo\.src="\.\/assets\/atlas-anonymous-cameo-20261123\.svg"/);
+ assert.match(familyUI,/No verified historical portrait; anonymous illustrated cameo/);
+ assert.match(familyCSS,/\.aa-family-photo \.aa-archival-cameo/);
+ assert.match(treeJS,/atlasAnonymousCameo\.src="\.\/assets\/atlas-anonymous-cameo-20261123\.svg"/);
+ assert.match(personHTML,/function renderPortrait\(n\)/);
+ assert.match(personHTML,/No verified portrait · anonymous archival illustration/);
+ assert.ok(personHTML.includes("assets/atlas-anonymous-cameo-20261123.svg"));
+ assert.match(treeHTML,/atlas-2d-map\.js\?v=20261123-archival-cameo-v1/);
+ assert.match(JSON.parse(mainManifest).start_url,/20261123-archival-cameo-v1/);
 });
