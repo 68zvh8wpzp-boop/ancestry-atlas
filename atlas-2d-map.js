@@ -353,22 +353,29 @@ var searchPanel=document.getElementById("search-panel"),searchInput=document.get
 function normalize(text){return String(text||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();}
 function searchNow(){
   searchResults.replaceChildren();
-  var query=normalize(searchInput.value);
-  var matches=query?data.nodes.filter(function(n){
-    return normalize([n.name,n.years,n.place,n.branch].join(" ")).includes(query);
-  }).sort(function(a,b){
-    var aa=normalize(a.name),bb=normalize(b.name);
-    var pa=aa===query?0:aa.startsWith(query)?1:aa.includes(query)?2:3;
-    var pb=bb===query?0:bb.startsWith(query)?1:bb.includes(query)?2:3;
-    return pa-pb||a.name.localeCompare(b.name);
-  }):[];
-  document.getElementById("search-counter").textContent=query?matches.length+" matches in all "+data.nodes.length+" Atlas records":"Search all "+data.nodes.length+" Atlas records, or close this panel to explore the connected tree.";
-  matches.slice(0,60).forEach(function(n){
-    var b=document.createElement("button");b.className="search-item";b.type="button";
+  var q=String(searchInput.value||"").trim();
+  var result=q&&window.AtlasPersonSearch?
+    window.AtlasPersonSearch.search(data.nodes,q,60):null;
+  var matches=result?result.matches:q?data.nodes.filter(function(n){
+    return normalize([n.name,n.years,n.place,n.branch].join(" ")).includes(normalize(q));
+  }).map(function(person){return {person:person,approximate:false};}):[];
+  var total=result?result.total:matches.length;
+  document.getElementById("search-counter").textContent=q?
+    total+" matching people in "+data.nodes.length+" Atlas records"+
+      (result&&result.approximateCount?" · "+result.approximateCount+" possible spelling matches":""):
+    "Search all "+data.nodes.length+" Atlas records, or close this panel to explore the connected tree.";
+  matches.slice(0,60).forEach(function(hit){
+    var n=hit.person,b=document.createElement("button");b.className="search-item";b.type="button";
     var strong=document.createElement("strong");strong.textContent=n.name;b.appendChild(strong);
-    var small=document.createElement("small");small.textContent=[n.years,n.branch,byId.has(n.id)?"On the direct tree":"Unlinked or collateral record"].filter(Boolean).join(" · ");
+    var small=document.createElement("small");
+    small.textContent=[hit.approximate?"Possible spelling match — verify identity":null,
+      n.years,n.branch,byId.has(n.id)?"On the direct tree":
+      n.confidence==="frontier"?"Research frontier":"Unlinked or collateral record"].filter(Boolean).join(" · ");
     b.appendChild(small);
-    b.onclick=function(){searchPanel.hidden=true;searchInput.blur();if(byId.has(n.id))focus(n.id,true,true);else openFamily(n.id);};
+    b.onclick=function(){
+      searchPanel.hidden=true;searchInput.blur();
+      if(byId.has(n.id))focus(n.id,true,true);else openFamily(n.id);
+    };
     searchResults.appendChild(b);
   });
 }
