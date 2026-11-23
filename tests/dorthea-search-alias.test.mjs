@@ -44,7 +44,7 @@ test('alias data and shared search implementation survive every app entry point'
     read('iphone-ancestry-explorer-preview.js'),
     read('atlas-person-search.js')
   ]);
-  assert.equal((html.match(/AtlasPersonSearch\\.search\\(DATA\\.nodes/g)||[]).length,2);
+  assert.equal((html.split('AtlasPersonSearch.search(DATA.nodes').length-1),2);
   for(const source of [map,hybrid,explorer])
     assert.ok(source.includes('AtlasPersonSearch.search('));
   assert.ok(library.includes('function closeScore('));
