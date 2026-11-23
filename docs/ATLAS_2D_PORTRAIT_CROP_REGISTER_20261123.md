@@ -22,7 +22,7 @@ Crop coordinates in `atlas-2d-portrait-index-20261123.js` are fractional `[left,
 The original 25-name Tree layout remains unchanged. Alternative sources are kept **per named person** and used only if the primary image cannot load:
 - Jay: family photograph with Marion, c. 1941.
 - Marian Skinner: 1970 anniversary photograph with Charles.
-- Jonathan Henry Webb: **1891 photograph with his mother Sarah**, identified by the published *Pioneer Women of Arizona* caption listing the children **left-to-right: Clark, Henry, Burr, Owen, Catherine**. Reference: https://rsc.byu.edu/pioneer-women-arizona/w .
+- Jonathan Henry Webb: **1891 photograph with his mother Sarah**, identified by the published *Pioneer Women of Arizona* source caption listing the children **left-to-right: Clark, Henry, Burr, Owen, Catherine**. Reference: https://rsc.byu.edu/pioneer-women-arizona/w .
 - Della Webb: full original 1947 photograph with daughters Zola, Thora, Gwen and Louise; contributor identifies Della third from the left.
 - Marion: older individual obituary portrait if the named 1941 family photograph fails.
 
