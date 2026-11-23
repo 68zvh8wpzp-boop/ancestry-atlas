@@ -117,7 +117,11 @@
     if(!results)return;
     results.replaceChildren();
     var q=clean(query);
-    var rows=atlas.nodes.filter(matchesFilter).map(function(n){return {n:n,score:searchScore(n,q),path:routeTo(n.id)};})
+    var rows=atlas.nodes.filter(matchesFilter).map(function(n){
+        var match=q&&window.AtlasPersonSearch?window.AtlasPersonSearch.score(n,q):null;
+        return {n:n,score:q&&window.AtlasPersonSearch?(match?match.score:99):searchScore(n,q),
+          approximate:!!match?.approximate,path:routeTo(n.id)};
+      })
       .filter(function(x){return x.score<99;})
       .sort(function(a,b){
         if(a.score!==b.score)return a.score-b.score;
