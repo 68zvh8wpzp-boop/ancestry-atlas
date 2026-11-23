@@ -19,7 +19,7 @@ test("Atlas PWA and 2D navigator receive the new script revision",async()=>{
  read("atlas-v3.9.63.html"),read("atlas-2d-journey-preview.html"),
  read("index.html"),read("manifest.webmanifest")
  ]);
- for(const html of [main,map])assert.match(html,/atlas-navigation-20261122\.js\?v=20261122-atlas-nav-v5-history-context/);
- assert.match(index,/20261122-atlas-nav-v5-history-context/);
- assert.match(JSON.parse(manifest).start_url,/20261122-atlas-nav-v5-history-context/);
+ for(const html of [main,map])assert.match(html,/atlas-navigation-20261122\.js\?v=20261122-atlas-nav-v6-globe/);
+ assert.match(index,/20261122-atlas-nav-v6-globe/);
+ assert.match(JSON.parse(manifest).start_url,/20261122-atlas-nav-v6-globe/);
 });
