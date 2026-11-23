@@ -54,6 +54,9 @@ jobs:
       - name: Verify 2-D Atlas source and mobile tree journey
         run: node --test tests/atlas-2d-journey.test.mjs
 
+      - name: Verify unified photo doors, globe journeys and person carousels
+        run: node --test tests/atlas-unified-home-family-globe.test.mjs tests/atlas-museum-navigation.test.mjs tests/atlas-navigation-rationalization.test.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
