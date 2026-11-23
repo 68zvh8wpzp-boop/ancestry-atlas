@@ -80,3 +80,15 @@
  #aaSimpleHome .aa-simple-explain p{grid-template-columns:53px 1fr;gap:9px;font-size:12.5px}
  #aaSimpleHome .aa-simple-door span:last-child{font-size:12px}
 }
+
+/* Retire competing mobile docks, controls and the old legacy launch layer. */
+body.aa-four-door-shell #landing,
+body.aa-four-door-shell .family-toolbar,
+body.aa-four-door-shell #mobileTreeDock,
+body.aa-four-door-shell #mobileHybridNav,
+body.aa-four-door-shell #pedigreePrototype,
+body.aa-four-door-shell #ppReturnToExplorer,
+body.aa-four-door-shell #controls,
+body.aa-four-door-shell #controlsToggle,
+body.aa-four-door-shell #mobilePersonSearch,
+body.aa-four-door-shell #timeline{display:none!important}
