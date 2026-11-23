@@ -1,0 +1,95 @@
+/* Ancestry Atlas, four-door opening view (2026-11-23).
+   Only Tree, People, Globe and Stories are primary destinations. */
+#aaSimpleHome[hidden],#aaSimplePeople[hidden],#aaSimpleGlobe[hidden],
+#aaSimpleHeader[hidden],#aaSimpleProfile[hidden]{display:none!important}
+#aaSimpleHome,#aaSimplePeople,#aaSimpleGlobe,#aaSimpleProfile{
+ position:fixed;inset:0;z-index:23000;box-sizing:border-box;
+ background:#071724;color:#e9f4fc;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
+}
+#aaSimpleHome{overflow-y:auto;overscroll-behavior:contain;padding:calc(20px + env(safe-area-inset-top)) 17px calc(40px + env(safe-area-inset-bottom))}
+#aaSimpleHome .aa-simple-wrap{max-width:750px;margin:0 auto}
+#aaSimpleHome .aa-simple-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+#aaSimpleHome .aa-simple-kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#a2bdcc;text-align:center;margin:3px 0 5px}
+#aaSimpleHome h1{font:650 clamp(25px,6vw,38px)/1.2 system-ui;margin:0;text-align:center;letter-spacing:-.035em;color:#eef7fd}
+#aaSimpleHome .aa-simple-intro{text-align:center;color:#aac3d2;font-size:13px;line-height:1.45;margin:9px auto 21px;max-width:40ch}
+#aaSimpleHome .aa-simple-doors{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:4px;row-gap:7px;
+ max-width:620px;margin:0 auto;padding:7px 0 17px
+}
+#aaSimpleHome .aa-simple-door{
+ display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px;
+ border:0;background:transparent;color:#ecf6fc;padding:8px 1px 12px;margin:0;border-radius:14px;
+ min-height:100px;text-align:center;cursor:pointer;font:700 13px system-ui
+}
+#aaSimpleHome .aa-simple-door:hover,#aaSimpleHome .aa-simple-door:focus-visible{background:#133148;outline:2px solid #abcfe6;outline-offset:0}
+#aaSimpleHome .aa-simple-icon{
+ display:flex;align-items:center;justify-content:center;width:clamp(55px,14vw,82px);
+ height:clamp(55px,14vw,82px);border-radius:50%;
+ border:1.5px solid #7197b0;background:#153247
+}
+#aaSimpleHome .aa-simple-door svg{width:61%;height:61%;stroke:#e1f2fa;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;fill:none}
+#aaSimpleHome .aa-simple-door span:last-child{font-size:13px;color:#eff8ff}
+#aaSimpleHome .aa-simple-explain{display:grid;grid-template-columns:1fr;gap:0;max-width:590px;margin:6px auto 0}
+#aaSimpleHome .aa-simple-explain p{
+ display:grid;grid-template-columns:62px 1fr;align-items:baseline;gap:12px;
+ padding:13px 2px;margin:0;border-bottom:1px solid rgba(128,164,184,.2);font-size:13px;line-height:1.55;color:#bbd0df
+}
+#aaSimpleHome .aa-simple-explain p strong{color:#f0f8fc;font-weight:650}
+#aaSimpleHome .aa-simple-explain p:last-child{border-bottom:0}
+#aaSimpleHeader{
+ position:fixed;left:0;right:0;top:0;z-index:23010;display:flex;align-items:center;
+ gap:16px;padding:calc(11px + env(safe-area-inset-top)) 15px 10px;
+ min-height:63px;background:#0a2030;border-bottom:1px solid #38586f;
+ font:600 17px system-ui;color:#eef8fc
+}
+#aaSimpleHeader button,#aaSimpleProfileBack{
+ background:#1b4057;border:1px solid #7299b4;color:#e8f5fb;
+ border-radius:11px;padding:8px 12px;margin:0;min-height:42px;font:700 13px system-ui
+}
+#aaSimpleHeader strong{font-size:17px}
+#aaSimplePeople,#aaSimpleGlobe{overflow:auto;inset:0;z-index:23000;
+ padding:calc(82px + env(safe-area-inset-top)) 14px calc(30px + env(safe-area-inset-bottom))}
+#aaSimplePeople .aa-simple-main{max-width:680px;margin:0 auto}
+#aaSimplePeople h2{font-size:20px;margin:0 0 8px;color:#f1f8fd}
+#aaSimplePeople .aa-simple-description{font-size:13px;color:#b0cad9;line-height:1.5;margin:0 0 13px}
+#aaSimplePeople input{
+ width:100%;border:1px solid #7495ac;border-radius:13px;padding:14px 12px;
+ background:#0b293c;color:#edf7fe;font:16px system-ui;outline-offset:2px
+}
+#aaSimplePeople .aa-simple-count{font-size:12px;margin:12px 2px;color:#b4cbdb}
+#aaSimplePeople .aa-simple-results{display:flex;flex-direction:column;gap:7px;padding-bottom:25px}
+#aaSimplePeople .aa-simple-person{
+ width:100%;margin:0;text-align:left;border:1px solid #436d86;border-radius:12px;
+ padding:12px 14px;background:#153447;color:#edf8fd;display:flex;flex-direction:column;gap:4px
+}
+#aaSimplePeople .aa-simple-person strong{font-size:15px;font-weight:690}
+#aaSimplePeople .aa-simple-person small{font-size:12px;line-height:1.45;color:#bdd0dc}
+#aaSimplePeople .aa-simple-person:focus-visible,#aaSimpleHeader button:focus-visible,
+#aaSimplePeople input:focus-visible{outline:3px solid #f8e4ab;outline-offset:2px}
+#aaSimpleGlobe{padding:calc(76px + env(safe-area-inset-top)) 12px 25px}
+#aaSimpleGlobe .aa-simple-globe-wrap{max-width:900px;margin:0 auto}
+#aaSimpleGlobe .aa-simple-globe-wrap>p{font-size:12px;color:#bfd1df;line-height:1.45;margin:0 0 10px}
+#aaSimpleGlobe #aaGeoGlobe{margin:0 auto}
+#aaSimpleGlobe .aa-geo-canvas-wrap{height:clamp(260px,52vw,440px)}
+#aaSimpleProfile{padding:calc(120px + env(safe-area-inset-top)) 0 0}
+#aaSimpleProfile iframe{width:100%;height:calc(100% - 120px - env(safe-area-inset-top));border:0;background:#07131f}
+#aaSimpleProfile .aa-simple-profile-head{position:absolute;top:calc(63px + env(safe-area-inset-top));left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:10px 15px;color:#e6f1f8;background:#10293b;border-bottom:1px solid #375b70;gap:12px}
+#aaSimpleProfile .aa-simple-profile-head strong{font-size:14px;max-width:60vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#aaSimpleProfile .aa-simple-profile-head button{margin:0;min-height:36px;padding:7px 10px;border-radius:9px;background:#1c3f53;border:1px solid #6588a1;color:#f1f8fd;font-size:12px}
+@media(max-width:420px){
+ #aaSimpleHome{padding-left:12px;padding-right:12px}
+ #aaSimpleHome .aa-simple-explain p{grid-template-columns:53px 1fr;gap:9px;font-size:12.5px}
+ #aaSimpleHome .aa-simple-door span:last-child{font-size:12px}
+}
+
+/* Retire competing mobile docks, controls and the old legacy launch layer. */
+body.aa-four-door-shell #landing,
+body.aa-four-door-shell .family-toolbar,
+body.aa-four-door-shell #mobileTreeDock,
+body.aa-four-door-shell #mobileHybridNav,
+body.aa-four-door-shell #pedigreePrototype,
+body.aa-four-door-shell #ppReturnToExplorer,
+body.aa-four-door-shell #controls,
+body.aa-four-door-shell #controlsToggle,
+body.aa-four-door-shell #mobilePersonSearch,
+body.aa-four-door-shell #timeline{display:none!important}

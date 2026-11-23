@@ -187,6 +187,36 @@ function drawEdges(){
     }
   }
 }
+// Only load preidentified person portraits. Missing images keep a neutral bust icon.
+var portraits=window.ATLAS_2D_PORTRAITS||{},portraitCache=new Map();
+Object.keys(portraits).forEach(function(id){
+  if(!byId.has(id)||!portraits[id]?.url)return;
+  var img=new Image();
+  var state={image:img,loaded:false};
+  portraitCache.set(id,state);
+  img.onload=function(){state.loaded=img.naturalWidth>0;render();};
+  img.onerror=function(){state.loaded=false;};
+  img.src=portraits[id].url;
+});
+function drawPortraitOrBust(id,x,y,width,height){
+  ctx.save();
+  roundRect(ctx,x,y,width,height,Math.max(3,5*cam.s));
+  ctx.clip();
+  ctx.fillStyle="#173244";ctx.fillRect(x,y,width,height);
+  var photo=portraitCache.get(id);
+  if(photo?.loaded){
+    var img=photo.image;
+    var ratio=Math.max(width/img.naturalWidth,height/img.naturalHeight);
+    var iw=img.naturalWidth*ratio,ih=img.naturalHeight*ratio;
+    try{ctx.drawImage(img,x+(width-iw)/2,y+(height-ih)/2,iw,ih);}catch(_){}
+  }else{
+    // Generic bust outline: absence of a portrait does not imply identity.
+    ctx.strokeStyle="#aec7d5";ctx.lineWidth=Math.max(1,1.6*cam.s);
+    ctx.beginPath();ctx.arc(x+width/2,y+height*.35,width*.19,0,Math.PI*2);ctx.stroke();
+    ctx.beginPath();ctx.ellipse(x+width/2,y+height*.95,width*.37,height*.23,0,Math.PI,2*Math.PI);ctx.stroke();
+  }
+  ctx.restore();
+}
 function drawNodes(){
   var s=cam.s;
   for(var node of nodes){
@@ -215,10 +245,12 @@ function drawNodes(){
     ctx.textBaseline="middle";ctx.textAlign="left";ctx.fillStyle="#eff6fb";
     var textX=p.x-halfW+14*s;
     if(full){
+      drawPortraitOrBust(node.id,p.x-halfW+10*s,p.y-halfH+8*s,39*s,rh-16*s);
+      textX=p.x-halfW+55*s;
       var titleFont="700 "+Math.max(11,15*s)+"px system-ui";
       var detailFont="500 "+Math.max(10,11.6*s)+"px system-ui";
       var display=node.id==="you"?"You":node.name;
-      ctx.font=titleFont;ctx.fillText(shorten(display,rw-25*s,titleFont),textX,p.y-9*s);
+      ctx.font=titleFont;ctx.fillText(shorten(display,rw-67*s,titleFont),textX,p.y-9*s);
       ctx.fillStyle="#aec9d8";ctx.font=detailFont;
       var sibNum=siblingCounts.get(node.id)||0;
       var badgeText=sibNum?sibNum+" sib":"";
@@ -228,7 +260,7 @@ function drawNodes(){
       // Reserve room within the existing node card; don't widen its hit target
       // or alter the spacing between ancestral generations.
       ctx.font=detailFont;
-      ctx.fillText(shorten([node.years,node.branch].filter(Boolean).join(" · "),rw-25*s-(sibNum?badgeW+8*s:0),detailFont),textX,p.y+13*s);
+      ctx.fillText(shorten([node.years,node.branch].filter(Boolean).join(" · "),rw-67*s-(sibNum?badgeW+8*s:0),detailFont),textX,p.y+13*s);
       if(sibNum){
         var badgeH=Math.max(16,17*s),bx=p.x+halfW-badgeW-7*s,by=p.y+halfH-badgeH-5*s;
         roundRect(ctx,bx,by,badgeW,badgeH,Math.min(7,badgeH/2));
@@ -532,7 +564,7 @@ function openBiography(){
     }catch(error){console.warn("Original Atlas person page navigation",error);}
     document.getElementById("loading-bio").hidden=true;
   };
-  bioFrame.src="./atlas-v3.9.63.html?iphone-refresh=20261122-atlas-nav-v4-person-context&from=two-dimensional-map";
+  bioFrame.src="./atlas-v3.9.63.html?iphone-refresh=20261123-four-doors-v1&from=two-dimensional-map";
 }
 document.getElementById("open-family").addEventListener("click",function(){openFamily(selected);});
 document.getElementById("open-biography").addEventListener("click",openBiography);

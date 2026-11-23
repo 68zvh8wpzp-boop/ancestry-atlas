@@ -1,0 +1,16 @@
+/* Visual cleanup of the existing 2D ancestor map. */
+#aaTreeReturnHome{
+ display:inline-flex!important;align-items:center;justify-content:center;
+ text-decoration:none;white-space:nowrap;font-size:12px;font-weight:700;
+ min-height:42px
+}
+/* Global person finding now has its own Bust/People doorway on Home. */
+#show-search{display:none!important}
+/* Use a spare visual channel for portraits without removing map names or evidence. */
+#topbar .toolbar{gap:5px}
+@media(max-width:390px){
+ #topbar{gap:5px;padding-left:8px;padding-right:8px}
+ #brand h1{font-size:17px}
+ #topbar .tool-btn{min-width:36px;padding:7px 7px;font-size:12px}
+ #mini-shell{opacity:.75}
+}
