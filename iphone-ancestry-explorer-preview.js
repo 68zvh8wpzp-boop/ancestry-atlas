@@ -246,22 +246,26 @@
   }
   function matchList(){
     var q=norm(term);
-    if(!q)return [];
-    return data.nodes.filter(function(n){return personMatches(n,q);}).sort(function(a,b){
-      var an=norm(a.name),bn=norm(b.name);
-      var as=an===q?0:an.startsWith(q)?1:an.includes(q)?2:3;
-      var bs=bn===q?0:bn.startsWith(q)?1:bn.includes(q)?2:3;
-      if(as!==bs)return as-bs;
-      return a.name.localeCompare(b.name);
-    }).slice(0,55);
+    if(!q)return {matches:[],total:0,approximateCount:0};
+    if(window.AtlasPersonSearch)return window.AtlasPersonSearch.search(data.nodes,term,55);
+    var rows=data.nodes.filter(function(n){return personMatches(n,q);})
+      .map(function(n){return {person:n,approximate:false,reason:"Exact search"};})
+      .sort(function(a,b){return a.person.name.localeCompare(b.person.name);}).slice(0,55);
+    return {matches:rows,total:rows.length,approximateCount:0};
   }
   function searchHitsHtml(){
-    if(!term.trim())return '<div class="pp-empty">Search a name, surname, location, or year. Then choose a result to jump into its place in the pedigree.</div>';
-    var hits=matchList(),h='<p>'+hits.length+(hits.length===55?"+":"")+' matching people</p>';
-    if(!hits.length)return h+'<div class="pp-empty">No matches. Try another spelling or search a branch name.</div>';
-    hits.forEach(function(n){
+    if(!term.trim())return '<div class="pp-empty">Search a name, surname, location, or year. Close spellings are suggestions, not proven identities.</div>';
+    var result=matchList(),hits=result.matches;
+    var h='<p>'+result.total+' matching people'+(result.approximateCount?' · '+result.approximateCount+' possible spelling matches':'')+'</p>';
+    if(!hits.length)return h+'<div class="pp-empty">No matching person in the current Atlas. Try a surname, variant spelling or a branch name.</div>';
+    hits.forEach(function(hit){
+      var n=hit.person;
+      var status=n.confidence==="frontier"?"Unproven research frontier":
+        n.confidence==="provisional"?"Provisional identification":
+        n.collateral?"Collateral relative":degree(n.id);
+      var hint=hit.approximate?"Possible spelling match — verify identity":"";
       h+='<button type="button" class="pp-list-button" data-pp-follow="'+safe(n.id)+'"><strong>'+safe(n.name)+'</strong>'+
-         '<small>'+safe([degree(n.id),n.years,n.branch,n.place].filter(Boolean).join(" · "))+'</small></button>';
+         '<small>'+safe([hint,status,n.years,n.branch,n.place].filter(Boolean).join(" · "))+'</small></button>';
     });
     return h;
   }
@@ -284,7 +288,11 @@
   function expandTo(id){
     var path=pathFromYou(id);
     if(path){path.slice(0,-1).forEach(function(p){expanded.add(p);});}
-    remember(id);view="explore";render(false);
+    remember(id);
+    // A collateral or unlinked research candidate cannot appear on the direct pedigree.
+    // Keep their result visible rather than scrolling to a non-existent tree row.
+    if(!path){view="find";term=personName(id);render(false);return;}
+    view="explore";render(false);
     if(path){
       requestAnimationFrame(function(){
         var row=Array.from(root.querySelectorAll("[data-pp-select]")).find(function(el){return el.dataset.ppSelect===id && el.closest(".pp-row");});
