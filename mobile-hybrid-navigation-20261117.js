@@ -91,11 +91,9 @@
     return s.includes(filter);
   }
   function searchScore(n,q){
-    var name=clean(n.name),rest=clean([n.years,n.place,n.branch,n.surnameHypothesis,n.aliases,n.alternateNames].join(" "));
     if(!q)return 10;
-    if(name===q)return 0;if(name.startsWith(q))return 1;if(name.includes(q))return 2;
-    if(rest.includes(q))return 3;
-    return 99;
+    var result=window.AtlasPersonSearch.match(n,q);
+    return result?result.score:99;
   }
   function renderPeople(){
     title.textContent="Find people";subtitle.textContent="Search first, then explore one family at a time.";
@@ -127,7 +125,7 @@
       });
     put(results,element("div","mh-count",rows.length+" people found"));
     if(!rows.length)put(results,element("div","mh-empty","No matching person. Try a different name or clear the branch filter."));
-    rows.slice(0,shown).forEach(function(x){put(results,personButton(x.n.id));});
+    rows.slice(0,shown).forEach(function(x){var m=q?window.AtlasPersonSearch.match(x.n,q):null;put(results,personButton(x.n.id,m&&m.label?m.label+" · "+degreeText(x.n.id):undefined));});
     if(rows.length>shown){
       var more=put(results,element("button","mh-action","Show more people"));more.type="button";more.dataset.mhAction="more";
       more.style.width="100%";more.style.marginTop="10px";
