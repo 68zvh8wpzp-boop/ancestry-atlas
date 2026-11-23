@@ -20,18 +20,25 @@ permissions:
   contents: read
 
 jobs:
-  search-qa:
-    name: Verify search, pedigree and package
+  close-match:
+    name: Search and navigation regressions
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - name: Node version
         run: node --version
-      - name: Atlas search and navigation regressions
+      - name: Atlas name search and navigation regressions
         run: |
           node --test tests/atlas-person-close-match.test.mjs tests/atlas-2d-journey.test.mjs tests/mobile-hybrid-navigation.test.mjs tests/iphone-explorer-preview.test.mjs
+
+  legacy-integrity:
+    name: Existing package integrity baseline (independent release gate)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
       - name: Install image validation dependency
         run: python3 -m pip install --user Pillow
-      - name: Whole-package integrity checks
+      - name: Full-package integrity audit
         run: node verify-package.mjs
