@@ -1,0 +1,35 @@
+import assert from "node:assert/strict";
+import {test} from "node:test";
+import {readFile} from "node:fs/promises";
+import {createHash} from "node:crypto";
+const read=path=>readFile(new URL("../"+path,import.meta.url));
+const path="assets/charles-godfrey/charles-g-brenay-death-1942.jpg";
+test("A439 existing Michigan 1942 original full certificate remains byte identical",async()=>{
+ const b=await read(path);
+ assert.equal(b.length,746771);
+ assert.equal(createHash("sha256").update(b).digest("hex"),"46533cb4a3421bfecedd8ba7fedb61edf6a712d0eb9e37fa9f6fd3f5552ec11c");
+});
+test("A439 Charles G person page preserves death parent Unknown fields and 1901/1893 conflicts",async()=>{
+ const html=(await read("atlas-v3.9.63.html")).toString("utf8");
+ const begin=html.indexOf("const DATA = "),end=html.indexOf(";\n",begin);
+ const data=JSON.parse(html.slice(begin+"const DATA = ".length,end));
+ assert.equal(data.nodes.length,106);
+ assert.equal(data.edges.length,108);
+ const person=data.nodes.find(n=>n.id==="charles_godfrey");
+ assert.ok(person);
+ const docs=(person.evidence||[]).filter(x=>x.full===path);
+ assert.equal(docs.length,1);
+ const x=docs[0];
+ assert.equal(x.thumb,path);
+ assert.equal(x.originalAsset,path);
+ assert.equal(x.sourceLevel,"original");
+ assert.match(x.sourceReference,/SHA-256 46533cb4a3421bfecedd8ba7fedb61edf6a712d0eb9e37fa9f6fd3f5552ec11c/);
+ assert.match(x.transcription,/father: Unknown/);
+ assert.match(x.transcription,/mother: Unknown/);
+ assert.match(x.summary,/does not name his son Albert/);
+ assert.match(person.note,/both father and mother as Unknown/);
+ assert.match(person.note,/conflicting 1901 census birth date/);
+ assert.ok(person.evidence.some(v=>v.full==="assets/charles-godfrey/charles-ida-marriage-1893.jpg"));
+ assert.ok(person.evidence.some(v=>v.full==="assets/charles_albert_brunne_1901_census_full.jpg"));
+ assert.equal(data.nodes.filter(n=>(n.evidence||[]).some(y=>y.full===path)).length,1);
+});
