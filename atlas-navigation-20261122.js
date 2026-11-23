@@ -27,7 +27,7 @@ function currentPerson(){
 }
 function mainUrl(section){
   var url=main+"?section="+encodeURIComponent(section)+"&nav=20261122-v4-person-context";
-  var id=currentPerson();if(id&&section==="family")url+="&person="+encodeURIComponent(id);
+  var id=currentPerson();if(id)url+="&person="+encodeURIComponent(id);
   return url;
 }
 function active(section){
@@ -237,8 +237,14 @@ window.AncestryAtlasNavigation={
   current: function(){return nav.querySelector('[aria-current="page"]')?.dataset.aaSection||"family";}
 };
 var entry=query.get("section")||"family";
+var incomingPerson=query.get("person");
+// Retain the person while visiting Stories or Places so that a later Family tap
+// returns to the same ancestor, even after a page-level route change.
+if(incomingPerson&&window.AncestryAtlasPedigreePreview?.selectPerson){
+  window.AncestryAtlasPedigreePreview.selectPerson(incomingPerson,false);
+}
 if(query.get("view")==="3d"){show3d();}
 else if(entry==="places"){showPlaces();}
 else if(entry==="stories"){showStories();}
-else showFamily(query.get("person"));
+else showFamily(incomingPerson);
 })();
