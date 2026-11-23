@@ -248,3 +248,63 @@ body.aa-four-door-shell #storyModal .story-shell{max-height:calc(100dvh - 97px -
  #aaSimpleGlobe #aaGeoGlobe .aa-geo-tools{gap:2px 8px}
  #aaSimpleGlobe #aaGeoGlobe .aa-geo-count{width:100%;margin:0;text-align:center}
 }
+
+/* Four photographic entry doors: one caption per destination, no duplicate list. */
+#aaSimpleHome .aa-museum-masthead{margin-bottom:12px}
+#aaSimpleHome .aa-simple-doors{
+ display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));
+ gap:12px!important;max-width:950px!important;margin:26px auto 0!important
+}
+#aaSimpleHome .aa-simple-door{
+ display:flex!important;flex-direction:column!important;align-items:stretch!important;
+ justify-content:flex-start!important;gap:0!important;
+ height:auto;min-height:0!important;overflow:hidden!important;
+ padding:0 0 16px!important;border-radius:13px!important;
+ background:#102934!important
+}
+#aaSimpleHome .aa-simple-door:before{inset:5px;border-radius:8px;z-index:3}
+#aaSimpleHome .aa-simple-door .aa-cover{
+ width:100%;height:clamp(158px,22vw,220px);min-height:0;flex:none;position:relative;
+ background:linear-gradient(140deg,#173c48,#081c29);overflow:hidden;
+ border-bottom:1px solid rgba(214,180,125,.3)
+}
+#aaSimpleHome .aa-cover img{display:block;width:100%;height:100%;object-fit:cover;filter:sepia(.29) saturate(.83) contrast(1.07)}
+#aaSimpleHome .aa-cover:after{position:absolute;inset:0;content:"";pointer-events:none;background:linear-gradient(0deg,rgba(3,17,25,.22),transparent 55%)}
+#aaSimpleHome .aa-tree-preview .aa-photo{
+ position:absolute;width:49%;height:66%;padding:3px;
+ background:#d9c6a0;border:1px solid #e7d6b0;box-shadow:0 6px 17px #06131c;
+ transform:rotate(-6deg);z-index:2
+}
+#aaSimpleHome .aa-tree-preview .aa-photo-first{top:12%;left:6%;height:63%}
+#aaSimpleHome .aa-tree-preview .aa-photo-second{top:21%;right:6%;transform:rotate(6deg);height:58%}
+#aaSimpleHome .aa-tree-preview .aa-photo-third{bottom:2%;left:29%;width:42%;height:47%;transform:rotate(0)}
+#aaSimpleHome .aa-tree-preview .aa-photo img{border:1px solid #756c58}
+#aaSimpleHome .aa-tree-preview .aa-tree-join{position:absolute;top:0;left:50%;height:100%;border-left:2px solid rgba(201,165,105,.8)}
+#aaSimpleHome .aa-people-preview img{object-position:50% 22%;filter:sepia(.22) contrast(1.07)}
+#aaSimpleHome .aa-people-preview .aa-photo-frame{position:absolute;inset:12px 19px;border:2px solid rgba(221,190,131,.62);box-shadow:inset 0 0 0 5px rgba(16,34,42,.23)}
+#aaSimpleHome .aa-map-preview{background:radial-gradient(ellipse at 50% 43%,#2b5d69,#08242f)}
+#aaSimpleHome .aa-map-preview canvas{display:block;position:absolute;width:100%;height:100%;inset:0;object-fit:contain}
+#aaSimpleHome .aa-stories-preview img{object-position:center 30%;filter:sepia(.16) contrast(1.07)}
+#aaSimpleHome .aa-reel-play{
+ position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+ width:50px;height:50px;border-radius:50%;background:rgba(5,22,32,.79);
+ border:1px solid #e4c38b;color:#efdfbc;font:20px/50px Georgia,serif;text-align:center;z-index:2
+}
+#aaSimpleHome .aa-simple-door .aa-door-label{
+ display:block;font:500 clamp(20px,3vw,27px)/1.17 Georgia,serif!important;
+ color:#f6e4c3!important;text-align:center;margin:16px 6px 4px!important
+}
+#aaSimpleHome .aa-simple-door .aa-door-description{
+ display:block;font:italic 12px/1.4 Georgia,serif!important;
+ color:#b6cac8!important;text-align:center;margin:0 9px!important;letter-spacing:0!important
+}
+#aaSimpleHome .aa-simple-explain{display:none!important}
+#aaSimpleHome .aa-museum-footer{margin-top:26px}
+@media(max-width:670px){
+ #aaSimpleHome .aa-simple-doors{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:11px!important;margin-top:17px!important}
+ #aaSimpleHome .aa-simple-door{padding:0 0 13px!important;min-height:0!important;border-radius:12px!important}
+ #aaSimpleHome .aa-simple-door .aa-cover{height:clamp(130px,33vw,194px)}
+ #aaSimpleHome .aa-simple-door .aa-door-label{font-size:21px!important;margin:12px 5px 3px!important}
+ #aaSimpleHome .aa-simple-door .aa-door-description{font-size:11px!important;margin:0 4px!important}
+ #aaSimpleHome .aa-museum-footer{margin-top:20px}
+}
