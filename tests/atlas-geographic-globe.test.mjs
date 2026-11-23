@@ -7,7 +7,7 @@ async function load(){
  const [original,modelJS,landJS,renderer,main,nav]=await Promise.all([
  read("atlas-v3.9.63.html"),read("atlas-geo-places-20261122.js"),
  read("atlas-world-land-110m.js"),read("atlas-geographic-globe-20261122.js"),
- read("atlas-v3.9.63.html"),read("atlas-navigation-20261122.js")
+ read("atlas-v3.9.63.html"),read("atlas-four-doors-20261123.js")
  ]);
  const i=original.indexOf("const DATA = "),j=original.indexOf(";\n",i);
  assert.ok(i>=0&&j>i);
@@ -29,9 +29,9 @@ test("offline globe loads real Natural Earth public-domain land polygons",async(
  for(const filename of ["atlas-world-land-110m.js","atlas-geo-places-20261122.js","atlas-geographic-globe-20261122.js"]){
    assert.ok(main.includes(filename),filename+" must be loaded from local Atlas files");
  }
- assert.ok(main.indexOf("atlas-geographic-globe-20261122.js")<main.indexOf("atlas-navigation-20261122.js"));
- assert.match(nav,/AtlasGeoGlobe\?\.create\(places,data/);
- assert.match(nav,/geographicGlobe\.resize\(\)/);
+ assert.ok(main.indexOf("atlas-geographic-globe-20261122.js")<main.indexOf("atlas-four-doors-20261123.js"));
+ assert.match(nav,/geo\.create\(globePanel/);
+ assert.match(nav,/globeInstance\.resize\(\)/);
  for(const forbidden of ["mapbox.com","maps.googleapis.com","openstreetmap.org/api","api.maptiler.com"]){
    assert.ok(!renderer.includes(forbidden),"Globe must run without remote mapping services");
  }
@@ -80,10 +80,10 @@ test("default view omits collateral people and preserves research status",async(
 test("PWA has refreshed cache and no nonpublic file access",async()=>{
  const [index,manifest,main,nav,renderer]=await Promise.all([
  read("index.html"),read("manifest.webmanifest"),
- read("atlas-v3.9.63.html"),read("atlas-navigation-20261122.js"),
+ read("atlas-v3.9.63.html"),read("atlas-four-doors-20261123.js"),
  read("atlas-geographic-globe-20261122.js")
  ]);
- const release="20261122-atlas-nav-v6-globe";
+ const release="20261123-four-doors-v1";
  assert.match(index,new RegExp(release));
  assert.match(JSON.parse(manifest).start_url,new RegExp(release));
  assert.match(main,new RegExp(release));
