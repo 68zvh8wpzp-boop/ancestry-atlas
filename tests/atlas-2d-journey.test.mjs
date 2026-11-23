@@ -33,9 +33,9 @@ test("2D snapshot mirrors static Atlas data plus evidence-qualified runtime rela
   const copy=sandbox.window.ATLAS_2D_PEDIGREE;
   assert.equal(original.nodes.length,106);
   assert.equal(original.edges.length,108);
-  assert.equal(copy.nodes.length,original.nodes.length+11);
+  assert.equal(copy.nodes.length,original.nodes.length+13);
   const effectiveSourceEdges=original.edges.filter(e=>!(e.a==="peder_mortensen_1806"&&e.b==="mette_jorg"));
-  assert.equal(copy.edges.length,effectiveSourceEdges.length+14);
+  assert.equal(copy.edges.length,effectiveSourceEdges.length+16);
   // Original static source must still mirror byte-for-byte in person/edge order.
   for(let i=0;i<original.nodes.length;i++){
     const n=copy.nodes[i],o=original.nodes[i];
@@ -53,11 +53,12 @@ test("2D snapshot mirrors static Atlas data plus evidence-qualified runtime rela
   const expected=[
     "nannie_reed","thomas_prather","john_s_prather","louella_roberts_prather",
     "amelia_l_cotton","john_auene_1879","morten_pedersen_1771",
-    "karen_hansdatter_1766","peder_mortensen_1784","brenay_esther","brenay_joan"
+    "karen_hansdatter_1766","peder_mortensen_1784","brenay_esther","brenay_joan",
+    "john_a_skinner_c1833","marian_lewis_skinner_c1838"
   ];
   assert.deepEqual(Array.from(copy.nodes.slice(original.nodes.length),n=>n.id),expected);
   const newEdges=Array.from(copy.edges.slice(effectiveSourceEdges.length),e=>e.a+"|"+e.b);
-  assert.equal(new Set(newEdges).size,14,"runtime parent links are unique");
+  assert.equal(new Set(newEdges).size,16,"runtime parent links are unique");
   for(const required of [
     "grace_hill|nannie_reed","inez_karen|thomas_prather",
     "thomas_prather|john_s_prather","thomas_prather|louella_roberts_prather",
@@ -67,9 +68,13 @@ test("2D snapshot mirrors static Atlas data plus evidence-qualified runtime rela
     "morten_pedersen_1771|peder_mortensen_1784",
     "morten_pedersen_1771|mette_jorg",
     "brenay_esther|charles_albert","brenay_esther|marian_skinner",
-    "brenay_joan|charles_albert","brenay_joan|marian_skinner"
+    "brenay_joan|charles_albert","brenay_joan|marian_skinner",
+    "richard_francis_skinner|john_a_skinner_c1833",
+    "richard_francis_skinner|marian_lewis_skinner_c1838"
   ])assert.ok(newEdges.includes(required),"missing qualified source relationship: "+required);
   assert.ok(!copy.edges.some(e=>e.a==="peder_mortensen_1806"&&e.b==="mette_jorg"),"do not skip a Danish generation");
+  assert.ok(!copy.edges.some(e=>e.a==="marian_lewis_skinner_c1838"),"do not invent Marian Lewis parentage");
+  assert.ok(html.includes("richard-skinner-1870-denver-census-original.jpg")&&html.includes("richard-jessie-marriage-1899-original.jpg"),"reuse verified original master images on parent pages");
   const recordedFather=copy.nodes.find(n=>n.id==="john_auene_1879");
   assert.match(recordedFather.name,/recorded father/);
   assert.equal(recordedFather.confidence,"provisional","John/Jonas identity remains unresolved");
@@ -77,7 +82,8 @@ test("2D snapshot mirrors static Atlas data plus evidence-qualified runtime rela
   for(const id of expected.slice(0,6))assert.ok(html.includes(id),"runtime does not name "+id);
   for(const id of expected.slice(6,9))assert.ok(html.includes(id),"Danish runtime does not name "+id);
   const siblingRuntime=await read("atlas-evidence-sync-2026-10-03-fulltext-v9.js");
-  for(const id of expected.slice(9))assert.ok(siblingRuntime.includes(id),"missing child from v9 runtime: "+id);
+  for(const id of expected.slice(9,11))assert.ok(siblingRuntime.includes(id),"missing child from v9 runtime: "+id);
+  for(const id of expected.slice(11))assert.ok(html.includes(id),"missing source-qualified A430 parent: "+id);
 });
 
 test("layout shows a true 2-D parent-child structure with no invented connections",async()=>{
@@ -126,6 +132,8 @@ test("family portrait uses existing relationships, including mapped collateral c
   vm.runInNewContext(await read("atlas-2d-family.js"),sandbox);
   const snap=sandbox.window.ATLAS_2D_PEDIGREE;
   const family=sandbox.window.Atlas2DFamily.create(snap);
+  const richard=family.family("richard_francis_skinner");
+  assert.deepEqual(Array.from(richard.parents.map(p=>p.id)),["john_a_skinner_c1833","marian_lewis_skinner_c1838"]);
   const charles=family.family("charles_albert");
   assert.deepEqual(Array.from(charles.parents.map(p=>p.id)),["charles_godfrey","ida_mae"]);
   assert.ok(charles.coParents.some(p=>p.id==="marian_skinner"));
@@ -149,10 +157,10 @@ test("searchable Atlas records include unlinked relatives and research candidate
   vm.runInNewContext(await read("atlas-2d-layout.js"),sandbox);
   const snap=sandbox.window.ATLAS_2D_PEDIGREE;
   const mapped=sandbox.window.Atlas2DLayout.create(snap,"you");
-  assert.equal(snap.nodes.length,117);
+  assert.equal(snap.nodes.length,119);
   // Corrected biological links disconnect unsupported candidate branches;
   // those people remain in search without appearing as established ancestors.
-  assert.equal(mapped.nodes.length,83);
+  assert.equal(mapped.nodes.length,85);
   const notOnMain=snap.nodes.filter(n=>!mapped.positions.has(n.id));
   assert.equal(notOnMain.length,34);
   assert.ok(notOnMain.some(n=>n.id==="elizabeth_webb"));
