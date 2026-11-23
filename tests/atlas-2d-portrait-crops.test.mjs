@@ -71,7 +71,7 @@ test("Canvas draws proportional real crops and retains silhouettes when photo fa
  assert.match(map,/img\.onerror=function\(\)\{state\.loaded=false;/);
  assert.match(map,/ctx\.ellipse/);
  assert.match(map,/Portrait: /);
- assert.match(map,/Source evidence status describes/);
+ assert.match(map,/Photo attribution is independent of genealogical confidence/);
 });
 test("installed app and 2D Tree load fresh crop revision",async()=>{
  const [main,tree,index,pwa,shell]=await Promise.all([
