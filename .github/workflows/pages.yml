@@ -54,6 +54,9 @@ jobs:
       - name: Verify 2-D Atlas source and mobile tree journey
         run: node --test tests/atlas-2d-journey.test.mjs
 
+      - name: Verify shared close-match ancestor search before deployment
+        run: node --test tests/atlas-person-close-match.test.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
