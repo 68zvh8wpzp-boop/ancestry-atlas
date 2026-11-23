@@ -25,6 +25,9 @@ test("main and 2D map use the same three-section navigation",async()=>{
  assert.match(nav,/3d/);
  assert.match(nav,/fan/);
  assert.match(nav,/openAlbum/);
+ assert.match(nav,/aaStoriesPanel/);
+ assert.match(nav,/function updateStoriesAfterTour\(/);
+ assert.match(nav,/new MutationObserver\(updateStoriesAfterTour\)/);
  assert.match(style,/#aaPrimaryNav/);
  assert.match(style,/#aaPlacesPanel/);
  assert.match(index,/20261122-atlas-nav-v2/);
