@@ -144,6 +144,7 @@
     "id": "della_ray",
     "url": "assets/della-ray/della-webb-and-daughters-1947-original-preview.jpg",
     "sourceBlobSha": "c7be24d37386ec5e9bc823eef2c7a8d21b58da78",
+    "fullSourceUrl": "assets/della-ray/della-webb-and-daughters-1947-original.jpg",
     "crop": {
       "x": 0.392,
       "y": 0.205,
