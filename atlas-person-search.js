@@ -64,9 +64,9 @@
     variants(person).forEach(function(variant,i){
       var value=normalize(variant);if(!value)return;
       var result=null,offset=i?4:0;
-      if(value===q)result={score:offset,kind:i?"alias":"exact",label:i?"Alternative name":""};
-      else if(value.startsWith(q))result={score:offset+1,kind:i?"alias":"prefix",label:i?"Alternative name":""};
-      else if(value.includes(q))result={score:offset+2,kind:i?"alias":"contains",label:i?"Alternative name":""};
+      if(value===q)result={score:i?1:0,kind:i?"alias":"exact",label:i?"Alternative name":""};
+      else if(value.startsWith(q))result={score:i?3:2,kind:i?"alias":"prefix",label:i?"Alternative name":""};
+      else if(value.includes(q))result={score:i?5:4,kind:i?"alias":"contains",label:i?"Alternative name":""};
       else {
         var fuzzy=closeTokens(value,q);
         if(fuzzy)result={score:fuzzy.score+offset,kind:fuzzy.kind,label:fuzzy.label||(i?"Alternative name":"")};
