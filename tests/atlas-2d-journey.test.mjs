@@ -248,3 +248,25 @@ test("multiple co-parent groups stay distinct and never invent a marriage",async
   assert.deepEqual(Array.from(groups.get("unknown")),["c4"]);
   assert.equal(Array.from(sample.childGroups).flatMap(g=>Array.from(g.children)).length,5);
 });
+
+
+test("A436 elder Skinner original sources carry the 1897-vs-1930 discrepancy, not a fabricated death",async()=>{
+ const html=await read("atlas-v3.9.63.html");
+ const section=html.slice(html.indexOf("/* A430 —"),html.indexOf("// A207 —"));
+ const line=section.split("\n").find(x=>x.trim().startsWith("const ancestors="));
+ assert.ok(line,"A430 person source data");
+ const elders=JSON.parse(line.slice(line.indexOf("=")+1,line.lastIndexOf(";")));
+ const john=elders.find(x=>x.id==="john_a_skinner_c1833");
+ const marian=elders.find(x=>x.id==="marian_lewis_skinner_c1838");
+ assert.ok(john&&marian);
+ assert.match(john.note,/1871/);
+ assert.match(john.note,/1895/);
+ assert.match(john.note,/namesake son/);
+ assert.match(marian.note,/1930/);
+ assert.match(marian.note,/1897/);
+ assert.match(marian.note,/unresolved original-source contradiction/);
+ assert.match(marian.note,/private Library/);
+ assert.equal(marian.evidence.filter(e=>e.full).length,2,"unpublished originals must not appear as image files");
+ const sandbox={window:{}};vm.runInNewContext(await read("atlas-2d-pedigree-snapshot.js"),sandbox);
+ assert.equal(sandbox.window.ATLAS_2D_PEDIGREE.edges.filter(e=>e.a==="richard_francis_skinner"&&["john_a_skinner_c1833","marian_lewis_skinner_c1838"].includes(e.b)).length,2);
+});
