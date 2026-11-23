@@ -355,7 +355,7 @@ function searchNow(){
   searchResults.replaceChildren();
   var query=normalize(searchInput.value);
   var matches=query?data.nodes.filter(function(n){
-    return normalize([n.name,n.years,n.place,n.branch].join(" ")).includes(query);
+    return normalize([n.name,n.years,n.place,n.branch,n.aliases,n.alternateNames].join(" ")).includes(query);
   }).sort(function(a,b){
     var aa=normalize(a.name),bb=normalize(b.name);
     var pa=aa===query?0:aa.startsWith(query)?1:aa.includes(query)?2:3;
