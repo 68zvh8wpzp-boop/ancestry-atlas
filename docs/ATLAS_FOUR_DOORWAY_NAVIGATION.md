@@ -18,7 +18,7 @@ No persistent bottom bar, secondary navigation tabs, floating Explorer shortcut,
 - Stories → the existing `atlas-tour-3.6.0.js` chooser/player, which retains its four branches and narration. Closing returns to Home.
 
 ## Portrait provenance
-`atlas-2d-portrait-index-20261123.js` currently registers **24 captioned or family-attributed people**, including the seven originally linked standalone portraits and seventeen additional sourced photographic views. Six of the new views isolate named individuals from captioned family or couple photographs, including Sarah Carling as the seated central adult in the 1891 family image. Eleven new views are face crops from person-labeled individual portraits. The original image remains unchanged; the Tree renders each crop from normalized coordinates. Other faces in a group picture are not assigned names unless the source supports their positions. The younger Isaiah Hill pictured with Lydia Ross is not the older Isaiah Hill ancestor and remains excluded. Missing/failed portraits use a generic silhouette. These photographic attributions are **not genealogical proof**; original source notes remain on the person pages.
+`atlas-2d-portrait-index-20261123.js` currently registers **25 captioned or family-attributed people**, including the seven originally linked standalone portraits and seventeen additional sourced photographic views. Six of the new views isolate named individuals from captioned family or couple photographs, including Sarah Carling as the seated central adult in the 1891 family image. Eleven new views are face crops from person-labeled individual portraits. The original image remains unchanged; the Tree renders each crop from normalized coordinates. Other faces in a group picture are not assigned names unless the source supports their positions. The younger Isaiah Hill pictured with Lydia Ross is not the older Isaiah Hill ancestor and remains excluded. Missing/failed portraits use a generic silhouette. These photographic attributions are **not genealogical proof**; original source notes remain on the person pages.
 
 ## Scope safeguards
 The `DATA.nodes` and `DATA.edges` constants in the original Atlas are unchanged. Existing research and confidence labels remain authoritative. Legacy 3D/Fan components still exist for compatibility and historical narratives but are no longer destinations in the navigation. No paid mapping service or data-sharing provider is added.
@@ -26,7 +26,7 @@ The `DATA.nodes` and `DATA.edges` constants in the original Atlas are unchanged.
 ## Device QA
 Still requires physical iPhone verification of:
 - Home initially showing only four icons and four explanations.
-- Tree Home / You / All and seven preidentified portraits (when network/local assets are available).
+- Tree Home / You / All and 25 source-attributed portraits (when network/local assets are available).
 - People search spelling variants and full source-page reader.
 - Globe drag, pins, event labels, and biography return.
 - Stories chooser, tour playback, and return after Exit.
