@@ -167,7 +167,9 @@ more.addEventListener("click",function(event){
     showFamily();var fan=explorer?.querySelector('[data-pp-view="overview"]');fan?.click();return;
   }
   if(view==="album"||view==="documents"){
-    show3d();if(typeof openAlbum==="function")openAlbum(view==="album"?"family":"document");
+    // Keep the Family explorer behind its collection so Close returns to Family,
+    // rather than dropping the visitor into the legacy 3D tree.
+    showFamily();if(typeof openAlbum==="function")openAlbum(view==="album"?"family":"document");
   }
 });
 places.addEventListener("click",function(event){
