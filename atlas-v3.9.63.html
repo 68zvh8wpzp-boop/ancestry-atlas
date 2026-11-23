@@ -1418,12 +1418,22 @@ function renderPortrait(n){
   const img=document.getElementById('portraitImg');
   const cap=document.getElementById('portraitCaption');
   const p=n.portrait;
-  if(!p){wrap.classList.remove('show');img.removeAttribute('src');cap.textContent='';return;}
-  img.src=p.url; img.referrerPolicy='no-referrer';
+  const cameo='./assets/atlas-anonymous-cameo-20261123.svg';
+  function anonymous(){
+    // Visual surrogate only, explicitly not an ancestor's face or a historical photo.
+    img.onerror=null;img.onclick=null;img.referrerPolicy='no-referrer';
+    img.alt='No verified historical portrait available for '+n.name;
+    img.src=cameo;
+    cap.textContent='No verified portrait · anonymous archival illustration';
+    wrap.classList.add('show');
+  }
+  if(!p||!p.url){anonymous();return;}
+  img.onerror=anonymous;
+  img.referrerPolicy='no-referrer';
   img.alt=familyFacingEvidenceTitle(p)||('Historical portrait of '+n.name);
   cap.textContent='Verified historical portrait';
   wrap.classList.add('show');
-  img.onerror=()=>{wrap.classList.remove('show');};
+  img.src=p.url;
   img.onclick=()=>{clearAlbumViewerExtras();openEvidence(Object.assign({},p,{title:p.title||('Portrait: '+n.name),thumb:p.url,full:p.url,summary:p.summary||'Historical portrait attached only to the person pictured.',confidence:'verified portrait source'}));};
 }
 function evidenceHasMedia(e){
