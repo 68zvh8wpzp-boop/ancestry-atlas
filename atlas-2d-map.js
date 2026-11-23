@@ -603,7 +603,7 @@ function openBiography(){
     }catch(error){console.warn("Original Atlas person page navigation",error);}
     document.getElementById("loading-bio").hidden=true;
   };
-  bioFrame.src="./atlas-v3.9.63.html?iphone-refresh=20261123-four-doors-v1&from=two-dimensional-map";
+  bioFrame.src="./atlas-v3.9.63.html?iphone-refresh=20261123-portrait-crops-v2&from=two-dimensional-map";
 }
 document.getElementById("open-family").addEventListener("click",function(){openFamily(selected);});
 document.getElementById("open-biography").addEventListener("click",openBiography);
