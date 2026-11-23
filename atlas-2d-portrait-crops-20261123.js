@@ -11,6 +11,7 @@
   {
     "id": "james_sheldon",
     "url": "sheldon_inez_wedding_1965.jpeg",
+    "sourceBlobSha": "550b0362aa14bc0c3fe0e27738ae2c0f0d75a3d5",
     "crop": {
       "x": 0.055,
       "y": 0.005,
@@ -26,6 +27,7 @@
   {
     "id": "inez_karen",
     "url": "sheldon_inez_wedding_1965.jpeg",
+    "sourceBlobSha": "550b0362aa14bc0c3fe0e27738ae2c0f0d75a3d5",
     "crop": {
       "x": 0.54,
       "y": 0.145,
@@ -41,6 +43,7 @@
   {
     "id": "james_wilford",
     "url": "biographies/marion/assets/jay_marion_mesa_1941_restored.jpg",
+    "sourceBlobSha": "6c1fec12e526b38fe8442141a6c4d13fb76b8068",
     "crop": {
       "x": 0.3,
       "y": 0.098,
@@ -56,6 +59,7 @@
   {
     "id": "marion_brenay",
     "url": "biographies/marion/assets/jay_marion_mesa_1941_restored.jpg",
+    "sourceBlobSha": "6c1fec12e526b38fe8442141a6c4d13fb76b8068",
     "crop": {
       "x": 0.43,
       "y": 0.142,
@@ -71,6 +75,7 @@
   {
     "id": "sarah_carling",
     "url": "biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_sarah_children_1891_family_use.png",
+    "sourceBlobSha": "2eb35382eb6740ea3a8fe89401b7cbbc2bacf604",
     "crop": {
       "x": 0.3,
       "y": 0.275,
@@ -87,6 +92,7 @@
   {
     "id": "jonathan_henry",
     "url": "biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_sarah_children_1891_family_use.png",
+    "sourceBlobSha": "2eb35382eb6740ea3a8fe89401b7cbbc2bacf604",
     "crop": {
       "x": 0.157,
       "y": 0.395,
@@ -103,6 +109,7 @@
   {
     "id": "charles_albert",
     "url": "assets/charles-albert/charles-marian-50th-anniversary.jpg",
+    "sourceBlobSha": "a058481f2730da3df133905289dc6b4317e44c9d",
     "crop": {
       "x": 0.485,
       "y": 0.092,
@@ -119,6 +126,7 @@
   {
     "id": "marian_skinner",
     "url": "assets/charles-albert/charles-marian-50th-anniversary.jpg",
+    "sourceBlobSha": "a058481f2730da3df133905289dc6b4317e44c9d",
     "crop": {
       "x": 0.07,
       "y": 0.305,
@@ -135,6 +143,7 @@
   {
     "id": "della_ray",
     "url": "assets/della-ray/della-webb-and-daughters-1947-original-preview.jpg",
+    "sourceBlobSha": "c7be24d37386ec5e9bc823eef2c7a8d21b58da78",
     "crop": {
       "x": 0.392,
       "y": 0.205,
@@ -151,6 +160,7 @@
   {
     "id": "jessie_irene_aurin",
     "url": "assets/jessie-aurin/jessie-aurin-portrait.jpg",
+    "sourceBlobSha": "033a9b9652a5a0ef6125abd70ef25eca2ae187ae",
     "crop": {
       "x": 0.09,
       "y": 0.095,
@@ -167,6 +177,7 @@
   {
     "id": "richard_francis_skinner",
     "url": "assets/richard-skinner/richard-skinner-portrait.jpg",
+    "sourceBlobSha": "2ff02da6a2f4c8a19db89819e5aa329057cb1a01",
     "crop": {
       "x": 0.1,
       "y": 0.12,
@@ -183,6 +194,7 @@
   {
     "id": "grace_hill",
     "url": "assets/inez-life-story/image2.jpeg",
+    "sourceBlobSha": "60f036df64337f19afe59c8f99639e1b4f89004c",
     "crop": {
       "x": 0.085,
       "y": 0.095,
@@ -198,6 +210,7 @@
   {
     "id": "davia_dunbar",
     "url": "assets/davia/davia-ann-dunbar-portrait.jpg",
+    "sourceBlobSha": "c691c4612a28f29530a440f406c5a8e397e26cc7",
     "crop": {
       "x": 0.2,
       "y": 0.06,
@@ -214,6 +227,7 @@
   {
     "id": "ida_mae",
     "url": "assets/ida-mae/ida-portrait-contributed.jpg",
+    "sourceBlobSha": "62605d794bfb8226ff7d36450154f6c17dcea82f",
     "crop": {
       "x": 0.12,
       "y": 0.065,
@@ -230,6 +244,7 @@
   {
     "id": "john_peter",
     "url": "assets/john-peter/peter-portrait.jpg",
+    "sourceBlobSha": "32d1c758d2d6a04d7d0f8cc3c4f38f106a179e31",
     "crop": {
       "x": 0.235,
       "y": 0.02,
@@ -246,6 +261,7 @@
   {
     "id": "mary_ann",
     "url": "assets/mary-ann/mary-ann-portrait.jpg",
+    "sourceBlobSha": "ddac746ebd9a41554c3be4c078ce7e63be3c4fe8",
     "crop": {
       "x": 0.22,
       "y": 0.07,
@@ -262,6 +278,7 @@
   {
     "id": "charles_godfrey",
     "url": "assets/charles-godfrey/godfrey-young-portrait.jpg",
+    "sourceBlobSha": "389a88e53c62b570bafea9a78660579be4462bc4",
     "crop": {
       "x": 0.13,
       "y": 0.09,
@@ -277,6 +294,7 @@
   {
     "id": "wilhelm_brunne",
     "url": "assets/wilhelm-brunne/portrait-book-remembrance.jpg",
+    "sourceBlobSha": "c711bfaba5e51c95eb80a4325a117a24929afba2",
     "crop": {
       "x": 0.125,
       "y": 0.095,
@@ -293,6 +311,7 @@
   {
     "id": "johanne_weller",
     "url": "assets/johanna-weller/johanna-portrait-scottdaphne-2016-original.jpg",
+    "sourceBlobSha": "85f3770939fbfd648095fc656b9b972100ccb50f",
     "crop": {
       "x": 0.105,
       "y": 0.05,
