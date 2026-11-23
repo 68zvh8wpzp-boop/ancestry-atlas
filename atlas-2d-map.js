@@ -109,6 +109,15 @@ function fillInfo(){
   if(portraitMeta)stateEl.textContent+=" · Portrait: "+
     (portraitMeta.type==="identified-group-crop"?"cropped from captioned family photograph":
      portraitMeta.sourceStatus==="family-attributed"?"family-attributed photograph":"identified individual photograph");
+  var photoLink=document.getElementById("selected-photo-source");
+  if(photoLink){
+    photoLink.hidden=!portraitMeta?.url;
+    if(portraitMeta?.url){
+      photoLink.href=portraitMeta.fullSourceUrl||portraitMeta.url;
+      photoLink.textContent=portraitMeta.crop?"View preserved source photograph":"View portrait source";
+      photoLink.title=[portraitMeta.title,portraitMeta.identityEvidence,portraitMeta.provenance].filter(Boolean).join(" · ");
+    }
+  }
   trailEl.replaceChildren();
   selectionPath.forEach(function(id,i){
     if(i){var dot=document.createElement("span");dot.className="sep";dot.textContent="›";trailEl.appendChild(dot);}
