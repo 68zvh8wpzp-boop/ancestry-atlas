@@ -15,6 +15,7 @@ const people=[
    aliases:['Dorothea Jensen Mortensen','Dorthea Knudsen Jensen'],
    years:'1840–1916',branch:'Denmark / Jensen',place:'Lolland Denmark'},
   {id:'dora_jones',name:'Dora Jones',years:'1900–1970'},
+  {id:'johanne_weller',name:'Johanne Dorothea Weller',years:'1800–1860'},
   {id:'elsie_mortensen',name:'Elsie Margaret Mortensen Ray'},
   {id:'sarah_carling',name:'Sarah Carling Webb'}
 ];
@@ -27,6 +28,9 @@ test('exact, alternate, and bounded close spellings find the same mapped person'
     assert.equal(hits[0]?.person.id,'dorthea_jensen','search: '+query);
   }
   assert.equal(api.search(people,'Dorothea',8)[0].label,'Alternative name');
+  assert.equal(api.search(people,'Dorothea',8)[0].person.id,'dorthea_jensen',
+    'a known alternative name must outrank another person with the query as a middle name');
+  assert.equal(api.search(people,'Johanne Dorothea Weller',8)[0].person.id,'johanne_weller');
   assert.equal(api.search(people,'Dorthea Jensn',8)[0].label,'Close spelling');
   assert.equal(api.search(people,'saraa',8)[0].person.id,'sarah_carling');
 });
