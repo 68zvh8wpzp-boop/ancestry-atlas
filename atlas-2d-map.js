@@ -104,6 +104,17 @@ function fillInfo(){
   metaEl.textContent=[n.years,n.branch,"Generation "+n.generation].filter(Boolean).join(" · ");
   var sibCount=siblingCounts.get(selected)||0;
   stateEl.textContent=(sibCount?sibCount+" mapped sibling"+(sibCount===1?"":"s")+" · ":"")+showStatus(n);
+  var photoLink=document.getElementById("selected-photo-source");
+  if(photoLink){
+    var portrait=(window.ATLAS_2D_PORTRAITS||{})[selected];
+    photoLink.hidden=!portrait?.url;
+    if(portrait?.url){
+      photoLink.href=portrait.url;
+      photoLink.textContent=portrait.crop?"Original photograph (portrait cropped)":"Original portrait";
+      photoLink.title=[portrait.subject,portrait.basis,portrait.provenance].filter(Boolean).join(" · ");
+      photoLink.setAttribute("aria-label","View preserved source photograph for "+n.name);
+    }
+  }
   trailEl.replaceChildren();
   selectionPath.forEach(function(id,i){
     if(i){var dot=document.createElement("span");dot.className="sep";dot.textContent="›";trailEl.appendChild(dot);}
