@@ -137,3 +137,31 @@ body.aa-four-door-shell #storyModal .story-shell{max-height:calc(100dvh - 97px -
  #aaSimpleHeader .aa-route-home{min-width:67px!important;font-size:12px}
 }
 @media(prefers-reduced-motion:reduce){#aaSimpleHome .aa-simple-door{transition:none}}
+
+/* Bring the real geographic globe and search into the same collection. */
+#aaSimpleGlobe #aaGeoGlobe{
+ border:1px solid rgba(214,183,125,.45);
+ background:linear-gradient(145deg,#112f39,#0a1f2c);
+ box-shadow:0 14px 38px rgba(0,0,0,.3)
+}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-heading strong{font:400 23px Georgia,serif;color:#ead5af}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-heading span{color:#becdcc}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-buttons button,
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-zoom button{
+ border-color:rgba(211,183,133,.48);background:#173640;color:#eddfc4
+}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-canvas-wrap{
+ height:clamp(280px,58dvh,580px)!important;
+ border:1px solid rgba(202,167,113,.26);
+ background:radial-gradient(ellipse at center,#16404b,#071922 78%)
+}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-detail{
+ background:#112d36;border-color:rgba(214,183,125,.35)
+}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-legend{border-color:rgba(214,183,125,.29)}
+#aaSimplePeople .aa-simple-person{background:#16323b;border-color:rgba(204,180,132,.35)}
+#aaSimplePeople .aa-simple-person:hover{border-color:#dfbf83;background:#1b3b43}
+#aaSimplePeople input{background:#102b36;border-color:#927f61}
+@media(max-width:580px){
+ #aaSimpleGlobe #aaGeoGlobe .aa-geo-canvas-wrap{height:clamp(290px,48dvh,420px)!important}
+}
