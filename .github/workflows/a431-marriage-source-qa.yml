@@ -1,0 +1,25 @@
+name: A431 temporary 1920 original-source crosslink verification
+on:
+  pull_request:
+    paths:
+      - marian-skinner-mobile-biography.js
+      - charles-albert-mobile-biography.js
+      - tests/a431-1920-brenay-skinner-original-source.test.mjs
+      - .github/workflows/a431-marriage-source-qa.yml
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Assert 1920 manuscript exact source re-use on both spouses
+        run: node tests/a431-1920-brenay-skinner-original-source.test.mjs
+      - name: Protect original Richard Skinner source viewer
+        run: node tests/richard-skinner-source-viewer.mjs
+      - name: Protect Jessie Aurin original reuse
+        run: node tests/jessie-aurin-source-viewer.mjs
