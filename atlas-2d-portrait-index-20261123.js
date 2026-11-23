@@ -183,20 +183,6 @@ window.ATLAS_2D_PORTRAITS={
     "identityEvidence": "Family portrait labeled Davia Ann Dunbar in person-page sources",
     "sourceStatus": "family-attributed"
   },
-  "isaiah_hill": {
-    "url": "assets/hill-feud/isaiah-hill-and-lydia-ross.jpg",
-    "crop": [
-      0.14,
-      0.12,
-      0.31,
-      0.66
-    ],
-    "type": "identified-group-crop",
-    "title": "Isaiah 'Zay' Hill — portrait with Lydia Ross",
-    "provenance": "Atlas photograph captioned Isaiah Hill and Lydia Ross. Male at left.",
-    "identityEvidence": "Isaiah Hill named in couple caption, male at left",
-    "sourceStatus": "captioned"
-  },
   "jessie_irene_aurin": {
     "url": "assets/jessie-aurin/jessie-aurin-portrait.jpg",
     "crop": [
