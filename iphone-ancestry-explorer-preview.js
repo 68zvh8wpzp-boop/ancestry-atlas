@@ -240,28 +240,21 @@
     html+='<div class="pp-note">This overview shows at most two parents per position. The expandable tree shows all mapped parents. Empty sections do not mean the research has been exhausted.</div>';
     return html;
   }
-  function personMatches(n,q){
-    var s=norm([n.name,n.years,n.place,n.branch,n.surnameHypothesis,n.aliases,n.alternateNames].join(" "));
-    return s.includes(q);
-  }
   function matchList(){
     var q=norm(term);
-    if(!q)return [];
-    return data.nodes.filter(function(n){return personMatches(n,q);}).sort(function(a,b){
-      var an=norm(a.name),bn=norm(b.name);
-      var as=an===q?0:an.startsWith(q)?1:an.includes(q)?2:3;
-      var bs=bn===q?0:bn.startsWith(q)?1:bn.includes(q)?2:3;
-      if(as!==bs)return as-bs;
-      return a.name.localeCompare(b.name);
-    }).slice(0,55);
+    if(!q)return {matches:[],approximate:false};
+    return AtlasPersonSearch.search(data.nodes,q,{limit:55});
   }
   function searchHitsHtml(){
     if(!term.trim())return '<div class="pp-empty">Search a name, surname, location, or year. Then choose a result to jump into its place in the pedigree.</div>';
-    var hits=matchList(),h='<p>'+hits.length+(hits.length===55?"+":"")+' matching people</p>';
+    var found=matchList(),hits=found.matches;
+    var h='<p>'+hits.length+(hits.length===55?"+":"")+
+      (found.approximate?' possible spelling matches — verify the person':' matching people')+'</p>';
     if(!hits.length)return h+'<div class="pp-empty">No matches. Try another spelling or search a branch name.</div>';
-    hits.forEach(function(n){
+    hits.forEach(function(hit){
+      var n=hit.person;
       h+='<button type="button" class="pp-list-button" data-pp-follow="'+safe(n.id)+'"><strong>'+safe(n.name)+'</strong>'+
-         '<small>'+safe([degree(n.id),n.years,n.branch,n.place].filter(Boolean).join(" · "))+'</small></button>';
+         '<small>'+safe([hit.kind==='close'?'Possible spelling match':null,degree(n.id),n.years,n.branch,n.place].filter(Boolean).join(" · "))+'</small></button>';
     });
     return h;
   }
