@@ -1,0 +1,21 @@
+name: A436 temporary person-page evidence regression
+on:
+  pull_request:
+    paths:
+      - 'atlas-v3.9.63.html'
+      - 'tests/atlas-2d-journey.test.mjs'
+      - '.github/workflows/a436-original-person-evidence-qa.yml'
+jobs:
+  source-qualification:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test 2D graph and elder Skinner source qualifications
+        run: |
+          node --test tests/atlas-2d-journey.test.mjs
+          node --test tests/richard-skinner-source-viewer.mjs
