@@ -31,5 +31,7 @@ jobs:
       - name: Atlas search and navigation regressions
         run: |
           node --test tests/atlas-person-close-match.test.mjs tests/atlas-2d-journey.test.mjs tests/mobile-hybrid-navigation.test.mjs tests/iphone-explorer-preview.test.mjs
+      - name: Install image validation dependency
+        run: python3 -m pip install --user Pillow
       - name: Whole-package integrity checks
         run: node verify-package.mjs
