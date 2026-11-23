@@ -349,6 +349,7 @@
   window.AncestryAtlasPedigreePreview={
     open:showExplorer,
     reset:reset,
-    getState:function(){return {selected:selected,expanded:Array.from(expanded),fanRoot:fanRoot,view:view};}
+    getState:function(){return {selected:selected,expanded:Array.from(expanded),fanRoot:fanRoot,view:view};},
+    selectPerson:function(id,show){if(!byId.has(id))return false;expandTo(id);if(show!==false)showExplorer();return true;}
   };
 })();
