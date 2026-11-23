@@ -31,8 +31,8 @@ test("2D snapshot mirrors static Atlas data plus evidence-qualified runtime rela
   const code=await read("atlas-2d-pedigree-snapshot.js");
   const sandbox={window:{}};vm.runInNewContext(code,sandbox);
   const copy=sandbox.window.ATLAS_2D_PEDIGREE;
-  assert.equal(original.nodes.length,106);
-  assert.equal(original.edges.length,108);
+  assert.equal(original.nodes.length,108);
+  assert.equal(original.edges.length,110);
   assert.equal(copy.nodes.length,original.nodes.length+11);
   const effectiveSourceEdges=original.edges.filter(e=>!(e.a==="peder_mortensen_1806"&&e.b==="mette_jorg"));
   assert.equal(copy.edges.length,effectiveSourceEdges.length+14);
@@ -149,10 +149,10 @@ test("searchable Atlas records include unlinked relatives and research candidate
   vm.runInNewContext(await read("atlas-2d-layout.js"),sandbox);
   const snap=sandbox.window.ATLAS_2D_PEDIGREE;
   const mapped=sandbox.window.Atlas2DLayout.create(snap,"you");
-  assert.equal(snap.nodes.length,117);
+  assert.equal(snap.nodes.length,119);
   // Corrected biological links disconnect unsupported candidate branches;
   // those people remain in search without appearing as established ancestors.
-  assert.equal(mapped.nodes.length,83);
+  assert.equal(mapped.nodes.length,85);
   const notOnMain=snap.nodes.filter(n=>!mapped.positions.has(n.id));
   assert.equal(notOnMain.length,34);
   assert.ok(notOnMain.some(n=>n.id==="elizabeth_webb"));
@@ -239,4 +239,37 @@ test("multiple co-parent groups stay distinct and never invent a marriage",async
   assert.deepEqual(Array.from(groups.get("b")),["c2","c5"]);
   assert.deepEqual(Array.from(groups.get("unknown")),["c4"]);
   assert.equal(Array.from(sample.childGroups).flatMap(g=>Array.from(g.children)).length,5);
+});
+
+
+test("A433 older Skinner parents have preserved original manuscripts, no speculative earlier parents",async()=>{
+  const html=await read("atlas-v3.9.63.html");
+  const start=html.indexOf("const DATA = ");
+  const end=html.indexOf(";\\n",start);
+  const source=JSON.parse(html.slice(start+"const DATA = ".length,end));
+  const snapCode=await read("atlas-2d-pedigree-snapshot.js");
+  const sandbox={window:{}};vm.runInNewContext(snapCode,sandbox);
+  const mapped=sandbox.window.ATLAS_2D_PEDIGREE;
+  for(const id of ["john_a_skinner_c1833","marian_lewis_skinner_c1838"]){
+    const n=source.nodes.find(x=>x.id===id);
+    assert.ok(n,"missing source page: "+id);
+    assert.equal(mapped.nodes.filter(x=>x.id===id).length,1,"duplicate 2D source person");
+    assert.match(n.note,/1853/);
+    assert.match(n.note,/1870/);
+    assert.match(n.note,/1899/);
+    const assets=n.evidence.filter(x=>x.full&&x.thumb);
+    assert.equal(assets.length,2,"each parent must have two existing original scans");
+    for(const ev of assets){
+      assert.equal(ev.sourceLevel,"original");
+      assert.equal(ev.full,ev.originalAsset);
+      assert.ok((await read(ev.full)).length>1000,"published original unavailable: "+ev.full);
+    }
+    assert.equal(source.edges.filter(x=>x.a==="richard_francis_skinner"&&x.b===id).length,1);
+    assert.equal(mapped.edges.filter(x=>x.a==="richard_francis_skinner"&&x.b===id).length,1);
+  }
+  const elder=source.nodes.find(x=>x.id==="marian_lewis_skinner_c1838");
+  assert.match(elder.note,/informant-supplied/);
+  assert.match(elder.note,/remains unproved/);
+  assert.equal(source.edges.some(x=>x.a==="marian_lewis_skinner_c1838"&&x.b==="matilda_loveland"),false);
+  assert.notEqual(source.nodes.find(x=>x.id==="marian_skinner").name,elder.name);
 });
