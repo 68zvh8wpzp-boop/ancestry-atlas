@@ -19,14 +19,15 @@ test("2D still retains direct ancestors, optional query person and full biograph
  assert.match(map,/var requestedFromFamily=new URLSearchParams\(location\.search\)\.get\("person"\)/);
  assert.match(map,/if\(unlinkedFromFamily\)openFamily\(unlinkedFromFamily\)/);
  assert.match(map,/contextPerson:familyPersonId\|\|selected/);
- assert.match(html,/id="aaTreeReturnHome"/);
+ assert.match(html,/atlas-museum-route-20261123\.js/);
  assert.match(html,/iframe id="bio-frame"/);
  assert.ok(!/data\.nodes\.(push|splice)|data\.edges\.(push|splice)/.test(map));
 });
 test("People and Globe biographies return to the originating destination",async()=>{
  const shell=await read("atlas-four-doors-20261123.js");
  assert.match(shell,/profileOrigin=origin==="globe"\?"globe":"people"/);
- assert.match(shell,/if\(profileOrigin==="globe"\)showGlobe\(\);else showPeople\(\)/);
+ assert.match(shell,/history\.pushState/);
+ assert.match(shell,/addEventListener\("popstate"/);
  assert.match(shell,/iframe\.contentWindow/);
  assert.match(shell,/selectPersonSearchResult/);
  assert.match(shell,/if\(window\.self!==window\.top\)return/);

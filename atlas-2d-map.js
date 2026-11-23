@@ -479,6 +479,7 @@ var familyPanel=document.getElementById("family-panel");
 var familyLastTrigger=null,familyPersonId=null;
 function familyTile(person){
   var tile=document.createElement("div");tile.className="family-person";
+  if(window.AtlasFamilyPortraitUI)window.AtlasFamilyPortraitUI.attachPortrait(tile,person.id,{});
   var name=document.createElement("h3");name.textContent=person.name;tile.appendChild(name);
   if(person.years){
     var years=document.createElement("p");years.textContent=person.years;tile.appendChild(years);
@@ -486,6 +487,9 @@ function familyTile(person){
   if(person.branch){
     var branch=document.createElement("p");branch.className="family-branch";branch.textContent=person.branch;tile.appendChild(branch);
   }
+
+  var action=document.createElement("button");action.type="button";action.className="family-person-action";
+  action.dataset.aaFamilyPerson=person.id;action.textContent="View person";tile.appendChild(action);
   return tile;
 }
 function familyGroup(elementId,people,emptyText){
@@ -512,6 +516,7 @@ function familySiblingGroup(family){
     tile.appendChild(note);
     target.appendChild(tile);
   });
+  if(window.AtlasFamilyPortraitUI)window.AtlasFamilyPortraitUI.enhanceScrollTrack(target);
   var count=family.siblingCount;
   document.getElementById("family-sibling-count").textContent=count?
     count+" sibling"+(count===1?"":"s")+" linked through at least one recorded parent · "
@@ -551,6 +556,7 @@ function renderChildGroups(family){
     list.className="family-people family-group-children";
     group.children.forEach(function(child){list.appendChild(familyTile(child));});
     section.appendChild(list);
+    if(window.AtlasFamilyPortraitUI)window.AtlasFamilyPortraitUI.enhanceScrollTrack(list);
     var counter=document.createElement("p");
     counter.className="family-group-count";
     counter.textContent=group.children.length+" recorded child"+(group.children.length===1?"":"ren")+" in this group";
@@ -598,22 +604,28 @@ function closeFamily(){
 }
 document.getElementById("family-close").addEventListener("click",closeFamily);
 var biographyPane=document.getElementById("biography-pane"),bioFrame=document.getElementById("bio-frame");
-function openBiography(){
+function openBiography(personId){
+  var target=typeof personId==="string"?personId:selected;
   biographyPane.hidden=false;
-  document.getElementById("bio-title").textContent=byId.get(selected)?.name||"Person page";
+  document.getElementById("bio-title").textContent=data.nodes.find(function(n){return n.id===target;})?.name||"Person page";
   document.getElementById("loading-bio").hidden=false;
   // Load the existing comprehensive app only when the person requests its sources.
   bioFrame.onload=function(){
     try{
       var child=bioFrame.contentWindow;
       child.document.getElementById("landing")?.classList.add("hidden");
-      if(typeof child.selectPersonSearchResult==="function")child.selectPersonSearchResult(selected);
-      else if(typeof child.openNode==="function")child.openNode(selected,true,true);
+      if(typeof child.selectPersonSearchResult==="function")child.selectPersonSearchResult(target);
+      else if(typeof child.openNode==="function")child.openNode(target,true,true);
     }catch(error){console.warn("Original Atlas person page navigation",error);}
     document.getElementById("loading-bio").hidden=true;
   };
   bioFrame.src="./atlas-v3.9.63.html?iphone-refresh=20261123-four-doors-v1&from=two-dimensional-map";
 }
+familyPanel.addEventListener("click",function(e){
+  var button=e.target.closest("[data-aa-family-person]");
+  if(!button)return;
+  closeFamily();openBiography(button.dataset.aaFamilyPerson);
+});
 document.getElementById("open-family").addEventListener("click",function(){openFamily(selected);});
 document.getElementById("open-biography").addEventListener("click",openBiography);
 document.getElementById("bio-back").addEventListener("click",function(){

@@ -13,46 +13,91 @@ function create(parent,atlasData,getPerson){
   var section=document.createElement("section");
   section.id="aaGeoGlobe";section.setAttribute("aria-label","Geographic globe of recorded Atlas places");
   section.innerHTML=
-   '<div class="aa-geo-toolbar"><div class="aa-geo-heading"><strong>Geographic globe</strong><span>Drag to rotate · tap a red pin</span></div>'+
+   '<div class="aa-geo-toolbar"><div class="aa-geo-heading"><strong>Family geography</strong><span>Explore documented family places</span></div>'+
    '<div class="aa-geo-buttons"><button type="button" data-geo-target="americas">Americas</button>'+
    '<button type="button" data-geo-target="europe">Europe</button>'+
    '<button type="button" data-geo-target="reset">Reset</button></div></div>'+
-   '<div class="aa-geo-canvas-wrap"><canvas id="aaGeoCanvas" role="img" aria-label="Interactive rotating Earth. Choose a locator below for accessible place details." tabindex="0"></canvas>'+
+   '<div class="aa-geo-selectors">'+
+   '<label>Family branch<select id="aaGeoBranch" aria-label="Filter globe by family branch"><option value="">All family branches</option></select></label>'+
+   '<label>From<select id="aaGeoFrom" aria-label="Select route origin"><option value="">All origins</option></select></label>'+
+   '<label>To<select id="aaGeoTo" aria-label="Select route destination"><option value="">All destinations</option></select></label>'+
+   '</div>'+
+   '<div class="aa-geo-tools">'+
+   '<label><input type="checkbox" id="aaGeoPaths" checked> From → to paths</label>'+
+   '<label><input type="checkbox" id="aaGeoCurrent"> Selected person</label>'+
+   '<label><input type="checkbox" id="aaGeoCollateral"> Collateral</label>'+
+   '<label><input type="checkbox" id="aaGeoFrontier"> Provisional</label>'+
+   '<span class="aa-geo-count" id="aaGeoCount"></span></div>'+
+   '<div class="aa-geo-canvas-wrap"><canvas id="aaGeoCanvas" role="img" aria-label="Rotatable world globe with place pins and dotted source-qualified from to connections." tabindex="0"></canvas>'+
    '<div class="aa-geo-zoom"><button type="button" data-geo-zoom="in" aria-label="Zoom globe in">+</button>'+
-   '<button type="button" data-geo-zoom="out" aria-label="Zoom globe out">−</button></div></div>'+
-   '<div class="aa-geo-filters"><label><input type="checkbox" id="aaGeoCurrent"> Focus on selected ancestor</label>'+
-   '<label><input type="checkbox" id="aaGeoCollateral"> Include collateral</label>'+
-   '<label><input type="checkbox" id="aaGeoFrontier"> Include provisional/frontier</label></div>'+
-   '<div class="aa-geo-count" id="aaGeoCount"></div>'+
-   '<div id="aaGeoDetail" class="aa-geo-detail" aria-live="polite"></div>'+
-   '<details class="aa-geo-legend"><summary>Map key and evidence limitations</summary>'+
-   '<div><b>Red pin</b> = Atlas place mention or separately labeled event. Hollow rings = approximate regional center. '+
-   '<b>Event type</b> appears only when supported by the named record or biography. '+
-   '<b>Dashed blue route</b> = order of text mentions (A → B), never proof of travel. '+
-   'Possible or frontier ancestor identities remain provisional, not documented ancestry. '+
-   'The globe does not place an ancestor at an exact house, farm, or cemetery plot.</div></details>';
+   '<button type="button" data-geo-zoom="out" aria-label="Zoom globe out">−</button></div>'+
+   '<div class="aa-geo-prompt">Drag to rotate · Select a red pin</div></div>'+
+   '<div id="aaGeoDetail" class="aa-geo-detail" aria-live="polite" hidden></div>'+
+   '<details class="aa-geo-legend"><summary>Map key & evidence</summary>'+
+   '<div><b>Red pins</b> show place summaries or explicitly categorized life events. Hollow circles indicate approximate region centers. '+
+   '<b>Dotted navy paths</b> connect the FROM and TO place names in an Atlas summary; their order is reported, not proof of migration or a precise journey. '+
+   'Routes are projected on the visible globe and disappear at the horizon. '+
+   'Research leads remain provisional; no location is an exact home or farm address.</div></details>';
   var head=parent.querySelector(".aa-places-head");
   if(head)head.insertAdjacentElement("afterend",section);else parent.prepend(section);
   var canvas=section.querySelector("#aaGeoCanvas"),ctx=canvas.getContext("2d");
   if(!ctx){section.querySelector(".aa-geo-canvas-wrap").textContent="Your browser does not support this globe.";return null;}
   var detail=section.querySelector("#aaGeoDetail"),status=section.querySelector("#aaGeoCount");
+  var branchControl=section.querySelector("#aaGeoBranch"),fromControl=section.querySelector("#aaGeoFrom"),toControl=section.querySelector("#aaGeoTo");
+  function branchGroup(label){
+    var b=String(label||"");
+    if(/Brenay|Gooley|Dennis|Skinner/i.test(b))return "Brenay · Gooley · Skinner";
+    if(/Hill|Dunbar|Prather|Edwards|Weedon/i.test(b))return "Hill · Dunbar · Prather";
+    if(/Denmark|Seje|Seye|Aurin/i.test(b))return "Denmark · Scandinavia";
+    if(/Webb|Carling|Ray/i.test(b))return "Webb · Carling · Ray";
+    return "Other family lines";
+  }
+  [...new Set(people.map(function(p){return branchGroup(p.branch);}))]
+    .sort().forEach(function(label){var opt=document.createElement("option");opt.value=label;opt.textContent=label;branchControl.appendChild(opt);});
   var state={lon:-94,lat:39,zoom:1,focus:false,collateral:false,frontier:false,
-    selected:null,drag:null};
+    branch:"",from:"",to:"",paths:true,selected:null,drag:null};
   var px=0,py=0,radius=0,cx=0,cy=0,visibleMarkers=[],model={pins:[],routes:[]};
   var viewportWidth=0,viewportHeight=0,dpr=1;
   function selectedPerson(){try{return getPerson?.()||"you";}catch(_){return "you";}}
   function rebuild(){
-    model=api.build(people,{
+    var filtered=state.branch?people.filter(function(p){return branchGroup(p.branch)===state.branch;}):people;
+    model=api.build(filtered,{
       personId:state.focus?selectedPerson():null,includeFrontier:state.frontier,
       includeCollateral:state.collateral
     });
+    updateRouteSelectors();
     if(!model.pins.some(function(p){return p.id===state.selected}))state.selected=null;
     var eventCount=model.pins.reduce(function(n,p){return n+p.events.length;},0);
-    status.textContent=model.pins.length+" mapped places · "+eventCount+
-      " explicitly categorized record/biography events or context notes";
+    status.textContent=model.pins.length+" places · "+model.routes.length+" summary paths";
     updateDetail();
     render();
   }
+  function updateRouteSelectors(){
+    var oldFrom=state.from,oldTo=state.to;
+    var fromIds=[...new Set(model.routes.map(function(r){return r.from;}))];
+    var availableTo=model.routes.filter(function(r){return !oldFrom||r.from===oldFrom;});
+    var toIds=[...new Set(availableTo.map(function(r){return r.to;}))];
+    if(oldFrom&&!fromIds.includes(oldFrom))state.from="";
+    if(oldTo&&!toIds.includes(oldTo))state.to="";
+    function fillSelect(select,ids,allLabel,current){
+      select.replaceChildren();
+      var blank=document.createElement("option");blank.value="";blank.textContent=allLabel;select.appendChild(blank);
+      ids.map(function(id){return api.catalog.find(function(a){return a.id===id;});}).filter(Boolean)
+        .sort(function(a,b){return a.name.localeCompare(b.name);})
+        .forEach(function(place){var opt=document.createElement("option");opt.value=place.id;opt.textContent=place.name;select.appendChild(opt);});
+      select.value=current;
+    }
+    fillSelect(fromControl,fromIds,"All origins",state.from);
+    fillSelect(toControl,[...new Set(model.routes.filter(function(r){return !state.from||r.from===state.from;}).map(function(r){return r.to;}))],
+      "All destinations",state.to);
+  }
+  function selectedRoutes(){
+    if(!state.paths)return [];
+    return model.routes.filter(function(r){
+      return (!state.from||r.from===state.from)&&(!state.to||r.to===state.to);
+    });
+  }
+  function routeLabel(id){var place=api.catalog.find(function(p){return p.id===id;});return place?.name||id;}
   function project(lon,lat){
     var ll=(lon-state.lon)*RAD,p=lat*RAD,p0=state.lat*RAD;
     var cp=Math.cos(p),sp=Math.sin(p),c0=Math.cos(p0),s0=Math.sin(p0);
@@ -107,17 +152,28 @@ function create(parent,atlasData,getPerson){
       var parallel=[];for(var lon=-180;lon<=180;lon+=2)parallel.push([lon,lat]);line(parallel);
     }
   }
-  function drawRoute(from,to){
+  function drawRoute(from,to,emphasis){
     var p=api.catalog.find(function(x){return x.id===from});
     var q=api.catalog.find(function(x){return x.id===to});
     if(!p||!q)return;
-    var a=project(p.lon,p.lat),b=project(q.lon,q.lat);
-    if(a.z<0||b.z<0)return;
-    // Screen-space curved dashed connection, showing *summary order* only.
-    var mx=(a.x+b.x)/2,my=(a.y+b.y)/2,dx=b.x-a.x,dy=b.y-a.y;
-    ctx.beginPath();ctx.moveTo(a.x,a.y);
-    ctx.quadraticCurveTo(mx-dy*.11,my+dx*.11,b.x,b.y);
-    ctx.setLineDash([3,5]);ctx.strokeStyle="#789fc3";ctx.lineWidth=1.25;ctx.stroke();ctx.setLineDash([]);
+    var vec=function(place){var lat=place.lat*RAD,lon=place.lon*RAD;
+      return [Math.cos(lat)*Math.cos(lon),Math.cos(lat)*Math.sin(lon),Math.sin(lat)];};
+    var a=vec(p),b=vec(q),dot=clamp(a[0]*b[0]+a[1]*b[1]+a[2]*b[2],-1,1);
+    var theta=Math.acos(dot),sin=Math.sin(theta);
+    if(theta<.00001)return;
+    var steps=Math.max(28,Math.ceil(theta/(2*RAD))),seen=false;
+    ctx.beginPath();
+    for(var i=0;i<=steps;i++){
+      var t=i/steps,u=Math.sin((1-t)*theta)/sin,v=Math.sin(t*theta)/sin;
+      var x=a[0]*u+b[0]*v,y=a[1]*u+b[1]*v,z=a[2]*u+b[2]*v;
+      var lon=Math.atan2(y,x)/RAD,lat=Math.atan2(z,Math.hypot(x,y))/RAD;
+      var at=project(lon,lat);
+      if(at.z<=0){seen=false;continue;}
+      if(seen)ctx.lineTo(at.x,at.y);else{ctx.moveTo(at.x,at.y);seen=true;}
+    }
+    ctx.setLineDash(emphasis?[5,5]:[3,6]);
+    ctx.strokeStyle=emphasis?"rgba(238,199,132,.94)":"rgba(120,169,204,.43)";
+    ctx.lineWidth=emphasis?2.2:1.15;ctx.stroke();ctx.setLineDash([]);
   }
   function render(){
     var rect=canvas.getBoundingClientRect(),w=Math.round(rect.width),h=Math.round(rect.height);
@@ -138,7 +194,10 @@ function create(parent,atlasData,getPerson){
     ctx.save();ctx.beginPath();ctx.arc(cx,cy,radius,0,Math.PI*2);ctx.clip();
     drawGraticule();
     (root.ATLAS_WORLD_LAND||[]).forEach(function(ring){drawGeoArc(ring,true,true);});
-    if(state.focus)model.routes.forEach(function(route){drawRoute(route.from,route.to);});
+    selectedRoutes().forEach(function(route){
+      var active=!!(state.from||state.to||state.selected===route.from||state.selected===route.to);
+      drawRoute(route.from,route.to,active);
+    });
     ctx.restore();
     visibleMarkers=[];
     model.pins.forEach(function(pin){
@@ -165,37 +224,48 @@ function create(parent,atlasData,getPerson){
   function updateDetail(){
     detail.replaceChildren();
     var pin=model.pins.find(function(x){return x.id===state.selected;});
-    if(!pin){
-      var all=document.createElement("p");
-      all.textContent="Choose a pin to see the Atlas people and explicitly sourced events for that place.";
-      detail.appendChild(all);
-      var selectors=document.createElement("div");selectors.className="aa-geo-index";
-      model.pins.slice().sort(function(a,b){return a.name.localeCompare(b.name);}).forEach(function(p){
-        var b=document.createElement("button");b.type="button";b.dataset.geoPlace=p.id;
-        b.textContent=p.name+" ("+p.people.length+")";selectors.appendChild(b);
-      });detail.appendChild(selectors);return;
+    var routes=selectedRoutes();
+    if(!pin&&!state.from&&!state.to){detail.hidden=true;return;}
+    detail.hidden=false;
+    var close=document.createElement("button");close.type="button";close.className="aa-geo-close";
+    close.setAttribute("aria-label","Close place and journey details");close.textContent="×";
+    close.dataset.geoPlace="";detail.appendChild(close);
+    var title=document.createElement("strong");title.textContent=pin?pin.name:"From → to journeys";detail.appendChild(title);
+    if(pin){
+      var note=document.createElement("p");
+      note.textContent=(pin.type==="region"?"Approximate region center; not a property address. ":"Community-scale location. ")+
+        pin.people.length+" people · "+pin.events.length+" classified events";
+      detail.appendChild(note);
+      var events=document.createElement("div");events.className="aa-geo-event-list";
+      pin.events.forEach(function(e){
+        var box=document.createElement("p");
+        box.textContent=(e.kind==="parent-origin"?"Parent origin":e.kind.toUpperCase())+
+          " · "+e.personName+" · "+e.date+" · "+e.basis+
+          (e.grade==="provisional"?" (probable)":e.grade==="biography"?" (biography statement)":" (original record)");
+        events.appendChild(box);
+      });
+      detail.appendChild(events);
+      pin.people.slice().sort(function(a,b){return a.name.localeCompare(b.name);}).forEach(function(p){
+        var b=document.createElement("button");b.type="button";b.dataset.aaPerson=p.id;
+        b.textContent=p.name+" · "+(p.confidence==="frontier"?"Research frontier":p.confidence==="provisional"?"Provisional":p.confidence==="strong"?"Strongly supported":"Documented");
+        detail.appendChild(b);
+      });
     }
-    var title=document.createElement("strong");title.textContent=pin.name;detail.appendChild(title);
-    var note=document.createElement("p");note.textContent=(pin.type==="region"?
-      "Approximate region center, not a historical address. ":"Community-scale location, not a specific building. ")+
-      pin.people.length+" mapped people; "+pin.events.length+" separately classified event/context entries.";
-    detail.appendChild(note);
-    var events=document.createElement("div");events.className="aa-geo-event-list";
-    pin.events.forEach(function(e){
-      var box=document.createElement("p");
-      box.textContent=(e.kind==="parent-origin"?"Parent's origin in record":e.kind.toUpperCase())+
-       " · "+e.personName+" · "+e.date+" · "+e.basis+
-       (e.grade==="provisional"?" (probable)":e.grade==="biography"?" (biography statement)":" (original record)");
-      events.appendChild(box);
+    var nearby=routes.filter(function(route){
+      return !pin||route.from===pin.id||route.to===pin.id;
     });
-    detail.appendChild(events);
-    pin.people.slice().sort(function(a,b){return a.name.localeCompare(b.name);}).forEach(function(p){
-      var b=document.createElement("button");b.type="button";b.dataset.aaPerson=p.id;
-      b.textContent=p.name+" · "+(p.confidence==="frontier"?"Research frontier":p.confidence==="provisional"?"Provisional":p.confidence==="strong"?"Strongly supported":"Documented");
-      detail.appendChild(b);
-    });
-    var back=document.createElement("button");back.type="button";back.dataset.geoPlace="";back.textContent="All mapped places";back.className="aa-geo-all";
-    detail.appendChild(back);
+    if(nearby.length){
+      var heading=document.createElement("h3");heading.textContent="From → to · summary order";detail.appendChild(heading);
+      nearby.slice(0,18).forEach(function(route){
+        var person=people.find(function(n){return n.id===route.personId;});
+        var item=document.createElement("p");item.className="aa-geo-route-item";
+        item.textContent=(person?.name||"Atlas person")+": "+routeLabel(route.from)+" → "+routeLabel(route.to);
+        detail.appendChild(item);
+      });
+      var disclaimer=document.createElement("p");disclaimer.className="aa-geo-warning";
+      disclaimer.textContent="Source summaries indicate place order, not independently verified migration.";
+      detail.appendChild(disclaimer);
+    }
   }
   function setPlace(id){
     state.selected=id||null;
@@ -215,6 +285,10 @@ function create(parent,atlasData,getPerson){
     }
     if(b.dataset.geoZoom){state.zoom=clamp(state.zoom*(b.dataset.geoZoom==="in"?1.2:1/1.2),.72,1.8);render();}
   });
+  branchControl.addEventListener("change",function(){state.branch=branchControl.value;state.from="";state.to="";rebuild();});
+  fromControl.addEventListener("change",function(){state.from=fromControl.value;state.to="";updateRouteSelectors();updateDetail();render();});
+  toControl.addEventListener("change",function(){state.to=toControl.value;updateDetail();render();});
+  section.querySelector("#aaGeoPaths").addEventListener("change",function(e){state.paths=e.target.checked;updateDetail();render();});
   [["aaGeoCurrent","focus"],["aaGeoCollateral","collateral"],["aaGeoFrontier","frontier"]].forEach(function(pair){
     section.querySelector("#"+pair[0]).addEventListener("change",function(e){state[pair[1]]=e.target.checked;rebuild();});
   });
@@ -258,7 +332,7 @@ function create(parent,atlasData,getPerson){
   root.addEventListener("resize",render);
   rebuild();
   return {resize:render,refresh:rebuild,selectPlace:setPlace,
-    getState:function(){return {pins:model.pins.length,lat:state.lat,lon:state.lon,selected:state.selected,events:model.pins.reduce(function(s,p){return s+p.events.length;},0)};}};
+    getState:function(){return {pins:model.pins.length,routes:model.routes.length,branch:state.branch,from:state.from,to:state.to,lat:state.lat,lon:state.lon,selected:state.selected,events:model.pins.reduce(function(s,p){return s+p.events.length;},0)};}};
 }
 root.AtlasGeoGlobe=Object.freeze({create:create});
 })(typeof window!=="undefined"?window:globalThis);

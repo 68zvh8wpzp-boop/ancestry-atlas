@@ -8,31 +8,53 @@ if(window.self!==window.top)return;
 var atlas=window.__ATLAS_DATA,geo=window.AtlasGeoGlobe,query=new URLSearchParams(location.search);
 if(!atlas||!Array.isArray(atlas.nodes))return;
 document.body.classList.add("aa-four-door-shell");
-var release="20261123-museum-navigation-v1";
-var icons={
- tree:'<svg viewBox="0 0 80 80" aria-hidden="true"><path class="aa-ink-stroke" d="M39 67V44m0 14-8 8m8-14 9 12M39 45 26 32m13 12 15-16m-27 5-7-13m7 13 3-16m24 11 7-13m-7 13-6-13"/><path class="aa-icon-earth" d="M16 68c15-4 33-3 49 0"/><circle class="aa-gold-fill" cx="20" cy="20" r="5"/><circle class="aa-gold-fill" cx="30" cy="17" r="5"/><circle class="aa-gold-fill" cx="47" cy="15" r="5"/><circle class="aa-gold-fill" cx="61" cy="15" r="5"/><circle class="aa-leaf" cx="26" cy="32" r="6"/><circle class="aa-leaf" cx="54" cy="28" r="6"/><circle class="aa-gold-fill" cx="39" cy="43" r="5"/><circle class="aa-root" cx="39" cy="67" r="3"/></svg>',
- people:'<svg viewBox="0 0 80 80" aria-hidden="true"><ellipse class="aa-medallion" cx="40" cy="40" rx="28" ry="32"/><path class="aa-person-silhouette" d="M26 66c2-10 8-13 17-16l3-7c-4-2-6-5-6-9l-4-2 3-5-1-7c1-9 6-14 14-14 8 0 14 6 14 15 0 6-3 11-7 15l-1 8c5 5 9 11 9 22z"/><path class="aa-fine-line" d="M46 41c4 3 8 3 12 2M24 67h42"/></svg>',
- globe:'<svg viewBox="0 0 80 80" aria-hidden="true"><circle class="aa-globe-sea" cx="39" cy="38" r="26"/><path class="aa-globe-graticule" d="M13 38h52M39 12c-10 11-12 40 0 52M39 12c11 13 12 40 0 52M19 24h40M19 52h40"/><path class="aa-globe-land" d="M20 22 30 16l7 4 1 7-6 2-1 8-7-2-3-6-6-1zM38 40l8-8 9 2 6 7-7 3-3 9-8 7-4-8z"/><path class="aa-fine-line" d="M39 65v8m-16 1h32"/><path class="aa-gold-stroke" d="M18 60a37 37 0 0 0 43-44"/></svg>',
- stories:'<svg viewBox="0 0 80 80" aria-hidden="true"><circle class="aa-reel" cx="36" cy="35" r="24"/><circle class="aa-reel-hole" cx="36" cy="35" r="4"/><circle class="aa-reel-hole" cx="36" cy="19" r="6"/><circle class="aa-reel-hole" cx="51" cy="30" r="6"/><circle class="aa-reel-hole" cx="45" cy="47" r="6"/><circle class="aa-reel-hole" cx="26" cy="48" r="6"/><circle class="aa-reel-hole" cx="20" cy="30" r="6"/><path class="aa-film-tail" d="M57 46c14 1 12 11 13 23H43v-9h18V54H53"/><path class="aa-fine-line" d="M46 65h21"/></svg>'
-};
+var release="20261123-family-unified-v1";
 var page=document.createElement("section");
 page.id="aaSimpleHome";page.setAttribute("aria-label","Ancestry Atlas: four ways to explore");
+var doorMedia={
+ tree:'<div class="aa-cover aa-tree-preview"><div class="aa-photo aa-photo-first"><img loading="eager" src="./jay_marion_mesa_1941.png" alt="Preserved Webb family photograph"></div><div class="aa-tree-join"></div><div class="aa-photo aa-photo-second"><img loading="eager" src="./sheldon_inez_wedding_1965.jpeg" alt="Preserved Sheldon and Inez wedding photograph"></div><div class="aa-photo aa-photo-third"><img loading="eager" src="./james_sheldon_with_siblings_c1951.png" alt="Webb family siblings photograph"></div></div>',
+ people:'<div class="aa-cover aa-people-preview"><img loading="eager" src="./marion_webb_1945.png" alt="Archival portrait of Marion Beulah Brenay Webb"><span class="aa-photo-frame"></span></div>',
+ globe:'<div class="aa-cover aa-map-preview"><canvas id="aaHomeMiniGlobe" width="340" height="246" role="img" aria-label="Illustrated world showing recorded family places"></canvas><span class="aa-map-pin"></span></div>',
+ stories:'<div class="aa-cover aa-stories-preview"><img loading="eager" src="./James_Sheldon_Webb_TV_Presentation_poster.jpg" alt="Cover image for the James Sheldon Webb family-history film"><span class="aa-reel-play" aria-hidden="true">▶</span></div>'
+};
+var doorLabels=[
+ ["tree","Tree","Explore generations"],
+ ["people","People","Lives & original records"],
+ ["globe","Globe","Places & family paths"],
+ ["stories","Stories","Watch & listen"]
+];
 page.innerHTML='<div class="aa-simple-wrap"><div class="aa-museum-masthead">'+
  '<div class="aa-masthead-rule"><span>THE FAMILY HISTORY COLLECTION</span></div>'+
  '<h1>Ancestry <em>Atlas</em></h1>'+
- '<p class="aa-masthead-subtitle">A world of people, places and stories worth preserving.</p>'+
- '</div><nav class="aa-simple-doors" aria-label="Choose an Atlas destination">'+
- [
-  ["tree","Tree"],["people","People"],["globe","Globe"],["stories","A/V Stories"]
- ].map(function(x,i){return '<button type="button" class="aa-simple-door aa-door-'+x[0]+'" data-aa-go="'+x[0]+'" aria-label="'+x[1]+'">'+
-   '<span class="aa-simple-icon">'+icons[x[0]]+'</span><span class="aa-door-label">'+x[1]+'</span><span class="aa-door-index">0'+(i+1)+'</span></button>';}).join("")+
- '</nav><div class="aa-simple-explain" aria-label="What each destination does">'+
- '<p><strong>Tree</strong><span>Follow the generations in a connected portrait family tree.</span></p>'+
- '<p><strong>People</strong><span>Discover biographies, photographs, and original records.</span></p>'+
- '<p><strong>Globe</strong><span>Trace the places our ancestors lived, with evidence-aware pins.</span></p>'+
- '<p><strong>Stories</strong><span>Experience narrated family-history films and tours.</span></p>'+
- '</div><p class="aa-museum-footer">NAMES · PLACES · EVIDENCE · MEMORY</p></div>';
+ '<p class="aa-masthead-subtitle">Discover the people, places and journeys behind your family story.</p>'+
+ '</div><nav class="aa-simple-doors" aria-label="Choose one of four Atlas destinations">'+
+ doorLabels.map(function(item){return '<button type="button" class="aa-simple-door aa-door-'+item[0]+'" data-aa-go="'+item[0]+'" aria-label="'+item[1]+' — '+item[2]+'">'+
+   doorMedia[item[0]]+'<span class="aa-door-label">'+item[1]+'</span><span class="aa-door-description">'+item[2]+'</span></button>';}).join("")+
+ '</nav><p class="aa-museum-footer">NAMES · PLACES · EVIDENCE · MEMORY</p></div>';
 document.body.appendChild(page);
+function renderMiniGlobe(){
+  var canvas=page.querySelector("#aaHomeMiniGlobe"),land=window.ATLAS_WORLD_LAND||[];
+  if(!canvas||!land.length)return;
+  var ctx=canvas.getContext("2d");if(!ctx)return;
+  var W=canvas.width,H=canvas.height,R=104,cx=W/2,cy=H/2,lon0=-35*Math.PI/180,lat0=37*Math.PI/180;
+  ctx.clearRect(0,0,W,H);
+  var sea=ctx.createRadialGradient(cx-26,cy-40,10,cx,cy,R);
+  sea.addColorStop(0,"#377081");sea.addColorStop(1,"#0a3246");
+  ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.fillStyle=sea;ctx.fill();ctx.strokeStyle="#c8a66c";ctx.lineWidth=2;ctx.stroke();
+  function proj(lon,lat){var a=lon*Math.PI/180-lon0,b=lat*Math.PI/180;var z=Math.sin(lat0)*Math.sin(b)+Math.cos(lat0)*Math.cos(b)*Math.cos(a);
+    return [cx+R*Math.cos(b)*Math.sin(a),cy-R*(Math.cos(lat0)*Math.sin(b)-Math.sin(lat0)*Math.cos(b)*Math.cos(a)),z];}
+  ctx.save();ctx.beginPath();ctx.arc(cx,cy,R-1,0,Math.PI*2);ctx.clip();
+  ctx.fillStyle="#b9af87";ctx.strokeStyle="#d3bb8c";ctx.lineWidth=.6;
+  land.forEach(function(ring){ctx.beginPath();var on=false;
+    ring.forEach(function(pos){var p=proj(pos[0],pos[1]);if(p[2]<0){on=false;return;}if(!on){ctx.moveTo(p[0],p[1]);on=true;}else ctx.lineTo(p[0],p[1]);});
+    if(on){ctx.fill();ctx.stroke();}
+  });
+  var pins=(window.AtlasGeoPlaces?.catalog||[]).filter(function(p){return ["arnstein","saybrook_ct","haarbolle","colonia_pacheco","alpena","sweden"].includes(p.id);});
+  pins.forEach(function(p){var at=proj(p.lon,p.lat);if(at[2]<0)return;ctx.beginPath();ctx.arc(at[0],at[1],3.4,0,Math.PI*2);ctx.fillStyle="#ef7770";ctx.fill();ctx.strokeStyle="#ffe0b6";ctx.lineWidth=.7;ctx.stroke();});
+  ctx.restore();
+}
+renderMiniGlobe();
+
 var header=document.createElement("div");
 header.id="aaSimpleHeader";header.hidden=true;
 header.innerHTML='<nav class="aa-museum-route" aria-label="Atlas navigation">'+
@@ -143,6 +165,7 @@ function drawSearch(){
   found.matches.forEach(function(hit){
     var n=hit.person;
     var b=document.createElement("button");b.type="button";b.className="aa-simple-person";b.dataset.aaPerson=n.id;
+    if(window.AtlasFamilyPortraitUI)window.AtlasFamilyPortraitUI.attachPortrait(b,n.id,{small:true});
     var strong=document.createElement("strong");strong.textContent=n.name;b.appendChild(strong);
     var small=document.createElement("small");
     small.textContent=[hit.approximate?"Possible spelling match — verify identity":null,
@@ -198,6 +221,17 @@ function updateStoryStatus(){
 document.addEventListener("keydown",function(e){
   if(e.key==="Escape"&&current==="profile")history.back();
   else if(e.key==="Escape"&&(current==="people"||current==="globe"))showHome();
+});
+window.addEventListener("message",function(event){
+  if(event.origin!==location.origin||event.source!==profile.querySelector("#aaSimpleProfileFrame").contentWindow)return;
+  var info=event.data;
+  if(!info||info.type!=="atlas-person-page"||!info.id)return;
+  var person=atlas.nodes.find(function(p){return p.id===info.id;});
+  if(!person)return;
+  profileId=person.id;
+  profile.querySelector("#aaSimpleProfileName").textContent=person.name;
+  if(history.state?.aaFourDoor&&history.state.screen==="profile")
+    history.replaceState(Object.assign({},history.state,{person:person.id}),"",location.href);
 });
 window.addEventListener("popstate",function(event){
   var state=event.state;
