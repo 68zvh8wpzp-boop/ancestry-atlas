@@ -1,0 +1,22 @@
+name: A438 temporary 1901 original-source five-person check
+on:
+  pull_request:
+    paths:
+      - 'atlas-v3.9.63.html'
+      - 'tests/a438-1901-canada-original-crosslink.test.mjs'
+      - '.github/workflows/a438-original-qa.yml'
+jobs:
+  original-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test A438 Canadian 1901 original links and A437 existing wedding
+        run: |
+          node --test tests/a438-1901-canada-original-crosslink.test.mjs
+          node --test tests/a437-1893-marriage-original-crosslink.test.mjs
+          node --test tests/atlas-2d-journey.test.mjs
