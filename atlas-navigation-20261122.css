@@ -81,3 +81,10 @@ body:has(#albumModal.open) #aaPrimaryNav,
 body:has(#storyModal[aria-hidden="false"]) #aaPrimaryNav,
 body:has(#lineChooser[aria-hidden="false"]) #aaPrimaryNav{display:none}
 @media(min-width:720px){#aaPlacesPanel .aa-places-head{padding-top:10px}}
+
+/* Reserve the persistent dock's height in the 2D map. */
+body:has(#tree) #card{bottom:calc(80px + env(safe-area-inset-bottom))}
+body:has(#tree) #zoom-buttons{bottom:calc(270px + env(safe-area-inset-bottom))}
+body:has(#tree) #tip{bottom:calc(248px + env(safe-area-inset-bottom))}
+body:has(#tree) #search-panel,body:has(#tree) #family-panel,
+body:has(#tree) #biography-pane{padding-bottom:calc(66px + env(safe-area-inset-bottom))}
