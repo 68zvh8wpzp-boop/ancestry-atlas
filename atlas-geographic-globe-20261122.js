@@ -98,6 +98,27 @@ function create(parent,atlasData,getPerson){
     });
   }
   function routeLabel(id){var place=api.catalog.find(function(p){return p.id===id;});return place?.name||id;}
+  // Locate selected summary connections on the visible hemisphere. This rotates
+  // the VIEW only; it does not assert that a person travelled between these points.
+  function centerOnSummaryRoute(){
+    var matching=model.routes.filter(function(route){
+      return (!state.from||route.from===state.from)&&(!state.to||route.to===state.to);
+    });
+    var route=matching[0],from=route&&api.catalog.find(function(p){return p.id===route.from;});
+    var to=route&&api.catalog.find(function(p){return p.id===route.to;});
+    if(!from&&!to)return;
+    // Spherical midpoint keeps trans-Atlantic legs visible together, rather
+    // than placing the Earth between longitudes by naive arithmetic.
+    function vector(place){
+      var lat=place.lat*RAD,lon=place.lon*RAD;
+      return [Math.cos(lat)*Math.cos(lon),Math.cos(lat)*Math.sin(lon),Math.sin(lat)];
+    }
+    var a=vector(from||to),z=vector(to||from),x=a[0]+z[0],y=a[1]+z[1],v=a[2]+z[2];
+    var norm=Math.hypot(x,y,v);
+    if(norm<.0001){state.lat=clamp(from.lat,-70,70);state.lon=shortLon(from.lon);return;}
+    state.lon=shortLon(Math.atan2(y,x)/RAD);
+    state.lat=clamp(Math.atan2(v,Math.hypot(x,y))/RAD,-70,70);
+  }
   function project(lon,lat){
     var ll=(lon-state.lon)*RAD,p=lat*RAD,p0=state.lat*RAD;
     var cp=Math.cos(p),sp=Math.sin(p),c0=Math.cos(p0),s0=Math.sin(p0);
@@ -285,9 +306,21 @@ function create(parent,atlasData,getPerson){
     }
     if(b.dataset.geoZoom){state.zoom=clamp(state.zoom*(b.dataset.geoZoom==="in"?1.2:1/1.2),.72,1.8);render();}
   });
-  branchControl.addEventListener("change",function(){state.branch=branchControl.value;state.from="";state.to="";rebuild();});
-  fromControl.addEventListener("change",function(){state.from=fromControl.value;state.to="";updateRouteSelectors();updateDetail();render();});
-  toControl.addEventListener("change",function(){state.to=toControl.value;updateDetail();render();});
+  branchControl.addEventListener("change",function(){
+    state.branch=branchControl.value;state.from="";state.to="";
+    rebuild();
+    if(state.branch){centerOnSummaryRoute();render();}
+  });
+  fromControl.addEventListener("change",function(){
+    state.from=fromControl.value;state.to="";
+    if(state.from){state.paths=true;section.querySelector("#aaGeoPaths").checked=true;}
+    updateRouteSelectors();centerOnSummaryRoute();updateDetail();render();
+  });
+  toControl.addEventListener("change",function(){
+    state.to=toControl.value;
+    if(state.to){state.paths=true;section.querySelector("#aaGeoPaths").checked=true;}
+    centerOnSummaryRoute();updateDetail();render();
+  });
   section.querySelector("#aaGeoPaths").addEventListener("change",function(e){state.paths=e.target.checked;updateDetail();render();});
   [["aaGeoCurrent","focus"],["aaGeoCollateral","collateral"],["aaGeoFrontier","frontier"]].forEach(function(pair){
     section.querySelector("#"+pair[0]).addEventListener("change",function(e){state[pair[1]]=e.target.checked;rebuild();});
