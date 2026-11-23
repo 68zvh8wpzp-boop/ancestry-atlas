@@ -7,9 +7,28 @@
  */
 window.ATLAS_2D_PORTRAITS={
   "marion_brenay": {
-    "url": "https://cdn.tukioswebsites.com/57df7c61-7845-4fe1-8aad-f84726545720/lg",
-    "title": "Marion Beulah Brenay Webb — obituary profile photo",
-    "provenance": "Owens Livingston Mortuary obituary profile photo for Marion Brenay Webb."
+    "url": "biographies/marion/assets/jay_marion_mesa_1941_restored.jpg",
+    "crop": [
+      0.43,
+      0.142,
+      0.3,
+      0.245
+    ],
+    "type": "identified-group-crop",
+    "title": "Marion Beulah Brenay Webb — with Jay, circa 1941",
+    "provenance": "Approved Webb family autobiography photo identifying Marion and Jay together circa 1940–1941; the historic original remains preserved in the biography archive.",
+    "identityEvidence": "Marion is the woman on the right of Jay in the captioned Webb family photograph.",
+    "sourceStatus": "captioned",
+    "sourceBlobSha": "6c1fec12e526b38fe8442141a6c4d13fb76b8068",
+    "alternatePortraits": [
+      {
+        "url": "https://cdn.tukioswebsites.com/57df7c61-7845-4fe1-8aad-f84726545720/lg",
+        "title": "Marion Beulah Brenay Webb — obituary profile photo",
+        "provenance": "Owens Livingston Mortuary obituary profile photo for Marion Brenay Webb.",
+        "identityEvidence": "Obituary photograph labeled Marion Brenay Webb",
+        "sourceStatus": "obituary"
+      }
+    ]
   },
   "morten_peder": {
     "url": "https://history.churchofjesuschrist.org/church-history-people/bc/missionaries/portraits/M/morten-p-mortensen-1828-fs.jpg",
@@ -29,7 +48,8 @@ window.ATLAS_2D_PORTRAITS={
   "edward_milo_jr": {
     "url": "biographies/webb-branch/people/edward_milo_jr/assets/edward_milo_jr_portrait.jpg",
     "title": "Edward Milo Webb Jr. — historical portrait",
-    "provenance": "Church History Department Pioneer Database portrait, republished by Church News."
+    "provenance": "Church History Department Pioneer Database portrait, republished by Church News.",
+    "sourceBlobSha": "7dbf3cdb3ead6050971e1018d86e39d7c605b589"
   },
   "caroline_owens": {
     "url": "https://history.churchofjesuschrist.org/church-history-people/bc/Pioneer%20Photos/Pioneers%20W/390x520/Webb_Caroline%20Amelia%20%20KWJR-FCL.jpg",
@@ -54,7 +74,8 @@ window.ATLAS_2D_PORTRAITS={
     "provenance": "Atlas wedding photograph, captioned Sheldon Webb and Inez Karen Prather, 1965. Groom at left.",
     "identityEvidence": "Groom at left; couple named in approved Atlas wedding caption",
     "sourceStatus": "captioned",
-    "sourceGroup": "wedding"
+    "sourceGroup": "wedding",
+    "sourceBlobSha": "550b0362aa14bc0c3fe0e27738ae2c0f0d75a3d5"
   },
   "inez_karen": {
     "url": "sheldon_inez_wedding_1965.jpeg",
@@ -69,7 +90,8 @@ window.ATLAS_2D_PORTRAITS={
     "provenance": "Atlas wedding photograph, captioned Sheldon Webb and Inez Karen Prather, 1965. Bride at right.",
     "identityEvidence": "Bride at right; couple named in approved Atlas wedding caption",
     "sourceStatus": "captioned",
-    "sourceGroup": "wedding"
+    "sourceGroup": "wedding",
+    "sourceBlobSha": "550b0362aa14bc0c3fe0e27738ae2c0f0d75a3d5"
   },
   "james_wilford": {
     "url": "biographies/webb-branch/people/james_wilford/assets/jay_1953_family_restored.png",
@@ -83,7 +105,24 @@ window.ATLAS_2D_PORTRAITS={
     "title": "James Wilford 'Jay' Webb, 1953",
     "provenance": "Family autobiography photograph captioned 'Me in 1953', restored conservatively for approved Webb biography.",
     "identityEvidence": "Person identified by first-person caption in family autobiography",
-    "sourceStatus": "captioned"
+    "sourceStatus": "captioned",
+    "sourceBlobSha": "a0c32ffcd7d4f132ec34566ec7dcb73866ff6e4f",
+    "alternatePortraits": [
+      {
+        "url": "biographies/marion/assets/jay_marion_mesa_1941_restored.jpg",
+        "crop": [
+          0.3,
+          0.098,
+          0.28,
+          0.235
+        ],
+        "title": "James Wilford “Jay” Webb with Marion, c. 1941",
+        "provenance": "Webb family autobiography • approved 1941 couple photograph",
+        "identityEvidence": "Jay on left in captioned family photo",
+        "sourceStatus": "captioned",
+        "sourceBlobSha": "6c1fec12e526b38fe8442141a6c4d13fb76b8068"
+      }
+    ]
   },
   "charles_albert": {
     "url": "assets/charles-albert/charles-marian-50th-anniversary.jpg",
@@ -97,7 +136,8 @@ window.ATLAS_2D_PORTRAITS={
     "title": "Charles Albert Brenay — 50th anniversary",
     "provenance": "Brenay family anniversary portrait labeled Charles and Marian, husband at right.",
     "identityEvidence": "Husband at right in the captioned Charles and Marian anniversary portrait",
-    "sourceStatus": "captioned"
+    "sourceStatus": "captioned",
+    "sourceBlobSha": "a058481f2730da3df133905289dc6b4317e44c9d"
   },
   "marian_skinner": {
     "url": "assets/marian-skinner/photo-24.jpg",
@@ -111,7 +151,24 @@ window.ATLAS_2D_PORTRAITS={
     "title": "Marian Beulah Skinner Brenay — studio portrait",
     "provenance": "Original Atlas Marian Skinner person-page evidence; FamilySearch shared-memory contributor attributed portrait 'Marian as a young woman', photo-24.jpg.",
     "identityEvidence": "Individual portrait labeled Marian on person-page evidence",
-    "sourceStatus": "family-attributed"
+    "sourceStatus": "family-attributed",
+    "sourceBlobSha": "8890de6d9de717286e5c138a781b1842b0c1e657",
+    "alternatePortraits": [
+      {
+        "url": "assets/charles-albert/charles-marian-50th-anniversary.jpg",
+        "crop": [
+          0.07,
+          0.305,
+          0.445,
+          0.405
+        ],
+        "title": "Marian Skinner Brenay, fiftieth anniversary 1970",
+        "provenance": "FamilySearch shared-memory anniversary portrait",
+        "identityEvidence": "Marian on left of Charles in captioned anniversary portrait",
+        "sourceStatus": "captioned",
+        "sourceBlobSha": "a058481f2730da3df133905289dc6b4317e44c9d"
+      }
+    ]
   },
   "charles_godfrey": {
     "url": "assets/charles-godfrey/godfrey-young-portrait.jpg",
@@ -125,7 +182,8 @@ window.ATLAS_2D_PORTRAITS={
     "title": "Charles Godfrey Brenay — earlier family portrait",
     "provenance": "Charles Godfrey Brenay person-page photograph from FamilySearch memory 93VH-G6X. Date and location unknown.",
     "identityEvidence": "Individual portrait attached to and labeled for Charles Godfrey",
-    "sourceStatus": "family-attributed"
+    "sourceStatus": "family-attributed",
+    "sourceBlobSha": "389a88e53c62b570bafea9a78660579be4462bc4"
   },
   "ida_mae": {
     "url": "assets/ida-mae/ida-portrait-contributed.jpg",
@@ -139,7 +197,8 @@ window.ATLAS_2D_PORTRAITS={
     "title": "Ida Mae Gooley Brenay — family-attributed portrait",
     "provenance": "Preserved FamilySearch Book of Remembrance portrait attributed to Ida Mae Gooley by contributor DeEdra Breckenridge, memory 225811213.",
     "identityEvidence": "Family contributor attribution to Ida Mae Gooley",
-    "sourceStatus": "family-attributed"
+    "sourceStatus": "family-attributed",
+    "sourceBlobSha": "62605d794bfb8226ff7d36450154f6c17dcea82f"
   },
   "john_peter": {
     "url": "assets/john-peter/peter-portrait.jpg",
@@ -153,7 +212,8 @@ window.ATLAS_2D_PORTRAITS={
     "title": "John Peter Gooley — family-attributed portrait",
     "provenance": "Original John Peter Gooley person-page family photo; contributed as 'Peter — family portrait'. Related Book of Remembrance describes Peter as Ida's father.",
     "identityEvidence": "Family-attributed image associated with John Peter Gooley; photograph date unknown",
-    "sourceStatus": "family-attributed"
+    "sourceStatus": "family-attributed",
+    "sourceBlobSha": "32d1c758d2d6a04d7d0f8cc3c4f38f106a179e31"
   },
   "mary_ann": {
     "url": "assets/mary-ann/mary-ann-portrait.jpg",
@@ -167,7 +227,8 @@ window.ATLAS_2D_PORTRAITS={
     "title": "Mary Ann Dennis Gooley — family portrait",
     "provenance": "Mary Ann Dennis Gooley person-page family photo; contributed and repaired/enhanced by DeEdra Breckenridge, 12 October 2025.",
     "identityEvidence": "Family photo labeled for Mary Ann Dennis Gooley in original person-page evidence",
-    "sourceStatus": "family-attributed"
+    "sourceStatus": "family-attributed",
+    "sourceBlobSha": "ddac746ebd9a41554c3be4c078ce7e63be3c4fe8"
   },
   "davia_dunbar": {
     "url": "assets/davia/davia-ann-dunbar-portrait-original.jpeg",
@@ -181,7 +242,8 @@ window.ATLAS_2D_PORTRAITS={
     "title": "Davia Ann Dunbar Hill Duffy — family portrait",
     "provenance": "Original family-attributed Davia Ann Dunbar portrait; FamilySearch memory 169542556. Portrait date unverified.",
     "identityEvidence": "Family portrait labeled Davia Ann Dunbar in person-page sources",
-    "sourceStatus": "family-attributed"
+    "sourceStatus": "family-attributed",
+    "sourceBlobSha": "fcc93feb62e4b7437151fac803a1700e3c77ebf1"
   },
   "jessie_irene_aurin": {
     "url": "assets/jessie-aurin/jessie-aurin-portrait.jpg",
@@ -195,7 +257,8 @@ window.ATLAS_2D_PORTRAITS={
     "title": "Jessie Irene Aurin Skinner — contributed portrait",
     "provenance": "Jessie Irene Aurin person-page photo from FamilySearch memory 225811212; family contributor DeEdra Breckenridge enhanced image.",
     "identityEvidence": "Portrait attached to Jessie Irene Aurin in person-page sources",
-    "sourceStatus": "family-attributed"
+    "sourceStatus": "family-attributed",
+    "sourceBlobSha": "033a9b9652a5a0ef6125abd70ef25eca2ae187ae"
   },
   "wilhelm_brunne": {
     "url": "assets/wilhelm-brunne/portrait-book-remembrance.jpg",
@@ -209,7 +272,8 @@ window.ATLAS_2D_PORTRAITS={
     "title": "Wilhelm Karl Charles Brunne — contributed portrait",
     "provenance": "Family-attributed Book of Remembrance portrait of Wilhelm Karl Charles Brunne from FamilySearch memory 225814179.",
     "identityEvidence": "Contributor labeled the portrait Wilhelm Karl Charles Brunne",
-    "sourceStatus": "family-attributed"
+    "sourceStatus": "family-attributed",
+    "sourceBlobSha": "c711bfaba5e51c95eb80a4325a117a24929afba2"
   },
   "johanne_weller": {
     "url": "assets/johanna-weller/johanna-portrait-scottdaphne-2016-original.jpg",
@@ -223,7 +287,8 @@ window.ATLAS_2D_PORTRAITS={
     "title": "Johanna Dorothea Weller Brunne — contributed portrait",
     "provenance": "Family-attributed portrait linked to the Johanna Dorothea Weller person-page evidence. Photograph date and location unknown.",
     "identityEvidence": "Individual portrait attributed to Johanna Weller in Atlas person-page sources",
-    "sourceStatus": "family-attributed"
+    "sourceStatus": "family-attributed",
+    "sourceBlobSha": "85f3770939fbfd648095fc656b9b972100ccb50f"
   },
   "richard_francis_skinner": {
     "url": "assets/richard-skinner/richard-skinner-portrait.jpg",
@@ -237,7 +302,8 @@ window.ATLAS_2D_PORTRAITS={
     "title": "Richard Francis Skinner — contributed portrait",
     "provenance": "Richard Francis Skinner person-page photo, FamilySearch memory 225811209; family contributor portrait crop.",
     "identityEvidence": "Family-contributed individual portrait labeled Richard Francis Skinner",
-    "sourceStatus": "family-attributed"
+    "sourceStatus": "family-attributed",
+    "sourceBlobSha": "2ff02da6a2f4c8a19db89819e5aa329057cb1a01"
   },
   "sarah_carling": {
     "url": "biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_sarah_children_1891_family_use.png",
@@ -250,8 +316,9 @@ window.ATLAS_2D_PORTRAITS={
     "type": "identified-group-crop",
     "title": "Sarah Elizabeth Carling Webb — with five children, 1891",
     "provenance": "1891 A. Miller family photograph captioned Sarah Elizabeth Carling with Clark, Henry, Burr, Owen and Catherine; approved Atlas Webb biography. Sarah is the seated central adult.",
-    "identityEvidence": "Only seated central adult in named family photograph; children not assigned positions",
-    "sourceStatus": "captioned"
+    "identityEvidence": "Sarah is the seated central adult; the source caption also identifies her children Clark, Henry, Burr, Owen, Catherine left to right.",
+    "sourceStatus": "captioned",
+    "sourceBlobSha": "2eb35382eb6740ea3a8fe89401b7cbbc2bacf604"
   },
   "jonathan_henry": {
     "url": "assets/della-ray/della-henry-webb-anniversary-1958-original.jpg",
@@ -265,11 +332,33 @@ window.ATLAS_2D_PORTRAITS={
     "title": "Jonathan Henry Webb — 50th anniversary",
     "provenance": "Original 1958 invitation names Mr. and Mrs. J. H. Webb; husband at right in the printed couple portrait.",
     "identityEvidence": "Husband at right in directly captioned anniversary invitation",
-    "sourceStatus": "captioned"
+    "sourceStatus": "captioned",
+    "sourceBlobSha": "1f5c8973908f70192e058145b2e11607280c1abf",
+    "alternatePortraits": [
+      {
+        "url": "biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_sarah_children_1891_family_use.png",
+        "crop": [
+          0.157,
+          0.395,
+          0.24,
+          0.255
+        ],
+        "title": "Jonathan Henry Webb as a child, 1891",
+        "provenance": "Pioneer Women of Arizona • A. Miller family photograph • https://rsc.byu.edu/pioneer-women-arizona/w",
+        "identityEvidence": "Published caption identifies Clark, Henry, Burr, Owen, Catherine from left to right; Henry is second from left.",
+        "sourceStatus": "captioned",
+        "sourceBlobSha": "2eb35382eb6740ea3a8fe89401b7cbbc2bacf604"
+      }
+    ]
   },
   "grace_hill": {
     "url": "assets/inez-life-story/image2.jpeg",
-    "crop": [0.085, 0.095, 0.83, 0.70],
+    "crop": [
+      0.085,
+      0.095,
+      0.83,
+      0.7
+    ],
     "type": "identified-solo-crop",
     "title": "Grace Mildred Hill — age 23 (1932)",
     "provenance": "Original studio portrait embedded in Inez Karen Prather's life story, captioned 'Grace Mildred Hill (Age 23) 1932', Excelsior Springs, Missouri.",
@@ -289,6 +378,23 @@ window.ATLAS_2D_PORTRAITS={
     "title": "Della Ray Webb — 50th anniversary",
     "provenance": "Original 1958 invitation names Mr. and Mrs. J. H. Webb; wife at left in the printed couple portrait.",
     "identityEvidence": "Wife at left in directly captioned anniversary invitation",
-    "sourceStatus": "captioned"
+    "sourceStatus": "captioned",
+    "sourceBlobSha": "1f5c8973908f70192e058145b2e11607280c1abf",
+    "alternatePortraits": [
+      {
+        "url": "assets/della-ray/della-webb-and-daughters-1947-original.jpg",
+        "crop": [
+          0.392,
+          0.205,
+          0.2,
+          0.34
+        ],
+        "title": "Della Webb with her daughters, 1947",
+        "provenance": "FamilySearch contribution • original 7 April 1947 family photograph",
+        "identityEvidence": "Contributor explicitly labels Zola, Thora, Della, Gwen, Louise from left to right; Della is third.",
+        "sourceStatus": "captioned",
+        "sourceBlobSha": "7e4601a4be2c8df53fa6a5e6c360017a871a8229"
+      }
+    ]
   }
 };
