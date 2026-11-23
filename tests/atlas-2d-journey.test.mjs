@@ -245,7 +245,7 @@ test("multiple co-parent groups stay distinct and never invent a marriage",async
 test("A433 older Skinner parents have preserved original manuscripts, no speculative earlier parents",async()=>{
   const html=await read("atlas-v3.9.63.html");
   const start=html.indexOf("const DATA = ");
-  const end=html.indexOf(";\\n",start);
+  const end=html.indexOf(";\n",start);
   const source=JSON.parse(html.slice(start+"const DATA = ".length,end));
   const snapCode=await read("atlas-2d-pedigree-snapshot.js");
   const sandbox={window:{}};vm.runInNewContext(snapCode,sandbox);
