@@ -29,6 +29,11 @@ test('search ranks exact name and aliases ahead of guesses',async()=>{
   r=s.search(people,'Denmark');
   assert.equal(r.approximate,false);
   assert.ok(r.matches.some(x=>x.person.id==='dorthea_jensen'));
+  for(const q of ['Dorthea Mortensen','Dorthea 1840','Mortensen Dorthea','Dorothea Denmark']){
+    r=s.search(people,q);
+    assert.equal(r.approximate,false,'ordinary multi-field search should not become fuzzy: '+q);
+    assert.equal(r.matches[0]?.person.id,'dorthea_jensen');
+  }
 });
 
 test('suggestions recover minor typos and do not mutate people or evidence',async()=>{
