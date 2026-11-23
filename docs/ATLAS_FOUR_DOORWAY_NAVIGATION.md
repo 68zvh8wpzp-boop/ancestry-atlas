@@ -18,7 +18,7 @@ No persistent bottom bar, secondary navigation tabs, floating Explorer shortcut,
 - Stories → the existing `atlas-tour-3.6.0.js` chooser/player, which retains its four branches and narration. Closing returns to Home.
 
 ## Portrait provenance
-`atlas-2d-portrait-index-20261123.js` copies only seven *already identified individual portraits* from original Atlas person data. The photograph depicting Sarah Carling **with several children** was intentionally excluded from individual portraits. An absent/broken portrait results in an outline silhouette, not a generated face. Portraits are for visual recognition and never create/upgrade a genealogical relationship. Image URLs remain the currently recorded Atlas assets; original image acquisition belongs to the separate person-page evidence audit.
+`atlas-2d-portrait-index-20261123.js` retains the original seven Atlas person portraits. The new `atlas-2d-portrait-crops-20261123.js` adds nineteen source-identified portrait entries (one improves Marion's existing image), so the Tree now supports **25 distinct ancestors with photographs**. Nine are cropped live from explicitly identified family/group photographs, two use existing contributor-supplied family-photo crops, and eight use previously omitted standalone images. Source image paths, original file blob hashes, named subject positions and contributor/source attributions remain in the registry; no original image is overwritten. The 1891 Sarah Carling family photograph is eligible because its published caption identifies her and the five children's left-to-right order, including Henry. An unavailable image falls back to the earlier individual portrait (if available), then a neutral silhouette; no unidentified face is assigned to an ancestor. These visual identifications do not change genealogical confidence or relationships.
 
 ## Scope safeguards
 The `DATA.nodes` and `DATA.edges` constants in the original Atlas are unchanged. Existing research and confidence labels remain authoritative. Legacy 3D/Fan components still exist for compatibility and historical narratives but are no longer destinations in the navigation. No paid mapping service or data-sharing provider is added.
@@ -26,7 +26,7 @@ The `DATA.nodes` and `DATA.edges` constants in the original Atlas are unchanged.
 ## Device QA
 Still requires physical iPhone verification of:
 - Home initially showing only four icons and four explanations.
-- Tree Home / You / All and seven preidentified portraits (when network/local assets are available).
+- Tree Home / You / All and 25 source-attributed photographic portraits (when network/local assets are available).
 - People search spelling variants and full source-page reader.
 - Globe drag, pins, event labels, and biography return.
 - Stories chooser, tour playback, and return after Exit.
