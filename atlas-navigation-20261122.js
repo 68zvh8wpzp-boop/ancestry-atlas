@@ -152,13 +152,31 @@ function show3d(){
 function clearOverlays(){
   if(typeof closeAlbum==="function"){try{closeAlbum();}catch(_){}}
 }
+function setSection(section,personId){
+  if(personId&&window.AncestryAtlasPedigreePreview?.selectPerson)
+    window.AncestryAtlasPedigreePreview.selectPerson(personId,false);
+  if(section==="places")showPlaces();
+  else if(section==="stories")showStories();
+  else showFamily(personId);
+}
+function recordSection(section){
+  var params=new URLSearchParams(location.search);
+  params.set("section",section);
+  var personId=currentPerson();
+  if(personId)params.set("person",personId);
+  history.pushState({atlasSection:section},"",location.pathname+"?"+params.toString()+location.hash);
+}
 nav.addEventListener("click",function(event){
   var b=event.target.closest("[data-aa-section]");if(!b)return;
-  clearOverlays();
   var destination=b.dataset.aaSection;
-  if(destination==="family")showFamily();
-  if(destination==="places")showPlaces();
-  if(destination==="stories")showStories();
+  var previous=window.AncestryAtlasNavigation?.current?.();
+  clearOverlays();setSection(destination);
+  if(destination!==previous)recordSection(destination);
+});
+window.addEventListener("popstate",function(){
+  clearOverlays();
+  var params=new URLSearchParams(location.search);
+  setSection(params.get("section")||"family",params.get("person"));
 });
 viewsButton.addEventListener("click",function(){
   more.hidden=!more.hidden;viewsButton.setAttribute("aria-expanded",String(!more.hidden));
@@ -233,7 +251,11 @@ document.addEventListener("keydown",function(event){
   if(event.key==="Escape"&&!more.hidden){dismissViews();viewsButton.focus();}
 });
 window.AncestryAtlasNavigation={
-  open: function(section){if(section==="places")showPlaces();else if(section==="stories")showStories();else showFamily();},
+  open: function(section){
+    var next=["family","places","stories"].includes(section)?section:"family";
+    var previous=this.current();setSection(next);
+    if(previous!==next)recordSection(next);
+  },
   current: function(){return nav.querySelector('[aria-current="page"]')?.dataset.aaSection||"family";}
 };
 var entry=query.get("section")||"family";
