@@ -105,7 +105,8 @@ function fillInfo(){
   var sibCount=siblingCounts.get(selected)||0;
   stateEl.textContent=(sibCount?sibCount+" mapped sibling"+(sibCount===1?"":"s")+" · ":"")+showStatus(n);
   // Photo attribution is independent of genealogical confidence. Preserve both.
-  var portraitMeta=window.ATLAS_2D_PORTRAITS?.[selected];
+  var portraitState=portraitCache?.get(selected);
+  var portraitMeta=portraitState?.loaded?portraitState.activeEntry:window.ATLAS_2D_PORTRAITS?.[selected];
   if(portraitMeta)stateEl.textContent+=" · Portrait: "+
     (portraitMeta.type==="identified-group-crop"?"cropped from captioned family photograph":
      portraitMeta.sourceStatus==="family-attributed"?"family-attributed photograph":"identified individual photograph");
@@ -204,13 +205,31 @@ function drawEdges(){
 // Only load preidentified person portraits. Missing images keep a neutral bust icon.
 var portraits=window.ATLAS_2D_PORTRAITS||{},portraitCache=new Map();
 Object.keys(portraits).forEach(function(id){
-  if(!byId.has(id)||!portraits[id]?.url)return;
+  var person=portraits[id];
+  if(!byId.has(id)||!person?.url)return;
+  // Alternate images are independently sourced photographs of the SAME named
+  // person, used only if the chosen primary cannot load. No identity inference.
+  var choices=[person].concat(person.alternatePortraits||[]);
   var img=new Image();
-  var state={image:img,loaded:false};
+  var state={image:img,loaded:false,choices:choices,index:0,activeEntry:person};
   portraitCache.set(id,state);
-  img.onload=function(){state.loaded=img.naturalWidth>0;render();};
-  img.onerror=function(){state.loaded=false;};
-  img.src=portraits[id].url;
+  img.onload=function(){
+    state.loaded=img.naturalWidth>0&&img.naturalHeight>0;
+    if(id===selected)fillInfo();
+    render();
+  };
+  img.onerror=function(){
+    state.loaded=false;
+    if(state.index+1<state.choices.length){
+      state.index++;
+      state.activeEntry=state.choices[state.index];
+      img.src=state.activeEntry.url;
+      return;
+    }
+    if(id===selected)fillInfo();
+    render();
+  };
+  img.src=person.url;
 });
 function drawPortraitOrBust(id,x,y,width,height){
   ctx.save();
@@ -219,7 +238,7 @@ function drawPortraitOrBust(id,x,y,width,height){
   ctx.fillStyle="#173244";ctx.fillRect(x,y,width,height);
   var photo=portraitCache.get(id);
   if(photo?.loaded){
-    var img=photo.image,meta=portraits[id]||{};
+    var img=photo.image,meta=photo.activeEntry||portraits[id]||{};
     // A cropped *view* of the preserved original. Normalized bounds are sourced
     // to caption-identifiable subjects, never inferred by face recognition.
     // Preserve facial proportions by center-covering within the chosen crop.
