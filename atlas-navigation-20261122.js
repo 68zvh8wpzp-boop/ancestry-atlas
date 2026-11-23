@@ -16,7 +16,13 @@ nav.innerHTML='<button type="button" data-aa-section="family"><span aria-hidden=
   '<button type="button" data-aa-section="stories"><span aria-hidden="true">▤</span>Stories</button>';
 document.body.appendChild(nav);
 function currentPerson(){
-  if(twoD){try{var state=JSON.parse(localStorage.getItem("ancestry-atlas-2d-camera-v1")||"{}");return state.selected||"you";}catch(_){}}
+  if(twoD){
+    // Read the currently focused person, including a collateral family portrait,
+    // before falling back to the last persisted map camera.
+    var live=window.Atlas2DJourney?.getState?.();
+    if(live?.contextPerson)return live.contextPerson;
+    try{var state=JSON.parse(localStorage.getItem("ancestry-atlas-2d-camera-v1")||"{}");return state.selected||"you";}catch(_){}
+  }
   return window.AncestryAtlasPedigreePreview?.getState?.().selected||"you";
 }
 function mainUrl(section){
@@ -161,7 +167,12 @@ more.addEventListener("click",function(event){
   var b=event.target.closest("[data-aa-view]");if(!b)return;
   var view=b.dataset.aaView;
   dismissViews();
-  if(view==="2d"){location.assign("./atlas-2d-journey-preview.html?v=20261122-atlas-nav-v3-search");return;}
+  if(view==="2d"){
+    var id=currentPerson();
+    location.assign("./atlas-2d-journey-preview.html?v=20261122-atlas-nav-v3-search"+
+      (id?"&person="+encodeURIComponent(id):""));
+    return;
+  }
   if(view==="3d"){show3d();return;}
   if(view==="fan"){
     showFamily();var fan=explorer?.querySelector('[data-pp-view="overview"]');fan?.click();return;
