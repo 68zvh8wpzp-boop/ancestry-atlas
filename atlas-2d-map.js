@@ -354,19 +354,13 @@ function normalize(text){return String(text||"").normalize("NFKD").replace(/[\u0
 function searchNow(){
   searchResults.replaceChildren();
   var query=normalize(searchInput.value);
-  var matches=query?data.nodes.filter(function(n){
-    return normalize([n.name,n.years,n.place,n.branch].join(" ")).includes(query);
-  }).sort(function(a,b){
-    var aa=normalize(a.name),bb=normalize(b.name);
-    var pa=aa===query?0:aa.startsWith(query)?1:aa.includes(query)?2:3;
-    var pb=bb===query?0:bb.startsWith(query)?1:bb.includes(query)?2:3;
-    return pa-pb||a.name.localeCompare(b.name);
-  }):[];
+  var ranked=query?window.AtlasPersonSearch.search(data.nodes,query,60):[];
+  var matches=ranked.map(function(hit){return hit.person;});
   document.getElementById("search-counter").textContent=query?matches.length+" matches in all "+data.nodes.length+" Atlas records":"Search all "+data.nodes.length+" Atlas records, or close this panel to explore the connected tree.";
   matches.slice(0,60).forEach(function(n){
     var b=document.createElement("button");b.className="search-item";b.type="button";
     var strong=document.createElement("strong");strong.textContent=n.name;b.appendChild(strong);
-    var small=document.createElement("small");small.textContent=[n.years,n.branch,byId.has(n.id)?"On the direct tree":"Unlinked or collateral record"].filter(Boolean).join(" · ");
+    var small=document.createElement("small");small.textContent=[window.AtlasPersonSearch.match(n,query)?.label,n.years,n.branch,byId.has(n.id)?"On the direct tree":"Unlinked or collateral record"].filter(Boolean).join(" · ");
     b.appendChild(small);
     b.onclick=function(){searchPanel.hidden=true;searchInput.blur();if(byId.has(n.id))focus(n.id,true,true);else openFamily(n.id);};
     searchResults.appendChild(b);
