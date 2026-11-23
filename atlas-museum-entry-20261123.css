@@ -1,0 +1,167 @@
+/* Ancestry Atlas · museum entry and one consistent navigation bar.
+   Presentation only. No genealogy, portrait source or evidence mutations. */
+:root{--aa-ink:#efe9db;--aa-museum-gold:#d9b67b;--aa-museum-soft:#b5c3c7;--aa-route-height:calc(61px + env(safe-area-inset-top))}
+#aaSimpleHome,#aaSimplePeople,#aaSimpleGlobe,#aaSimpleProfile{color:var(--aa-ink);background:#071b26}
+#aaSimpleHome{
+ background:
+  radial-gradient(ellipse 60% 43% at 50% 13%,rgba(58,101,109,.39),transparent 88%),
+  radial-gradient(ellipse 52% 70% at 85% 78%,rgba(72,62,40,.22),transparent 80%),
+  repeating-linear-gradient(0deg,transparent 0,transparent 60px,rgba(204,187,136,.024) 61px,transparent 62px),
+  repeating-linear-gradient(90deg,transparent 0,transparent 60px,rgba(204,187,136,.024) 61px,transparent 62px),
+  #071923!important;
+ padding:calc(28px + env(safe-area-inset-top)) 15px calc(31px + env(safe-area-inset-bottom))!important;
+ position:fixed;isolation:isolate
+}
+#aaSimpleHome:before{
+ content:"";position:fixed;inset:0;pointer-events:none;opacity:.25;
+ background:radial-gradient(ellipse 40% 18% at 50% 3%,transparent 65%,rgba(197,170,120,.22) 66%,transparent 67%),
+ radial-gradient(ellipse 55% 32% at 50% 2%,transparent 69%,rgba(197,170,120,.20) 70%,transparent 71%),
+ radial-gradient(circle at 50% 21%,rgba(240,209,149,.07),transparent 37%);
+}
+#aaSimpleHome .aa-simple-wrap{max-width:880px;position:relative;z-index:1}
+#aaSimpleHome .aa-museum-masthead{text-align:center;margin:0 auto 24px;max-width:780px}
+#aaSimpleHome .aa-masthead-rule{display:flex;align-items:center;gap:14px;justify-content:center;white-space:nowrap;color:#c5ab7d;font:600 9px/1.5 Georgia,serif;letter-spacing:.26em}
+#aaSimpleHome .aa-masthead-rule:before,#aaSimpleHome .aa-masthead-rule:after{content:"";height:1px;width:min(16vw,95px);background:linear-gradient(90deg,transparent,rgba(204,166,103,.8))}
+#aaSimpleHome .aa-masthead-rule:after{transform:rotate(180deg)}
+#aaSimpleHome h1{
+ position:static;width:auto;height:auto;clip:auto;overflow:visible;
+ font:400 clamp(42px,8vw,76px)/1.02 Georgia,"Times New Roman",serif!important;
+ letter-spacing:-.052em!important;color:#f6efdf!important;text-shadow:0 2px 24px rgba(5,13,19,.6);
+ margin:18px 0 9px!important
+}
+#aaSimpleHome h1 em{font-weight:400;color:#ddbf87;font-style:italic}
+#aaSimpleHome .aa-masthead-subtitle{color:#b5c5c8;font:italic clamp(13px,2.6vw,18px)/1.6 Georgia,serif;margin:0 auto;max-width:440px}
+#aaSimpleHome .aa-simple-doors{
+ max-width:790px!important;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+ gap:clamp(6px,2vw,19px);margin:26px auto 24px!important;padding:0!important
+}
+#aaSimpleHome .aa-simple-door{
+ position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;
+ gap:6px!important;min-height:clamp(132px,19vw,184px);border:1px solid rgba(205,173,121,.28)!important;
+ border-radius:16px!important;padding:13px 5px 11px!important;
+ background:linear-gradient(153deg,rgba(40,65,68,.8),rgba(11,31,42,.96) 64%,rgba(14,32,37,.96))!important;
+ box-shadow:inset 0 1px 0 rgba(249,223,164,.13),0 14px 35px rgba(1,8,15,.22);
+ color:#f1e8d6;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease
+}
+#aaSimpleHome .aa-simple-door:before{content:"";position:absolute;inset:5px;border:1px solid rgba(194,164,109,.13);border-radius:11px;pointer-events:none}
+#aaSimpleHome .aa-simple-door:hover,#aaSimpleHome .aa-simple-door:focus-visible{transform:translateY(-2px);border-color:#e2c88f!important;box-shadow:0 0 0 2px rgba(225,198,142,.15),0 18px 35px rgba(0,0,0,.35);outline:none}
+#aaSimpleHome .aa-simple-icon{
+ width:clamp(65px,13.5vw,109px)!important;height:clamp(65px,13.5vw,109px)!important;
+ border:0!important;border-radius:0!important;background:transparent!important;
+ display:flex;align-items:center;justify-content:center;flex:none;
+ filter:drop-shadow(0 5px 8px rgba(0,0,0,.25))
+}
+#aaSimpleHome .aa-simple-door svg{display:block;width:100%!important;height:100%!important;stroke:none!important;fill:none!important;overflow:visible}
+#aaSimpleHome .aa-simple-door .aa-door-label{
+ font:500 clamp(11px,2.6vw,16px)/1.2 Georgia,serif!important;letter-spacing:.035em;
+ color:#f7edda!important;white-space:nowrap
+}
+#aaSimpleHome .aa-simple-door .aa-door-index{font:600 9px/1.1 system-ui,sans-serif;letter-spacing:.15em;color:rgba(211,179,125,.65);margin-top:1px}
+#aaSimpleHome .aa-ink-stroke{fill:none;stroke:#b8d0c3;stroke-width:4.4;stroke-linecap:round;stroke-linejoin:round}
+#aaSimpleHome .aa-icon-earth{fill:none;stroke:#bd9d65;stroke-width:2;stroke-linecap:round}
+#aaSimpleHome .aa-gold-fill{fill:#d8bf82;stroke:#e7d6ae;stroke-width:1}
+#aaSimpleHome .aa-leaf{fill:#819b86;stroke:#b5c6a7;stroke-width:1}
+#aaSimpleHome .aa-root{fill:#d9b679}
+#aaSimpleHome .aa-medallion{fill:#263f43;stroke:#bfa875;stroke-width:1.5}
+#aaSimpleHome .aa-person-silhouette{fill:#d7bf97;stroke:#f1dfb9;stroke-width:1}
+#aaSimpleHome .aa-fine-line{fill:none;stroke:#c9b380;stroke-width:1.5;stroke-linecap:round}
+#aaSimpleHome .aa-globe-sea{fill:#305e6b;stroke:#d7bd88;stroke-width:2.3}
+#aaSimpleHome .aa-globe-land{fill:#bfaf7d;stroke:#dfc99b;stroke-width:1}
+#aaSimpleHome .aa-globe-graticule{fill:none;stroke:rgba(217,220,196,.55);stroke-width:1.2}
+#aaSimpleHome .aa-gold-stroke{fill:none;stroke:#d9bd84;stroke-width:2;stroke-linecap:round}
+#aaSimpleHome .aa-reel{fill:#5e4d43;stroke:#d7b98a;stroke-width:2.2}
+#aaSimpleHome .aa-reel-hole{fill:#102a33;stroke:#bda580;stroke-width:1}
+#aaSimpleHome .aa-film-tail{fill:#ba9e77;stroke:#e5c99b;stroke-width:1.3}
+#aaSimpleHome .aa-simple-explain{max-width:790px;margin:12px auto 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:26px;row-gap:0}
+#aaSimpleHome .aa-simple-explain p{
+ display:grid;grid-template-columns:minmax(50px,76px) 1fr;align-items:baseline;gap:11px!important;
+ border-bottom:1px solid rgba(198,168,118,.2)!important;
+ padding:12px 3px!important;margin:0!important;color:#bfced1!important;
+ font-size:clamp(12px,1.8vw,14px)!important;line-height:1.52
+}
+#aaSimpleHome .aa-simple-explain strong{font:500 15px Georgia,serif;color:#e9d2a8!important}
+#aaSimpleHome .aa-museum-footer{
+ text-align:center;margin:28px auto 0;color:rgba(208,185,143,.57);
+ letter-spacing:.23em;font:600 9px system-ui,sans-serif
+}
+#aaSimpleHeader{
+ box-sizing:border-box;min-height:var(--aa-route-height);display:flex;
+ gap:12px!important;justify-content:space-between;align-items:center;
+ padding:calc(8px + env(safe-area-inset-top)) 12px 9px!important;
+ background:linear-gradient(90deg,#0b2430,#0b1b27)!important;
+ border-bottom:1px solid rgba(217,185,130,.4)!important;
+ box-shadow:0 8px 20px rgba(0,0,0,.2)
+}
+#aaSimpleHeader .aa-museum-route{display:flex;align-items:center;gap:7px}
+#aaSimpleHeader .aa-museum-route button{
+ display:flex;align-items:center;justify-content:center;gap:6px;min-width:43px;min-height:42px;
+ padding:7px 10px;border:1px solid rgba(212,183,129,.48);border-radius:9px;
+ background:rgba(221,198,148,.07);color:#ecddbf;cursor:pointer
+}
+#aaSimpleHeader .aa-museum-route button:hover,#aaSimpleHeader .aa-museum-route button:focus-visible{border-color:#e2c58a;background:rgba(221,198,148,.19)}
+#aaSimpleHeader .aa-museum-route button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+#aaSimpleHeader .aa-route-home{font-weight:650;font-size:13px}
+#aaSimpleHeader .aa-route-home span:first-child{font:26px/1 Georgia,serif}
+#aaSimpleHeader>strong{font:500 16px Georgia,serif!important;color:#e1c597;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:right}
+#aaSimplePeople,#aaSimpleGlobe{padding-top:calc(77px + env(safe-area-inset-top))!important}
+#aaSimpleProfile{padding-top:calc(112px + env(safe-area-inset-top))!important}
+#aaSimpleProfile .aa-simple-profile-head{
+ top:calc(61px + env(safe-area-inset-top))!important;
+ border-color:rgba(205,176,124,.28);background:#102832
+}
+#aaSimpleProfile iframe{height:calc(100% - 112px - env(safe-area-inset-top))!important}
+#aaSimplePeople h2{font:400 29px Georgia,serif!important;color:#ebd9b5!important}
+#aaSimplePeople input:focus,#aaSimplePeople .aa-simple-person:focus-visible{outline:2px solid #e4c38c}
+#aaSimpleGlobe .aa-simple-globe-wrap>p{font:italic 14px/1.6 Georgia,serif;color:#c5d0cb}
+body.aa-four-door-shell #storyModal.open{z-index:23005!important;padding-top:calc(69px + env(safe-area-inset-top));box-sizing:border-box}
+body.aa-four-door-shell #storyModal .story-shell{max-height:calc(100dvh - 97px - env(safe-area-inset-top))}
+@media(max-width:580px){
+ #aaSimpleHome{padding-left:10px!important;padding-right:10px!important}
+ #aaSimpleHome .aa-museum-masthead{margin-bottom:16px}
+ #aaSimpleHome .aa-masthead-rule{font-size:8px;letter-spacing:.14em;gap:7px}
+ #aaSimpleHome h1{font-size:clamp(39px,10vw,55px)!important;margin:13px 0 6px!important}
+ #aaSimpleHome .aa-masthead-subtitle{font-size:13px;max-width:300px}
+ #aaSimpleHome .aa-simple-doors{gap:6px!important;margin:22px 0 18px!important}
+ #aaSimpleHome .aa-simple-door{min-height:134px!important;padding:9px 2px 8px!important;border-radius:11px!important}
+ #aaSimpleHome .aa-simple-door:before{inset:3px;border-radius:8px}
+ #aaSimpleHome .aa-simple-icon{width:clamp(56px,18vw,72px)!important;height:clamp(56px,18vw,72px)!important}
+ #aaSimpleHome .aa-simple-door .aa-door-label{font-size:11px!important;letter-spacing:0}
+ #aaSimpleHome .aa-simple-explain{display:block;max-width:480px}
+ #aaSimpleHome .aa-simple-explain p{grid-template-columns:67px 1fr;gap:7px;padding:9px 0!important;font-size:12.5px!important}
+ #aaSimpleHome .aa-simple-explain strong{font-size:14px}
+ #aaSimpleHome .aa-museum-footer{margin-top:22px;font-size:8px}
+ #aaSimpleHeader{gap:5px!important}
+ #aaSimpleHeader>strong{font-size:14px!important}
+ #aaSimpleHeader .aa-museum-route{gap:4px}
+ #aaSimpleHeader .aa-museum-route button{min-width:40px;min-height:42px;padding:5px}
+ #aaSimpleHeader .aa-route-home{min-width:67px!important;font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){#aaSimpleHome .aa-simple-door{transition:none}}
+
+/* Bring the real geographic globe and search into the same collection. */
+#aaSimpleGlobe #aaGeoGlobe{
+ border:1px solid rgba(214,183,125,.45);
+ background:linear-gradient(145deg,#112f39,#0a1f2c);
+ box-shadow:0 14px 38px rgba(0,0,0,.3)
+}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-heading strong{font:400 23px Georgia,serif;color:#ead5af}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-heading span{color:#becdcc}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-buttons button,
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-zoom button{
+ border-color:rgba(211,183,133,.48);background:#173640;color:#eddfc4
+}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-canvas-wrap{
+ height:clamp(280px,58dvh,580px)!important;
+ border:1px solid rgba(202,167,113,.26);
+ background:radial-gradient(ellipse at center,#16404b,#071922 78%)
+}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-detail{
+ background:#112d36;border-color:rgba(214,183,125,.35)
+}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-legend{border-color:rgba(214,183,125,.29)}
+#aaSimplePeople .aa-simple-person{background:#16323b;border-color:rgba(204,180,132,.35)}
+#aaSimplePeople .aa-simple-person:hover{border-color:#dfbf83;background:#1b3b43}
+#aaSimplePeople input{background:#102b36;border-color:#927f61}
+@media(max-width:580px){
+ #aaSimpleGlobe #aaGeoGlobe .aa-geo-canvas-wrap{height:clamp(290px,48dvh,420px)!important}
+}

@@ -24,8 +24,8 @@ test("entry screen exposes exactly Tree, People, Globe and Stories",async()=>{
  assert.match(script,/if\(window\.self!==window\.top\)return/);
  assert.match(css,/#aaSimpleHome/);
  assert.ok(!script.includes("aaPrimaryNav"));
- assert.match(index,/20261123-portrait-crops-v3/);
- assert.match(JSON.parse(manifest).start_url,/20261123-portrait-crops-v3/);
+ assert.match(index,/20261123-museum-navigation-v1/);
+ assert.match(JSON.parse(manifest).start_url,/20261123-museum-navigation-v1/);
 });
 
 test("Tree goes directly to portrait-enabled 2D; source pages stay intact",async()=>{
@@ -35,7 +35,9 @@ test("Tree goes directly to portrait-enabled 2D; source pages stay intact",async
   read("atlas-four-doors-20261123.js")
  ]);
  assert.match(script,/atlas-2d-journey-preview\.html\?v=/);
- assert.match(map,/id="aaTreeReturnHome"/);
+ assert.match(map,/atlas-museum-route-20261123\.js/);
+ assert.match(map,/atlas-museum-route-20261123\.css/);
+ assert.ok(!map.includes('id="aaTreeReturnHome"'),"Remove redundant second Home control");
  assert.match(map,/atlas-2d-portrait-index-20261123\.js/);
  assert.ok(map.indexOf("atlas-2d-portrait-index-20261123.js")<map.indexOf("atlas-2d-map.js"));
  assert.match(mapJS,/drawPortraitOrBust/);
@@ -43,7 +45,7 @@ test("Tree goes directly to portrait-enabled 2D; source pages stay intact",async
  assert.match(mapJS,/var portraits=window\.ATLAS_2D_PORTRAITS/);
  assert.doesNotThrow(()=>new vm.Script(mapJS));
  const context={window:{}};vm.runInNewContext(portraits,context);
- assert.equal(Object.keys(context.window.ATLAS_2D_PORTRAITS).length,24);
+ assert.equal(Object.keys(context.window.ATLAS_2D_PORTRAITS).length,25);
  assert.ok(context.window.ATLAS_2D_PORTRAITS.dorthea_jensen);
  assert.ok(context.window.ATLAS_2D_PORTRAITS.sarah_carling?.crop,"Captioned central adult is an approved group crop");
  assert.ok(!context.window.ATLAS_2D_PORTRAITS.isaiah_hill,"Different Isaiah must not be misattributed");

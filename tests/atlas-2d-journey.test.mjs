@@ -12,7 +12,8 @@ test("the Home Screen app links to the separate map with a return route",async()
   assert.match(entry,/atlas-v3\.9\.63\.html/);
   assert.match(JSON.parse(manifest).start_url,/atlas-v3\.9\.63\.html/);
   assert.match(original,/href="\.\/atlas-2d-journey-preview\.html/);
-  assert.match(html,/href="\.\/atlas-v3\.9\.63\.html/);
+  assert.match(html,/atlas-museum-route-20261123\.js/);
+  assert.match(html,/atlas-museum-route-20261123\.css/);
   assert.ok(!original.includes("atlas-2d-map.js"));
   for(const name of ["atlas-2d-pedigree-snapshot.js","atlas-2d-layout.js","atlas-2d-family.js","atlas-2d-map.js","atlas-2d-map.css"]){
     assert.ok(html.includes(name),"missing asset: "+name);
