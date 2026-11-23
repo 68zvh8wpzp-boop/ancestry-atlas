@@ -619,7 +619,7 @@ function openBiography(personId){
     }catch(error){console.warn("Original Atlas person page navigation",error);}
     document.getElementById("loading-bio").hidden=true;
   };
-  bioFrame.src="./atlas-v3.9.63.html?iphone-refresh=20261123-four-doors-v1&from=two-dimensional-map";
+  bioFrame.src="./atlas-v3.9.63.html?iphone-refresh=20261123-globe-route-focus-v2&from=two-dimensional-map";
 }
 familyPanel.addEventListener("click",function(e){
   var button=e.target.closest("[data-aa-family-person]");
