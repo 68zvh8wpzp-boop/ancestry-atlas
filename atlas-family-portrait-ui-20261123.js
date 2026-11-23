@@ -79,6 +79,12 @@ function makePersonCard(person,label,current,onOpen){
     var btn=document.createElement("button");btn.className="aa-family-open";btn.type="button";btn.textContent="View person";
     btn.addEventListener("click",function(){onOpen(person.id);});wrap.appendChild(btn);
   }
+  var source=portraitRoot()[person.id];
+  if(source){
+    var link=document.createElement("a");link.className="aa-family-original";
+    link.href=source.fullSourceUrl||source.url;link.target="_blank";link.rel="noopener noreferrer";
+    link.textContent="Original photograph";wrap.appendChild(link);
+  }
   card.appendChild(wrap);return card;
 }
 function familySection(parent,title,entries,onOpen){
