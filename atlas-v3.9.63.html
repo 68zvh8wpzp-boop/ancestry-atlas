@@ -2777,7 +2777,27 @@ document.getElementById('evidenceModeBtn').onclick=()=>{evidenceMode=!evidenceMo
 document.getElementById('collateralBtn').onclick=()=>{showCollateral=!showCollateral;const b=document.getElementById('collateralBtn');b.classList.toggle('active',showCollateral);b.textContent=`Collateral routes: ${showCollateral?'shown':'hidden'}`;draw();};
 document.getElementById('depthBtn').onclick=()=>{expandedDepth=!expandedDepth;const b=document.getElementById('depthBtn');b.classList.toggle('active',expandedDepth);b.textContent=`3D depth: ${expandedDepth?'expanded':'compact'}`;setRotationPivotToViewportCenter();draw();};
 const searchInput=document.getElementById('personSearch'),searchResults=document.getElementById('searchResults');
-function runPersonSearch(){const q=searchInput.value.trim().toLowerCase(); if(!q){searchResults.textContent='';return;} const hits=DATA.nodes.filter(n=>(n.name+' '+(n.years||'')+' '+(n.place||'')).toLowerCase().includes(q)).slice(0,6); searchResults.innerHTML=hits.map(n=>`<button data-fly=\"${escapeHtml(n.id)}\" style=\"font-size:10px;padding:4px 6px\">${escapeHtml(n.name)}</button>`).join('')||'No match'; searchResults.querySelectorAll('[data-fly]').forEach(b=>b.onclick=()=>{const id=b.dataset.fly;const n=nodeById.get(id);if(n?.collateral&&!showCollateral){showCollateral=true;document.getElementById('collateralBtn').classList.add('active');document.getElementById('collateralBtn').textContent='Collateral routes: shown';} navigateTo(id,true); searchInput.value=n.name;searchResults.textContent='';});}
+function findAtlasNameMatches(raw,limit){
+  const engine=window.AtlasPersonSearch;
+  if(engine)return engine.search(DATA.nodes,raw,limit).matches;
+  const q=String(raw||'').trim().toLowerCase();
+  return q?DATA.nodes.filter(n=>(n.name+' '+(n.years||'')+' '+(n.place||'')).toLowerCase().includes(q))
+    .slice(0,limit).map(person=>({person,approximate:false})):[];
+}
+function runPersonSearch(){
+  const hits=findAtlasNameMatches(searchInput.value,6);
+  if(!searchInput.value.trim()){searchResults.textContent='';return;}
+  searchResults.innerHTML=hits.map(hit=>'<button data-fly="'+escapeHtml(hit.person.id)+'" style="font-size:10px;padding:4px 6px">'+
+    escapeHtml(hit.person.name)+(hit.approximate?' · close spelling':'')+'</button>').join('')||'No match';
+  searchResults.querySelectorAll('[data-fly]').forEach(b=>b.onclick=()=>{
+    const id=b.dataset.fly,n=nodeById.get(id);
+    if(n?.collateral&&!showCollateral){
+      showCollateral=true;document.getElementById('collateralBtn').classList.add('active');
+      document.getElementById('collateralBtn').textContent='Collateral routes: shown';
+    }
+    navigateTo(id,true);searchInput.value=n.name;searchResults.textContent='';
+  });
+}
 searchInput.addEventListener('input',runPersonSearch);
 searchInput.addEventListener('keydown',e=>{if(e.key==='Enter'){const b=searchResults.querySelector('[data-fly]');if(b)b.click();}});
 const mobilePersonSearchInput=document.getElementById('mobilePersonSearchInput');
@@ -2799,11 +2819,13 @@ function selectPersonSearchResult(id){
   document.body.classList.remove('atlas-mobile-search-active');
 }
 function runMobilePersonSearch(){
-  const q=mobilePersonSearchInput.value.trim().toLowerCase();
+  const q=mobilePersonSearchInput.value.trim();
   document.body.classList.toggle('atlas-mobile-search-active',!!q || document.activeElement===mobilePersonSearchInput);
   if(!q){mobilePersonSearchResults.textContent='';return;}
-  const hits=DATA.nodes.filter(n=>(n.name+' '+(n.years||'')+' '+(n.place||'')).toLowerCase().includes(q)).slice(0,6);
-  mobilePersonSearchResults.innerHTML=hits.map(n=>`<button type="button" data-mobile-fly="${escapeHtml(n.id)}">${escapeHtml(n.name)}</button>`).join('')||'No match';
+  const hits=findAtlasNameMatches(q,6);
+  mobilePersonSearchResults.innerHTML=hits.map(hit=>'<button type="button" data-mobile-fly="'+
+    escapeHtml(hit.person.id)+'">'+escapeHtml(hit.person.name)+
+    (hit.approximate?' · close spelling':'')+'</button>').join('')||'No match';
   mobilePersonSearchResults.querySelectorAll('[data-mobile-fly]').forEach(b=>b.onclick=()=>selectPersonSearchResult(b.dataset.mobileFly));
 }
 mobilePersonSearchInput.addEventListener('focus',()=>document.body.classList.add('atlas-mobile-search-active'));
@@ -3337,6 +3359,7 @@ window.__EDWARD_JR_BIOGRAPHY={version:'20261017-jr-full-biography-1',wordCount:l
 <!-- Tranche 135: competing New York James Webb/Anna Scott household; derivative caution ONLY -->
 <script src="webb-anna-scott-namesake-frontier-20261031.js?v=20261031-t137"></script>
 <!-- Isolated iPhone navigation experiment: original canvas tree and data retained -->
+<script src="atlas-person-search.js?v=20261122-search-v1"></script>
 <script src="mobile-hybrid-navigation-20261117.js?v=20261117-2"></script>
 <script src="iphone-ancestry-explorer-preview.js?v=20261121-ancestry-navigation-v1"></script>
 <script src="atlas-navigation-20261122.js?v=20261122-atlas-nav-v2"></script>
