@@ -8,6 +8,8 @@
 #show-search{display:none!important}
 /* Use a spare visual channel for portraits without removing map names or evidence. */
 #topbar .toolbar{gap:5px}
+#selected-photo-source{display:inline-block;margin-top:5px;color:#b9d9ea;font:500 11px system-ui;text-decoration:underline;text-underline-offset:3px}
+#selected-photo-source[hidden]{display:none!important}
 @media(max-width:390px){
  #topbar{gap:5px;padding-left:8px;padding-right:8px}
  #brand h1{font-size:17px}
