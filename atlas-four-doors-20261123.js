@@ -222,6 +222,17 @@ document.addEventListener("keydown",function(e){
   if(e.key==="Escape"&&current==="profile")history.back();
   else if(e.key==="Escape"&&(current==="people"||current==="globe"))showHome();
 });
+window.addEventListener("message",function(event){
+  if(event.origin!==location.origin||event.source!==profile.querySelector("#aaSimpleProfileFrame").contentWindow)return;
+  var info=event.data;
+  if(!info||info.type!=="atlas-person-page"||!info.id)return;
+  var person=atlas.nodes.find(function(p){return p.id===info.id;});
+  if(!person)return;
+  profileId=person.id;
+  profile.querySelector("#aaSimpleProfileName").textContent=person.name;
+  if(history.state?.aaFourDoor&&history.state.screen==="profile")
+    history.replaceState(Object.assign({},history.state,{person:person.id}),"",location.href);
+});
 window.addEventListener("popstate",function(event){
   var state=event.state;
   if(!state||!state.aaFourDoor)return;
