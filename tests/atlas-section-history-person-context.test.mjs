@@ -15,7 +15,7 @@ test("home is the only entry screen; no tabs, bottom bar, or nested Views menu",
  assert.match(shell,/profileOrigin/);
  assert.match(shell,/aaSimpleBackHome/);
  assert.match(css,/body\.aa-four-door-shell #mobileTreeDock/);
- assert.ok(!shell.includes("history.pushState"));
+ assert.match(shell,/history\.pushState/);
 });
 test("PWA and 2D share the refreshed entry point",async()=>{
  const [main,map,index,manifest]=await Promise.all([
@@ -23,7 +23,7 @@ test("PWA and 2D share the refreshed entry point",async()=>{
   read("index.html"),read("manifest.webmanifest")
  ]);
  for(const html of [main,map])assert.match(html,/20261123-portrait-crops-v3/);
- assert.match(index,/20261123-portrait-crops-v3/);
- assert.match(JSON.parse(manifest).start_url,/20261123-portrait-crops-v3/);
- assert.match(map,/aaTreeReturnHome/);
+ assert.match(index,/20261123-family-unified-v1/);
+ assert.match(JSON.parse(manifest).start_url,/20261123-family-unified-v1/);
+ assert.match(map,/atlas-museum-route-20261123\.js/);
 });
