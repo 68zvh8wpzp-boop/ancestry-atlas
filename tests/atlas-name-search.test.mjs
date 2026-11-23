@@ -41,23 +41,19 @@ test("matching suggestions do not modify people, relationships or evidence",asyn
   assert.equal(edited.matches[0].reason,"Possible spelling match");
   assert.equal(edited.total,1);
 });
-test("all family access paths share the name search and clear return destinations",async()=>{
-  const [html,explorer,nav,map,mapHTML,oldMobile,css]=await Promise.all([
-    read("atlas-v3.9.63.html"),read("iphone-ancestry-explorer-preview.js"),
-    read("atlas-navigation-20261122.js"),read("atlas-2d-map.js"),
-    read("atlas-2d-journey-preview.html"),read("mobile-hybrid-navigation-20261117.js"),
-    read("atlas-navigation-20261122.css")
-  ]);
-  assert.match(html,/atlas-person-search\.js/);
-  assert.match(mapHTML,/atlas-person-search\.js/);
-  assert.ok(html.indexOf("atlas-person-search.js")<html.indexOf("iphone-ancestry-explorer-preview.js"));
-  assert.ok(mapHTML.indexOf("atlas-person-search.js")<mapHTML.indexOf('atlas-2d-map.js'));
-  for(const js of [explorer,nav,map,oldMobile])assert.match(js,/AtlasPersonSearch/);
-  for(const js of [explorer,nav,map,oldMobile])assert.doesNotThrow(()=>new vm.Script(js));
-  assert.match(html,/function findAtlasNameMatches\(/);
-  assert.match(explorer,/Possible spelling match — verify identity/);
-  assert.match(nav,/Possible spelling match — verify identity/);
-  assert.match(map,/Possible spelling match — verify identity/);
-  assert.match(nav,/showFamily\(\);if\(typeof openAlbum==="function"\)openAlbum/);
-  assert.match(css,/#aaPrimaryNav/);
+test("single People search uses one evidence-preserving name index",async()=>{
+ const [main,shell,map,mapHTML]=await Promise.all([
+   read("atlas-v3.9.63.html"),read("atlas-four-doors-20261123.js"),
+   read("atlas-2d-map.js"),read("atlas-2d-journey-preview.html")
+ ]);
+ assert.match(main,/atlas-person-search\.js/);
+ assert.match(mapHTML,/atlas-person-search\.js/);
+ assert.ok(main.indexOf("atlas-person-search.js")<main.indexOf("atlas-four-doors-20261123.js"));
+ assert.ok(mapHTML.indexOf("atlas-person-search.js")<mapHTML.indexOf("atlas-2d-map.js"));
+ assert.match(shell,/AtlasPersonSearch\.search\(atlas\.nodes,term,100\)/);
+ assert.match(shell,/Possible spelling match — verify identity/);
+ assert.match(map,/Possible spelling match — verify identity/);
+ assert.match(shell,/openProfile\(b\.dataset\.aaPerson,"people"\)/);
+ assert.doesNotThrow(()=>new vm.Script(shell));
+ assert.ok(!/data\.nodes\.(push|splice)|data\.edges\.(push|splice)/.test(shell));
 });
