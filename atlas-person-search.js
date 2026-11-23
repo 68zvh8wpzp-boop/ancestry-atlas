@@ -37,9 +37,14 @@
     })) return 3;
     const context = normalize([person.years, person.place, person.branch].filter(Boolean).join(' '));
     if (context.includes(query)) return 4;
-    // Preserve historical name + birth-year and name + place searches.
-    return normalize([person.name,person.years,person.place,person.branch].filter(Boolean).join(' '))
-      .includes(query) ? 5 : Infinity;
+    // Allow name + year/place tokens without requiring words to be adjacent.
+    const combined = normalize([...allNames,person.years,person.place,person.branch].filter(Boolean).join(' '));
+    if (combined.includes(query)) return 5;
+    if (tokens.length > 1) {
+      const words = combined.split(' ');
+      if (tokens.every(t => words.some(w => w === t || (t.length >= 3 && w.startsWith(t))))) return 5;
+    }
+    return Infinity;
   }
   // Bounded Optimal String Alignment distance (includes adjacent transpositions).
   function distance(a, b, maximum) {
