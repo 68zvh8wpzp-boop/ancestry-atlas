@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - 'atlas-v3.9.63.html'
+      - 'tests/a439-charles-death-original-source.test.mjs'
       - 'tests/a438-1901-canada-original-crosslink.test.mjs'
       - 'tests/a440-dennis-1898-peter-1910-originals.test.mjs'
       - '.github/workflows/a440-original-proof-qa.yml'
