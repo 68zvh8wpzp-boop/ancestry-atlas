@@ -26,7 +26,7 @@ function currentPerson(){
   return window.AncestryAtlasPedigreePreview?.getState?.().selected||"you";
 }
 function mainUrl(section){
-  var url=main+"?section="+encodeURIComponent(section)+"&nav=20261122-v3-search";
+  var url=main+"?section="+encodeURIComponent(section)+"&nav=20261122-v4-person-context";
   var id=currentPerson();if(id&&section==="family")url+="&person="+encodeURIComponent(id);
   return url;
 }
@@ -169,7 +169,7 @@ more.addEventListener("click",function(event){
   dismissViews();
   if(view==="2d"){
     var id=currentPerson();
-    location.assign("./atlas-2d-journey-preview.html?v=20261122-atlas-nav-v3-search"+
+    location.assign("./atlas-2d-journey-preview.html?v=20261122-atlas-nav-v4-person-context"+
       (id?"&person="+encodeURIComponent(id):""));
     return;
   }
