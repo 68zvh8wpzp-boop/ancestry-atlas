@@ -142,8 +142,8 @@
   },
   {
     "id": "della_ray",
-    "url": "assets/della-ray/della-webb-and-daughters-1947-original-preview.jpg",
-    "sourceBlobSha": "c7be24d37386ec5e9bc823eef2c7a8d21b58da78",
+    "url": "assets/della-ray/della-webb-and-daughters-1947-original.jpg",
+    "sourceBlobSha": "7e4601a4be2c8df53fa6a5e6c360017a871a8229",
     "fullSourceUrl": "assets/della-ray/della-webb-and-daughters-1947-original.jpg",
     "crop": {
       "x": 0.392,
@@ -154,7 +154,7 @@
     "portraitType": "group-crop",
     "subject": "Della, third from left, with four daughters in 1947",
     "basis": "Contributor explicitly identifies Zola, Thora, Della, Gwen, Louise left-to-right.",
-    "provenance": "FamilySearch • Della and daughters, 7 April 1947 • preview of archived original",
+    "provenance": "FamilySearch • Della and daughters, 7 April 1947 • archived full original",
     "sourcePage": "https://www.familysearch.org/en/tree/person/memories/KWCR-Z55",
     "attribution": "source-identified"
   },
@@ -332,6 +332,7 @@
   entries.forEach(function(entry){
     var r=entry.crop;
     if(!entry.id||!entry.url||!entry.basis||!entry.provenance||
+       !/^[a-f0-9]{40}$/.test(entry.sourceBlobSha)||
        !approved.has(entry.portraitType)||
        ![r.x,r.y,r.w,r.h].every(function(x){return Number.isFinite(x)&&x>=0&&x<=1;})||
        r.w<=0||r.h<=0||r.x+r.w>1.000001||r.y+r.h>1.000001){
