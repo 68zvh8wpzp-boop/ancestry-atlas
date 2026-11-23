@@ -20,7 +20,7 @@ function currentPerson(){
   return window.AncestryAtlasPedigreePreview?.getState?.().selected||"you";
 }
 function mainUrl(section){
-  var url=main+"?section="+encodeURIComponent(section)+"&nav=20261122-v2";
+  var url=main+"?section="+encodeURIComponent(section)+"&nav=20261122-v3-search";
   var id=currentPerson();if(id&&section==="family")url+="&person="+encodeURIComponent(id);
   return url;
 }
@@ -102,16 +102,21 @@ function drawPlaces(){
     var b=make("button",item[0]);b.type="button";b.dataset.aaRegion=item[0];b.setAttribute("aria-pressed",String(item[0]===region));tabs.appendChild(b);
   });
   var expression=regions.find(function(x){return x[0]===region;})?.[1];
-  var needle=clean(searchTerm);
-  var matches=people.filter(function(n){
-    return (!expression||expression.test(n.place))&&(!needle||clean([n.name,n.place,n.years,n.branch].join(" ")).includes(needle));
-  }).sort(function(a,b){return String(a.name).localeCompare(String(b.name));});
+  var scope=people.filter(function(n){return !expression||expression.test(n.place);});
+  var results=searchTerm.trim()&&window.AtlasPersonSearch?
+    window.AtlasPersonSearch.search(scope,searchTerm,scope.length):null;
+  var matches=results?results.matches.map(function(m){return m.person}):
+    scope.filter(function(n){return !searchTerm.trim()||
+      clean([n.name,n.place,n.years,n.branch].join(" ")).includes(clean(searchTerm));})
+    .sort(function(a,b){return String(a.name).localeCompare(String(b.name));});
+  var approximateIds=new Set(results?results.matches.filter(function(m){return m.approximate;}).map(function(m){return m.person.id;}):[]);
   var list=places.querySelector("#aaPlacesResults");list.replaceChildren();
-  list.appendChild(make("p",matches.length+" mapped people with matching location fields","aa-place-count"));
+  list.appendChild(make("p",matches.length+" mapped people with matching location fields"+
+    (approximateIds.size?" · "+approximateIds.size+" possible name-spelling matches":""),"aa-place-count"));
   matches.slice(0,maxItems).forEach(function(n){
     var b=make("button",undefined,"aa-place-person");b.type="button";b.dataset.aaPerson=n.id;
     b.appendChild(make("strong",n.name));
-    b.appendChild(make("span",[n.years,n.place].filter(Boolean).join(" · ")));
+    b.appendChild(make("span",[approximateIds.has(n.id)?"Possible spelling match — verify identity":null,n.years,n.place].filter(Boolean).join(" · ")));
     list.appendChild(b);
   });
   if(matches.length>maxItems){
@@ -156,13 +161,15 @@ more.addEventListener("click",function(event){
   var b=event.target.closest("[data-aa-view]");if(!b)return;
   var view=b.dataset.aaView;
   dismissViews();
-  if(view==="2d"){location.assign("./atlas-2d-journey-preview.html?v=20261122-atlas-nav-v2");return;}
+  if(view==="2d"){location.assign("./atlas-2d-journey-preview.html?v=20261122-atlas-nav-v3-search");return;}
   if(view==="3d"){show3d();return;}
   if(view==="fan"){
     showFamily();var fan=explorer?.querySelector('[data-pp-view="overview"]');fan?.click();return;
   }
   if(view==="album"||view==="documents"){
-    show3d();if(typeof openAlbum==="function")openAlbum(view==="album"?"family":"document");
+    // Keep the Family explorer behind its collection so Close returns to Family,
+    // rather than dropping the visitor into the legacy 3D tree.
+    showFamily();if(typeof openAlbum==="function")openAlbum(view==="album"?"family":"document");
   }
 });
 places.addEventListener("click",function(event){
