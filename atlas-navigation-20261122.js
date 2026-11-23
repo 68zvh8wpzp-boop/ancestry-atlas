@@ -81,7 +81,7 @@ var regions=[
  ["France",/\b(france|french|normandy)\b/i],
  ["Mexico",/\b(mexico|mexican)\b/i]
 ];
-var region="All",searchTerm="",maxItems=60;
+var region="All",searchTerm="",maxItems=60,returnToPlacesAfterGallery=false;
 var data=window.__ATLAS_DATA;
 var people=(data&&Array.isArray(data.nodes)?data.nodes:[]).filter(function(n){return n&&n.id&&n.place;});
 function clean(s){return String(s||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase();}
@@ -162,7 +162,7 @@ places.addEventListener("click",function(event){
   if(b.dataset.aaRegion){region=b.dataset.aaRegion;maxItems=60;drawPlaces();return;}
   if(b.id==="aaPlacesMore"){maxItems+=80;drawPlaces();return;}
   if(b.id==="aaPlacesGallery"){
-    show3d();active("places");if(typeof openAlbum==="function")openAlbum("place");return;
+    returnToPlacesAfterGallery=true;show3d();active("places");if(typeof openAlbum==="function")openAlbum("place");return;
   }
   if(b.dataset.aaPerson){
     var id=b.dataset.aaPerson;
@@ -175,6 +175,12 @@ places.addEventListener("click",function(event){
     active("places");
   }
 });
+var albumModal=document.getElementById("albumModal");
+if(albumModal)new MutationObserver(function(){
+  if(returnToPlacesAfterGallery&&!albumModal.classList.contains("open")){
+    returnToPlacesAfterGallery=false;showPlaces();
+  }
+}).observe(albumModal,{attributes:true,attributeFilter:["class"]});
 places.querySelector("#aaPlaceSearch").addEventListener("input",function(event){searchTerm=event.target.value;maxItems=60;drawPlaces();});
 document.addEventListener("pointerdown",function(event){
   if(!more.hidden&&!more.contains(event.target)&&event.target!==viewsButton)dismissViews();
