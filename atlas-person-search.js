@@ -44,7 +44,7 @@
         if(word===term)cost=0;
         else if(term.length>=2&&word.startsWith(term))cost=1;
         else {
-          var limit=term.length>=8?2:term.length>=4?1:0;
+          var limit=term.length>=7?2:term.length>=4?1:0;
           if(limit){
             var d=distance(term,word,limit);
             if(d<=limit){cost=5*d;edit=d;}
