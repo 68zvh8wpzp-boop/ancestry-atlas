@@ -68,3 +68,21 @@ test("PWA and main globe renderer have fresh installed-app cache tokens",async()
  assert.match(tree,/atlas-2d-map\.js\?v=20261123-family-unified-v1/);
  assert.match(main,/atlas-geographic-globe-20261122\.js\?v=20261123-family-unified-v1/);
 });
+
+test("origin and destination changes rotate the globe to a spherical midpoint without asserting migration",async()=>{
+ const [renderer,modelJS,source]=await Promise.all([
+  read("atlas-geographic-globe-20261122.js"),read("atlas-geo-places-20261122.js"),read("atlas-v3.9.63.html")
+ ]);
+ assert.doesNotThrow(()=>new vm.Script(renderer));
+ assert.match(renderer,/function centerOnSummaryRoute\(\)/);
+ assert.match(renderer,/Math\.atan2\(y,x\)\/RAD/);
+ assert.match(renderer,/Math\.atan2\(v,Math\.hypot\(x,y\)\)\/RAD/);
+ assert.match(renderer,/fromControl\.addEventListener\("change"[\s\S]*?centerOnSummaryRoute\(\);updateDetail\(\);render\(\)/);
+ assert.match(renderer,/toControl\.addEventListener\("change"[\s\S]*?centerOnSummaryRoute\(\);updateDetail\(\);render\(\)/);
+ const i=source.indexOf("const DATA = "),j=source.indexOf(";\n",i);
+ const records=JSON.parse(source.slice(i+"const DATA = ".length,j));
+ const sandbox={window:{}};vm.runInNewContext(modelJS,sandbox);
+ const routes=sandbox.window.AtlasGeoPlaces.build(records.nodes,{}).routes;
+ assert.ok(routes.some(r=>r.personId==="charles_albert"&&r.from==="arnstein"&&r.to==="arizona"));
+ assert.ok(routes.every(r=>r.claim.includes("migration unverified")));
+});
