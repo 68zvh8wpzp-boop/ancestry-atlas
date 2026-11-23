@@ -8,7 +8,7 @@ if(window.self!==window.top)return;
 var atlas=window.__ATLAS_DATA,geo=window.AtlasGeoGlobe,query=new URLSearchParams(location.search);
 if(!atlas||!Array.isArray(atlas.nodes))return;
 document.body.classList.add("aa-four-door-shell");
-var release="20261123-portrait-crops-v3";
+var release="20261123-museum-navigation-v1";
 var icons={
  tree:'<svg viewBox="0 0 80 80" aria-hidden="true"><path class="aa-ink-stroke" d="M39 67V44m0 14-8 8m8-14 9 12M39 45 26 32m13 12 15-16m-27 5-7-13m7 13 3-16m24 11 7-13m-7 13-6-13"/><path class="aa-icon-earth" d="M16 68c15-4 33-3 49 0"/><circle class="aa-gold-fill" cx="20" cy="20" r="5"/><circle class="aa-gold-fill" cx="30" cy="17" r="5"/><circle class="aa-gold-fill" cx="47" cy="15" r="5"/><circle class="aa-gold-fill" cx="61" cy="15" r="5"/><circle class="aa-leaf" cx="26" cy="32" r="6"/><circle class="aa-leaf" cx="54" cy="28" r="6"/><circle class="aa-gold-fill" cx="39" cy="43" r="5"/><circle class="aa-root" cx="39" cy="67" r="3"/></svg>',
  people:'<svg viewBox="0 0 80 80" aria-hidden="true"><ellipse class="aa-medallion" cx="40" cy="40" rx="28" ry="32"/><path class="aa-person-silhouette" d="M26 66c2-10 8-13 17-16l3-7c-4-2-6-5-6-9l-4-2 3-5-1-7c1-9 6-14 14-14 8 0 14 6 14 15 0 6-3 11-7 15l-1 8c5 5 9 11 9 22z"/><path class="aa-fine-line" d="M46 41c4 3 8 3 12 2M24 67h42"/></svg>',
@@ -36,7 +36,7 @@ document.body.appendChild(page);
 var header=document.createElement("div");
 header.id="aaSimpleHeader";header.hidden=true;
 header.innerHTML='<nav class="aa-museum-route" aria-label="Atlas navigation">'+
- '<button type="button" id="aaSimpleBackHome" class="aa-route-home" aria-label="Return to Atlas home"><span aria-hidden="true">⌂</span><span>Home</span></button>'+
+ '<button type="button" id="aaSimpleBackHome" class="aa-route-home" aria-label="Return to Atlas home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8M5 10v11h14V10M10 21v-7h4v7"/></svg><span>Home</span></button>'+
  '<button type="button" id="aaSimpleBack" aria-label="Back to previous screen" title="Back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5 7 12l7 7M7 12h12"/></svg></button>'+
  '<button type="button" id="aaSimpleForward" aria-label="Forward to next screen" title="Forward"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5 7 7-7 7M17 12H5"/></svg></button>'+
  '</nav><strong id="aaSimpleSectionTitle"></strong>';
@@ -73,7 +73,13 @@ function section(next){
     history.pushState({aaFourDoor:true,screen:next,person:profileId,origin:profileOrigin},"",location.href);
   }
 }
+function closeStorySurface(){
+  storyRequested=false;
+  if(chooser?.classList.contains("open"))document.getElementById("lineChooserClose")?.click();
+  if(storyModal?.classList.contains("open"))document.getElementById("storyClose")?.click();
+}
 function showHome(){
+  if(current==="stories")closeStorySurface();
   if(current==="profile"){
     var frame=profile.querySelector("#aaSimpleProfileFrame");
     frame.onload=null;frame.src="about:blank";
@@ -197,6 +203,7 @@ window.addEventListener("popstate",function(event){
   var state=event.state;
   if(!state||!state.aaFourDoor)return;
   restoringHistory=true;
+  if(current==="stories"&&state.screen!=="stories")closeStorySurface();
   if(state.screen==="home")showHome();
   else if(state.screen==="people")showPeople();
   else if(state.screen==="globe")showGlobe();
