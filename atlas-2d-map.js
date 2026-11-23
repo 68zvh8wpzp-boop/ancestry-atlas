@@ -27,6 +27,16 @@ try{
     }
   }
 }catch(_){}
+// Explicit navigation from Family takes precedence over an older camera position.
+var requestedFromFamily=new URLSearchParams(location.search).get("person");
+var unlinkedFromFamily=null;
+if(requestedFromFamily&&byId.has(requestedFromFamily)){
+  selected=requestedFromFamily;ready=false;
+}else if(requestedFromFamily&&data.nodes.some(function(n){return n.id===requestedFromFamily;})){
+  // The continuous 2D pedigree cannot display an unlinked research/collateral
+  // node as an invented parent edge: open its existing family portrait instead.
+  unlinkedFromFamily=requestedFromFamily;
+}
 var paternalColor="#8bb6d4",maternalColor="#6cb8af",gold="#f3d39a";
 var selectionPath=layout.pathTo(selected);
 var lastTap={time:0,x:0,y:0};
@@ -386,7 +396,7 @@ document.getElementById("close-search").addEventListener("click",closeSearch);
 searchInput.addEventListener("input",searchNow);
 searchInput.addEventListener("keydown",function(e){if(e.key==="Escape")closeSearch();});
 var familyPanel=document.getElementById("family-panel");
-var familyLastTrigger=null;
+var familyLastTrigger=null,familyPersonId=null;
 function familyTile(person){
   var tile=document.createElement("div");tile.className="family-person";
   var name=document.createElement("h3");name.textContent=person.name;tile.appendChild(name);
@@ -485,6 +495,7 @@ function openFamily(personId){
   var family=familyIndex.family(personId);
   if(!family)return;
   familyLastTrigger=document.activeElement;
+  familyPersonId=personId;
   document.getElementById("family-title").textContent=family.person.name;
   familyGroup("family-parents",family.parents,"No parents linked in the current Atlas records.");
   familySiblingGroup(family);
@@ -501,7 +512,7 @@ function openFamily(personId){
   document.getElementById("family-close").focus();
 }
 function closeFamily(){
-  familyPanel.hidden=true;
+  familyPanel.hidden=true;familyPersonId=null;
   if(familyLastTrigger&&typeof familyLastTrigger.focus==="function")familyLastTrigger.focus();
   familyLastTrigger=null;
 }
@@ -521,7 +532,7 @@ function openBiography(){
     }catch(error){console.warn("Original Atlas person page navigation",error);}
     document.getElementById("loading-bio").hidden=true;
   };
-  bioFrame.src="./atlas-v3.9.63.html?iphone-refresh=20261121-ancestry-navigation-v1&from=two-dimensional-map";
+  bioFrame.src="./atlas-v3.9.63.html?iphone-refresh=20261122-atlas-nav-v4-person-context&from=two-dimensional-map";
 }
 document.getElementById("open-family").addEventListener("click",function(){openFamily(selected);});
 document.getElementById("open-biography").addEventListener("click",openBiography);
@@ -537,11 +548,13 @@ window.addEventListener("keydown",function(e){
 window.addEventListener("resize",measureCanvas);
 if(window.visualViewport)window.visualViewport.addEventListener("resize",measureCanvas);
 measureCanvas();
+store();
+if(unlinkedFromFamily)openFamily(unlinkedFromFamily);
 window.Atlas2DJourney={
   select:function(id){focus(id,true,true);},
   fit:fitAll,
   home:resetToYou,
   family:function(id){openFamily(id||selected);},
-  getState:function(){return {selected:selected,scale:cam.s,cameraX:cam.x,cameraY:cam.y,nodes:nodes.length,links:links.length,allRecords:data.nodes.length};}
+  getState:function(){return {selected:selected,contextPerson:familyPersonId||selected,scale:cam.s,cameraX:cam.x,cameraY:cam.y,nodes:nodes.length,links:links.length,allRecords:data.nodes.length};}
 };
 })();
