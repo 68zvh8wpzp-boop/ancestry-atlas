@@ -90,13 +90,6 @@
     if(filter==="denmark")return /denmark|danish|seje|seye|mortensen/.test(s);
     return s.includes(filter);
   }
-  function searchScore(n,q){
-    var name=clean(n.name),rest=clean([n.years,n.place,n.branch,n.surnameHypothesis,n.aliases,n.alternateNames].join(" "));
-    if(!q)return 10;
-    if(name===q)return 0;if(name.startsWith(q))return 1;if(name.includes(q))return 2;
-    if(rest.includes(q))return 3;
-    return 99;
-  }
   function renderPeople(){
     title.textContent="Find people";subtitle.textContent="Search first, then explore one family at a time.";
     content.replaceChildren();
@@ -116,18 +109,24 @@
     var results=content.querySelector("#mhResults");
     if(!results)return;
     results.replaceChildren();
-    var q=clean(query);
-    var rows=atlas.nodes.filter(matchesFilter).map(function(n){return {n:n,score:searchScore(n,q),path:routeTo(n.id)};})
-      .filter(function(x){return x.score<99;})
-      .sort(function(a,b){
-        if(a.score!==b.score)return a.score-b.score;
-        var aa=a.path?a.path.length:999,bb=b.path?b.path.length:999;
-        if(aa!==bb)return aa-bb;
-        return namePart(a.n).localeCompare(namePart(b.n));
-      });
-    put(results,element("div","mh-count",rows.length+" people found"));
+    var pool=atlas.nodes.filter(matchesFilter);
+    var q=String(query||"").trim();
+    var ranked=q?AtlasPersonSearch.search(pool,q,{limit:pool.length}):null;
+    var rows=q?ranked.matches.map(function(x){return {n:x.person,kind:x.kind,score:x.score,path:routeTo(x.person.id)};}):
+      pool.map(function(n){return {n:n,kind:'exact',score:0,path:routeTo(n.id)};});
+    rows.sort(function(a,b){
+      if(a.score!==b.score)return a.score-b.score;
+      var aa=a.path?a.path.length:999,bb=b.path?b.path.length:999;
+      if(aa!==bb)return aa-bb;
+      return namePart(a.n).localeCompare(namePart(b.n));
+    });
+    put(results,element("div","mh-count",
+      ranked&&ranked.approximate?rows.length+" possible spelling matches — verify the person":
+      rows.length+" people found"));
     if(!rows.length)put(results,element("div","mh-empty","No matching person. Try a different name or clear the branch filter."));
-    rows.slice(0,shown).forEach(function(x){put(results,personButton(x.n.id));});
+    rows.slice(0,shown).forEach(function(x){
+      put(results,personButton(x.n.id,x.kind==="close"?"Possible spelling match · "+degreeText(x.n.id):null));
+    });
     if(rows.length>shown){
       var more=put(results,element("button","mh-action","Show more people"));more.type="button";more.dataset.mhAction="more";
       more.style.width="100%";more.style.marginTop="10px";
