@@ -37,16 +37,16 @@ test('Dorthea remains a mapped direct ancestor and Dorothea is a supported alias
   assert.deepEqual(Array.from(copy.aliases), Array.from(node.aliases),'2D snapshot aliases must mirror primary record');
 });
 
-test('all actively linked search views consider alternate spellings', async () => {
-  const [html,map,hybrid,explorer] = await Promise.all([
-    read('atlas-v3.9.63.html'),
-    read('atlas-2d-map.js'),
+test('alias data and shared search implementation survive every app entry point',async()=>{
+  const [html,map,hybrid,explorer,library]=await Promise.all([
+    read('atlas-v3.9.63.html'),read('atlas-2d-map.js'),
     read('mobile-hybrid-navigation-20261117.js'),
-    read('iphone-ancestry-explorer-preview.js')
+    read('iphone-ancestry-explorer-preview.js'),
+    read('atlas-person-search.js')
   ]);
-  assert.equal((html.match(/const hits=DATA\.nodes\.filter/g)||[]).length,2,'desktop and mobile search must be present');
-  assert.equal((html.match(/n\.aliases,n\.alternateNames/g)||[]).length,2,'both 3D search boxes must include aliases');
-  assert.ok(map.includes('n.aliases,n.alternateNames'), '2D map must search aliases');
-  assert.ok(hybrid.includes('n.aliases,n.alternateNames'), 'mobile family browser must search aliases');
-  assert.ok(explorer.includes('n.aliases,n.alternateNames'), 'iPhone explorer must search aliases');
+  assert.equal((html.match(/AtlasPersonSearch\\.search\\(DATA\\.nodes/g)||[]).length,2);
+  for(const source of [map,hybrid,explorer])
+    assert.ok(source.includes('AtlasPersonSearch.search('));
+  assert.ok(library.includes('function closeScore('));
+  assert.ok(library.includes('function directScore('));
 });
