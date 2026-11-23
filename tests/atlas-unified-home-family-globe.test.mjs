@@ -64,9 +64,9 @@ test("PWA and main globe renderer have fresh installed-app cache tokens",async()
   read("index.html"),read("manifest.webmanifest"),read("atlas-v3.9.63.html"),
   read("atlas-2d-journey-preview.html"),read("atlas-four-doors-20261123.js")
  ]);
- for(const x of [index,JSON.parse(manifest).start_url,main,nav])assert.match(x,/20261123-globe-route-focus-v2/);
- assert.match(tree,/atlas-2d-map\.js\?v=20261123-globe-route-focus-v2/);
- assert.match(main,/atlas-geographic-globe-20261122\.js\?v=20261123-globe-route-focus-v2/);
+ for(const x of [index,JSON.parse(manifest).start_url,main,nav])assert.match(x,/20261123-archival-cameo-v1/);
+ assert.match(tree,/atlas-2d-map\.js\?v=20261123-archival-cameo-v1/);
+ assert.match(main,/atlas-geographic-globe-20261122\.js\?v=20261123-archival-cameo-v1/);
 });
 
 test("origin and destination changes rotate the globe to a spherical midpoint without asserting migration",async()=>{
