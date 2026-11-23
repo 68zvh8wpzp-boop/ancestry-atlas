@@ -65,6 +65,10 @@ function section(next){
    {people:"People",globe:"Globe",profile:"Person page"}[next]||"";
 }
 function showHome(){
+  if(current==="profile"){
+    var frame=profile.querySelector("#aaSimpleProfileFrame");
+    frame.onload=null;frame.src="about:blank";
+  }
   storyRequested=false;
   section("home");
   document.getElementById("landing")?.classList.add("hidden");
