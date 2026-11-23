@@ -109,8 +109,8 @@ function fillInfo(){
     var portrait=(window.ATLAS_2D_PORTRAITS||{})[selected];
     photoLink.hidden=!portrait?.url;
     if(portrait?.url){
-      photoLink.href=portrait.url;
-      photoLink.textContent=portrait.crop?"Original photograph (portrait cropped)":"Original portrait";
+      photoLink.href=portrait.fullSourceUrl||portrait.url;
+      photoLink.textContent=portrait.crop?"View full source photograph":"View portrait source";
       photoLink.title=[portrait.subject,portrait.basis,portrait.provenance].filter(Boolean).join(" · ");
       photoLink.setAttribute("aria-label","View preserved source photograph for "+n.name);
     }
