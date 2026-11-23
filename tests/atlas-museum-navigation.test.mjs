@@ -12,14 +12,15 @@ test("four museum destinations keep the original views and an uncluttered landin
  assert.match(entry,/THE FAMILY HISTORY COLLECTION/);
  assert.match(entry,/Ancestry <em>Atlas<\/em>/);
  for(const name of ['tree','people','globe','stories'])assert.match(entry,new RegExp('"'+name+'"'));
- for(const svgClass of ['aa-person-silhouette','aa-globe-land','aa-reel-hole','aa-ink-stroke'])
-  assert.ok(entry.includes(svgClass));
+ for(const photo of ['jay_marion_mesa_1941.png','marion_webb_1945.png','James_Sheldon_Webb_TV_Presentation_poster.jpg'])assert.ok(entry.includes(photo));
+ assert.match(entry,/aaHomeMiniGlobe/);
+ assert.ok(!entry.includes('aa-simple-explain'),"Remove the duplicate vertical destination descriptions");
  assert.match(css,/#aaSimpleHome .aa-simple-doors/);
  assert.match(css,/Georgia/);
- assert.match(html,/atlas-museum-entry-20261123\.css\?v=20261123-museum-navigation-v1/);
- assert.match(html,/atlas-four-doors-20261123\.js\?v=20261123-museum-navigation-v1/);
- assert.match(index,/20261123-museum-navigation-v1/);
- assert.match(JSON.parse(manifest).start_url,/20261123-museum-navigation-v1/);
+ assert.match(html,/atlas-museum-entry-20261123\.css\?v=20261123-family-unified-v1/);
+ assert.match(html,/atlas-four-doors-20261123\.js\?v=20261123-family-unified-v1/);
+ assert.match(index,/20261123-family-unified-v1/);
+ assert.match(JSON.parse(manifest).start_url,/20261123-family-unified-v1/);
 });
 test("every internal screen keeps top Home Back Forward controls, not the landing",async()=>{
  const [entry,route,routeCss,tree,globe]=await Promise.all([
