@@ -75,7 +75,7 @@ test("default view omits collateral people and preserves research status",async(
  assert.ok(person.pins.some(p=>p.id==="lolland"));
  assert.ok(person.pins.every(p=>p.people.every(n=>n.id==="dorthea_jensen")));
  const original=geo.resolveSummary("Arnstein, Ontario → Arizona");
- assert.deepEqual(original.map(x=>x.placeId),["arnstein","arizona"]);
+ assert.deepEqual(Array.from(original,x=>x.placeId),["arnstein","arizona"]);
 });
 test("PWA has refreshed cache and no nonpublic file access",async()=>{
  const [index,manifest,main,nav,renderer]=await Promise.all([
