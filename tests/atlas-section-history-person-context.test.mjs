@@ -22,8 +22,8 @@ test("PWA and 2D share the refreshed entry point",async()=>{
   read("atlas-v3.9.63.html"),read("atlas-2d-journey-preview.html"),
   read("index.html"),read("manifest.webmanifest")
  ]);
- for(const html of [main,map])assert.match(html,/20261123-portrait-crops-v1/);
- assert.match(index,/20261123-portrait-crops-v1/);
- assert.match(JSON.parse(manifest).start_url,/20261123-portrait-crops-v1/);
+ for(const html of [main,map])assert.match(html,/20261123-portrait-crops-v2/);
+ assert.match(index,/20261123-portrait-crops-v2/);
+ assert.match(JSON.parse(manifest).start_url,/20261123-portrait-crops-v2/);
  assert.match(map,/aaTreeReturnHome/);
 });

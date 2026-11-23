@@ -267,6 +267,16 @@ window.ATLAS_2D_PORTRAITS={
     "identityEvidence": "Husband at right in directly captioned anniversary invitation",
     "sourceStatus": "captioned"
   },
+  "grace_hill": {
+    "url": "assets/inez-life-story/image2.jpeg",
+    "crop": [0.085, 0.095, 0.83, 0.70],
+    "type": "identified-solo-crop",
+    "title": "Grace Mildred Hill — age 23 (1932)",
+    "provenance": "Original studio portrait embedded in Inez Karen Prather's life story, captioned 'Grace Mildred Hill (Age 23) 1932', Excelsior Springs, Missouri.",
+    "identityEvidence": "Inez's preserved family manuscript explicitly names Grace Mildred Hill and dates her portrait to 1932",
+    "sourceStatus": "family-attributed",
+    "sourceBlobSha": "60f036df64337f19afe59c8f99639e1b4f89004c"
+  },
   "della_ray": {
     "url": "assets/della-ray/della-henry-webb-anniversary-1958-original.jpg",
     "crop": [

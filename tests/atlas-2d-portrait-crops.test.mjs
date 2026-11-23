@@ -17,9 +17,9 @@ async function images(){
   layout:context.window.Atlas2DLayout.create(context.window.ATLAS_2D_PEDIGREE,"you"),
   map,registry,main};
 }
-test("24 person-linked portraits with untouched family relationships",async()=>{
+test("25 person-linked portraits with untouched family relationships",async()=>{
  const {portrait,data,layout,registry,main}=await images();
- assert.equal(Object.keys(portrait).length,24);
+ assert.equal(Object.keys(portrait).length,25);
  assert.equal(data.nodes.length,106);
  assert.equal(data.edges.length,115);
  for(const id of Object.keys(portrait)){
@@ -31,10 +31,10 @@ test("24 person-linked portraits with untouched family relationships",async()=>{
  assert.ok(!/DATA\.nodes\.(push|splice)|DATA\.edges\.(push|splice)/.test(registry));
  assert.match(main,/const DATA = /);
 });
-test("all 17 new crops source real bundled images; coordinates stay inside original image",async()=>{
+test("all 18 new crops source real bundled images; coordinates stay inside original image",async()=>{
  const {portrait}=await images();
  const cropEntries=Object.entries(portrait).filter(([_,v])=>v.crop);
- assert.equal(cropEntries.length,17);
+ assert.equal(cropEntries.length,18);
  for(const [id,v] of cropEntries){
   assert.ok(Array.isArray(v.crop)&&v.crop.length===4,"Missing crop rectangle: "+id);
   const [x,y,w,h]=v.crop;
@@ -47,7 +47,7 @@ test("all 17 new crops source real bundled images; coordinates stay inside origi
   assert.ok(file.size>1000,"Actual bundled photograph: "+v.url);
  }
  assert.equal(cropEntries.filter(([_,v])=>v.type==="identified-group-crop").length,6);
- assert.equal(cropEntries.filter(([_,v])=>v.type==="identified-solo-crop").length,11);
+ assert.equal(cropEntries.filter(([_,v])=>v.type==="identified-solo-crop").length,12);
 });
 test("group positions are explicitly caption-identifiable; distinct Isaiahs not conflated",async()=>{
  const {portrait}=await images();
@@ -61,6 +61,10 @@ test("group positions are explicitly caption-identifiable; distinct Isaiahs not 
  assert.ok(!("isaiah_hill" in portrait),
   "The Isaiah with Lydia Ross is not the older direct ancestor; do not show his face there");
  assert.ok(!("russell_hill" in portrait),"An uncertain collateral image cannot be his portrait");
+ assert.ok(!("isaac_carling" in portrait),"No invented Isaac Carling portrait");
+ assert.equal(portrait.grace_hill.url,"assets/inez-life-story/image2.jpeg");
+ assert.equal(portrait.grace_hill.sourceBlobSha,"60f036df64337f19afe59c8f99639e1b4f89004c");
+ assert.match(portrait.grace_hill.identityEvidence,/Inez.*manuscript/);
 });
 test("Canvas draws proportional real crops and retains silhouettes when photo fails",async()=>{
  const {map}=await images();
@@ -71,6 +75,8 @@ test("Canvas draws proportional real crops and retains silhouettes when photo fa
  assert.match(map,/img\.onerror=function\(\)\{state\.loaded=false;/);
  assert.match(map,/ctx\.ellipse/);
  assert.match(map,/Portrait: /);
+ assert.match(map,/selected-photo-source/);
+ assert.match(map,/photoLink.href=portraitMeta.fullSourceUrl\|\|portraitMeta.url/);
  assert.match(map,/Photo attribution is independent of genealogical confidence/);
 });
 test("installed app and 2D Tree load fresh crop revision",async()=>{
@@ -79,8 +85,8 @@ test("installed app and 2D Tree load fresh crop revision",async()=>{
   read("index.html"),read("manifest.webmanifest"),read("atlas-four-doors-20261123.js")
  ]);
  for(const value of [main,tree,index,JSON.parse(pwa).start_url,shell])
-  assert.match(value,/20261123-portrait-crops-v1/);
- assert.match(tree,/atlas-2d-portrait-index-20261123\.js\?v=20261123-portrait-crops-v1/);
- assert.match(tree,/atlas-2d-map\.js\?v=20261123-portrait-crops-v1/);
+  assert.match(value,/20261123-portrait-crops-v2/);
+ assert.match(tree,/atlas-2d-portrait-index-20261123\.js\?v=20261123-portrait-crops-v2/);
+ assert.match(tree,/atlas-2d-map\.js\?v=20261123-portrait-crops-v2/);
  assert.ok(tree.indexOf("atlas-2d-portrait-index-20261123.js")<tree.indexOf("atlas-2d-map.js"));
 });

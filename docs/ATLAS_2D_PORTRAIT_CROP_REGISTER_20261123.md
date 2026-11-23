@@ -1,7 +1,7 @@
 # Atlas 2D portrait crop review register — November 23, 2026
 
 ## Implemented result
-The 2D Tree reads **24 provenance-linked portrait entries**: seven existing individual portraits plus **17 new cropped views** of preserved original photographs. Six new views identify a person within a captioned two-person or group photograph; eleven isolate a source-labeled individual portrait.
+The 2D Tree reads **25 provenance-linked portrait entries**: seven existing individual portraits plus **18 new cropped views** of preserved original photographs. Six new views identify a person within a captioned two-person or group photograph; twelve isolate a source-labeled individual portrait.
 
 Crop coordinates in `atlas-2d-portrait-index-20261123.js` are fractional `[left,top,width,height]` relative to the original image. The Tree canvas applies these coordinates *when drawing*; there is no image invention, facial recognition, or overwrite. Every new portrait image is already packaged as a repository asset. The original remains accessible via the photo source.
 
@@ -16,7 +16,9 @@ Crop coordinates in `atlas-2d-portrait-index-20261123.js` are fractional `[left,
 - **Jonathan Henry Webb** — `assets/della-ray/della-henry-webb-anniversary-1958-original.jpg` (0.22, 0.19, 0.17, 0.29). Husband at right in directly captioned anniversary invitation. Original 1958 invitation names Mr. and Mrs. J. H. Webb; husband at right in the printed couple portrait.
 - **Della Ray Webb** — `assets/della-ray/della-henry-webb-anniversary-1958-original.jpg` (0.08, 0.3, 0.17, 0.31). Wife at left in directly captioned anniversary invitation. Original 1958 invitation names Mr. and Mrs. J. H. Webb; wife at left in the printed couple portrait.
 
-## Eleven additional individual-portrait face crops
+## Twelve additional individual-portrait face crops
+
+- **Grace Mildred Hill** — `assets/inez-life-story/image2.jpeg` (0.085, 0.095, 0.83, 0.70). Solo photograph captioned in Inez Karen Prather's manuscript as “Grace Mildred Hill (Age 23) 1932,” Excelsior Springs, Missouri. Original image retained at Git blob SHA `60f036df64337f19afe59c8f99639e1b4f89004c`; photographic attribution is supported by the family manuscript, not facial recognition.
 
 - **James Wilford “Jay” Webb** — `biographies/webb-branch/people/james_wilford/assets/jay_1953_family_restored.png` (0.39, 0.04, 0.39, 0.25). Person identified by first-person caption in family autobiography. Family autobiography photograph captioned 'Me in 1953', restored conservatively for approved Webb biography.
 - **Marian Beulah Skinner** — `assets/marian-skinner/photo-24.jpg` (0.16, 0.07, 0.7, 0.52). Individual portrait labeled Marian on person-page evidence. Original Atlas Marian Skinner person-page evidence; FamilySearch shared-memory contributor attributed portrait 'Marian as a young woman', photo-24.jpg.
