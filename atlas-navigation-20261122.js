@@ -26,7 +26,7 @@ function currentPerson(){
   return window.AncestryAtlasPedigreePreview?.getState?.().selected||"you";
 }
 function mainUrl(section){
-  var url=main+"?section="+encodeURIComponent(section)+"&nav=20261122-v5-history-context";
+  var url=main+"?section="+encodeURIComponent(section)+"&nav=20261122-v6-globe";
   var id=currentPerson();if(id)url+="&person="+encodeURIComponent(id);
   return url;
 }
@@ -75,7 +75,7 @@ places.innerHTML='<header class="aa-places-head"><div><div class="aa-eyebrow">An
   '<div id="aaRegionTabs" class="aa-regions" aria-label="Filter by geographic region"></div>'+
   '<div class="aa-places-list" id="aaPlacesResults"></div>'+
   '<footer class="aa-place-footer"><button type="button" id="aaPlacesGallery">View historical-place images</button>'+
-  '<small>A plotted geographic globe has not yet been added; this is an index of existing location fields.</small></footer>';
+  '<small>Globe pins use approximate place centers. Open the map key for evidence and research caveats.</small></footer>';
 document.body.appendChild(places);
 var stories=document.createElement("section");
 stories.id="aaStoriesPanel";stories.hidden=true;
@@ -189,7 +189,7 @@ more.addEventListener("click",function(event){
   dismissViews();
   if(view==="2d"){
     var id=currentPerson();
-    location.assign("./atlas-2d-journey-preview.html?v=20261122-atlas-nav-v5-history-context"+
+    location.assign("./atlas-2d-journey-preview.html?v=20261122-atlas-nav-v6-globe"+
       (id?"&person="+encodeURIComponent(id):""));
     return;
   }
