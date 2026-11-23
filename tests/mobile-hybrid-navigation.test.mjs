@@ -15,7 +15,7 @@ test('mobile navigator code parses and contains reversible people/family/tree pa
   assert.ok(!js.includes('DATA.nodes.push('), 'navigator must not rewrite lineage');
 });
 
-test('v3.9.63 preserves the existing app and adds the optional iPhone layer', async () => {
+test('v3.9.63 preserves legacy source assets while four-door navigation runs by default', async () => {
   const [html,css] = await Promise.all([
     read('atlas-v3.9.63.html'), read('mobile-hybrid-navigation-20261117.css')
   ]);
@@ -23,8 +23,12 @@ test('v3.9.63 preserves the existing app and adds the optional iPhone layer', as
     assert.ok(html.includes(element), 'missing legacy UI ' + element);
   }
   assert.ok(html.includes('window.__ATLAS_DATA = DATA'), 'genealogy data accessor missing');
-  assert.ok(html.includes('mobile-hybrid-navigation-20261117.js?v='));
-  assert.ok(html.includes('mobile-hybrid-navigation-20261117.css?v='));
+  // Four-door navigation is now the published entry; the hybrid files are
+  // retained for historical rollback, but must not run alongside it.
+  assert.ok(html.includes('atlas-four-doors-20261123.js'));
+  assert.ok(html.includes('atlas-four-doors-20261123.css'));
+  assert.ok(!html.includes('<script src="mobile-hybrid-navigation-20261117.js'));
+  assert.ok(!html.includes('<link rel="stylesheet" href="mobile-hybrid-navigation-20261117.css'));
   assert.ok(css.includes('#mobileHybridNav[hidden]') && css.includes('@media(max-width:800px)'));
   const blocks = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)];
   for(const [i, match] of blocks.entries()){
