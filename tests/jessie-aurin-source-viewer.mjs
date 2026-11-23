@@ -77,7 +77,16 @@ assert(census1930?.sourcePage?.includes('33SQ-GR4R-H5J')&&!census1930.full,'1930
 assert(census1930?.transcription?.includes('Amanda Skinner')&&census1930.transcription?.includes('FULLTEXT_TRANSLATION:'),'1930 verified household extract and translation status required');
 assert(birth1879?.sourcePage?.includes('F451-1XH')&&birth1879.sourceLevel==='original'&&!birth1879.thumb,'1879 original inspected and stored privately, with no fabricated public preview');
 assert(census1880?.sourceLevel==='original'&&census1880.sourcePage?.includes('33SQ-GYBF-S9GN'),'The original 1880 Aurin census is now verified at a specific image');
-assert(marriage1899?.sourceLevel==='index'&&marriage1899.sourcePage?.includes('N3FS-5ZD'),'1899 marriage must be linked accurately');
+assert(marriage1899?.sourceLevel==='original'&&marriage1899.sourcePage?.includes('S3HT-67LS-TW4'),'1899 exact original marriage scan must be cited accurately');
+assert.equal(marriage1899.full,'assets/richard-skinner/richard-jessie-marriage-1899-original.jpg','Reuse the published Richard master, not a duplicate image');
+assert.equal(marriage1899.thumb,'assets/richard-skinner/richard-jessie-marriage-1899-original-preview.jpg');
+assert(marriage1899.transcription?.includes('FULLTEXT_ORIGINAL:')&&marriage1899.transcription?.includes('Amelia Cotton')&&marriage1899.transcription?.includes('FULLTEXT_TRANSLATION:'),'The original source has full field transcription and an English translation-status marker');
+assert(marriage1899.summary?.includes('father as unknown'),'Do not invent Jessies 1879 paternal identity from the 1899 return');
+assert(richard.includes(marriage1899.full),'Richard and Jessie must display the same original, not two differently captured masters');
+for(const filepath of [marriage1899.full,marriage1899.thumb]){
+ const bytes=fs.readFileSync(filepath);
+ assert(bytes.length>50000&&bytes[0]===255&&bytes[1]===216,'Marriage original and preview must both be real published JPEGs');
+}
 const newlyPublished1956=[
   ['1956 Alpena News obituary','assets/jessie-aurin/1956-jessie-alpena-news-obituary-page-2.jpg'],
   ['photographed grave marker','assets/jessie-aurin/1956-jessie-spratt-cemetery-headstone.jpg'],
@@ -111,4 +120,4 @@ assert(richard.includes("moduleVersion:'20261011-skinner-8'"),'Previously approv
 const register=fs.readFileSync('JESSIE_AURIN_EVIDENCE_REGISTER_2026-10-09.md','utf8');
 for(const phrase of ['John Auene','Jonas Aurin','Karl Johan Aurén','Amelia Cotton','1930'])assert(register.includes(phrase),'Missing parent identity conflict or Mesa source: '+phrase);
 for(const[i,script]of [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(m=>m[1]).filter(Boolean).entries()) new vm.Script(script,{filename:'Atlas script '+i});
-console.log('PASS: Jessie Aurin accepted biography, 3 family photos, 17+ documents, three authentic 1956 image assets, iPhone release consistency, parentage conflict retained.');
+console.log('PASS: Jessie Aurin accepted biography, 3 family photos, 17+ documents, three authentic 1956 image assets plus reused 1899 marriage original, iPhone release consistency, parentage conflict retained.');
