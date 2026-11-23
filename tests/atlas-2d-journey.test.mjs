@@ -122,7 +122,7 @@ test("searchable Atlas records include unlinked relatives and research candidate
   assert.ok(notOnMain.some(n=>n.id==="brenay_david"));
   assert.ok(notOnMain.some(n=>n.id==="pierre_goulet_1846_candidate"));
   const js=await read("atlas-2d-map.js");
-  assert.ok(js.includes("data.nodes.filter(function(n)"),"Optional search must include all Atlas people");
+  assert.ok(js.includes("window.AtlasPersonSearch.search(data.nodes,query,60)"),"Optional search must include all Atlas people and alternate spellings");
   assert.ok(js.includes("else openFamily(n.id)"),"Out-of-tree results must still open a family portrait");
   assert.ok(js.includes("if(n.id===selected && cam.s>=.4)openFamily(n.id)"),"Second tap opens static family portrait");
 });
