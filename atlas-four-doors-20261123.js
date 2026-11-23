@@ -17,8 +17,7 @@ var icons={
 };
 var page=document.createElement("section");
 page.id="aaSimpleHome";page.setAttribute("aria-label","Ancestry Atlas: four ways to explore");
-page.innerHTML='<div class="aa-simple-wrap"><div class="aa-simple-kicker">Ancestry Atlas</div>'+
- '<h1>Explore your family</h1><p class="aa-simple-intro">Choose one way to explore.</p>'+
+page.innerHTML='<div class="aa-simple-wrap"><h1 class="aa-simple-sr">Ancestry Atlas — Choose one destination</h1>'+
  '<nav class="aa-simple-doors" aria-label="Choose an Atlas destination">'+
  [
   ["tree","Tree"],["people","People"],["globe","Globe"],["stories","Stories"]
