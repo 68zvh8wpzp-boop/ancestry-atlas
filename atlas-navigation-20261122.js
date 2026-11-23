@@ -102,16 +102,21 @@ function drawPlaces(){
     var b=make("button",item[0]);b.type="button";b.dataset.aaRegion=item[0];b.setAttribute("aria-pressed",String(item[0]===region));tabs.appendChild(b);
   });
   var expression=regions.find(function(x){return x[0]===region;})?.[1];
-  var needle=clean(searchTerm);
-  var matches=people.filter(function(n){
-    return (!expression||expression.test(n.place))&&(!needle||clean([n.name,n.place,n.years,n.branch].join(" ")).includes(needle));
-  }).sort(function(a,b){return String(a.name).localeCompare(String(b.name));});
+  var scope=people.filter(function(n){return !expression||expression.test(n.place);});
+  var results=searchTerm.trim()&&window.AtlasPersonSearch?
+    window.AtlasPersonSearch.search(scope,searchTerm,scope.length):null;
+  var matches=results?results.matches.map(function(m){return m.person}):
+    scope.filter(function(n){return !searchTerm.trim()||
+      clean([n.name,n.place,n.years,n.branch].join(" ")).includes(clean(searchTerm));})
+    .sort(function(a,b){return String(a.name).localeCompare(String(b.name));});
+  var approximateIds=new Set(results?results.matches.filter(function(m){return m.approximate;}).map(function(m){return m.person.id;}):[]);
   var list=places.querySelector("#aaPlacesResults");list.replaceChildren();
-  list.appendChild(make("p",matches.length+" mapped people with matching location fields","aa-place-count"));
+  list.appendChild(make("p",matches.length+" mapped people with matching location fields"+
+    (approximateIds.size?" · "+approximateIds.size+" possible name-spelling matches":""),"aa-place-count"));
   matches.slice(0,maxItems).forEach(function(n){
     var b=make("button",undefined,"aa-place-person");b.type="button";b.dataset.aaPerson=n.id;
     b.appendChild(make("strong",n.name));
-    b.appendChild(make("span",[n.years,n.place].filter(Boolean).join(" · ")));
+    b.appendChild(make("span",[approximateIds.has(n.id)?"Possible spelling match — verify identity":null,n.years,n.place].filter(Boolean).join(" · ")));
     list.appendChild(b);
   });
   if(matches.length>maxItems){
