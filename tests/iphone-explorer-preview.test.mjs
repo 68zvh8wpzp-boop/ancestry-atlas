@@ -5,7 +5,7 @@ import vm from "node:vm";
 
 const read=name=>readFile(new URL("../"+name,import.meta.url),"utf8");
 
-test("iPhone launch opens the current Atlas with a choice to enter Ancestor Explorer",async()=>{
+test("iPhone launches four-door Atlas; archived Explorer preview remains opt-in and valid",async()=>{
   const [current,preview,index,manifest,js]=await Promise.all([
     read("atlas-v3.9.63.html"),read("atlas-iphone-explorer-preview.html"),
     read("index.html"),read("manifest.webmanifest"),read("iphone-ancestry-explorer-preview.js")
@@ -13,7 +13,8 @@ test("iPhone launch opens the current Atlas with a choice to enter Ancestor Expl
   assert.match(index,/atlas-v3\.9\.63\.html/);
   assert.match(JSON.parse(manifest).start_url,/atlas-v3\.9\.63\.html/);
   assert.match(current,/id="startAncestorExplorer"/);
-  assert.match(current,/iphone-ancestry-explorer-preview\.js/);
+  assert.match(current,/atlas-four-doors-20261123\.js/);
+  assert.doesNotMatch(current,/<script src="iphone-ancestry-explorer-preview\.js/);
   assert.match(js,/launch\?\.addEventListener\("click",showExplorer\)/);
   assert.match(preview,/target\.searchParams\.set\("view", "ancestors"\)/);
   assert.match(preview,/location\.replace\(target\)/);
