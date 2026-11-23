@@ -1,0 +1,25 @@
+name: A433 temporary Skinner-Lewis original-source and 2D verification
+on:
+  pull_request:
+    paths:
+      - 'atlas-v3.9.63.html'
+      - 'atlas-2d-pedigree-snapshot.js'
+      - 'tests/atlas-2d-journey.test.mjs'
+      - '.github/workflows/a433-skinner-lewis-qa.yml'
+  workflow_dispatch:
+jobs:
+  ancestry-proof-regression:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run 2D lineage and published original-source tests
+        run: |
+          node --test tests/atlas-2d-journey.test.mjs
+          node --test tests/richard-skinner-source-viewer.mjs
+          node --test tests/atlas-cross-view-person-continuity.test.mjs
+          node --test tests/atlas-museum-navigation.test.mjs
