@@ -191,26 +191,54 @@ function drawEdges(){
 var portraits=window.ATLAS_2D_PORTRAITS||{},portraitCache=new Map();
 Object.keys(portraits).forEach(function(id){
   if(!byId.has(id)||!portraits[id]?.url)return;
-  var img=new Image();
-  var state={image:img,loaded:false};
+  var entry=portraits[id],img=new Image();
+  var state={image:img,loaded:false,usingFallback:false,failed:false};
   portraitCache.set(id,state);
-  img.onload=function(){state.loaded=img.naturalWidth>0;render();};
-  img.onerror=function(){state.loaded=false;};
-  img.src=portraits[id].url;
+  img.onload=function(){
+    state.loaded=img.naturalWidth>0&&img.naturalHeight>0;
+    state.failed=!state.loaded;
+    render();
+  };
+  img.onerror=function(){
+    state.loaded=false;
+    if(!state.usingFallback&&entry.fallbackUrl){
+      state.usingFallback=true;img.src=entry.fallbackUrl;return;
+    }
+    state.failed=true;render();
+  };
+  img.src=entry.url;
 });
 function drawPortraitOrBust(id,x,y,width,height){
   ctx.save();
   roundRect(ctx,x,y,width,height,Math.max(3,5*cam.s));
   ctx.clip();
   ctx.fillStyle="#173244";ctx.fillRect(x,y,width,height);
-  var photo=portraitCache.get(id);
+  var photo=portraitCache.get(id),rendered=false;
   if(photo?.loaded){
-    var img=photo.image;
-    var ratio=Math.max(width/img.naturalWidth,height/img.naturalHeight);
-    var iw=img.naturalWidth*ratio,ih=img.naturalHeight*ratio;
-    try{ctx.drawImage(img,x+(width-iw)/2,y+(height-ih)/2,iw,ih);}catch(_){}
-  }else{
-    // Generic bust outline: absence of a portrait does not imply identity.
+    var img=photo.image,entry=portraits[id],rect=photo.usingFallback?null:entry.crop;
+    var ix=img.naturalWidth,iy=img.naturalHeight;
+    try{
+      if(rect){
+        // Crop is normalized against the preserved ORIGINAL image dimensions,
+        // without mutating the photo or inventing any missing pixels.
+        var sx=Math.max(0,Math.floor(rect.x*ix));
+        var sy=Math.max(0,Math.floor(rect.y*iy));
+        var sw=Math.min(ix-sx,Math.max(1,Math.floor(rect.w*ix)));
+        var sh=Math.min(iy-sy,Math.max(1,Math.floor(rect.h*iy)));
+        // Preserve the requested face rectangle while fitting the portrait tile.
+        var cover=Math.max(width/sw,height/sh);
+        var vw=Math.min(sw,width/cover),vh=Math.min(sh,height/cover);
+        ctx.drawImage(img,sx+(sw-vw)/2,sy+(sh-vh)/2,vw,vh,x,y,width,height);
+      }else{
+        var ratio=Math.max(width/ix,height/iy);
+        var iw=ix*ratio,ih=iy*ratio;
+        ctx.drawImage(img,x+(width-iw)/2,y+(height-ih)/2,iw,ih);
+      }
+      rendered=true;
+    }catch(_){rendered=false;}
+  }
+  if(!rendered){
+    // Generic bust outline: missing, blocked or unattributed photo stays blank.
     ctx.strokeStyle="#aec7d5";ctx.lineWidth=Math.max(1,1.6*cam.s);
     ctx.beginPath();ctx.arc(x+width/2,y+height*.35,width*.19,0,Math.PI*2);ctx.stroke();
     ctx.beginPath();ctx.ellipse(x+width/2,y+height*.95,width*.37,height*.23,0,Math.PI,2*Math.PI);ctx.stroke();
