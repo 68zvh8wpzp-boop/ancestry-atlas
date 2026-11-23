@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import {readFile,stat} from "node:fs/promises";
 import {test} from "node:test";
+import {createHash} from "node:crypto";
 import vm from "node:vm";
 const read=name=>readFile(new URL("../"+name,import.meta.url),"utf8");
 async function model(){
@@ -42,6 +43,7 @@ test("crop rectangles and identities have explicit named-source context",async()
  for(const e of registry.entries){
   assert.ok(e.id&&e.url&&e.subject&&e.basis&&e.provenance);
   assert.equal(e.attribution,"source-identified");
+  assert.match(e.sourceBlobSha,/^[a-f0-9]{40}$/);
   assert.ok(["group-crop","existing-family-crop","standalone"].includes(e.portraitType));
   const r=e.crop;
   for(const v of [r.x,r.y,r.w,r.h])assert.ok(Number.isFinite(v)&&v>=0&&v<=1);
@@ -63,8 +65,13 @@ test("all local portrait image files are packaged and originals are left intact"
  assert.ok(names.length>=15);
  for(const name of names){
   assert.ok(!name.includes(".."),"path must not traverse out of Atlas");
-  const info=await stat(new URL("../"+name,import.meta.url));
+  const ref=new URL("../"+name,import.meta.url);
+  const info=await stat(ref);
   assert.ok(info.isFile()&&info.size>1000,name+" must be a stored original or approved family image");
+  const buffer=await readFile(ref);
+  const blobSha=createHash("sha1").update("blob "+buffer.length+"\0").update(buffer).digest("hex");
+  const expected=registry.entries.filter(e=>e.url===name);
+  for(const e of expected)assert.equal(blobSha,e.sourceBlobSha,"Original image changed: "+name);
  }
 });
 test("2D map loads crop registry before drawing and uses silhouette on broken photos",async()=>{
