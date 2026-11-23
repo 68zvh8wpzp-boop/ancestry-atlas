@@ -146,13 +146,30 @@ function show3d(){
 function clearOverlays(){
   if(typeof closeAlbum==="function"){try{closeAlbum();}catch(_){}}
 }
+function setSection(section){
+  if(section==="places")showPlaces();
+  else if(section==="stories")showStories();
+  else showFamily();
+}
+function recordSection(section){
+  var params=new URLSearchParams(location.search);
+  params.set("section",section);
+  var next=location.pathname+"?"+params.toString()+location.hash;
+  // Changing a destination creates a Back entry, but reselecting one does not.
+  history.pushState({atlasSection:section},"",next);
+}
 nav.addEventListener("click",function(event){
   var b=event.target.closest("[data-aa-section]");if(!b)return;
-  clearOverlays();
   var destination=b.dataset.aaSection;
-  if(destination==="family")showFamily();
-  if(destination==="places")showPlaces();
-  if(destination==="stories")showStories();
+  var previous=window.AncestryAtlasNavigation?.current?.();
+  clearOverlays();
+  setSection(destination);
+  if(destination!==previous)recordSection(destination);
+});
+window.addEventListener("popstate",function(){
+  clearOverlays();
+  var section=new URLSearchParams(location.search).get("section")||"family";
+  setSection(section);
 });
 viewsButton.addEventListener("click",function(){
   more.hidden=!more.hidden;viewsButton.setAttribute("aria-expanded",String(!more.hidden));
@@ -222,7 +239,8 @@ document.addEventListener("keydown",function(event){
   if(event.key==="Escape"&&!more.hidden){dismissViews();viewsButton.focus();}
 });
 window.AncestryAtlasNavigation={
-  open: function(section){if(section==="places")showPlaces();else if(section==="stories")showStories();else showFamily();},
+  open: function(section){var next=["family","places","stories"].includes(section)?section:"family";
+    var previous=this.current();setSection(next);if(previous!==next)recordSection(next);},
   current: function(){return nav.querySelector('[aria-current="page"]')?.dataset.aaSection||"family";}
 };
 var entry=query.get("section")||"family";
