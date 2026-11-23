@@ -8,6 +8,7 @@
 }
 #aaSimpleHome{overflow-y:auto;overscroll-behavior:contain;padding:calc(20px + env(safe-area-inset-top)) 17px calc(40px + env(safe-area-inset-bottom))}
 #aaSimpleHome .aa-simple-wrap{max-width:750px;margin:0 auto}
+#aaSimpleHome .aa-simple-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 #aaSimpleHome .aa-simple-kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#a2bdcc;text-align:center;margin:3px 0 5px}
 #aaSimpleHome h1{font:650 clamp(25px,6vw,38px)/1.2 system-ui;margin:0;text-align:center;letter-spacing:-.035em;color:#eef7fd}
 #aaSimpleHome .aa-simple-intro{text-align:center;color:#aac3d2;font-size:13px;line-height:1.45;margin:9px auto 21px;max-width:40ch}
