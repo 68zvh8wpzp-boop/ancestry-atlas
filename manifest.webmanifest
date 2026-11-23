@@ -2,7 +2,7 @@
   "name": "Ancestry Atlas",
   "short_name": "Ancestry Atlas",
   "description": "A guided audio-visual family history atlas.",
-  "start_url": "./atlas-v3.9.63.html?iphone-refresh=20261122-atlas-nav-v4-person-context",
+  "start_url": "./atlas-v3.9.63.html?iphone-refresh=20261122-atlas-nav-v5-history-context",
   "scope": "./",
   "display": "fullscreen",
   "display_override": [
