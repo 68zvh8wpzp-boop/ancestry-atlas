@@ -96,7 +96,7 @@ var regions=[
  ["France",/\b(france|french|normandy)\b/i],
  ["Mexico",/\b(mexico|mexican)\b/i]
 ];
-var region="All",searchTerm="",maxItems=60,returnToPlacesAfterGallery=false;
+var region="All",searchTerm="",maxItems=60,returnToPlacesAfterGallery=false,returnToPlacesFromPerson=false;
 var data=window.__ATLAS_DATA;
 var people=(data&&Array.isArray(data.nodes)?data.nodes:[]).filter(function(n){return n&&n.id&&n.place;});
 var geographicGlobe=window.AtlasGeoGlobe?.create(places,data,function(){return currentPerson();})||null;
@@ -136,6 +136,7 @@ function dismissViews(){more.hidden=true;viewsButton.setAttribute("aria-expanded
 function hideLanding(){document.getElementById("landing")?.classList.add("hidden");}
 function hideExplorer(){if(explorer)explorer.hidden=true;document.body.classList.remove("pp-preview-open");}
 function showFamily(id){
+  returnToPlacesFromPerson=false;
   dismissViews();places.hidden=true;stories.hidden=true;hideLanding();
   if(id&&window.AncestryAtlasPedigreePreview?.selectPerson)window.AncestryAtlasPedigreePreview.selectPerson(id,false);
   window.AncestryAtlasPedigreePreview?.open?.();
@@ -211,6 +212,7 @@ places.addEventListener("click",function(event){
     returnToPlacesAfterGallery=true;show3d();active("places");if(typeof openAlbum==="function")openAlbum("place");return;
   }
   if(b.dataset.aaPerson){
+    returnToPlacesFromPerson=true;
     var id=b.dataset.aaPerson;
     window.AncestryAtlasPedigreePreview?.selectPerson?.(id,false);
     places.hidden=true;hideExplorer();
@@ -220,6 +222,12 @@ places.addEventListener("click",function(event){
     }catch(error){console.warn("Could not open place-linked person",error);showPlaces();}
     active("places");
   }
+});
+// Restores the geographic context after closing a biography opened from Places.
+document.getElementById("close")?.addEventListener("click",function(){
+  if(!returnToPlacesFromPerson)return;
+  returnToPlacesFromPerson=false;
+  showPlaces();
 });
 var albumModal=document.getElementById("albumModal");
 if(albumModal)new MutationObserver(function(){
