@@ -10,30 +10,36 @@ if(!atlas||!Array.isArray(atlas.nodes))return;
 document.body.classList.add("aa-four-door-shell");
 var release="20261123-portrait-crops-v3";
 var icons={
- tree:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 42V32M24 32L12 22M24 32L36 22M12 22V11M36 22V11M12 11L6 5M12 11L18 5M36 11L30 5M36 11L42 5"/><circle cx="24" cy="43" r="1.5"/></svg>',
- people:'<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="16" r="8"/><path d="M8 43v-5c0-9 7-14 16-14s16 5 16 14v5"/></svg>',
- globe:'<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19"/><ellipse cx="24" cy="24" rx="9" ry="19"/><path d="M5 24h38M8 14h32M8 34h32"/></svg>',
- stories:'<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="20" cy="23" r="16"/><circle cx="20" cy="23" r="3"/><circle cx="20" cy="12" r="3"/><circle cx="30" cy="20" r="3"/><circle cx="20" cy="34" r="3"/><circle cx="10" cy="23" r="3"/><path d="M31 34h11v9H31"/></svg>'
+ tree:'<svg viewBox="0 0 80 80" aria-hidden="true"><path class="aa-ink-stroke" d="M39 67V44m0 14-8 8m8-14 9 12M39 45 26 32m13 12 15-16m-27 5-7-13m7 13 3-16m24 11 7-13m-7 13-6-13"/><path class="aa-icon-earth" d="M16 68c15-4 33-3 49 0"/><circle class="aa-gold-fill" cx="20" cy="20" r="5"/><circle class="aa-gold-fill" cx="30" cy="17" r="5"/><circle class="aa-gold-fill" cx="47" cy="15" r="5"/><circle class="aa-gold-fill" cx="61" cy="15" r="5"/><circle class="aa-leaf" cx="26" cy="32" r="6"/><circle class="aa-leaf" cx="54" cy="28" r="6"/><circle class="aa-gold-fill" cx="39" cy="43" r="5"/><circle class="aa-root" cx="39" cy="67" r="3"/></svg>',
+ people:'<svg viewBox="0 0 80 80" aria-hidden="true"><ellipse class="aa-medallion" cx="40" cy="40" rx="28" ry="32"/><path class="aa-person-silhouette" d="M26 66c2-10 8-13 17-16l3-7c-4-2-6-5-6-9l-4-2 3-5-1-7c1-9 6-14 14-14 8 0 14 6 14 15 0 6-3 11-7 15l-1 8c5 5 9 11 9 22z"/><path class="aa-fine-line" d="M46 41c4 3 8 3 12 2M24 67h42"/></svg>',
+ globe:'<svg viewBox="0 0 80 80" aria-hidden="true"><circle class="aa-globe-sea" cx="39" cy="38" r="26"/><path class="aa-globe-graticule" d="M13 38h52M39 12c-10 11-12 40 0 52M39 12c11 13 12 40 0 52M19 24h40M19 52h40"/><path class="aa-globe-land" d="M20 22 30 16l7 4 1 7-6 2-1 8-7-2-3-6-6-1zM38 40l8-8 9 2 6 7-7 3-3 9-8 7-4-8z"/><path class="aa-fine-line" d="M39 65v8m-16 1h32"/><path class="aa-gold-stroke" d="M18 60a37 37 0 0 0 43-44"/></svg>',
+ stories:'<svg viewBox="0 0 80 80" aria-hidden="true"><circle class="aa-reel" cx="36" cy="35" r="24"/><circle class="aa-reel-hole" cx="36" cy="35" r="4"/><circle class="aa-reel-hole" cx="36" cy="19" r="6"/><circle class="aa-reel-hole" cx="51" cy="30" r="6"/><circle class="aa-reel-hole" cx="45" cy="47" r="6"/><circle class="aa-reel-hole" cx="26" cy="48" r="6"/><circle class="aa-reel-hole" cx="20" cy="30" r="6"/><path class="aa-film-tail" d="M57 46c14 1 12 11 13 23H43v-9h18V54H53"/><path class="aa-fine-line" d="M46 65h21"/></svg>'
 };
 var page=document.createElement("section");
 page.id="aaSimpleHome";page.setAttribute("aria-label","Ancestry Atlas: four ways to explore");
-page.innerHTML='<div class="aa-simple-wrap"><h1 class="aa-simple-sr">Ancestry Atlas — Choose one destination</h1>'+
- '<nav class="aa-simple-doors" aria-label="Choose an Atlas destination">'+
+page.innerHTML='<div class="aa-simple-wrap"><div class="aa-museum-masthead">'+
+ '<div class="aa-masthead-rule"><span>THE FAMILY HISTORY COLLECTION</span></div>'+
+ '<h1>Ancestry <em>Atlas</em></h1>'+
+ '<p class="aa-masthead-subtitle">A world of people, places and stories worth preserving.</p>'+
+ '</div><nav class="aa-simple-doors" aria-label="Choose an Atlas destination">'+
  [
-  ["tree","Tree"],["people","People"],["globe","Globe"],["stories","Stories"]
- ].map(function(x){return '<button type="button" class="aa-simple-door" data-aa-go="'+x[0]+'" aria-label="'+x[1]+'">'+
-   '<span class="aa-simple-icon">'+icons[x[0]]+'</span><span>'+x[1]+'</span></button>';}).join("")+
+  ["tree","Tree"],["people","People"],["globe","Globe"],["stories","A/V Stories"]
+ ].map(function(x,i){return '<button type="button" class="aa-simple-door aa-door-'+x[0]+'" data-aa-go="'+x[0]+'" aria-label="'+x[1]+'">'+
+   '<span class="aa-simple-icon">'+icons[x[0]]+'</span><span class="aa-door-label">'+x[1]+'</span><span class="aa-door-index">0'+(i+1)+'</span></button>';}).join("")+
  '</nav><div class="aa-simple-explain" aria-label="What each destination does">'+
- '<p><strong>Tree</strong><span>See your ancestors in a connected 2D family tree, with names and portraits where available.</span></p>'+
- '<p><strong>People</strong><span>Find a person by name and open their biography, photos, and original documents.</span></p>'+
- '<p><strong>Globe</strong><span>Explore family locations on an interactive world map, with evidence clearly labeled.</span></p>'+
- '<p><strong>Stories</strong><span>Watch or listen to guided family-history tours.</span></p>'+
- '</div></div>';
+ '<p><strong>Tree</strong><span>Follow the generations in a connected portrait family tree.</span></p>'+
+ '<p><strong>People</strong><span>Discover biographies, photographs, and original records.</span></p>'+
+ '<p><strong>Globe</strong><span>Trace the places our ancestors lived, with evidence-aware pins.</span></p>'+
+ '<p><strong>Stories</strong><span>Experience narrated family-history films and tours.</span></p>'+
+ '</div><p class="aa-museum-footer">NAMES · PLACES · EVIDENCE · MEMORY</p></div>';
 document.body.appendChild(page);
 var header=document.createElement("div");
 header.id="aaSimpleHeader";header.hidden=true;
-header.innerHTML='<button type="button" id="aaSimpleBackHome" aria-label="Return to Atlas home">← Home</button>'+
- '<strong id="aaSimpleSectionTitle"></strong>';
+header.innerHTML='<nav class="aa-museum-route" aria-label="Atlas navigation">'+
+ '<button type="button" id="aaSimpleBackHome" class="aa-route-home" aria-label="Return to Atlas home"><span aria-hidden="true">⌂</span><span>Home</span></button>'+
+ '<button type="button" id="aaSimpleBack" aria-label="Back to previous screen" title="Back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5 7 12l7 7M7 12h12"/></svg></button>'+
+ '<button type="button" id="aaSimpleForward" aria-label="Forward to next screen" title="Forward"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5 7 7-7 7M17 12H5"/></svg></button>'+
+ '</nav><strong id="aaSimpleSectionTitle"></strong>';
 document.body.appendChild(header);
 var people=document.createElement("section");
 people.id="aaSimplePeople";people.hidden=true;people.setAttribute("aria-label","Search Atlas people");
@@ -49,20 +55,23 @@ globePanel.innerHTML='<div class="aa-simple-globe-wrap"><p>Drag to rotate the gl
 document.body.appendChild(globePanel);
 var profile=document.createElement("section");profile.id="aaSimpleProfile";profile.hidden=true;
 profile.setAttribute("aria-label","Person biography and historical sources");
-profile.innerHTML='<div class="aa-simple-profile-head"><strong id="aaSimpleProfileName">Person page</strong>'+
- '<button type="button" id="aaSimpleProfileBack">← Back</button></div>'+
+profile.innerHTML='<div class="aa-simple-profile-head"><strong id="aaSimpleProfileName">Person page</strong></div>'+
  '<iframe id="aaSimpleProfileFrame" title="Full Atlas person biography and archival evidence" loading="lazy"></iframe>';
 document.body.appendChild(profile);
-var current="home",profileOrigin="people",profileId=null,globeInstance=null,storyRequested=false;
+var current="home",profileOrigin="people",profileId=null,globeInstance=null,storyRequested=false,restoringHistory=false;
 var chooser=document.getElementById("lineChooser"),storyModal=document.getElementById("storyModal");
 document.getElementById("landing")?.classList.add("hidden");
 function section(next){
+  var previous=current;
   current=next;
   page.hidden=next!=="home";people.hidden=next!=="people";
   globePanel.hidden=next!=="globe";profile.hidden=next!=="profile";
-  header.hidden=next==="home"||next==="stories";
+  header.hidden=next==="home";
   document.getElementById("aaSimpleSectionTitle").textContent=
-   {people:"People",globe:"Globe",profile:"Person page"}[next]||"";
+   {people:"People",globe:"Globe",profile:"Person page",stories:"A/V Stories"}[next]||"";
+  if(!restoringHistory&&next!==previous){
+    history.pushState({aaFourDoor:true,screen:next,person:profileId,origin:profileOrigin},"",location.href);
+  }
 }
 function showHome(){
   if(current==="profile"){
@@ -103,6 +112,8 @@ page.addEventListener("click",function(e){
   var button=e.target.closest("[data-aa-go]");if(button)visit(button.dataset.aaGo);
 });
 header.querySelector("#aaSimpleBackHome").addEventListener("click",showHome);
+header.querySelector("#aaSimpleBack").addEventListener("click",function(){if(history.length>1)history.back();else showHome();});
+header.querySelector("#aaSimpleForward").addEventListener("click",function(){history.forward();});
 var input=people.querySelector("#aaSimplePersonInput");
 var count=people.querySelector("#aaSimplePersonCount");
 var results=people.querySelector("#aaSimplePersonResults");
@@ -168,11 +179,6 @@ function openProfile(id,origin){
   };
   iframe.src="./atlas-v3.9.63.html?from=four-door-person&person="+encodeURIComponent(id)+"&v="+release;
 }
-profile.querySelector("#aaSimpleProfileBack").addEventListener("click",function(){
-  var iframe=profile.querySelector("#aaSimpleProfileFrame");
-  iframe.onload=null;iframe.src="about:blank";
-  if(profileOrigin==="globe")showGlobe();else showPeople();
-});
 // Existing A/V tour chooser and playback remain the sole Stories presentation.
 function updateStoryStatus(){
   if(!storyRequested)return;
@@ -184,10 +190,30 @@ function updateStoryStatus(){
   new MutationObserver(updateStoryStatus).observe(el,{attributes:true,attributeFilter:["class"]});
 });
 document.addEventListener("keydown",function(e){
-  if(e.key==="Escape"&&current==="profile")profile.querySelector("#aaSimpleProfileBack").click();
+  if(e.key==="Escape"&&current==="profile")history.back();
   else if(e.key==="Escape"&&(current==="people"||current==="globe"))showHome();
 });
+window.addEventListener("popstate",function(event){
+  var state=event.state;
+  if(!state||!state.aaFourDoor)return;
+  restoringHistory=true;
+  if(state.screen==="home")showHome();
+  else if(state.screen==="people")showPeople();
+  else if(state.screen==="globe")showGlobe();
+  else if(state.screen==="profile"&&state.person)openProfile(state.person,state.origin);
+  else if(state.screen==="stories")showStories();
+  restoringHistory=false;
+});
 section("home");
+if(!history.state||!history.state.aaFourDoor)history.replaceState({aaFourDoor:true,screen:"home",person:null,origin:null},"",location.href);
+else if(history.state.screen!=="home"){
+  var saved=history.state;
+  restoringHistory=true;
+  if(saved.screen==="people")showPeople();
+  else if(saved.screen==="globe")showGlobe();
+  else if(saved.screen==="profile"&&saved.person)openProfile(saved.person,saved.origin);
+  restoringHistory=false;
+}
 window.AncestryAtlasSimpleHome={
   go:visit,home:showHome,current:function(){return current;},
   openPerson:openProfile
