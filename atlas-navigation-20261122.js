@@ -20,7 +20,7 @@ function currentPerson(){
   return window.AncestryAtlasPedigreePreview?.getState?.().selected||"you";
 }
 function mainUrl(section){
-  var url=main+"?section="+encodeURIComponent(section)+"&nav=20261122-v3-search";
+  var url=main+"?section="+encodeURIComponent(section)+"&nav=20261122-v4-history";
   var id=currentPerson();if(id&&section==="family")url+="&person="+encodeURIComponent(id);
   return url;
 }
@@ -178,7 +178,7 @@ more.addEventListener("click",function(event){
   var b=event.target.closest("[data-aa-view]");if(!b)return;
   var view=b.dataset.aaView;
   dismissViews();
-  if(view==="2d"){location.assign("./atlas-2d-journey-preview.html?v=20261122-atlas-nav-v3-search");return;}
+  if(view==="2d"){location.assign("./atlas-2d-journey-preview.html?v=20261122-atlas-nav-v4-history");return;}
   if(view==="3d"){show3d();return;}
   if(view==="fan"){
     showFamily();var fan=explorer?.querySelector('[data-pp-view="overview"]');fan?.click();return;
