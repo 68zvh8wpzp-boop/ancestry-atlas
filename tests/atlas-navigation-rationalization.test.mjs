@@ -30,8 +30,8 @@ test("main and 2D map use the same three-section navigation",async()=>{
  assert.match(nav,/new MutationObserver\(updateStoriesAfterTour\)/);
  assert.match(style,/#aaPrimaryNav/);
  assert.match(style,/#aaPlacesPanel/);
- assert.match(index,/20261122-atlas-nav-v4-person-context/);
- assert.match(JSON.parse(manifest).start_url,/20261122-atlas-nav-v4-person-context/);
+ assert.match(index,/20261122-atlas-nav-v6-globe/);
+ assert.match(JSON.parse(manifest).start_url,/20261122-atlas-nav-v6-globe/);
 });
 
 test("Family remains default and Places records do not invent coordinates",async()=>{
@@ -41,9 +41,9 @@ test("Family remains default and Places records do not invent coordinates",async
   read("iphone-ancestry-explorer-preview.js")
  ]);
  assert.match(nav,/var entry=query\.get\("section"\)\|\|"family"/);
- assert.match(nav,/else showFamily\(query\.get\("person"\)\)/);
+ assert.match(nav,/else showFamily\(incomingPerson\)/);
  assert.match(nav,/Location mentions are not proof of birth or residence/);
- assert.match(nav,/A plotted geographic globe has not yet been added/);
+ assert.match(nav,/Globe pins use approximate place centers/);
  assert.match(explorer,/selectPerson:function\(id,show\)/);
  assert.match(explorer,/function expandTo\(id\)/);
  assert.ok(!/data\.nodes\.(push|splice)|data\.edges\.(push|splice)|data\.nodes\s*=|data\.edges\s*=/.test(nav));
