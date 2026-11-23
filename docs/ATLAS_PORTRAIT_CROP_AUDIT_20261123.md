@@ -4,7 +4,7 @@
 ## Result
 The connected 2D ancestry map now has presentation-only photo entries for **25 distinct people** (previously seven). This consists of **19 new/replacement crop records** covering **18 additional people**. One of the 19 replaces Marion's remote standalone photo with a locally saved, source-attributed family-photo crop. The registry has **nine source-attributed group crops**, **two existing contributor-supplied family-photo crops**, and **eight standalone person-photo entries**. The original seven-person portrait registry remains intact as a fallback.
 
-All **15 distinct local image files** referenced by the new crop records were verified to exist in the connected GitHub repository at their current blob SHA. The 2D renderer uses normalized crop windows, with no reconstruction or editing of original pixel data and no transfer of images to third-party tools. Full-source images are available through the selected-person photo link in the Tree. **The exact source image SHA, local file path, named attribution, crop coordinates and source citation are retained in the registry.**
+All **15 distinct local image files** referenced by the new crop records were verified to exist in the connected GitHub repository. Their Git blob SHA-1 values are stored in each crop record, and the regression tests recompute those hashes from the original image bytes to catch unintended replacement. The 2D renderer uses normalized crop windows, with no reconstruction or editing of original pixel data and no transfer of images to third-party tools. Full-source images are available through the selected-person photo link in the Tree. **The exact source image SHA, local file path, named attribution, crop coordinates and source citation are retained in the registry.**
 
 ## Confirmed attribution sources
 - The **Sarah Carling with children, 1891** photograph is published with the caption identifying the children **left-to-right** as Clark, Henry, Burr, Owen, Catherine. This supports a crop for the seated Sarah and the front-left young Henry (second child from the left). Source: [Pioneer Women of Arizona, Religious Studies Center](https://rsc.byu.edu/pioneer-women-arizona/w). This is a documented editorial photo caption, **not** a face-recognition judgment.
@@ -25,7 +25,7 @@ All **15 distinct local image files** referenced by the new crop records were ve
 | `jonathan_henry` | group crop | Henry, second child from left (standing front left), 1891 | `biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_sarah_children_1891_family_use.png` |
 | `charles_albert` | group crop | Charles, on right, in 50th-anniversary portrait | `assets/charles-albert/charles-marian-50th-anniversary.jpg` |
 | `marian_skinner` | group crop | Marian, on left, in 50th-anniversary portrait | `assets/charles-albert/charles-marian-50th-anniversary.jpg` |
-| `della_ray` | group crop | Della, third from left, with four daughters in 1947 | `assets/della-ray/della-webb-and-daughters-1947-original-preview.jpg` |
+| `della_ray` | group crop | Della, third from left, with four daughters in 1947 | `assets/della-ray/della-webb-and-daughters-1947-original.jpg` |
 | `jessie_irene_aurin` | existing family crop | Jessie Aurin Skinner, identified in preserved family photo crop | `assets/jessie-aurin/jessie-aurin-portrait.jpg` |
 | `richard_francis_skinner` | existing family crop | Richard Francis Skinner in contributor-labeled portrait | `assets/richard-skinner/richard-skinner-portrait.jpg` |
 | `grace_hill` | standalone | Grace Mildred Hill, age 23, 1932 | `assets/inez-life-story/image2.jpeg` |
@@ -44,7 +44,7 @@ Do **not** label individual children in the large Sheldon-siblings photo or the 
 1. Load `atlas-2d-portrait-index-20261123.js` first, then `atlas-2d-portrait-crops-20261123.js`, then `atlas-2d-map.js`.
 2. For crop entry `{x,y,w,h}`, multiply by source image pixel dimensions and draw only that source rectangle into the ancestor's portrait tile with cover scaling; leave the original file unmodified.
 3. On failure, fall back to an older preserved portrait when available; otherwise draw a neutral outline silhouette. Never create a synthetic face.
-4. Keep original photograph provenance available via the selected card's “View full source photograph” link. The Della canvas uses the local preview for efficient mobile loading, but the source link points to the already archived larger original.
+4. Keep original photograph provenance available via the selected card's “View full source photograph” link. The Della canvas now crops the saved full-resolution original; the selected-person source link opens that same archived original.
 5. Do not infer who is depicted from appearance. Every named subject must be independently grounded in a caption, metadata, or person-source collection attribution.
 
 ## Remaining QA
