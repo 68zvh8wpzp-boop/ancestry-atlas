@@ -23,13 +23,23 @@
     if (name === query) return 0;
     if (name.startsWith(query)) return 1;
     if (name.includes(query)) return 2;
-    for (const raw of names(person).slice(1)) {
+    const allNames = names(person);
+    for (const raw of allNames.slice(1)) {
       const alias = normalize(raw);
       if (alias === query || alias.startsWith(query)) return 2;
       if (alias.includes(query)) return 3;
     }
+    // First name + surname must still work when a middle name is omitted.
+    const tokens = query.split(' ').filter(Boolean);
+    if (tokens.length > 1 && allNames.some(raw => {
+      const words = normalize(raw).split(' ');
+      return tokens.every(t => words.some(w => w === t || (t.length >= 3 && w.startsWith(t))));
+    })) return 3;
     const context = normalize([person.years, person.place, person.branch].filter(Boolean).join(' '));
-    return context.includes(query) ? 4 : Infinity;
+    if (context.includes(query)) return 4;
+    // Preserve historical name + birth-year and name + place searches.
+    return normalize([person.name,person.years,person.place,person.branch].filter(Boolean).join(' '))
+      .includes(query) ? 5 : Infinity;
   }
   // Bounded Optimal String Alignment distance (includes adjacent transpositions).
   function distance(a, b, maximum) {
