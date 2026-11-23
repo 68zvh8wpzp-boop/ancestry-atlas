@@ -8,7 +8,7 @@ if(window.self!==window.top)return;
 var atlas=window.__ATLAS_DATA,geo=window.AtlasGeoGlobe,query=new URLSearchParams(location.search);
 if(!atlas||!Array.isArray(atlas.nodes))return;
 document.body.classList.add("aa-four-door-shell");
-var release="20261123-four-doors-v1";
+var release="20261123-portrait-crops-v1";
 var icons={
  tree:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 42V32M24 32L12 22M24 32L36 22M12 22V11M36 22V11M12 11L6 5M12 11L18 5M36 11L30 5M36 11L42 5"/><circle cx="24" cy="43" r="1.5"/></svg>',
  people:'<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="16" r="8"/><path d="M8 43v-5c0-9 7-14 16-14s16 5 16 14v5"/></svg>',

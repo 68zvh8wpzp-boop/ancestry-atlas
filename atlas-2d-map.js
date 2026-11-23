@@ -104,6 +104,11 @@ function fillInfo(){
   metaEl.textContent=[n.years,n.branch,"Generation "+n.generation].filter(Boolean).join(" · ");
   var sibCount=siblingCounts.get(selected)||0;
   stateEl.textContent=(sibCount?sibCount+" mapped sibling"+(sibCount===1?"":"s")+" · ":"")+showStatus(n);
+  // Photo attribution is independent of genealogical confidence. Preserve both.
+  var portraitMeta=window.ATLAS_2D_PORTRAITS?.[selected];
+  if(portraitMeta)stateEl.textContent+=" · Portrait: "+
+    (portraitMeta.type==="identified-group-crop"?"cropped from captioned family photograph":
+     portraitMeta.sourceStatus==="family-attributed"?"family-attributed photograph":"identified individual photograph");
   trailEl.replaceChildren();
   selectionPath.forEach(function(id,i){
     if(i){var dot=document.createElement("span");dot.className="sep";dot.textContent="›";trailEl.appendChild(dot);}
@@ -205,10 +210,25 @@ function drawPortraitOrBust(id,x,y,width,height){
   ctx.fillStyle="#173244";ctx.fillRect(x,y,width,height);
   var photo=portraitCache.get(id);
   if(photo?.loaded){
-    var img=photo.image;
-    var ratio=Math.max(width/img.naturalWidth,height/img.naturalHeight);
-    var iw=img.naturalWidth*ratio,ih=img.naturalHeight*ratio;
-    try{ctx.drawImage(img,x+(width-iw)/2,y+(height-ih)/2,iw,ih);}catch(_){}
+    var img=photo.image,meta=portraits[id]||{};
+    // A cropped *view* of the preserved original. Normalized bounds are sourced
+    // to caption-identifiable subjects, never inferred by face recognition.
+    // Preserve facial proportions by center-covering within the chosen crop.
+    var crop=meta.crop,iw=img.naturalWidth,ih=img.naturalHeight;
+    if(Array.isArray(crop)&&crop.length===4){
+      var sx=Math.max(0,Math.min(iw-1,crop[0]*iw));
+      var sy=Math.max(0,Math.min(ih-1,crop[1]*ih));
+      var sw=Math.max(1,Math.min(iw-sx,crop[2]*iw));
+      var sh=Math.max(1,Math.min(ih-sy,crop[3]*ih));
+      var sourceRatio=sw/sh,targetRatio=width/height;
+      if(sourceRatio>targetRatio){var coverWidth=sh*targetRatio;sx+=(sw-coverWidth)/2;sw=coverWidth;}
+      else{var coverHeight=sw/targetRatio;sy+=(sh-coverHeight)/2;sh=coverHeight;}
+      try{ctx.drawImage(img,sx,sy,sw,sh,x,y,width,height);}catch(_){}
+    }else{
+      var ratio=Math.max(width/iw,height/ih);
+      var scaledW=iw*ratio,scaledH=ih*ratio;
+      try{ctx.drawImage(img,x+(width-scaledW)/2,y+(height-scaledH)/2,scaledW,scaledH);}catch(_){}
+    }
   }else{
     // Generic bust outline: absence of a portrait does not imply identity.
     ctx.strokeStyle="#aec7d5";ctx.lineWidth=Math.max(1,1.6*cam.s);

@@ -24,8 +24,8 @@ test("entry screen exposes exactly Tree, People, Globe and Stories",async()=>{
  assert.match(script,/if\(window\.self!==window\.top\)return/);
  assert.match(css,/#aaSimpleHome/);
  assert.ok(!script.includes("aaPrimaryNav"));
- assert.match(index,/20261123-four-doors-v1/);
- assert.match(JSON.parse(manifest).start_url,/20261123-four-doors-v1/);
+ assert.match(index,/20261123-portrait-crops-v1/);
+ assert.match(JSON.parse(manifest).start_url,/20261123-portrait-crops-v1/);
 });
 
 test("Tree goes directly to portrait-enabled 2D; source pages stay intact",async()=>{
@@ -43,9 +43,10 @@ test("Tree goes directly to portrait-enabled 2D; source pages stay intact",async
  assert.match(mapJS,/var portraits=window\.ATLAS_2D_PORTRAITS/);
  assert.doesNotThrow(()=>new vm.Script(mapJS));
  const context={window:{}};vm.runInNewContext(portraits,context);
- assert.equal(Object.keys(context.window.ATLAS_2D_PORTRAITS).length,7);
+ assert.equal(Object.keys(context.window.ATLAS_2D_PORTRAITS).length,24);
  assert.ok(context.window.ATLAS_2D_PORTRAITS.dorthea_jensen);
- assert.ok(!context.window.ATLAS_2D_PORTRAITS.sarah_carling,"Group photograph is not an individual portrait");
+ assert.ok(context.window.ATLAS_2D_PORTRAITS.sarah_carling?.crop,"Captioned central adult is an approved group crop");
+ assert.ok(!context.window.ATLAS_2D_PORTRAITS.isaiah_hill,"Different Isaiah must not be misattributed");
  assert.match(main,/const DATA = /);
  assert.match(map,/iframe id="bio-frame"/);
 });
