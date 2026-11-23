@@ -115,9 +115,11 @@ test("searchable Atlas records include unlinked relatives and research candidate
   const snap=sandbox.window.ATLAS_2D_PEDIGREE;
   const mapped=sandbox.window.Atlas2DLayout.create(snap,"you");
   assert.equal(snap.nodes.length,106);
-  assert.equal(mapped.nodes.length,83);
+  // Corrected biological links disconnect unsupported candidate branches;
+  // those people remain in search without appearing as established ancestors.
+  assert.equal(mapped.nodes.length,74);
   const notOnMain=snap.nodes.filter(n=>!mapped.positions.has(n.id));
-  assert.equal(notOnMain.length,23);
+  assert.equal(notOnMain.length,32);
   assert.ok(notOnMain.some(n=>n.id==="elizabeth_webb"));
   assert.ok(notOnMain.some(n=>n.id==="brenay_david"));
   assert.ok(notOnMain.some(n=>n.id==="pierre_goulet_1846_candidate"));
