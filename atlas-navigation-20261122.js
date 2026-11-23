@@ -99,6 +99,7 @@ var regions=[
 var region="All",searchTerm="",maxItems=60,returnToPlacesAfterGallery=false;
 var data=window.__ATLAS_DATA;
 var people=(data&&Array.isArray(data.nodes)?data.nodes:[]).filter(function(n){return n&&n.id&&n.place;});
+var geographicGlobe=window.AtlasGeoGlobe?.create(places,data,function(){return currentPerson();})||null;
 function clean(s){return String(s||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase();}
 function make(tag,text,className){var el=document.createElement(tag);if(className)el.className=className;if(text!==undefined)el.textContent=text;return el;}
 function drawPlaces(){
@@ -142,6 +143,7 @@ function showFamily(id){
 }
 function showPlaces(){
   dismissViews();stories.hidden=true;hideExplorer();hideLanding();places.hidden=false;drawPlaces();active("places");
+  if(geographicGlobe)requestAnimationFrame(function(){geographicGlobe.resize();});
 }
 function showStories(){
   dismissViews();places.hidden=true;hideExplorer();hideLanding();stories.hidden=false;active("stories");
