@@ -1,0 +1,56 @@
+/* Persistent Atlas route controls for standalone Tree and Globe. */
+:root{--aa-standalone-nav-height:calc(58px + env(safe-area-inset-top))}
+#aaMuseumRouteBar{
+ position:fixed;z-index:99999;top:0;left:0;right:0;
+ box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;
+ min-height:var(--aa-standalone-nav-height);
+ padding:calc(7px + env(safe-area-inset-top)) 12px 7px;gap:8px;
+ color:#ebdebe;background:linear-gradient(90deg,#0b2430,#0b1b27);
+ border-bottom:1px solid rgba(217,185,130,.48);
+ box-shadow:0 5px 22px rgba(0,0,0,.33);font-family:system-ui,-apple-system,sans-serif
+}
+#aaMuseumRouteBar .aa-museum-route-controls{display:flex;align-items:center;gap:6px}
+#aaMuseumRouteBar button{
+ min-height:43px;min-width:43px;display:flex;align-items:center;justify-content:center;
+ border:1px solid rgba(217,185,130,.48);border-radius:9px;
+ background:rgba(221,198,148,.08);color:#eadcbb;
+ padding:7px 9px;cursor:pointer;font:650 12px system-ui,sans-serif
+}
+#aaMuseumRouteBar button:hover,#aaMuseumRouteBar button:focus-visible{
+ background:rgba(221,198,148,.19);border-color:#e2c58a;outline-offset:2px
+}
+#aaMuseumRouteBar button svg{display:block;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+#aaMuseumRouteBar .aa-route-home{gap:6px;min-width:77px}
+#aaMuseumRouteBar .aa-museum-route-name{font:500 16px Georgia,serif;color:#e3c596;text-align:right;white-space:nowrap}
+body.aa-with-museum-route #topbar{top:var(--aa-standalone-nav-height)!important}
+body.aa-with-museum-route #legend,body.aa-with-museum-route #mini-shell{
+ top:calc(95px + var(--aa-standalone-nav-height))!important
+}
+body.aa-with-museum-route #status{top:calc(195px + var(--aa-standalone-nav-height))!important}
+body.aa-with-museum-route #search-panel,
+body.aa-with-museum-route #family-panel,
+body.aa-with-museum-route #biography-pane{
+ top:var(--aa-standalone-nav-height)!important;
+ padding-top:0!important
+}
+body.aa-with-museum-route .globe-shell{
+ box-sizing:border-box;
+ padding-top:var(--aa-standalone-nav-height)!important;
+ height:100dvh!important;min-height:0!important
+}
+body.aa-with-museum-route .globe-header{min-height:70px}
+body.aa-with-museum-route .globe-header .back-link{display:none!important}
+body.aa-with-museum-route .globe-header{grid-template-columns:1fr auto}
+body.aa-with-museum-route .globe-heading{text-align:left}
+@media(max-width:720px){
+ #aaMuseumRouteBar .aa-museum-route-name{font-size:13px}
+ #aaMuseumRouteBar{padding-left:9px;padding-right:9px}
+ body.aa-with-museum-route .globe-header{min-height:64px}
+ body.aa-with-museum-route .globe-heading h1{font-size:20px}
+}
+@media(max-width:365px){
+ #aaMuseumRouteBar .aa-museum-route-name{font-size:11px}
+ #aaMuseumRouteBar .aa-museum-route-controls{gap:4px}
+ #aaMuseumRouteBar button{padding:6px;min-width:39px}
+ #aaMuseumRouteBar .aa-route-home{min-width:65px}
+}
