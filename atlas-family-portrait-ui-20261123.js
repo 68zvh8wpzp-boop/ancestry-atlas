@@ -5,10 +5,14 @@
 "use strict";
 function portraitRoot(){return root.ATLAS_2D_PORTRAITS||{};}
 function fallback(target,small){
-  var bust=document.createElement("span");bust.className="aa-family-bust";
-  bust.setAttribute("role","img");bust.setAttribute("aria-label","No source-identified portrait");
-  bust.innerHTML='<svg viewBox="0 0 80 95" aria-hidden="true"><circle cx="40" cy="29" r="16"/><path d="M7 89c2-24 15-35 33-35s31 11 33 35"/></svg>';
-  target.appendChild(bust);return bust;
+  // This is decorative collection artwork, never a representation of the named ancestor.
+  target.classList.add("aa-photo-unavailable");
+  var cameo=document.createElement("img");
+  cameo.className="aa-archival-cameo";
+  cameo.alt="No verified historical portrait; anonymous illustrated cameo";
+  cameo.decoding="async";cameo.loading="lazy";
+  cameo.src="./assets/atlas-anonymous-cameo-20261123.svg";
+  target.appendChild(cameo);return cameo;
 }
 function attachPortrait(target,id,options){
   options=options||{};
