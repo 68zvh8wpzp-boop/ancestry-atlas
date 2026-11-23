@@ -1,20 +1,32 @@
 # Atlas 2D portrait crop review register — November 23, 2026
 
 ## Implemented result
-The 2D Tree reads **25 provenance-linked portrait entries**: seven existing individual portraits plus **18 new cropped views** of preserved original photographs. Six new views identify a person within a captioned two-person or group photograph; twelve isolate a source-labeled individual portrait.
+The 2D Tree retains **25 provenance-linked people**: **19 active presentation crops** (seven caption-identified group/couple crops and twelve single-person crops), plus six other existing portrait references. The historic 1941 couple photograph now replaces Marion's remote obituary image as her primary portrait; the obituary image remains an alternate fallback. Four other people retain original high-quality primary portraits plus labeled alternative family-photo crops. No additional ancestor identity is inferred.
 
 Crop coordinates in `atlas-2d-portrait-index-20261123.js` are fractional `[left,top,width,height]` relative to the original image. The Tree canvas applies these coordinates *when drawing*; there is no image invention, facial recognition, or overwrite. Every new portrait image is already packaged as a repository asset. The original remains accessible via the photo source.
 
 **Attribution is not proof of ancestry.** The source class refers to who a picture depicts, not whether the genealogical relationship is resolved. Contributor-supplied repairs or enhancements are retained as submitted and are not falsely labeled untouched camera negatives.
 
-## Six named group-photo crops
+## Seven named group-photo crops
 
+- **Marion Beulah Brenay Webb** — `biographies/marion/assets/jay_marion_mesa_1941_restored.jpg` (0.43, 0.142, 0.30, 0.245). Marion is the woman at right in the named early Webb family photograph with Jay. Preserved original at Git blob `6c1fec12e526b38fe8442141a6c4d13fb76b8068`; previous obituary portrait retained as an alternate if the local image fails.
 - **James Sheldon Webb** — `sheldon_inez_wedding_1965.jpeg` (0.07, 0.01, 0.37, 0.4). Groom at left; couple named in approved Atlas wedding caption. Atlas wedding photograph, captioned Sheldon Webb and Inez Karen Prather, 1965. Groom at left.
 - **Inez Karen Prather** — `sheldon_inez_wedding_1965.jpeg` (0.59, 0.13, 0.4, 0.39). Bride at right; couple named in approved Atlas wedding caption. Atlas wedding photograph, captioned Sheldon Webb and Inez Karen Prather, 1965. Bride at right.
 - **Charles Albert Brenay** — `assets/charles-albert/charles-marian-50th-anniversary.jpg` (0.49, 0.11, 0.42, 0.35). Husband at right in the captioned Charles and Marian anniversary portrait. Brenay family anniversary portrait labeled Charles and Marian, husband at right.
 - **Sarah Elizabeth Carling** — `biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_sarah_children_1891_family_use.png` (0.315, 0.29, 0.28, 0.32). Only seated central adult in named family photograph; children not assigned positions. 1891 A. Miller family photograph captioned Sarah Elizabeth Carling with Clark, Henry, Burr, Owen and Catherine; approved Atlas Webb biography. Sarah is the seated central adult.
 - **Jonathan Henry Webb** — `assets/della-ray/della-henry-webb-anniversary-1958-original.jpg` (0.22, 0.19, 0.17, 0.29). Husband at right in directly captioned anniversary invitation. Original 1958 invitation names Mr. and Mrs. J. H. Webb; husband at right in the printed couple portrait.
 - **Della Ray Webb** — `assets/della-ray/della-henry-webb-anniversary-1958-original.jpg` (0.08, 0.3, 0.17, 0.31). Wife at left in directly captioned anniversary invitation. Original 1958 invitation names Mr. and Mrs. J. H. Webb; wife at left in the printed couple portrait.
+
+
+## Additional family-photo alternatives and source integrity
+The original 25-name Tree layout remains unchanged. Alternative sources are kept **per named person** and used only if the primary image cannot load:
+- Jay: family photograph with Marion, c. 1941.
+- Marian Skinner: 1970 anniversary photograph with Charles.
+- Jonathan Henry Webb: **1891 photograph with his mother Sarah**, identified by the published *Pioneer Women of Arizona* source caption listing the children **left-to-right: Clark, Henry, Burr, Owen, Catherine**. Reference: https://rsc.byu.edu/pioneer-women-arizona/w .
+- Della Webb: full original 1947 photograph with daughters Zola, Thora, Gwen and Louise; contributor identifies Della third from the left.
+- Marion: older individual obituary portrait if the named 1941 family photograph fails.
+
+Every local primary and alternate source includes its original Git blob SHA-1 in `atlas-2d-portrait-index-20261123.js`. Regression checks compare the actual packaged bytes with the recorded hash so an image cannot be silently substituted. Cropping happens only in browser memory and never writes or reconstructs the source image. The complete photograph remains accessible through the selected-person source link, including when an alternate is displayed.
 
 ## Twelve additional individual-portrait face crops
 

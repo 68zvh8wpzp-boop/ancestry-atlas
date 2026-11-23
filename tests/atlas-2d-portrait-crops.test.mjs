@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import {readFile,stat} from "node:fs/promises";
 import {test} from "node:test";
 import vm from "node:vm";
+import {createHash} from "node:crypto";
 const root=new URL("../",import.meta.url);
 const read=p=>readFile(new URL(p,root),"utf8");
 async function images(){
@@ -31,10 +32,10 @@ test("25 person-linked portraits with untouched family relationships",async()=>{
  assert.ok(!/DATA\.nodes\.(push|splice)|DATA\.edges\.(push|splice)/.test(registry));
  assert.match(main,/const DATA = /);
 });
-test("all 18 new crops source real bundled images; coordinates stay inside original image",async()=>{
+test("all 19 presentation crops source real bundled images; coordinates stay inside original image",async()=>{
  const {portrait}=await images();
  const cropEntries=Object.entries(portrait).filter(([_,v])=>v.crop);
- assert.equal(cropEntries.length,18);
+ assert.equal(cropEntries.length,19);
  for(const [id,v] of cropEntries){
   assert.ok(Array.isArray(v.crop)&&v.crop.length===4,"Missing crop rectangle: "+id);
   const [x,y,w,h]=v.crop;
@@ -46,12 +47,12 @@ test("all 18 new crops source real bundled images; coordinates stay inside origi
   const file=await stat(new URL(v.url,root));
   assert.ok(file.size>1000,"Actual bundled photograph: "+v.url);
  }
- assert.equal(cropEntries.filter(([_,v])=>v.type==="identified-group-crop").length,6);
+ assert.equal(cropEntries.filter(([_,v])=>v.type==="identified-group-crop").length,7);
  assert.equal(cropEntries.filter(([_,v])=>v.type==="identified-solo-crop").length,12);
 });
 test("group positions are explicitly caption-identifiable; distinct Isaiahs not conflated",async()=>{
  const {portrait}=await images();
- for(const id of ["james_sheldon","inez_karen","sarah_carling","charles_albert","jonathan_henry","della_ray"]){
+ for(const id of ["james_sheldon","inez_karen","sarah_carling","charles_albert","jonathan_henry","della_ray","marion_brenay"]){
   assert.equal(portrait[id].type,"identified-group-crop");
   assert.equal(portrait[id].sourceStatus,"captioned");
   assert.match(portrait[id].identityEvidence,/left|right|central|caption/i);
@@ -72,7 +73,9 @@ test("Canvas draws proportional real crops and retains silhouettes when photo fa
  assert.match(map,/var crop=meta\.crop/);
  assert.match(map,/sourceRatio=sw\/sh,targetRatio=width\/height/);
  assert.match(map,/ctx\.drawImage\(img,sx,sy,sw,sh,x,y,width,height\)/);
- assert.match(map,/img\.onerror=function\(\)\{state\.loaded=false;/);
+ assert.match(map,/img\.onerror=function\(\)\{/);
+ assert.match(map,/state\.index\+1<state\.choices\.length/);
+ assert.match(map,/photo\.activeEntry\|\|portraits\[id\]/);
  assert.match(map,/ctx\.ellipse/);
  assert.match(map,/Portrait: /);
  assert.match(map,/selected-photo-source/);
@@ -85,8 +88,29 @@ test("installed app and 2D Tree load fresh crop revision",async()=>{
   read("index.html"),read("manifest.webmanifest"),read("atlas-four-doors-20261123.js")
  ]);
  for(const value of [main,tree,index,JSON.parse(pwa).start_url,shell])
-  assert.match(value,/20261123-portrait-crops-v2/);
- assert.match(tree,/atlas-2d-portrait-index-20261123\.js\?v=20261123-portrait-crops-v2/);
- assert.match(tree,/atlas-2d-map\.js\?v=20261123-portrait-crops-v2/);
+  assert.match(value,/20261123-portrait-crops-v3/);
+ assert.match(tree,/atlas-2d-portrait-index-20261123\.js\?v=20261123-portrait-crops-v3/);
+ assert.match(tree,/atlas-2d-map\.js\?v=20261123-portrait-crops-v3/);
  assert.ok(tree.indexOf("atlas-2d-portrait-index-20261123.js")<tree.indexOf("atlas-2d-map.js"));
+});
+
+test("primary and fallback portraits have immutable image hashes and are person-specific",async()=>{
+ const {portrait}=await images();
+ const alternatives=Object.entries(portrait).flatMap(([id,v])=>(v.alternatePortraits||[]).map(a=>({id,...a})));
+ assert.equal(alternatives.length,5);
+ assert.equal(portrait.marion_brenay.alternatePortraits[0].url.startsWith("https://"),true);
+ assert.ok(alternatives.some(x=>x.id==="jonathan_henry"&&x.url.includes("sarah_children_1891")));
+ assert.ok(alternatives.some(x=>x.id==="della_ray"&&x.url.includes("1947-original.jpg")));
+ assert.ok(alternatives.some(x=>x.id==="marian_skinner"&&x.url.includes("50th-anniversary")));
+ const files=[...Object.entries(portrait).map(([id,v])=>({id,...v})),...alternatives];
+ for(const v of files){
+   if(v.url.startsWith("http"))continue;
+   assert.match(v.sourceBlobSha,/^[a-f0-9]{40}$/,v.id+" source hash");
+   const bytes=await readFile(new URL(v.url,root));
+   const sha=createHash("sha1").update("blob "+bytes.length+"\0").update(bytes).digest("hex");
+   assert.equal(sha,v.sourceBlobSha,v.id+" original file preserved");
+ }
+ const [primary,alternative]=[portrait.jonathan_henry,portrait.jonathan_henry.alternatePortraits[0]];
+ assert.notEqual(primary.url,alternative.url);
+ assert.match(alternative.identityEvidence,/left to right/);
 });
