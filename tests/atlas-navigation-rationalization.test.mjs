@@ -30,8 +30,8 @@ test("main and 2D map use the same three-section navigation",async()=>{
  assert.match(nav,/new MutationObserver\(updateStoriesAfterTour\)/);
  assert.match(style,/#aaPrimaryNav/);
  assert.match(style,/#aaPlacesPanel/);
- assert.match(index,/20261122-atlas-nav-v3-search/);
- assert.match(JSON.parse(manifest).start_url,/20261122-atlas-nav-v3-search/);
+ assert.match(index,/20261122-atlas-nav-v4-person-context/);
+ assert.match(JSON.parse(manifest).start_url,/20261122-atlas-nav-v4-person-context/);
 });
 
 test("Family remains default and Places records do not invent coordinates",async()=>{
