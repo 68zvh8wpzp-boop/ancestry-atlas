@@ -71,6 +71,15 @@ places.innerHTML='<header class="aa-places-head"><div><div class="aa-eyebrow">An
   '<footer class="aa-place-footer"><button type="button" id="aaPlacesGallery">View historical-place images</button>'+
   '<small>A plotted geographic globe has not yet been added; this is an index of existing location fields.</small></footer>';
 document.body.appendChild(places);
+var stories=document.createElement("section");
+stories.id="aaStoriesPanel";stories.hidden=true;
+stories.setAttribute("role","region");stories.setAttribute("aria-label","Family stories and tours");
+stories.innerHTML='<header class="aa-stories-head"><div class="aa-eyebrow">Ancestry Atlas</div>'+
+ '<h2>Stories</h2><p>Explore the family narrative through guided audio-visual tours.</p></header>'+
+ '<div class="aa-story-tile"><strong>Guided family tours</strong>'+
+ '<p>Choose Canada / Brenay, Webb, Dunbar or Denmark. The existing story player retains its narration and source material.</p>'+
+ '<button type="button" id="aaChooseTour">Choose a tour</button></div>';
+document.body.appendChild(stories);
 var regions=[
  ["All",null],
  ["Canada",/\b(canada|ontario|québec|quebec|alberta|nova scotia|british columbia|new brunswick|arnstein|stanstead)\b/i],
@@ -115,20 +124,19 @@ function dismissViews(){more.hidden=true;viewsButton.setAttribute("aria-expanded
 function hideLanding(){document.getElementById("landing")?.classList.add("hidden");}
 function hideExplorer(){if(explorer)explorer.hidden=true;document.body.classList.remove("pp-preview-open");}
 function showFamily(id){
-  dismissViews();places.hidden=true;hideLanding();
+  dismissViews();places.hidden=true;stories.hidden=true;hideLanding();
   if(id&&window.AncestryAtlasPedigreePreview?.selectPerson)window.AncestryAtlasPedigreePreview.selectPerson(id,false);
   window.AncestryAtlasPedigreePreview?.open?.();
   active("family");
 }
 function showPlaces(){
-  dismissViews();hideExplorer();hideLanding();places.hidden=false;drawPlaces();active("places");
+  dismissViews();stories.hidden=true;hideExplorer();hideLanding();places.hidden=false;drawPlaces();active("places");
 }
 function showStories(){
-  dismissViews();places.hidden=true;hideExplorer();hideLanding();active("stories");
-  document.getElementById("startStory")?.click();
+  dismissViews();places.hidden=true;hideExplorer();hideLanding();stories.hidden=false;active("stories");
 }
 function show3d(){
-  dismissViews();places.hidden=true;hideExplorer();hideLanding();active("family");
+  dismissViews();places.hidden=true;stories.hidden=true;hideExplorer();hideLanding();active("family");
 }
 function clearOverlays(){
   if(typeof closeAlbum==="function"){try{closeAlbum();}catch(_){}}
@@ -181,6 +189,24 @@ if(albumModal)new MutationObserver(function(){
     returnToPlacesAfterGallery=false;showPlaces();
   }
 }).observe(albumModal,{attributes:true,attributeFilter:["class"]});
+stories.addEventListener("click",function(event){
+  if(!event.target.closest("#aaChooseTour"))return;
+  var launch=document.getElementById("startStory");
+  if(!launch){stories.querySelector(".aa-story-tile p").textContent="The existing tour player is unavailable on this page.";return;}
+  stories.hidden=true;launch.click();
+  // If the story player declined to open, the Stories hub remains accessible.
+  queueMicrotask(updateStoriesAfterTour);
+});
+function updateStoriesAfterTour(){
+  var chooser=document.getElementById("lineChooser");
+  var modal=document.getElementById("storyModal");
+  var isTourOpen=!!(chooser?.classList.contains("open")||modal?.classList.contains("open"));
+  if(nav.querySelector('[data-aa-section="stories"][aria-current="page"]')&&!isTourOpen)stories.hidden=false;
+}
+["lineChooser","storyModal"].forEach(function(id){
+  var el=document.getElementById(id);
+  if(el)new MutationObserver(updateStoriesAfterTour).observe(el,{attributes:true,attributeFilter:["class","aria-hidden"]});
+});
 places.querySelector("#aaPlaceSearch").addEventListener("input",function(event){searchTerm=event.target.value;maxItems=60;drawPlaces();});
 document.addEventListener("pointerdown",function(event){
   if(!more.hidden&&!more.contains(event.target)&&event.target!==viewsButton)dismissViews();
