@@ -30,6 +30,6 @@ test("A439 Charles G person page preserves death parent Unknown fields and 1901/
  assert.match(person.note,/both father and mother as Unknown/);
  assert.match(person.note,/conflicting 1901 census birth date/);
  assert.ok(person.evidence.some(v=>v.full==="assets/charles-godfrey/charles-ida-marriage-1893.jpg"));
- assert.ok(person.evidence.some(v=>v.full==="assets/charles_albert_brunne_1901_census_full.jpg"));
+ assert.ok(person.evidence.some(v=>v.full==="assets/john-peter/peter-census-1901.jpg" && v.originalAsset===v.full),"A440 full original census master crosslink");
  assert.equal(data.nodes.filter(n=>(n.evidence||[]).some(y=>y.full===path)).length,1);
 });
