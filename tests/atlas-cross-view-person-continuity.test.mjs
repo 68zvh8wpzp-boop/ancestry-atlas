@@ -43,8 +43,8 @@ test("PWA and inline HTML use refreshed person-context navigation",async()=>{
     read("index.html"),read("manifest.webmanifest"),
     read("atlas-v3.9.63.html"),read("atlas-navigation-20261122.js")
   ]);
-  for(const s of [index,JSON.parse(manifest).start_url,atlas])assert.match(s,/20261122-atlas-nav-v4-person-context/);
-  assert.match(nav,/20261122-atlas-nav-v4-person-context/);
+  for(const s of [index,JSON.parse(manifest).start_url,atlas])assert.match(s,/20261122-atlas-nav-v6-globe/);
+  assert.match(nav,/20261122-atlas-nav-v6-globe/);
   assert.match(nav,/function mainUrl\(section\)/);
   assert.match(nav,/currentPerson\(\)/);
 });

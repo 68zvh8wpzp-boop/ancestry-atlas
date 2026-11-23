@@ -26,7 +26,7 @@ function currentPerson(){
   return window.AncestryAtlasPedigreePreview?.getState?.().selected||"you";
 }
 function mainUrl(section){
-  var url=main+"?section="+encodeURIComponent(section)+"&nav=20261122-v5-history-context";
+  var url=main+"?section="+encodeURIComponent(section)+"&nav=20261122-v6-globe";
   var id=currentPerson();if(id)url+="&person="+encodeURIComponent(id);
   return url;
 }
@@ -75,7 +75,7 @@ places.innerHTML='<header class="aa-places-head"><div><div class="aa-eyebrow">An
   '<div id="aaRegionTabs" class="aa-regions" aria-label="Filter by geographic region"></div>'+
   '<div class="aa-places-list" id="aaPlacesResults"></div>'+
   '<footer class="aa-place-footer"><button type="button" id="aaPlacesGallery">View historical-place images</button>'+
-  '<small>A plotted geographic globe has not yet been added; this is an index of existing location fields.</small></footer>';
+  '<small>Globe pins use approximate place centers. Open the map key for evidence and research caveats.</small></footer>';
 document.body.appendChild(places);
 var stories=document.createElement("section");
 stories.id="aaStoriesPanel";stories.hidden=true;
@@ -96,9 +96,10 @@ var regions=[
  ["France",/\b(france|french|normandy)\b/i],
  ["Mexico",/\b(mexico|mexican)\b/i]
 ];
-var region="All",searchTerm="",maxItems=60,returnToPlacesAfterGallery=false;
+var region="All",searchTerm="",maxItems=60,returnToPlacesAfterGallery=false,returnToPlacesFromPerson=false;
 var data=window.__ATLAS_DATA;
 var people=(data&&Array.isArray(data.nodes)?data.nodes:[]).filter(function(n){return n&&n.id&&n.place;});
+var geographicGlobe=window.AtlasGeoGlobe?.create(places,data,function(){return currentPerson();})||null;
 function clean(s){return String(s||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase();}
 function make(tag,text,className){var el=document.createElement(tag);if(className)el.className=className;if(text!==undefined)el.textContent=text;return el;}
 function drawPlaces(){
@@ -135,6 +136,7 @@ function dismissViews(){more.hidden=true;viewsButton.setAttribute("aria-expanded
 function hideLanding(){document.getElementById("landing")?.classList.add("hidden");}
 function hideExplorer(){if(explorer)explorer.hidden=true;document.body.classList.remove("pp-preview-open");}
 function showFamily(id){
+  returnToPlacesFromPerson=false;
   dismissViews();places.hidden=true;stories.hidden=true;hideLanding();
   if(id&&window.AncestryAtlasPedigreePreview?.selectPerson)window.AncestryAtlasPedigreePreview.selectPerson(id,false);
   window.AncestryAtlasPedigreePreview?.open?.();
@@ -142,6 +144,7 @@ function showFamily(id){
 }
 function showPlaces(){
   dismissViews();stories.hidden=true;hideExplorer();hideLanding();places.hidden=false;drawPlaces();active("places");
+  if(geographicGlobe)requestAnimationFrame(function(){geographicGlobe.resize();});
 }
 function showStories(){
   dismissViews();places.hidden=true;hideExplorer();hideLanding();stories.hidden=false;active("stories");
@@ -187,7 +190,7 @@ more.addEventListener("click",function(event){
   dismissViews();
   if(view==="2d"){
     var id=currentPerson();
-    location.assign("./atlas-2d-journey-preview.html?v=20261122-atlas-nav-v5-history-context"+
+    location.assign("./atlas-2d-journey-preview.html?v=20261122-atlas-nav-v6-globe"+
       (id?"&person="+encodeURIComponent(id):""));
     return;
   }
@@ -209,6 +212,7 @@ places.addEventListener("click",function(event){
     returnToPlacesAfterGallery=true;show3d();active("places");if(typeof openAlbum==="function")openAlbum("place");return;
   }
   if(b.dataset.aaPerson){
+    returnToPlacesFromPerson=true;
     var id=b.dataset.aaPerson;
     window.AncestryAtlasPedigreePreview?.selectPerson?.(id,false);
     places.hidden=true;hideExplorer();
@@ -218,6 +222,12 @@ places.addEventListener("click",function(event){
     }catch(error){console.warn("Could not open place-linked person",error);showPlaces();}
     active("places");
   }
+});
+// Restores the geographic context after closing a biography opened from Places.
+document.getElementById("close")?.addEventListener("click",function(){
+  if(!returnToPlacesFromPerson)return;
+  returnToPlacesFromPerson=false;
+  showPlaces();
 });
 var albumModal=document.getElementById("albumModal");
 if(albumModal)new MutationObserver(function(){
