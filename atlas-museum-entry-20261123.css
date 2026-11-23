@@ -308,3 +308,40 @@ body.aa-four-door-shell #storyModal .story-shell{max-height:calc(100dvh - 97px -
  #aaSimpleHome .aa-simple-door .aa-door-description{font-size:11px!important;margin:0 4px!important}
  #aaSimpleHome .aa-museum-footer{margin-top:20px}
 }
+
+
+/* iPhone person reader, 2026-11-23.
+   The outer profile already reserves the top navigation's height. The old
+   iframe 100% minus that offset subtracted it TWICE and cut off biographies.
+   Use one flex layout in the remaining visual viewport instead. */
+#aaSimpleProfile {
+  display:flex!important;
+  flex-direction:column!important;
+  box-sizing:border-box!important;
+  position:fixed!important;
+  inset:0!important;
+  width:100%!important;
+  height:100dvh!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  padding:var(--aa-profile-nav-height,var(--aa-route-height)) 0 0!important;
+  background:#071b26!important;
+}
+#aaSimpleProfile[hidden] {display:none!important}
+#aaSimpleProfile .aa-simple-profile-head {display:none!important}
+#aaSimpleProfile iframe#aaSimpleProfileFrame {
+  box-sizing:border-box!important;
+  display:block!important;
+  position:relative!important;
+  flex:1 1 0%!important;
+  width:100%!important;
+  height:0!important;
+  min-height:0!important;
+  max-height:none!important;
+  border:0!important;
+  padding:0!important;
+  margin:0!important;
+  background:#0b2030!important;
+}
+/* The full name is available in the original biography heading below. */
+#aaSimpleHeader>strong {max-width:min(46vw,300px)}
