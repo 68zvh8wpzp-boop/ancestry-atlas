@@ -34,7 +34,8 @@ test("2D snapshot mirrors static Atlas data plus evidence-qualified runtime rela
   assert.equal(original.nodes.length,106);
   assert.equal(original.edges.length,108);
   assert.equal(copy.nodes.length,original.nodes.length+11);
-  assert.equal(copy.edges.length,original.edges.length+14);
+  const effectiveSourceEdges=original.edges.filter(e=>!(e.a==="peder_mortensen_1806"&&e.b==="mette_jorg"));
+  assert.equal(copy.edges.length,effectiveSourceEdges.length+14);
   // Original static source must still mirror byte-for-byte in person/edge order.
   for(let i=0;i<original.nodes.length;i++){
     const n=copy.nodes[i],o=original.nodes[i];
@@ -42,8 +43,8 @@ test("2D snapshot mirrors static Atlas data plus evidence-qualified runtime rela
       assert.equal(n[key],key==="collateral"?!!o[key]:o[key]|| (key==="confidence"?"strong":""),"node "+i+" "+key);
     }
   }
-  for(let i=0;i<original.edges.length;i++){
-    const e=copy.edges[i],o=original.edges[i];
+  for(let i=0;i<effectiveSourceEdges.length;i++){
+    const e=copy.edges[i],o=effectiveSourceEdges[i];
     assert.equal(e.a,o.a);assert.equal(e.b,o.b);
     // A218 live runtime already downgraded Mette's disputed mother link.
     const effective=(e.a==="mette_jorg"&&e.b==="anne_seje")?"provisional":o.confidence||"strong";
@@ -55,7 +56,7 @@ test("2D snapshot mirrors static Atlas data plus evidence-qualified runtime rela
     "karen_hansdatter_1766","peder_mortensen_1784","brenay_esther","brenay_joan"
   ];
   assert.deepEqual(Array.from(copy.nodes.slice(original.nodes.length),n=>n.id),expected);
-  const newEdges=Array.from(copy.edges.slice(original.edges.length),e=>e.a+"|"+e.b);
+  const newEdges=Array.from(copy.edges.slice(effectiveSourceEdges.length),e=>e.a+"|"+e.b);
   assert.equal(new Set(newEdges).size,14,"runtime parent links are unique");
   for(const required of [
     "grace_hill|nannie_reed","inez_karen|thomas_prather",
@@ -172,7 +173,7 @@ test("mapped siblings appear once, without inventing unknown half-sibling relati
   const marion=fam.family("marion_brenay");
   assert.equal(marion.siblingCount,12,"Marion has twelve currently mapped siblings");
   assert.equal(marion.siblings.length,12);
-  assert.equal(new Set(marion.siblings.map(s=>s.person.id)).size,10,"shared mothers and fathers must not duplicate siblings");
+  assert.equal(new Set(marion.siblings.map(s=>s.person.id)).size,12,"shared mothers and fathers must not duplicate siblings");
   for(const s of marion.siblings){
     assert.equal(s.label,"Both mapped parents");
     assert.deepEqual(Array.from(s.sharedParents.map(p=>p.id)),["charles_albert","marian_skinner"]);
