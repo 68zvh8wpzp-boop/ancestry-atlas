@@ -4,6 +4,7 @@
  * No network calls, no database writes, no changes to any person or image.
  */
 import {existsSync,readFileSync} from "node:fs";
+import {createHash} from "node:crypto";
 import {dirname,resolve} from "node:path";
 import {fileURLToPath} from "node:url";
 
@@ -27,7 +28,7 @@ export function parsePortraits(source){
   if(!match)throw Error("Portrait registry missing");
   return JSON.parse(match[1]);
 }
-export function validateIntegrity({base,mirror,contract,portraits,mainMarkup="",treeMarkup="",indexMarkup="",manifest=null,assetExists=()=>true}){
+export function validateIntegrity({base,mirror,contract,portraits,mainMarkup="",treeMarkup="",indexMarkup="",manifest=null,assetExists=()=>true,assetGitBlobSha=null}){
   const errors=[],warnings=[],counts={basePeople:base?.nodes?.length||0,baseLinks:base?.edges?.length||0,
     familyPeople:mirror?.nodes?.length||0,familyLinks:mirror?.edges?.length||0,
     identifiedPortraits:Object.keys(portraits||{}).length};
@@ -37,7 +38,8 @@ export function validateIntegrity({base,mirror,contract,portraits,mainMarkup="",
     return {errors:["Main or 2D graph missing nodes/edges"],warnings,counts};
   if(!contract||!Array.isArray(contract.snapshotOnlyPeople)||!Array.isArray(contract.snapshotOnlyEdges)||
       !Array.isArray(contract.baseEdgesExplicitlySuppressed)||!Array.isArray(contract.commonEdgeConfidenceExceptions)||
-      !Array.isArray(contract.forbiddenKnownBadEdges)||!Array.isArray(contract.mirrorOnlyNotInCurrentPersonRuntime))
+      !Array.isArray(contract.forbiddenKnownBadEdges)||!Array.isArray(contract.mirrorOnlyNotInCurrentPersonRuntime)||
+      !Array.isArray(contract.legacyRemotePortraits))
     return {errors:["Graph bridge contract incomplete"],warnings,counts};
   const gmaps={};
   function validateGraph(name,graph){
@@ -155,6 +157,8 @@ export function validateIntegrity({base,mirror,contract,portraits,mainMarkup="",
       report("Stale runtime-absence quarantine for "+id+"; review person visibility");
   }
   if(portraits&&typeof portraits==="object"){
+    const encounteredRemote=new Set();
+    const historicalRemote=new Map(contract.legacyRemotePortraits.map(x=>[x.id+"|"+x.url,x]));
     for(const [id,entry] of Object.entries(portraits)){
       if(!f.ids.has(id))report("Portrait registry references unknown Atlas person: "+id);
       for(const photo of [entry,...(entry.alternatePortraits||[])]){
@@ -170,14 +174,31 @@ export function validateIntegrity({base,mirror,contract,portraits,mainMarkup="",
           if(!photo.identityEvidence?.trim())report("Unidentified crop subject "+id);
         }
         if(/^http:\/\//i.test(photo.url))report("Unsecured remote portrait URL "+id);
-        else if(!/^https:\/\//i.test(photo.url)){
+        else if(/^https:\/\//i.test(photo.url)){
+          const remoteKey=id+"|"+photo.url;
+          encounteredRemote.add(remoteKey);
+          const grandfathered=historicalRemote.get(remoteKey);
+          if(!grandfathered?.review||grandfathered.review.length<25)
+            report("New remote-only portrait without locally preserved original: "+id+" "+photo.url);
+          else warnings.push("LEGACY REMOTE IMAGE TO ARCHIVE: "+id);
+        }else{
           if(photo.url.startsWith("/")||photo.url.includes(".."))report("Unsafe portrait path "+id+": "+photo.url);
           else if(!assetExists(photo.url))report("Missing local original portrait "+id+": "+photo.url);
+          if(!/^[0-9a-f]{40}$/.test(photo.sourceBlobSha||""))
+            report("Local portrait missing immutable source Git blob SHA: "+id+" "+photo.url);
+          else if(assetGitBlobSha&&assetExists(photo.url)&&assetGitBlobSha(photo.url)!==photo.sourceBlobSha)
+            report("Original portrait bytes changed unexpectedly: "+id+" "+photo.url);
         }
       }
     }
+    for(const label of historicalRemote.keys())if(!encounteredRemote.has(label))
+      report("Stale remote-portrait dependency exception: "+label);
   }
   if(mainMarkup&&treeMarkup&&indexMarkup&&manifest){
+    for(const file of ["jay_marion_mesa_1941.png","sheldon_inez_wedding_1965.jpeg",
+      "james_sheldon_with_siblings_c1951.png","marion_webb_1945.png",
+      "James_Sheldon_Webb_TV_Presentation_poster.jpg","assets/atlas-anonymous-cameo-20261123.svg"])
+      if(!assetExists(file))report("Missing four-door home illustration or cameo "+file);
     for(const file of ["atlas-four-doors-20261123.js","atlas-family-portrait-ui-20261123.js","atlas-geographic-globe-20261122.js"]){
       if(!mainMarkup.includes(file))report("Main app missing required view script "+file);
     }
@@ -206,7 +227,11 @@ export function validateRepository(){
     treeMarkup:read("atlas-2d-journey-preview.html"),
     indexMarkup:read("index.html"),
     manifest:JSON.parse(read("manifest.webmanifest")),
-    assetExists:(relative)=>existsSync(resolve(ROOT,relative))
+    assetExists:(relative)=>existsSync(resolve(ROOT,relative)),
+    assetGitBlobSha:(relative)=>{
+      const original=readFileSync(resolve(ROOT,relative));
+      return createHash("sha1").update("blob "+original.length+"\0").update(original).digest("hex");
+    }
   });
 }
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
