@@ -91,6 +91,20 @@ export function checkCanonicalGraph(){
   if(main.indexOf("atlas-runtime-records-20261124.js")<main.indexOf("atlas-evidence-sync-2026-10-03-fulltext-v9.js")||
      main.indexOf("atlas-runtime-records-20261124.js")>main.indexOf("atlas-four-doors-20261123.js"))
     fail("Records boundary must reconcile legacy modules before the live navigation views mount");
+  // A new person or biological link is a research/data change, never an
+  // append inside a historical biography module. Check every live external
+  // script rather than only the four previously affected Brenay siblings.
+  const loadedScripts=[...main.matchAll(/<script\\b[^>]*\\bsrc=["']([^"']+)["']/g)]
+    .map(match=>match[1].split("?")[0])
+    .filter(name=>!name.startsWith("https:")&&!name.startsWith("http:"));
+  for(const file of loadedScripts){
+    if(file==="atlas-canonical-family-data.js")continue;
+    let source;
+    try{source=read(file.replace(/^\\.\\//,""));}
+    catch(error){fail("Referenced Atlas module missing: "+file);continue;}
+    if(/\\b(?:DATA|data)\\.(?:nodes|edges)\\.(?:push|splice|pop|shift|unshift)\\s*\\(/.test(source))
+      fail("Active presentation module edits the family graph instead of the canonical source: "+file);
+  }
   if(/const DATA = \{"nodes"/.test(main)||/atlas-2d-pedigree-snapshot\.js/.test(tree))
     fail("A second embedded graph or obsolete snapshot has re-entered a live view");
   for(const [path,text] of [["person UI",main],["2D Tree UI",treeJS],["navigation UI",doors]]){
