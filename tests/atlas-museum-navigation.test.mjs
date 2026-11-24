@@ -17,10 +17,10 @@ test("four museum destinations keep the original views and an uncluttered landin
  assert.ok(!entry.includes('aa-simple-explain'),"Remove the duplicate vertical destination descriptions");
  assert.match(css,/#aaSimpleHome .aa-simple-doors/);
  assert.match(css,/Georgia/);
- assert.match(html,/atlas-museum-entry-20261123\.css\?v=20261123-archival-cameo-v1/);
- assert.match(html,/atlas-four-doors-20261123\.js\?v=20261123-archival-cameo-v1/);
- assert.match(index,/20261123-archival-cameo-v1/);
- assert.match(JSON.parse(manifest).start_url,/20261123-archival-cameo-v1/);
+ assert.match(html,/atlas-museum-entry-20261123\.css\?v=20261123-canonical-graph-v1/);
+ assert.match(html,/atlas-four-doors-20261123\.js\?v=20261123-canonical-graph-v1/);
+ assert.match(index,/20261123-canonical-graph-v1/);
+ assert.match(JSON.parse(manifest).start_url,/20261123-canonical-graph-v1/);
 });
 test("every internal screen keeps top Home Back Forward controls, not the landing",async()=>{
  const [entry,route,routeCss,tree,globe]=await Promise.all([
