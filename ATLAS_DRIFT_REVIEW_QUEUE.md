@@ -1,24 +1,27 @@
-# Atlas discrepancy register — frozen, not silently harmonized
-Date: 2026-11-23. Ownership: source-qualified person audit for facts; Atlas navigation work for view consistency.
+# Atlas drift and proof review register
 
-This list records observed differences. An entry is **not** a new genealogical assertion, proof approval, or authorization to change a relationship. Resolve each case from existing original images and the latest research checkpoint, without repeating completed archival searches.
+Updated 24 November 2026. **The structural 2D/main migration is complete.** This register distinguishes repaired software discrepancies from **unresolved genealogical facts** and maintenance debt. It is not a source of new historical conclusions.
 
-| ID | Observed gap | Control now in place | Exit condition |
-| --- | --- | --- | --- |
-| D-01 | 2D family mirror includes `brenay_esther` and `brenay_joan`; neither stable ID appears in the current main HTML graph or embedded runtime additions. | Both are explicit frozen exceptions; introducing more without a recorded exception blocks release. | Audit verified person/parentage identifiers and visibility in People, Tree and biography without conflating collateral relatives. |
-| D-02 | `john_auene_1879` is strong in main runtime additions but provisional in 2D, with a strong versus provisional Jessie-to-John relationship rendering. John/Jonas equivalence is not resolved by these labels. | Stable ID binding; documented confidence boundary; new status drift otherwise fails. | Source-specific review deciding precisely what identity and parentage the 1879 original establishes; update both views in the same reviewed content change. |
-| D-03 | `mette_jorg → anne_seje` edge is confirmed in the base graph and provisional in 2D. | Exact edge-confidence discrepancy quarantined; any new unrecorded confidence mismatch blocks release. | Danish records audit determines justified confidence; update graph, mirror, and exception record together. |
-| D-04 | `peder_mortensen_1806 → mette_jorg` persists in static base DATA but is deliberately filtered out by the live runtime and 2D mirror. | Exact suppressed link frozen; reintroduction to family view blocks release. | Source-qualified canonical graph refactor removes stale base edge, without reintroducing the unsupported maternity claim. |
-| D-05 | Six named legacy portrait registry entries depend directly on external HTTP(S) hosts rather than a packaged original. | Existing six frozen as explicit exceptions. New remote-only portrait, missing local image, wrong crop geometry, or changed local image Git blob fails. | Where rights permit, preserve original bytes locally with attribution and SHA, then remove each external exception. |
-| D-06 | Native GitHub Pages build/deployment and the custom Pages workflow both publish from main; a redundant artifact lookup has failed intermittently. | Added repository pull-request integrity workflow and predeployment checks in the custom Pages job. | Configure one release path and required green status check for main in GitHub Settings; verify platform configuration, not just a README statement. |
+| ID | Current disposition | Research / engineering boundary |
+| --- | --- | --- |
+| D-01 · Brenay Esther and Joan | **Cross-view identity gap closed.** Both have stable IDs in the 119-person canonical graph, read by Tree and person pages. | Person-level originals and documentary proof remain subject to the person audit; the old 2D snapshot was not evidence of proof. |
+| D-02 · John/Jonas Aurin identity | **No separate 2D grade any more.** The current canonical record retains its existing strong record grade and explicit *unproven-alias* caveat. | Whether John recorded in the 1879 material is the later Jonas/John Aurin remains unresolved. Strong record grade does not resolve that identity bridge. |
+| D-03 · Mette / Anne Seje | **Software mismatch closed.** Every active view now displays the same existing canonical grade; the former 2D-only provisional variation is an archived diagnostic. | Original-record audit still controls confidence in maternity. Cross-view agreement cannot establish parentage. |
+| D-04 · Skipped Danish generation | **Invalid direct parent-child link removed from the active canonical graph.** A regression test forbids its return. | The separate marriage original does not, without more, prove a proposed later child. |
+| D-05 · Remote historical portraits | **Open.** Six grandfathered source links remain external-only; the local-original checksum gate prevents additional unarchived remote assets. | Capture source bytes, rights/attribution and immutable hashes only when freely available and permitted. Never substitute a cameo for an original. |
+| D-06 · Deployment and repository policy | **Partially open.** The custom Pages upload blocks on genealogy, portrait and source integrity. A native Pages build can also run independently. | Branch protection and the exact Pages publication source require administrator/settings audit; integration access cannot verify mandatory checks. |
+| D-07 · Legacy relationship-writing overlays | **Contained, not yet deleted.** Three historical scripts contain guarded insertions for retired pages. Their exact source bytes are frozen by the legacy overlay gate. | New person/parentage edits belong only in the canonical source plus reviewed baseline. Retire old insertions after controlled regression, not from a navigation patch. |
+| D-08 · Documentary/story modules | **Partially consolidated.** The person page reads a shared read-only artifact index, keyed by stable person ID. | Approved biography/evidence overlays still contain original-gallery and narration content. Preserve transcripts and evidence grades until source-by-source migration. |
 
-## Procedure for every person-page audit or UI patch
+## Current authority and safe change procedure
 
-1. Read the current `main` HEAD and latest research handoff; use a branch, not an outdated ZIP or stale file copy.
-2. Label the change **research/data**, **media/source**, **biography**, or **navigation-only**. A navigation-only patch must not revise people, parentage, evidence classification, or source images.
-3. When data changes, update canonical runtime, the 2D family projection and `ATLAS_GRAPH_SYNC_CONTRACT.json` deliberately; never silence a failing assertion by copying a less-qualified claim.
-4. Run `node atlas-integrity-gate.mjs` and `node --test tests/atlas-integrity-gate.test.mjs`, plus existing source-gate, portrait, navigation, family, and evidence tests.
-5. Merge only after the check passes and the change description states exact data/evidence differences. Require a live iPhone screenshot check for visual work and record *not inspected* if unavailable.
-6. Preserve original full scans and provenance. In-gallery crops are view-only, not replacement original images.
+1. Read latest main and the research no-repeat checkpoint. Use a branch for bounded data, source/media, biography, or UI work.
+2. **Canonical genealogy:** edit atlas-canonical-family-data.js; preserve source citations and unresolved statuses. Deliberately revise data/atlas-approved-graph-baseline.json for a justified change. The old 2D snapshot is not live.
+3. **Originals and captions:** update approved person-linked evidence with provenance. Preserve actual source images. AtlasArtifactIndex projects source metadata on demand without modifying evidence arrays.
+4. **Legacy overlays:** no new UI script may push person or parent links. Editing a frozen structural writer needs explicit source review and a new recorded source SHA, or removal of obsolete writes.
+5. Run atlas-graph-integrity-gate.mjs, atlas-integrity-gate.mjs, atlas-legacy-overlay-gate.mjs, the artifact/overlay tests, original-source gate, and UI/person audit suites. Publish only through green checks.
+6. Historical claims require original-source review; CI consistency cannot certify historical truth. Visually inspect iPhone changes separately.
 
-The long-term fix is to generate all views from the same canonical graph. The current gate is a containment and detection mechanism until that reviewed migration is safe.
+**Archived fixtures:** atlas-2d-pedigree-snapshot.js and ATLAS_GRAPH_SYNC_CONTRACT.json preserve old negative regressions. They are not alternate genealogy sources and must not be loaded into an active view.
+
+**Outstanding administrator action:** in GitHub Settings require passing Atlas integrity checks and pull-request review for main, prevent bypass/direct pushes, and confirm a single Pages publishing method. Current integration permission does not expose those settings, so this protection has not been verified.
