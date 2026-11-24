@@ -75,7 +75,7 @@ body.aa-phone .mobile-tree-menu-sheet{
 
 /* Portrait phones use their height for the family rather than preserving a
    desktop-shaped projection in the middle of the screen. */
-body.aa-phone.aa-portrait:not(.tour-active) canvas{height:var(--aa-visible-height)!important}
+body.aa-phone.aa-portrait:not(.tour-active) #stage > #c{height:var(--aa-visible-height)!important}
 
 /* Tablet: retain research UI, but keep it compact and clear of safe areas. */
 body.aa-tablet #controls{max-height:calc(var(--aa-visible-height) - 24px)!important}
