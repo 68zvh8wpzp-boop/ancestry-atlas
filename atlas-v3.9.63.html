@@ -2,6 +2,28 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>
+(function(){
+ var q=new URLSearchParams(location.search),embedded=window.self!==window.top;
+ document.documentElement.classList.add("aa-startup");
+ if(embedded&&(q.get("from")==="four-door-person"||q.get("from")==="two-dimensional-map"))document.documentElement.classList.add("aa-reader");
+})();
+</script>
+<style id="aa-first-paint">
+html.aa-startup,html.aa-startup body{background:#071923!important}
+#aaStartupCover{display:none}
+html.aa-startup #aaStartupCover{position:fixed;inset:0;display:grid!important;place-items:center;z-index:2147483647;background:#071923;color:#d9be8b;font:18px Georgia,serif}
+html.aa-startup #landing,html.aa-reader #landing{display:none!important}
+html.aa-reader,html.aa-reader body{width:100%!important;height:100%!important;max-height:none!important;margin:0!important;overflow:hidden!important;background:#0b2030!important}
+html.aa-reader body>#app{visibility:hidden!important;pointer-events:none!important}
+html.aa-reader body>#card{position:fixed!important;inset:0!important;width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;max-width:none!important;margin:0!important;padding:16px 16px 32px!important;transform:none!important;display:block!important;visibility:visible!important;overflow-y:auto!important;overflow-x:hidden!important;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;border:0!important;border-radius:0!important;background:#0b2030!important;box-shadow:none!important;z-index:545!important}
+html.aa-reader body>#card #close,html.aa-reader body>#card #navhint,html.aa-reader body>#card .button-row{display:none!important}
+html.aa-reader body>#card #personHeader{margin-right:0!important}
+html.aa-reader body>#card h3{font-size:20px!important}
+html.aa-reader body>#card .portrait-caption{font-size:10px!important;line-height:1.3!important}
+html.aa-reader #mobileTreeDock,html.aa-reader #mobileTreeMenuSheet,html.aa-reader .family-toolbar,html.aa-reader #mobileTreeSearch,html.aa-reader #mobilePersonSearch,html.aa-reader #ppReturnToExplorer,html.aa-reader #navModeBadge{display:none!important}
+</style>
+
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <script>
 (function(){
@@ -588,7 +610,7 @@ window.addEventListener('error',function(e){
   <link rel="stylesheet" href="tv-mode-3.7.3.css">
   <link rel="stylesheet" href="story-presentation-3.6.0.css">
   <link rel="stylesheet" href="story-overlays-3.8.1.css?v=3.8.22">
-  <link rel="stylesheet" href="experience-3.8.2.css?rev=20261003-15">
+  <link rel="stylesheet" href="experience-3.8.2.css?rev=20261124-reader-viewport-v1">
   <link rel="stylesheet" href="research-frontier-3.8.14.css?v=3.8.22">
 
 <style id="person-search-contrast">
@@ -598,7 +620,7 @@ window.addEventListener('error',function(e){
 </style>
 <style>.doc-transcription .transcription-pair{white-space:pre-wrap}</style>
   <link rel="stylesheet" href="atlas-four-doors-20261123.css?v=20261123-four-doors-v1">
-<link rel="stylesheet" href="atlas-museum-entry-20261123.css?v=20261124-globe-fullscreen-v2">
+<link rel="stylesheet" href="atlas-museum-entry-20261123.css?v=20261124-reader-viewport-v1">
 <link rel="stylesheet" href="atlas-family-portrait-ui-20261123.css?v=20261124-portrait-contain-v1">
 <link rel="stylesheet" href="atlas-geographic-globe-20261122.css?v=20261122-globe-v1">
 <style>
@@ -606,6 +628,7 @@ window.addEventListener('error',function(e){
 </style>
 </head>
 <body>
+<div id="aaStartupCover" role="status">Opening Ancestry Atlas…</div>
 
 
 <div id="lineChooser" class="line-chooser" aria-hidden="true">
@@ -3179,13 +3202,13 @@ body.tour-active #mobileAncestorRoute,body.aa-overlay-open #mobileAncestorRoute{
   const n=DATA.nodes.find(n=>n.id==='edward_milo_jr');
   if(n)n.note="Edward Milo Webb Jr. was born on 8 March 1847 in Missouri, the son of Edward Milo Webb Sr. and Caroline Amelia Owens. In 1860, a thirteen-year-old Edward appears in two Fillmore households, one with the Owens family and one with Caroline. The 1870 Fillmore census records him as a schoolteacher, aged twenty-three, in the same household as Ellen Webb. By 1880 he was teaching in Orderville, where Ellen is explicitly named as his wife and five children are listed: Abigail A., Edward M., Ellen A., Caroline A. and Francis J. He was also the father of Jonathan Henry Webb by Sarah Elizabeth Carling. Edward died on 11 September 1921 in Murray, Utah, aged seventy-four, from cancer of the stomach. He was buried at Holladay Cemetery the following day.";
   function finishRelease(){
-    document.title='Ancestry Atlas v3.9.56 — Edward Milo Webb Jr.';
+    document.title='Ancestry Atlas — Family History Collection';
     const heading=document.querySelector('aside h1');
     if(heading)heading.textContent='Ancestry Atlas v3.9.56';
     const chip=document.querySelector('.build-chip');
     if(chip)chip.textContent='BUILD v3.9.63 • Ancestry navigation';
     const person=new URLSearchParams(location.search).get('person');
-    if(person && nodeById.has(person)){
+    if(person && nodeById.has(person) && !document.documentElement.classList.contains('aa-reader')){
       document.getElementById('landing')?.classList.add('hidden');
       selectPersonSearchResult(person);
     }
@@ -3260,7 +3283,31 @@ window.__EDWARD_JR_BIOGRAPHY={version:'20261017-jr-full-biography-1',wordCount:l
 <script src="atlas-2d-family.js?v=20261124-identity-guard-v2"></script>
 <script src="atlas-family-portrait-ui-20261123.js?v=20261124-portrait-contain-v1"></script>
 <script src="atlas-artifact-index-20261124.js?v=20261124-identity-guard-v2"></script>
-<script src="atlas-four-doors-20261123.js?v=20261124-portrait-contain-v1"></script>
+<script src="atlas-four-doors-20261123.js?v=20261124-reader-viewport-v1"></script>
+<script id="aa-reader-init">
+(function(){
+ if(!document.documentElement.classList.contains("aa-reader")){
+   if(window.self!==window.top)document.documentElement.classList.remove("aa-startup");
+   return;
+ }
+ function init(){
+  var card=document.getElementById("card"),id=new URLSearchParams(location.search).get("person");
+  if(!card||!id||typeof window.openNode!=="function")return;
+  try{
+   // Reuse the exact original reader and evidence controls, but detach from the legacy map layout.
+   document.body.appendChild(card);
+   window.openNode(id,false,true);
+   if(card.dataset.atlasPersonId!==id)throw Error("Person not found");
+   document.documentElement.classList.remove("aa-startup");
+   window.parent.postMessage({type:"atlas-reader-ready",id:id},location.origin);
+  }catch(error){
+   document.getElementById("aaStartupCover").textContent="Unable to open this person page.";
+   window.parent.postMessage({type:"atlas-reader-error",id:id},location.origin);
+  }
+ }
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
+})();
+</script>
 </body>
 </html>
 
