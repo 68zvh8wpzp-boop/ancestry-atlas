@@ -48,6 +48,12 @@ jobs:
       - name: Verify opt-in iPhone ancestral explorer preview
         run: node --test tests/iphone-explorer-preview.test.mjs
 
+      - name: Fail closed on canonical genealogy and cross-view integrity
+        run: |
+          node atlas-graph-integrity-gate.mjs
+          node --test tests/atlas-name-search.test.mjs tests/atlas-cross-view-person-continuity.test.mjs tests/atlas-geographic-globe.test.mjs
+          node tests/governance-regression.mjs
+
       - name: Verify 2-D Atlas source and mobile tree journey
         run: node --test tests/atlas-2d-journey.test.mjs
 
