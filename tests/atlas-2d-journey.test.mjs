@@ -52,7 +52,8 @@ test("one canonical graph preserves all source-qualified people, links and unres
   ])assert.ok(edgeKeys.has(key),"canonical relationship missing: "+key);
   assert.ok(!edgeKeys.has("peder_mortensen_1806|mette_jorg"),"Danish skipped-generation link must remain rejected");
   assert.ok(graph.nodes.find(n=>n.id==="john_auene_1879").note.includes("not a proven alias"));
-  assert.equal(graph.nodes.find(n=>n.id==="john_auene_1879").confidence,"provisional");
+  assert.equal(graph.nodes.find(n=>n.id==="john_auene_1879").confidence,"strong","Retain main source's exact research grade without promoting identity equivalence");
+  assert.match(graph.nodes.find(n=>n.id==="john_auene_1879").note,/not a proven alias/);
   const elder=graph.nodes.find(n=>n.id==="marian_lewis_skinner_c1838");
   assert.match(elder.note,/unresolved original-source contradiction/);
   assert.match(source,/A218 Danish lineage audit/);
