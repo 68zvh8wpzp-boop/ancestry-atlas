@@ -208,6 +208,19 @@
     {
       "id": "morten_pedersen_1771",
       "review": "Parental link to Mette is provisional; a former 1806 Peder-to-Mette link was removed."
+    },
+    {
+      "id": "mette_jorg",
+      "review": "Base edge from Mette to Anne Seje is confirmed while 2D mirror shows provisional; status differs and is explicitly quarantined."
+    }
+  ],
+  "commonEdgeConfidenceExceptions": [
+    {
+      "a": "mette_jorg",
+      "b": "anne_seje",
+      "base": "confirmed",
+      "mirror": "provisional",
+      "review": "Known base/2D discrepancy in Danish maternity evidence. Neither side may be silently promoted; person-audit adjudication needed before harmonization."
     }
   ]
 }
