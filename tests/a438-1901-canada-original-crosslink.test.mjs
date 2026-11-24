@@ -43,5 +43,5 @@ test("A438/A440: five Canadian ancestors link same unchanged 1901 archival origi
   assert.match(data.nodes.find(n=>n.id==="charles_albert").evidence.find(x=>x.full===master).summary,/not an 1897 birth registration/);
   const ida=data.nodes.find(n=>n.id==="ida_mae");
   assert.ok(ida.evidence.some(x=>String(x.title).includes("original 1893 marriage return")),"original A437 preserved");
-  assert.equal(ida.evidence.filter(x=>x.full&&x.kind==="document").length,3,"1893, 1898, 1901 original sources");
+  assert.equal(ida.evidence.filter(x=>x.full&&x.kind==="document").length,4,"1880, 1893, 1898, 1901 original sources (A441)");
 });
