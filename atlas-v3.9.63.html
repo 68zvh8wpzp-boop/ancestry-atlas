@@ -1327,7 +1327,7 @@ function renderEvidence(n){
   const sourceLabel=document.getElementById('sourceReferencesLabel');
   sourceWrap.replaceChildren();
   sourceLabel.style.display='none';
-  const ev=n.evidence||[];
+  const ev=window.AtlasRecordStore ? window.AtlasRecordStore.evidenceFor(n.id).map(item=>item.record) : (n.evidence||[]).map(e=>({...e}));
   const ammonPreviewByTitle={
     'Bringing Mom and Dad Home':'assets/ammon-docs-preview/bringing-mom-and-dad-home-page-1.jpg',
     'Letters from Grandma Brenay':'assets/ammon-docs-preview/letters-from-grandma-brenay-page-1.jpg'
@@ -3250,6 +3250,7 @@ window.__EDWARD_JR_BIOGRAPHY={version:'20261017-jr-full-biography-1',wordCount:l
 <!-- Tranche 135: competing New York James Webb/Anna Scott household; derivative caution ONLY -->
 <script src="webb-anna-scott-namesake-frontier-20261031.js?v=20261031-t137"></script>
 <!-- Isolated iPhone navigation experiment: original canvas tree and data retained -->
+<script src="atlas-runtime-records-20261124.js?v=20261124-record-stability-v1"></script>
 <script src="atlas-person-search.js?v=20261122-search-v1"></script>
 <script src="atlas-world-land-110m.js?v=20261122-globe-v1"></script>
 <script src="atlas-geo-places-20261122.js?v=20261122-globe-v1"></script>
