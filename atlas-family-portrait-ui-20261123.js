@@ -115,10 +115,9 @@ function mountCanonical(){
   if(!header)return;
   var previous="";
   function render(){
-    var name=header.textContent.trim();
-    var meta=card.querySelector("#personHeader .meta")?.textContent||"";
-    var person=data.nodes.find(function(n){return n.name===name&&(!n.years||meta.includes(n.years));})||
-      data.nodes.find(function(n){return n.name===name;});
+    // Bind family group to the canonical ID; never infer from similar names.
+    var activeId=card.dataset.atlasPersonId||"";
+    var person=activeId?data.nodes.find(function(n){return n.id===activeId;}):null;
     if(!person||previous===person.id)return;
     previous=person.id;
     var family=families.family(person.id);
