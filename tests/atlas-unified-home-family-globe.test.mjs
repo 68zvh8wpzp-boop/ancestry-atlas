@@ -50,7 +50,7 @@ test("shared person pages and 2D family cards show source-linked siblings and gr
   assert.ok(canonical.includes(x));
  for(const x of ["atlas-family-portrait-ui-20261123.js","atlas-family-portrait-ui-20261123.css"])
   assert.ok(treeHtml.includes(x));
- for(const x of ["attachPortrait","enhanceScrollTrack","family.childGroups","family.siblings","No source-identified portrait","fullSourceUrl"])
+ for(const x of ["attachPortrait","enhanceScrollTrack","family.childGroups","family.siblings","No verified historical portrait; anonymous illustrated cameo","fullSourceUrl"])
   assert.ok(component.includes(x));
  assert.match(css,/scroll-snap-type:x mandatory/);
  assert.match(treeJs,/enhanceScrollTrack\(target\)/);
