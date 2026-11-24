@@ -14,6 +14,18 @@ function fallback(target,small){
   cameo.src="./assets/atlas-anonymous-cameo-20261123.svg";
   target.appendChild(cameo);return cameo;
 }
+// One source crop, one proportional fit. Shared by cards and canvas tree.
+function portraitBounds(item,iw,ih){
+  if(!Number.isFinite(iw)||!Number.isFinite(ih)||iw<=0||ih<=0)throw Error("Invalid portrait dimensions");
+  var crop=item?.crop;
+  if(!Array.isArray(crop)||crop.length!==4||!crop.every(Number.isFinite)||crop[0]<0||crop[1]<0||crop[2]<=0||crop[3]<=0||crop[0]+crop[2]>1.000001||crop[1]+crop[3]>1.000001)return {sx:0,sy:0,sw:iw,sh:ih};
+  var sx=Math.min(iw-1,crop[0]*iw),sy=Math.min(ih-1,crop[1]*ih);
+  return {sx:sx,sy:sy,sw:Math.max(1,Math.min(iw-sx,crop[2]*iw)),sh:Math.max(1,Math.min(ih-sy,crop[3]*ih))};
+}
+function fitPortrait(sw,sh,w,h){
+  var ratio=Math.min(w/sw,h/sh);
+  return {w:sw*ratio,h:sh*ratio,x:(w-sw*ratio)/2,y:(h-sh*ratio)/2};
+}
 function attachPortrait(target,id,options){
   options=options||{};
   var outer=document.createElement("div");outer.className="aa-family-photo"+(options.small?" aa-photo-small":"");
@@ -26,21 +38,22 @@ function attachPortrait(target,id,options){
     img.onload=function(){
       if(!outer.isConnected)return;
       try{
-        var w=options.small?144:300,h=options.small?168:360,canvas=document.createElement("canvas");
-        canvas.width=w;canvas.height=h;
-        canvas.className="aa-family-photo-canvas";
-        canvas.setAttribute("role","img");canvas.setAttribute("aria-label",item.title||"Sourced historical portrait");
-        var c=canvas.getContext("2d");if(!c)throw Error("No 2D canvas");
-        var iw=img.naturalWidth,ih=img.naturalHeight;
-        var crop=Array.isArray(item.crop)&&item.crop.length===4?item.crop:[0,0,1,1];
-        var sx=Math.max(0,Math.min(iw-1,crop[0]*iw)),sy=Math.max(0,Math.min(ih-1,crop[1]*ih));
-        var sw=Math.max(1,Math.min(iw-sx,crop[2]*iw)),sh=Math.max(1,Math.min(ih-sy,crop[3]*ih));
-        var sourceRatio=sw/sh,targetRatio=w/h;
-        if(sourceRatio>targetRatio){var coverWidth=sh*targetRatio;sx+=(sw-coverWidth)/2;sw=coverWidth;}
-        else{var coverHeight=sw/targetRatio;sy+=(sh-coverHeight)/2;sh=coverHeight;}
-        c.drawImage(img,sx,sy,sw,sh,0,0,w,h);outer.replaceChildren(canvas);
-        outer.title=item.title||"Sourced historical portrait";
+        var iw=img.naturalWidth,ih=img.naturalHeight,b=portraitBounds(item,iw,ih);
+        var display=img;
+        if(b.sx||b.sy||b.sw!==iw||b.sh!==ih){
+          // Offscreen canvas only; the DOM receives an ordinary aspect-preserving image.
+          // This avoids global legacy canvas styles and a second object-fit:cover crop.
+          var c=document.createElement("canvas"),scale=Math.min(1,640/Math.max(b.sw,b.sh));
+          c.width=Math.max(1,Math.round(b.sw*scale));c.height=Math.max(1,Math.round(b.sh*scale));
+          var ctx=c.getContext("2d");if(!ctx)throw Error("No 2D canvas");
+          ctx.drawImage(img,b.sx,b.sy,b.sw,b.sh,0,0,c.width,c.height);
+          display=document.createElement("img");display.src=c.toDataURL("image/png");
+        }
+        display.className="aa-family-photo-image";display.alt=item.title||"Sourced historical portrait";
+        display.decoding="async";display.draggable=false;
+        outer.replaceChildren(display);outer.title=item.title||"Sourced historical portrait";
         outer.dataset.source=item.fullSourceUrl||item.url;
+        var link=target.querySelector(".aa-family-original");if(link)link.href=outer.dataset.source;
       }catch(_){tryImage(index+1);}
     };
     img.onerror=function(){tryImage(index+1);};
@@ -153,7 +166,7 @@ function mountCanonical(){
   var observer=new MutationObserver(render);observer.observe(header,{subtree:true,childList:true,characterData:true});
   render();
 }
-root.AtlasFamilyPortraitUI=Object.freeze({attachPortrait:attachPortrait,enhanceScrollTrack:enhanceScrollTrack,makePersonCard:makePersonCard,mountCanonical:mountCanonical});
+root.AtlasFamilyPortraitUI=Object.freeze({attachPortrait:attachPortrait,portraitBounds:portraitBounds,fitPortrait:fitPortrait,enhanceScrollTrack:enhanceScrollTrack,makePersonCard:makePersonCard,mountCanonical:mountCanonical});
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",mountCanonical,{once:true});
 else mountCanonical();
 })(typeof window!=="undefined"?window:globalThis);
