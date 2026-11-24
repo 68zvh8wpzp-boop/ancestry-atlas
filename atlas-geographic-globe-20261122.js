@@ -125,52 +125,41 @@ function create(parent,atlasData,getPerson){
     return {x:cx+radius*cp*Math.sin(ll),
       y:cy-radius*(c0*sp-s0*cp*Math.cos(ll)),z:z};
   }
-  function drawGeoArc(coords,close,fill){
-    if(!coords||coords.length<2)return;
-    var begun=false,previous=null,first=null;
-    ctx.beginPath();
-    for(var i=0;i<=coords.length;i++){
-      var value=coords[i%coords.length];
-      if(i===coords.length&&!close)break;
-      var p=project(value[0],value[1]);
-      if(first===null)first=p;
-      if(!previous){if(p.z>=0){ctx.moveTo(p.x,p.y);begun=true;}previous=p;continue;}
-      var frontA=previous.z>=0,frontB=p.z>=0;
-      if(frontA&&frontB){if(!begun){ctx.moveTo(previous.x,previous.y);begun=true;}ctx.lineTo(p.x,p.y);}
-      else if(frontA!==frontB){
-        // Linear longitude/latitude bisection; land 110m vectors are short enough.
-        var a=coords[(i-1)%coords.length],b=value,delta=shortLon(b[0]-a[0]);
-        var lo=0,hi=1;
-        for(var j=0;j<14;j++){
-          var mid=(lo+hi)/2;
-          var trial=project(a[0]+delta*mid,a[1]+(b[1]-a[1])*mid);
-          if((trial.z>=0)===frontA)lo=mid;else hi=mid;
-        }
-        var t=(lo+hi)/2,cross=project(a[0]+delta*t,a[1]+(b[1]-a[1])*t);
-        if(frontA){ctx.lineTo(cross.x,cross.y);begun=false;}
-        else {ctx.moveTo(cross.x,cross.y);ctx.lineTo(p.x,p.y);begun=true;}
-      }else begun=false;
-      previous=p;
+  // Clip coastlines at the actual hemisphere boundary. Invisible land edges
+  // follow the circular horizon for filling only, never straight chords.
+  function drawLandRing(coords){
+    if(!coords||coords.length<3)return;
+    var points=coords.map(function(p){return project(p[0],p[1]);});
+    if(!points.some(function(p){return p.z>=0;}))return;
+    function angle(p){return Math.atan2(p.y-cy,p.x-cx);}
+    function delta(a,b){return Math.atan2(Math.sin(b-a),Math.cos(b-a));}
+    function crossing(a,b){
+      var d=shortLon(b[0]-a[0]),lo=0,hi=1,front=project(a[0],a[1]).z>=0;
+      for(var j=0;j<22;j++){var mid=(lo+hi)/2,p=project(a[0]+d*mid,a[1]+(b[1]-a[1])*mid);if((p.z>=0)===front)lo=mid;else hi=mid;}
+      var t=(lo+hi)/2,q=project(a[0]+d*t,a[1]+(b[1]-a[1])*t),a0=angle(q);
+      return {x:cx+radius*Math.cos(a0),y:cy+radius*Math.sin(a0),z:0};
     }
-    if(fill){ctx.fillStyle="#314e55";ctx.fill();}
-    ctx.strokeStyle="#6a8794";ctx.lineWidth=.72;ctx.stroke();
-  }
-  function drawGraticule(){
-    ctx.strokeStyle="rgba(130,168,189,.19)";ctx.lineWidth=.7;
-    function line(points){
-      ctx.beginPath();var on=false;
-      for(var i=0;i<points.length;i++){
-        var v=project(points[i][0],points[i][1]);
-        if(v.z<0){on=false;continue;}
-        if(on)ctx.lineTo(v.x,v.y);else{ctx.moveTo(v.x,v.y);on=true;}
-      }ctx.stroke();
+    function rim(p){var a=angle(p);return {x:cx+radius*Math.cos(a),y:cy+radius*Math.sin(a),z:0};}
+    var fill=new Path2D(),coast=new Path2D(),winding=0;
+    var first=points[0],start=first.z>=0?first:rim(first);fill.moveTo(start.x,start.y);
+    for(var i=0;i<points.length;i++){
+      var j=(i+1)%points.length,p=points[i],q=points[j],front=p.z>=0,next=q.z>=0;
+      winding+=delta(angle(p),angle(q));
+      if(front&&next){fill.lineTo(q.x,q.y);coast.moveTo(p.x,p.y);coast.lineTo(q.x,q.y);}
+      else if(front!==next){
+        var cut=crossing(coords[i],coords[j]),a=angle(cut);
+        if(front){fill.lineTo(cut.x,cut.y);coast.moveTo(p.x,p.y);coast.lineTo(cut.x,cut.y);
+          var d=delta(a,angle(q));fill.arc(cx,cy,radius,a,a+d,d<0);}
+        else{var a0=angle(p),d=delta(a0,a);fill.arc(cx,cy,radius,a0,a0+d,d<0);fill.lineTo(q.x,q.y);coast.moveTo(cut.x,cut.y);coast.lineTo(q.x,q.y);}
+      }else{var a=angle(p),d=delta(a,angle(q));fill.arc(cx,cy,radius,a,a+d,d<0);}
     }
-    for(var lon=-180;lon<180;lon+=30){
-      var meridian=[];for(var lat=-88;lat<=88;lat+=2)meridian.push([lon,lat]);line(meridian);
-    }
-    for(var lat=-60;lat<=80;lat+=20){
-      var parallel=[];for(var lon=-180;lon<=180;lon+=2)parallel.push([lon,lat]);line(parallel);
-    }
+    fill.closePath();
+    // Natural Earth exterior rings are clockwise in geographic coordinates.
+    // In screen coordinates negative winding indicates an antipodal enclosure:
+    // invert that projected fill, rather than painting the hidden continent.
+    if(winding < -Math.PI){fill.moveTo(cx+radius,cy);fill.arc(cx,cy,radius,0,Math.PI*2);fill.closePath();}
+    ctx.fillStyle="#314e55";ctx.fill(fill,"evenodd");
+    ctx.strokeStyle="#6a8794";ctx.lineWidth=.65;ctx.lineJoin="round";ctx.lineCap="round";ctx.stroke(coast);
   }
   function drawRoute(from,to,emphasis){
     var p=api.catalog.find(function(x){return x.id===from});
@@ -180,7 +169,7 @@ function create(parent,atlasData,getPerson){
       return [Math.cos(lat)*Math.cos(lon),Math.cos(lat)*Math.sin(lon),Math.sin(lat)];};
     var a=vec(p),b=vec(q),dot=clamp(a[0]*b[0]+a[1]*b[1]+a[2]*b[2],-1,1);
     var theta=Math.acos(dot),sin=Math.sin(theta);
-    if(theta<.00001)return;
+    if(theta<.00001||Math.abs(sin)<.000001)return;
     var steps=Math.max(28,Math.ceil(theta/(2*RAD))),seen=false;
     ctx.beginPath();
     for(var i=0;i<=steps;i++){
@@ -191,9 +180,9 @@ function create(parent,atlasData,getPerson){
       if(at.z<=0){seen=false;continue;}
       if(seen)ctx.lineTo(at.x,at.y);else{ctx.moveTo(at.x,at.y);seen=true;}
     }
-    ctx.setLineDash(emphasis?[5,5]:[3,6]);
-    ctx.strokeStyle=emphasis?"rgba(238,199,132,.94)":"rgba(120,169,204,.43)";
-    ctx.lineWidth=emphasis?2.2:1.15;ctx.stroke();ctx.setLineDash([]);
+    ctx.setLineDash(emphasis?[3,5]:[2,6]);
+    ctx.strokeStyle=emphasis?"rgba(238,199,132,.94)":"rgba(120,169,204,.32)";
+    ctx.lineWidth=emphasis?1.8:1;ctx.stroke();ctx.setLineDash([]);
   }
   function render(){
     var rect=canvas.getBoundingClientRect(),w=Math.round(rect.width),h=Math.round(rect.height);
@@ -212,9 +201,10 @@ function create(parent,atlasData,getPerson){
     sea.addColorStop(0,"#20435b");sea.addColorStop(.65,"#0d3045");sea.addColorStop(1,"#061622");
     ctx.fillStyle=sea;ctx.fill();ctx.restore();
     ctx.save();ctx.beginPath();ctx.arc(cx,cy,radius,0,Math.PI*2);ctx.clip();
-    drawGraticule();
-    (root.ATLAS_WORLD_LAND||[]).forEach(function(ring){drawGeoArc(ring,true,true);});
+    (root.ATLAS_WORLD_LAND||[]).forEach(drawLandRing);
+    var drawnRoutes=new Set();
     selectedRoutes().forEach(function(route){
+      var key=[route.from,route.to].sort().join("|");if(drawnRoutes.has(key))return;drawnRoutes.add(key);
       var active=!!(state.from||state.to||state.selected===route.from||state.selected===route.to);
       drawRoute(route.from,route.to,active);
     });
