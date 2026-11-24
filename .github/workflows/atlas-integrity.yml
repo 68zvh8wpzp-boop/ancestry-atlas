@@ -1,0 +1,31 @@
+name: Atlas cross-view integrity
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: atlas-integrity-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify-atlas-identity-and-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact proposed Atlas code
+        uses: actions/checkout@v4
+      - name: Node 22 for deterministic no-network tests
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Fail closed on person/relationship/portrait/source drift
+        run: node atlas-integrity-gate.mjs
+      - name: Test expected failures, person-ID binding and major navigation regressions
+        run: |
+          node --test tests/atlas-integrity-gate.test.mjs tests/atlas-cross-view-person-continuity.test.mjs
+          node --test tests/atlas-unified-home-family-globe.test.mjs tests/atlas-navigation-rationalization.test.mjs tests/atlas-museum-navigation.test.mjs
