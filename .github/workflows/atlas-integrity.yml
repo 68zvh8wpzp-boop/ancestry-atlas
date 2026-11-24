@@ -32,6 +32,7 @@ jobs:
         run: |
           node --test tests/atlas-integrity-gate.test.mjs tests/atlas-cross-view-person-continuity.test.mjs
           node --test tests/atlas-artifact-and-overlay-integrity.test.mjs
+          node --test tests/a455-weldon-probate-originals.test.mjs
           node --test tests/atlas-canonical-view-guard.test.mjs
           node --test tests/atlas-2d-journey.test.mjs tests/atlas-2d-portrait-crops.test.mjs tests/atlas-name-search.test.mjs tests/atlas-geographic-globe.test.mjs
           node --test tests/atlas-unified-home-family-globe.test.mjs tests/atlas-navigation-rationalization.test.mjs tests/atlas-museum-navigation.test.mjs

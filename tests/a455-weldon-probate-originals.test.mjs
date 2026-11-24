@@ -12,6 +12,6 @@ test('Frances Weldon original probate evidence survives legacy person module',as
  const ctx=vm.createContext({DATA:d,GUIDE_PROFILES:{}});vm.runInContext(await read('frances-weldon-mobile-biography.js'),ctx);
  const p=d.nodes.find(x=>x.id==='franny_weldon');assert.equal(p.evidence.filter(e=>e.id?.startsWith('weldon-a455-')).length,4);
  assert.equal(p.evidence.filter(e=>e.full?.startsWith('assets/william-dunbar/')).length,2);
- assert.match(p.biography,/1838 will explicitly identifies her/);assert.doesNotMatch(p.biography,/Fanny’s father, in 1842/);
+ assert.match(p.biography,/1838 will explicitly identifies her/);assert.match(p.biography,/entered as fifty-seven/);assert.match(p.biography,/if she was his last spouse/);assert.match(p.biography,/Welman/);assert.equal(p.evidence.filter(e=>e.id?.startsWith('weldon-a465-')).length,3);for(const e of p.evidence.filter(e=>e.id?.startsWith('weldon-a465-'))){assert.ok((await readFile(new URL('../'+e.full,import.meta.url))).length>10000);assert.ok((await readFile(new URL('../'+e.originalAsset,import.meta.url))).length>10000);assert.match(e.transcription,/Original:/);}assert.doesNotMatch(p.biography,/Fanny’s father, in 1842/);
  for(const e of p.evidence.filter(e=>e.id?.startsWith('weldon-a455-'))){assert.match(e.full,/^assets\/weldon\/.*\.jpg$/);assert.match(e.originalAsset,/^https:\/\/www\.sos\.mo\.gov\/Images\/Archives\/Judicial2\//);assert.ok((await readFile(new URL('../'+e.full,import.meta.url))).length>10000);assert.match(e.transcription,/Original:/);assert.match(e.transcription,/Translation:/);}
 });

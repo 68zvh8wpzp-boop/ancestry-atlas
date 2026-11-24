@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-10-31",
+  "updated": "2026-11-24",
   "records": [
     {
       "id": "alpena-godfrey-naturalization-1917-1921",
@@ -2170,6 +2170,53 @@
       "evidence": "github:research/webb-tranche137-NARA-M233-Roll21-1845-Charles-Webb-and-Mexican-bounty-claim-gate-20261031.md",
       "researchDetailStatus": "official-series-and-reel-visually-verified-no-person-1845-original-entry-read",
       "note": "T137 novel NARA official PDF microfilm table VISUALLY CHECKED Roll 21 1840–June1846; derivative account says Charles enlisted 7May1845 NY, not an original-verified assertion. Roll23 separate Jan1847-Jun1849 Mexican enlistments, not suitable for 1845 claimed date. FamilySearch M233 indexed collection 1880762 exists independently of older FS locked colonial/Nauvoo series, but named Charles row not read. NARA regular Army regs distinct from Volunteer CMSR, and 1849 Anna affidavit is an unverified potential RG15 bounty application, NOT a verified Mexican War pension. Historical descendant site remains untrusted and should NOT be linked or suggested; no new genealogical evidence or person/edge promotion."
+    },
+    {
+      "id": "frances-weldon-1850-census-original",
+      "personId": "K2MH-QPB",
+      "event": "1850 census",
+      "sourceKeys": [
+        "familysearch:ark:3:1:S3HY-DRZ3-PWN",
+        "familysearch:dgs:004195942:frame:276:family:561",
+        "familysearch:index:MDZ3-39J"
+      ],
+      "status": "published",
+      "evidence": "library:file_0000000077a481f5965cc3308d910a11",
+      "note": "Household 561, lines 8–13. Frances is recorded as 57, born Virginia; Weeden as 59, born Virginia. Children Susan, Theodosia, Weeden L. and John W. appear in the household. The manuscript supersedes the earlier indexed age of 51; the form does not identify relationships.",
+      "originalRefs": [
+        "github:assets/weldon/frances-1850-census-original.jpg"
+      ]
+    },
+    {
+      "id": "weedon-dunbar-1880-mortality-original",
+      "personId": "K2MH-QPB",
+      "event": "1880 mortality schedule; indirect Frances death evidence",
+      "sourceKeys": [
+        "missouri-state-archives:census:169056",
+        "missouri-state-archives:mortality:1880:vol1:0134:line6"
+      ],
+      "status": "published",
+      "evidence": "library:file_00000000162881f5aee5f11e95468f70",
+      "note": "The elder Weedon Dunbar, 96, Virginia-born farmer, is marked widowed and recorded as dying in November 1879. If Frances was his last spouse, she died by that month. This does not establish her exact death date or burial.",
+      "originalRefs": [
+        "github:assets/weldon/weedon-dunbar-1880-mortality-original.pdf"
+      ]
+    },
+    {
+      "id": "john-william-dunbar-1926-death-original",
+      "personId": "K2MH-QPB",
+      "event": "1926 death certificate; indirect Frances identity evidence",
+      "sourceKeys": [
+        "familysearch:ark:3:1:33SQ-GY1H-C1W",
+        "texas:death-certificate:1926:42258",
+        "familysearch:index:K3ZN-13N"
+      ],
+      "status": "published",
+      "evidence": "library:file_000000005c3881f689cc05c8d210244e",
+      "note": "John William Dunbar, born 22 June 1839 Missouri, names father Weeden Dunbar; mother's maiden name reported as Welman with no given name. Both parental birthplaces reported as Kentucky. Retrospective information conflicts with earlier Virginia census evidence and the documented Welldon/Weldon marriage and probate. It does not establish a second wife.",
+      "originalRefs": [
+        "github:assets/weldon/john-william-dunbar-1926-death-original.jpg"
+      ]
     }
   ],
   "tasks": [
