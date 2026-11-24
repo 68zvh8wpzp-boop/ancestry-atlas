@@ -5,14 +5,15 @@
  * An absent, ambiguous, broken or unmapped portrait falls back to a silhouette.
  * Source evidence status describes photograph attribution, NOT genealogical proof.
  */
+// 2026-11-24: primary local crop frames reviewed against preserved source images; display must contain, never re-crop.
 window.ATLAS_2D_PORTRAITS={
   "marion_brenay": {
     "url": "biographies/marion/assets/jay_marion_mesa_1941_restored.jpg",
     "crop": [
       0.43,
-      0.142,
-      0.3,
-      0.245
+      0.13,
+      0.27,
+      0.25
     ],
     "type": "identified-group-crop",
     "title": "Marion Beulah Brenay Webb — with Jay, circa 1941",
@@ -64,10 +65,10 @@ window.ATLAS_2D_PORTRAITS={
   "james_sheldon": {
     "url": "sheldon_inez_wedding_1965.jpeg",
     "crop": [
-      0.07,
-      0.01,
-      0.37,
-      0.4
+      0.035,
+      0,
+      0.43,
+      0.45
     ],
     "type": "identified-group-crop",
     "title": "James Sheldon Webb — 1965 wedding",
@@ -80,10 +81,10 @@ window.ATLAS_2D_PORTRAITS={
   "inez_karen": {
     "url": "sheldon_inez_wedding_1965.jpeg",
     "crop": [
-      0.59,
-      0.13,
-      0.4,
-      0.39
+      0.56,
+      0.055,
+      0.44,
+      0.52
     ],
     "type": "identified-group-crop",
     "title": "Inez Karen Prather Webb — 1965 wedding",
@@ -96,10 +97,10 @@ window.ATLAS_2D_PORTRAITS={
   "james_wilford": {
     "url": "biographies/webb-branch/people/james_wilford/assets/jay_1953_family_restored.png",
     "crop": [
-      0.39,
-      0.04,
-      0.39,
-      0.25
+      0.34,
+      0.045,
+      0.43,
+      0.32
     ],
     "type": "identified-solo-crop",
     "title": "James Wilford 'Jay' Webb, 1953",
@@ -111,10 +112,10 @@ window.ATLAS_2D_PORTRAITS={
       {
         "url": "biographies/marion/assets/jay_marion_mesa_1941_restored.jpg",
         "crop": [
-          0.3,
-          0.098,
-          0.28,
-          0.235
+          0.29,
+          0.095,
+          0.25,
+          0.26
         ],
         "title": "James Wilford “Jay” Webb with Marion, c. 1941",
         "provenance": "Webb family autobiography • approved 1941 couple photograph",
@@ -127,10 +128,10 @@ window.ATLAS_2D_PORTRAITS={
   "charles_albert": {
     "url": "assets/charles-albert/charles-marian-50th-anniversary.jpg",
     "crop": [
-      0.49,
-      0.11,
-      0.42,
-      0.35
+      0.47,
+      0.085,
+      0.53,
+      0.49
     ],
     "type": "identified-group-crop",
     "title": "Charles Albert Brenay — 50th anniversary",
@@ -142,10 +143,10 @@ window.ATLAS_2D_PORTRAITS={
   "marian_skinner": {
     "url": "assets/marian-skinner/photo-24.jpg",
     "crop": [
-      0.16,
-      0.07,
-      0.7,
-      0.52
+      0.11,
+      0.075,
+      0.78,
+      0.72
     ],
     "type": "identified-solo-crop",
     "title": "Marian Beulah Skinner Brenay — studio portrait",
@@ -173,10 +174,10 @@ window.ATLAS_2D_PORTRAITS={
   "charles_godfrey": {
     "url": "assets/charles-godfrey/godfrey-young-portrait.jpg",
     "crop": [
-      0.12,
-      0.12,
-      0.76,
-      0.73
+      0.09,
+      0.08,
+      0.82,
+      0.82
     ],
     "type": "identified-solo-crop",
     "title": "Charles Godfrey Brenay — earlier family portrait",
@@ -188,10 +189,10 @@ window.ATLAS_2D_PORTRAITS={
   "ida_mae": {
     "url": "assets/ida-mae/ida-portrait-contributed.jpg",
     "crop": [
-      0.16,
-      0.05,
-      0.66,
-      0.65
+      0.092,
+      0.07,
+      0.816,
+      0.86
     ],
     "type": "identified-solo-crop",
     "title": "Ida Mae Gooley Brenay — family-attributed portrait",
@@ -203,10 +204,10 @@ window.ATLAS_2D_PORTRAITS={
   "john_peter": {
     "url": "assets/john-peter/peter-portrait.jpg",
     "crop": [
-      0.28,
-      0.015,
-      0.54,
-      0.56
+      0.12,
+      0,
+      0.78,
+      0.78
     ],
     "type": "identified-solo-crop",
     "title": "John Peter Gooley — family-attributed portrait",
@@ -218,10 +219,10 @@ window.ATLAS_2D_PORTRAITS={
   "mary_ann": {
     "url": "assets/mary-ann/mary-ann-portrait.jpg",
     "crop": [
-      0.24,
-      0.05,
-      0.56,
-      0.56
+      0.12,
+      0.035,
+      0.77,
+      0.78
     ],
     "type": "identified-solo-crop",
     "title": "Mary Ann Dennis Gooley — family portrait",
@@ -233,10 +234,10 @@ window.ATLAS_2D_PORTRAITS={
   "davia_dunbar": {
     "url": "assets/davia/davia-ann-dunbar-portrait-original.jpeg",
     "crop": [
-      0.27,
-      0.08,
-      0.48,
-      0.52
+      0.15,
+      0.045,
+      0.72,
+      0.67
     ],
     "type": "identified-solo-crop",
     "title": "Davia Ann Dunbar Hill Duffy — family portrait",
@@ -248,10 +249,10 @@ window.ATLAS_2D_PORTRAITS={
   "jessie_irene_aurin": {
     "url": "assets/jessie-aurin/jessie-aurin-portrait.jpg",
     "crop": [
-      0.15,
-      0.1,
-      0.66,
-      0.7
+      0.11,
+      0.095,
+      0.78,
+      0.81
     ],
     "type": "identified-solo-crop",
     "title": "Jessie Irene Aurin Skinner — contributed portrait",
@@ -263,10 +264,10 @@ window.ATLAS_2D_PORTRAITS={
   "wilhelm_brunne": {
     "url": "assets/wilhelm-brunne/portrait-book-remembrance.jpg",
     "crop": [
-      0.19,
-      0.13,
-      0.62,
-      0.74
+      0.115,
+      0.067,
+      0.77,
+      0.865
     ],
     "type": "identified-solo-crop",
     "title": "Wilhelm Karl Charles Brunne — contributed portrait",
@@ -278,10 +279,10 @@ window.ATLAS_2D_PORTRAITS={
   "johanne_weller": {
     "url": "assets/johanna-weller/johanna-portrait-scottdaphne-2016-original.jpg",
     "crop": [
-      0.14,
-      0.02,
+      0.13,
+      0.045,
       0.72,
-      0.73
+      0.57
     ],
     "type": "identified-solo-crop",
     "title": "Johanna Dorothea Weller Brunne — contributed portrait",
@@ -293,10 +294,10 @@ window.ATLAS_2D_PORTRAITS={
   "richard_francis_skinner": {
     "url": "assets/richard-skinner/richard-skinner-portrait.jpg",
     "crop": [
-      0.12,
-      0.11,
-      0.76,
-      0.77
+      0.117,
+      0.091,
+      0.767,
+      0.82
     ],
     "type": "identified-solo-crop",
     "title": "Richard Francis Skinner — contributed portrait",
@@ -308,10 +309,10 @@ window.ATLAS_2D_PORTRAITS={
   "sarah_carling": {
     "url": "biographies/webb-branch/people/edward_milo_jr/assets/edward_jr_sarah_children_1891_family_use.png",
     "crop": [
-      0.315,
+      0.32,
       0.29,
-      0.28,
-      0.32
+      0.23,
+      0.26
     ],
     "type": "identified-group-crop",
     "title": "Sarah Elizabeth Carling Webb — with five children, 1891",
@@ -323,10 +324,10 @@ window.ATLAS_2D_PORTRAITS={
   "jonathan_henry": {
     "url": "assets/della-ray/della-henry-webb-anniversary-1958-original.jpg",
     "crop": [
-      0.22,
-      0.19,
-      0.17,
-      0.29
+      0.216,
+      0.184,
+      0.175,
+      0.385
     ],
     "type": "identified-group-crop",
     "title": "Jonathan Henry Webb — 50th anniversary",
@@ -354,10 +355,10 @@ window.ATLAS_2D_PORTRAITS={
   "grace_hill": {
     "url": "assets/inez-life-story/image2.jpeg",
     "crop": [
+      0.065,
       0.085,
-      0.095,
-      0.83,
-      0.7
+      0.87,
+      0.79
     ],
     "type": "identified-solo-crop",
     "title": "Grace Mildred Hill — age 23 (1932)",
@@ -369,10 +370,10 @@ window.ATLAS_2D_PORTRAITS={
   "della_ray": {
     "url": "assets/della-ray/della-henry-webb-anniversary-1958-original.jpg",
     "crop": [
-      0.08,
-      0.3,
-      0.17,
-      0.31
+      0.069,
+      0.294,
+      0.16,
+      0.39
     ],
     "type": "identified-group-crop",
     "title": "Della Ray Webb — 50th anniversary",
