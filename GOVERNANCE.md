@@ -5,14 +5,37 @@ runtime work. It converts the project's approved norms into release gates.
 
 ## Source of truth
 
-- `index.html` is the canonical genealogy graph until the data layer is
-  extracted in a separately approved migration.
+- `atlas-canonical-family-data.js` is the **only authoritative public person-and-relationship graph**; it supersedes the historic embedded graph and the 2D mirror as of the canonical-graph migration. It keeps stable person IDs, named attributes, evidence notes, parent-child edges, separately modeled marriage/unions, and hypothesis-only research links.
+- Every live view (**Tree, People, Globe, Stories, original biography**) MUST read its people and family links from `window.AtlasCanonicalGraph.read()`. Never author, mutate or hardcode parentage or names in view components. Person pages may extend presentation and already-approved original-gallery content by canonical ID, but those overlays must not claim a new parent or overwrite the canonical confidence grade.
+- The old `atlas-2d-pedigree-snapshot.js` remains an archival rollback/reference only and must not be loaded by any live view. `index.html` is the home entry redirect, not a dataset.
+- `data/atlas-approved-graph-baseline.json` pins ID/name/year/branch/status and parent/union links. Update it only in the same explicitly labeled genealogy/proof change as the canonical graph; a presentation change must not modify it. The `atlas-graph-integrity-gate.mjs` release gate and graph-integrity CI job must pass before publishing.
+- Stable identity and provenance are separate from display labels: a surname variant, research candidate, or composite label does not establish that two people are identical. Child-parent edges alone do not prove marriage. New parentage needs a written evidence decision, not a UI exception.
 - Biography modules may reference canonical person IDs; they must not duplicate
   or override genealogy, parentage, dates, places, confidence, or research notes.
 - `PACKAGE_ASSET_MANIFEST.json` is the package inventory and release state.
 - Approved narration text is immutable after its matching audio is approved.
 - The newest production contract supersedes stale release-state language only;
   it never silently changes genealogy or prior approvals.
+
+## Architecture and anti-drift release contract (23 November 2026)
+
+The deployed site is static GitHub Pages, so the authoritative dataset is a **version-controlled, validated local graph**, not an invented always-on server database. This remains a single logical database for all active consumers. The runtime offers read-only *copies* through `AtlasCanonicalGraph.read()`; UI components are not allowed to write new parentage.
+
+**Data planes**
+1. **Genealogical truth:** `atlas-canonical-family-data.js` — persons, stable IDs, names, dates, locations, research grades, parent-child edges (`a` = child, `b` = parent), unions and hypothesis links kept in distinct categories. An indexed family relationship is not silently upgraded to a civil or church original.
+2. **Originals and proof:** source records and research registries, original-document galleries, person evidence and transcription modules — attached by stable person ID, without changing the graph from an interface. Documentary evidence can remain restricted or privately preserved without a misleading public image link.
+3. **Presentation:** Tree layout, search, Globe summary mapping, portrait crop registry, A/V stories and person-page templates are **projections**, not independent family trees. A source-linked crop is an image presentation, not proof of who is related to whom.
+4. **History and releases:** immutable commit history and the reviewed graph baseline provide rollback and an audit trail. No spending, external database or paid subscription is introduced.
+
+**Change workflow**
+- Research identifies a person and original-source locator, compares the no-repeat ledger and documents proof/conflicts.
+- A genealogical change edits **only** the canonical graph (plus source/evidence registry as required), and deliberately updates the approved graph baseline in the same reviewed change. An image/gallery change edits the cited asset metadata but not people/parents/status.
+- CI checks unique IDs, name/status validity, two-parent maximum, no ancestry cycles, no dangling/duplicate relationships, negative proof boundaries, no orphan portrait entries, and all views loading the same graph. Baseline differences are a hard fail until deliberately reconciled.
+- GitHub Pages' build job runs the integrity gate **before** uploading or deploying; a failure must leave the previous live release intact. This is fail-closed publication, not a claim of archival proof.
+- Every release preserves the previous accepted commit as rollback. Do not suppress or weaken a failing integrity test just to publish.
+- Parallel person-audit work must refresh the latest canonical graph and baseline before editing; merges must reconcile concurrent evidence updates instead of overwriting them.
+
+**Known boundaries:** Some historical biography/evidence module overlays remain separately authored and should be progressively moved behind a per-person artifacts interface. CI prevents graph divergence but cannot detect an incorrect real-world claim from its words alone; manual original-source review remains necessary. GitHub Actions checks can prevent publication in the custom Pages workflow; enforcing mandatory pull-request review / blocking direct writes requires repository branch-protection settings with appropriate permissions.
 
 ## Evidence norm set
 
