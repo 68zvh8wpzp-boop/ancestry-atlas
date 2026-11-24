@@ -5,14 +5,33 @@ runtime work. It converts the project's approved norms into release gates.
 
 ## Source of truth
 
-- `index.html` is the canonical genealogy graph until the data layer is
-  extracted in a separately approved migration.
+- `atlas-v3.9.63.html` currently contains the canonical **base DATA graph**, supplemented by source-qualified in-page runtime additions/corrections. The assembled live graph is authoritative until a separately reviewed data extraction.
+- `index.html` is only an app redirect, **not** a genealogy graph. Do not use it as a family-data source.
+- `atlas-2d-pedigree-snapshot.js` is an independently maintained read-only 2D projection, **not** another authority. Its pre-existing exceptions are frozen in `ATLAS_GRAPH_SYNC_CONTRACT.json`, and `atlas-integrity-gate.mjs` fails on any additional unreviewed differences. Historical confidence disagreements in that contract remain research work, not approved assertions.
 - Biography modules may reference canonical person IDs; they must not duplicate
   or override genealogy, parentage, dates, places, confidence, or research notes.
 - `PACKAGE_ASSET_MANIFEST.json` is the package inventory and release state.
 - Approved narration text is immutable after its matching audio is approved.
 - The newest production contract supersedes stale release-state language only;
   it never silently changes genealogy or prior approvals.
+
+## Cross-view integrity and release containment (23 November 2026)
+
+**Never repair a relationship discrepancy with presentation-only code or by adjusting test counts.** Each person must have one stable ID. Genealogical edges mean **child (a) → parent (b)**; spouse/co-parent is a distinct concept and cannot be inferred from a shared child. Parent links, confidence, and evidence must be reviewed from original sources before either data representation changes.
+
+**Current mechanical barriers**
+1. `atlas-integrity-gate.mjs` parses the canonical base and 2D mirror, checks unique IDs, no missing endpoints, self-links, cycles, duplicate/over-two-parent assignments, valid evidence states and inconsistent parent confidence. Base people must match the 2D view's name, dates, place, branch, confidence and collateral role.
+2. Only preexisting, explicitly recorded 2D-only people and links, one suppressed old link, and one confidence disagreement are tolerated. Exceptions have reasons and are **not proof endorsements**. New differences fail closed; stale exceptions also fail. Known incorrect spouse-as-parent links must remain absent.
+3. Person pages and their family carousels use `card.dataset.atlasPersonId` rather than matching display names or guessed years. Any two people with similar names stay separate.
+4. The 2D and People portrait registry must name an existing person, identify the depicted subject, provide attribution and valid crop coordinates. Local image files must exist and retain the exact approved Git blob SHA-1 (raw bytes remain unchanged). New remote-only portraits fail; the six existing remote image dependencies are explicitly quarantined until originals can be archived.
+5. The gate verifies the four-door app, the full biography reader, installed-app entry, and the 2D family wiring. Automated tests inject deliberate bad parent links, person/status drift, wrong or missing portraits, and unregistered data to confirm that these defects actually fail.
+6. `.github/workflows/atlas-integrity.yml` checks every PR and main-branch push; `.github/workflows/pages.yml` runs the gate before the custom Pages publish. A content-only person audit must update the source-qualified graph, mirror and exception contract together when a real relationship changes. UI-only work may not change evidence or photo originals.
+
+**Important limits:** This is a deterministic source/consistency gate, **not** an independent historical proof determination or a visual iPhone/browser test. It does not establish that a family link is true just because two views agree. The unresolved cases are catalogued in `ATLAS_DRIFT_REVIEW_QUEUE.md`, and cannot be silently 'fixed' by lowering quality standards. Continuous deployment from a separate branch-based GitHub Pages workflow can bypass the custom release job; set the main branch to require the integrity check and prefer one audited Pages publication path in GitHub repository settings. Do not claim this is blocked at the platform level until that settings change is verified.
+
+**Manual iPhone acceptance after any UI deployment:** Inspect Home (all four images and captions), Globe (sphere fully visible, branch/From/To and routes functioning), Tree (parents and sibling links), People search (same person ID and source), a biography with and without an attributed photograph, carousels (children and siblings swipe; recognized faces are properly framed), Home/Back/Forward return, and all original evidence links. Record a screenshot or defect for each failed case; never call source tests a visual acceptance result.
+
+**Long-term architectural target:** extract the assembled canonical graph into one reviewed data module, then generate both 2D and People/Globe projections from it rather than hand-maintaining snapshots and runtime pushes. That migration is not authorized to overwrite active audit content by being a visual correction, and must pass source-by-source reconciliation first.
 
 ## Evidence norm set
 
