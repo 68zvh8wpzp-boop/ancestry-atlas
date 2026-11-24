@@ -24,7 +24,7 @@ function runLegacy(ctx){vm.runInContext(legacy,ctx,{timeout:8000});}
 function runRecords(ctx){vm.runInContext(records,ctx,{timeout:8000});return ctx.window.AtlasRecordStore;}
 
 test("Brenay family memories attach to canonical persons, never shadow ID records or insert parents",()=>{
- const c=setup(),before=c.DATA.edges.map(e=>e.a+"|"+e.b);
+ const c=setup(),before=Array.from(c.DATA.edges,e=>e.a+"|"+e.b);
  runLegacy(c);
  assert.equal(c.DATA.nodes.length,c.window.AtlasCanonicalGraph.stats.persons);
  assert.equal(c.DATA.edges.length,c.window.AtlasCanonicalGraph.stats.parents);
