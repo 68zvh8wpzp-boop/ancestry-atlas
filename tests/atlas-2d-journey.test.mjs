@@ -28,8 +28,8 @@ test("one canonical graph preserves all source-qualified people, links and unres
   const graph=canonicalGraph();
   assert.match(html,/const DATA = window\.AtlasCanonicalGraph\.read\(\)/);
   assert.ok(!html.includes('const DATA = {"nodes"'),"No second graph inside person UI");
-  assert.equal(graph.nodes.length,119);
-  assert.equal(graph.edges.length,123);
+  assert.equal(graph.nodes.length,121);
+  assert.equal(graph.edges.length,125);
   const ids=new Set(graph.nodes.map(n=>n.id));
   assert.equal(ids.size,graph.nodes.length);
   for(const id of [
@@ -129,10 +129,10 @@ test("searchable Atlas records include unlinked relatives and research candidate
   vm.runInNewContext(await read("atlas-2d-layout.js"),sandbox);
   const snap=sandbox.window.AtlasCanonicalGraph.read();
   const mapped=sandbox.window.Atlas2DLayout.create(snap,"you");
-  assert.equal(snap.nodes.length,119);
+  assert.equal(snap.nodes.length,121);
   // Corrected biological links disconnect unsupported candidate branches;
   // those people remain in search without appearing as established ancestors.
-  assert.equal(mapped.nodes.length,85);
+  assert.equal(mapped.nodes.length,87);
   const notOnMain=snap.nodes.filter(n=>!mapped.positions.has(n.id));
   assert.equal(notOnMain.length,34);
   assert.ok(notOnMain.some(n=>n.id==="elizabeth_webb"));
@@ -237,4 +237,13 @@ test("A436 elder Skinner conflict stays evidence-qualified in shared records",as
  assert.equal(marian.evidence.filter(e=>e.full).length,2,"unpublished originals must not appear as image files");
  assert.equal(data.edges.filter(e=>e.a==="richard_francis_skinner"&&
    ["john_a_skinner_c1833","marian_lewis_skinner_c1838"].includes(e.b)).length,2);
+});
+
+test("A456 Weldon parentage is source-qualified, not inferred from surname",()=>{
+ const g=canonicalGraph();const f=g.nodes.find(n=>n.id==="franny_weldon");
+ const parents=g.edges.filter(e=>e.a===f.id);
+ assert.deepEqual(parents.map(e=>[e.b,e.confidence]).sort(),[["abram_weldon_1838","confirmed"],["margaret_weldon_1852","strong"]]);
+ assert.match(g.nodes.find(n=>n.id==="margaret_weldon_1852").note,/Wilkins remains an unverified/);
+ assert.ok(g.nodes.find(n=>n.id==="abram_weldon_1838").evidence.some(e=>e.id==="weldon-a455-abram"));
+ assert.ok(g.nodes.find(n=>n.id==="margaret_weldon_1852").evidence.some(e=>e.id==="weldon-a455-margaret"));
 });

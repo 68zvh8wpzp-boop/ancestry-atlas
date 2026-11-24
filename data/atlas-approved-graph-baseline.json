@@ -1,8 +1,16 @@
 {
   "schema": 1,
   "source": "atlas-canonical-family-data.js",
-  "revision": "2026-11-23",
+  "revision": "2026-11-24 A456",
   "nodes": [
+    {
+      "id": "abram_weldon_1838",
+      "name": "Abram (Abraham) Weldon",
+      "years": "Birth unknown–1838",
+      "branch": "Weldon",
+      "confidence": "confirmed",
+      "collateral": false
+    },
     {
       "id": "amelia_l_cotton",
       "name": "Amelia L. Cotton / Auene",
@@ -628,6 +636,14 @@
       "collateral": false
     },
     {
+      "id": "margaret_weldon_1852",
+      "name": "Margaret Weldon",
+      "years": "Birth unknown–by Jan 1852",
+      "branch": "Weldon",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
       "id": "margrethe_anders",
       "name": "Margrethe Andersdatter",
       "years": "1737–1816",
@@ -1188,6 +1204,16 @@
       "confidence": "strong"
     },
     {
+      "a": "franny_weldon",
+      "b": "abram_weldon_1838",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "franny_weldon",
+      "b": "margaret_weldon_1852",
+      "confidence": "strong"
+    },
+    {
       "a": "gideon_webb",
       "b": "john_webb_1667",
       "confidence": "provisional"
@@ -1574,6 +1600,12 @@
     }
   ],
   "unions": [
+    {
+      "a": "abram_weldon_1838",
+      "b": "margaret_weldon_1852",
+      "label": "marriage",
+      "confidence": "confirmed"
+    },
     {
       "a": "ann_eliza_webb",
       "b": "brigham_young",

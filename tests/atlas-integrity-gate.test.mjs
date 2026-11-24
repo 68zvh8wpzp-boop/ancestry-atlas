@@ -35,8 +35,8 @@ test("one active canonical graph and original portraits pass fail-closed gate",(
   assert.ok(r.counts.basePeople>100);
   assert.ok(r.counts.familyPeople>=r.counts.basePeople);
   assert.ok(r.counts.identifiedPortraits>=20);
-  assert.equal(r.counts.basePeople,119);
-  assert.equal(r.counts.familyPeople,119);
+  assert.equal(r.counts.basePeople,121);
+  assert.equal(r.counts.familyPeople,121);
   assert.ok(!r.warnings.some(x=>x.includes("PENDING CROSS-VIEW PERSON RECONCILIATION")));
 });
 test("a person silently removed, renamed or given a new status in a different view fails",()=>{
