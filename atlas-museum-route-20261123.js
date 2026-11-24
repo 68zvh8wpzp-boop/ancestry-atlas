@@ -7,7 +7,7 @@ function initialize(){
  if(document.getElementById("aaMuseumRouteBar"))return;
  var isTree=!!document.getElementById("tree"),isGlobe=!!document.getElementById("globeMap");
  if(!isTree&&!isGlobe)return;
- var home="./atlas-v3.9.63.html?iphone-refresh=20261123-museum-navigation-v1";
+ var home="./index.html?iphone-refresh=20261124-clean-render-v1";
  var bar=document.createElement("nav");
  bar.id="aaMuseumRouteBar";bar.setAttribute("aria-label","Atlas navigation");
  bar.innerHTML='<div class="aa-museum-route-controls">'+
