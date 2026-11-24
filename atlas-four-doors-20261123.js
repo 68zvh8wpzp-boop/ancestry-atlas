@@ -8,7 +8,7 @@ if(window.self!==window.top)return;
 var atlas=window.__ATLAS_DATA,geo=window.AtlasGeoGlobe,query=new URLSearchParams(location.search);
 if(!atlas||!Array.isArray(atlas.nodes))return;
 document.body.classList.add("aa-four-door-shell");
-var release="20261124-reader-viewport-v1";
+var release="20261124-clean-render-v1";
 var page=document.createElement("section");
 page.id="aaSimpleHome";page.setAttribute("aria-label","Ancestry Atlas: four ways to explore");
 var doorMedia={
@@ -67,6 +67,7 @@ document.getElementById("landing")?.classList.add("hidden");
 function section(next){
   var previous=current;
   current=next;
+  document.body.classList.toggle("aa-shell-stories",next==="stories");
   page.hidden=next!=="home";people.hidden=next!=="people";
   globePanel.hidden=next!=="globe";profile.hidden=next!=="profile";
   header.hidden=next==="home";measureHeader();
@@ -245,7 +246,7 @@ if(history.state.screen!=="home"){
   else if(saved.screen==="profile"&&saved.person)openProfile(saved.person,saved.origin);
   restoringHistory=false;
 }
-document.documentElement.classList.remove('aa-startup');
+requestAnimationFrame(function(){requestAnimationFrame(function(){document.documentElement.classList.remove('aa-startup');});});
 window.AncestryAtlasSimpleHome={
   go:visit,home:showHome,current:function(){return current;},
   openPerson:openProfile
