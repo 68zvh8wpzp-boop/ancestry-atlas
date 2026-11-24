@@ -11,11 +11,6 @@
       "path": "marion-atlas-update-2026-09-29.js",
       "gitBlobSha": "1046185c876fa0c8253155acb8e70716328123ab",
       "reason": "Old family update contains guarded child and parent additions that must remain backed by canonical graph."
-    },
-    {
-      "path": "atlas-evidence-sync-2026-10-03-fulltext-v9.js",
-      "gitBlobSha": "badb25c4196206fc2043eeab8077869491e9663c",
-      "reason": "Archived siblings and biography overlay contains guarded node/edge additions. No new data authority allowed."
     }
   ],
   "rules": {
@@ -24,5 +19,5 @@
     "doNotCopyFrom2DSnapshot": true,
     "peopleAndParentageCanonicalOnly": true
   },
-  "notes": "Do not use this file to approve parentage, identity, source status, or historical proof. This is a temporary compatibility allowance for the exact approved source bytes; retire each writer only after source-qualified review."
+  "notes": "Brenay V9 shadow-node and parent writers retired 2026-11-24. Its approved family-photo and letter overlays attach only to existing canonical IDs. Remaining two historical writers stay byte-frozen until source-qualified removal; not permission for new parentage."
 }

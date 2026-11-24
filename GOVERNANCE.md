@@ -11,6 +11,8 @@ runtime work. It converts the project's approved norms into release gates.
 - Family edges mean **child `a` → recorded parent `b`**. A spouse or co-parent is not a biological parent. Distinct unions and hypothetical `researchLinks` may not be used to infer parentage, citizenship, or established descent.
 - `data/atlas-approved-graph-baseline.json` is the reviewed comparison of all person names/year spans/branches/confidence and parent/union identities. A source-qualified genealogy change MUST explicitly update the canonical graph **and** its reviewed baseline; a UI change MUST NOT alter either. CI fails on any unnoticed discrepancy.
 - Approved biography/audio and original-document modules attach by person ID, without overwriting canonical identities or proof states. `PACKAGE_ASSET_MANIFEST.json` continues to track artifacts and releases. Approved narration text remains immutable after audio approval.
+- `atlas-canonical-view-guard-20261124.js` runs **after** older biography modules and **before** People/Globe initialization. It restores the canonical identity and parent graph, rejects unexpected people or parentage, protects person ID/name/years/place/branch/confidence, and repairs the ID map. It does not invent or upgrade historical claims, replace biography prose, or create a competing evidence index.
+- The Brenay V9 module no longer inserts four sibling nodes/parent edges or replaces ID pointers. It attaches its original-photo/letter descriptions to the four existing people; `atlas-legacy-overlay-gate.mjs` and runtime tests fail on a reintroduced shadow writer. Two other byte-frozen historical writers remain explicit retirement work.
 
 ## Cross-view drift and release protection
 

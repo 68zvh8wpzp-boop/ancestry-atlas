@@ -8,7 +8,7 @@ if(window.self!==window.top)return;
 var atlas=window.__ATLAS_DATA,geo=window.AtlasGeoGlobe,query=new URLSearchParams(location.search);
 if(!atlas||!Array.isArray(atlas.nodes))return;
 document.body.classList.add("aa-four-door-shell");
-var release="20261124-artifact-index-v1";
+var release="20261124-identity-guard-v2";
 var page=document.createElement("section");
 page.id="aaSimpleHome";page.setAttribute("aria-label","Ancestry Atlas: four ways to explore");
 var doorMedia={
