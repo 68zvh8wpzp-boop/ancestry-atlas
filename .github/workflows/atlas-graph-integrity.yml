@@ -1,0 +1,36 @@
+name: Atlas canonical graph integrity
+on:
+  pull_request:
+    paths:
+      - 'atlas-canonical-family-data.js'
+      - 'data/atlas-approved-graph-baseline.json'
+      - 'atlas-v3.9.63.html'
+      - 'atlas-2d-map.js'
+      - 'atlas-2d-journey-preview.html'
+      - 'atlas-four-doors-20261123.js'
+      - 'atlas-family-portrait-ui-20261123.js'
+      - 'atlas-2d-portrait-index-20261123.js'
+      - 'atlas-graph-integrity-gate.mjs'
+      - 'tests/**'
+      - '.github/workflows/atlas-graph-integrity.yml'
+  push:
+    branches: ['main']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  integrity:
+    name: One source of truth · genealogical continuity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify graph and portrait identities
+        run: node atlas-graph-integrity-gate.mjs
+      - name: Verify every active Tree, People, Globe and biography projection
+        run: |
+          node --test tests/atlas-2d-journey.test.mjs tests/atlas-name-search.test.mjs tests/atlas-cross-view-person-continuity.test.mjs tests/atlas-geographic-globe.test.mjs tests/atlas-unified-home-family-globe.test.mjs tests/atlas-2d-portrait-crops.test.mjs
+      - name: Verify documentary and proof-status governance
+        run: node tests/governance-regression.mjs
