@@ -30,7 +30,7 @@ async function runLegacy({reconcile}){
  if(reconcile)vm.runInContext(src,ctx,{filename:'atlas-a441-gooley-original-evidence-reconcile.js'});
  for(const path of modules)vm.runInContext((await read(path)).toString('utf8'),ctx,{filename:path});
  if(reconcile){
-   assert.match(html,/atlas-a441-gooley-original-evidence-reconcile\\.js\\?v=20261123-a441/);
+   assert.ok(html.includes('atlas-a441-gooley-original-evidence-reconcile.js?v=20261123-a441'));
    const p1=html.indexOf('atlas-a441-gooley-original-evidence-reconcile.js');
    const p2=html.indexOf('ida-mae-mobile-biography.js',p1);
    const p3=html.indexOf('mary-ann-mobile-biography.js',p2);
