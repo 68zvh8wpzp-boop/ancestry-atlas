@@ -11,11 +11,11 @@ const birth='assets/john-peter/benjamin-birth-1870.jpg';
 const master='assets/john-peter/peter-census-1901.jpg';
 const rendition='assets/charles_albert_brunne_1901_census_full.jpg';
 const modules=['ida-mae-mobile-biography.js','john-peter-mobile-biography.js','mary-ann-mobile-biography.js'];
-const keepOriginal = (b) => createHash('sha1').update('blob '+b.length+'\\0').update(b).digest('hex');
+const keepOriginal = (b) => createHash('sha1').update('blob '+b.length+String.fromCharCode(0)).update(b).digest('hex');
 
 async function loadData(){
  const html=(await read('atlas-v3.9.63.html')).toString('utf8');
- const a=html.indexOf('const DATA = '),b=html.indexOf(';\\n',a);
+ const a=html.indexOf('const DATA = '),b=html.indexOf(';'+String.fromCharCode(10),a);
  assert(a>0 && b>a);
  const d=JSON.parse(html.slice(a+'const DATA = '.length,b));
  assert.equal(d.nodes.length,106);assert.equal(d.edges.length,108);
