@@ -205,7 +205,7 @@ window.addEventListener("message",function(event){
     else{loader.hidden=false;loader.textContent="Unable to open this person page.";}
     return;
   }
-  if(info.type!=="atlas-person-page")return;
+  if(info.type!=="atlas-person-page"||profile.querySelector("#aaSimpleProfileFrame").style.visibility!=="visible")return;
   var person=atlas.nodes.find(function(p){return p.id===info.id;});
   if(!person)return;
   profileId=person.id;
