@@ -70,8 +70,9 @@ test("artifact index returns source-aware copies, not another mutable genealogy"
  assert.ok(recordsAPI.bySource(first.sourceId).some(e=>e.id===first.id));
  assert.equal(recordsAPI.evidenceFor("brenay_esther")[0].id,first.id,"stable per-person evidence ID");
  const canonicalOriginal=c.window.AtlasCanonicalGraph.person("brenay_esther");
+ const sourceTitle=first.record.title;
  first.record.title="Tampered in viewer";
- assert.equal(recordsAPI.evidenceFor("brenay_esther")[0].record.title,items[0].record.title,"viewer cannot rewrite source");
+ assert.equal(recordsAPI.evidenceFor("brenay_esther")[0].record.title,sourceTitle,"viewer cannot rewrite source");
  assert.equal(c.window.AtlasCanonicalGraph.person("brenay_esther").name,canonicalOriginal.name);
  assert.deepEqual(Array.from(recordsAPI.evidenceFor("missing-person")),[]);
 });
