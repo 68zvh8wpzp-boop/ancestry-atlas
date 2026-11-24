@@ -75,6 +75,22 @@ export function checkCanonicalGraph(){
   if(!main.includes("card.dataset.atlasPersonId=id")||
      !read("atlas-family-portrait-ui-20261123.js").includes("var activeId=card.dataset.atlasPersonId"))
     fail("Person identity is being inferred from a label rather than stable canonical ID");
+  const legacyV9=read("atlas-evidence-sync-2026-10-03-fulltext-v9.js");
+  const recordBoundary=read("atlas-runtime-records-20261124.js");
+  if(/DATA\.(?:nodes|edges)\.(?:push|splice|pop|shift|unshift)\(/.test(legacyV9)||
+     /\bmap\.set\((?:esther|joan|martha|ammon)\.id/.test(legacyV9))
+    fail("Legacy Brenay biography module has recreated a shadow genealogy graph");
+  if(!legacyV9.includes("atlasAttachLegacyBrenayEvidence"))
+    fail("Brenay photo/letter overlays are no longer attached to canonical person objects");
+  if(!main.includes('atlas-runtime-records-20261124.js?')||
+     !main.includes("window.AtlasRecordStore.evidenceFor(n.id)"))
+    fail("Native person page is bypassing the normalized source/record boundary");
+  if(!recordBoundary.includes('protectedKeys=["id","name","years","place","branch","confidence","collateral"]')||
+     !recordBoundary.includes("Object.freeze(live.edges)"))
+    fail("Canonical runtime guard for core person and parentage fields is missing");
+  if(main.indexOf("atlas-runtime-records-20261124.js")<main.indexOf("atlas-evidence-sync-2026-10-03-fulltext-v9.js")||
+     main.indexOf("atlas-runtime-records-20261124.js")>main.indexOf("atlas-four-doors-20261123.js"))
+    fail("Records boundary must reconcile legacy modules before the live navigation views mount");
   if(/const DATA = \{"nodes"/.test(main)||/atlas-2d-pedigree-snapshot\.js/.test(tree))
     fail("A second embedded graph or obsolete snapshot has re-entered a live view");
   for(const [path,text] of [["person UI",main],["2D Tree UI",treeJS],["navigation UI",doors]]){
