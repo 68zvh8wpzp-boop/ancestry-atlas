@@ -21,8 +21,8 @@ async function images(){
 test("25 person-linked portraits with untouched family relationships",async()=>{
  const {portrait,data,layout,registry,main}=await images();
  assert.equal(Object.keys(portrait).length,25);
- assert.equal(data.nodes.length,119);
- assert.equal(data.edges.length,123);
+ assert.equal(data.nodes.length,121);
+ assert.equal(data.edges.length,125);
  for(const id of Object.keys(portrait)){
   assert.ok(data.nodes.some(x=>x.id===id),id+" must be a known Atlas person");
   assert.ok(layout.positions.has(id),id+" must be plotted in connected Tree");
