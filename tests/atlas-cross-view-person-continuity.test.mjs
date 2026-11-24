@@ -3,15 +3,16 @@ import {readFile} from "node:fs/promises";
 import {test} from "node:test";
 import vm from "node:vm";
 const read=name=>readFile(new URL("../"+name,import.meta.url),"utf8");
+import {installCanonical} from "./atlas-test-graph.mjs";
 test("2D still retains direct ancestors, optional query person and full biography",async()=>{
  const [map,html,snapshot,layoutSource]=await Promise.all([
    read("atlas-2d-map.js"),read("atlas-2d-journey-preview.html"),
-   read("atlas-2d-pedigree-snapshot.js"),read("atlas-2d-layout.js")
+   read("atlas-canonical-family-data.js"),read("atlas-2d-layout.js")
  ]);
  const context={window:{}};
  vm.runInNewContext(snapshot,context);
  vm.runInNewContext(layoutSource,context);
- const data=context.window.ATLAS_2D_PEDIGREE;
+ const data=context.window.AtlasCanonicalGraph.read();
  const layout=context.window.Atlas2DLayout.create(data,"you");
  assert.ok(layout.positions.has("dorthea_jensen"));
  assert.ok(data.nodes.some(n=>n.id==="brenay_david"));
