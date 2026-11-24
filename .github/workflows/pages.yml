@@ -58,7 +58,7 @@ jobs:
         run: |
           node atlas-graph-integrity-gate.mjs
           node atlas-integrity-gate.mjs
-          node --test tests/atlas-integrity-gate.test.mjs tests/atlas-cross-view-person-continuity.test.mjs
+          node --test tests/atlas-integrity-gate.test.mjs tests/atlas-cross-view-person-continuity.test.mjs tests/atlas-runtime-records.test.mjs
           node tests/governance-regression.mjs
 
       - name: Configure Pages
