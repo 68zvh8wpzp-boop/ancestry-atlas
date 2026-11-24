@@ -328,3 +328,11 @@ body.aa-four-door-shell #storyModal .story-shell{max-height:calc(100dvh - 97px -
 #aaSimpleGlobe #aaGeoGlobe .aa-geo-prompt{top:auto!important;bottom:7px!important}
 #aaSimpleGlobe #aaGeoGlobe .aa-geo-legend{margin:0!important;padding:3px 6px!important;max-height:28dvh;overflow:auto}
 #aaSimpleGlobe #aaGeoGlobe .aa-geo-detail{bottom:24px!important}
+
+/* Reader consumes the whole available viewport below the measured navigation bar. */
+#aaSimpleProfile{display:flex!important;flex-direction:column!important;inset:0!important;overflow:hidden!important;padding:var(--aa-header-measured,var(--aa-route-height)) 0 env(safe-area-inset-bottom)!important}
+#aaSimpleProfile[hidden]{display:none!important}
+#aaSimpleProfile .aa-simple-profile-head{display:none!important}
+#aaSimpleProfile iframe{display:block;flex:1 1 0!important;width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;border:0!important;margin:0!important}
+#aaSimpleProfile #aaSimpleProfileLoading{position:absolute;inset:var(--aa-header-measured,var(--aa-route-height)) 0 0;display:grid;place-items:center;color:#d9be8b;background:#071923;z-index:1;font:16px Georgia,serif}
+#aaSimpleProfile #aaSimpleProfileLoading[hidden]{display:none!important}
