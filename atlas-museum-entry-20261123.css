@@ -308,3 +308,14 @@ body.aa-four-door-shell #storyModal .story-shell{max-height:calc(100dvh - 97px -
  #aaSimpleHome .aa-simple-door .aa-door-description{font-size:11px!important;margin:0 4px!important}
  #aaSimpleHome .aa-museum-footer{margin-top:20px}
 }
+
+/* Keep the whole map visible before the filters on compact Safari viewports. */
+@media (max-width: 600px), (max-height: 560px){
+ #aaSimpleGlobe{overflow-y:auto!important}
+ #aaSimpleGlobe .aa-simple-globe-wrap{height:auto;flex:0 0 auto}
+ #aaSimpleGlobe #aaGeoGlobe{height:auto;flex:none}
+ #aaSimpleGlobe #aaGeoGlobe .aa-geo-canvas-wrap{
+  order:-1;flex:none;height:clamp(160px,min(86vw,56svh),460px)!important;
+  margin:0 0 8px
+ }
+}

@@ -353,6 +353,7 @@ function create(parent,atlasData,getPerson){
     e.preventDefault();render();
   });
   root.addEventListener("resize",render);
+  if(root.ResizeObserver)new root.ResizeObserver(render).observe(canvas);
   rebuild();
   return {resize:render,refresh:rebuild,selectPlace:setPlace,
     selectPerson:function(id){

@@ -17,7 +17,7 @@ test("four museum destinations keep the original views and an uncluttered landin
  assert.ok(!entry.includes('aa-simple-explain'),"Remove the duplicate vertical destination descriptions");
  assert.match(css,/#aaSimpleHome .aa-simple-doors/);
  assert.match(css,/Georgia/);
- assert.match(html,/atlas-museum-entry-20261123\.css\?v=20261124-identity-guard-v2/);
+ assert.match(html,/atlas-museum-entry-20261123\.css\?v=20261124-globe-fit-v1/);
  assert.match(html,/atlas-four-doors-20261123\.js\?v=20261124-globe-link-v1/);
  assert.match(index,/20261124-identity-guard-v2/);
  assert.match(JSON.parse(manifest).start_url,/20261124-identity-guard-v2/);
