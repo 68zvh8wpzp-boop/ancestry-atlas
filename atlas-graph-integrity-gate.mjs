@@ -72,6 +72,9 @@ export function checkCanonicalGraph(){
     fail("Tree/family view no longer consumes the same canonical graph");
   if(!main.includes('window.__ATLAS_DATA = DATA;')||!doors.includes('var atlas=window.__ATLAS_DATA'))
     fail("People/Globe/Stories access not connected to shared person data");
+  if(!main.includes("card.dataset.atlasPersonId=id")||
+     !read("atlas-family-portrait-ui-20261123.js").includes("var activeId=card.dataset.atlasPersonId"))
+    fail("Person identity is being inferred from a label rather than stable canonical ID");
   if(/const DATA = \{"nodes"/.test(main)||/atlas-2d-pedigree-snapshot\.js/.test(tree))
     fail("A second embedded graph or obsolete snapshot has re-entered a live view");
   for(const [path,text] of [["person UI",main],["2D Tree UI",treeJS],["navigation UI",doors]]){
