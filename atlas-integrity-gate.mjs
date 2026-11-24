@@ -241,7 +241,7 @@ export function validateRepository(){
     assetExists:(relative)=>existsSync(resolve(ROOT,relative)),
     assetGitBlobSha:(relative)=>{
       const original=readFileSync(resolve(ROOT,relative));
-      return createHash("sha1").update("blob "+original.length+"\\0").update(original).digest("hex");
+      return createHash("sha1").update("blob "+original.length+"\0").update(original).digest("hex");
     }
   });
   result.errors.push(...checkCanonicalGraph());
