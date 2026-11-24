@@ -2247,6 +2247,8 @@ function setNodeView(level){
 function openNode(id, recenter=false, appendTrail=false){
   const n=nodeById.get(id); if(!n) return;
   selected=id;
+  // Stable person ID is the cross-view identity. Names and years are display-only.
+  card.dataset.atlasPersonId=id;
   if(isMobile && !document.body.classList.contains('tour-active')){
     const mobileState=window.AncestryTour?.mobileTree;
     if(mobileState?.mode==='branch'){
