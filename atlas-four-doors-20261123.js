@@ -8,7 +8,7 @@ if(window.self!==window.top)return;
 var atlas=window.__ATLAS_DATA,geo=window.AtlasGeoGlobe,query=new URLSearchParams(location.search);
 if(!atlas||!Array.isArray(atlas.nodes))return;
 document.body.classList.add("aa-four-door-shell");
-var release="20261124-portrait-contain-v1";
+var release="20261124-reader-viewport-v1";
 var page=document.createElement("section");
 page.id="aaSimpleHome";page.setAttribute("aria-label","Ancestry Atlas: four ways to explore");
 var doorMedia={
@@ -42,6 +42,8 @@ header.innerHTML='<nav class="aa-museum-route" aria-label="Atlas navigation">'+
  '<button type="button" id="aaSimpleForward" aria-label="Forward to next screen" title="Forward"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5 7 7-7 7M17 12H5"/></svg></button>'+
  '</nav><strong id="aaSimpleSectionTitle"></strong>';
 document.body.appendChild(header);
+function measureHeader(){if(!header.hidden)document.documentElement.style.setProperty('--aa-header-measured',header.getBoundingClientRect().height+'px');}
+if(window.ResizeObserver)new ResizeObserver(measureHeader).observe(header);
 var people=document.createElement("section");
 people.id="aaSimplePeople";people.hidden=true;people.setAttribute("aria-label","Search Atlas people");
 people.innerHTML='<div class="aa-simple-main"><h2>Find a person</h2>'+
@@ -57,7 +59,7 @@ document.body.appendChild(globePanel);
 var profile=document.createElement("section");profile.id="aaSimpleProfile";profile.hidden=true;
 profile.setAttribute("aria-label","Person biography and historical sources");
 profile.innerHTML='<div class="aa-simple-profile-head"><strong id="aaSimpleProfileName">Person page</strong></div>'+
- '<iframe id="aaSimpleProfileFrame" title="Full Atlas person biography and archival evidence" loading="lazy"></iframe>';
+ '<div id="aaSimpleProfileLoading" role="status" hidden>Opening person page…</div><iframe id="aaSimpleProfileFrame" title="Full Atlas person biography and archival evidence"></iframe>';
 document.body.appendChild(profile);
 var current="home",profileOrigin="people",profileId=null,globeInstance=null,storyRequested=false,restoringHistory=false;
 var chooser=document.getElementById("lineChooser"),storyModal=document.getElementById("storyModal");
@@ -67,7 +69,7 @@ function section(next){
   current=next;
   page.hidden=next!=="home";people.hidden=next!=="people";
   globePanel.hidden=next!=="globe";profile.hidden=next!=="profile";
-  header.hidden=next==="home";
+  header.hidden=next==="home";measureHeader();
   document.getElementById("aaSimpleSectionTitle").textContent=
    {people:"People",globe:"Globe",profile:"Person page",stories:"A/V Stories"}[next]||"";
   if(!restoringHistory&&next!==previous){
@@ -166,24 +168,15 @@ function openProfile(id,origin){
   profile.querySelector("#aaSimpleProfileName").textContent=n.name;
   section("profile");
   var iframe=profile.querySelector("#aaSimpleProfileFrame");
+  var loader=profile.querySelector("#aaSimpleProfileLoading");
+  iframe.style.visibility="hidden";loader.hidden=false;loader.textContent="Opening person page…";
   iframe.onload=function(){
     try{
-      var win=iframe.contentWindow,doc=win.document;
-      doc.getElementById("landing")?.classList.add("hidden");
-      var sty=doc.createElement("style");sty.textContent=[
-        "html,body{height:100%!important;overflow:hidden!important;background:#071724!important}",
-        "#landing,.family-toolbar,#mobileTreeDock,#controls,#hud,#timeline,#mobilePersonSearch,#ppReturnToExplorer{display:none!important}",
-        "#app{display:block!important;height:100%!important}",
-        "#stage{position:fixed!important;inset:0!important;width:100%!important;height:100%!important;overflow:hidden!important}",
-        "#stage>canvas{visibility:hidden!important}",
-        "#card{position:fixed!important;inset:0!important;width:100%!important;max-height:none!important;border:0!important;border-radius:0!important;overflow:auto!important;padding:17px 16px 40px!important;margin:0!important;display:block!important;background:#0b2030!important;box-shadow:none!important;z-index:100!important}",
-        "#card #close,#card .button-row,#card #navhint{display:none!important}",
-        "#card h3{font-size:20px!important}"
-      ].join(" ");
-      doc.head.appendChild(sty);
-      if(typeof win.selectPersonSearchResult==="function")win.selectPersonSearchResult(id);
-      else if(typeof win.openNode==="function")win.openNode(id,true,true);
-    }catch(error){console.warn("Atlas existing biography reader unavailable",error);}
+      var doc=iframe.contentDocument,card=doc.getElementById("card");
+      if(card?.dataset.atlasPersonId===id&&!doc.documentElement.classList.contains("aa-startup")){
+        iframe.style.visibility="visible";loader.hidden=true;
+      }
+    }catch(_){}
   };
   iframe.src="./atlas-v3.9.63.html?from=four-door-person&person="+encodeURIComponent(id)+"&v="+release;
 }
@@ -204,7 +197,15 @@ document.addEventListener("keydown",function(e){
 window.addEventListener("message",function(event){
   if(event.origin!==location.origin||event.source!==profile.querySelector("#aaSimpleProfileFrame").contentWindow)return;
   var info=event.data;
-  if(!info||info.type!=="atlas-person-page"||!info.id)return;
+  if(!info||!info.id)return;
+  if(info.type==="atlas-reader-ready"||info.type==="atlas-reader-error"){
+    if(info.id!==profileId)return;
+    var iframe=profile.querySelector("#aaSimpleProfileFrame"),loader=profile.querySelector("#aaSimpleProfileLoading");
+    if(info.type==="atlas-reader-ready"){iframe.style.visibility="visible";loader.hidden=true;}
+    else{loader.hidden=false;loader.textContent="Unable to open this person page.";}
+    return;
+  }
+  if(info.type!=="atlas-person-page")return;
   var person=atlas.nodes.find(function(p){return p.id===info.id;});
   if(!person)return;
   profileId=person.id;
@@ -244,6 +245,7 @@ if(history.state.screen!=="home"){
   else if(saved.screen==="profile"&&saved.person)openProfile(saved.person,saved.origin);
   restoringHistory=false;
 }
+document.documentElement.classList.remove('aa-startup');
 window.AncestryAtlasSimpleHome={
   go:visit,home:showHome,current:function(){return current;},
   openPerson:openProfile
