@@ -3,26 +3,26 @@ import {readFile,stat} from "node:fs/promises";
 import {test} from "node:test";
 import vm from "node:vm";
 import {createHash} from "node:crypto";
+import {canonicalGraph,installCanonical} from "./atlas-test-graph.mjs";
 const root=new URL("../",import.meta.url);
 const read=p=>readFile(new URL(p,root),"utf8");
 async function images(){
  const [registry,main,map,snapshot,layoutSource]=await Promise.all([
   read("atlas-2d-portrait-index-20261123.js"),read("atlas-v3.9.63.html"),
-  read("atlas-2d-map.js"),read("atlas-2d-pedigree-snapshot.js"),
+  read("atlas-2d-map.js"),read("atlas-canonical-family-data.js"),
   read("atlas-2d-layout.js")
  ]);
  const context={window:{}};vm.runInNewContext(registry,context);
  vm.runInNewContext(snapshot,context);vm.runInNewContext(layoutSource,context);
- const i=main.indexOf("const DATA = "),j=main.indexOf(";\n",i);
- return {portrait:context.window.ATLAS_2D_PORTRAITS,data:JSON.parse(main.slice(i+13,j)),
-  layout:context.window.Atlas2DLayout.create(context.window.ATLAS_2D_PEDIGREE,"you"),
+ return {portrait:context.window.ATLAS_2D_PORTRAITS,data:context.window.AtlasCanonicalGraph.read(),
+  layout:context.window.Atlas2DLayout.create(context.window.AtlasCanonicalGraph.read(),"you"),
   map,registry,main};
 }
 test("25 person-linked portraits with untouched family relationships",async()=>{
  const {portrait,data,layout,registry,main}=await images();
  assert.equal(Object.keys(portrait).length,25);
- assert.equal(data.nodes.length,106);
- assert.equal(data.edges.length,115);
+ assert.equal(data.nodes.length,119);
+ assert.equal(data.edges.length,123);
  for(const id of Object.keys(portrait)){
   assert.ok(data.nodes.some(x=>x.id===id),id+" must be a known Atlas person");
   assert.ok(layout.positions.has(id),id+" must be plotted in connected Tree");
@@ -30,7 +30,7 @@ test("25 person-linked portraits with untouched family relationships",async()=>{
   assert.ok(!portrait[id].url.includes("data:image"),"Original URL must remain preserved");
  }
  assert.ok(!/DATA\.nodes\.(push|splice)|DATA\.edges\.(push|splice)/.test(registry));
- assert.match(main,/const DATA = /);
+ assert.match(main,/const DATA = window\.AtlasCanonicalGraph\.read\(\)/);
 });
 test("all 19 presentation crops source real bundled images; coordinates stay inside original image",async()=>{
  const {portrait}=await images();
