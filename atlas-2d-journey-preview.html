@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.classList.add("aa-tree-startup");</script>
+<style>html.aa-tree-startup,html.aa-tree-startup body{background:#071923!important}#aaTreeStartup{display:none}html.aa-tree-startup body>*:not(#aaTreeStartup){opacity:0!important;pointer-events:none!important}html.aa-tree-startup #aaTreeStartup{position:fixed;inset:0;display:grid!important;place-items:center;z-index:2147483647;background:#071923;color:#d9be8b;font:18px Georgia,serif}</style>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#07131f">
@@ -12,6 +14,7 @@
 <link rel="stylesheet" href="./atlas-family-portrait-ui-20261123.css?v=20261124-portrait-contain-v1">
 </head>
 <body>
+<div id="aaTreeStartup" role="status">Opening family tree…</div>
 <div id="viewport">
   <canvas id="tree" tabindex="0" aria-label="Two-dimensional ancestral map. Drag to move through generations, pinch to zoom, or tap a person to follow their lineage."></canvas>
 </div>
@@ -107,6 +110,7 @@
 <script src="./atlas-2d-portrait-index-20261123.js?v=20261124-portrait-contain-v1"></script>
 <script src="./atlas-family-portrait-ui-20261123.js?v=20261124-portrait-contain-v1"></script>
 <script src="./atlas-2d-map.js?v=20261124-reader-viewport-v1"></script>
-<script src="./atlas-museum-route-20261123.js?v=20261123-museum-navigation-v1"></script>
+<script src="./atlas-museum-route-20261123.js?v=20261124-clean-render-v1"></script>
+<script>requestAnimationFrame(function(){requestAnimationFrame(function(){document.documentElement.classList.remove("aa-tree-startup");});});</script>
 </body>
 </html>
