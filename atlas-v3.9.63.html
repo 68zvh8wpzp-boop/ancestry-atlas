@@ -6,7 +6,7 @@
 (function(){
  var q=new URLSearchParams(location.search),embedded=window.self!==window.top;
  document.documentElement.classList.add("aa-startup");
- if(embedded&&(q.get("from")==="four-door-person"||q.get("from")==="two-dimensional-map"))document.documentElement.classList.add("aa-reader");
+ if(embedded&&q.get("person")&&(q.get("from")==="four-door-person"||q.get("from")==="two-dimensional-map"))document.documentElement.classList.add("aa-reader");
 })();
 </script>
 <style id="aa-first-paint">
