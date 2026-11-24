@@ -598,8 +598,8 @@ window.addEventListener('error',function(e){
 </style>
 <style>.doc-transcription .transcription-pair{white-space:pre-wrap}</style>
   <link rel="stylesheet" href="atlas-four-doors-20261123.css?v=20261123-four-doors-v1">
-<link rel="stylesheet" href="atlas-museum-entry-20261123.css?v=20261123-canonical-graph-v1">
-<link rel="stylesheet" href="atlas-family-portrait-ui-20261123.css?v=20261123-canonical-graph-v1">
+<link rel="stylesheet" href="atlas-museum-entry-20261123.css?v=20261124-record-stability-v1">
+<link rel="stylesheet" href="atlas-family-portrait-ui-20261123.css?v=20261124-record-stability-v1">
 <link rel="stylesheet" href="atlas-geographic-globe-20261122.css?v=20261122-globe-v1">
 <style>
 .landing-actions .family-map-link{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid #526a7e;border-radius:10px;color:#eef6fc;text-decoration:none;font-size:14px}
@@ -918,7 +918,7 @@ window.addEventListener('error',function(e){
 <div id="docModal" class="doc-modal"><button id="docClose" class="doc-close">×</button><div class="doc-panel"><img id="docImage" alt="Genealogy source document"><iframe id="docPdf" title="Document PDF preview" style="display:none" loading="lazy"></iframe><div id="docMeta" class="doc-meta"></div><div id="albumViewerLabel" class="album-label" style="display:none"></div><div id="albumViewerNav" class="album-detail-nav" style="display:none"><button id="albumPrev">← Previous</button><button id="albumNext">Next →</button></div><button id="jumpToPerson" class="jump-person" style="display:none">Show person in tree</button></div></div>
 </div>
 
-<script src="atlas-canonical-family-data.js?v=20261123-canonical-graph-v1"></script>
+<script src="atlas-canonical-family-data.js?v=20261124-record-stability-v1"></script>
 <script>
 // Ancestry Atlas v1.8.9 — evidence-sync update; research corrections preserve uncertainty. Research corrections preserve uncertainty; no unsupported lineage was promoted.
 const DATA = window.AtlasCanonicalGraph.read();
@@ -1327,7 +1327,7 @@ function renderEvidence(n){
   const sourceLabel=document.getElementById('sourceReferencesLabel');
   sourceWrap.replaceChildren();
   sourceLabel.style.display='none';
-  const ev=n.evidence||[];
+  const ev=window.AtlasRecordStore ? window.AtlasRecordStore.evidenceFor(n.id).map(item=>item.record) : (n.evidence||[]).map(e=>({...e}));
   const ammonPreviewByTitle={
     'Bringing Mom and Dad Home':'assets/ammon-docs-preview/bringing-mom-and-dad-home-page-1.jpg',
     'Letters from Grandma Brenay':'assets/ammon-docs-preview/letters-from-grandma-brenay-page-1.jpg'
@@ -3043,7 +3043,7 @@ resize();
 <script src="story-presentation-3.6.0.js"></script>
 <script src="story-overlays-3.8.1.js?v=3.8.22"></script>
 <script src="experience-3.8.1.js?v=3.8.22"></script>
-<script src="atlas-evidence-sync-2026-10-03-fulltext-v9.js?v=20261003-46"></script>
+<script src="atlas-evidence-sync-2026-10-03-fulltext-v9.js?v=20261124-record-stability-v1"></script>
 <script src="atlas-sheldon-presentation-2026-09-30.js?v=20261113-a075"></script>
 <script src="atlas-evidence-sync-2026-10-03-fulltext-v10.js?v=20261003-54"></script>
 
@@ -3250,14 +3250,15 @@ window.__EDWARD_JR_BIOGRAPHY={version:'20261017-jr-full-biography-1',wordCount:l
 <!-- Tranche 135: competing New York James Webb/Anna Scott household; derivative caution ONLY -->
 <script src="webb-anna-scott-namesake-frontier-20261031.js?v=20261031-t137"></script>
 <!-- Isolated iPhone navigation experiment: original canvas tree and data retained -->
+<script src="atlas-runtime-records-20261124.js?v=20261124-record-stability-v1"></script>
 <script src="atlas-person-search.js?v=20261122-search-v1"></script>
 <script src="atlas-world-land-110m.js?v=20261122-globe-v1"></script>
 <script src="atlas-geo-places-20261122.js?v=20261122-globe-v1"></script>
-<script src="atlas-geographic-globe-20261122.js?v=20261123-canonical-graph-v1"></script>
+<script src="atlas-geographic-globe-20261122.js?v=20261124-record-stability-v1"></script>
 <script src="atlas-2d-portrait-index-20261123.js?v=20261123-portrait-crops-v3"></script>
-<script src="atlas-2d-family.js?v=20261123-canonical-graph-v1"></script>
-<script src="atlas-family-portrait-ui-20261123.js?v=20261123-canonical-graph-v1"></script>
-<script src="atlas-four-doors-20261123.js?v=20261123-canonical-graph-v1"></script>
+<script src="atlas-2d-family.js?v=20261124-record-stability-v1"></script>
+<script src="atlas-family-portrait-ui-20261123.js?v=20261124-record-stability-v1"></script>
+<script src="atlas-four-doors-20261123.js?v=20261124-record-stability-v1"></script>
 </body>
 </html>
 
