@@ -309,13 +309,22 @@ body.aa-four-door-shell #storyModal .story-shell{max-height:calc(100dvh - 97px -
  #aaSimpleHome .aa-museum-footer{margin-top:20px}
 }
 
-/* Keep the whole map visible before the filters on compact Safari viewports. */
-@media (max-width: 600px), (max-height: 560px){
- #aaSimpleGlobe{overflow-y:auto!important}
- #aaSimpleGlobe .aa-simple-globe-wrap{height:auto;flex:0 0 auto}
- #aaSimpleGlobe #aaGeoGlobe{height:auto;flex:none}
- #aaSimpleGlobe #aaGeoGlobe .aa-geo-canvas-wrap{
-  order:-1;flex:none;height:clamp(160px,min(86vw,56svh),460px)!important;
-  margin:0 0 8px
- }
-}
+/* Globe viewport: no mobile height cap, no scroll offset, one flexible map surface. */
+#aaSimpleGlobe{inset:0!important;overflow:hidden!important;padding:calc(61px + env(safe-area-inset-top)) 0 env(safe-area-inset-bottom)!important}
+#aaSimpleGlobe .aa-simple-globe-wrap{max-width:none!important;height:100%!important;flex:1 1 0!important;min-height:0!important}
+#aaSimpleGlobe #aaGeoGlobe{height:100%!important;flex:1 1 0!important;min-height:0!important;max-width:none!important;border:0!important;border-radius:0!important;padding:5px!important;gap:3px}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-toolbar{display:none!important}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-selectors{margin:0!important;gap:4px!important}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-selectors label,#aaSimpleGlobe #aaGeoGlobe .aa-geo-tools label{margin:0!important}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-selectors select{min-height:33px!important}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-tools{margin:0!important;gap:0 8px!important}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-tools label{min-height:21px!important}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-count{width:auto!important;margin-left:auto!important}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-canvas-wrap{order:0!important;flex:1 1 0!important;min-height:0!important;height:auto!important;max-height:none!important;width:100%!important;margin:0!important;border-radius:8px!important;overflow:hidden!important}
+#aaSimpleGlobe #aaGeoGlobe #aaGeoCanvas{display:block!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;margin:0!important;transform:none!important;touch-action:none!important}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-find-place{position:absolute;top:6px;left:6px;max-width:calc(100% - 65px);width:205px;min-height:36px;background:#102c38eF;color:#f1e7d4;border:1px solid #a28c65;border-radius:8px;padding:5px;font:13px system-ui;z-index:3}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-zoom{top:6px;right:6px;bottom:auto;z-index:3}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-zoom button{margin:0!important;width:42px;height:42px}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-prompt{top:auto!important;bottom:7px!important}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-legend{margin:0!important;padding:3px 6px!important;max-height:28dvh;overflow:auto}
+#aaSimpleGlobe #aaGeoGlobe .aa-geo-detail{bottom:24px!important}
