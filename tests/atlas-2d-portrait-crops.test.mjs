@@ -89,9 +89,9 @@ test("installed app and 2D Tree load fresh crop revision",async()=>{
  ]);
  for(const value of [main,tree])assert.match(value,/20261123-portrait-crops-v3/);
  for(const value of [index,JSON.parse(pwa).start_url,shell])
-  assert.match(value,/20261124-artifact-index-v1/);
+  assert.match(value,/20261124-identity-guard-v2/);
  assert.match(tree,/atlas-2d-portrait-index-20261123\.js\?v=20261123-portrait-crops-v3/);
- assert.match(tree,/atlas-2d-map\.js\?v=20261124-artifact-index-v1/);
+ assert.match(tree,/atlas-2d-map\.js\?v=20261124-identity-guard-v2/);
  assert.ok(tree.indexOf("atlas-2d-portrait-index-20261123.js")<tree.indexOf("atlas-2d-map.js"));
 });
 
