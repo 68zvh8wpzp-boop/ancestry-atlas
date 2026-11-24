@@ -24,8 +24,8 @@ test("entry screen exposes exactly Tree, People, Globe and Stories",async()=>{
  assert.match(script,/if\(window\.self!==window\.top\)return/);
  assert.match(css,/#aaSimpleHome/);
  assert.ok(!script.includes("aaPrimaryNav"));
- assert.match(index,/20261123-archival-cameo-v1/);
- assert.match(JSON.parse(manifest).start_url,/20261123-archival-cameo-v1/);
+ assert.match(index,/20261123-canonical-graph-v1/);
+ assert.match(JSON.parse(manifest).start_url,/20261123-canonical-graph-v1/);
 });
 
 test("Tree goes directly to portrait-enabled 2D; source pages stay intact",async()=>{
