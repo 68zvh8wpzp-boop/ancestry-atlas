@@ -83,7 +83,7 @@ test("PWA has refreshed cache and no nonpublic file access",async()=>{
  read("atlas-v3.9.63.html"),read("atlas-four-doors-20261123.js"),
  read("atlas-geographic-globe-20261122.js")
  ]);
- const release="20261123-canonical-graph-v1";
+ const release="20261124-record-stability-v1";
  assert.match(index,new RegExp(release));
  assert.match(JSON.parse(manifest).start_url,new RegExp(release));
  assert.match(main,new RegExp(release));
