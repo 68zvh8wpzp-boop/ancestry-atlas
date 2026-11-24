@@ -93,7 +93,8 @@ function evidenceFor(id){
     return Object.freeze({
       id:base+(occurrence>1?"-"+occurrence:""),
       personId:id,sourceId:sourceId,locator:locator,
-      hasOriginal:!!(e.originalAsset||e.full),
+      hasOriginal:!!e.originalAsset||!!(e.full&&e.sourceLevel==="original"),
+      hasImage:!!(e.full||e.thumb),
       record:copy(e)
     });
   });
