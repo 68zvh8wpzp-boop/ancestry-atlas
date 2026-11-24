@@ -38,7 +38,7 @@ test("offline globe loads real Natural Earth public-domain land polygons",async(
 });
 test("location pins are drawn ONLY from current Atlas place summaries, never invented events",async()=>{
  const {data,geo}=await load();
- assert.equal(data.nodes.length,119);
+ assert.equal(data.nodes.length,121);
  assert.ok(data.edges.length>85,"Preserve current documented relationships without freezing the audit ledger at an obsolete count");
  const before=JSON.stringify(data);
  const result=geo.build(data.nodes,{});
