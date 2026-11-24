@@ -222,5 +222,37 @@
       "mirror": "provisional",
       "review": "Known base/2D discrepancy in Danish maternity evidence. Neither side may be silently promoted; person-audit adjudication needed before harmonization."
     }
+  ],
+  "legacyRemotePortraits": [
+    {
+      "id": "marion_brenay",
+      "url": "https://cdn.tukioswebsites.com/57df7c61-7845-4fe1-8aad-f84726545720/lg",
+      "review": "Existing third-party image dependency. Preserve a rights-permitted local original; do not add new remote-only portraits."
+    },
+    {
+      "id": "morten_peder",
+      "url": "https://history.churchofjesuschrist.org/church-history-people/bc/missionaries/portraits/M/morten-p-mortensen-1828-fs.jpg",
+      "review": "Existing third-party image dependency. Preserve a rights-permitted local original; do not add new remote-only portraits."
+    },
+    {
+      "id": "peder_mortensen_1806",
+      "url": "https://history.churchofjesuschrist.org/church-history-people/bc/Pioneer%20Photos/Pioneers%20M/390x520/Mortensen_Peter%201806%201866.jpg",
+      "review": "Existing third-party image dependency. Preserve a rights-permitted local original; do not add new remote-only portraits."
+    },
+    {
+      "id": "helena_sandersen",
+      "url": "https://history.churchofjesuschrist.org/church-history-people/bc/Pioneer%20Photos/Pioneers%20M/120x120/Mortensen_Helena_KWJX-W5B.jpg",
+      "review": "Existing third-party image dependency. Preserve a rights-permitted local original; do not add new remote-only portraits."
+    },
+    {
+      "id": "caroline_owens",
+      "url": "https://history.churchofjesuschrist.org/church-history-people/bc/Pioneer%20Photos/Pioneers%20W/390x520/Webb_Caroline%20Amelia%20%20KWJR-FCL.jpg",
+      "review": "Existing third-party image dependency. Preserve a rights-permitted local original; do not add new remote-only portraits."
+    },
+    {
+      "id": "dorthea_jensen",
+      "url": "https://history.churchofjesuschrist.org/church-history-people/bc/Pioneer%20Photos/Pioneers%20M/120x120/Mortensen_DortheaKnudsenJensen%20%20KWJD-TJ5.jpg",
+      "review": "Existing third-party image dependency. Preserve a rights-permitted local original; do not add new remote-only portraits."
+    }
   ]
 }
