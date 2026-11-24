@@ -28,7 +28,7 @@ function create(parent,atlasData,getPerson){
    '<div class="aa-geo-canvas-wrap"><canvas id="aaGeoCanvas" role="img" aria-label="Rotatable world globe with place pins and dotted source-qualified from to connections." tabindex="0"></canvas>'+
    '<div class="aa-geo-zoom"><button type="button" data-geo-zoom="in" aria-label="Zoom globe in">+</button>'+
    '<button type="button" data-geo-zoom="out" aria-label="Zoom globe out">−</button></div>'+
-   '<div class="aa-geo-prompt">Drag to rotate · Select a red pin</div></div>'+
+   '<select id="aaGeoFindPlace" class="aa-geo-find-place" aria-label="Find and zoom to a family place"><option value="">Find a place…</option></select><div class="aa-geo-prompt">Drag to rotate · Pinch to zoom · Tap a red pin</div></div>'+
    '<div id="aaGeoDetail" class="aa-geo-detail" aria-live="polite" hidden></div>'+
    '<details class="aa-geo-legend"><summary>Map key & evidence</summary>'+
    '<div><b>Red pins</b> show place summaries or explicitly categorized life events. Hollow circles indicate approximate region centers. '+
@@ -53,6 +53,7 @@ function create(parent,atlasData,getPerson){
     .sort().forEach(function(label){var opt=document.createElement("option");opt.value=label;opt.textContent=label;branchControl.appendChild(opt);});
   var state={lon:-94,lat:39,zoom:1,focus:false,collateral:false,frontier:false,
     branch:"",from:"",to:"",paths:true,selected:null,drag:null};
+  var pointers=new Map(),pinch=null;
   var px=0,py=0,radius=0,cx=0,cy=0,visibleMarkers=[],model={pins:[],routes:[]};
   var viewportWidth=0,viewportHeight=0,dpr=1;
   function selectedPerson(){try{return getPerson?.()||"you";}catch(_){return "you";}}
@@ -63,6 +64,7 @@ function create(parent,atlasData,getPerson){
       includeCollateral:state.collateral
     });
     updateRouteSelectors();
+    var finder=section.querySelector("#aaGeoFindPlace");finder.replaceChildren(new Option("Find a place…",""));model.pins.slice().sort(function(a,b){return a.name.localeCompare(b.name);}).forEach(function(p){finder.add(new Option(p.name,p.id));});
     if(!model.pins.some(function(p){return p.id===state.selected}))state.selected=null;
     var eventCount=model.pins.reduce(function(n,p){return n+p.events.length;},0);
     status.textContent=model.pins.length+" places · "+model.routes.length+" summary paths";
@@ -202,7 +204,7 @@ function create(parent,atlasData,getPerson){
     }
     ctx.setTransform(dpr,0,0,dpr,0,0);
     ctx.clearRect(0,0,w,h);
-    cx=w/2;cy=h/2;radius=Math.min(w*.47,h*.46)*state.zoom;
+    cx=w/2;cy=h/2;radius=Math.min(w,h)*.485*state.zoom;
     ctx.save();
     ctx.shadowColor="rgba(10,54,88,.6)";ctx.shadowBlur=28;
     ctx.beginPath();ctx.arc(cx,cy,radius,0,2*Math.PI);
@@ -220,7 +222,7 @@ function create(parent,atlasData,getPerson){
     visibleMarkers=[];
     model.pins.forEach(function(pin){
       var at=project(pin.lon,pin.lat);
-      if(at.z<=0)return;
+      if(at.z<=0||at.x<-15||at.y<-15||at.x>w+15||at.y>h+15)return;
       visibleMarkers.push({pin:pin,x:at.x,y:at.y});
     });
     // Draw regional pins beneath precise town/community pins.
@@ -237,6 +239,18 @@ function create(parent,atlasData,getPerson){
         ctx.beginPath();ctx.arc(hit.x,hit.y,10,0,2*Math.PI);
         ctx.strokeStyle="#ffe7dc";ctx.lineWidth=1.2;ctx.stroke();
       }
+    });
+    // Label selected places at all scales; progressively label other visible towns as space allows.
+    var boxes=[];ctx.font="600 11px system-ui";ctx.textBaseline="middle";
+    visibleMarkers.slice().sort(function(a,b){return Number(b.pin.id===state.selected)-Number(a.pin.id===state.selected)||Number(a.pin.type==="region")-Number(b.pin.type==="region");}).forEach(function(hit){
+      var p=hit.pin,active=p.id===state.selected;
+      if(!active&&state.zoom<2.6)return;
+      if(!active&&p.type==="region"&&state.zoom>=10)return;
+      var label=p.name,tw=ctx.measureText(label).width,tx=hit.x+9,ty=hit.y;
+      if(tx+tw>w-5)tx=hit.x-9-tw;
+      var box={x:tx-3,y:ty-8,w:tw+6,h:16};
+      if(box.x<0||box.y<0||box.x+box.w>w||box.y+box.h>h||(!active&&boxes.some(function(b){return box.x<b.x+b.w&&box.x+box.w>b.x&&box.y<b.y+b.h&&box.y+box.h>b.y;})))return;
+      boxes.push(box);ctx.lineWidth=3;ctx.strokeStyle="#09202d";ctx.strokeText(label,tx,ty);ctx.fillStyle=active?"#fce5bd":"#e5ece9";ctx.fillText(label,tx,ty);
     });
   }
   function updateDetail(){
@@ -288,13 +302,16 @@ function create(parent,atlasData,getPerson){
   function setPlace(id){
     state.selected=id||null;
     var pin=model.pins.find(function(p){return p.id===state.selected;});
-    if(pin){state.lat=clamp(pin.lat, -70,70);state.lon=shortLon(pin.lon);}
+    if(pin){state.lat=clamp(pin.lat, -75,75);state.lon=shortLon(pin.lon);}
+    section.querySelector("#aaGeoFindPlace").value=pin?pin.id:"";
     updateDetail();render();
   }
+  function zoomBy(factor){state.zoom=clamp(state.zoom*factor,1,128);render();}
+  section.querySelector("#aaGeoFindPlace").addEventListener("change",function(e){if(e.target.value){state.zoom=Math.max(state.zoom,12);setPlace(e.target.value);}else setPlace(null);});
   section.addEventListener("click",function(e){
     var b=e.target.closest("button");if(!b)return;
     if(b.hasAttribute("data-geo-place")){setPlace(b.dataset.geoPlace);return;}
-    if(b.dataset.geoZoom){state.zoom=clamp(state.zoom*(b.dataset.geoZoom==="in"?1.2:1/1.2),.72,1.8);render();}
+    if(b.dataset.geoZoom){zoomBy(b.dataset.geoZoom==="in"?1.55:1/1.55);}
   });
   branchControl.addEventListener("change",function(){
     state.branch=branchControl.value;state.from="";state.to="";
@@ -315,40 +332,49 @@ function create(parent,atlasData,getPerson){
   [["aaGeoCurrent","focus"],["aaGeoCollateral","collateral"],["aaGeoFrontier","frontier"]].forEach(function(pair){
     section.querySelector("#"+pair[0]).addEventListener("change",function(e){state[pair[1]]=e.target.checked;rebuild();});
   });
+  function distance(){var a=Array.from(pointers.values());return a.length>=2?Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y):0;}
   canvas.addEventListener("pointerdown",function(e){
     if(e.button!==undefined&&e.button!==0)return;
-    state.drag={x:e.clientX,y:e.clientY,originX:e.clientX,originY:e.clientY,moved:false};
+    pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
     try{canvas.setPointerCapture(e.pointerId);}catch(_){}
+    if(pointers.size>=2){pinch={distance:Math.max(1,distance()),zoom:state.zoom};state.drag=null;return;}
+    state.drag={x:e.clientX,y:e.clientY,originX:e.clientX,originY:e.clientY,moved:false};
   });
   canvas.addEventListener("pointermove",function(e){
+    if(!pointers.has(e.pointerId))return;
+    pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(pinch&&pointers.size>=2){state.zoom=clamp(pinch.zoom*distance()/pinch.distance,1,128);render();return;}
     if(!state.drag)return;
     var dx=e.clientX-state.drag.x,dy=e.clientY-state.drag.y;
     if(Math.abs(e.clientX-state.drag.originX)+Math.abs(e.clientY-state.drag.originY)>5)state.drag.moved=true;
     if(state.drag.moved){
-      state.lon=shortLon(state.lon-dx*.45);
-      state.lat=clamp(state.lat+dy*.35,-75,75);
-      render();
+      var deg=180/Math.PI/Math.max(radius,1);
+      state.lon=shortLon(state.lon-dx*deg/Math.max(.26,Math.cos(state.lat*RAD)));
+      state.lat=clamp(state.lat+dy*deg,-75,75);render();
     }
     state.drag.x=e.clientX;state.drag.y=e.clientY;
   });
-  canvas.addEventListener("pointerup",function(e){
+  function endPointer(e,cancel){
+    var wasPinch=!!pinch;pointers.delete(e.pointerId);
+    if(wasPinch){if(pointers.size<2)pinch=null;state.drag=null;return;}
     if(!state.drag)return;
     var moved=state.drag.moved;state.drag=null;
-    if(moved)return;
+    if(moved||cancel)return;
     var rect=canvas.getBoundingClientRect(),x=e.clientX-rect.left,y=e.clientY-rect.top;
     var chosen=null,nearest=Infinity;
-    visibleMarkers.forEach(function(m){var dist=Math.hypot(m.x-x,m.y-y);
-      if(dist<15&&dist<nearest){nearest=dist;chosen=m.pin.id;}
-    });
+    visibleMarkers.forEach(function(m){var dist=Math.hypot(m.x-x,m.y-y);if(dist<17&&dist<nearest){nearest=dist;chosen=m.pin.id;}});
     if(chosen)setPlace(chosen);
-  });
-  canvas.addEventListener("pointercancel",function(){state.drag=null;});
-  canvas.addEventListener("wheel",function(e){e.preventDefault();state.zoom=clamp(state.zoom*(e.deltaY>0?.92:1.08),.72,1.8);render();},{passive:false});
+  }
+  canvas.addEventListener("pointerup",function(e){endPointer(e,false);});
+  canvas.addEventListener("pointercancel",function(e){endPointer(e,true);});
+  canvas.addEventListener("wheel",function(e){e.preventDefault();zoomBy(e.deltaY>0?.85:1.18);},{passive:false});
   canvas.addEventListener("keydown",function(e){
-    if(e.key==="ArrowLeft"){state.lon=shortLon(state.lon-15);}
-    else if(e.key==="ArrowRight"){state.lon=shortLon(state.lon+15);}
-    else if(e.key==="ArrowUp"){state.lat=clamp(state.lat+10,-75,75);}
-    else if(e.key==="ArrowDown"){state.lat=clamp(state.lat-10,-75,75);}
+    if(e.key==="+"||e.key==="="){e.preventDefault();zoomBy(1.55);return;}
+    if(e.key==="-"){e.preventDefault();zoomBy(1/1.55);return;}
+    if(e.key==="ArrowLeft"){state.lon=shortLon(state.lon-15/state.zoom);}
+    else if(e.key==="ArrowRight"){state.lon=shortLon(state.lon+15/state.zoom);}
+    else if(e.key==="ArrowUp"){state.lat=clamp(state.lat+10/state.zoom,-75,75);}
+    else if(e.key==="ArrowDown"){state.lat=clamp(state.lat-10/state.zoom,-75,75);}
     else return;
     e.preventDefault();render();
   });
@@ -360,7 +386,7 @@ function create(parent,atlasData,getPerson){
       var pin=model.pins.find(function(p){return p.people.some(function(person){return person.id===id;});});
       if(pin)setPlace(pin.id);
     },
-    getState:function(){return {pins:model.pins.length,routes:model.routes.length,branch:state.branch,from:state.from,to:state.to,lat:state.lat,lon:state.lon,selected:state.selected,events:model.pins.reduce(function(s,p){return s+p.events.length;},0)};}};
+    getState:function(){return {pins:model.pins.length,routes:model.routes.length,branch:state.branch,from:state.from,to:state.to,lat:state.lat,lon:state.lon,zoom:state.zoom,selected:state.selected,events:model.pins.reduce(function(s,p){return s+p.events.length;},0)};}};
 }
 root.AtlasGeoGlobe=Object.freeze({create:create});
 })(typeof window!=="undefined"?window:globalThis);
