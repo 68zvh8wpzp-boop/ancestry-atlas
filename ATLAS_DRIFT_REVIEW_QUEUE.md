@@ -4,7 +4,7 @@ Updated 24 November 2026. **The structural 2D/main migration is complete.** This
 
 | ID | Current disposition | Research / engineering boundary |
 | --- | --- | --- |
-| D-01 · Brenay Esther and Joan | **Cross-view identity gap closed.** Both have stable IDs in the 119-person canonical graph, read by Tree and person pages. | Person-level originals and documentary proof remain subject to the person audit; the old 2D snapshot was not evidence of proof. |
+| D-01 · Brenay Esther and Joan | **Cross-view identity gap closed.** Both have stable IDs in the canonical graph, read by Tree and person pages; counts must be read from the current approved baseline, not frozen in this register. | Person-level originals and documentary proof remain subject to the person audit; the old 2D snapshot was not evidence of proof. |
 | D-02 · John/Jonas Aurin identity | **No separate 2D grade any more.** The current canonical record retains its existing strong record grade and explicit *unproven-alias* caveat. | Whether John recorded in the 1879 material is the later Jonas/John Aurin remains unresolved. Strong record grade does not resolve that identity bridge. |
 | D-03 · Mette / Anne Seje | **Software mismatch closed.** Every active view now displays the same existing canonical grade; the former 2D-only provisional variation is an archived diagnostic. | Original-record audit still controls confidence in maternity. Cross-view agreement cannot establish parentage. |
 | D-04 · Skipped Danish generation | **Invalid direct parent-child link removed from the active canonical graph.** A regression test forbids its return. | The separate marriage original does not, without more, prove a proposed later child. |
