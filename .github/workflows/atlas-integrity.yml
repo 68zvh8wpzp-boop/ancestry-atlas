@@ -27,9 +27,11 @@ jobs:
         run: |
           node atlas-graph-integrity-gate.mjs
           node atlas-integrity-gate.mjs
+          node atlas-legacy-overlay-gate.mjs
       - name: Test expected failures, person-ID binding and major navigation regressions
         run: |
           node --test tests/atlas-integrity-gate.test.mjs tests/atlas-cross-view-person-continuity.test.mjs
+          node --test tests/atlas-artifact-and-overlay-integrity.test.mjs
           node --test tests/atlas-2d-journey.test.mjs tests/atlas-2d-portrait-crops.test.mjs tests/atlas-name-search.test.mjs tests/atlas-geographic-globe.test.mjs
           node --test tests/atlas-unified-home-family-globe.test.mjs tests/atlas-navigation-rationalization.test.mjs tests/atlas-museum-navigation.test.mjs
           node tests/governance-regression.mjs
