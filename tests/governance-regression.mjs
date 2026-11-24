@@ -11,14 +11,15 @@ const evidenceContract=await readFile(new URL('../PRODUCTION_CONTRACT_v3_8_22_EV
 const failures=[];
 const sourceIds=new Set(sources.sources.map(source=>source.sourceId));
 
-const match=html.match(/const DATA = (\{[^\n]*\});/s);
-if(!match){
+const graphSource=await readFile(new URL('../atlas-canonical-family-data.js',import.meta.url),'utf8');
+const sandbox={window:{}};
+try{vm.runInNewContext(graphSource,sandbox,{timeout:8000});}
+catch(error){failures.push({kind:'canonical-data-not-loadable',message:error.message});}
+const graph=sandbox.window.AtlasCanonicalGraph?.read?.();
+if(!graph){
   failures.push({kind:'canonical-data-not-found'});
 }else{
-  const sandbox={};
-  vm.createContext(sandbox);
-  vm.runInContext(`globalThis.DATA=${match[1]}`,sandbox);
-  const {nodes=[],edges=[]}=sandbox.DATA;
+  const {nodes=[],edges=[]}=graph;
   const ids=new Set();
   const allowed=new Set(['confirmed','strong','provisional','frontier']);
   for(const node of nodes){

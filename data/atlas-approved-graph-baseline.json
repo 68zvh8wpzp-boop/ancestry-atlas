@@ -1,0 +1,1602 @@
+{
+  "schema": 1,
+  "source": "atlas-canonical-family-data.js",
+  "revision": "2026-11-23",
+  "nodes": [
+    {
+      "id": "amelia_l_cotton",
+      "name": "Amelia L. Cotton / Auene",
+      "years": "c. 1853–1919 (death year provisional)",
+      "branch": "Skinner / Aurin",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "ane_kirstine",
+      "name": "Ane Kirstine Jørgensdatter",
+      "years": "1778–1847",
+      "branch": "Denmark",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "ann_eliza_webb",
+      "name": "Ann Eliza Webb",
+      "years": "1844–1917",
+      "branch": "Webb / Young collateral",
+      "confidence": "confirmed",
+      "collateral": true
+    },
+    {
+      "id": "anna_bassett",
+      "name": "Anna Bassett",
+      "years": "c. 1618–1667",
+      "branch": "Webb / England",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "anne_seje",
+      "name": "Anne Nielsdatter Seje",
+      "years": "1707–1789",
+      "branch": "Seje / Seye",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "asenath_browning",
+      "name": "Asenath Elizabeth Browning",
+      "years": "1835–1899",
+      "branch": "Webb / Carling",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "avens_mortens",
+      "name": "Avens / Avendtz Mortensdatter",
+      "years": "c. 1645–1728",
+      "branch": "Denmark",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "benjamin_goulet",
+      "name": "Benjamin Goulet",
+      "years": "19th c.",
+      "branch": "Gooley / France hypothesis",
+      "confidence": "frontier",
+      "collateral": false
+    },
+    {
+      "id": "benjamin_goulet_candidate_father",
+      "name": "Benjamin Goulet",
+      "years": "19th c.",
+      "branch": "Gooley / Goulet candidate",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "bodil_olesdatter",
+      "name": "Bodil Olesdatter",
+      "years": "19th c.",
+      "branch": "Denmark / Jensen",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "brenay_ammon",
+      "name": "Ammon Leroy Brenay",
+      "years": "20th c.",
+      "branch": "Brenay collateral",
+      "confidence": "strong",
+      "collateral": true
+    },
+    {
+      "id": "brenay_arnold",
+      "name": "Arnold A. Brenay",
+      "years": "20th c.",
+      "branch": "Brenay collateral",
+      "confidence": "provisional",
+      "collateral": true
+    },
+    {
+      "id": "brenay_david",
+      "name": "David A. Brenay",
+      "years": "d. 1937",
+      "branch": "Brenay collateral",
+      "confidence": "strong",
+      "collateral": true
+    },
+    {
+      "id": "brenay_esther",
+      "name": "Esther Brenay",
+      "years": "1933–2018",
+      "branch": "Brenay collateral",
+      "confidence": "strong",
+      "collateral": true
+    },
+    {
+      "id": "brenay_henry",
+      "name": "Henry Brenay",
+      "years": "20th c.",
+      "branch": "Brenay collateral",
+      "confidence": "strong",
+      "collateral": true
+    },
+    {
+      "id": "brenay_isaac",
+      "name": "Isaac Brenay",
+      "years": "20th c.",
+      "branch": "Brenay collateral",
+      "confidence": "strong",
+      "collateral": true
+    },
+    {
+      "id": "brenay_joan",
+      "name": "Joan Carol Brenay",
+      "years": "1939–2016",
+      "branch": "Brenay collateral",
+      "confidence": "strong",
+      "collateral": true
+    },
+    {
+      "id": "brenay_joseph",
+      "name": "Joseph Hebert Brenay",
+      "years": "d. 2001",
+      "branch": "Brenay collateral",
+      "confidence": "strong",
+      "collateral": true
+    },
+    {
+      "id": "brenay_martha",
+      "name": "Martha Brenay Lemon",
+      "years": "20th c.",
+      "branch": "Brenay collateral",
+      "confidence": "strong",
+      "collateral": true
+    },
+    {
+      "id": "brenay_moroni",
+      "name": "Moroni Brenay",
+      "years": "d. 1931",
+      "branch": "Brenay collateral",
+      "confidence": "strong",
+      "collateral": true
+    },
+    {
+      "id": "brenay_ruth",
+      "name": "Ruth M. Brenay",
+      "years": "d. 1929",
+      "branch": "Brenay collateral",
+      "confidence": "strong",
+      "collateral": true
+    },
+    {
+      "id": "brenay_virginia",
+      "name": "Virginia Brenay",
+      "years": "20th c.",
+      "branch": "Brenay collateral",
+      "confidence": "strong",
+      "collateral": true
+    },
+    {
+      "id": "brigham_young",
+      "name": "Brigham Young",
+      "years": "1801–1877",
+      "branch": "Webb / Young collateral",
+      "confidence": "confirmed",
+      "collateral": true
+    },
+    {
+      "id": "caroline_owens",
+      "name": "Caroline Amelia Owens",
+      "years": "1821–1895",
+      "branch": "Webb / Owens",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "charles_albert",
+      "name": "Charles Albert Brenay",
+      "years": "1897–1983",
+      "branch": "Brenay / Canada",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "charles_godfrey",
+      "name": "Charles Godfrey / Gottfried Brenay (Brunne)",
+      "years": "1874/1875–1942 (birth year disputed)",
+      "branch": "Brenay / Germany",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "chauncey_webb",
+      "name": "Chauncey Griswold Webb",
+      "years": "1812–1903",
+      "branch": "Webb / Young collateral",
+      "confidence": "strong",
+      "collateral": true
+    },
+    {
+      "id": "davia_dunbar",
+      "name": "Davia / David Ann Dunbar",
+      "years": "1856–1923",
+      "branch": "Hill / Dunbar",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "della_ray",
+      "name": "Della Ray Webb",
+      "years": "1891–1969",
+      "branch": "Ray / Denmark",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "dorthea_jensen",
+      "name": "Dorthea Jensen Mortensen",
+      "years": "1840–1916",
+      "branch": "Denmark / Jensen",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "dunbar_frontier",
+      "name": "Dunbar parentage frontier",
+      "years": "",
+      "branch": "Dunbar",
+      "confidence": "frontier",
+      "collateral": false
+    },
+    {
+      "id": "edith_bates",
+      "name": "Edith Bates",
+      "years": "1710–?",
+      "branch": "Webb / Connecticut",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "edward_milo_jr",
+      "name": "Edward Milo Webb Jr.",
+      "years": "1847–1921",
+      "branch": "Webb / Carling",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "edward_milo_sr",
+      "name": "Edward Milo Webb Sr.",
+      "years": "1815–1852",
+      "branch": "Webb",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "eliza_jane_churchill",
+      "name": "Eliza Jane Churchill Webb",
+      "years": "1817–",
+      "branch": "Webb / Young collateral",
+      "confidence": "strong",
+      "collateral": true
+    },
+    {
+      "id": "elizabeth_douglas",
+      "name": "Elizabeth Douglas",
+      "years": "18th c. — identity unresolved",
+      "branch": "Webb / Connecticut",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "elizabeth_edwards",
+      "name": "Elizabeth A. “Louisa” Edwards",
+      "years": "19th c.",
+      "branch": "Edwards",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "elizabeth_webb",
+      "name": "Elizabeth Dunbar Webb",
+      "years": "18th c.",
+      "branch": "Dunbar",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "elsie_mortensen",
+      "name": "Elsie Margaret Mortensen Ray",
+      "years": "1864–1918",
+      "branch": "Denmark",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "franny_weldon",
+      "name": "Frances Fanny Weldon",
+      "years": "c. 1791–after 1860",
+      "branch": "Dunbar",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "gideon_webb",
+      "name": "Gideon Webb",
+      "years": "1709–1799",
+      "branch": "Webb / Connecticut",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "gooley_frontier",
+      "name": "Gooley origin frontier",
+      "years": "",
+      "branch": "Gooley / Canada",
+      "confidence": "frontier",
+      "collateral": false
+    },
+    {
+      "id": "goulet_france_frontier",
+      "name": "Possible Goulet line into France",
+      "years": "earlier centuries",
+      "branch": "Gooley / France hypothesis",
+      "confidence": "frontier",
+      "collateral": false
+    },
+    {
+      "id": "goulet_hypothesis",
+      "name": "French-Canadian Goulet hypothesis",
+      "years": "",
+      "branch": "Gooley / France hypothesis",
+      "confidence": "frontier",
+      "collateral": false
+    },
+    {
+      "id": "grace_hill",
+      "name": "Grace Mildred Hill",
+      "years": "1908–",
+      "branch": "Hill / Dunbar",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "hannah_griswold",
+      "name": "Hannah Griswold",
+      "years": "1790–1845",
+      "branch": "Webb / Connecticut",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "helena_sandersen",
+      "name": "Helena / Lene Pedersdatter Sandersen",
+      "years": "1808–1890",
+      "branch": "Denmark",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "hemming_olufsen",
+      "name": "Hemming Olufsen Seye",
+      "years": "c. 1575–1647",
+      "branch": "Seje / Seye",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "ida_mae",
+      "name": "Ida Mae Gooley",
+      "years": "1872–1932",
+      "branch": "Gooley / Canada",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "inez_karen",
+      "name": "Inez Karen Prather",
+      "years": "c. 1945–",
+      "branch": "Hill / Prather",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "isaac_carling",
+      "name": "Isaac Van Wagoner Carling",
+      "years": "1831–1911",
+      "branch": "Webb / Carling",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "isaiah_hill",
+      "name": "Isaiah “Zay” Hill Sr.",
+      "years": "1885–1963",
+      "branch": "Hill / Dunbar",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "jamar_webb",
+      "name": "Jamar Webb",
+      "years": "1946–1946",
+      "branch": "Webb",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "james_sheldon",
+      "name": "James Sheldon Webb",
+      "years": "1943–",
+      "branch": "Webb",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "james_webb_jr",
+      "name": "James Webb Jr.",
+      "years": "1777–1845",
+      "branch": "Webb / Connecticut",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "james_webb_sr",
+      "name": "James Webb (often styled James Henry Webb)",
+      "years": "18th–early 19th c.",
+      "branch": "Webb / Connecticut",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "james_wilford",
+      "name": "James Wilford “Jay” Webb",
+      "years": "1924–2014",
+      "branch": "Webb",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "james_wilford_ray",
+      "name": "James Wilford Ray Sr.",
+      "years": "1861–1920",
+      "branch": "Ray",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "jean_baptiste_tellier_candidate",
+      "name": "Jean-Baptiste Tellier",
+      "years": "d. before 25 May 1846",
+      "branch": "Gooley / Goulet candidate",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "jessie_irene_aurin",
+      "name": "Jessie Irene Aurin / Aurian",
+      "years": "1879–1956?",
+      "branch": "Skinner / Aurin",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "johanne_weller",
+      "name": "Johanne Dorothea Weller",
+      "years": "19th c.",
+      "branch": "Brenay / Germany",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "john_a_skinner_c1833",
+      "name": "John A. Skinner",
+      "years": "c. 1833–? (death unproved)",
+      "branch": "Skinner / Lewis",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "john_auene_1879",
+      "name": "John/Jonas Aurin (Auene)",
+      "years": "Adult in 1879; birth and death undetermined",
+      "branch": "Skinner / Aurin",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "john_peter",
+      "name": "John Peter Gooley",
+      "years": "c. 1840s–1910",
+      "branch": "Gooley / Canada",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "john_peter_goulet_1828",
+      "name": "John Peter Goulet (explored candidate)",
+      "years": "1828–?",
+      "branch": "Gooley / France hypothesis",
+      "confidence": "frontier",
+      "collateral": false
+    },
+    {
+      "id": "john_s_prather",
+      "name": "John S. Prather",
+      "years": "c. 1847–? (1848 also reported)",
+      "branch": "Hill / Prather",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "john_webb_1615",
+      "name": "John Webb",
+      "years": "c. 1615–1670",
+      "branch": "Webb / England",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "john_webb_1640",
+      "name": "John Webb",
+      "years": "c. 1640–1720",
+      "branch": "Webb / Connecticut",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "john_webb_1667",
+      "name": "John Webb",
+      "years": "1667–1711/12",
+      "branch": "Webb / Connecticut",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "jonathan_henry",
+      "name": "Jonathan Henry Webb",
+      "years": "1886–1975",
+      "branch": "Webb",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "karen_hansdatter_1766",
+      "name": "Karen Hansdatter",
+      "years": "c. 1766–1839 (unverified)",
+      "branch": "Denmark",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "knud_jensen_brygger",
+      "name": "Knud Jensen Brygger",
+      "years": "19th c.",
+      "branch": "Denmark / Jensen",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "levin_madsen",
+      "name": "Levin Sander Madsen",
+      "years": "1739–1809",
+      "branch": "Denmark",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "levin_zander",
+      "name": "Levin Zander",
+      "years": "c. 1660–1712",
+      "branch": "Denmark / Germany",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "louella_roberts_prather",
+      "name": "Louella (Lue) Roberts Prather",
+      "years": "c. 1855/56–?",
+      "branch": "Hill / Prather",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "louise_anne_tellier_1846",
+      "name": "Louise-Anne Tellier",
+      "years": "19th c.",
+      "branch": "Gooley / Goulet candidate",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "mads_hansen",
+      "name": "Mads Hansen",
+      "years": "c. 1706–1750",
+      "branch": "Denmark",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "malene_mortens",
+      "name": "Malene Christiane Mortensdatter",
+      "years": "c. 1708/10–1789",
+      "branch": "Denmark",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "margrethe_anders",
+      "name": "Margrethe Andersdatter",
+      "years": "1737–1816",
+      "branch": "Denmark",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "margrethe_lars",
+      "name": "Margrethe Lauridsdatter",
+      "years": "early 1700s",
+      "branch": "Seje / Seye",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "marian_lewis_skinner_c1838",
+      "name": "Marian (Mary) Lewis Skinner",
+      "years": "c. 1838–21 May 1932 (birth estimate)",
+      "branch": "Skinner / Lewis",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "marian_skinner",
+      "name": "Marian Beulah Skinner",
+      "years": "1903–1996",
+      "branch": "Skinner",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "marie_agnes_dufault",
+      "name": "Marie-Agnès Dufault",
+      "years": "19th c.",
+      "branch": "Gooley / France hypothesis",
+      "confidence": "frontier",
+      "collateral": false
+    },
+    {
+      "id": "marie_elisabeth_tellier_mother_unresolved",
+      "name": "Marie-Élisabeth [surname unresolved]",
+      "years": "19th c.",
+      "branch": "Gooley / Goulet candidate",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "marion_brenay",
+      "name": "Marion Beulah Brenay",
+      "years": "1923–2012",
+      "branch": "Brenay / Canada",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "mary_ann",
+      "name": "Mary Ann Dennis",
+      "years": "1844–1919",
+      "branch": "Dennis / Canada",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "mette_jorg",
+      "name": "Mette Jørgensdatter / Seye",
+      "years": "1742–1815",
+      "branch": "Seje / Seye",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "molly_weedon",
+      "name": "Mary “Molly” Weedon",
+      "years": "18th c.",
+      "branch": "Weedon",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "morten_nielsen",
+      "name": "Morten Nielsen",
+      "years": "c. 1680–1733",
+      "branch": "Denmark",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "morten_peder",
+      "name": "Morten Peder Mortensen",
+      "years": "1828–",
+      "branch": "Denmark",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "morten_pedersen_1771",
+      "name": "Morten Pedersen (1771)",
+      "years": "1771–1823/24 (death year disputed)",
+      "branch": "Denmark",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "nannie_reed",
+      "name": "Nannie Ella Mae Reed Hill",
+      "years": "c. 1888/89–? (unverified)",
+      "branch": "Hill / Reed",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "niels_olufsen",
+      "name": "Niels Olufsen / Olsen Seye",
+      "years": "d. 1738",
+      "branch": "Seje / Seye",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "niels_pedersen",
+      "name": "Niels Pedersen",
+      "years": "c. 1645–1717",
+      "branch": "Denmark",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "niels_seye",
+      "name": "Niels Seye",
+      "years": "c. 1525?",
+      "branch": "Seje / Seye",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "oluf_hemmingsen",
+      "name": "Oluf Hemmingsen Seye",
+      "years": "c. 1614–1701",
+      "branch": "Seje / Seye",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "oluf_nielsen",
+      "name": "Oluf Nielsen Seye",
+      "years": "c. 1558–1596",
+      "branch": "Seje / Seye",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "peder_mortensen_1784",
+      "name": "Peder Mortensen (d. 1784)",
+      "years": "?–1784",
+      "branch": "Denmark",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "peder_mortensen_1806",
+      "name": "Peder Mortensen",
+      "years": "1806–1866",
+      "branch": "Denmark",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "peder_sandersen",
+      "name": "Peder Sandersen",
+      "years": "1777–1846",
+      "branch": "Denmark",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "peter_gooley",
+      "name": "Peter Gooley",
+      "years": "early 1800s",
+      "branch": "Gooley / Canada",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "pierre_goulet_1846_candidate",
+      "name": "Pierre Goulet (1846 candidate)",
+      "years": "19th c.",
+      "branch": "Gooley / Goulet candidate",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "rev_thomas",
+      "name": "Thomas Dunbar",
+      "years": "c. 1760–1855",
+      "branch": "Dunbar",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "richard_francis_skinner",
+      "name": "Richard Francis Skinner",
+      "years": "c. 1863–1933",
+      "branch": "Skinner",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "richard_webb_1580",
+      "name": "Richard Webb (traditional immigrant attribution)",
+      "years": "c. 1580–17th c.",
+      "branch": "Webb / England",
+      "confidence": "frontier",
+      "collateral": false
+    },
+    {
+      "id": "russell_hill",
+      "name": "Colonel Russell Hill",
+      "years": "c. 1848/50–1899",
+      "branch": "Hill / Dunbar",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "ruth_graves",
+      "name": "Ruth Graves",
+      "years": "1674–1755",
+      "branch": "Webb / Connecticut",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "sarah_carling",
+      "name": "Sarah Elizabeth Carling",
+      "years": "1856–1949",
+      "branch": "Webb / Carling",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "seye_frontier",
+      "name": "Seye documentary horizon",
+      "years": "early 1500s",
+      "branch": "Seje / Seye",
+      "confidence": "frontier",
+      "collateral": false
+    },
+    {
+      "id": "susanna_cunliffe",
+      "name": "Susannah Cunliffe",
+      "years": "c. 1644–1735",
+      "branch": "Webb / Connecticut",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "therese_lalonde_candidate",
+      "name": "Thérèse Lalonde",
+      "years": "19th c.",
+      "branch": "Gooley / Goulet candidate",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "thomas_d",
+      "name": "Thomas D. Dunbar",
+      "years": "c. 1820/21–1897",
+      "branch": "Dunbar",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "thomas_prather",
+      "name": "Thomas Estil Prather",
+      "years": "1877/1878–1950",
+      "branch": "Hill / Prather",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "thrine_levins",
+      "name": "Thrine Levinsdatter",
+      "years": "c. 1690–after 1757",
+      "branch": "Denmark",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "webb_england_frontier",
+      "name": "Webb England documentary frontier",
+      "years": "late 1500s / early 1600s",
+      "branch": "Webb / England",
+      "confidence": "frontier",
+      "collateral": false
+    },
+    {
+      "id": "wilhelm_brunne",
+      "name": "Wilhelm Karl Charles Brunne",
+      "years": "19th c.",
+      "branch": "Brenay / Germany",
+      "confidence": "provisional",
+      "collateral": false
+    },
+    {
+      "id": "william_weedon",
+      "name": "William Weedon / Weeden Dunbar",
+      "years": "1787–1877/79",
+      "branch": "Dunbar",
+      "confidence": "strong",
+      "collateral": false
+    },
+    {
+      "id": "you",
+      "name": "You",
+      "years": "",
+      "branch": "Core",
+      "confidence": "confirmed",
+      "collateral": false
+    },
+    {
+      "id": "zeffie_west",
+      "name": "Zeffie L. Hill West",
+      "years": "1889–1944",
+      "branch": "Hill collateral",
+      "confidence": "provisional",
+      "collateral": true
+    }
+  ],
+  "edges": [
+    {
+      "a": "ann_eliza_webb",
+      "b": "chauncey_webb",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "ann_eliza_webb",
+      "b": "eliza_jane_churchill",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "anne_seje",
+      "b": "margrethe_lars",
+      "confidence": "strong"
+    },
+    {
+      "a": "anne_seje",
+      "b": "niels_olufsen",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "brenay_ammon",
+      "b": "charles_albert",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_ammon",
+      "b": "marian_skinner",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_arnold",
+      "b": "charles_albert",
+      "confidence": "provisional"
+    },
+    {
+      "a": "brenay_arnold",
+      "b": "marian_skinner",
+      "confidence": "provisional"
+    },
+    {
+      "a": "brenay_david",
+      "b": "charles_albert",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_david",
+      "b": "marian_skinner",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_esther",
+      "b": "charles_albert",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_esther",
+      "b": "marian_skinner",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_henry",
+      "b": "charles_albert",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_henry",
+      "b": "marian_skinner",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_isaac",
+      "b": "charles_albert",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_isaac",
+      "b": "marian_skinner",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_joan",
+      "b": "charles_albert",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_joan",
+      "b": "marian_skinner",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_joseph",
+      "b": "charles_albert",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_joseph",
+      "b": "marian_skinner",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_martha",
+      "b": "charles_albert",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_martha",
+      "b": "marian_skinner",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_moroni",
+      "b": "charles_albert",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_moroni",
+      "b": "marian_skinner",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_ruth",
+      "b": "charles_albert",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_ruth",
+      "b": "marian_skinner",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_virginia",
+      "b": "charles_albert",
+      "confidence": "strong"
+    },
+    {
+      "a": "brenay_virginia",
+      "b": "marian_skinner",
+      "confidence": "strong"
+    },
+    {
+      "a": "charles_albert",
+      "b": "charles_godfrey",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "charles_albert",
+      "b": "ida_mae",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "charles_godfrey",
+      "b": "johanne_weller",
+      "confidence": "provisional"
+    },
+    {
+      "a": "charles_godfrey",
+      "b": "wilhelm_brunne",
+      "confidence": "provisional"
+    },
+    {
+      "a": "chauncey_webb",
+      "b": "hannah_griswold",
+      "confidence": "strong"
+    },
+    {
+      "a": "chauncey_webb",
+      "b": "james_webb_jr",
+      "confidence": "strong"
+    },
+    {
+      "a": "davia_dunbar",
+      "b": "elizabeth_edwards",
+      "confidence": "strong"
+    },
+    {
+      "a": "davia_dunbar",
+      "b": "thomas_d",
+      "confidence": "strong"
+    },
+    {
+      "a": "della_ray",
+      "b": "elsie_mortensen",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "della_ray",
+      "b": "james_wilford_ray",
+      "confidence": "strong"
+    },
+    {
+      "a": "dorthea_jensen",
+      "b": "bodil_olesdatter",
+      "confidence": "strong"
+    },
+    {
+      "a": "dorthea_jensen",
+      "b": "knud_jensen_brygger",
+      "confidence": "strong"
+    },
+    {
+      "a": "edward_milo_jr",
+      "b": "caroline_owens",
+      "confidence": "strong"
+    },
+    {
+      "a": "edward_milo_jr",
+      "b": "edward_milo_sr",
+      "confidence": "strong"
+    },
+    {
+      "a": "edward_milo_sr",
+      "b": "hannah_griswold",
+      "confidence": "strong"
+    },
+    {
+      "a": "edward_milo_sr",
+      "b": "james_webb_jr",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "elsie_mortensen",
+      "b": "dorthea_jensen",
+      "confidence": "strong"
+    },
+    {
+      "a": "elsie_mortensen",
+      "b": "morten_peder",
+      "confidence": "strong"
+    },
+    {
+      "a": "gideon_webb",
+      "b": "john_webb_1667",
+      "confidence": "provisional"
+    },
+    {
+      "a": "gideon_webb",
+      "b": "ruth_graves",
+      "confidence": "provisional"
+    },
+    {
+      "a": "goulet_hypothesis",
+      "b": "john_peter_goulet_1828",
+      "confidence": "frontier"
+    },
+    {
+      "a": "grace_hill",
+      "b": "isaiah_hill",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "grace_hill",
+      "b": "nannie_reed",
+      "confidence": "strong"
+    },
+    {
+      "a": "helena_sandersen",
+      "b": "ane_kirstine",
+      "confidence": "strong"
+    },
+    {
+      "a": "helena_sandersen",
+      "b": "peder_sandersen",
+      "confidence": "strong"
+    },
+    {
+      "a": "hemming_olufsen",
+      "b": "oluf_nielsen",
+      "confidence": "strong"
+    },
+    {
+      "a": "ida_mae",
+      "b": "john_peter",
+      "confidence": "strong"
+    },
+    {
+      "a": "ida_mae",
+      "b": "mary_ann",
+      "confidence": "strong"
+    },
+    {
+      "a": "inez_karen",
+      "b": "grace_hill",
+      "confidence": "strong"
+    },
+    {
+      "a": "inez_karen",
+      "b": "thomas_prather",
+      "confidence": "strong"
+    },
+    {
+      "a": "isaiah_hill",
+      "b": "davia_dunbar",
+      "confidence": "strong"
+    },
+    {
+      "a": "isaiah_hill",
+      "b": "russell_hill",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "jamar_webb",
+      "b": "james_wilford",
+      "confidence": "strong"
+    },
+    {
+      "a": "jamar_webb",
+      "b": "marion_brenay",
+      "confidence": "strong"
+    },
+    {
+      "a": "james_sheldon",
+      "b": "james_wilford",
+      "confidence": "strong"
+    },
+    {
+      "a": "james_sheldon",
+      "b": "marion_brenay",
+      "confidence": "strong"
+    },
+    {
+      "a": "james_webb_jr",
+      "b": "elizabeth_douglas",
+      "confidence": "provisional"
+    },
+    {
+      "a": "james_webb_jr",
+      "b": "james_webb_sr",
+      "confidence": "provisional"
+    },
+    {
+      "a": "james_webb_sr",
+      "b": "edith_bates",
+      "confidence": "provisional"
+    },
+    {
+      "a": "james_webb_sr",
+      "b": "gideon_webb",
+      "confidence": "provisional"
+    },
+    {
+      "a": "james_wilford",
+      "b": "della_ray",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "james_wilford",
+      "b": "jonathan_henry",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "jessie_irene_aurin",
+      "b": "amelia_l_cotton",
+      "confidence": "strong"
+    },
+    {
+      "a": "jessie_irene_aurin",
+      "b": "john_auene_1879",
+      "confidence": "strong"
+    },
+    {
+      "a": "john_peter_goulet_1828",
+      "b": "benjamin_goulet",
+      "confidence": "frontier"
+    },
+    {
+      "a": "john_peter_goulet_1828",
+      "b": "marie_agnes_dufault",
+      "confidence": "frontier"
+    },
+    {
+      "a": "john_peter",
+      "b": "peter_gooley",
+      "confidence": "provisional"
+    },
+    {
+      "a": "john_webb_1615",
+      "b": "richard_webb_1580",
+      "confidence": "frontier"
+    },
+    {
+      "a": "john_webb_1640",
+      "b": "anna_bassett",
+      "confidence": "provisional"
+    },
+    {
+      "a": "john_webb_1640",
+      "b": "john_webb_1615",
+      "confidence": "provisional"
+    },
+    {
+      "a": "john_webb_1667",
+      "b": "john_webb_1640",
+      "confidence": "provisional"
+    },
+    {
+      "a": "john_webb_1667",
+      "b": "susanna_cunliffe",
+      "confidence": "provisional"
+    },
+    {
+      "a": "jonathan_henry",
+      "b": "edward_milo_jr",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "jonathan_henry",
+      "b": "sarah_carling",
+      "confidence": "strong"
+    },
+    {
+      "a": "levin_madsen",
+      "b": "mads_hansen",
+      "confidence": "strong"
+    },
+    {
+      "a": "levin_madsen",
+      "b": "malene_mortens",
+      "confidence": "strong"
+    },
+    {
+      "a": "louise_anne_tellier_1846",
+      "b": "jean_baptiste_tellier_candidate",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "louise_anne_tellier_1846",
+      "b": "marie_elisabeth_tellier_mother_unresolved",
+      "confidence": "provisional"
+    },
+    {
+      "a": "malene_mortens",
+      "b": "morten_nielsen",
+      "confidence": "strong"
+    },
+    {
+      "a": "malene_mortens",
+      "b": "thrine_levins",
+      "confidence": "strong"
+    },
+    {
+      "a": "marian_skinner",
+      "b": "jessie_irene_aurin",
+      "confidence": "provisional"
+    },
+    {
+      "a": "marian_skinner",
+      "b": "richard_francis_skinner",
+      "confidence": "provisional"
+    },
+    {
+      "a": "marion_brenay",
+      "b": "charles_albert",
+      "confidence": "strong"
+    },
+    {
+      "a": "marion_brenay",
+      "b": "marian_skinner",
+      "confidence": "strong"
+    },
+    {
+      "a": "mette_jorg",
+      "b": "anne_seje",
+      "confidence": "provisional"
+    },
+    {
+      "a": "morten_nielsen",
+      "b": "avens_mortens",
+      "confidence": "strong"
+    },
+    {
+      "a": "morten_nielsen",
+      "b": "niels_pedersen",
+      "confidence": "strong"
+    },
+    {
+      "a": "morten_peder",
+      "b": "helena_sandersen",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "morten_peder",
+      "b": "peder_mortensen_1806",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "morten_pedersen_1771",
+      "b": "mette_jorg",
+      "confidence": "provisional"
+    },
+    {
+      "a": "morten_pedersen_1771",
+      "b": "peder_mortensen_1784",
+      "confidence": "provisional"
+    },
+    {
+      "a": "niels_olufsen",
+      "b": "oluf_hemmingsen",
+      "confidence": "strong"
+    },
+    {
+      "a": "oluf_hemmingsen",
+      "b": "hemming_olufsen",
+      "confidence": "strong"
+    },
+    {
+      "a": "oluf_nielsen",
+      "b": "niels_seye",
+      "confidence": "strong"
+    },
+    {
+      "a": "peder_mortensen_1806",
+      "b": "karen_hansdatter_1766",
+      "confidence": "provisional"
+    },
+    {
+      "a": "peder_mortensen_1806",
+      "b": "morten_pedersen_1771",
+      "confidence": "provisional"
+    },
+    {
+      "a": "peder_sandersen",
+      "b": "levin_madsen",
+      "confidence": "strong"
+    },
+    {
+      "a": "peder_sandersen",
+      "b": "margrethe_anders",
+      "confidence": "strong"
+    },
+    {
+      "a": "pierre_goulet_1846_candidate",
+      "b": "benjamin_goulet_candidate_father",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "pierre_goulet_1846_candidate",
+      "b": "therese_lalonde_candidate",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "richard_francis_skinner",
+      "b": "john_a_skinner_c1833",
+      "confidence": "strong"
+    },
+    {
+      "a": "richard_francis_skinner",
+      "b": "marian_lewis_skinner_c1838",
+      "confidence": "strong"
+    },
+    {
+      "a": "sarah_carling",
+      "b": "asenath_browning",
+      "confidence": "strong"
+    },
+    {
+      "a": "sarah_carling",
+      "b": "isaac_carling",
+      "confidence": "strong"
+    },
+    {
+      "a": "thomas_d",
+      "b": "franny_weldon",
+      "confidence": "strong"
+    },
+    {
+      "a": "thomas_d",
+      "b": "william_weedon",
+      "confidence": "strong"
+    },
+    {
+      "a": "thomas_prather",
+      "b": "john_s_prather",
+      "confidence": "strong"
+    },
+    {
+      "a": "thomas_prather",
+      "b": "louella_roberts_prather",
+      "confidence": "strong"
+    },
+    {
+      "a": "thrine_levins",
+      "b": "levin_zander",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "william_weedon",
+      "b": "molly_weedon",
+      "confidence": "strong"
+    },
+    {
+      "a": "william_weedon",
+      "b": "rev_thomas",
+      "confidence": "strong"
+    },
+    {
+      "a": "you",
+      "b": "inez_karen",
+      "confidence": "strong"
+    },
+    {
+      "a": "you",
+      "b": "james_sheldon",
+      "confidence": "strong"
+    },
+    {
+      "a": "zeffie_west",
+      "b": "davia_dunbar",
+      "confidence": "provisional"
+    },
+    {
+      "a": "zeffie_west",
+      "b": "russell_hill",
+      "confidence": "provisional"
+    }
+  ],
+  "unions": [
+    {
+      "a": "ann_eliza_webb",
+      "b": "brigham_young",
+      "label": "historical plural marriage; subsequent legal status contested",
+      "confidence": "strong"
+    },
+    {
+      "a": "chauncey_webb",
+      "b": "eliza_jane_churchill",
+      "label": "historical marriage",
+      "confidence": "strong"
+    },
+    {
+      "a": "peder_mortensen_1784",
+      "b": "mette_jorg",
+      "label": "marriage",
+      "confidence": "confirmed"
+    },
+    {
+      "a": "pierre_goulet_1846_candidate",
+      "b": "louise_anne_tellier_1846",
+      "label": "marriage",
+      "confidence": "confirmed"
+    }
+  ]
+}

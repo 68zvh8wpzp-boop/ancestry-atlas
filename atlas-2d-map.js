@@ -2,7 +2,7 @@
    This prototype never changes the archival node/edge records. */
 (function(){
 "use strict";
-var data=window.ATLAS_2D_PEDIGREE,lib=window.Atlas2DLayout,familyLib=window.Atlas2DFamily;
+var data=window.AtlasCanonicalGraph?.read(),lib=window.Atlas2DLayout,familyLib=window.Atlas2DFamily;
 if(!data||!lib||!familyLib){document.body.textContent="The Atlas map could not load its family relationships.";return;}
 var layout=lib.create(data,"you"),familyIndex=familyLib.create(data);
 var nodes=layout.nodes,byId=layout.positions,links=layout.links;

@@ -3,6 +3,7 @@ import {readFile} from "node:fs/promises";
 import {test} from "node:test";
 import vm from "node:vm";
 const read=path=>readFile(new URL("../"+path,import.meta.url),"utf8");
+import {canonicalGraph,installCanonical} from "./atlas-test-graph.mjs";
 
 test("the Home Screen app links to the separate map with a return route",async()=>{
   const [entry,manifest,html,original]=await Promise.all([
@@ -15,82 +16,53 @@ test("the Home Screen app links to the separate map with a return route",async()
   assert.match(html,/atlas-museum-route-20261123\.js/);
   assert.match(html,/atlas-museum-route-20261123\.css/);
   assert.ok(!original.includes("atlas-2d-map.js"));
-  for(const name of ["atlas-2d-pedigree-snapshot.js","atlas-2d-layout.js","atlas-2d-family.js","atlas-2d-map.js","atlas-2d-map.css"]){
+  for(const name of ["atlas-canonical-family-data.js","atlas-2d-layout.js","atlas-2d-family.js","atlas-2d-map.js","atlas-2d-map.css"]){
     assert.ok(html.includes(name),"missing asset: "+name);
     assert.ok((await read(name)).length>100);
   }
   assert.ok(!html.includes("iframe id=\"bio-frame\" src="),"old Atlas is loaded only on request");
 });
 
-test("2D snapshot mirrors static Atlas data plus evidence-qualified runtime relatives",async()=>{
-  const html=await read("atlas-v3.9.63.html");
-  const start=html.indexOf("const DATA = ");
-  const end=html.indexOf(";\n",start);
-  assert.ok(start>=0 && end>start,"original DATA must be findable");
-  const original=JSON.parse(html.slice(start+"const DATA = ".length,end));
-  const code=await read("atlas-2d-pedigree-snapshot.js");
-  const sandbox={window:{}};vm.runInNewContext(code,sandbox);
-  const copy=sandbox.window.ATLAS_2D_PEDIGREE;
-  assert.equal(original.nodes.length,106);
-  assert.equal(original.edges.length,108);
-  assert.equal(copy.nodes.length,original.nodes.length+13);
-  const effectiveSourceEdges=original.edges.filter(e=>!(e.a==="peder_mortensen_1806"&&e.b==="mette_jorg"));
-  assert.equal(copy.edges.length,effectiveSourceEdges.length+16);
-  // Original static source must still mirror byte-for-byte in person/edge order.
-  for(let i=0;i<original.nodes.length;i++){
-    const n=copy.nodes[i],o=original.nodes[i];
-    for(const key of ["id","name","years","place","branch","confidence","collateral"]){
-      assert.equal(n[key],key==="collateral"?!!o[key]:o[key]|| (key==="confidence"?"strong":""),"node "+i+" "+key);
-    }
-  }
-  for(let i=0;i<effectiveSourceEdges.length;i++){
-    const e=copy.edges[i],o=effectiveSourceEdges[i];
-    assert.equal(e.a,o.a);assert.equal(e.b,o.b);
-    // A218 live runtime already downgraded Mette's disputed mother link.
-    const effective=(e.a==="mette_jorg"&&e.b==="anne_seje")?"provisional":o.confidence||"strong";
-    assert.equal(e.confidence,effective);
-  }
-  const expected=[
+test("one canonical graph preserves all source-qualified people, links and unresolved research",async()=>{
+  const [html,source]=await Promise.all([read("atlas-v3.9.63.html"),read("atlas-canonical-family-data.js")]);
+  const graph=canonicalGraph();
+  assert.match(html,/const DATA = window\.AtlasCanonicalGraph\.read\(\)/);
+  assert.ok(!html.includes('const DATA = {"nodes"'),"No second graph inside person UI");
+  assert.equal(graph.nodes.length,119);
+  assert.equal(graph.edges.length,123);
+  const ids=new Set(graph.nodes.map(n=>n.id));
+  assert.equal(ids.size,graph.nodes.length);
+  for(const id of [
     "nannie_reed","thomas_prather","john_s_prather","louella_roberts_prather",
     "amelia_l_cotton","john_auene_1879","morten_pedersen_1771",
     "karen_hansdatter_1766","peder_mortensen_1784","brenay_esther","brenay_joan",
     "john_a_skinner_c1833","marian_lewis_skinner_c1838"
-  ];
-  assert.deepEqual(Array.from(copy.nodes.slice(original.nodes.length),n=>n.id),expected);
-  const newEdges=Array.from(copy.edges.slice(effectiveSourceEdges.length),e=>e.a+"|"+e.b);
-  assert.equal(new Set(newEdges).size,16,"runtime parent links are unique");
-  for(const required of [
+  ])assert.ok(ids.has(id),"canonical graph missing person: "+id);
+  const edgeKeys=new Set(graph.edges.map(e=>e.a+"|"+e.b));
+  for(const key of [
     "grace_hill|nannie_reed","inez_karen|thomas_prather",
-    "thomas_prather|john_s_prather","thomas_prather|louella_roberts_prather",
     "jessie_irene_aurin|amelia_l_cotton","jessie_irene_aurin|john_auene_1879",
     "peder_mortensen_1806|morten_pedersen_1771",
     "peder_mortensen_1806|karen_hansdatter_1766",
     "morten_pedersen_1771|peder_mortensen_1784",
     "morten_pedersen_1771|mette_jorg",
-    "brenay_esther|charles_albert","brenay_esther|marian_skinner",
-    "brenay_joan|charles_albert","brenay_joan|marian_skinner",
+    "brenay_esther|charles_albert","brenay_joan|marian_skinner",
     "richard_francis_skinner|john_a_skinner_c1833",
     "richard_francis_skinner|marian_lewis_skinner_c1838"
-  ])assert.ok(newEdges.includes(required),"missing qualified source relationship: "+required);
-  assert.ok(!copy.edges.some(e=>e.a==="peder_mortensen_1806"&&e.b==="mette_jorg"),"do not skip a Danish generation");
-  assert.ok(!copy.edges.some(e=>e.a==="marian_lewis_skinner_c1838"),"do not invent Marian Lewis parentage");
-  assert.ok(html.includes("richard-skinner-1870-denver-census-original.jpg")&&html.includes("richard-jessie-marriage-1899-original.jpg"),"reuse verified original master images on parent pages");
-  const recordedFather=copy.nodes.find(n=>n.id==="john_auene_1879");
-  assert.match(recordedFather.name,/recorded father/);
-  assert.equal(recordedFather.confidence,"provisional","John/Jonas identity remains unresolved");
-  // New person records come from existing Atlas runtime code, not invented contacts.
-  for(const id of expected.slice(0,6))assert.ok(html.includes(id),"runtime does not name "+id);
-  for(const id of expected.slice(6,9))assert.ok(html.includes(id),"Danish runtime does not name "+id);
-  const siblingRuntime=await read("atlas-evidence-sync-2026-10-03-fulltext-v9.js");
-  for(const id of expected.slice(9,11))assert.ok(siblingRuntime.includes(id),"missing child from v9 runtime: "+id);
-  for(const id of expected.slice(11))assert.ok(html.includes(id),"missing source-qualified A430 parent: "+id);
+  ])assert.ok(edgeKeys.has(key),"canonical relationship missing: "+key);
+  assert.ok(!edgeKeys.has("peder_mortensen_1806|mette_jorg"),"Danish skipped-generation link must remain rejected");
+  assert.ok(graph.nodes.find(n=>n.id==="john_auene_1879").note.includes("not a proven alias"));
+  assert.equal(graph.nodes.find(n=>n.id==="john_auene_1879").confidence,"strong","Retain main source's exact research grade without promoting identity equivalence");
+  assert.match(graph.nodes.find(n=>n.id==="john_auene_1879").note,/not a proven alias/);
+  const elder=graph.nodes.find(n=>n.id==="marian_lewis_skinner_c1838");
+  assert.match(elder.note,/unresolved original-source contradiction/);
+  assert.match(source,/A218 Danish lineage audit/);
 });
-
 test("layout shows a true 2-D parent-child structure with no invented connections",async()=>{
   const sandbox={window:{}};
-  vm.runInNewContext(await read("atlas-2d-pedigree-snapshot.js"),sandbox);
+  installCanonical(sandbox);
   vm.runInNewContext(await read("atlas-2d-layout.js"),sandbox);
-  const data=sandbox.window.ATLAS_2D_PEDIGREE;
+  const data=sandbox.window.AtlasCanonicalGraph.read();
   const layout=sandbox.window.Atlas2DLayout.create(data,"you");
   assert.ok(layout.nodes.length>60,"the real mapped direct ancestry must be present");
   assert.ok(layout.links.length>60,"all direct mapped edges should render");
@@ -128,9 +100,9 @@ test("map code parses and supports real touch gestures, LOD, paths and optional 
 
 test("family portrait uses existing relationships, including mapped collateral children",async()=>{
   const sandbox={window:{}};
-  vm.runInNewContext(await read("atlas-2d-pedigree-snapshot.js"),sandbox);
+  installCanonical(sandbox);
   vm.runInNewContext(await read("atlas-2d-family.js"),sandbox);
-  const snap=sandbox.window.ATLAS_2D_PEDIGREE;
+  const snap=sandbox.window.AtlasCanonicalGraph.read();
   const family=sandbox.window.Atlas2DFamily.create(snap);
   const richard=family.family("richard_francis_skinner");
   assert.deepEqual(Array.from(richard.parents.map(p=>p.id)),["john_a_skinner_c1833","marian_lewis_skinner_c1838"]);
@@ -153,9 +125,9 @@ test("family portrait uses existing relationships, including mapped collateral c
 
 test("searchable Atlas records include unlinked relatives and research candidates",async()=>{
   const sandbox={window:{}};
-  vm.runInNewContext(await read("atlas-2d-pedigree-snapshot.js"),sandbox);
+  installCanonical(sandbox);
   vm.runInNewContext(await read("atlas-2d-layout.js"),sandbox);
-  const snap=sandbox.window.ATLAS_2D_PEDIGREE;
+  const snap=sandbox.window.AtlasCanonicalGraph.read();
   const mapped=sandbox.window.Atlas2DLayout.create(snap,"you");
   assert.equal(snap.nodes.length,119);
   // Corrected biological links disconnect unsupported candidate branches;
@@ -175,9 +147,9 @@ test("searchable Atlas records include unlinked relatives and research candidate
 
 test("mapped siblings appear once, without inventing unknown half-sibling relationships",async()=>{
   const sandbox={window:{}};
-  vm.runInNewContext(await read("atlas-2d-pedigree-snapshot.js"),sandbox);
+  installCanonical(sandbox);
   vm.runInNewContext(await read("atlas-2d-family.js"),sandbox);
-  const fam=sandbox.window.Atlas2DFamily.create(sandbox.window.ATLAS_2D_PEDIGREE);
+  const fam=sandbox.window.Atlas2DFamily.create(sandbox.window.AtlasCanonicalGraph.read());
   const marion=fam.family("marion_brenay");
   assert.equal(marion.siblingCount,12,"Marion has twelve currently mapped siblings");
   assert.equal(marion.siblings.length,12);
@@ -225,9 +197,9 @@ test("family tabs keep children visible without scrolling through siblings",asyn
 });
 test("multiple co-parent groups stay distinct and never invent a marriage",async()=>{
   const sandbox={window:{}};
-  vm.runInNewContext(await read("atlas-2d-pedigree-snapshot.js"),sandbox);
+  installCanonical(sandbox);
   vm.runInNewContext(await read("atlas-2d-family.js"),sandbox);
-  const index=sandbox.window.Atlas2DFamily.create(sandbox.window.ATLAS_2D_PEDIGREE);
+  const index=sandbox.window.Atlas2DFamily.create(sandbox.window.AtlasCanonicalGraph.read());
   const marion=index.family("marion_brenay");
   assert.equal(marion.childGroups.length,1);
   assert.deepEqual(Array.from(marion.childGroups[0].otherParents.map(p=>p.id)),["james_wilford"]);
@@ -250,14 +222,10 @@ test("multiple co-parent groups stay distinct and never invent a marriage",async
 });
 
 
-test("A436 elder Skinner original sources carry the 1897-vs-1930 discrepancy, not a fabricated death",async()=>{
- const html=await read("atlas-v3.9.63.html");
- const section=html.slice(html.indexOf("/* A430 —"),html.indexOf("// A207 —"));
- const line=section.split("\n").find(x=>x.trim().startsWith("const ancestors="));
- assert.ok(line,"A430 person source data");
- const elders=JSON.parse(line.slice(line.indexOf("=")+1,line.lastIndexOf(";")));
- const john=elders.find(x=>x.id==="john_a_skinner_c1833");
- const marian=elders.find(x=>x.id==="marian_lewis_skinner_c1838");
+test("A436 elder Skinner conflict stays evidence-qualified in shared records",async()=>{
+ const data=canonicalGraph();
+ const john=data.nodes.find(n=>n.id==="john_a_skinner_c1833");
+ const marian=data.nodes.find(n=>n.id==="marian_lewis_skinner_c1838");
  assert.ok(john&&marian);
  assert.match(john.note,/1871/);
  assert.match(john.note,/1895/);
@@ -267,6 +235,6 @@ test("A436 elder Skinner original sources carry the 1897-vs-1930 discrepancy, no
  assert.match(marian.note,/unresolved original-source contradiction/);
  assert.match(marian.note,/private Library/);
  assert.equal(marian.evidence.filter(e=>e.full).length,2,"unpublished originals must not appear as image files");
- const sandbox={window:{}};vm.runInNewContext(await read("atlas-2d-pedigree-snapshot.js"),sandbox);
- assert.equal(sandbox.window.ATLAS_2D_PEDIGREE.edges.filter(e=>e.a==="richard_francis_skinner"&&["john_a_skinner_c1833","marian_lewis_skinner_c1838"].includes(e.b)).length,2);
+ assert.equal(data.edges.filter(e=>e.a==="richard_francis_skinner"&&
+   ["john_a_skinner_c1833","marian_lewis_skinner_c1838"].includes(e.b)).length,2);
 });

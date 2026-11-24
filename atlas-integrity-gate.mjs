@@ -7,6 +7,8 @@ import {existsSync,readFileSync} from "node:fs";
 import {createHash} from "node:crypto";
 import {dirname,resolve} from "node:path";
 import {fileURLToPath} from "node:url";
+import {runInNewContext} from "node:vm";
+import {checkCanonicalGraph} from "./atlas-graph-integrity-gate.mjs";
 
 const ROOT=dirname(fileURLToPath(import.meta.url));
 const allowedConfidence=new Set(["confirmed","strong","provisional","frontier"]);
@@ -218,21 +220,36 @@ export function validateIntegrity({base,mirror,contract,portraits,mainMarkup="",
 }
 
 export function validateRepository(){
-  const html=read("atlas-v3.9.63.html");
-  const base=parseMainBase(html),mirror=parse2DMirror(read("atlas-2d-pedigree-snapshot.js"));
+  // The original legacy bridge validator above remains available for bounded
+  // negative regression fixtures; it is NOT a live family-data authority.
+  const source=read("atlas-canonical-family-data.js"),sandbox={window:{}};
+  try{runInNewContext(source,sandbox,{timeout:8000});}
+  catch(error){return {errors:["Canonical graph cannot load: "+error.message],warnings:[],counts:{}};}
+  const canonical=sandbox.window.AtlasCanonicalGraph.read();
   const portraits=parsePortraits(read("atlas-2d-portrait-index-20261123.js"));
-  const contract=JSON.parse(read("ATLAS_GRAPH_SYNC_CONTRACT.json"));
-  return validateIntegrity({
-    base,mirror,contract,portraits,mainMarkup:html,
-    treeMarkup:read("atlas-2d-journey-preview.html"),
-    indexMarkup:read("index.html"),
-    manifest:JSON.parse(read("manifest.webmanifest")),
+  const legacy=JSON.parse(read("ATLAS_GRAPH_SYNC_CONTRACT.json"));
+  const contract={
+    schema:1,snapshotOnlyPeople:[],snapshotOnlyEdges:[],
+    baseEdgesExplicitlySuppressed:[],commonEdgeConfidenceExceptions:[],
+    forbiddenKnownBadEdges:legacy.forbiddenKnownBadEdges,
+    mirrorOnlyNotInCurrentPersonRuntime:[],
+    legacyRemotePortraits:legacy.legacyRemotePortraits
+  };
+  const result=validateIntegrity({
+    base:canonical,mirror:JSON.parse(JSON.stringify(canonical)),
+    contract,portraits,
     assetExists:(relative)=>existsSync(resolve(ROOT,relative)),
     assetGitBlobSha:(relative)=>{
       const original=readFileSync(resolve(ROOT,relative));
       return createHash("sha1").update("blob "+original.length+"\0").update(original).digest("hex");
     }
   });
+  result.errors.push(...checkCanonicalGraph());
+  const main=read("atlas-v3.9.63.html");
+  if(!main.includes("card.dataset.atlasPersonId=id")||
+     !read("atlas-family-portrait-ui-20261123.js").includes("var activeId=card.dataset.atlasPersonId"))
+    result.errors.push("Stable person-ID binding missing in biography or family carousel");
+  return result;
 }
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
   const result=validateRepository();

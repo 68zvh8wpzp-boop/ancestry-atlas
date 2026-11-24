@@ -5,10 +5,23 @@ import {fileURLToPath} from "node:url";
 import {parseMainBase,parse2DMirror,parsePortraits,validateIntegrity,validateRepository} from "../atlas-integrity-gate.mjs";
 const read=p=>readFileSync(new URL("../"+p,import.meta.url),"utf8");
 function fixture(){
+  // Historical drift fixtures are derived from the *archived* mirror and its
+  // reviewed exception ledger. Neither copy is loaded by the live Atlas.
+  const mirror=parse2DMirror(read("atlas-2d-pedigree-snapshot.js"));
+  const contract=JSON.parse(read("ATLAS_GRAPH_SYNC_CONTRACT.json"));
+  const excluded=new Set(contract.snapshotOnlyPeople.map(n=>n.id));
+  const excludedEdges=new Set(contract.snapshotOnlyEdges.map(e=>e.a+"|"+e.b));
+  const base={
+    nodes:mirror.nodes.filter(n=>!excluded.has(n.id)).map(n=>({...n})),
+    edges:mirror.edges.filter(e=>!excludedEdges.has(e.a+"|"+e.b)).map(e=>({...e}))
+  };
+  base.edges.push(...contract.baseEdgesExplicitlySuppressed.map(e=>({a:e.a,b:e.b,confidence:e.confidence})));
+  for(const exception of contract.commonEdgeConfidenceExceptions){
+    const edge=base.edges.find(e=>e.a===exception.a&&e.b===exception.b);
+    if(edge)edge.confidence=exception.base;
+  }
   return {
-    base:parseMainBase(read("atlas-v3.9.63.html")),
-    mirror:parse2DMirror(read("atlas-2d-pedigree-snapshot.js")),
-    contract:JSON.parse(read("ATLAS_GRAPH_SYNC_CONTRACT.json")),
+    base,mirror,contract,
     portraits:parsePortraits(read("atlas-2d-portrait-index-20261123.js")),
     assetExists:()=>true
   };
@@ -16,14 +29,15 @@ function fixture(){
 function errors(modify){
   const f=fixture();modify(f);return validateIntegrity(f).errors.join("\n");
 }
-test("production base, 2D mirror, documented exceptions and local portraits pass fail-closed gate",()=>{
+test("one active canonical graph and original portraits pass fail-closed gate",()=>{
   const r=validateRepository();
   assert.deepEqual(r.errors,[],r.errors.join("\n"));
   assert.ok(r.counts.basePeople>100);
   assert.ok(r.counts.familyPeople>=r.counts.basePeople);
   assert.ok(r.counts.identifiedPortraits>=20);
-  assert.ok(r.warnings.some(x=>x.includes("brenay_esther")));
-  assert.ok(r.warnings.some(x=>x.includes("brenay_joan")));
+  assert.equal(r.counts.basePeople,119);
+  assert.equal(r.counts.familyPeople,119);
+  assert.ok(!r.warnings.some(x=>x.includes("PENDING CROSS-VIEW PERSON RECONCILIATION")));
 });
 test("a person silently removed, renamed or given a new status in a different view fails",()=>{
   assert.match(errors(f=>{f.mirror.nodes[0].name+=" UNKNOWN";}),/Person field drift/);
