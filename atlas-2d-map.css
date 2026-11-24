@@ -187,3 +187,9 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #d0e9
  #family-view-tabs button{font-size:11px}
  .family-partner-group{padding:10px}
 }
+
+#biography-pane{overflow:hidden!important;min-height:0!important}
+#biography-pane[hidden]{display:none!important}
+#bio-bar{flex:0 0 auto}
+#bio-frame{flex:1 1 0!important;min-height:0!important;height:100%!important;width:100%!important}
+#loading-bio[hidden]{display:none!important}
