@@ -78,6 +78,18 @@ export function checkCanonicalGraph(){
   if(!main.includes('src="atlas-artifact-index-20261124.js?')||
      !main.includes('AtlasArtifactIndex?.forPerson(n.id)'))
     fail("Person records and original media are no longer read through the shared artifact index");
+  const viewGuard=read("atlas-canonical-view-guard-20261124.js");
+  const v9=read("atlas-evidence-sync-2026-10-03-fulltext-v9.js");
+  if(!main.includes('src="atlas-canonical-view-guard-20261124.js?')||
+     main.indexOf("atlas-canonical-view-guard-20261124.js")<main.indexOf("atlas-evidence-sync-2026-10-03-fulltext-v9.js")||
+     main.indexOf("atlas-canonical-view-guard-20261124.js")>main.indexOf("atlas-person-search.js"))
+    fail("Person identity guard must run after legacy biographies but before navigation and the artifact index");
+  if(!viewGuard.includes("Object.freeze(live.edges)")||
+     !viewGuard.includes('protectedFields=["id","name","years","place","branch","confidence","collateral"]'))
+    fail("Runtime canonical identity and relationship protections are not intact");
+  if(/DATA\.(?:nodes|edges)\.(?:push|splice)\s*\(/.test(v9)||
+     /\bmap\.set\((?:esther|joan|martha|ammon)\.id/.test(v9))
+    fail("Legacy Brenay biography has reintroduced shadow person records or ancestry");
   if(!read("ATLAS_GRAPH_SYNC_CONTRACT.json").includes('"archived": true'))
     fail("Retired two-graph discrepancy contract lost its archival designation");
   if(/const DATA = \{"nodes"/.test(main)||/atlas-2d-pedigree-snapshot\.js/.test(tree))

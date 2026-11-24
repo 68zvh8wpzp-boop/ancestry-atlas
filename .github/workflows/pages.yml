@@ -61,6 +61,7 @@ jobs:
           node atlas-legacy-overlay-gate.mjs
           node --test tests/atlas-integrity-gate.test.mjs tests/atlas-cross-view-person-continuity.test.mjs
           node --test tests/atlas-artifact-and-overlay-integrity.test.mjs
+          node --test tests/atlas-canonical-view-guard.test.mjs
           node tests/governance-regression.mjs
 
       - name: Configure Pages
