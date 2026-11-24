@@ -11,6 +11,8 @@ runtime work. It converts the project's approved norms into release gates.
 - Family edges mean **child `a` → recorded parent `b`**. A spouse or co-parent is not a biological parent. Distinct unions and hypothetical `researchLinks` may not be used to infer parentage, citizenship, or established descent.
 - `data/atlas-approved-graph-baseline.json` is the reviewed comparison of all person names/year spans/branches/confidence and parent/union identities. A source-qualified genealogy change MUST explicitly update the canonical graph **and** its reviewed baseline; a UI change MUST NOT alter either. CI fails on any unnoticed discrepancy.
 - Approved biography/audio and original-document modules attach by person ID, without overwriting canonical identities or proof states. `PACKAGE_ASSET_MANIFEST.json` continues to track artifacts and releases. Approved narration text remains immutable after audio approval.
+- The final legacy-module boundary `atlas-runtime-records-20261124.js` restores and protects the canonical identity fields and freezes person/parent arrays. It provides `AtlasRecordStore.evidenceFor(id)` and `bySource(sourceId)` for named, source-aware viewer copies. This preserves existing approved biography/gallery content but does **not** confer original-record quality on an index-only link or preview.
+- `atlas-evidence-sync-2026-10-03-fulltext-v9.js` must only attach existing photograph/letter cards by canonical person ID. Its former fallback insertion of four Brenay people and reassignments of the person-ID map have been retired. `atlas-graph-integrity-gate.mjs` scans every active external script for reintroduced graph insertions.
 
 ## Cross-view drift and release protection
 
@@ -24,7 +26,7 @@ runtime work. It converts the project's approved norms into release gates.
 
 **Manual release acceptance** still tests iPhone Home, Globe positioning/from-to routes, Tree family continuity, People search, full person biography, sourced-photo carousels, placeholder treatment, return navigation, and opening original-document images. CI verifies structural consistency, **not historical truth or pixel-perfect iPhone behavior**; record defects rather than declaring full visual acceptance from tests.
 
-**Architecture extension still open:** historical original-document galleries, story scenes and other media overlays are sometimes held in their own modules. Continue converting these to per-person artifact IDs/metadata rather than letting views independently author attributes. No external paid database or subscription is required for the current static, version-controlled architecture.
+**Architecture extension still open:** historical original-document galleries, story scenes and other media overlays are sometimes held in their own modules. The runtime record index now provides a shared ID/source lookup for the native person reader, but a fully normalized persistent evidence store is a separate future migration requiring original-source-by-original-source verification. See [Atlas architecture/release runbook](docs/ATLAS_ARCHITECTURE_RELEASE_RUNBOOK_20261124.md) and [open discrepancy queue](ATLAS_DRIFT_REVIEW_QUEUE.md). No external paid database or subscription is required for the current static, version-controlled architecture.
 
 ## Evidence norm set
 
