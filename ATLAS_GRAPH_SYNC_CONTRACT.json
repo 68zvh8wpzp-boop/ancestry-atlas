@@ -254,5 +254,8 @@
       "url": "https://history.churchofjesuschrist.org/church-history-people/bc/Pioneer%20Photos/Pioneers%20M/120x120/Mortensen_DortheaKnudsenJensen%20%20KWJD-TJ5.jpg",
       "review": "Existing third-party image dependency. Preserve a rights-permitted local original; do not add new remote-only portraits."
     }
-  ]
+  ],
+  "archived": true,
+  "liveDataAuthority": "atlas-canonical-family-data.js",
+  "researchCaveat": "This contract is an archived fixture describing the former two-graph discrepancy. It is NOT a live data source. Its differences are not proof of any relationship or grade."
 }
