@@ -23,7 +23,7 @@ test("PWA and 2D share the refreshed entry point",async()=>{
   read("index.html"),read("manifest.webmanifest")
  ]);
  for(const html of [main,map])assert.match(html,/20261123-portrait-crops-v3/);
- assert.match(index,/20261124-artifact-index-v1/);
- assert.match(JSON.parse(manifest).start_url,/20261124-artifact-index-v1/);
+ assert.match(index,/20261124-identity-guard-v2/);
+ assert.match(JSON.parse(manifest).start_url,/20261124-identity-guard-v2/);
  assert.match(map,/atlas-museum-route-20261123\.js/);
 });
