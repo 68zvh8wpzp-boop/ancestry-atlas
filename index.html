@@ -10,18 +10,19 @@
 <meta name="apple-mobile-web-app-title" content="Ancestry Atlas">
 <link rel="manifest" href="./manifest.webmanifest">
 <title>Ancestry Atlas — Tree, People, Globe, Stories</title>
+<style>html,body{margin:0;background:#071923!important}</style>
 <script>
 (function () {
-  var target = './atlas-v3.9.63.html?iphone-refresh=20261124-reader-viewport-v1';
+  var target = './atlas-v3.9.63.html?iphone-refresh=20261124-clean-render-v1';
   if (!/atlas-v3\.9\.29\.html/.test(location.pathname)) {
-    var q=new URLSearchParams(location.search);q.set("iphone-refresh","20261124-reader-viewport-v1");
+    var q=new URLSearchParams(location.search);q.set("iphone-refresh","20261124-clean-render-v1");
     location.replace("./atlas-v3.9.63.html?"+q.toString()+location.hash);
   }
 })();
 </script>
 </head>
 <body style="margin:0;background:#071923;color:#eef4fa;font-family:system-ui,sans-serif">
-<p style="padding:2rem">Updating Ancestry Atlas… <a href="./atlas-v3.9.63.html?iphone-refresh=20261124-reader-viewport-v1" style="color:#9ed0ff">Open the updated Atlas</a></p>
+<p style="padding:2rem">Updating Ancestry Atlas… <a href="./atlas-v3.9.63.html?iphone-refresh=20261124-clean-render-v1" style="color:#9ed0ff">Open the updated Atlas</a></p>
 </body>
 </html>
 
