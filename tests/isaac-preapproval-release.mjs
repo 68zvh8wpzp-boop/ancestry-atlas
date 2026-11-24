@@ -79,8 +79,12 @@ for(const p of ['assets/isaac-carling/1854-isaac-asenath-marriage-notice-view.pn
  else assert.equal(b.subarray(0,3).toString('hex'),'ffd8ff');
 }
 const index=text('index.html'),manifest=JSON.parse(text('manifest.webmanifest'));
-assert(index.includes('atlas-v3.9.62.html?iphone-refresh=20261018-isaac-qa-b6'));
-assert(manifest.start_url.includes('atlas-v3.9.62.html?iphone-refresh=20261018-isaac-qa-b6'));
+const currentLaunch=manifest.start_url.match(/^\.\/atlas-v3\.9\.63\.html\?iphone-refresh=([A-Za-z0-9_-]+)$/);
+assert(currentLaunch,'Installed Atlas must launch the single canonical live person reader');
+assert(index.includes('atlas-v3.9.63.html?iphone-refresh='+currentLaunch[1]),
+  'Home redirect and installed-app manifest must use the SAME current release');
+assert(!index.includes('atlas-v3.9.62.html?iphone-refresh=20261018-isaac-qa-b6'),
+  'Isaac archive QA must not send the active family to a retired app');
 assert(!html.includes('Isaac Carling (1825)'), 'Wrong ancestor biography collision');
 const r={person:n.id,release:'v3.9.62',biographyChars:n.BIOGRAPHY.length,notes:n.historicalNotes.length,documentTiles:docs.length,distinctDocumentSources:2,historicalPlaceImages:places.length,sourceOnlyReferences:links.length,authenticatedIsaacPortraits:0,originalBytesVerified:originals.reduce((t,o)=>t+o[2],0),status:'PASS — source and app-model QA; human iPhone visual QA required'};
 console.log(JSON.stringify(r,null,2));
