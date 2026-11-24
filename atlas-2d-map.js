@@ -628,7 +628,7 @@ window.addEventListener("message",function(event){
  var loader=document.getElementById("loading-bio");
  if(info.type==="atlas-reader-ready"&&info.id===requestedBiographyId){bioFrame.style.visibility="visible";loader.hidden=true;}
  else if(info.type==="atlas-reader-error"&&info.id===requestedBiographyId){loader.hidden=false;loader.textContent="Unable to open this person page.";}
- else if(info.type==="atlas-person-page"){var person=data.nodes.find(function(n){return n.id===info.id;});if(person)document.getElementById("bio-title").textContent=person.name;}
+ else if(info.type==="atlas-person-page"&&bioFrame.style.visibility==="visible"){var person=data.nodes.find(function(n){return n.id===info.id;});if(person)document.getElementById("bio-title").textContent=person.name;}
 });
 familyPanel.addEventListener("click",function(e){
   var button=e.target.closest("[data-aa-family-person]");
