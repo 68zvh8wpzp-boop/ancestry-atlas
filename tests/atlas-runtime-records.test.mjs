@@ -26,8 +26,8 @@ function runRecords(ctx){vm.runInContext(records,ctx,{timeout:8000});return ctx.
 test("Brenay family memories attach to canonical persons, never shadow ID records or insert parents",()=>{
  const c=setup(),before=c.DATA.edges.map(e=>e.a+"|"+e.b);
  runLegacy(c);
- assert.equal(c.DATA.nodes.length,119);
- assert.equal(c.DATA.edges.length,123);
+ assert.equal(c.DATA.nodes.length,c.window.AtlasCanonicalGraph.stats.persons);
+ assert.equal(c.DATA.edges.length,c.window.AtlasCanonicalGraph.stats.parents);
  assert.deepEqual(Array.from(c.DATA.edges,e=>e.a+"|"+e.b),before);
  for(const [id,minimum] of [
    ["brenay_esther",4],["brenay_joan",1],["brenay_martha",4],["brenay_ammon",5]
@@ -45,8 +45,8 @@ test("late biography scripts cannot silently rewrite canonical names, dates, con
  const c=setup();runLegacy(c);
  const collection=runRecords(c);
  assert.equal(collection.schema,1);
- assert.equal(collection.stats().people,119);
- assert.equal(collection.stats().parentLinks,123);
+ assert.equal(collection.stats().people,c.window.AtlasCanonicalGraph.stats.persons);
+ assert.equal(collection.stats().parentLinks,c.window.AtlasCanonicalGraph.stats.parents);
  const marie=c.DATA.nodes.find(n=>n.id==="marie_elisabeth_tellier_mother_unresolved");
  assert.equal(marie.name,"Marie-Élisabeth [surname unresolved]");
  assert.equal(marie.confidence,"provisional","a presentation module cannot promote a research candidate");
