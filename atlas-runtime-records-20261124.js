@@ -12,7 +12,7 @@ var api=root.AtlasCanonicalGraph,live=root.__ATLAS_DATA;
 if(!api||typeof api.read!=="function"||!live)throw Error("Atlas canonical records unavailable");
 var canonical=api.read(),byId=new Map(live.nodes.map(function(p){return [p.id,p];}));
 var truth=new Map(canonical.nodes.map(function(p){return [p.id,p];}));
-var diagnostics=[],protectedKeys=["name","years","place","branch","confidence","collateral"];
+var diagnostics=[],protectedKeys=["id","name","years","place","branch","confidence","collateral"];
 if(byId.size!==canonical.nodes.length||live.nodes.length!==canonical.nodes.length)
   throw Error("Unexpected person additions or missing canonical people; reconcile genealogy before publication");
 function edgeSignature(e){return [e.a,e.b,e.confidence].join("|");}
