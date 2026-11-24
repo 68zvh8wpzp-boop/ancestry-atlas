@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "purpose": "Legacy runtime structural writers allowed only as frozen backwards-compatibility. All new person/relationship writes belong in atlas-canonical-family-data.js.",
+  "writers": [
+    {
+      "path": "atlas-evidence-sync-2026-09-13.js",
+      "gitBlobSha": "bca33671af073f76b5dd93911a3ba9718b6483c9",
+      "reason": "Historical content loader contains guarded ensureNode/ensureEdge; legacy metadata source, not authoritative ancestry."
+    },
+    {
+      "path": "marion-atlas-update-2026-09-29.js",
+      "gitBlobSha": "1046185c876fa0c8253155acb8e70716328123ab",
+      "reason": "Old family update contains guarded child and parent additions that must remain backed by canonical graph."
+    },
+    {
+      "path": "atlas-evidence-sync-2026-10-03-fulltext-v9.js",
+      "gitBlobSha": "badb25c4196206fc2043eeab8077869491e9663c",
+      "reason": "Archived siblings and biography overlay contains guarded node/edge additions. No new data authority allowed."
+    }
+  ],
+  "rules": {
+    "noNewWriters": true,
+    "requireExplicitReviewForModifiedLegacyWriter": true,
+    "doNotCopyFrom2DSnapshot": true,
+    "peopleAndParentageCanonicalOnly": true
+  },
+  "notes": "Do not use this file to approve parentage, identity, source status, or historical proof. This is a temporary compatibility allowance for the exact approved source bytes; retire each writer only after source-qualified review."
+}
