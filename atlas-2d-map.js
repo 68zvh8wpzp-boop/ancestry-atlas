@@ -608,23 +608,28 @@ function closeFamily(){
 }
 document.getElementById("family-close").addEventListener("click",closeFamily);
 var biographyPane=document.getElementById("biography-pane"),bioFrame=document.getElementById("bio-frame");
+var requestedBiographyId=null;
 function openBiography(personId){
   var target=typeof personId==="string"?personId:selected;
-  biographyPane.hidden=false;
+  requestedBiographyId=target;biographyPane.hidden=false;
   document.getElementById("bio-title").textContent=data.nodes.find(function(n){return n.id===target;})?.name||"Person page";
-  document.getElementById("loading-bio").hidden=false;
-  // Load the existing comprehensive app only when the person requests its sources.
+  var loader=document.getElementById("loading-bio");loader.hidden=false;loader.textContent="Opening person page…";
+  bioFrame.style.visibility="hidden";
   bioFrame.onload=function(){
-    try{
-      var child=bioFrame.contentWindow;
-      child.document.getElementById("landing")?.classList.add("hidden");
-      if(typeof child.selectPersonSearchResult==="function")child.selectPersonSearchResult(target);
-      else if(typeof child.openNode==="function")child.openNode(target,true,true);
-    }catch(error){console.warn("Original Atlas person page navigation",error);}
-    document.getElementById("loading-bio").hidden=true;
+    try{var doc=bioFrame.contentDocument,card=doc.getElementById("card");
+      if(card?.dataset.atlasPersonId===target&&!doc.documentElement.classList.contains("aa-startup")){bioFrame.style.visibility="visible";loader.hidden=true;}
+    }catch(_){}
   };
-  bioFrame.src="./atlas-v3.9.63.html?iphone-refresh=20261124-identity-guard-v2&from=two-dimensional-map";
+  bioFrame.src="./atlas-v3.9.63.html?from=two-dimensional-map&person="+encodeURIComponent(target)+"&v=20261124-reader-viewport-v1";
 }
+window.addEventListener("message",function(event){
+ if(event.origin!==location.origin||event.source!==bioFrame.contentWindow||biographyPane.hidden)return;
+ var info=event.data;if(!info||!info.id)return;
+ var loader=document.getElementById("loading-bio");
+ if(info.type==="atlas-reader-ready"&&info.id===requestedBiographyId){bioFrame.style.visibility="visible";loader.hidden=true;}
+ else if(info.type==="atlas-reader-error"&&info.id===requestedBiographyId){loader.hidden=false;loader.textContent="Unable to open this person page.";}
+ else if(info.type==="atlas-person-page"){var person=data.nodes.find(function(n){return n.id===info.id;});if(person)document.getElementById("bio-title").textContent=person.name;}
+});
 familyPanel.addEventListener("click",function(e){
   var button=e.target.closest("[data-aa-family-person]");
   if(!button)return;
