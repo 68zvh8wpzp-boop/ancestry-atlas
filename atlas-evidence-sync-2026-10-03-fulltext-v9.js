@@ -1,3 +1,33 @@
+/* Canonical family-graph reconciliation, 2026-11-24.
+ * Four legacy Brenay person pages once replaced the ID lookup with a
+ * different object. Keep their documentary/photo descriptions and life-story
+ * overlays, but never reassign a person, a parent, or an evidence grade here.
+ */
+function atlasAttachLegacyBrenayEvidence(legacy){
+  const current=DATA.nodes.find(n=>n.id===legacy.id);
+  if(!current)throw new Error("Atlas canonical person missing: "+legacy.id);
+  const map=window.__ATLAS_NODE_BY_ID;
+  if(map&&map.get(legacy.id)!==current)
+    throw new Error("Atlas person-ID pointer drift: "+legacy.id);
+  for(const parent of ['charles_albert','marian_skinner']){
+    if(!DATA.edges.some(e=>e.a===legacy.id&&e.b===parent))
+      throw new Error("Atlas canonical Brenay parent link missing: "+legacy.id+" → "+parent);
+  }
+  function signature(e){
+    return [e.id||'',e.kind||'',e.title||'',e.date||'',e.full||e.originalAsset||e.sourcePage||''].join('|');
+  }
+  if(!Array.isArray(current.evidence))current.evidence=[];
+  const known=new Set(current.evidence.map(signature));
+  for(const item of legacy.evidence||[]){
+    const key=signature(item);
+    if(!known.has(key)){current.evidence.push({...item});known.add(key);}
+  }
+  // Preserve the older family-memory prose for a later source-by-source audit.
+  // It is NOT permitted to replace the canonical person's note or proof grade.
+  if(legacy.note&&!current.legacyPresentationNote)
+    current.legacyPresentationNote=legacy.note;
+}
+
 /* Marie Élisabeth Béfort Philippin evidence overlay — 2026-10-02.
    Source: authenticated FamilySearch baptism image and tagged memory G34V-XBP.
    The overlay preserves the readable preview, provenance, and uncertainty. */
@@ -312,18 +342,7 @@ Virginia’s family memories also include handwritten letters from her grandmoth
       }
     ]
   };
-  if (!DATA.nodes.some(n => n.id === esther.id)) DATA.nodes.push(esther);
-  const map = window.__ATLAS_NODE_BY_ID;
-  if (map) map.set(esther.id, esther);
-  if (typeof parentMap !== 'undefined' && typeof childMap !== 'undefined') {
-    for (const p of ['charles_albert','marian_skinner']) {
-      if (!DATA.edges.some(e => e.a === esther.id && e.b === p)) DATA.edges.push({a:esther.id,b:p,confidence:'strong'});
-      if (!parentMap.has(esther.id)) parentMap.set(esther.id, []);
-      if (!parentMap.get(esther.id).includes(p)) parentMap.get(esther.id).push(p);
-      if (!childMap.has(p)) childMap.set(p, []);
-      if (!childMap.get(p).includes(esther.id)) childMap.get(p).push(esther.id);
-    }
-  }
+  atlasAttachLegacyBrenayEvidence(esther);
   if (typeof GUIDE_PROFILES !== 'undefined') {
     GUIDE_PROFILES.brenay_esther = {
       birthPlace: 'Mesa, Maricopa County, Arizona',
@@ -372,18 +391,7 @@ The written memories attached to Esther’s family preserve more than dates. A r
       }
     ]
   };
-  if (!DATA.nodes.some(n => n.id === joan.id)) DATA.nodes.push(joan);
-  const map = window.__ATLAS_NODE_BY_ID;
-  if (map) map.set(joan.id, joan);
-  if (typeof parentMap !== 'undefined' && typeof childMap !== 'undefined') {
-    for (const p of ['charles_albert','marian_skinner']) {
-      if (!DATA.edges.some(e => e.a === joan.id && e.b === p)) DATA.edges.push({a:joan.id,b:p,confidence:'strong'});
-      if (!parentMap.has(joan.id)) parentMap.set(joan.id, []);
-      if (!parentMap.get(joan.id).includes(p)) parentMap.get(joan.id).push(p);
-      if (!childMap.has(p)) childMap.set(p, []);
-      if (!childMap.get(p).includes(joan.id)) childMap.get(p).push(joan.id);
-    }
-  }
+  atlasAttachLegacyBrenayEvidence(joan);
   if (typeof GUIDE_PROFILES !== 'undefined') {
     GUIDE_PROFILES.brenay_joan = {
       birthPlace: 'Mesa, Maricopa County, Arizona',
@@ -453,18 +461,7 @@ The written memories attached to Esther’s family preserve more than dates. A r
       }
     ]
   };
-  if (!DATA.nodes.some(n => n.id === martha.id)) DATA.nodes.push(martha);
-  const map = window.__ATLAS_NODE_BY_ID;
-  if (map) map.set(martha.id, martha);
-  if (typeof parentMap !== 'undefined' && typeof childMap !== 'undefined') {
-    for (const p of ['charles_albert','marian_skinner']) {
-      if (!DATA.edges.some(e => e.a === martha.id && e.b === p)) DATA.edges.push({a:martha.id,b:p,confidence:'strong'});
-      if (!parentMap.has(martha.id)) parentMap.set(martha.id, []);
-      if (!parentMap.get(martha.id).includes(p)) parentMap.get(martha.id).push(p);
-      if (!childMap.has(p)) childMap.set(p, []);
-      if (!childMap.get(p).includes(martha.id)) childMap.get(p).push(martha.id);
-    }
-  }
+  atlasAttachLegacyBrenayEvidence(martha);
   if (typeof GUIDE_PROFILES !== 'undefined') {
     GUIDE_PROFILES.brenay_martha = {
       birthPlace: 'Blanding, San Juan County, Utah',
@@ -523,18 +520,7 @@ The written memories attached to Esther’s family preserve more than dates. A r
       }
     ]
   };
-  if (!DATA.nodes.some(n => n.id === ammon.id)) DATA.nodes.push(ammon);
-  const map = window.__ATLAS_NODE_BY_ID;
-  if (map) map.set(ammon.id, ammon);
-  if (typeof parentMap !== 'undefined' && typeof childMap !== 'undefined') {
-    for (const p of ['charles_albert','marian_skinner']) {
-      if (!DATA.edges.some(e => e.a === ammon.id && e.b === p)) DATA.edges.push({a:ammon.id,b:p,confidence:'strong'});
-      if (!parentMap.has(ammon.id)) parentMap.set(ammon.id, []);
-      if (!parentMap.get(ammon.id).includes(p)) parentMap.get(ammon.id).push(p);
-      if (!childMap.has(p)) childMap.set(p, []);
-      if (!childMap.get(p).includes(ammon.id)) childMap.get(p).push(ammon.id);
-    }
-  }
+  atlasAttachLegacyBrenayEvidence(ammon);
   if (typeof GUIDE_PROFILES !== 'undefined') {
     GUIDE_PROFILES.brenay_ammon = {
       birthPlace: 'Mesa, Maricopa County, Arizona',
