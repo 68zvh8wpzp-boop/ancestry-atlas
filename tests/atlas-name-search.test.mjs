@@ -4,6 +4,7 @@ import {test} from "node:test";
 import vm from "node:vm";
 
 const read=name=>readFile(new URL("../"+name,import.meta.url),"utf8");
+import {canonicalGraph} from "./atlas-test-graph.mjs";
 async function library(){
   const source=await read("atlas-person-search.js");
   const context={window:{}};
@@ -12,9 +13,8 @@ async function library(){
 }
 async function genealogy(){
   const html=await read("atlas-v3.9.63.html");
-  const i=html.indexOf("const DATA = "),j=html.indexOf(";\n",i);
-  assert.ok(i>=0&&j>i,"Original atlas dataset must remain accessible");
-  return JSON.parse(html.slice(i+"const DATA = ".length,j));
+  assert.match(html,/atlas-canonical-family-data\.js/);
+  return canonicalGraph();
 }
 test("close-name suggestions recover historically spelled Atlas names",async()=>{
   const [api,data]=await Promise.all([library(),genealogy()]);
