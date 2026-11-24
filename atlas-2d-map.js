@@ -244,29 +244,19 @@ function drawPortraitOrBust(id,x,y,width,height){
   var photo=portraitCache.get(id);
   if(photo?.loaded){
     var img=photo.image,meta=photo.activeEntry||portraits[id]||{};
-    // A cropped *view* of the preserved original. Normalized bounds are sourced
-    // to caption-identifiable subjects, never inferred by face recognition.
-    // Preserve facial proportions by center-covering within the chosen crop.
-    var crop=meta.crop,iw=img.naturalWidth,ih=img.naturalHeight;
-    if(Array.isArray(crop)&&crop.length===4){
-      var sx=Math.max(0,Math.min(iw-1,crop[0]*iw));
-      var sy=Math.max(0,Math.min(ih-1,crop[1]*ih));
-      var sw=Math.max(1,Math.min(iw-sx,crop[2]*iw));
-      var sh=Math.max(1,Math.min(ih-sy,crop[3]*ih));
-      var sourceRatio=sw/sh,targetRatio=width/height;
-      if(sourceRatio>targetRatio){var coverWidth=sh*targetRatio;sx+=(sw-coverWidth)/2;sw=coverWidth;}
-      else{var coverHeight=sw/targetRatio;sy+=(sh-coverHeight)/2;sh=coverHeight;}
-      try{ctx.drawImage(img,sx,sy,sw,sh,x,y,width,height);}catch(_){}
-    }else{
-      var ratio=Math.max(width/iw,height/ih);
-      var scaledW=iw*ratio,scaledH=ih*ratio;
-      try{ctx.drawImage(img,x+(width-scaledW)/2,y+(height-scaledH)/2,scaledW,scaledH);}catch(_){}
-    }
+    // Use the shared source-coordinate crop and proportional contain fit.
+    var iw=img.naturalWidth,ih=img.naturalHeight;
+    var lib=window.AtlasFamilyPortraitUI;
+    var b=lib?.portraitBounds(meta,iw,ih)||{sx:0,sy:0,sw:iw,sh:ih};
+    var f=lib?.fitPortrait(b.sw,b.sh,width,height);
+    if(!f){var k=Math.min(width/b.sw,height/b.sh);f={w:b.sw*k,h:b.sh*k,x:(width-b.sw*k)/2,y:(height-b.sh*k)/2};}
+    try{ctx.drawImage(img,b.sx,b.sy,b.sw,b.sh,x+f.x,y+f.y,f.w,f.h);}catch(_){}
+
   }else{
     // Museum cameo is decorative only, not a proposed or AI-generated likeness.
     if(atlasAnonymousCameo.complete&&atlasAnonymousCameo.naturalWidth>0){
       var iw=atlasAnonymousCameo.naturalWidth,ih=atlasAnonymousCameo.naturalHeight;
-      var scale=Math.max(width/iw,height/ih);
+      var scale=Math.min(width/iw,height/ih);
       ctx.drawImage(atlasAnonymousCameo,x+(width-iw*scale)/2,y+(height-ih*scale)/2,iw*scale,ih*scale);
     }else{
       // Offline/failure backup: recognizable medallion, not a faint stick-figure.
