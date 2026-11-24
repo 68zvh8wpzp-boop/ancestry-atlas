@@ -243,7 +243,7 @@ test("A456 Weldon parentage is source-qualified, not inferred from surname",()=>
  const g=canonicalGraph();const f=g.nodes.find(n=>n.id==="franny_weldon");
  const parents=g.edges.filter(e=>e.a===f.id);
  assert.deepEqual(Array.from(parents,e=>[e.b,e.confidence]).sort(),[["abram_weldon_1838","confirmed"],["margaret_weldon_1852","strong"]]);
- assert.match(g.nodes.find(n=>n.id==="margaret_weldon_1852").note,/Wilkins remains an unverified/);
+ assert.match(g.nodes.find(n=>n.id==="margaret_weldon_1852").note,/Wilkins is strongly supported; the original bond/);
  assert.ok(g.nodes.find(n=>n.id==="abram_weldon_1838").evidence.some(e=>e.id==="weldon-a455-abram"));
  assert.ok(g.nodes.find(n=>n.id==="margaret_weldon_1852").evidence.some(e=>e.id==="weldon-a455-margaret"));
 });

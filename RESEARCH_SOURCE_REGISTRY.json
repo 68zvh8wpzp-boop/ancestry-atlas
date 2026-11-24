@@ -2217,6 +2217,30 @@
       "originalRefs": [
         "github:assets/weldon/john-william-dunbar-1926-death-original.jpg"
       ]
+    },
+    {
+      "id": "weldon-wilkins-1788-published-bond-abstract",
+      "personId": "K2MH-QPB",
+      "event": "1788 parental marriage-bond abstract (derivative)",
+      "sourceKeys": [
+        "wingo:princess-anne-marriages:1961:p103:1788-03-24"
+      ],
+      "status": "examined",
+      "evidence": "library:file_00000000a01481f6bd23aa732c616def",
+      "originalRefs": [],
+      "note": "Printed abstract visually inspected A468. Original manuscript remains unexamined; no original media claimed. William Wilkins surety kinship unproved."
+    },
+    {
+      "id": "weldon-wilkins-1788-original-bond",
+      "personId": "K2MH-QPB",
+      "event": "1788 parental original marriage bond",
+      "sourceKeys": [
+        "lva:princess-anne:reel71:1788-03-24:welden-wilkins"
+      ],
+      "status": "unexamined",
+      "evidence": "library:file_00000000a01481f6bd23aa732c616def",
+      "originalRefs": [],
+      "note": "Library of Virginia reel 71; manuscript not acquired; distinct from Wingo derivative abstract."
     }
   ],
   "tasks": [
