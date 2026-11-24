@@ -246,12 +246,22 @@ window.addEventListener("popstate",function(event){
   restoringHistory=false;
 });
 section("home");
-if(!history.state||!history.state.aaFourDoor)history.replaceState({aaFourDoor:true,screen:"home",person:null,origin:null},"",location.href);
-else if(history.state.screen!=="home"){
+if(!history.state||!history.state.aaFourDoor){
+  var initialScreen=query.get("view")==="globe"?"globe":"home";
+  var requestedPerson=query.get("person");
+  if(initialScreen==="globe"&&atlas.nodes.some(function(p){return p.id===requestedPerson;}))
+    profileId=requestedPerson;
+  history.replaceState({aaFourDoor:true,screen:initialScreen,person:profileId,origin:null},"",location.href);
+}
+if(history.state.screen!=="home"){
   var saved=history.state;
   restoringHistory=true;
   if(saved.screen==="people")showPeople();
-  else if(saved.screen==="globe")showGlobe();
+  else if(saved.screen==="globe"){
+    profileId=saved.person;
+    showGlobe();
+    if(profileId)globeInstance?.selectPerson(profileId);
+  }
   else if(saved.screen==="profile"&&saved.person)openProfile(saved.person,saved.origin);
   restoringHistory=false;
 }

@@ -13,10 +13,7 @@ function create(parent,atlasData,getPerson){
   var section=document.createElement("section");
   section.id="aaGeoGlobe";section.setAttribute("aria-label","Geographic globe of recorded Atlas places");
   section.innerHTML=
-   '<div class="aa-geo-toolbar"><div class="aa-geo-heading"><strong>Family geography</strong><span>Explore documented family places</span></div>'+
-   '<div class="aa-geo-buttons"><button type="button" data-geo-target="americas">Americas</button>'+
-   '<button type="button" data-geo-target="europe">Europe</button>'+
-   '<button type="button" data-geo-target="reset">Reset</button></div></div>'+
+   '<div class="aa-geo-toolbar"><div class="aa-geo-heading"><strong>Family geography</strong><span>Explore documented family places</span></div></div>'+
    '<div class="aa-geo-selectors">'+
    '<label>Family branch<select id="aaGeoBranch" aria-label="Filter globe by family branch"><option value="">All family branches</option></select></label>'+
    '<label>From<select id="aaGeoFrom" aria-label="Select route origin"><option value="">All origins</option></select></label>'+
@@ -297,13 +294,6 @@ function create(parent,atlasData,getPerson){
   section.addEventListener("click",function(e){
     var b=e.target.closest("button");if(!b)return;
     if(b.hasAttribute("data-geo-place")){setPlace(b.dataset.geoPlace);return;}
-    if(b.dataset.geoTarget){
-      var t=b.dataset.geoTarget;
-      if(t==="europe"){state.lon=12;state.lat=48;}
-      else if(t==="americas"){state.lon=-100;state.lat=38;}
-      else{state.lon=-94;state.lat=39;state.zoom=1;}
-      render();return;
-    }
     if(b.dataset.geoZoom){state.zoom=clamp(state.zoom*(b.dataset.geoZoom==="in"?1.2:1/1.2),.72,1.8);render();}
   });
   branchControl.addEventListener("change",function(){
@@ -365,6 +355,10 @@ function create(parent,atlasData,getPerson){
   root.addEventListener("resize",render);
   rebuild();
   return {resize:render,refresh:rebuild,selectPlace:setPlace,
+    selectPerson:function(id){
+      var pin=model.pins.find(function(p){return p.people.some(function(person){return person.id===id;});});
+      if(pin)setPlace(pin.id);
+    },
     getState:function(){return {pins:model.pins.length,routes:model.routes.length,branch:state.branch,from:state.from,to:state.to,lat:state.lat,lon:state.lon,selected:state.selected,events:model.pins.reduce(function(s,p){return s+p.events.length;},0)};}};
 }
 root.AtlasGeoGlobe=Object.freeze({create:create});

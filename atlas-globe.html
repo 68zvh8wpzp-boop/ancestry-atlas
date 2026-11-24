@@ -9,6 +9,11 @@
 <meta name="apple-mobile-web-app-title" content="Atlas Globe">
 <meta name="description" content="Spin the world and explore the places where Ancestry Atlas family members were born, lived, and died.">
 <title>Family Geography · Ancestry Atlas</title>
+<script>
+  const globeQuery = new URLSearchParams(location.search);
+  globeQuery.set("view", "globe");
+  location.replace("./atlas-v3.9.63.html?" + globeQuery.toString());
+</script>
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css">
 <link rel="stylesheet" href="./atlas-globe.css?v=20261010-10-karlstad">
 <link rel="stylesheet" href="./atlas-globe-status-colors.css?v=20261016-mobile-compact-2">

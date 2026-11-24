@@ -18,7 +18,7 @@ test("four museum destinations keep the original views and an uncluttered landin
  assert.match(css,/#aaSimpleHome .aa-simple-doors/);
  assert.match(css,/Georgia/);
  assert.match(html,/atlas-museum-entry-20261123\.css\?v=20261124-identity-guard-v2/);
- assert.match(html,/atlas-four-doors-20261123\.js\?v=20261124-identity-guard-v2/);
+ assert.match(html,/atlas-four-doors-20261123\.js\?v=20261124-globe-link-v1/);
  assert.match(index,/20261124-identity-guard-v2/);
  assert.match(JSON.parse(manifest).start_url,/20261124-identity-guard-v2/);
 });
@@ -58,4 +58,23 @@ test("view changes do not modify genealogy, photo assets or proof classification
  assert.match(entry,/geo\.create/);
  assert.match(entry,/openProfile/);
  assert.match(entry,/startStory/);
+});
+
+test("legacy globe bookmarks open the canonical globe and retain person context",async()=>{
+ const [legacy,entry,globe]=await Promise.all([
+  read("atlas-globe.html"),read("atlas-four-doors-20261123.js"),read("atlas-geographic-globe-20261122.js")
+ ]);
+ const script=legacy.match(/<script>([\s\S]*?)<\/script>/)[1];
+ let redirected;
+ vm.runInNewContext(script,{
+  URLSearchParams,
+  location:{search:"?person=marion_brenay",replace(url){redirected=url;}}
+ });
+ const url=new URL(redirected,"https://example.test/ancestry-atlas/atlas-globe.html");
+ assert.equal(url.pathname,"/ancestry-atlas/atlas-v3.9.63.html");
+ assert.equal(url.searchParams.get("view"),"globe");
+ assert.equal(url.searchParams.get("person"),"marion_brenay");
+ assert.match(entry,/atlas.nodes.some\(function\(p\)\{return p.id===requestedPerson;/);
+ assert.match(entry,/globeInstance\?\.selectPerson\(profileId\)/);
+ assert.doesNotThrow(()=>new vm.Script(globe));
 });
