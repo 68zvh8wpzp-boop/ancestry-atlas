@@ -64,9 +64,9 @@ test("PWA and main globe renderer have fresh installed-app cache tokens",async()
   read("index.html"),read("manifest.webmanifest"),read("atlas-v3.9.63.html"),
   read("atlas-2d-journey-preview.html"),read("atlas-four-doors-20261123.js")
  ]);
- for(const x of [index,JSON.parse(manifest).start_url,main,nav])assert.match(x,/20261123-canonical-graph-v1/);
- assert.match(tree,/atlas-2d-map\.js\?v=20261123-canonical-graph-v1/);
- assert.match(main,/atlas-geographic-globe-20261122\.js\?v=20261123-canonical-graph-v1/);
+ for(const x of [index,JSON.parse(manifest).start_url,main,nav])assert.match(x,/20261124-record-stability-v1/);
+ assert.match(tree,/atlas-2d-map\.js\?v=20261124-record-stability-v1/);
+ assert.match(main,/atlas-geographic-globe-20261122\.js\?v=20261124-record-stability-v1/);
 });
 
 test("origin and destination changes rotate the globe to a spherical midpoint without asserting migration",async()=>{
@@ -108,6 +108,6 @@ test("no-photo fallback is an identifiable archival cameo rather than a weak gen
  assert.match(personHTML,/function renderPortrait\(n\)/);
  assert.match(personHTML,/No verified portrait · anonymous archival illustration/);
  assert.ok(personHTML.includes("assets/atlas-anonymous-cameo-20261123.svg"));
- assert.match(treeHTML,/atlas-2d-map\.js\?v=20261123-canonical-graph-v1/);
- assert.match(JSON.parse(mainManifest).start_url,/20261123-canonical-graph-v1/);
+ assert.match(treeHTML,/atlas-2d-map\.js\?v=20261124-record-stability-v1/);
+ assert.match(JSON.parse(mainManifest).start_url,/20261124-record-stability-v1/);
 });
