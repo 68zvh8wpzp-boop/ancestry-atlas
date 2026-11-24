@@ -1,0 +1,213 @@
+{
+  "schema": 1,
+  "updated": "2026-11-23",
+  "status": "frozen-existing-differences-not-proof-approval",
+  "sourceOfTruth": {
+    "runtime": "atlas-v3.9.63.html — DATA base plus source-qualified runtime modifications",
+    "mirror": "atlas-2d-pedigree-snapshot.js — read-only 2D family projection",
+    "entry": "index.html — redirect only; not genealogy"
+  },
+  "rules": {
+    "relations": "Edges mean child (a) to parent (b); shared child is NOT proof of marriage",
+    "confidence": "confirmed / strong / provisional / frontier; never auto-promote",
+    "media": "Only identity-attributed original portraits; render anonymous cameo otherwise",
+    "changeControl": "Differences require person audit review, specific evidence, mirror update and explicit contract reconciliation in the same proposed change"
+  },
+  "snapshotOnlyPeople": [
+    {
+      "id": "nannie_reed",
+      "reason": "Hill/Prather family audit runtime projection; preserve source-qualified parent links"
+    },
+    {
+      "id": "thomas_prather",
+      "reason": "Hill/Prather family audit runtime projection; preserve source-qualified parent links"
+    },
+    {
+      "id": "john_s_prather",
+      "reason": "Hill/Prather family audit runtime projection; preserve source-qualified parent links"
+    },
+    {
+      "id": "louella_roberts_prather",
+      "reason": "Hill/Prather family audit runtime projection; preserve source-qualified parent links"
+    },
+    {
+      "id": "amelia_l_cotton",
+      "reason": "Aurin/Amelia identity frontier; preserve John/Jonas conflict and source confidence"
+    },
+    {
+      "id": "john_auene_1879",
+      "reason": "Aurin/Amelia identity frontier; preserve John/Jonas conflict and source confidence"
+    },
+    {
+      "id": "morten_pedersen_1771",
+      "reason": "Danish ancestry working projection; maintain provisional evidence limits"
+    },
+    {
+      "id": "karen_hansdatter_1766",
+      "reason": "Danish ancestry working projection; maintain provisional evidence limits"
+    },
+    {
+      "id": "peder_mortensen_1784",
+      "reason": "Danish ancestry working projection; maintain provisional evidence limits"
+    },
+    {
+      "id": "brenay_esther",
+      "reason": "Brenay collateral family projection; verify canonical People visibility and original parentage before full reconciliation"
+    },
+    {
+      "id": "brenay_joan",
+      "reason": "Brenay collateral family projection; verify canonical People visibility and original parentage before full reconciliation"
+    },
+    {
+      "id": "john_a_skinner_c1833",
+      "reason": "Skinner/Lewis ancestor audit runtime projection; retain original-source qualification"
+    },
+    {
+      "id": "marian_lewis_skinner_c1838",
+      "reason": "Skinner/Lewis ancestor audit runtime projection; retain original-source qualification"
+    }
+  ],
+  "snapshotOnlyEdges": [
+    {
+      "a": "grace_hill",
+      "b": "nannie_reed",
+      "confidence": "strong",
+      "reason": "Existing runtime-to-2D snapshot projection; requires person-audit evidence reconciliation"
+    },
+    {
+      "a": "thomas_prather",
+      "b": "john_s_prather",
+      "confidence": "strong",
+      "reason": "Hill/Prather family audit runtime projection; preserve source-qualified parent links"
+    },
+    {
+      "a": "thomas_prather",
+      "b": "louella_roberts_prather",
+      "confidence": "strong",
+      "reason": "Hill/Prather family audit runtime projection; preserve source-qualified parent links"
+    },
+    {
+      "a": "inez_karen",
+      "b": "thomas_prather",
+      "confidence": "strong",
+      "reason": "Existing runtime-to-2D snapshot projection; requires person-audit evidence reconciliation"
+    },
+    {
+      "a": "jessie_irene_aurin",
+      "b": "amelia_l_cotton",
+      "confidence": "strong",
+      "reason": "Existing runtime-to-2D snapshot projection; requires person-audit evidence reconciliation"
+    },
+    {
+      "a": "jessie_irene_aurin",
+      "b": "john_auene_1879",
+      "confidence": "provisional",
+      "reason": "Existing runtime-to-2D snapshot projection; requires person-audit evidence reconciliation"
+    },
+    {
+      "a": "peder_mortensen_1806",
+      "b": "morten_pedersen_1771",
+      "confidence": "provisional",
+      "reason": "Danish ancestry working projection; maintain provisional evidence limits"
+    },
+    {
+      "a": "peder_mortensen_1806",
+      "b": "karen_hansdatter_1766",
+      "confidence": "provisional",
+      "reason": "Danish ancestry working projection; maintain provisional evidence limits"
+    },
+    {
+      "a": "morten_pedersen_1771",
+      "b": "peder_mortensen_1784",
+      "confidence": "provisional",
+      "reason": "Danish ancestry working projection; maintain provisional evidence limits"
+    },
+    {
+      "a": "morten_pedersen_1771",
+      "b": "mette_jorg",
+      "confidence": "provisional",
+      "reason": "Danish ancestry working projection; maintain provisional evidence limits"
+    },
+    {
+      "a": "brenay_esther",
+      "b": "charles_albert",
+      "confidence": "strong",
+      "reason": "Brenay collateral family projection; verify canonical People visibility and original parentage before full reconciliation"
+    },
+    {
+      "a": "brenay_esther",
+      "b": "marian_skinner",
+      "confidence": "strong",
+      "reason": "Brenay collateral family projection; verify canonical People visibility and original parentage before full reconciliation"
+    },
+    {
+      "a": "brenay_joan",
+      "b": "charles_albert",
+      "confidence": "strong",
+      "reason": "Brenay collateral family projection; verify canonical People visibility and original parentage before full reconciliation"
+    },
+    {
+      "a": "brenay_joan",
+      "b": "marian_skinner",
+      "confidence": "strong",
+      "reason": "Brenay collateral family projection; verify canonical People visibility and original parentage before full reconciliation"
+    },
+    {
+      "a": "richard_francis_skinner",
+      "b": "john_a_skinner_c1833",
+      "confidence": "strong",
+      "reason": "Skinner/Lewis ancestor audit runtime projection; retain original-source qualification"
+    },
+    {
+      "a": "richard_francis_skinner",
+      "b": "marian_lewis_skinner_c1838",
+      "confidence": "strong",
+      "reason": "Skinner/Lewis ancestor audit runtime projection; retain original-source qualification"
+    }
+  ],
+  "baseEdgesExplicitlySuppressed": [
+    {
+      "a": "peder_mortensen_1806",
+      "b": "mette_jorg",
+      "confidence": "strong",
+      "reason": "Prior source audit rejected the direct maternity assignment; runtime removes this stale base edge. Must eventually be deleted from canonical base, not reinstated."
+    }
+  ],
+  "forbiddenKnownBadEdges": [
+    {
+      "a": "chauncey_webb",
+      "b": "eliza_jane_churchill",
+      "reason": "Spousal relationship is not parentage"
+    },
+    {
+      "a": "chauncey_webb",
+      "b": "ann_eliza_webb",
+      "reason": "Known misdirected collateral link"
+    },
+    {
+      "a": "ann_eliza_webb",
+      "b": "brigham_young",
+      "reason": "Spousal relationship is not parentage"
+    }
+  ],
+  "mirrorOnlyNotInCurrentPersonRuntime": [
+    {
+      "id": "brenay_esther",
+      "review": "Pending: 2D projection exists; no same ID present in current main person runtime markup; do not silently promote"
+    },
+    {
+      "id": "brenay_joan",
+      "review": "Pending: 2D projection exists; no same ID present in current main person runtime markup; do not silently promote"
+    }
+  ],
+  "knownResearchBoundary": [
+    {
+      "id": "john_auene_1879",
+      "review": "Current runtime patch calls recorded father strong; 2D projection marks this person provisional while the unresolved John/Jonas equivalence remains. Do not harmonize status without evidence review."
+    },
+    {
+      "id": "morten_pedersen_1771",
+      "review": "Parental link to Mette is provisional; a former 1806 Peder-to-Mette link was removed."
+    }
+  ]
+}
