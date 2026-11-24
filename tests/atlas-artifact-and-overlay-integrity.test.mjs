@@ -54,7 +54,6 @@ test("all live legacy genealogy writers are frozen and unknown graph mutations f
  assert.deepEqual(passed.errors,[],passed.errors.join("\n"));
  assert.deepEqual(passed.writers,[
   "atlas-evidence-sync-2026-09-13.js",
-  "atlas-evidence-sync-2026-10-03-fulltext-v9.js",
   "marion-atlas-update-2026-09-29.js"
  ]);
  assert.ok(passed.scriptsChecked>65,"Inspect both active pages and dynamically written legacy scripts");
