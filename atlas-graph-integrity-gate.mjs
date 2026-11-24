@@ -87,8 +87,8 @@ export function checkCanonicalGraph(){
   if(!viewGuard.includes("Object.freeze(live.edges)")||
      !viewGuard.includes('protectedFields=["id","name","years","place","branch","confidence","collateral"]'))
     fail("Runtime canonical identity and relationship protections are not intact");
-  if(/DATA\\.(?:nodes|edges)\\.(?:push|splice)\\s*\\(/.test(v9)||
-     /\\bmap\\.set\\((?:esther|joan|martha|ammon)\\.id/.test(v9))
+  if(/DATA\.(?:nodes|edges)\.(?:push|splice)\s*\(/.test(v9)||
+     /\bmap\.set\((?:esther|joan|martha|ammon)\.id/.test(v9))
     fail("Legacy Brenay biography has reintroduced shadow person records or ancestry");
   if(!read("ATLAS_GRAPH_SYNC_CONTRACT.json").includes('"archived": true'))
     fail("Retired two-graph discrepancy contract lost its archival designation");
