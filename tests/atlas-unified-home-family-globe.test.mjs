@@ -3,6 +3,7 @@ import {test} from "node:test";
 import {readFile} from "node:fs/promises";
 import vm from "node:vm";
 const read=path=>readFile(new URL("../"+path,import.meta.url),"utf8");
+import {canonicalGraph} from "./atlas-test-graph.mjs";
 test("home has four photographic choices, one caption each, and no redundant list",async()=>{
  const [home,css]=await Promise.all([read("atlas-four-doors-20261123.js"),read("atlas-museum-entry-20261123.css")]);
  assert.doesNotThrow(()=>new vm.Script(home));
@@ -20,9 +21,8 @@ test("globe stays in the viewport, provides From/To + branch dropdowns and shows
   read("atlas-geo-places-20261122.js"),read("atlas-v3.9.63.html")
  ]);
  assert.doesNotThrow(()=>new vm.Script(js));
- const start=source.indexOf("const DATA = "),end=source.indexOf(";\n",start);
- assert.ok(start>=0&&end>start);
- const data=JSON.parse(source.slice(start+"const DATA = ".length,end));
+ const data=canonicalGraph();
+ assert.match(source,/atlas-canonical-family-data\.js/);
  const original=JSON.stringify(data);
  const sandbox={window:{}};vm.runInNewContext(modelJS,sandbox);
  const model=sandbox.window.AtlasGeoPlaces.build(data.nodes,{});
@@ -79,8 +79,7 @@ test("origin and destination changes rotate the globe to a spherical midpoint wi
  assert.match(renderer,/Math\.atan2\(v,Math\.hypot\(x,y\)\)\/RAD/);
  assert.match(renderer,/fromControl\.addEventListener\("change"[\s\S]*?centerOnSummaryRoute\(\);updateDetail\(\);render\(\)/);
  assert.match(renderer,/toControl\.addEventListener\("change"[\s\S]*?centerOnSummaryRoute\(\);updateDetail\(\);render\(\)/);
- const i=source.indexOf("const DATA = "),j=source.indexOf(";\n",i);
- const records=JSON.parse(source.slice(i+"const DATA = ".length,j));
+ const records=canonicalGraph();
  const sandbox={window:{}};vm.runInNewContext(modelJS,sandbox);
  const routes=sandbox.window.AtlasGeoPlaces.build(records.nodes,{}).routes;
  assert.ok(routes.some(r=>r.personId==="charles_albert"&&r.from==="arnstein"&&r.to==="arizona"));
