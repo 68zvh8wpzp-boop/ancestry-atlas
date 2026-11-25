@@ -34,7 +34,15 @@
   const familySearchPdf = (path) => 'https://sg30p0.familysearch.org/service/records/storage/dascloud/patron/v2/'+path+'/dist.pdf?ctx=ArtCtxPublic';
   const fsDocument = (title, path, date, place, summary, provenance, preview) => {
     const scan = familySearchPdf(path);
-    return {kind:'document',title,thumb:preview,full:scan,sourcePage:familySearchMemories,date,place,provenance,summary,confidence:'original FamilySearch document scan retrieved'};
+    const custody = {
+      'TH-7783-165848-634989-78': {pages:3, name:'james-sheldon-home.pdf', sha:'2afa18ec72c7b8b41128b7cfdc3a1c283e2871ff1a949b504e098e5b0e6d26f0'},
+      'TH-7783-165848-601180-82': {pages:2, name:'james-sheldon-neat-as-a-pin.pdf', sha:'d16bfd4cf3e9dd06feba0888f48f732d706813554a20703ea91a8028b2ba1d5b'},
+      'TH-7797-159647-37599-10': {pages:4, name:'Grandma-Brenay.pdf', sha:'98f4ef5fb0bd81d6b0afe97429eee0c25e6a61445d1d9833ec5e6a370fc58cff'}
+    }[path];
+    const preservation = custody
+      ? ' Complete '+custody.pages+'-page source previously preserved in private research archive (A061; '+custody.name+', SHA-256 '+custody.sha+'). The Atlas full-view link remains external; a local full PDF is not established.'
+      : ' Local preview retained; complete PDF custody not verified. Do not treat the preview as every original page.';
+    return {kind:'document',title,thumb:preview,full:scan,sourcePage:familySearchMemories,date,place,provenance:provenance+preservation,summary,confidence:custody?'complete scan previously archived privately; external full-view link':'family memory with local preview; complete PDF custody unverified'};
   };
   const documents = [
     fsDocument('Jay and Marion Webb’s 50th Wedding Anniversary — 3-page scan','TH-7714-165878-331848-94','May 1991','Lakeside, Pinetop-Lakeside, Navajo County, Arizona','The anniversary newspaper announcement, a portrait of Jay and Marion, and a keepsake preserve the couple’s fiftieth anniversary and identify their family household.','FamilySearch Memory “Jay and Marion Webb’s 50th Wedding Anniversary”; upload file 50th.pdf; contributed by DeEdra Breckenridge, 10 September 2026.','assets/marion-docs-preview/50th.jpg'),
