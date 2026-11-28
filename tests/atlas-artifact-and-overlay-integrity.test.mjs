@@ -70,3 +70,19 @@ test("all live legacy genealogy writers are frozen and unknown graph mutations f
  });
  assert.match(rogue.errors.join("\n"),/Unexpected live genealogy writer: unapproved\.js/);
 });
+
+test("person photo limits leave documents and the two exempt galleries accessible",async()=>{
+ const photos=Array.from({length:33},(_,i)=>({kind:"photo",full:"assets/photo-"+i+".jpg"}));
+ const documents=Array.from({length:35},(_,i)=>({kind:"document",full:"assets/document-"+i+".jpg"}));
+ const evidence=[photos[0],...photos,...documents];
+ const nodes=["p","james_sheldon","inez_karen"].map(id=>({id,evidence}));
+ const sandbox={window:{__ATLAS_DATA:{nodes}}};
+ vm.runInNewContext(await read("atlas-artifact-index-20261124.js"),sandbox);
+ const api=sandbox.window.AtlasArtifactIndex;
+ for(const [id,count] of [["p",30],["james_sheldon",33],["inez_karen",33]]){
+  const gallery=api.forPerson(id);
+  assert.equal(gallery.filter(card=>card.kind==="photo").length,count);
+  assert.equal(gallery.filter(card=>card.kind==="document").length,35);
+ }
+ assert.equal(evidence.length,69);
+});

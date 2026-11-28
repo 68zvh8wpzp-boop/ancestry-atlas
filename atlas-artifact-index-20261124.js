@@ -36,8 +36,16 @@ function localMedia(path){
 function forPerson(id){
   var p=person(id);
   if(!p||!Array.isArray(p.evidence))return [];
-  var count=new Map();
-  return p.evidence.filter(function(e){return e&&typeof e==="object";}).map(function(e){
+  var count=new Map(), photoPaths=new Set();
+  var photoLimit=id==="james_sheldon"||id==="inez_karen"?Infinity:30;
+  return p.evidence.filter(function(e){
+    if(!e||typeof e!=="object")return false;
+    var path=clean(e.originalAsset)||clean(e.full)||clean(e.thumb);
+    if(!path||(e.kind!=="photo"&&e.kind!=="image")||e.sourceLevel==="photo-link")return true;
+    if(photoPaths.has(path)||photoPaths.size>=photoLimit)return false;
+    photoPaths.add(path);
+    return true;
+  }).map(function(e){
     var key=identity(e),seen=count.get(key)||0;count.set(key,seen+1);
     var card=Object.assign({},e);
     card.personId=p.id;

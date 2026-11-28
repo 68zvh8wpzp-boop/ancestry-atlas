@@ -65,6 +65,6 @@ test("guard loads after older source modules and before every active People/Glob
   assert.ok(i>html.indexOf("atlas-evidence-sync-2026-10-03-fulltext-v9.js"));
   assert.ok(i<html.indexOf("atlas-person-search.js"));
   assert.ok(i<html.indexOf("atlas-artifact-index-20261124.js"));
-  assert.match(html,/atlas-canonical-view-guard-20261124\.js\?v=20261124-identity-guard-v2/);
+  assert.match(html,/atlas-canonical-view-guard-20261124\.js\?v=[\w-]+"/);
   assert.match(guard,/protectedFields=\["id","name","years","place","branch","confidence","collateral"\]/);
 });

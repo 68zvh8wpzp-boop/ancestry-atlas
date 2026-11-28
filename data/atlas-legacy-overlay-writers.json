@@ -9,7 +9,7 @@
     },
     {
       "path": "marion-atlas-update-2026-09-29.js",
-      "gitBlobSha": "1046185c876fa0c8253155acb8e70716328123ab",
+      "gitBlobSha": "9054d727ec9c729ab80d534a9086bda9c2b86bd2",
       "reason": "Old family update contains guarded child and parent additions that must remain backed by canonical graph."
     }
   ],

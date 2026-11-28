@@ -21,8 +21,8 @@ var protectedFields=["id","name","years","place","branch","confidence","collater
     differences=[];
 
 // Source reconciliation: late biography overlays may replace entire galleries.
-// Preserve canonical audited references without replacing packaged originals or
-// approved long transcriptions. Match exact record ARK or reviewed asset alias;
+// Preserve canonical audited references and approved long transcriptions.
+// Prefer the verified native scan when an identified older copy is present. Match exact record ARK or reviewed asset alias;
 // never merge solely on a generic shared source page or a person's name.
 var auditAssetAliases={
   "3:1:33S7-L1ZT-9PM6":"assets/charles-albert/charles-draft-registration-1918.jpg",
@@ -31,7 +31,8 @@ var auditAssetAliases={
 };
 function auditArk(e){
   var match=String(e.sourcePage||"").match(/ark:\/61903\/([13]:1:[A-Z0-9-]+)/i);
-  return match?match[1].toUpperCase():"";
+  var ark=match?match[1].toUpperCase():"";
+  return ark==="1:1:939J-DXBZ-R"?"3:1:939J-DXBZ-R":ark;
 }
 function reconcileAuditedSources(node,canonical){
   var sources=(canonical.evidence||[]).filter(function(e){
@@ -53,9 +54,16 @@ function reconcileAuditedSources(node,canonical){
     // Retain earlier source-specific detail, adding the audited reading once.
     if(source.summary&&!(target.summary||"").includes(source.summary))
       target.summary=[target.summary,source.summary].filter(Boolean).join(" ");
-    if(!target.full&&!target.originalAsset&&source.full){
+    var olderDraft=ark==="3:1:3Q9M-CS6T-WSDS-G"&&alias&&[target.full,target.originalAsset].includes(alias);
+    if(source.full&&((!target.full&&!target.originalAsset)||olderDraft)){
       target.full=source.full;
-      if(source.thumb)target.thumb=source.thumb;
+      target.thumb=source.thumb||source.full;
+      target.originalAsset=source.originalAsset||source.full;
+      if(source.previewStatus)target.previewStatus=source.previewStatus;
+      if(source.sourceLevel)target.sourceLevel=source.sourceLevel;
+    }
+    for(var detail of ["date","place","transcription","translation"]){
+      if(source[detail]&&!target[detail])target[detail]=source[detail];
     }
     if(!target.provenance)target.provenance=source.provenance;
     else if(source.provenance&&!target.provenance.includes(source.provenance))
