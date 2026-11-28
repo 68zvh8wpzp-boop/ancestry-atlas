@@ -62,6 +62,11 @@ function reconcileAuditedSources(node,canonical){
       if(source.previewStatus)target.previewStatus=source.previewStatus;
       if(source.sourceLevel)target.sourceLevel=source.sourceLevel;
     }
+    // An audited master can supersede a preview without replacing the card.
+    if(source.originalAsset&&source.full&&source.originalAsset!==source.full&&
+        (!target.originalAsset||target.originalAsset===source.full)){
+      target.originalAsset=source.originalAsset;
+    }
     for(var detail of ["date","place","transcription","translation"]){
       if(source[detail]&&!target[detail])target[detail]=source[detail];
     }
