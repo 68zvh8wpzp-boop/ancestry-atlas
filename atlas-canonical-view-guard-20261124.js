@@ -43,7 +43,7 @@ function reconcileAuditedSources(node,canonical){
     var ark=auditArk(source),alias=auditAssetAliases[ark];
     var matching=gallery.filter(function(e){
       return e&&e.kind!=="photo"&&e.kind!=="image"&&
-        ((ark&&auditArk(e)===ark)||(alias&&[e.full,e.originalAsset].includes(alias))||e.title===source.title);
+        ((ark&&auditArk(e)===ark)||(alias&&[e.full,e.originalAsset].includes(alias))||(source.full&&[e.full,e.originalAsset].includes(source.full))||e.title===source.title);
     });
     // If both a citation and an existing original are present, retain the original.
     var target=matching.find(function(e){return e.full||e.originalAsset;})||matching[0];
