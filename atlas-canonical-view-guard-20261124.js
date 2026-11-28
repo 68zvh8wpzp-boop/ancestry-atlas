@@ -35,7 +35,7 @@ function auditArk(e){
 }
 function reconcileAuditedSources(node,canonical){
   var sources=(canonical.evidence||[]).filter(function(e){
-    return typeof e.provenance==="string"&&e.provenance.indexOf("FamilySearch record, reconciled against the November 26–27, 2026 source audit.")===0;
+    return typeof e.provenance==="string"&&/FamilySearch record, reconciled against the November (?:25|26–27), 2026 source audit\./.test(e.provenance);
   });
   if(!sources.length)return;
   var gallery=Array.isArray(node.evidence)?node.evidence:[];
