@@ -17,7 +17,7 @@ Sheldon grew up in the eastern Arizona timber country with his sisters Diane, Dr
 
 The postwar Southwest was changing rapidly around him. Highways and automobiles shortened distances, television entered homes, military installations expanded, and the Cold War brought new technology and new anxieties. Sheldon belonged to the generation that crossed from the small-town, timber-centered world of his childhood into a more mobile and modern America. He graduated from high school in 1960 and soon traveled to California with his friend Kenny MacClaron in search of work. That journey marked the beginning of a wider adult life beyond the White Mountains.
 
-Sheldon served approximately two and a half years in the United States Air Force during the early 1960s. The military period appears in family photographs from training and service, including portraits in uniform and images associated with Merced, California. Family recollections describe a hardship discharge that enabled him to return home and help his father. The exact unit and discharge circumstances are not part of the surviving family narrative, but the service years clearly shaped his sense of responsibility and redirected the next stage of his life.
+Sheldon served in the United States Air Force during the early 1960s. The Veterans Affairs BIRLS index records his enlistment on 22 September 1961 and release from active duty on 18 December 1963, a period of approximately twenty-seven months; his underlying military personnel file remains unexamined. The military period appears in family photographs from training and service, including portraits in uniform and images associated with Merced, California. Family recollections describe a hardship discharge that enabled him to return home and help his father. The exact unit and discharge circumstances are not part of the surviving family narrative, but the service years clearly shaped his sense of responsibility and redirected the next stage of his life.
 
 After returning to Arizona, Sheldon continued his education and attended Northern Arizona University. There he built the partnership that would define his adult life with Inez Karen Prather. They married in Lakeside, Arizona, on 21 January 1965, and later celebrated a separate religious sealing in Mesa on 12 June. Their sons were born in order: Shared in 1967, Sterling in 1973, and Jeremy in 1977. Their family life was marked by education, travel, work, faith, and a strong habit of gathering people together. Photographs from their wedding, early years in Flagstaff and Mesa, family visits, reunions, and later journeys preserve a household that remained closely connected across distance and generations.
 
@@ -54,6 +54,9 @@ Sheldon died in Gilbert, Maricopa County, Arizona, on 9 April 2016 and was laid 
       item.visualKind = 'record-citation';
       if (/assets\/sheldon\/source-record-military\.svg(?:[?#]|$)/i.test(item.thumb || '')) delete item.thumb;
       if (/assets\/sheldon\/source-record-military\.svg(?:[?#]|$)/i.test(item.full || '')) delete item.full;
+      item.date = '22 September 1961 – 18 December 1963';
+      item.summary = 'The Veterans Affairs BIRLS index matches Sheldon’s birth and death dates and reports enlistment on 22 September 1961 and release from active duty on 18 December 1963. This is index evidence; the original personnel record remains unexamined.';
+      item.confidence = 'matching BIRLS index; original military file not examined';
       item.sourceLinkLabel = 'Open Ancestry BIRLS index (may require subscription)';
     }
   });
