@@ -10,13 +10,6 @@ if(!api||typeof api.read!=="function"||!live)throw Error("Atlas canonical graph 
 var reference=api.read();
 var expected=new Map(reference.nodes.map(function(n){return [n.id,n];}));
 var actual=new Map(live.nodes.map(function(n){return [n.id,n];}));
-if(expected.size!==actual.size||live.nodes.length!==reference.nodes.length)
-  throw Error("Presentation added or removed a canonical person: requires source-reviewed graph change");
-function edgeKey(e){return [e.a,e.b,e.confidence].join("|");}
-var expectedLinks=reference.edges.map(edgeKey).sort().join("\n"),
-    actualLinks=live.edges.map(edgeKey).sort().join("\n");
-if(reference.edges.length!==live.edges.length||expectedLinks!==actualLinks)
-  throw Error("Presentation changed canonical parentage or confidence");
 var protectedFields=["id","name","years","place","branch","confidence","collateral"],
     differences=[];
 
@@ -83,6 +76,18 @@ function reconcileAuditedSources(node,canonical){
   node.evidence=gallery;
 }
 
+// Restore reviewed source cards for known people independently of roster validation.
+for(var [personId,canonicalPerson] of expected){
+  var livePerson=actual.get(personId);
+  if(livePerson)reconcileAuditedSources(livePerson,canonicalPerson);
+}
+if(expected.size!==actual.size||live.nodes.length!==reference.nodes.length)
+  throw Error("Presentation added or removed a canonical person: requires source-reviewed graph change");
+function edgeKey(e){return [e.a,e.b,e.confidence].join("|");}
+var expectedLinks=reference.edges.map(edgeKey).sort().join("\n"),
+    actualLinks=live.edges.map(edgeKey).sort().join("\n");
+if(reference.edges.length!==live.edges.length||expectedLinks!==actualLinks)
+  throw Error("Presentation changed canonical parentage or confidence");
 for(var node of live.nodes){
   var canonical=expected.get(node.id);
   if(!canonical)throw Error("Unknown person in live presentation: "+node.id);
@@ -109,7 +114,6 @@ for(var node of live.nodes){
   }
   if(Object.keys(presentationVariant).length)
     node.legacyDisplayFacts=presentationVariant;
-  reconcileAuditedSources(node,canonical);
 }
 if(root.__ATLAS_NODE_BY_ID instanceof Map){
   root.__ATLAS_NODE_BY_ID.clear();
