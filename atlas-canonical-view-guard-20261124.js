@@ -35,7 +35,7 @@ function auditArk(e){
 }
 function reconcileAuditedSources(node,canonical){
   var sources=(canonical.evidence||[]).filter(function(e){
-    return typeof e.provenance==="string"&&/FamilySearch record, reconciled against the November (?:25|26–27), 2026 source audit\./.test(e.provenance);
+    return typeof e.provenance==="string"&&(/FamilySearch record, reconciled against the November (?:25|26–27), 2026 source audit\./.test(e.provenance)||e.provenance.startsWith("Historical audit reconciliation, November 27, 2026."));
   });
   if(!sources.length)return;
   var gallery=Array.isArray(node.evidence)?node.evidence:[];
@@ -48,7 +48,8 @@ function reconcileAuditedSources(node,canonical){
     // If both a citation and an existing original are present, retain the original.
     var target=matching.find(function(e){return e.full||e.originalAsset;})||matching[0];
     if(!target){gallery.push(Object.assign({},source));continue;}
-    target.sourcePage=source.sourcePage;
+    if(source.sourcePage)target.sourcePage=source.sourcePage;
+    if(source.sourceReference&&!target.sourceReference)target.sourceReference=source.sourceReference;
     // Retain earlier source-specific detail, adding the audited reading once.
     if(source.summary&&!(target.summary||"").includes(source.summary))
       target.summary=[target.summary,source.summary].filter(Boolean).join(" ");
