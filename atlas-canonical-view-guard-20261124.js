@@ -19,6 +19,48 @@ if(reference.edges.length!==live.edges.length||expectedLinks!==actualLinks)
   throw Error("Presentation changed canonical parentage or confidence");
 var protectedFields=["id","name","years","place","branch","confidence","collateral"],
     differences=[];
+
+// Source reconciliation: late biography overlays may replace entire galleries.
+// Preserve canonical audited references without replacing packaged originals or
+// approved long transcriptions. Match exact record ARK or reviewed asset alias;
+// never merge solely on a generic shared source page or a person's name.
+var auditAssetAliases={
+  "3:1:33S7-L1ZT-9PM6":"assets/charles-albert/charles-draft-registration-1918.jpg",
+  "3:1:3Q9M-CS6T-WSDS-G":"assets/charles-albert/memory-40-44007_04_00002-00181.jpg",
+  "3:1:3QHN-LQH7-TGLJ":"assets/sheldon/james-sheldon-1950-census-viewer.jpg"
+};
+function auditArk(e){
+  var match=String(e.sourcePage||"").match(/ark:\/61903\/([13]:1:[A-Z0-9-]+)/i);
+  return match?match[1].toUpperCase():"";
+}
+function reconcileAuditedSources(node,canonical){
+  var sources=(canonical.evidence||[]).filter(function(e){
+    return typeof e.provenance==="string"&&e.provenance.indexOf("FamilySearch record, reconciled against the November 26–27, 2026 source audit.")===0;
+  });
+  if(!sources.length)return;
+  var gallery=Array.isArray(node.evidence)?node.evidence:[];
+  for(var source of sources){
+    var ark=auditArk(source),alias=auditAssetAliases[ark];
+    var matching=gallery.filter(function(e){
+      return e&&e.kind!=="photo"&&e.kind!=="image"&&
+        ((ark&&auditArk(e)===ark)||(alias&&[e.full,e.originalAsset].includes(alias))||e.title===source.title);
+    });
+    // If both a citation and an existing original are present, retain the original.
+    var target=matching.find(function(e){return e.full||e.originalAsset;})||matching[0];
+    if(!target){gallery.push(Object.assign({},source));continue;}
+    target.sourcePage=source.sourcePage;
+    target.summary=source.summary;
+    if(!target.provenance)target.provenance=source.provenance;
+    if(!target.confidence)target.confidence=source.confidence;
+    for(var duplicate of matching){
+      if(duplicate!==target&&!duplicate.full&&!duplicate.originalAsset&&!duplicate.thumb&&!duplicate.transcription){
+        var i=gallery.indexOf(duplicate);if(i!==-1)gallery.splice(i,1);
+      }
+    }
+  }
+  node.evidence=gallery;
+}
+
 for(var node of live.nodes){
   var canonical=expected.get(node.id);
   if(!canonical)throw Error("Unknown person in live presentation: "+node.id);
@@ -45,6 +87,7 @@ for(var node of live.nodes){
   }
   if(Object.keys(presentationVariant).length)
     node.legacyDisplayFacts=presentationVariant;
+  reconcileAuditedSources(node,canonical);
 }
 if(root.__ATLAS_NODE_BY_ID instanceof Map){
   root.__ATLAS_NODE_BY_ID.clear();
