@@ -49,8 +49,16 @@ function reconcileAuditedSources(node,canonical){
     var target=matching.find(function(e){return e.full||e.originalAsset;})||matching[0];
     if(!target){gallery.push(Object.assign({},source));continue;}
     target.sourcePage=source.sourcePage;
-    target.summary=source.summary;
+    // Retain earlier source-specific detail, adding the audited reading once.
+    if(source.summary&&!(target.summary||"").includes(source.summary))
+      target.summary=[target.summary,source.summary].filter(Boolean).join(" ");
+    if(!target.full&&!target.originalAsset&&source.full){
+      target.full=source.full;
+      if(source.thumb)target.thumb=source.thumb;
+    }
     if(!target.provenance)target.provenance=source.provenance;
+    else if(source.provenance&&!target.provenance.includes(source.provenance))
+      target.provenance+=" "+source.provenance;
     if(!target.confidence)target.confidence=source.confidence;
     for(var duplicate of matching){
       if(duplicate!==target&&!duplicate.full&&!duplicate.originalAsset&&!duplicate.thumb&&!duplicate.transcription){
